@@ -238,10 +238,15 @@ hr {
     padding: 0 10px;
 } */
 
+.container .header {
+    padding-left: 20px;
+}
+
 .wallpaper-grid {
     display: grid;
     gap: 1.5rem;
     grid-template-columns: 1fr;
+    padding: 20px;
 }
 
 .wallpaper-card {
@@ -258,10 +263,13 @@ hr {
 }
 
 .wallpaper-card img {
-    width: 100%;
+    max-width: 100%;
     height: auto;
     display: block;
     transition: transform 0.3s ease;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+    will-change: opacity;
 }
 
 .wallpaper-card:hover img {
@@ -373,13 +381,6 @@ hr {
         opacity: 1;
         transform: scale(1);
     }
-}
-
-/* Optimize image rendering */
-.wallpaper-card img {
-    image-rendering: -webkit-optimize-contrast;
-    image-rendering: crisp-edges;
-    will-change: opacity;
 }
 
 /* View All button improvements */
