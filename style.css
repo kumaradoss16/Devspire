@@ -2996,8 +2996,25 @@ svg {
     color: var(--text-secondary);
 }
 
+<<<<<<< HEAD
 .footer .contact.gmail {
     color: #f44336;
+=======
+.footer .contact.github:hover {
+    color: #313647;
+}
+
+.footer .contact.instagram:hover {
+    color: #E83C91;
+}
+
+.footer .contact.linkedin:hover {
+    color: #008BFF;
+}
+
+.footer .contact.pinterest:hover {
+    color: #C00707;
+>>>>>>> d37cc70 (Update the footer icon and Google ad script)
 }
 
 .footer .contact.gmail:hover {

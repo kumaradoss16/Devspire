@@ -865,8 +865,57 @@ h4 {
 .footer p {
     color: #ffffff;
     margin: 15px 0 10px 0;
+<<<<<<< HEAD
     font-size: var(--font-p);
     font-weight: 300;
+=======
+    font-size: var(--p);
+    font-weight: 500;
+    text-align: center;
+}
+
+.footer .contacts {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.footer .contact {
+    text-decoration: none;
+    color: var(--border-dark);
+    display: inline; /* important for transform reliability */
+    transition: transform 0.3s ease;
+}
+
+.footer .contact:hover {
+    transform: translateY(-2px);
+    color: var(--text-secondary);
+}
+
+.footer .contact.github:hover {
+    color: #313647;
+}
+
+.footer .contact.instagram:hover {
+    color: #E83C91;
+}
+
+.footer .contact.linkedin:hover {
+    color: #008BFF;
+}
+
+.footer .contact.pinterest:hover {
+    color: #C00707;
+}
+
+.footer .contact.gmail:hover {
+    color: #f44336d8;
+}
+
+.footer i {
+    margin-top: 20px;
+    font-size: var(--font-h1);
+>>>>>>> d37cc70 (Update the footer icon and Google ad script)
 }
 
 /* Animations */
@@ -1107,6 +1156,14 @@ h4 {
     .menu {
         flex-direction: row;
     }
+<<<<<<< HEAD
+=======
+        
+    .footer .contacts {
+        flex-direction: row;
+        gap: 20px;
+    }
+>>>>>>> d37cc70 (Update the footer icon and Google ad script)
 }
 
 @media (min-width: 1280px) {

@@ -1416,14 +1416,69 @@ svg {
 .menu-link:hover {
     opacity: 1;
     text-decoration: underline;
+<<<<<<< HEAD
+=======
+    text-underline-offset: 5px;
+>>>>>>> d37cc70 (Update the footer icon and Google ad script)
 }
 
 .footer p {
     color: #ffffff;
     margin: 15px 0 10px 0;
+<<<<<<< HEAD
     text-align: center;
 }
 
+=======
+    font-size: var(--p);
+    font-weight: 500;
+    text-align: center;
+}
+
+.footer .contacts {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.footer .contact {
+    text-decoration: none;
+    color: var(--border-dark);
+    display: inline; /* important for transform reliability */
+    transition: transform 0.3s ease;
+}
+
+.footer .contact:hover {
+    transform: translateY(-2px);
+    color: var(--text-secondary);
+}
+
+.footer .contact.github:hover {
+    color: #313647;
+}
+
+.footer .contact.instagram:hover {
+    color: #E83C91;
+}
+
+.footer .contact.linkedin:hover {
+    color: #008BFF;
+}
+
+.footer .contact.pinterest:hover {
+    color: #C00707;
+}
+
+.footer .contact.gmail:hover {
+    color: #f44336d8;
+}
+
+.footer i {
+    margin-top: 20px;
+    font-size: var(--font-h1);
+}
+
+>>>>>>> d37cc70 (Update the footer icon and Google ad script)
 /* ===================================
    AD CONTAINER STYLING - DARK THEME
    =================================== */
@@ -1685,7 +1740,15 @@ body.has-sticky-ad {
     .menu {
         flex-direction: row;
     }
+<<<<<<< HEAD
 
+=======
+        
+    .footer .contacts {
+        flex-direction: row;
+        gap: 20px;
+    }
+>>>>>>> d37cc70 (Update the footer icon and Google ad script)
     .card-image img {
         width: 55%;
         margin: 0 auto;
