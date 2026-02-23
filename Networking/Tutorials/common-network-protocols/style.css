@@ -698,7 +698,6 @@ body {
 .footer i {
     margin-top: 20px;
     font-size: var(--font-h1);
->>>>>>> d37cc70 (Update the footer icon and Google ad script)
 }
 
 p.last {
@@ -1363,9 +1362,7 @@ svg {
         bottom: 65px;
         right: 20px;
     }
-
-<<<<<<< HEAD
-=======
+    
     .menu {
         flex-direction: row;
     }
@@ -1375,8 +1372,6 @@ svg {
         gap: 20px;
     }
 
-
->>>>>>> d37cc70 (Update the footer icon and Google ad script)
     .arrow-overlay {
         font-size: 1.5rem;
     }
