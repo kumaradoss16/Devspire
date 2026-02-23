@@ -1788,16 +1788,6 @@ svg {
 .menu-link:hover {
   opacity: 1;
   text-decoration: underline;
-<<<<<<< HEAD
-}
-
-.footer p {
-  color: #ffffff;
-  margin: 15px 0 10px 0;
-  font-weight: 300;
-}
-
-=======
   text-underline-offset: 5px;
 }
 
@@ -1851,7 +1841,6 @@ svg {
     margin-top: 20px;
     font-size: var(--font-h1);
 }
->>>>>>> d37cc70 (Update the footer icon and Google ad script)
 /* ========================================
    RESPONSIVE BREAKPOINTS
 ======================================== */
@@ -2178,14 +2167,11 @@ svg {
     width: 29px;
     height: 29px;
   }
-<<<<<<< HEAD
-=======
-
+   
   .footer .contacts {
     flex-direction: row;
     gap: 20px;
   }
->>>>>>> d37cc70 (Update the footer icon and Google ad script)
   
   .menu {
     flex-direction: row;
