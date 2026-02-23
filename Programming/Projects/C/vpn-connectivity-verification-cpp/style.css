@@ -2026,22 +2026,15 @@ svg {
 .menu-link:hover {
     opacity: 1;
     text-decoration: underline;
-<<<<<<< HEAD
-=======
     text-underline-offset: 5px;
->>>>>>> d37cc70 (Update the footer icon and Google ad script)
 }
 
 .footer p {
     color: #ffffff;
     margin: 15px 0 10px 0;
-<<<<<<< HEAD
     text-align: center;
-}
-
-=======
-    font-size: var(--p);
     font-weight: 500;
+    font-size: var(--font-p);
     text-align: center;
 }
 
@@ -2088,7 +2081,6 @@ svg {
     font-size: var(--font-h1);
 }
 
->>>>>>> d37cc70 (Update the footer icon and Google ad script)
 /* ===================================
    BREAKPOINT 1: 480px (Large Mobile)
    =================================== */
@@ -2348,14 +2340,11 @@ svg {
         padding: 0;
     }
 
-<<<<<<< HEAD
-=======
     .footer .contacts {
         flex-direction: row;
         gap: 20px;
     }
 
->>>>>>> d37cc70 (Update the footer icon and Google ad script)
     .copy-button {
         padding: 0.5rem 1rem;
         font-size: 1rem;
