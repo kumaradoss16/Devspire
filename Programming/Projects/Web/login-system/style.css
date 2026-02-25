@@ -250,7 +250,7 @@ strong {
 
 .logo-text a {
   text-decoration: none;
-  margin-top: 5px;
+  margin-top: 3.5px;
 }
 
 .typewriter {
@@ -290,10 +290,6 @@ strong {
     padding: 0;
     text-align: center;
 }
-
-/* .navbar nav ul li {
-    margin: -10px 32px;
-} */
 
 .navbar nav ul li:hover a.projects {
     color: var(--color-purple);
