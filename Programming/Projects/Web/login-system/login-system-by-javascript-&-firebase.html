@@ -1,0 +1,2153 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="../../../../images/icon.webp" sizes="32x46" type="image/png">
+    <!-- Primary SEO Tags -->
+    <title>Login System using JavaScript & Firebase</title>
+    <meta name="description"
+        content="Learn to build a Login System using JavaScript and Firebase. Master Firebase Authentication and JavaScript DOM manipulation through this beginner-friendly step-by-step tutorial with complete code examples.">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://devspirehub.com/Programming/Projects/login-system-by-javascript-&-firebase" />
+
+    <!-- Robots Meta -->
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+
+    <!-- Open Graph Tags (Social Media) -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Login System using JavaScript & Firebase: Step-by-Step Tutorial">
+    <meta property="og:description"
+        content="Learn to build a Login System using JavaScript and Firebase. Master Firebase Authentication and JavaScript DOM manipulation through this beginner-friendly step-by-step tutorial with complete code examples.">
+    <meta property="og:url"
+        content="https://devspirehub.com/Programming/Projects/login-system-by-javascript-&-firebase">
+    <meta property="og:site_name" content="DevspireHub">
+    <meta property="og:locale" content="en_US">
+
+    <!-- Author Information -->
+    <meta name="author" content="Kumaradoss / DevspireHub">
+    <link rel="author" href="https://devspirehub.com/about">
+
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Login System using JavaScript & Firebase: Step-by-Step Tutorial">
+    <meta name="twitter:description"
+        content="Step-by-step guide to building a Login System using JavaScript and Firebase for beginners">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <!-- Prism.js CSS theme -->
+    <link rel="stylesheet" href="../../Prism/prism.css" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+
+
+    <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+    <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+
+    <link rel="stylesheet" href="style.css" />
+
+
+    <script type="application/ld+json">
+        {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "DevspireHub",
+        "url": "https://devspirehub.com",
+        "logo": "https://devspirehub.com/image/icon.webp",
+        "description": "DevspireHub - Programming, Projects, Ethical hacking, Networking & AI",
+        "founder": [
+            {
+            "@type": "Person",
+            "name": "Kumaradoss",
+            "url": "https://www.linkedin.com/in/kumaradoss-s/"
+            }
+        ],
+        "sameAs": [
+            "https://www.linkedin.com/in/kumaradoss-s/",
+            "https://github.com/kumaradoss16",
+        ]
+        }
+    </script>
+
+    <script type=application/ld+json>
+        {
+            "@context": "https://schema.org",
+            "@type": "SiteNavigationElement",
+            "name": [
+                "Home",
+                "Projects",
+                "Programming",
+                "Ethical Hacking",
+                "Networking",
+                "Automation",
+                "Resources"
+            ],
+            "url": [
+                "https://devspirehub.com",
+                "https://devspirehub.com/#projects-tutorials-section",
+                "https://devspirehub.com/#programming-tutorials-section",
+                "https://devspirehub.com/#ethical-hacking-section",
+                "https://devspirehub.com/#networking-section",
+                "https://devspirehub.com/#automation-section",
+                "https://devspirehub.com/#info-section",
+            ]
+        }
+    </script>
+
+
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Tutorial",
+            "headline": "Login System using JavaScript & Firebase: Step-by-Step Tutorial",
+            "description": "Learn how to build a login system using JavaScript and Firebase with step-by-step instructions.",
+            "author": {
+            "@type": "Organization",
+            "name": "DevspireHub"
+            },
+            "publisher": {
+            "@type": "Organization",
+            "name": "Kumaradoss / DevspireHub",
+            "url": "https://devspirehub.com/about"
+            },
+            "datePublished": "2026-02-25",
+            "dateModified": "2026-02-25",
+            "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://devspirehub.com/Programming/Projects/login-system-by-javascript-&-firebase"
+            }
+        }
+    </script>
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2368356039533778"
+        crossorigin="anonymous"></script>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6VWY63Q80N"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-6VWY63Q80N');
+    </script>
+
+    <script async custom-element="amp-auto-ads" src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+
+
+</head>
+
+<body>
+    <amp-auto-ads type="adsense" data-ad-client="ca-pub-2368356039533778">
+    </amp-auto-ads>
+
+
+    <!-- Header  -->
+    <header class="navbar">
+        <div class="container">
+            <div class="logo">
+                <div class="logo-text">
+                    <!-- <i class="fas fa-code"></i> -->
+                    <a href="../../../../index.html"><img src="../../../../images/icon.webp" alt="Gear Icon" width="23"
+                            height="23"></a>
+                    <span id="brand" class="typewriter" data-text="DevspireHub"></span>
+                </div>
+                <button class="menu-toggle" type="button" aria-label="Toggle navigation">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            <nav class="nav-links">
+                <ul>
+                    <li><a href="../../../../index.html" class="projects">Home</a></li>
+                    <li><a href="../../../../index.html#projects-tutorials-section" class="projects">Projects</a></li>
+                    <li><a href="../../../../index.html#programming-tutorials-section"
+                            class="programming">Programming</a></li>
+                    <li><a href="../../../../index.html#ethical-hacking-section" class="hacking">Ethical Hacking</a>
+                    </li>
+                    <li><a href="../../../../index.html#networking-section" class="networking">Networking</a></li>
+                    <li><a href="../../../../index.html#automation-section" class="ai">Automation</a></li>
+                    <li><a href="../../../../index.html#info-section" class="game">Resources</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="main-content-wrapper container">
+        <!-- Left Side  -->
+        <main class="left-column">
+            <section class="project-details-section">
+                <h1>How to Build a Login System Using JavaScript and Firebase (Step-by-Step Tutorial)</h1>
+                <p>Learn How to Create a Login System Using JavaScript and Firebase:
+                    Step-by-Step
+                    Guide for
+                    Beginners:</p>
+
+                <div class="image-placeholder">
+                    <img src="images/login-system-using-javascript-&-firebase.webp"
+                        alt="Login System using JavaScript and Firebase Step-by-step Tutorial" loading="lazy"
+                        decoding="async" fetchpriority="auto" />
+                </div>
+                <p>Building a secure login system from scratch can be overwhelming — but with Firebase Authentication,
+                    you can add user
+                    sign-up and login to any JavaScript project in just minutes, with no backend server required.
+                </p>
+                <p>In this step-by-step tutorial, you'll learn how to build a complete login and registration system
+                    using vanilla
+                    JavaScript and Firebase v10 (Modular SDK).</p>
+            </section>
+
+            <section class="table-of-contents-section">
+                <h2><i class="fas fa-list"></i>Table of Contents</h2>
+                <ol>
+                    <li><a href="#step-1">Create a Firebase Project</a></li>
+                    <li><a href="#step-2">Enable Email/Password Sign-In</a></li>
+                    <li><a href="#step-3">Build the HTML Login Page (index.html)</a></li>
+                    <li><a href="#step-4">Build the HTML Sign-Up Page (signup.html)</a></li>
+                    <li><a href="#step-5">Initialize Firebase (app.js)</a></li>
+                    <li><a href="#step-6">Add Sign-Up Functionality</a></li>
+                    <li><a href="#step-7">Add Login Functionality</a></li>
+                    <li><a href="#step-8">Persist Login Sessions with onAuthStateChanged</a></li>
+                    <li><a href="#step-9">Add Sign-Out</a></li>
+                    <li><a href="#step-10">Add Error Handling (User-Friendly Messages)</a></li>
+                    <li><a href="#step-11">Complete Code</a></li>
+                    <li><a href="#step-12">Conclusion</a></li>
+                </ol>
+            </section>
+
+            <section id="prerequisites" class="prerequisites-section">
+                <h2><i class="fas fa-clipboard-check"></i>Prerequisites</h2>
+                <div class="list">
+                    <ul>
+                        <li>A free <a href="https://accounts.google.com/" class="link">Google account</a> to access
+                            Firebase
+                            Console.</li>
+                        <li>Basic knowledge of HTML, CSS, and JavaScript.</li>
+                        <li>A code editor like VS Code.</li>
+                        <li>A browser to test your app (Chrome recommended).</li>
+                    </ul>
+                </div>
+
+            </section>
+
+            <section id="implementation-details" class="implementation-section">
+                <h2>Introduction</h2>
+                <p>Building a login system from scratch can be complex — but with Firebase Authentication, you can add
+                    secure sign-up and
+                    login to any JavaScript project in minutes. In this tutorial, you'll learn how to build a complete
+                    login and
+                    registration system using vanilla JavaScript and Firebase v9 (Modular SDK).</p>
+                <div class="content">
+                    <div class="list">
+                        <p>By the end of this guide, you will be able to:</p>
+                        <ul>
+                            <li>Set up Firebase Authentication in a JavaScript project.</li>
+                            <li>Create a sign-up and login form with HTML.</li>
+                            <li>Authenticate users with email and password.</li>
+                            <li>Persist login sessions automatically.</li>
+                            <li>Add a secure sign-out feature.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="content">
+                    <h3>What Is Firebase Authentication?</h3>
+                    <p>Firebase Authentication is a backend service provided by Google that handles user identity
+                        securely. It supports
+                        Email/Password, Google, Facebook, GitHub, and many other sign-in methods — with no backend
+                        server required.</p>
+                    <div class="list">
+                        <h4>Why use Firebase for authentication?</h4>
+                        <ul>
+                            <li>Free for most use cases (generous free tier).</li>
+                            <li>Handles token management, session persistence, and security automatically.</li>
+                            <li>Works with plain JavaScript, React, Vue, and more.</li>
+                            <li>Easy integration with other Firebase services like Firestore and Storage.</li>
+                        </ul>
+                    </div>
+                    <h4>Project Folder Structure</h4>
+                    <div class="code-block block">
+                        <pre>
+<code>my-login-app/
+├── index.html       ← Login page
+├── signup.html      ← Sign-up / Registration page
+├── dashboard.html   ← Protected page (after login)
+└── app.js           ← All Firebase logic</code>
+</pre>
+                    </div>
+                </div>
+                <div class="content" id="step-1">
+                    <h3>Step 1: Create a Firebase Project</h3>
+                    <div class="list">
+                        <ol>
+                            <li>Visit <a href="https://console.firebase.google.com"
+                                    class="link">console.firebase.google.com</a>.</li>
+                            <li>Click "Add Project" and enter a project name (e.g., <code
+                                    class="code">my-login-app</code>).</li>
+                            <li>Disable Google Analytics (optional for this project) and click Create Project.</li>
+                            <li>Once created, click the <code class="code">&lt;/&gt;</code> (Web) icon on the project
+                                overview
+                                page.</li>
+                            <li>Register your app with a nickname and click Register App.</li>
+                            <li>Copy the <code class="code">firebaseConfig</code> object — you'll need this in Step 5.
+                            </li>
+                        </ol>
+                    </div>
+                    <div class="pro-tip">
+                        <p><strong>💡 Tip:</strong> Keep your <code class="code">firebaseConfig</code> in a separate
+                            config file and add it to
+                            <code class="code">.gitignore</code>
+                            if you're pushing to GitHub.
+                        </p>
+                    </div>
+                </div>
+                <hr>
+                <div class="content" id="step-2">
+                    <h3>Step 2: Enable Email/Password Sign-In</h3>
+                    <div class="list">
+                        <ol>
+                            <li>In the Firebase Console sidebar, go to Build → Authentication.</li>
+                            <li>Click on the "Sign-in method" tab.</li>
+                            <li>Click Email/Password, toggle it to Enable, and click Save</li>
+                        </ol>
+                    </div>
+                    <p>Your Firebase project is now ready to accept user registrations.</p>
+                </div>
+                <hr>
+                <div class="content" id="step-3">
+                    <h3>Step 3: Build the HTML Login Page (index.html & style.css)</h3>
+                    <p>The login page is the first page users see when they visit your app. In this step, you will
+                        create two files —
+                        <code class="code">index.html</code> for the page structure and <code
+                            class="code">style.css</code> for the visual styling — to build a clean, accessible login
+                        form
+                        connected to Firebase Authentication.
+                    </p>
+                    <p><code class="code">index.html</code> sets up the login form with an email and password input, a
+                        login button, and a link to the sign-up page for
+                        new users.
+                    </p>
+                    <p><code class="code">style.css</code> styles the form with a dark background, centered card layout,
+                        and a yellow accent color
+                        using CSS custom
+                        properties and the Saira Google Font.</p>
+                    <div id="language-css" class="code-block">
+                        <p>index.html</p>
+                        <pre class="line-numbers">
+                            <code id="Css" class="language-css">
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;title&gt;Login | My App&lt;/title&gt;
+    &lt;meta name=&quot;description&quot; content=&quot;Login to access your account securely using Firebase Authentication.&quot; /&gt;
+
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;style.css&quot;&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+    &lt;main&gt;
+        &lt;h1&gt;Welcome Back&lt;/h1&gt;
+        &lt;p&gt;Log in to your account below.&lt;/p&gt;
+
+        &lt;form action=&quot;&quot; id=&quot;login-form&quot;&gt;
+            &lt;div class=&quot;labels&quot;&gt;
+                &lt;label for=&quot;email&quot;&gt;Email Address&lt;/label&gt;
+                &lt;input id=&quot;email&quot; type=&quot;email&quot; placeholder=&quot;your@example.com&quot; required /&gt;
+
+                &lt;label for=&quot;password&quot;&gt;Password&lt;/label&gt;
+                &lt;input id=&quot;password&quot; type=&quot;password&quot; placeholder=&quot;Your password&quot; required /&gt;
+            &lt;/div&gt;
+
+            &lt;button type=&quot;button&quot; id=&quot;login-btn&quot;&gt;Login&lt;/button&gt;
+        &lt;/form&gt;
+
+        &lt;p class=&quot;signin&quot;&gt;Don&apos;t have an account? &lt;a href=&quot;signup.html&quot;&gt;Sign Up for Free&lt;/a&gt;&lt;/p&gt;
+    &lt;/main&gt;
+
+    &lt;script type=&quot;module&quot; src=&quot;app.js&quot;&gt;&lt;/script&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;
+                            </code>
+                        </pre>
+                    </div>
+                    <div id="language-css" class="code-block">
+                        <p>style.css</p>
+                        <pre class="line-numbers">
+                            <code id="codeSnippetCss" class="language-css">
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Edu+NSW+ACT+Hand+Pre:wght@400..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Playwrite+AU+QLD:wght@100..400&family=Press+Start+2P&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Saira:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+    --dark-bg: #020617;
+    --light-text: #f0f0f0;
+    --color-yellow: #F2B50B;
+
+    --font-h1: clamp(1.5rem, 2.5vw + 1rem, 1.875rem);
+    --font-h2: clamp(1.2rem, 2vw + 0.8rem, 1.55rem);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family: "Saira", sans-serif;
+    color: var(--light-text);
+    line-height: 1.6;
+    overflow-x: hidden;
+    position: relative;
+    height: 100vh;
+}
+
+main {
+    background: var(--dark-bg);
+    max-width: 1200px;
+    padding: 2rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); 
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(2, 6, 23, 0.8);
+}
+
+main h1 {
+    text-align: center;
+}
+
+main p {
+    text-align: center;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: #f0f0f0 1px solid;
+}
+
+.labels {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.5rem;
+}
+
+#login-form label,
+#signup-form label {
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05rem;
+    margin-bottom: 0.5rem;
+}
+
+#login-form input,
+#signup-form input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: var(--dark-card-bg);
+    border-radius: 5px;
+    color: #2d3748;
+    background-color: #f7fafc;
+    transition: all 0.2s ease-in-out;
+    font-size: 13px;
+    margin-bottom: 20px;
+}
+
+#login-btn,
+#signup-btn {
+    background: var(--color-yellow);
+    padding: 0.75rem 1rem;
+    width: 100%;
+    border: none;
+    font-family: "Saira", sans-serif;
+    color: var(--dark-bg);
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#login-btn:hover,
+#signup-btn:hover {
+    background: #FFC300;
+}
+
+.signup, .signin {
+    margin-top: 14px;
+}
+
+.signin a,
+.signup a {
+    color: var(--color-yellow);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.signin a:hover,
+.signup a:hover {
+    text-decoration: underline;
+    text-underline-offset: 5px;
+}
+                            </code>
+                        </pre>
+                    </div>
+                    <div class="list">
+                        <h4>Key points about these files:</h4>
+                        <ul>
+                            <li>The <code class="code">&lt;label for="..."&gt;</code> and <code
+                                    class="code">lt;input id="..."&gt;</code>& pairs are properly linked —
+                                required
+                                for screen
+                                reader accessibility and form
+                                usability.</li>
+                            <li>CSS custom properties (<code class="code">--dark-bg</code>, <code
+                                    class="code">--color-yellow</code>) defined in <code class="code">:root</code> make
+                                it easy to
+                                update the color scheme globally in
+                                one place.</li>
+                            <li>The <code class="code">position: absolute</code> with <code
+                                    class="code">transform: translate(-50%, -50%)</code>
+                                centers the login card
+                                perfectly on all screen sizes.</li>
+                            <li>The <code class="code">type="module"</code> attribute on the
+                                &lt;script&gt; tag enables ES6 import syntax needed for Firebase v9 +.</li>
+                            <li>The <code class="code">&lt;a href="signup.html"&gt;Sign Up for Free&lt;/a&gt;</code>
+                                link provides clear internal
+                                navigation
+                                between the login and registration pages</li>
+                        </ul>
+                    </div>
+                    <p>In the next step, you will create the HTML Sign-Up Page.</p>
+                </div>
+                <hr>
+                <div class="content" id="step-4">
+                    <h3>Step 4: Build the HTML Sign-Up Page (signup.html)</h3>
+                    <p>The sign-up page is where new users create their account. In this step, you will build a clean
+                        <code class="code">signup.html</code> file with an
+                        email and password form connected to Firebase Authentication.
+                    </p>
+                    <div class="list">
+                        <p><strong>This page includes:</strong></p>
+                        <ul>
+                            <li>A semantic <code class="code">&lt;h1&gt;</code> heading for page identity.</li>
+                            <li>An accessible HTML form with <code class="code">&lt;label&gt;</code> and <code
+                                    class="code">&lt;input&gt;</code> pairs.</li>
+                            <li>A Create Account button that triggers the Firebase sign-up function.</li>
+                            <li>A link back to the login page for existing users.</li>
+                        </ul>
+                    </div>
+                    <div id="language-css" class="code-block">
+                        <p>signup.html</p>
+                        <pre class="line-numbers">
+                            <code id="codeSnippetCss" class="language-css">
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;UTF-8&quot; /&gt;
+  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;/&gt;
+  &lt;title&gt;Create Account | My App&lt;/title&gt;
+  &lt;meta name=&quot;description&quot; content=&quot;Create a free account to get started.&quot;/&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+  &lt;main&gt;
+    &lt;h1&gt;Create Your Account&lt;/h1&gt;
+    &lt;p&gt;Join thousands of users — sign up in seconds.&lt;/p&gt;
+
+    &lt;form id=&quot;signup-form&quot;&gt;
+      abel for=&quot;email-signup&quot;&gt;Email Address&lt;/label&gt;
+      &lt;input id=&quot;email-signup&quot; type=&quot;email&quot; placeholder=&quot;you@example.com&quot; required /&gt;
+
+      abel for=&quot;password-signup&quot;&gt;Password&lt;/label&gt;
+      &lt;input id=&quot;password-signup&quot; type=&quot;password&quot; placeholder=&quot;Min. 6 characters&quot; required /&gt;
+
+      &lt;button type=&quot;button&quot; id=&quot;signup-btn&quot;&gt;Create Account&lt;/button&gt;
+    &lt;/form&gt;
+
+    &lt;p&gt;Already have an account? &lt;a href=&quot;index.html&quot;&gt;Log In&lt;/a&gt;&lt;/p&gt;
+  &lt;/main&gt;
+
+  &lt;script type=&quot;module&quot; src=&quot;app.js&quot;&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+                            </code>
+                        </pre>
+                    </div>
+                    <div class="list">
+                        <h4>Key points about this file:</h4>
+                        <ul>
+                            <li>The <code class="code">lang="en"</code> attribute on <code
+                                    class="code">&lt;html&gt;</code> improves accessibility and
+                                search indexing.</li>
+                            <li>Each <code class="code">&lt;label&gt;</code> is linked to its <code
+                                    class="code">&lt;input&gt;</code> using matching for
+                                and id attributes — required for
+                                screen readers.</li>
+                            <li>The <code class="code">type="module"</code> on the script tag allows ES6 import/export
+                                syntax used in Firebase
+                                v9+.</li>
+                            <li>The <code class="code">&lt;a href="index.html"&gt;Log In&lt;/a&gt;</code> link provides
+                                internal navigation
+                                between the
+                                sign-up and login pages.</li>
+                        </ul>
+                    </div>
+                    <p>In the next step, you will wire this form to Firebase using the <code
+                            class="code">createUserWithEmailAndPassword()</code>
+                        function inside <code class="code">app.js</code>.</p>
+                </div>
+                <hr>
+                <div class="content" id="step-5">
+                    <h3>Step 5: Initialize Firebase (app.js)</h3>
+                    <p>
+                        <code class="code">app.js</code> is the heart of your Firebase setup. This single file connects
+                        your
+                        web app to Firebase by
+                        loading the SDK
+                        directly from Google's CDN — no npm, no build tools, no complex configuration needed. Once
+                        initialized here, your
+                        authentication service is ready to be used across all other scripts in your project.
+                    </p>
+                    <div id="language-js" class="code-block">
+                        <p>app.js</p>
+                        <pre class="line-numbers">
+                            <code id="codeSnippetJs" class="language-js">
+// Import Firebase modules via CDN (no npm/build tools needed)
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  onAuthStateChanged,
+  signOut
+} from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+
+// Your Firebase configuration
+const firebaseConfig = {
+  apiKey: "YOUR_API_KEY",
+  authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
+  projectId: "YOUR_PROJECT_ID",
+  storageBucket: "YOUR_PROJECT_ID.appspot.com",
+  messagingSenderId: "YOUR_SENDER_ID",
+  appId: "YOUR_APP_ID"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+                            </code>
+                        </pre>
+                    </div>
+                    <h4>Code Breakdown</h4>
+                    <p class="sub"><strong class="subtitle">Importing Firebase Modules via CDN</strong></p>
+                    <div id="language-js" class="code-block">
+                        <pre class="line-numbers">
+                        <code id="codeSnippetJs" class="language-js">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  onAuthStateChanged,
+  signOut
+} from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+
+                        </code>
+                    </pre>
+                    </div>
+                    <p>These two <code class="code">import</code> statements load only the Firebase modules your app
+                        actually needs — this is
+                        called tree-shaking
+                        (modular SDK). Instead of loading the entire Firebase library, you pull in specific functions,
+                        which keeps your page
+                        faster and lighter.
+                    </p>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Import</th>
+                                    <th>What it does</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code class="code">initializeApp</code></td>
+                                    <td>Bootstraps your Firebase project connection</td>
+                                </tr>
+                                <tr>
+                                    <td><code class="code">getAuth</code></td>
+                                    <td>Returns the Auth service instance</td>
+                                </tr>
+                                <tr>
+                                    <td><code class="code">createUserWithEmailAndPassword</code></td>
+                                    <td>Registers a new user with email &amp; password</td>
+                                </tr>
+                                <tr>
+                                    <td><code class="code">signInWithEmailAndPassword</code></td>
+                                    <td>Logs in an existing user</td>
+                                </tr>
+                                <tr>
+                                    <td><code class="code">onAuthStateChanged</code></td>
+                                    <td>Listens for login/logout state changes in real time</td>
+                                </tr>
+                                <tr>
+                                    <td><code class="code">signOut</code></td>
+                                    <td>Logs the current user out</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="pro-tip">
+                        <p><strong>⚠️ Note:</strong> Because you're using <code class="code">import</code>, your
+                            <code class="code">&lt;script&gt</code>; tag in <code class="code">index.html</code> must
+                            have
+                            type = "module" — e.g., <code
+                                class="code">&lt;script type="module" src="app.js"&gt;&lt;/script&gt;</code>.
+                        </p>
+                    </div>
+                    <p class="sub"><strong class="subtitle">Firebase Configuration Object</strong></p>
+                    <div id="language-js" class="code-block">
+                        <pre class="line-numbers">
+                        <code id="codeSnippetJs" class="language-js">
+const firebaseConfig = {
+  apiKey: "YOUR_API_KEY",
+  authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
+  projectId: "YOUR_PROJECT_ID",
+  storageBucket: "YOUR_PROJECT_ID.appspot.com",
+  messagingSenderId: "YOUR_SENDER_ID",
+  appId: "YOUR_APP_ID"
+};</code>
+                    </pre>
+                    </div>
+                    <div class="list">
+                        <p>This object is a unique identity card for your Firebase project. Every key here tells
+                            Firebase
+                            which project to connect
+                            to:
+                        </p>
+                        <ul>
+                            <li><code class="code">apiKey</code> ⟶ Identifies your project to Google's API gateway (not
+                                a secret; it's safe in frontend code).</li>
+                            <li><code class="code">authDomain</code> ⟶ The domain used for OAuth popup/redirect sign-in
+                                flows.</li>
+                            <li><code class="code">projectId</code> ⟶ Your unique Firebase project identifier.</li>
+                            <li><code class="code">storageBucket</code> ⟶ Cloud Storage bucket URL (used if you add file
+                                uploads later).</li>
+                            <li><code class="code">messagingSenderId</code> ⟶ Used for Firebase Cloud Messaging (push
+                                notifications).</li>
+                            <li><code class="code">appId</code> ⟶ Unique ID for this specific web app registered in your
+                                project</li>
+                        </ul>
+                    </div>
+                    <div class="pro-tip">
+                        <p>🔑 Replace all "YOUR_..." placeholder values with the real values
+                            from your Firebase Console → Project Settings → Your
+                            Apps.
+                        </p>
+                    </div>
+                    <p class="sub"><strong class="subtitle">Initializing Firebase and Auth</strong></p>
+                    <div id="language-js" class="code-block">
+                        <pre class="line-numbers">
+                        <code id="codeSnippetJs" class="language-js">
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+</code>
+                    </pre>
+                    </div>
+                    <div class="list">
+                        <p>These two lines do all the heavy lifting:</p>
+                        <ul>
+                            <li><code class="code">initializeApp(firebaseConfig)</code> ⟶ Reads your config object and
+                                starts a Firebase app instance.
+                                You only call this once in your entire project.</li>
+                            <li><code class="code">getAuth(app)</code> ⟶ Attaches the Authentication service to your
+                                initialized
+                                app
+                                and returns an auth object. You'll pass this auth variable
+                                to every authentication function throughout your project (sign up, sign in, sign out).
+                            </li>
+                        </ul>
+                    </div>
+                    <h4>Quick Mental Model</h4>
+                    <div class="code-block block">
+                        <pre>
+<code>firebaseConfig  →  identifies YOUR project
+initializeApp() →  starts the Firebase connection
+getAuth()       →  gives you the authentication service
+imported functions → the tools to sign up, log in, and track users</code>
+</pre>
+                    </div>
+                    <p>This setup file runs once when your page loads, and from that point forward, Firebase is ready to
+                        handle all user
+                        authentication in your app.</p>
+                </div>
+                <hr>
+
+                <div class="content" id="step-6">
+                    <h1>Step 6: Add Sign-Up Functionality</h1>
+                    <p>In Step 6, you add user registration to your web app using Firebase Authentication. Firebase's
+                        <code class="code">createUserWithEmailAndPassword()</code> method handles the entire account
+                        creation process — it
+                        validates the email format,
+                        checks for duplicate accounts, enforces password strength, and securely stores the credentials
+                        in Firebase's backend —
+                        all with a single function call. Once the account is created successfully, the user is
+                        redirected to the login page.
+                    </p>
+                    <div id="language-js" class="code-block">
+                        <pre class="line-numbers">
+                        <code id="codeSnippetJs" class="language-js">
+// ---- SIGN UP ----
+const signupBtn = document.getElementById("signup-btn");
+
+if (signupBtn) {
+  signupBtn.addEventListener("click", () => {
+    const email    = document.getElementById("email-signup").value.trim();
+    const password = document.getElementById("password-signup").value.trim();
+
+    createUserWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        console.log("User created:", userCredential.user.email);
+        alert("Account created successfully! Redirecting to login...");
+        window.location.href = "index.html";
+      })
+      .catch((error) => {
+        // Show user-friendly error messages
+        handleAuthError(error);
+      });
+  });
+}
+</code>
+                    </pre>
+                    </div>
+                    <h4>Code Breakdown</h4>
+                    <div id="language-js" class="code-block">
+                        <pre class="line-numbers">
+                        <code id="codeSnippetJs" class="language-js">
+// ---- SIGN UP ----
+const signupBtn = document.getElementById("signup-btn");
+</code>
+                    </pre>
+                    </div>
+                    <p>Selects the Sign-Up button from the HTML using its <code class="code">id</code>. This is the
+                        button the user clicks to
+                        register.
+                    </p>
+                    <div id="language-js" class="code-block">
+                        <pre class="line-numbers">
+                        <code id="codeSnippetJs" class="language-js">
+if (signupBtn) {
+</code>
+                    </pre>
+                    </div>
+                    <p>A safety check — ensures the button exists on the current page before attaching a listener. This
+                        prevents errors if this
+                        script runs on a page where the sign-up form is absent (e.g., the login page).
+                    </p>
+                    <div id="language-js" class="code-block">
+                        <pre class="line-numbers">
+                        <code id="codeSnippetJs" class="language-js">
+signupBtn.addEventListener("click", () => {
+</code>
+                    </pre>
+                    </div>
+                    <p>Attaches a click event listener to the button. The code inside runs only when the user clicks
+                        "Sign Up".
+                    </p>
+                    <div id="language-js" class="code-block">
+                        <pre class="line-numbers">
+                        <code id="codeSnippetJs" class="language-js">
+    const email    = document.getElementById("email-signup").value.trim();
+    const password = document.getElementById("password-signup").value.trim();
+
+</code>
+                    </pre>
+                    </div>
+                    <p>Reads the email and password typed by the user from the HTML input fields. .trim() removes any
+                        accidental
+                        leading/trailing spaces — important for avoiding login issues later.
+                    </p>
+
+                    <div id="language-js" class="code-block">
+                        <pre class="line-numbers">
+                        <code id="codeSnippetJs" class="language-js">
+createUserWithEmailAndPassword(auth, email, password)
+</code>
+                    </pre>
+                    </div>
+                    <div class="list">
+                        <p>Calls Firebase's built-in method to create a new user account. It takes three arguments:</p>
+                        <ul>
+                            <li><code class="code">auth</code> ⟶ the initialized Firebase Auth instance.</li>
+                            <li><code class="code">email</code> ⟶ the user's email address.</li>
+                            <li><code class="code">password</code> ⟶ the user's password.</li>
+                        </ul>
+                    </div>
+                    <p>This is an asynchronous operation (it communicates with Firebase servers), so it returns a
+                        JavaScript Promise.
+                    </p>
+
+                    <div id="language-js" class="code-block">
+                        <pre class="line-numbers">
+                        <code id="codeSnippetJs" class="language-js">
+      .then((userCredential) => {
+        console.log("User created:", userCredential.user.email);
+        alert("Account created successfully! Redirecting to login...");
+        window.location.href = "index.html";
+      })
+
+</code>
+                    </pre>
+                    </div>
+                    <div class="list">
+                        <p>The <code class="code">.then()</code> block runs only on success.</p>
+                        <ul>
+                            <li><code class="code">userCredential.user.email</code> ⟶ logs the newly registered user's
+                                email to the browser
+                                console for debugging</li>
+                            <li><code class="code">alert(...)</code> ⟶ shows the user a success message.</li>
+                            <li><code class="code">window.location.href = "index.html"</code> ⟶ redirects the user to
+                                the login page after
+                                successful registration.
+                            </li>
+                        </ul>
+                    </div>
+                    <div id="language-js" class="code-block">
+                        <pre class="line-numbers">
+                        <code id="codeSnippetJs" class="language-js">
+          .catch((error) => {
+        handleAuthError(error);
+      });
+</code>
+                    </pre>
+                    </div>
+                    <p>The <code class="code">.catch()</code> block runs only if something goes wrong. Instead of
+                        showing a raw Firebase error
+                        code, it calls
+                        <code class="code">handleAuthError(error)</code> — a custom function (defined elsewhere in your
+                        app) that translates
+                        Firebase error codes like
+                        <code class="code">auth/email-already-in-use</code> or <code
+                            class="code">auth/weak-password</code> into user-friendly messages.
+                    </p>
+                    <div class="table-container">
+                        <p class="sub"><strong class="subtitle">
+                                Common Firebase Sign-Up Errors Handled
+                            </strong>
+                        </p>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Import / Error Code</th>
+                                    <th>What it does / Meaning</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Core Functions -->
+                                <tr>
+                                    <td><code class="code">initializeApp</code></td>
+                                    <td>Bootstraps your Firebase project connection</td>
+                                </tr>
+                                <tr>
+                                    <td><code class="code">getAuth</code></td>
+                                    <td>Returns the Auth service instance</td>
+                                </tr>
+                                <tr>
+                                    <td><code class="code">createUserWithEmailAndPassword</code></td>
+                                    <td>Registers a new user with email &amp; password</td>
+                                </tr>
+                                <tr>
+                                    <td><code class="code">signInWithEmailAndPassword</code></td>
+                                    <td>Logs in an existing user</td>
+                                </tr>
+                                <tr>
+                                    <td><code class="code">onAuthStateChanged</code></td>
+                                    <td>Listens for login/logout state changes in real time</td>
+                                </tr>
+                                <tr>
+                                    <td><code class="code">signOut</code></td>
+                                    <td>Logs the current user out</td>
+                                </tr>
+                                <!-- Error Codes -->
+                                <tr>
+                                    <td><code class="code">auth/email-already-in-use</code></td>
+                                    <td>Account already exists with this email</td>
+                                </tr>
+                                <tr>
+                                    <td><code class="code">auth/invalid-email</code></td>
+                                    <td>Email format is not valid</td>
+                                </tr>
+                                <tr>
+                                    <td><code class="code">auth/weak-password</code></td>
+                                    <td>Password is less than 6 characters</td>
+                                </tr>
+                                <tr>
+                                    <td><code class="code">auth/operation-not-allowed</code></td>
+                                    <td>Email/password sign-in not enabled in Firebase Console</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="pro-tip">
+                        <p><strong>💡 Tip</strong> : Always enable Email/Password sign-in under Firebase Console →
+                            Authentication → Sign-in method before testing
+                            this code</p>
+                    </div>
+                </div>
+                <hr>
+
+                <div class="content" id="step-7">
+                    <h3>Step 7: Add Login Functionality</h3>
+                    <p>In Step 7, you add user login to your web app using Firebase Authentication's
+                        <code class="code">signInWithEmailAndPassword()</code> method.
+                        Unlike the sign-up step that creates a new account, login verifies existing credentials against
+                        Firebase's secure
+                        backend and grants the user access to protected pages like the dashboard. Once authenticated
+                        successfully, the user is
+                        automatically redirected to <code class="code">dashboard.html</code>.
+                    </p>
+                    <div id="language-js" class="code-block">
+                        <pre class="line-numbers">
+                        <code id="codeSnippetJs" class="language-js">
+// ---- LOGIN ----
+const loginBtn = document.getElementById("login-btn");
+
+if (loginBtn) {
+  loginBtn.addEventListener("click", () => {
+    const email    = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value.trim();
+
+    signInWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        console.log("Logged in as:", userCredential.user.email);
+        window.location.href = "dashboard.html";
+      })
+      .catch((error) => {
+        handleAuthError(error);
+      });
+  });
+}
+</code>
+                    </pre>
+                    </div>
+
+                    <h4>Code Breakdown</h4>
+                    <div id="language-js" class="code-block">
+                        <pre class="line-numbers">
+                        <code id="codeSnippetJs" class="language-js">
+// ---- LOGIN ----
+const loginBtn = document.getElementById("login-btn");
+</code>
+                    </pre>
+                    </div>
+                    <p>Selects the Login button from the HTML by its <code class="code">id</code>. This is the button
+                        the user clicks to submit
+                        their credentials.
+                    </p>
+                    <div id="language-js" class="code-block">
+                        <pre class="line-numbers">
+                        <code id="codeSnippetJs" class="language-js">
+if (loginBtn) {
+</code>
+                    </pre>
+                    </div>
+                    <p>A safety guard — confirms the login button actually exists on the current page before registering
+                        any event. This is
+                        especially important when the same <code class="code">app.js</code> file is shared across
+                        multiple pages (sign-up, login,
+                        dashboard).
+
+                    </p>
+
+                    <div id="language-js" class="code-block">
+                        <pre class="line-numbers">
+                        <code id="codeSnippetJs" class="language-js">
+loginBtn.addEventListener("click", () => {
+</code>
+                    </pre>
+                    </div>
+                    <p>Attaches a click event listener to the login button. Everything inside the arrow function runs
+                        only when the user clicks
+                        it.
+                    </p>
+
+                    <div id="language-js" class="code-block">
+                        <pre class="line-numbers">
+                        <code id="codeSnippetJs" class="language-js">
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value.trim();
+</code>
+                    </pre>
+                    </div>
+                    <p>Reads the email and password from the HTML input fields. <code class="code">.trim()</code> strips
+                        any accidental whitespace
+                        — without this,
+                        <code class="code">"user@email.com "</code> (with a trailing space) would fail to match the
+                        stored credential and cause an
+                        unnecessary login
+                        error.
+                    </p>
+
+                    <div id="language-js" class="code-block">
+                        <pre class="line-numbers">
+                        <code id="codeSnippetJs" class="language-js">
+    signInWithEmailAndPassword(auth, email, password)
+</code>
+                    </pre>
+                    </div>
+
+                    <div class="list">
+                        <p>Calls Firebase's built-in login method. It takes three arguments:</p>
+                        <ul>
+                            <li><code class="code">auth</code> ⟶ the initialized Firebase Auth instance.</li>
+                            <li><code class="code">email</code> ⟶ the email entered by the user.</li>
+                            <li><code class="code">password</code> ⟶ the password entered by the user.</li>
+                        </ul>
+                    </div>
+                    <p>This is asynchronous — it contacts Firebase servers to verify the credentials and returns a
+                        Promise.
+                    </p>
+
+                    <div id="language-js" class="code-block">
+                        <pre class="line-numbers">
+                        <code id="codeSnippetJs" class="language-js">
+      .then((userCredential) => {
+        console.log("Logged in as:", userCredential.user.email);
+        window.location.href = "dashboard.html";
+      })
+</code>
+                    </pre>
+                    </div>
+
+                    <div class="list">
+                        <p>The .then() block runs only when login is successful.</p>
+                        <ul>
+                            <li><code class="code">userCredential.user.email</code> ⟶ logs the authenticated user's
+                                email to the browser console,
+                                useful for debugging</li>
+                            <li><code class="code">window.location.href = "dashboard.html"</code> ⟶ redirects the user
+                                to the protected dashboard page after a
+                                successful login.</li>
+                        </ul>
+                    </div>
+                    <div id="language-js" class="code-block">
+                        <pre class="line-numbers">
+                        <code id="codeSnippetJs" class="language-js">
+      .catch((error) => {
+        handleAuthError(error);
+      });
+</code>
+                    </pre>
+                    </div>
+                    <p>The <code class="code">.catch()</code> block runs only when login fails. It passes the Firebase
+                        error object to
+                        <code class="code">handleAuthError()</code> — your custom
+                        function that converts raw Firebase error codes into clear, readable messages shown to the user.
+                    </p>
+                    <div class="table-container">
+                        <h4>Common Firebase Login Errors Handled</h4>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Import / Error Code</th>
+                                    <th>What it does / Meaning</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Core Functions -->
+                                <tr>
+                                    <td><code class="code">initializeApp</code></td>
+                                    <td>Bootstraps your Firebase project connection</td>
+                                </tr>
+                                <tr>
+                                    <td><code class="code">getAuth</code></td>
+                                    <td>Returns the Auth service instance</td>
+                                </tr>
+                                <tr>
+                                    <td><code class="code">createUserWithEmailAndPassword</code></td>
+                                    <td>Registers a new user with email &amp; password</td>
+                                </tr>
+                                <tr>
+                                    <td><code class="code">signInWithEmailAndPassword</code></td>
+                                    <td>Logs in an existing user</td>
+                                </tr>
+                                <tr>
+                                    <td><code class="code">onAuthStateChanged</code></td>
+                                    <td>Listens for login/logout state changes in real time</td>
+                                </tr>
+                                <tr>
+                                    <td><code class="code">signOut</code></td>
+                                    <td>Logs the current user out</td>
+                                </tr>
+                                <!-- Error Codes -->
+                                <tr>
+                                    <td><code class="code">auth/email-already-in-use</code></td>
+                                    <td>Account already exists with this email</td>
+                                </tr>
+                                <tr>
+                                    <td><code class="code">auth/invalid-email</code></td>
+                                    <td>Email format is not valid</td>
+                                </tr>
+                                <tr>
+                                    <td><code class="code">auth/weak-password</code></td>
+                                    <td>Password is less than 6 characters</td>
+                                </tr>
+                                <tr>
+                                    <td><code class="code">auth/operation-not-allowed</code></td>
+                                    <td>Email/password sign-in not enabled in Firebase Console</td>
+                                </tr>
+                                <tr>
+                                    <td><code class="code">auth/user-not-found</code></td>
+                                    <td>No account exists with this email</td>
+                                </tr>
+                                <tr>
+                                    <td><code class="code">auth/wrong-password</code></td>
+                                    <td>Password is incorrect</td>
+                                </tr>
+                                <tr>
+                                    <td><code class="code">auth/user-disabled</code></td>
+                                    <td>Account has been disabled in Firebase Console</td>
+                                </tr>
+                                <tr>
+                                    <td><code class="code">auth/too-many-requests</code></td>
+                                    <td>Too many failed attempts — account temporarily locked</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="table-container">
+                        <h4>Sign-Up vs Login: Key Difference</h4>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Feature</th>
+                                    <th>Step 6 — Sign Up</th>
+                                    <th>Step 7 — Login</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Firebase Method</strong></td>
+                                    <td><code class="code">createUserWithEmailAndPassword()</code></td>
+                                    <td><code class="code">signInWithEmailAndPassword()</code></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Action</strong></td>
+                                    <td>Creates a new user account</td>
+                                    <td>Verifies existing credentials</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>On Success Redirect</strong></td>
+                                    <td><code class="code">index.html</code> (Login page)</td>
+                                    <td><code class="code">dashboard.html</code> (Protected page)</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Input Fields Used</strong></td>
+                                    <td><code class="code">email-signup</code>, <code
+                                            class="code">password-signup</code></td>
+                                    <td><code class="code">email</code>, <code class="code">password</code></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="pro-tip">
+                        <p><strong>💡 Tip;</strong> After a successful login, Firebase automatically stores the user
+                            session in
+                            the browser. You can use
+                            onAuthStateChanged(auth, (user) => {...}) on your dashboard page to verify the session and
+                            block unauthenticated access.</p>
+                    </div>
+                </div>
+                <hr>
+
+                <div class="content" id="step-8">
+                    <h3>Step 8: Persist Login Sessions with onAuthStateChanged</h3>
+                    <p>One of Firebase Authentication's most powerful built-in features is automatic session
+                        persistence. Firebase stores the
+                        user's login state in the browser's local storage by default, so users stay logged in even after
+                        closing and reopening
+                        the browser tab — without any extra code on your part.
+                    </p>
+                    <p><code class="code">onAuthStateChanged</code> is a real-time auth state listener that Firebase
+                        provides to detect whether a
+                        user is currently logged in or not on every page load. This makes it the ideal place to control
+                        page access, redirects, and UI personalization across your entire web app.
+                    </p>
+                    <div id="language-js" class="code-block">
+                        <pre class="line-numbers">
+                        <code id="codeSnippetJs" class="language-js">
+// ---- AUTH STATE LISTENER ----
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    // User is signed in
+    console.log("Active user:", user.email);
+    // Optional: auto-redirect logged-in users away from login page
+    if (window.location.pathname.includes("index.html")) {
+      window.location.href = "dashboard.html";
+    }
+  } else {
+    // No user is signed in
+    console.log("No active session.");
+  }
+});
+</code>
+                    </pre>
+                    </div>
+                    <h4>Code Breakdown</h4>
+                    <div id="language-js" class="code-block">
+                        <pre class="line-numbers">
+                        <code id="codeSnippetJs" class="language-js">
+// ---- AUTH STATE LISTENER ----
+onAuthStateChanged(auth, (user) => {
+</code>
+                    </pre>
+                    </div>
+                    <div class="list">
+                        <p>Registers a persistent listener on the Firebase Auth instance (<code
+                                class="code">auth</code>).
+                            Firebase calls this
+                            callback function
+                            automatically in two situations:
+                        </p>
+                        <ul>
+                            <li>When the page first loads (to check for an existing session).</li>
+                            <li>Whenever the auth state changes (login, logout, token refresh).</li>
+                        </ul>
+                        <p>The <code class="code">user</code> parameter is either a Firebase User object (if logged in)
+                            or <code class="code">null</code> (if not).</p>
+                    </div>
+                    <div id="language-js" class="code-block">
+                        <pre class="line-numbers">
+                        <code id="codeSnippetJs" class="language-js">
+if (user) {
+// User is signed in
+console.log("Active user:", user.email);
+</code>
+                    </pre>
+                    </div>
+                    <div class="list">
+                        <p>If <code class="code">user</code> is not null, it means a valid session exists.
+                        </p>
+                        <ul>
+                            <li><code class="code">user.email</code> ⟶ logs the currently logged-in user's email to the
+                                console</li>
+                            <li>You can also access other user properties here such as <code
+                                    class="code">user.uid</code> (unique ID),
+                                <code class="code">user.displayName</code>, and <code
+                                    class="code">user.emailVerified</code>.
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div id="language-js" class="code-block">
+                        <pre class="line-numbers">
+                        <code id="codeSnippetJs" class="language-js">
+    // Optional: auto-redirect logged-in users away from login page
+    if (window.location.pathname.includes("index.html")) {
+      window.location.href = "dashboard.html";
+    }
+</code>
+                    </pre>
+                    </div>
+                    <p>This is an auto-redirect guard — a common UX pattern. It checks if the user is currently on the
+                        login page (<code class="code">index.html</code>)
+                        while already being logged in, and immediately sends them to <code
+                            class="code">dashboard.html</code> instead. This
+                        prevents authenticated users
+                        from seeing the login form unnecessarily.
+                    </p>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Condition</th>
+                                    <th>Result</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Logged in + on <code class="code">index.html</code></td>
+                                    <td>Redirected to <code class="code">dashboard.html</code></td>
+                                </tr>
+                                <tr>
+                                    <td>Logged in + on <code class="code">dashboard.html</code></td>
+                                    <td>Stays on <code class="code">dashboard.html</code></td>
+                                </tr>
+                                <tr>
+                                    <td>Not logged in + on <code class="code">index.html</code></td>
+                                    <td>Stays on login page</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div id="language-js" class="code-block">
+                        <pre class="line-numbers">
+                        <code id="codeSnippetJs" class="language-js">
+  } else {
+    // No user is signed in
+    console.log("No active session.");
+  }
+});
+</code>
+                    </pre>
+                    </div>
+                    <div class="list">
+                        <p>If <code class="code">user</code> is <code class="code">null</code>, no active session
+                            exists. This block is where you typically:
+                        </p>
+                        <ul>
+                            <li>Redirect the user to the login page if they try to access a protected page.</li>
+                            <li>Hide authenticated-only UI elements (e.g., navbar profile icon, dashboard content).</li>
+                        </ul>
+                    </div>
+
+                    <p><strong>A common protected-route pattern to add here:</strong></p>
+                    <div id="language-js" class="code-block">
+                        <pre class="line-numbers">
+                        <code id="codeSnippetJs" class="language-js">
+  } else {
+    console.log("No active session.");
+    // Protect dashboard from unauthenticated access
+    if (window.location.pathname.includes("dashboard.html")) {
+      window.location.href = "index.html";
+    }
+  }
+</code>
+                    </pre>
+                    </div>
+                    <div class="pro-tip">
+                        <p><strong>💡 Best Practice:</strong> Place this listener at the top level of your app.js so it
+                            runs on every page load across your entire app.
+                        </p>
+                    </div>
+                </div>
+                <hr>
+
+                <div class="content" id="step-9">
+                    <h3>Step 9: Add Sign-Out</h3>
+                    <p>Every secure web app needs a reliable sign-out mechanism. Firebase's <code
+                            class="code">signOut()</code> method does more
+                        than just clear the UI —
+                        it invalidates the user's authentication token and removes the session from the browser's local
+                        storage, ensuring the
+                        user is fully logged out. This prevents unauthorized access if someone else opens the same
+                        browser later.
+                    </p>
+                    <p>In this step, you wire up a Logout button on your dashboard.html so that clicking it cleanly ends
+                        the session and
+                        redirects the user back to the login page.
+                    </p>
+                    <div id="language-js" class="code-block">
+                        <pre class="line-numbers">
+                        <code id="codeSnippetJs" class="language-js">
+// ---- SIGN OUT ----
+const logoutBtn = document.getElementById("logout-btn");
+
+if (logoutBtn) {
+  logoutBtn.addEventListener("click", () => {
+    signOut(auth)
+      .then(() => {
+        alert("You have been logged out.");
+        window.location.href = "index.html";
+      })
+      .catch((error) => {
+        console.error("Sign-out error:", error.message);
+      });
+  });
+}
+</code>
+                    </pre>
+                    </div>
+                </div>
+                <hr>
+                <div class="content" id="step-10">
+                    <h3>Step 10: Add Error Handling (User-Friendly Messages)</h3>
+                    <p>Raw Firebase error codes like <code class="code">auth/email-already-in-use</code> or <code
+                            class="code">auth/wrong-password</code> are technical
+                        strings designed for
+                        developers — not end users. Displaying them directly in your app creates a poor user experience
+                        and can confuse or
+                        frustrate your users. The <code class="code">handleAuthError()</code> helper function solves
+                        this by acting as a
+                        translation layer — it maps every
+                        Firebase error code to a clear, human-readable message that guides users toward fixing the
+                        problem. This is one of the
+                        most important UX improvements you can make to any Firebase-powered login or sign-up flow.
+                    </p>
+                    <div id="language-js" class="code-block">
+                        <pre class="line-numbers">
+                        <code id="codeSnippetJs" class="language-js">
+// ---- ERROR HANDLER ----
+function handleAuthError(error) {
+  const errorMessages = {
+    "auth/email-already-in-use":  "This email is already registered. Try logging in.",
+    "auth/invalid-email":          "Please enter a valid email address.",
+    "auth/weak-password":          "Password must be at least 6 characters.",
+    "auth/user-not-found":         "No account found with this email.",
+    "auth/wrong-password":         "Incorrect password. Please try again.",
+    "auth/too-many-requests":      "Too many attempts. Please try again later."
+  };
+
+  const message = errorMessages[error.code] || "Something went wrong. Please try again.";
+  alert(message);
+  console.error(error.code, error.message);
+}
+</code>
+                    </pre>
+                    </div>
+                    <h4>Code Breakdown</h4>
+                    <p>This function provides user-friendly error messages instead of showing raw Firebase error codes
+                        to users.</p>
+                    <p class="sub"><strong class="subtitle">
+                            Function Declaration
+                        </strong></p>
+                    <div id="language-js" class="code-block">
+                        <pre class="line-numbers">
+                        <code id="codeSnippetJs" class="language-js">
+function handleAuthError(error) {
+</code>
+                    </pre>
+                    </div>
+                    <p>Defines a function named <code class="code">handleAuthError</code> that accepts an <code
+                            class="code">error</code> object
+                        from Firebase. This <code class="code">error</code>
+                        object contains two key
+                        properties: error.code (e.g., <code class="code">auth/weak-password</code>) and <code
+                            class="code">error.message</code>
+                        (Firebase's default
+                        technical description).
+                    </p>
+
+                    <p class="sub"><strong class="subtitle">The Error Messages Object</strong></p>
+                    <div id="language-js" class="code-block">
+                        <pre class="line-numbers">
+                        <code id="codeSnippetJs" class="language-js">
+const errorMessages = {
+  "auth/email-already-in-use":  "This email is already registered. Try logging in.",
+  "auth/invalid-email":          "Please enter a valid email address.",
+  "auth/weak-password":          "Password must be at least 6 characters.",
+  "auth/user-not-found":         "No account found with this email.",
+  "auth/wrong-password":         "Incorrect password. Please try again.",
+  "auth/too-many-requests":      "Too many attempts. Please try again later."
+};
+</code>
+                    </pre>
+                    </div>
+                    <p>This is a JavaScript object used as a lookup table (also called a dictionary or map). Each key is
+                        a Firebase error code,
+                        and each value is a friendly human-readable message.
+                    </p>
+                    <p class="sub"><strong class="subtitle">The Message Selection</strong></p>
+                    <div id="language-js" class="code-block">
+                        <pre class="line-numbers">
+                        <code id="codeSnippetJs" class="language-js">
+const message = errorMessages[error.code] || "Something went wrong. Please try again.";
+</code>
+                    </pre>
+                    </div>
+                    <p class="sub"><strong class="subtitle">Display and Logging</strong></p>
+                    <div id="language-js" class="code-block">
+                        <pre class="line-numbers">
+                        <code id="codeSnippetJs" class="language-js">
+alert(message);
+console.error(error.code, error.message);
+</code>
+                    </pre>
+                    </div>
+                    <div class="list">
+                        <ul>
+                            <li><code class="code">alert(message)</code> ⟶ Shows the friendly message to the user in a
+                                browser popup.
+                            </li>
+                            <li><code class="code">console.error(error.code, error.message)</code> ⟶ Logs the raw
+                                Firebase
+                                error to the browser console (F12 →
+                                Console tab) for developer debugging. The user never sees
+                                this, but it helps you troubleshoot issues during development.</li>
+                        </ul>
+                    </div>
+                </div>
+                <hr>
+                <div class="content" id="step-11">
+                    <h3>Full app.js File (Complete Code)</h3>
+                    <p>Here is the complete <code class="code">app.js</code> file combining all steps:</p>
+                    <div id="language-js" class="code-block">
+                        <pre class="line-numbers">
+                        <code id="codeSnippetJs" class="language-js">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  onAuthStateChanged,
+  signOut
+} from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+
+const firebaseConfig = {
+  apiKey: "YOUR_API_KEY",
+  authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
+  projectId: "YOUR_PROJECT_ID",
+  storageBucket: "YOUR_PROJECT_ID.appspot.com",
+  messagingSenderId: "YOUR_SENDER_ID",
+  appId: "YOUR_APP_ID"
+};
+
+const app  = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+
+// Sign Up
+const signupBtn = document.getElementById("signup-btn");
+if (signupBtn) {
+  signupBtn.addEventListener("click", () => {
+    const email    = document.getElementById("email-signup").value.trim();
+    const password = document.getElementById("password-signup").value.trim();
+    createUserWithEmailAndPassword(auth, email, password)
+      .then(uc => { alert("Account created!"); window.location.href = "index.html"; })
+      .catch(handleAuthError);
+  });
+}
+
+// Login
+const loginBtn = document.getElementById("login-btn");
+if (loginBtn) {
+  loginBtn.addEventListener("click", () => {
+    const email    = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value.trim();
+    signInWithEmailAndPassword(auth, email, password)
+      .then(uc => { window.location.href = "dashboard.html"; })
+      .catch(handleAuthError);
+  });
+}
+
+// Auth State
+onAuthStateChanged(auth, (user) => {
+  if (user) console.log("Logged in:", user.email);
+  else console.log("Not logged in");
+});
+
+// Sign Out
+const logoutBtn = document.getElementById("logout-btn");
+if (logoutBtn) {
+  logoutBtn.addEventListener("click", () => {
+    signOut(auth).then(() => { window.location.href = "index.html"; });
+  });
+}
+
+// Error Handler
+function handleAuthError(error) {
+  const msgs = {
+    "auth/email-already-in-use": "Email already registered.",
+    "auth/invalid-email":         "Invalid email address.",
+    "auth/weak-password":         "Password too short (min 6 chars).",
+    "auth/user-not-found":        "No account with this email.",
+    "auth/wrong-password":        "Incorrect password.",
+    "auth/too-many-requests":     "Too many attempts. Try later."
+  };
+  alert(msgs[error.code] || "An error occurred. Please try again.");
+}
+</code>
+                    </pre>
+                    </div>
+                    <h4>What's Next? (Extend Your Project)</h4>
+                    <div class="table-container">
+                        <p>Once your basic login system is working, here are powerful next steps:</p>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Feature</th>
+                                    <th>Firebase Method</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Google Sign-In</strong></td>
+                                    <td><code class="code">GoogleAuthProvider</code> + <code
+                                            class="code">signInWithPopup()</code></td>
+                                    <td>One-click OAuth login</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Password Reset</strong></td>
+                                    <td><code class="code">sendPasswordResetEmail()</code></td>
+                                    <td>Email-based recovery</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Save User Profile</strong></td>
+                                    <td><code class="code">Firestore</code> + <code class="code">setDoc()</code></td>
+                                    <td>Store name, avatar, etc.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Protected Routes</strong></td>
+                                    <td><code class="code">onAuthStateChanged</code> guard</td>
+                                    <td>Restrict dashboard access</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Email Verification</strong></td>
+                                    <td><code class="code">sendEmailVerification()</code></td>
+                                    <td>Verify user email on sign-up</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <hr>
+                <div class="content" id="step-12">
+                    <h2>Project Conclusion</h2>
+                    <p>Congratulations on building a complete, production-ready Login System using JavaScript and
+                        Firebase Authentication! This
+                        project takes you through the full authentication lifecycle — from setting up Firebase and
+                        writing HTML pages to
+                        handling sessions, errors, and redirects — all without a backend server.
+                    </p>
+
+                    <div class="table-container">
+                        <h3>What You Built</h3>
+                        <p>The repository contains five well-structured files, each with a clear responsibility:</p>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>File</th>
+                                    <th>Purpose</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code class="code">index.html</code></td>
+                                    <td>Login page — entry point for returning users</td>
+                                </tr>
+                                <tr>
+                                    <td><code class="code">signup.html</code></td>
+                                    <td>Registration page — new user account creation</td>
+                                </tr>
+                                <tr>
+                                    <td><code class="code">dashboard.html</code></td>
+                                    <td>Protected page — accessible only after login</td>
+                                </tr>
+                                <tr>
+                                    <td><code class="code">app.js</code></td>
+                                    <td>Core logic — Firebase init, auth functions, session handling</td>
+                                </tr>
+                                <tr>
+                                    <td><code class="code">style.css</code></td>
+                                    <td>Styling — consistent UI across all pages</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="list">
+                        <h4>Key Skills You Gained</h4>
+                        <p>By completing this project, you have hands-on experience with:</p>
+                        <ul>
+                            <li>Integrating Firebase Authentication into a vanilla JavaScript web app.</li>
+                            <li>Using <code class="code">createUserWithEmailAndPassword()</code> and <code
+                                    class="code">signInWithEmailAndPassword()</code> for user
+                                management.</li>
+                            <li>Persisting login sessions across page reloads with <code
+                                    class="code">onAuthStateChanged()</code>.</li>
+                            <li>Implementing route protection — redirecting unauthenticated users away from protected
+                                pages.</li>
+                            <li>Writing a reusable <code class="code">handleAuthError()</code> function for clean,
+                                user-friendly error messages.
+                            </li>
+                            <li>Structuring a multi-page web project with GitHub-ready folder organization.</li>
+                        </ul>
+                    </div>
+                    <div class="action-buttons">
+                        <!-- <a href="space_shooter_demo.html" target="_blank" class="action-button live-preview"><i
+                                                    class="fas fa-gamepad"></i>Play Demo</a> -->
+                        <a href="https://github.com/kumaradoss16/Web-Projects/tree/main/Login%20System"
+                            download="space_shooter_game.py" class="action-button source-code">
+                            <i class="fab fa-github"></i>Source Code</a>
+                        <a onclick="downloadProject()" class="action-button download" target="_blank" rel="noopener">
+                            <i class="fa-solid fa-download"></i> Download
+                        </a>
+                    </div>
+                    <h4>What You Can Add Next?</h4>
+                    <div class="list">
+                        <p>This project is a strong foundation. Consider these enhancements to take it further:</p>
+                        <ul>
+                            <li><strong>Google / GitHub OAuth</strong> ⟶ Add social login using <code
+                                    class="code">signInWithPopup()</code> for
+                                one-click login.</li>
+                            <li><strong>Email Verification</strong> ⟶ Call <code
+                                    class="code">user.sendEmailVerification()</code> after sign-up to
+                                verify user emails.</li>
+                            <li><strong>Password Reset</strong> ⟶ Add a "Forgot Password" link using
+                                <code class="code">sendPasswordResetEmail()</code>.
+                            </li>
+                            <li><strong>Firestore Integration</strong> ⟶ Store user profile data (name, avatar, role) in
+                                Firebase Firestore.</li>
+                            <li><strong>Toast Notifications</strong> ⟶ Replace <code class="code">alert()</code> with a
+                                toast library like
+                                Toastify for a polished UX.</li>
+                            <li><strong>Deploy to Firebase Hosting</strong> ⟶ Host the project live for free using
+                                firebase deploy.</li>
+                        </ul>
+                    </div>
+                    <p><strong>🔗 GitHub Repository:</strong> <a
+                            href="https://github.com/kumaradoss16/Web-Projects/tree/main/Login%20System"
+                            class="link">login-system-using-javascript-&-firebase</a> — Star ⭐ the repo
+                        to keep it accessible and showcase it
+                        in your portfolio.</p>
+                </div>
+                <h3>Frequently Asked Questions (FAQ)</h3>
+                <p><strong>Q1: Is Firebase Authentication free?</strong></p>
+                <p>Yes. Firebase's Spark (free) plan supports up to 10,000 monthly active users with Email/Password
+                    auth.</p>
+                <p><strong>Q2: Can I use this with React?</strong></p>
+                <p>Absolutely. Replace DOM selectors with <code class="code">useState/useEffect</code> hooks and call
+                    the same Firebase methods
+                    inside your
+                    components.</p>
+                <p><strong>Q3: Is my API key safe to expose in the frontend?</strong></p>
+                <p>The Firebase API key is safe to include in frontend code — it only identifies your project. Protect
+                    your data using
+                    Firebase Security Rules in the console.</p>
+                <p><strong>Q4: What version of Firebase SDK is this tutorial using?</strong></p>
+                <p>This tutorial uses Firebase v10 (Modular SDK), which uses tree-shakable ES module imports for better
+                    performance.</p>
+                <div class="pro-tip">
+                    <p>✅ You now have a fully working login and registration system powered by Firebase Authentication.
+                        The same logic applies
+                        directly to React — just swap document.getElementById with React state and you're good to go!
+                    </p>
+                </div>
+            </section>
+
+            <!-- My Other Projects  -->
+            <section id="other-work-section" class="other-work-section">
+                <h2 style="margin-top: 20px;">Other Projects</h2>
+                <div class="project-grid">
+                    <div class="project-card">
+                        <img src="../../Python/shooter-game/images/space-shooter-game-python-pygame-tutorial.webp"
+                            alt="Space Shooter Game Python Pygame Tutorial" loading="lazy" decoding="async"
+                            fetchpriority="auto">
+                        <div class="project-card-content">
+                            <h4>Shooter Game</h4>
+                            <p>This is a beginner-friendly guide for building a Space Shooter game with Python and
+                                Pygame, covering coding concepts and
+                                project structure.</p>
+                            <div class="project-tags">
+                                <span class="project-tag">Python</span>
+                                <span class="project-tag">Pygame</span>
+                            </div>
+                            <a href="../../Python/shooter-game/space-shooter-game-python-pygame-tutorial.html"
+                                title="Space Shooter Game Python Pygame Tutorial" class="view-project-button">View
+                                Project
+                                <span>&rarr;</span></a>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <img src="../../Python/atm-management-system/images/atm-management-system-python-cli-interface.webp"
+                            alt="ATM Management System Python Tutorial" loading="lazy" decoding="async"
+                            fetchpriority="auto">
+                        <div class="project-card-content">
+                            <h4>ATM Management System</h4>
+                            <p>This Python application implements a multi-user ATM system with SQLite-backed
+                                persistence,
+                                featuring account management, financial transactions, and administrative controls.</p>
+                            <div class="project-tags">
+                                <span class="project-tag">Python</span>
+                                <span class="project-tag">SQLite</span>
+                            </div>
+                            <a href="../../Python/atm-management-system/atm-management-system-python-sqlite-tutorial.html"
+                                title="ATM Management System Python Tutorial" class="view-project-button">View Project
+                                <span>&rarr;</span></a>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <img src="../../Web/weather-app/images/weather-app-html-css-javascript-tutorial.webp"
+                            alt="Weather App HTML CSS JavaScript Tutorial" loading="lazy" decoding="async"
+                            fetchpriority="auto">
+                        <div class="project-card-content">
+                            <h4>Weather App</h4>
+                            <p>Responsive weather app with real-time API data, feature comparison, and intuitive design
+                                for global city forecasts.</p>
+                            <div class="project-tags">
+                                <span class="project-tag">HTML</span>
+                                <span class="project-tag">CSS</span>
+                                <span class="project-tag">JavaScript</span>
+                            </div>
+                            <a href="../../Web/weather-app/weather-app-html-css-javascript-tutorial.html"
+                                title="Weather App HTML CSS JavaScript Tutorial" class="view-project-button">View
+                                Project
+                                <span>&rarr;</span></a>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <img src="../../Web/team-card-app/images/cricket-team-card-app.webp"
+                            alt="Team Card App HTML CSS JavaScript Tutorial" loading="lazy" decoding="async"
+                            fetchpriority="auto">
+                        <div class="project-card-content">
+                            <h4>Team Card App</h3>
+                                <p>Interactive team card application for cricket, featuring dynamic team selection,
+                                    player
+                                    filters, and customizable
+                                    light/dark themes.</p>
+                                <div class="project-tags">
+                                    <span class="project-tag">HTML</span>
+                                    <span class="project-tag">CSS</span>
+                                    <span class="project-tag">JavaScript</span>
+                                </div>
+                                <a href="../../Web/team-card-app/cricket-team-card-app-html-css-javascript-tutorial.html"
+                                    title="Team Card App HTML CSS JavaScript Tutorial" class="view-project-button">View
+                                    Project
+                                    <span>&rarr;</span></a>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <img src="../../C++/password-strength-checker/images/password-strength-checker.webp"
+                            alt="Password Strength Checker C++ Tutorial" loading="lazy" decoding="async"
+                            fetchpriority="auto">
+                        <div class="project-card-content">
+                            <h4>Password Strength Checker</h4>
+                            <p>Multi-Password Batch Strength Checker (C++), designed to check multiple passwords at
+                                once, show
+                                individual strength, and
+                                provide a summary report.</p>
+                            <div class="project-tags">
+                                <span class="project-tag">C++</span>
+                            </div>
+                            <a href="../../C++//password-strength-checker/password-strength-checker-cpp-tutorial-guide.html"
+                                title="Password Strength Checker C++ Tutorial" class="view-project-button">View
+                                Project
+                                <span>&rarr;</span></a>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <img src="../../C/vpn-connectivity-verification-cpp/images/vpn-tool-before-connection-terminal-output.webp"
+                            alt="VPN Connectivity verification in C Tutorial" loading="lazy" decoding="async"
+                            fetchpriority="auto">
+                        <div class="project-card-content">
+                            <h4>VPN Connectivity verification in C</h4>
+                            <p>Efficient C program to verify VPN status, routing, and DNS configurations through
+                                comprehensive public IP and network
+                                adapter analysis.</p>
+                            <div class="project-tags">
+                                <span class="project-tag">C</span>
+                            </div>
+                            <a href="../../C/vpn-connectivity-verification-cpp/build-vpn-verification-tool-c-tutorial.html"
+                                title="VPN Connectivity verification in C Tutorial" class="view-project-button">View
+                                Project
+                                <span>&rarr;</span></a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Right Side  -->
+        <aside class="right-column">
+            <div class="about-website moving-border">
+                <h3>About Website</h3>
+                <p><a class="homepage typewriter-scan" href="../../../../index.html"><strong>DevspireHub</strong></a>
+                    is a
+                    beginner-friendly learning
+                    platform offering
+                    step-by-step tutorials in
+                    programming, ethical hacking,
+                    networking, automation, cloud and Windows setup. Learn through hands-on projects, clear
+                    explanations, and
+                    real-world examples
+                    using practical tools and open-source resources—no signups, no tracking, just actionable knowledge
+                    to accelerate your
+                    technical skills.
+                </p>
+            </div>
+            <script async
+                src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2368356039533778"
+                crossorigin="anonymous"></script>
+            <!-- sidebar ads -->
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2368356039533778"
+                data-ad-slot="5621407319" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+
+            <div class="color-palette">
+                <div>
+                    <h3>Color Space</h3>
+                    <p>Discover Perfect Palettes</p>
+                </div>
+                <div class="palette-grid">
+                    <div class="palette-card">
+                        <!-- Color bars (set your palette colors here) -->
+                        <div class="color-wave colors-5">
+                            <div class="wave-bar" style="background:#F2C447" data-color="#F2C447"></div>
+                            <div class="wave-bar" style="background:#F76218" data-color="#F76218"></div>
+                            <div class="wave-bar" style="background:#FF1D68" data-color="#FF1D68"></div>
+                            <div class="wave-bar" style="background:#B10065" data-color="#B10065"></div>
+                            <div class="wave-bar" style="background:#740580" data-color="#740580"></div>
+                        </div>
+
+                        <div class="card-info">
+                            <div class="card-title">Sample Palette</div>
+                        </div>
+                    </div>
+                    <div class="button">
+                        <a href="../../../../color-palettes/index.html" class="color-button">Go To Color Space Home
+                            Page</a>
+                    </div>
+                </div>
+            </div>
+            <div class="wallpaper">
+                <div>
+                    <h3>Featured Wallpapers (For desktop)</h3>
+                    <p>Download for FREE!</p>
+                </div>
+                <div class="image-grid">
+                    <div class="image-card">
+                        <img src="../../../../Wallpaper/images_upscale/wallpaper (1).png" alt="Wallpaper 1">
+                    </div>
+                    <div class="image-card">
+                        <img src="../../../../Wallpaper/images_upscale/wallpaper (23).png" alt="Wallpaper 23">
+                    </div>
+                    <div class="image-card">
+                        <img src="../../../../Wallpaper/images_upscale/wallpaper (46).png" alt="Wallpaper 46">
+                    </div>
+                    <div class="image-card">
+                        <img src="../../../../Wallpaper/images_upscale/wallpaper (81).png" alt="Wallpaper 81">
+                    </div>
+                    <div class="image-card">
+                        <img src="../../../../Wallpaper/images_upscale/wallpaper (111).png" alt="Wallpaper 111">
+                    </div>
+                    <div class="image-card">
+                        <img src="../../../../Wallpaper/images_upscale/wallpaper (116).png" alt="Wallpaper 116">
+                    </div>
+                </div>
+                <div class="button">
+                    <a href="../../../../Wallpaper/index.html" class="wallpaper-button">Go To Wallpaper Home
+                        Page</a>
+                </div>
+            </div>
+
+            <!-- Open Source Tools Directory -->
+            <div class="related-topics">
+                <div class="header">
+                    <h3>Open-Source Tools Directory</h3>
+                    <p><strong>Complete spectrum of open-source software in Github</strong>
+                    </p>
+                </div>
+                <div class="content">
+                    <ul>
+                        <li><i class="fas fa-code"></i><a
+                                href="../../../../Resources/tools-directory/index.html#category-2"
+                                class="link">Programming</a></li>
+                        <li><i class="fas fa-globe"></i><a
+                                href="../../../../Resources/tools-directory/index.html#category-3" class="link">Web
+                                Development</a></li>
+                        <li><i class="fas fa-network-wired"></i><a
+                                href="../../../../Resources/tools-directory/index.html#category-4"
+                                class="link">Networking</a></li>
+                        <li><i class="fas fa-shield-alt"></i><a
+                                href="../../../../Resources/tools-directory/index.html#category-5" class="link">Ethical
+                                Hacking</a></li>
+                        <li><i class="fas fa-microchip"></i><a
+                                href="../../../../Resources/tools-directory/index.html#category-6"
+                                class="link">Hardware</a>
+                        </li>
+                        <li><i class="fas fa-tasks"></i><a
+                                href="../../../../Resources/tools-directory/index.html#category-7"
+                                class="link">Productivity</a></li>
+                    </ul>
+                </div>
+                <div class="button-container">
+                    <div class="btn-cyber">
+                        <span class="btn-bg"></span>
+                        <span class="btn-border"></span>
+                        <span class="btn-text">
+                            <a href="../../../../Resources/digital-resources/digital-resources-hub.html"
+                                class="related-button">
+                                Open-Source
+                                Tools</a> <span class="blink">_</span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <script async
+                src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2368356039533778"
+                crossorigin="anonymous"></script>
+            <!-- sidebar ads -->
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2368356039533778"
+                data-ad-slot="5621407319" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+
+            <script async
+                src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2368356039533778"
+                crossorigin="anonymous"></script>
+            <!-- sidebar ads -->
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2368356039533778"
+                data-ad-slot="5621407319" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </aside>
+        <button id="scrollUpBtn" aria-label="Scroll to top">
+            <svg class="progress-circle" viewBox="0 0 36 36">
+                <path class="bg" d="M18 2.0845
+                  a 15.9155 15.9155 0 0 1 0 31.831
+                  a 15.9155 15.9155 0 0 1 0 -31.831" />
+                <path class="progress" d="M18 2.0845
+                  a 15.9155 15.9155 0 0 1 0 31.831
+                  a 15.9155 15.9155 0 0 1 0 -31.831" />
+                <span class="arrow-overlay">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 19V5M5 12L12 5L19 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                </span>
+            </svg>
+        </button>
+    </div>
+    <!--Footer  -->
+    <footer class="footer">
+        <ul class="menu">
+            <li class="menu-item"><a class="menu-link" href="../../../../index.html">Home</a></li>
+            <li class="menu-item"><a class="menu-link" href="../../../../Wallpaper/index.html">Wallpapers</a></li>
+            <li class="menu-item"><a class="menu-link" href="../../../../color-palettes/index.html">Color Space</a></li>
+            <li class="menu-item"><a class="menu-link"
+                    href="../../../../Resources/digital-resources/digital-resources-hub.html">Resources</a></li>
+            <li class="menu-item"><a class="menu-link" href="../../../../Website/about/about.html">About</a></li>
+            <li class="menu-item"><a class="menu-link" href="../../../../Website/contact/index.html">Contact</a></li>
+            <li class="menu-item"><a class="menu-link" href="../../../../Website/privacy/index.html">Privacy policy</a>
+            </li>
+        </ul>
+        <div class="contacts">
+            <a class="contact github" href="https://github.com/kumaradoss16" target="_blank"><i
+                    class="fa-brands fa-github"></i></a>
+            <a class="contact instagram" href="https://www.instagram.com/devspirehub/" target="_blank"><i
+                    class="fa-brands fa-instagram"></i></a>
+            <a class="contact linkedin" href="https://www.linkedin.com/in/kumaradoss-s/" target="_blank"><i
+                    class="fa-brands fa-linkedin"></i></a>
+            <a class="contact pinterest" href="https://pin.it/1AfU80D2E" target="_blank"><i
+                    class="fa-brands fa-pinterest"></i></a>
+            <a class="contact gmail" href="https://mail.google.com/mail/?view=cm&fs=1&to=devspirehub.website@gmail.com"
+                aria-label="Email us at devspirehub.website@gmail.com" title="Send us an email" target="_blank"
+                rel="noopener noreferrer">
+                <i class="fa-solid fa-envelope"></i>
+            </a>
+        </div>
+        <p>&copy;2026 DevspireHub | All Rights Reserved</p>
+    </footer>
+
+    <script src="../../Prism/prism.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
