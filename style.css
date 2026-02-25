@@ -458,6 +458,41 @@ body {
     max-height: 450px;
 }
 
+.recent {
+    background: #3a85ff6b;
+    border: 1px solid #3A86FF;
+    cursor: pointer;
+    display: inline-block;
+    padding: 5px 20px;
+    border-radius: 15px;
+}
+
+.recent a {
+    color: #f0f0f0;
+    text-underline-offset: 5px;
+}
+
+/* Glowing box shadow */
+.recent {
+  box-shadow:
+    0 0 10px rgba(255, 255, 255, 0.35),
+    0 0 25px rgba(0, 64, 255, 0.55),
+    0 0 60px rgba(0, 110, 255, 0.35);
+}
+
+/* Stronger glow on hover (optional) */
+.recent:hover {
+  box-shadow:
+    0 0 14px rgba(255, 255, 255, 0.45),
+    0 0 35px rgba(0, 106, 255, 0.75),
+    0 0 90px rgba(0, 106, 255, 0.55);
+  transition: box-shadow 0.25s ease;
+}
+
+.recent a:hover {
+    color: var(--accent-cyan);
+}
+
 /* Welcome Section  */
 .welcome-section {
     background-color: var(--dark-blue);
@@ -734,6 +769,7 @@ body {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    gap: 5px;
     justify-content: space-evenly;
     align-items: center;
 }
@@ -991,6 +1027,11 @@ body {
 .tech-tag.networking {
     color: var(--color-blue);
     background-color: #202026;
+}
+
+.tech-tag.firebase {
+    color: #FB5607;
+    background-color: #fb540729;
 }
 
 .language-tags .language-tag.c {
