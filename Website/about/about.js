@@ -37,6 +37,46 @@ document.addEventListener("DOMContentLoaded", () => {
         typeLoop();
     })();
 
+    // --- Navbar Functionality ---
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+
+    if (menuToggle && navLinks) {
+        // REFACTOR: Create a single function to control the menu state (open/closed)
+        const setMenuState = (isOpen) => {
+            const icon = menuToggle.querySelector('i');
+            if (isOpen) {
+                navLinks.classList.add('active');
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                navLinks.classList.remove('active');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        };
+
+        // 1. Handle clicks on the menu toggle button
+        menuToggle.addEventListener('click', () => {
+            // Toggle based on the current state
+            const isActive = navLinks.classList.contains('active');
+            setMenuState(!isActive);
+        });
+
+        // 2. Handle clicks outside the menu to close it
+        document.addEventListener('click', (event) => {
+            const isClickInsideMenu = navLinks.contains(event.target);
+            const isClickOnToggle = menuToggle.contains(event.target);
+
+            // Only close if it's currently open and the click is outside
+            if (!isClickInsideMenu && !isClickOnToggle && navLinks.classList.contains('active')) {
+                setMenuState(false); // Explicitly close the menu
+            }
+        });
+    } else {
+        console.warn("Menu toggle or nav links not found. Mobile menu functionality will not work.");
+    }
+
     // --- Scroll to top with progress indicator ---
     const scrollBtn = document.getElementById("scrollUpBtn");
     if (scrollBtn) {
