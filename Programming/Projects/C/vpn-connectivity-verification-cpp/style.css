@@ -2993,3 +2993,33 @@ svg {
   100% { background-position: -200% 0; }
 }
 
+.promo {
+    border: 2px dashed var(--color-purple);
+    padding: 20px;
+    background: #8c00ff44;
+    margin: 10px 0;
+}
+
+.promo .banner-link {
+    text-decoration: none;
+    cursor: pointer;
+    color: #f0f0f0;
+}
+
+.promo .banner-link:hover {
+    color: var(--accent-cyan);
+}
+
+.promo img {
+    margin: 20px 0;
+    width: 100%;
+}
+
+.promo .pro-tip {
+    background: var(--dark-blue);
+    padding: 10px;
+    border-left: 5px solid var(--color-navy);
+}
+
+
+
