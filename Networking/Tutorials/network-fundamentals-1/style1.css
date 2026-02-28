@@ -23,6 +23,7 @@
     --color-blue: #1673bd;
     --accent-cyan: #00D9FF;
     --accent-magenta: #FF0080;
+    --transition-speed: 0.3s;
 
     /* Project Showcase specific colors */
     --project-heading-color: #007bff;
