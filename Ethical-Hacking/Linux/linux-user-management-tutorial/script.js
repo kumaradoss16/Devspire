@@ -36,47 +36,6 @@ document.addEventListener("DOMContentLoaded", () => {
         typeLoop();
     })();
 
-    // --- Navbar Functionality ---
-    const menuToggle = document.querySelector('.menu-toggle');
-    const navLinks = document.querySelector('.nav-links');
-
-    if (menuToggle && navLinks) {
-        // REFACTOR: Create a single function to control the menu state (open/closed)
-        const setMenuState = (isOpen) => {
-            const icon = menuToggle.querySelector('i');
-            if (isOpen) {
-                navLinks.classList.add('active');
-                icon.classList.remove('fa-bars');
-                icon.classList.add('fa-times');
-            } else {
-                navLinks.classList.remove('active');
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
-            }
-        };
-
-        // 1. Handle clicks on the menu toggle button
-        menuToggle.addEventListener('click', () => {
-            // Toggle based on the current state
-            const isActive = navLinks.classList.contains('active');
-            setMenuState(!isActive);
-        });
-
-        // 2. Handle clicks outside the menu to close it
-        document.addEventListener('click', (event) => {
-            const isClickInsideMenu = navLinks.contains(event.target);
-            const isClickOnToggle = menuToggle.contains(event.target);
-
-            // Only close if it's currently open and the click is outside
-            if (!isClickInsideMenu && !isClickOnToggle && navLinks.classList.contains('active')) {
-                setMenuState(false); // Explicitly close the menu
-            }
-        });
-    } else {
-        console.warn("Menu toggle or nav links not found. Mobile menu functionality will not work.");
-    }
-
-
     // --- Code Snippet Copy Functionality ---
     const copyTerminalConfigs = [
         { btnId: 'copyCodeBtnC', snippetId: 'codeSnippetC', feedbackId: 'copyFeedbackC' }
@@ -155,6 +114,46 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
+    // --- Navbar Functionality ---
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+
+    if (menuToggle && navLinks) {
+        // REFACTOR: Create a single function to control the menu state (open/closed)
+        const setMenuState = (isOpen) => {
+            const icon = menuToggle.querySelector('i');
+            if (isOpen) {
+                navLinks.classList.add('active');
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                navLinks.classList.remove('active');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        };
+
+        // 1. Handle clicks on the menu toggle button
+        menuToggle.addEventListener('click', () => {
+            // Toggle based on the current state
+            const isActive = navLinks.classList.contains('active');
+            setMenuState(!isActive);
+        });
+
+        // 2. Handle clicks outside the menu to close it
+        document.addEventListener('click', (event) => {
+            const isClickInsideMenu = navLinks.contains(event.target);
+            const isClickOnToggle = menuToggle.contains(event.target);
+
+            // Only close if it's currently open and the click is outside
+            if (!isClickInsideMenu && !isClickOnToggle && navLinks.classList.contains('active')) {
+                setMenuState(false); // Explicitly close the menu
+            }
+        });
+    } else {
+        console.warn("Menu toggle or nav links not found. Mobile menu functionality will not work.");
+    }
+
     // --- Scroll to top with progress indicator ---
     const scrollBtn = document.getElementById("scrollUpBtn");
     if (scrollBtn) {
@@ -203,3 +202,101 @@ function downloadProject(filename = "project.rar", filePath = "Download/project.
     link.click();
     document.body.removeChild(link);
 }
+
+const DEALS_PER_PAGE = 6;
+let dealsPage = 0;
+
+// ── Hardcoded SITE_ROOT — most reliable approach ──────
+// Page location: /Programming/Projects/Web/login-system/page.html
+// Folders deep : 4  →  go up 4 levels = '../../../../'
+const SITE_ROOT  = '../../../../';
+const JSON_PATH  = SITE_ROOT + 'amazon-links.json';
+const IMG_FOLDER = SITE_ROOT + 'images/products/';
+
+// ── Confirm paths in console (remove after testing) ───
+console.log('✅ JSON_PATH :', JSON_PATH);
+console.log('✅ IMG_FOLDER:', IMG_FOLDER);
+
+// ── Fetch products from root amazon-links.json ────────
+function loadDeals() {
+  const grid = document.getElementById('dealsGrid');
+  if (!grid) return;
+
+  fetch(JSON_PATH)
+    .then(res => {
+      if (!res.ok) throw new Error('HTTP ' + res.status + ' → ' + JSON_PATH);
+      return res.json();
+    })
+    .then(data => renderDeals(data.products))
+    .catch(err => {
+      console.error('❌ Deals load failed:', err.message);
+      const grid = document.getElementById('dealsGrid');
+      if (grid) grid.innerHTML = `
+        <p style="color:#aaa;font-size:13px;padding:10px;">
+          Deals unavailable. Please try again later.
+        </p>`;
+    });
+}
+
+// ── Build deal cards from JSON ────────────────────────
+function renderDeals(products) {
+  const grid = document.getElementById('dealsGrid');
+  if (!grid) return;
+
+  grid.innerHTML = products.map((prod, i) => `
+    <a href="${prod.link}"
+       target="_blank"
+       rel="nofollow sponsored"
+       class="deal-card"
+       data-id="${prod.id}"
+       style="display:none"
+       aria-label="Buy ${prod.name.replace(/<br>/g, '')} on Amazon">
+      <span class="deal-badge">${prod.badge}</span>
+      <div class="deal-img-wrap">
+        <img
+          src="${IMG_FOLDER}${prod.image}"
+          alt="${prod.name.replace(/<br>/g, ' ')}"
+          loading="lazy"
+          onerror="this.src='${IMG_FOLDER}placeholder.webp'; this.onerror=null;"
+        />
+      </div>
+      <p class="deal-label">${prod.name}</p>
+    </a>
+  `).join('');
+
+  showDealsPage(0);
+}
+
+// ── Show 6 cards per page ─────────────────────────────
+function showDealsPage(page) {
+  const cards = document.querySelectorAll('#dealsGrid .deal-card');
+  if (!cards.length) return;
+
+  const totalPages = Math.ceil(cards.length / DEALS_PER_PAGE);
+  if (page < 0) page = totalPages - 1;
+  if (page >= totalPages) page = 0;
+  dealsPage = page;
+
+  const start = dealsPage * DEALS_PER_PAGE;
+  const end   = start + DEALS_PER_PAGE;
+
+  cards.forEach((card, i) => {
+    card.style.display = (i >= start && i < end) ? 'flex' : 'none';
+  });
+
+  const indicator = document.getElementById('dealsPageIndicator');
+  if (indicator) indicator.textContent = `${dealsPage + 1} / ${totalPages}`;
+
+  const prev = document.querySelector('.deal-arrow-btn[aria-label="Previous"]');
+  const next = document.querySelector('.deal-arrow-btn[aria-label="Next"]');
+  if (prev) prev.style.opacity = dealsPage === 0 ? '0.4' : '1';
+  if (next) next.style.opacity = dealsPage === totalPages - 1 ? '0.4' : '1';
+}
+
+// ── Arrow buttons ─────────────────────────────────────
+function scrollDeals(dir) {
+  showDealsPage(dealsPage + dir);
+}
+
+// ── Run on page load ──────────────────────────────────
+document.addEventListener('DOMContentLoaded', loadDeals);

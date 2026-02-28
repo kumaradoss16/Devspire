@@ -47,26 +47,346 @@
 
     <!-- ✅ SEO: Fixed Organization Schema (corrected logo URL + trailing comma) -->
     <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "DevspireHub",
+            "url": "https://devspirehub.com/",
+            "logo": "https://devspirehub.com/images/icon.webp",
+            "description": "DevspireHub - Programming, Projects, Ethical Hacking, Networking, Cloud & AI",
+            "founder": [
             {
-                "@context": "https://schema.org",
-                "@type": "Organization",
-                "name": "DevspireHub",
-                "url": "https://devspirehub.com/",
-                "logo": "https://devspirehub.com/images/icon.webp",
-                "description": "DevSpireHub - Programming, Projects, Ethical Hacking, Networking, Cloud & AI",
-                "founder": [
-                {
-                    "@type": "Person",
-                    "name": "Kumaradoss",
-                    "url": "https://www.linkedin.com/in/kumaradoss-s/"
-                }
-                ],
-                "sameAs": [
-                "https://www.linkedin.com/in/kumaradoss-s/",
-                "https://github.com/kumaradoss16"
-                ]
+                "@type": "Person",
+                "name": "Kumaradoss",
+                "url": "https://www.linkedin.com/in/kumaradoss-s/"
             }
-        </script>
+            ],
+            "sameAs": [
+            "https://www.linkedin.com/in/kumaradoss-s/",
+            "https://github.com/kumaradoss16"
+            ]
+        }
+    </script>
+
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@graph": [
+                {
+                "@type": "Course",
+                "@id": "https://devspirehub.com/Ethical-Hacking/series/linux-tutorial-series/#course",
+                "name": "Linux Tutorial Series for Ethical Hacking",
+                "description": "A complete, structured Linux tutorial series for ethical hacking and penetration testing — covering Linux file system navigation, user management and RBAC, server setup and hardening, SSH configuration, UFW firewall, privilege escalation prevention, SUID/SGID analysis, PAM authentication, and advanced access control. Designed progressively from beginner to advanced for cybersecurity students and IT professionals.",
+                "url": "https://devspirehub.com/Ethical-Hacking/series/linux-tutorial-series/",
+                "inLanguage": "en-IN",
+                "isAccessibleForFree": true,
+                "educationalLevel": "Beginner to Advanced",
+                "numberOfCredits": 0,
+                "courseCode": "DSH-LNX-01",
+                "about": [
+                    {
+                    "@type": "Thing",
+                    "name": "Linux Operating System",
+                    "sameAs": "https://en.wikipedia.org/wiki/Linux"
+                    },
+                    {
+                    "@type": "Thing",
+                    "name": "Ethical Hacking",
+                    "sameAs": "https://en.wikipedia.org/wiki/White-hat_hacker"
+                    },
+                    {
+                    "@type": "Thing",
+                    "name": "Penetration Testing",
+                    "sameAs": "https://en.wikipedia.org/wiki/Penetration_test"
+                    },
+                    {
+                    "@type": "Thing",
+                    "name": "Kali Linux",
+                    "sameAs": "https://en.wikipedia.org/wiki/Kali_Linux"
+                    },
+                    {
+                    "@type": "Thing",
+                    "name": "Linux System Administration",
+                    "sameAs": "https://en.wikipedia.org/wiki/System_administrator"
+                    }
+                ],
+                "keywords": [
+                    "Linux Tutorial Series",
+                    "Linux for Ethical Hacking",
+                    "Kali Linux Tutorial",
+                    "Linux Penetration Testing",
+                    "Linux File Navigation",
+                    "Linux User Management",
+                    "Linux Server Setup",
+                    "Linux SSH Hardening",
+                    "Linux UFW Firewall",
+                    "Linux Privilege Escalation",
+                    "Linux Security Tutorial",
+                    "Ethical Hacking Course",
+                    "Linux Beginner Course",
+                    "Linux System Administration",
+                    "DevSpireHub Linux Series"
+                ],
+                "image": {
+                    "@type": "ImageObject",
+                    "url": "https://devspirehub.com/Ethical-Hacking/series/linux-tutorial-series/og-image.png",
+                    "width": 1200,
+                    "height": 630
+                },
+                "provider": {
+                    "@type": "Organization",
+                    "name": "DevspireHub",
+                    "url": "https://devspirehub.com"
+                },
+                "publisher": {
+                    "@type": "Organization",
+                    "name": "DevspireHub",
+                    "url": "https://devspirehub.com",
+                    "logo": {
+                    "@type": "ImageObject",
+                    "url": "https://devspirehub.com/assets/logo.png",
+                    "width": 200,
+                    "height": 60
+                    }
+                },
+                "author": {
+                    "@type": "Organization",
+                    "name": "DevspireHub",
+                    "url": "https://devspirehub.com"
+                },
+                "audience": {
+                    "@type": "EducationalAudience",
+                    "educationalRole": "student",
+                    "audienceType": "Ethical Hacking Students, Penetration Testers, Cybersecurity Professionals, Linux Beginners, IT Students, DevOps Engineers, System Administrators"
+                },
+                "hasCourseInstance": {
+                    "@type": "CourseInstance",
+                    "courseMode": "online",
+                    "courseWorkload": "PT30H",
+                    "inLanguage": "en-IN",
+                    "isAccessibleForFree": true,
+                    "url": "https://devspirehub.com/Ethical-Hacking/series/linux-tutorial-series/"
+                },
+                "syllabusSections": [
+                    {
+                    "@type": "Syllabus",
+                    "name": "Module 1 — Linux File System Navigation",
+                    "description": "Master Linux terminal navigation with pwd, ls, cd, mkdir, cp, mv, rm, find, chmod, chown and understand the Linux Filesystem Hierarchy Standard.",
+                    "url": "https://devspirehub.com/Ethical-Hacking/Linux/linux-master-file-navigation-tutorial/"
+                    },
+                    {
+                    "@type": "Syllabus",
+                    "name": "Module 2 — Linux Server Setup & Hardening",
+                    "description": "Set up a Linux server from scratch — SSH installation and hardening, UFW firewall configuration, Apache web server setup, fail2ban intrusion prevention, and server security best practices.",
+                    "url": "https://devspirehub.com/Ethical-Hacking/Linux/linux-server-setup/"
+                    },
+                    {
+                    "@type": "Syllabus",
+                    "name": "Module 3 — Linux User Management: Security & Groups",
+                    "description": "Comprehensive user management covering /etc/passwd, /etc/shadow, /etc/group analysis, useradd, usermod, userdel, chage password policies, PAM authentication, RBAC group management, sudo hardening, SUID/SGID auditing, and SSH authentication hardening.",
+                    "url": "https://devspirehub.com/Ethical-Hacking/Linux/linux-user-management-tutorial/"
+                    }
+                ],
+                "teaches": [
+                    "Linux Filesystem Hierarchy Standard (FHS)",
+                    "Core Linux navigation commands: pwd, ls, cd, mkdir, find, chmod, chown",
+                    "Linux server setup with SSH, Apache, and UFW firewall",
+                    "SSH hardening and key-based authentication",
+                    "UFW firewall rule configuration and default policies",
+                    "fail2ban brute-force protection",
+                    "Linux user account management with useradd, usermod, userdel",
+                    "Password aging policies with chage and /etc/login.defs",
+                    "Advanced password complexity with PAM (libpam-pwquality)",
+                    "Role-Based Access Control (RBAC) with Linux groups",
+                    "SUID, SGID, and Sticky Bit — understanding and auditing",
+                    "Sudo hardening with visudo and /etc/sudoers.d/",
+                    "SUID/SGID baseline creation and intrusion detection",
+                    "User activity monitoring and forensic log analysis",
+                    "Advanced ACL access control"
+                ],
+                "coursePrerequisites": "Basic understanding of computers and operating systems. No prior Linux experience required for Module 1."
+                },
+                {
+                "@type": "ItemList",
+                "@id": "https://devspirehub.com/Ethical-Hacking/series/linux-tutorial-series/#itemlist",
+                "name": "Linux Tutorial Series — All Modules",
+                "description": "Complete ordered list of tutorials in the DevSpireHub Linux for Ethical Hacking series.",
+                "url": "https://devspirehub.com/Ethical-Hacking/series/linux-tutorial-series/",
+                "numberOfItems": 3,
+                "itemListOrder": "https://schema.org/ItemListOrderAscending",
+                "itemListElement": [
+                    {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "Linux Master File Navigation Tutorial",
+                    "url": "https://devspirehub.com/Ethical-Hacking/Linux/linux-master-file-navigation-tutorial/",
+                    "item": {
+                        "@type": "LearningResource",
+                        "name": "Linux Master File Navigation Tutorial",
+                        "url": "https://devspirehub.com/Ethical-Hacking/Linux/linux-master-file-navigation-tutorial/",
+                        "description": "Master Linux file system navigation — pwd, ls, cd, mkdir, cp, mv, rm, find, chmod, chown — with hands-on examples for ethical hacking and penetration testing beginners.",
+                        "educationalLevel": "Beginner",
+                        "timeRequired": "PT50M",
+                        "isAccessibleForFree": true,
+                        "learningResourceType": "Tutorial"
+                    }
+                    },
+                    {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "Linux Server Setup Tutorial",
+                    "url": "https://devspirehub.com/Ethical-Hacking/Linux/linux-server-setup/",
+                    "item": {
+                        "@type": "LearningResource",
+                        "name": "Linux Server Setup Tutorial",
+                        "url": "https://devspirehub.com/Ethical-Hacking/Linux/linux-server-setup/",
+                        "description": "Step-by-step Linux server setup covering SSH hardening, UFW firewall rules, Apache web server installation, fail2ban intrusion prevention, and server security best practices.",
+                        "educationalLevel": "Beginner",
+                        "timeRequired": "PT60M",
+                        "isAccessibleForFree": true,
+                        "learningResourceType": "Tutorial"
+                    }
+                    },
+                    {
+                    "@type": "ListItem",
+                    "position": 3,
+                    "name": "Linux User Management Guide: Security & Groups Tutorial",
+                    "url": "https://devspirehub.com/Ethical-Hacking/Linux/linux-user-management-tutorial/",
+                    "item": {
+                        "@type": "LearningResource",
+                        "name": "Linux User Management Guide: Security & Groups Tutorial",
+                        "url": "https://devspirehub.com/Ethical-Hacking/Linux/linux-user-management-tutorial/",
+                        "description": "Complete Linux user management covering useradd, usermod, chage, PAM password policies, RBAC group management, sudo hardening, SUID/SGID auditing, and SSH hardening.",
+                        "educationalLevel": "Beginner+",
+                        "timeRequired": "PT10H",
+                        "isAccessibleForFree": true,
+                        "learningResourceType": "Tutorial"
+                    }
+                    }
+                ]
+                },
+                {
+                "@type": "FAQPage",
+                "@id": "https://devspirehub.com/Ethical-Hacking/series/linux-tutorial-series/#faq",
+                "mainEntity": [
+                    {
+                    "@type": "Question",
+                    "name": "What does the DevSpireHub Linux Tutorial Series cover?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "The DevSpireHub Linux Tutorial Series is a structured course for ethical hacking and penetration testing beginners. It covers Linux file system navigation (pwd, ls, cd, chmod, find), Linux server setup (SSH, UFW firewall, Apache, fail2ban), and comprehensive Linux user management (useradd, chage, PAM, RBAC, sudo hardening, SUID/SGID auditing). All tutorials are free, hands-on, and include real terminal commands."
+                    }
+                    },
+                    {
+                    "@type": "Question",
+                    "name": "Is this Linux tutorial series suitable for complete beginners?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Yes. The series starts with Module 1 (File Navigation) which assumes zero prior Linux knowledge. Each module builds on the previous one progressively. By the end of Module 3 (User Management), you will have practical skills in Linux security administration suitable for ethical hacking labs and penetration testing environments."
+                    }
+                    },
+                    {
+                    "@type": "Question",
+                    "name": "What Linux distribution is used in this tutorial series?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "The tutorials primarily use Kali Linux and Ubuntu, which are the most widely used distributions in ethical hacking and cybersecurity. All commands are compatible with Debian-based distributions. You can follow along using a VirtualBox or VMware virtual machine, a VPS, or a dedicated system."
+                    }
+                    },
+                    {
+                    "@type": "Question",
+                    "name": "How long does it take to complete the Linux Tutorial Series?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "The total estimated time to complete all three modules is approximately 30 hours of study and hands-on practice. Module 1 (File Navigation) takes about 50 minutes, Module 2 (Server Setup) takes about 1 hour, and Module 3 (User Management) takes approximately 10 hours due to its depth covering PAM, RBAC, sudo hardening, and SUID/SGID security analysis."
+                    }
+                    },
+                    {
+                    "@type": "Question",
+                    "name": "Is the Linux Tutorial Series free?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Yes. All tutorials in the DevSpireHub Linux Tutorial Series are completely free and accessible without any registration or login. Each module is a standalone web page with full command-line examples, explanations, and practical exercises."
+                    }
+                    }
+                ]
+                },
+                {
+                "@type": "BreadcrumbList",
+                "@id": "https://devspirehub.com/Ethical-Hacking/series/linux-tutorial-series/#breadcrumb",
+                "itemListElement": [
+                    {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "Home",
+                    "item": "https://devspirehub.com"
+                    },
+                    {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "Ethical Hacking",
+                    "item": "https://devspirehub.com/Ethical-Hacking/"
+                    },
+                    {
+                    "@type": "ListItem",
+                    "position": 3,
+                    "name": "Series",
+                    "item": "https://devspirehub.com/Ethical-Hacking/series/"
+                    },
+                    {
+                    "@type": "ListItem",
+                    "position": 4,
+                    "name": "Linux Tutorial Series",
+                    "item": "https://devspirehub.com/Ethical-Hacking/series/linux-tutorial-series/"
+                    }
+                ]
+                },
+                {
+                "@type": "WebSite",
+                "@id": "https://devspirehub.com/#website",
+                "url": "https://devspirehub.com",
+                "name": "DevspireHub",
+                "description": "DevspireHub — Step-by-step tutorials on Ethical Hacking, Linux, Networking, Web Development, Cloud Computing, and IT Fundamentals.",
+                "inLanguage": "en-IN",
+                "publisher": {
+                    "@type": "Organization",
+                    "name": "DevspireHub",
+                    "url": "https://devspirehub.com"
+                },
+                "potentialAction": {
+                    "@type": "SearchAction",
+                    "target": {
+                    "@type": "EntryPoint",
+                    "urlTemplate": "https://devspirehub.com/?s={search_term_string}"
+                    },
+                    "query-input": "required name=search_term_string"
+                }
+                },
+                {
+                "@type": "WebPage",
+                "@id": "https://devspirehub.com/Ethical-Hacking/series/linux-tutorial-series/#webpage",
+                "url": "https://devspirehub.com/Ethical-Hacking/series/linux-tutorial-series/",
+                "name": "Linux Tutorial Series for Ethical Hacking — DevSpireHub",
+                "description": "Browse the complete Linux Tutorial Series on DevSpireHub — a free, structured course for ethical hacking beginners covering Linux file navigation, server setup, user management, SSH hardening, UFW firewall, and privilege escalation prevention.",
+                "isPartOf": {
+                    "@id": "https://devspirehub.com/#website"
+                },
+                "primaryImageOfPage": {
+                    "@type": "ImageObject",
+                    "url": "https://devspirehub.com/Ethical-Hacking/series/linux-tutorial-series/og-image.png"
+                },
+                "breadcrumb": {
+                    "@id": "https://devspirehub.com/Ethical-Hacking/series/linux-tutorial-series/#breadcrumb"
+                },
+                "inLanguage": "en-IN",
+                "potentialAction": {
+                    "@type": "ReadAction",
+                    "target": "https://devspirehub.com/Ethical-Hacking/series/linux-tutorial-series/"
+                }
+                }
+            ]
+        }
+    </script>
 
     <!-- ✅ SEO: Added Course Schema for the tutorial series -->
     <script type="application/ld+json">
@@ -142,6 +462,31 @@
         }
     </script>
 
+    <script type=application/ld+json>
+        {
+            "@context": "https://schema.org",
+            "@type": "SiteNavigationElement",
+            "name": [
+                "Home",
+                "Projects",
+                "Programming",
+                "Ethical Hacking",
+                "Networking",
+                "Automation",
+                "Resources"
+            ],
+            "url": [
+                "https://devspirehub.com",
+                "https://devspirehub.com/#projects-tutorials-section",
+                "https://devspirehub.com/#programming-tutorials-section",
+                "https://devspirehub.com/#ethical-hacking-section",
+                "https://devspirehub.com/#networking-section",
+                "https://devspirehub.com/#automation-section",
+                "https://devspirehub.com/#info-section",
+            ]
+        }
+    </script>
+
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2368356039533778"
         crossorigin="anonymous"></script>
 
@@ -170,17 +515,31 @@
 <body>
     <amp-auto-ads type="adsense" data-ad-client="ca-pub-2368356039533778">
     </amp-auto-ads>
+    <!-- Header  -->
     <header class="navbar">
         <div class="container">
             <div class="logo">
                 <div class="logo-text">
-                    <img src="../../../images/icon.webp" alt="Gear Icon" width="23" height="23">
+                    <!-- <i class="fas fa-code"></i> -->
+                    <a href="../../../../index.html"><img src="../../../images/icon.webp" alt="Gear Icon" width="23"
+                            height="23"></a>
                     <span id="brand" class="typewriter" data-text="DevspireHub"></span>
                 </div>
+                <button class="menu-toggle" type="button" aria-label="Toggle navigation">
+                    <i class="fas fa-bars"></i>
+                </button>
             </div>
             <nav class="nav-links">
                 <ul>
-                    <li><a href="../../../index.html#hacking-series-grid" class="home">Home</a></li>
+                    <li><a href="../../../index.html" class="home"><i class="fa-solid fa-house"></i></a></li>
+                    <li><a href="../../../index.html#projects-tutorials-section" class="projects">Projects</a></li>
+                    <li><a href="../../../index.html#programming-tutorials-section" class="programming">Programming</a>
+                    </li>
+                    <li><a href="../../../index.html#ethical-hacking-section" class="hacking">Ethical Hacking</a>
+                    </li>
+                    <li><a href="../../../index.html#networking-section" class="networking">Networking</a></li>
+                    <li><a href="../../../index.html#automation-section" class="ai">Automation</a></li>
+                    <li><a href="../../../index.html#info-section" class="game">Resources</a></li>
                 </ul>
             </nav>
         </div>
@@ -283,7 +642,7 @@
         <main class="right-column">
             <div class="about-website moving-border">
                 <h3>About Website</h3>
-                <p>DevspireHub is a beginner-friendly learning platform offering step-by-step tutorials in
+                <p><a class="homepage typewriter-scan" href="../../../../index.html"><strong>DevspireHub</strong></a> is a beginner-friendly learning platform offering step-by-step tutorials in
                     programming, ethical hacking,
                     networking, automation, and Windows setup. Learn through hands-on projects, clear
                     explanations, and
@@ -395,6 +754,31 @@
                     </div>
                 </div>
             </div>
+
+            <section class="deals-section">
+                <div class="deals-header">
+                    <h2>HOT DEALS</h2>
+                    <div class="deals-underline"></div>
+                </div>
+
+                <!-- Cards injected dynamically from amazon-links.json -->
+                <div class="deals-grid" id="dealsGrid">
+                    <div class="deal-skeleton">
+                    </div>
+                    <div class="deal-skeleton"></div>
+                    <div class="deal-skeleton"></div>
+                    <div class="deal-skeleton"></div>
+                    <div class="deal-skeleton"></div>
+                    <div class="deal-skeleton"></div>
+                </div>
+
+                <div class="deals-page-indicator" id="dealsPageIndicator"></div>
+
+                <div class="deals-nav">
+                    <button class="deal-arrow-btn" onclick="scrollDeals(-1)" aria-label="Previous">&#8592;</button>
+                    <button class="deal-arrow-btn" onclick="scrollDeals(1)" aria-label="Next">&#8594;</button>
+                </div>
+            </section>
 
             <script async
                 src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2368356039533778"
