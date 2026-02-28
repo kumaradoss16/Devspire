@@ -47,15 +47,27 @@
     <!-- Existing Stylesheet -->
     <link rel="stylesheet" href="style.css">
 
-    <script type=application/ld+json>
+     <script type=application/ld+json>
         {
             "@context": "https://schema.org",
             "@type": "SiteNavigationElement",
             "name": [
-                "Home"
+                "Home",
+                "Projects",
+                "Programming",
+                "Ethical Hacking",
+                "Networking",
+                "Automation",
+                "Resources"
             ],
             "url": [
-                "https://devspirehub.com/home/",
+                "https://devspirehub.com",
+                "https://devspirehub.com/#projects-tutorials-section",
+                "https://devspirehub.com/#programming-tutorials-section",
+                "https://devspirehub.com/#ethical-hacking-section",
+                "https://devspirehub.com/#networking-section",
+                "https://devspirehub.com/#automation-section",
+                "https://devspirehub.com/#info-section",
             ]
         }
     </script>
@@ -97,8 +109,8 @@
             "@type": "Organization",
             "name": "DevspireHub"
           },
-          "datePublished": "2025-09-26",
-          "dateModified": "2026-01-19",
+          "datePublished": "2026-02-21",
+          "dateModified": "2026-02-28",
           "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https://devspirehub.com/Automation/Projects/whatsapp-attendance-tracker-n8n-tutorial"
@@ -131,20 +143,31 @@
 <body>
     <amp-auto-ads type="adsense" data-ad-client="ca-pub-2368356039533778">
     </amp-auto-ads>
+    <!-- Header  -->
     <header class="navbar">
         <div class="container">
             <div class="logo">
                 <div class="logo-text">
-                    <img src="../../../images/icon.webp" alt="Gear Icon" width="23" height="23">
+                    <!-- <i class="fas fa-code"></i> -->
+                    <a href="../../../../index.html"><img src="../../../images/icon.webp" alt="Gear Icon" width="23"
+                            height="23"></a>
                     <span id="brand" class="typewriter" data-text="DevspireHub"></span>
                 </div>
-                <!-- <button class="menu-toggle" type="button" aria-label="Toggle navigation">
+                <button class="menu-toggle" type="button" aria-label="Toggle navigation">
                     <i class="fas fa-bars"></i>
-                </button> -->
+                </button>
             </div>
             <nav class="nav-links">
                 <ul>
-                    <li><a href="../../../index.html">Home</a></li>
+                    <li><a href="../../../index.html" class="home"><i class="fa-solid fa-house"></i></a></li>
+                    <li><a href="../../../index.html#projects-tutorials-section" class="projects">Projects</a></li>
+                    <li><a href="../../../index.html#programming-tutorials-section" class="programming">Programming</a>
+                    </li>
+                    <li><a href="../../../index.html#ethical-hacking-section" class="hacking">Ethical Hacking</a>
+                    </li>
+                    <li><a href="../../../index.html#networking-section" class="networking">Networking</a></li>
+                    <li><a href="../../../index.html#automation-section" class="ai">Automation</a></li>
+                    <li><a href="../../../index.html#info-section" class="game">Resources</a></li>
                 </ul>
             </nav>
         </div>
@@ -835,7 +858,8 @@ return [{
         <main class="right-column">
             <div class="about-website moving-border">
                 <h3>About Website</h3>
-                <p>DevspireHub is a beginner-friendly learning platform offering step-by-step tutorials in
+                <p>
+<a class="homepage typewriter-scan" href="../../../../index.html"><strong>DevspireHub</strong></a> is a beginner-friendly learning platform offering step-by-step tutorials in
                     programming, ethical hacking,
                     networking, automation, and Windows setup. Learn through hands-on projects, clear explanations, and
                     real-world examples
@@ -943,6 +967,31 @@ return [{
                 </div>
             </div>
 
+            <section class="deals-section">
+                <div class="deals-header">
+                    <h2>HOT DEALS</h2>
+                    <div class="deals-underline"></div>
+                </div>
+
+                <!-- Cards injected dynamically from amazon-links.json -->
+                <div class="deals-grid" id="dealsGrid">
+                    <div class="deal-skeleton">
+                    </div>
+                    <div class="deal-skeleton"></div>
+                    <div class="deal-skeleton"></div>
+                    <div class="deal-skeleton"></div>
+                    <div class="deal-skeleton"></div>
+                    <div class="deal-skeleton"></div>
+                </div>
+
+                <div class="deals-page-indicator" id="dealsPageIndicator"></div>
+
+                <div class="deals-nav">
+                    <button class="deal-arrow-btn" onclick="scrollDeals(-1)" aria-label="Previous">&#8592;</button>
+                    <button class="deal-arrow-btn" onclick="scrollDeals(1)" aria-label="Next">&#8594;</button>
+                </div>
+            </section>
+
             <script async
                 src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2368356039533778"
                 crossorigin="anonymous"></script>
@@ -980,8 +1029,6 @@ return [{
             </svg>
         </button>
     </div>
-
-
 
     <footer class="footer">
         <ul class="menu">
