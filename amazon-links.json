@@ -1,0 +1,139 @@
+{
+  "products": [
+    {
+      "id": "prod1",
+      "badge": "Up to 35% Off",
+      "name": "Laptops",
+      "link": "https://www.amazon.in/s?hidden-keywords=B0FJYJP1L6%7CB0FDKPV57Y%7CB0F832WDMW%7CB0F6CVT23B%7CB0FQWH1TT3%7CB0DTYZ2CG8%7CB0FM3WC2QY%7CB0G3VG6GQ9%7CB0F9X5DSBS%7CB0FM3TVKL3%7CB0FMRYRKHS%7CB0FY2ZT5B3%7CB0FLDRBZC6%7CB0DPQGVH85%7CB0FGJCV37Y%7CB0FMYJK33B%7CB0FDKPZHB7%7CB0DXF2M5S5%7CB0FB964VXS%7CB0D49W5KZP%7CB0FDKRKC92%7CB0F5N2ZK2S%7CB09CMGFC1K%7CB0G46HR61G%7CB0FB96WF9W%7CB0FDKPXD95%7CB0FB98PMHL%7CB0DPQG53ZR%7CB0CV9J1QSM%7CB096XZM41Y%7CB0FMFPW419%7CB0G5NLZD53%7CB0F9X6J9TX%7CB0F5BG82KM%7CB0DSHXWLNW%7CB0F5BH7D1L%7CB0G5NG4FFW%7CB0DQD9JR98%7CB096XZH2W4%7CB0DPQJBMVK%7CB0DFHDY8GG%7CB0FM3C4L2F%7CB0GH6PVYXK%7CB0GCZW2CKC%7CB0DFWRZLK5%7CB0G3VCGXH6%7CB0BTNBSR76%7CB0DJP6N8X5%7CB0FPQ7YC8D%7CB0FMFQMXHF%7CB0G1YPZS51%7CB0DXVGVNKN%7CB0FF4Z4HQM%7CB0CRKXDX83%7CB0DV97GJBK%7CB0FF4TTHNM%7CB0DFVJG2T2%7CB0DQPTMBKM%7CB0D22LBNQV%7CB0FHFD3TSZ%7CB097PNJL56%7CB0F6CYM2G7%7CB0D1BT9SXF&pf_rd_i=14142561031&pf_rd_m=A1VBAL9TL5WCBF&pf_rd_p=0b81ca18-eeea-4542-8d3f-379368572bfb&pf_rd_r=VT6SR2Z928426R2SMKAS&pf_rd_s=merchandised-search-3&ref=pgd_sbc_atf_feb_1",
+      "image": "laptops.webp",
+      "price": "Up to 35% Off"
+    },
+    {
+      "id": "prod2",
+      "badge": "Up to 70% Off",
+      "name": "Keyboards",
+      "link": "https://www.amazon.in/s?hidden-keywords=B0DRCPNFBW%7CB0DRCXM33L%7CB08QV7PSKW%7CB0DRD52PWK%7CB0DRD5PHGD%7CB0FG2PNPZY%7CB0C8N3Q2K9%7CB0DV9CWWZ6%7CB0DV9CTMWX%7CB0CNQ75PC8%7CB0DGVH47HW%7CB0DV92LTHN%7CB0FN84VLKL%7CB0DZ6YHY6W%7CB0DZ6TVMRW%7CB08QV3KR7T%7CB0C593NSRS%7CB0DWSHN6VQ%7CB085366TJW%7CB0DYVFZ7LR%7CB0F1T4RQKB%7CB0BJJBDG2V%7CB08QV7BQHZ%7CB0FWRLS6Y6%7CB08R3YVRRB%7CB0DYVFZT2Z%7CB0CLS6F44T%7CB0F48T6QDM%7CB08B5ZNXK2%7CB08R3ZY45D%7CB0FBS2RKTN%7CB0D66V569C%7CB0D66VB4TH%7CB0F1YV11LV%7CB0DYVG1RMK%7CB0DFTWWQ61%7CB0DFTXSZRX%7CB0FP5J1FSM%7CB0FP5F3Z89%7CB0F48PCHYR%7CB0GH7NC745%7CB0DZ67PVMB%7CB0DZ64W1YG%7CB0G2GMN6Y6%7CB0G2GKKDB7%7CB0DDV1GWP7%7CB0FDGK9FV3%7CB0FDGFZCRJ%7CB0DFWQ499N%7CB0GF8W8BY2%7CB0FBRXM2RG%7CB0FBRWPD79%7CB0DGV9VLFZ%7CB0F66GZ58Z&pf_rd_i=14142561031&pf_rd_m=A1VBAL9TL5WCBF&pf_rd_p=0b81ca18-eeea-4542-8d3f-379368572bfb&pf_rd_r=VT6SR2Z928426R2SMKAS&pf_rd_s=merchandised-search-3&ref=pgd_sbc_atf_feb_4",
+      "image": "best-gaming-keyboards.webp",
+      "price": "Up to 70% Off"
+    },
+    {
+      "id": "prod3",
+      "badge": "Up to 70% Off",
+      "name": "Gaming<br>Accessories",
+      "link": "https://www.amazon.in/s?hidden-keywords=B08GZ6QNTC%7CB09842ZHNM%7CB0BQXZ11B8%7CB098439Y2G%7CB09SM6ML4K%7CB0BMPLHLZ9&pf_rd_i=14154608031&pf_rd_m=A1VBAL9TL5WCBF&pf_rd_p=60fe2198-287d-487c-ab9e-4156181817d3&pf_rd_r=F3SQ0JWPXMZ8QHFPJJDK&pf_rd_s=merchandised-search-2&ref=GAHMOBS_4",
+      "image": "gamepad-ps5.webp",
+      "price": "Up to 70% Off"
+    },
+    {
+      "id": "prod4",
+      "badge": "Up to 60% Off",
+      "name": "Men's<br>Watches",
+      "link": "https://www.amazon.in/s?i=watches&bbn=1350387031&rh=n%3A1350387031%2Cn%3A2563504031%2Cp_n_deal_type%3A26921224031%2Cp_89%3ACasio%257CCitizen%257CDANIEL%2BKLEIN%257CFastrack%257CFossil%257CGUESS%257CSeiko%257CSkagen%257CSonata%257CTIMEX%257CTitan%257CTommy%2BHilfiger&s=watches&dc=&ds=v1%3A4dn8gKWKFgaPmmzKEvZGsDwcj5Il2Wh4MUrfBTGhCB4&pf_rd_i=2563504031&pf_rd_i=2563504031%2C75450396031&pf_rd_m=A1VBAL9TL5WCBF&pf_rd_m=A1VBAL9TL5WCBF%2CA1VBAL9TL5WCBF&pf_rd_p=1ae07e81-54f7-4510-bbe0-319d0151b3c1%2Ceb2bb978-e037-4752-a0b9-901a899552c1&pf_rd_p=4d6d2943-9b8d-44dd-9bca-7dc91e252856&pf_rd_r=NQ31C26NFZ6ZRKHNKEST&pf_rd_r=S22F4ENQ3VEKGDHF6BVR%2CWC1MS3DGG2G3SKYHGNGF&pf_rd_s=merchandised-search-4&pf_rd_s=mobile-hybrid-2%2Cmobile-hybrid-7&pf_rd_t=30901%2C30901&qid=1701426017&linkCode=ll2&tag=devspirehub-21&linkId=4178e847267f73e165a4a3ff3b550980&ref_=as_li_ss_tl",
+      "image": "best-watches.webp",
+      "price": "Up to 60% Off"
+    },
+    {
+      "id": "prod5",
+      "badge": "Up to 70% Off",
+      "name": "Headsets &amp;<br>Earbuds",
+      "link": "https://www.amazon.in/s?hidden-keywords=B0DV5GLTLZ%7CB0DK3RXTW4%7CB0DHL63KWK%7CB0F7Y54PJX%7CB0DK3SJBSH%7CB0DV5J28LW%7CB09XS7JWHH%7CB0C3ZYFZ77%7CB0BXXPG6FP%7CB0C33XXS56%7CB0BW8TXJJ2%7CB09CYX92NB%7CB0BS1QCFHX%7CB08TV2P1N8%7CB0DN1RPL19%7CB0BS1PRC4L%7CB0DN1Q4NSJ%7CB0FM6B9Z45%7CB0F3PQHWTZ%7CB0BS1RT9S2%7CB0CWVX1GNX%7CB0DGTSRX3R%7CB0FC2YFSN4%7CB0F3QJLD3B%7CB0CQJWMMG7%7CB0DPWL48Z5%7CB0CQJZD55X%7CB0C664NHV6%7CB0G2RZZF9S%7CB0D3DH8TSC%7CB0CRZ6KTB4%7CB0D2XRXNGY%7CB0DDHM6D3L%7CB0F8BVYRWS%7CB0DK3TXCZH%7CB0F3PT1VBL%7CB0DS2Y94LS%7CB0GF866ZT4%7CB0D2HKCMBP%7CB0FG2QT7H2%7CB0DK3W2XK3%7CB0CNRFYLV8%7CB01DEWVZ2C%7CB0D1V9Q6XQ%7CB071Z8M4KX%7CB0FC2Y3XGV%7CB0F7Y67F6C%7CB0DHDDF5J2%7CB0G42FK121%7CB0DS2XNXZB&pf_rd_i=976419031&pf_rd_m=A1VBAL9TL5WCBF&pf_rd_p=dfcb72fd-9ddb-4718-9981-7eecc79c9077&pf_rd_r=EC8F51F085CB4E5E9004&pf_rd_s=merchandised-search-21_CW&linkCode=ll2&tag=devspirehub-21&linkId=5df59cdee69f1b84ddc2e3b0be8e0359&ref_=as_li_ss_tl",
+      "image": "headset-earbuds.webp",
+      "price": "Up to 70% Off"
+    },
+    {
+      "id": "prod6",
+      "badge": "Up to 50% Off",
+      "name": "Speakers &amp;<br>Soundbars",
+      "link": "https://www.amazon.in/s?k=B0CG6N53DP%7CB0CJMF9Z56%7CB0FDFRRMM3%7CB0FDFR7K1T%7CB0FDFRGWLQ%7CB084685MT1%7CB0BRKXHFLD%7CB0CTTXHPSK%7CB09XXW54QG%7CB0F2GQ8YVL%7CB0DNZ8RMMT%7CB09JVCT78G%7CB0FBLXNT8T&pf_rd_i=976419031&pf_rd_m=A1VBAL9TL5WCBF&pf_rd_p=dfcb72fd-9ddb-4718-9981-7eecc79c9077&pf_rd_r=EC8F51F085CB4E5E9004&pf_rd_s=merchandised-search-21_CW&linkCode=ll2&tag=devspirehub-21&linkId=f1f4aa921358fff4f1b7cb71425999f2&ref_=as_li_ss_tl",
+      "image": "best-speakers-with-microphone.webp",
+      "price": "Up to 50% Off"
+    },
+    {
+      "id": "prod7",
+      "badge": "Up to 60% Off",
+      "name": "PC Gaming<br>Accessories",
+      "link": "https://www.amazon.in/s?i=computers&bbn=1375248031&rh=n%3A10462251031%2Cp_36%3A93000-%2Cp_n_deal_type%3A26921224031%2Cp_6%3AAJ6SIZC8YQDZX&pf_rd_p=e7bbc976-dade-4dfd-b133-3cb44b8dcf12&pf_rd_r=AKRS4BDXZ4XWK2KP3M4M&linkCode=ll2&tag=devspirehub-21&linkId=4837f5d25b8b15232dcf1ce336babf9c&ref_=as_li_ss_tl",
+      "image": "pc-gaming-accessories.webp",
+      "price": "Up to 60% Off"
+    },
+    {
+      "id": "prod8",
+      "badge": "Up to 45% Off",
+      "name": "AC",
+      "link": "https://www.amazon.in/s?hidden-keywords=B0CWVDXYX1%7C+B0D5BN76MK%7C+B0D5BN2FDY%7C+B0CWVDN3HZ%7C+B0CWVCND7N%7C+B0D1NXXXPD%7C+B0BBFTT3YL%7C+B0BBFX3S2L%7C+B0BSJ7KZLJ%7C+B0D3B43C3H%7C+B0BQR3D9V6%7C+B0CXDQL98H%7C+B0CHYVJW93&crid=29TEKW4MBD87A&pf_rd_i=3474656031&pf_rd_m=A1VBAL9TL5WCBF&pf_rd_p=e4429c33-f9fc-4ffe-b402-58f33162f87f&pf_rd_r=SY486QA1AJ34Q0G7YA18&pf_rd_s=merchandised-search-1&sprefix=b0cwvdxyx1+b0d5bn76mk+b0d5bn2fdy+b0cwvdn3hz+b0cwvcnd7n+b0d1nxxxpd+b0bbftt3yl+b0bbfx3s2l+b0bsj7kzlj+b0d3b43c3h+b0bqr3d9v6+b0cxdql98h+b0chyvjw93+%2Caps%2C941&linkCode=ll2&tag=devspirehub-21&linkId=b7c0a1aa7bca2cfefd008c297f418d81&ref_=as_li_ss_tl",
+      "image": "convertible-ac-inverter-ac.webp",
+      "price": "Up to 45% Off"
+    },
+    {
+      "id": "prod9",
+      "badge": "Up to 55% Off",
+      "name": "Appliances",
+      "link": "https://www.amazon.in/Samsung-Inverter-Refrigerator-RT28C3053S8-HL/dp/B0C2TNR2X2?dib=eyJ2IjoiMSJ9.S78uJeufV82c7eeKNUanQM3MkJ30EqB4JCRGNClgXOecnK8YAAjmxNXG_jLa7bNgmBkK54EOiuE5BtPMOUbzsoVpLjbQLUH3Een4ghEED4GZTbj41w19XUW6W2Fcz4lp3TpwuxbLKZugdlScqdmTg45gOiNNGw6v7lbtPO3ktMI00UQjH0yHZLJhPQ9hC1JGegX1E-7dWLIMW3v_KX-rIxeAlyiMeObzTAV48TrBktC9Tm3pITTx-OJwaipoiXwpJS0pkRBWqjXGTFuDmusvtiuGPSfqD-NrTOhVM36tSBA.eMuqjhgyawWs8uOzyEiwOkk01FzblklftjLUquBSfUY&dib_tag=se&pf_rd_i=63164839031&pf_rd_m=A1VBAL9TL5WCBF&pf_rd_s=merchandised-search-1&qid=1772087466&refinements=p_85%3A10440599031&rnid=10440598031&rps=1&s=kitchen&sr=1-10&th=1&linkCode=ll2&tag=devspirehub-21&linkId=f41cb5419b88012304ee38f37251eaa1&ref_=as_li_ss_tl",
+      "image": "appliances.webp",
+      "price": "Up to 55% Off"
+    },
+    {
+      "id": "prod10",
+      "badge": "Up to 50% Off",
+      "name": "Fast <br>Charging &amp;<br>Power Bank",
+      "link": "https://www.amazon.in/dp/B0D9S87H53?pf_rd_r=Q38FDJ63MYYTRG69KKMF&pf_rd_p=94fec118-ac9e-4abe-bc97-4bc87a4412b0&pf_rd_m=A1VBAL9TL5WCBF&pf_rd_s=merchandised-search-10&pf_rd_t=undefined&pf_rd_i=1389402031&th=1&linkCode=ll2&tag=devspirehub-21&linkId=7cb7951f462a1781d1f4d2823d400473&ref_=as_li_ss_tl",
+      "image": "fast-charging-power-bank.webp"
+    },
+    {
+      "id": "prod11",
+      "badge": "Up to 47% Off",
+      "name": "Wired <br>Gaming On <br>Ear Headphone",
+      "link": "https://www.amazon.in/Zebronics-PRO-Headphone-Neodymium-Suspension/dp/B0B5RMKMJL?dib=eyJ2IjoiMSJ9.qPYjLActfXDdHVmjAhEiL-482O6Js_ifW1t61CeGtsZe-0kdr-D3E-4SaWT2fJjelij_qDoVvWF-mcWcjRGiDkQAr4ACOKG1Ld2P6K938rLzy_wUgD3gBAefHT9rS3G-cF6QaEhNXwKPOhF9KLhdn1MjXvptlG0K-c3mH6bYyWomelteKPod99RsltMTGSTIEP3Mq4JXBUgnbO7AlQ8IGmcn4bSKHK1y3tYJqor1j8u3SV-rQ5RvSaBshLKew0jygSZhvw1OpqiVwAc9YCaUfIwW4yeYHZ8SQOIOG3F2_Dk.r7diLZ28E8KgvtU6Z7Mo2ZHJogTPNvqEbqnFqDpCTmU&dib_tag=se&m=AJ6SIZC8YQDZX&qid=1772087038&refinements=p_36%3A93000-%2Cp_n_deal_type%3A26921224031%2Cp_6%3AAJ6SIZC8YQDZX&s=computers&sr=1-6&th=1&linkCode=ll2&tag=devspirehub-21&linkId=f5f157aa6fbfb4371f98dc3ebb0d3865&ref_=as_li_ss_tl",
+      "image": "wired-gaming-on-ear-headphone.webp"
+    },
+    {
+      "id": "prod12",
+      "badge": "Up to 54% Off",
+      "name": "Air Purifier",
+      "link": "https://www.amazon.in/Coway-Professional-Purifier-Anti-Virus-AP-1019C/dp/B08GJ57MKL?pf_rd_p=d5dde385-0a11-4214-b38c-1fc3248f6d6f&pf_rd_r=PB63XB2E8W51PEDPJZAQ&linkCode=ll2&tag=devspirehub-21&linkId=c070d309d4c7024719927716397a2b61&ref_=as_li_ss_tl",
+      "image": "air-purifier.webp"
+    },
+    {
+      "id": "prod13",
+      "badge": "Up to 50% Off",
+      "name": "Cars & Vehicle Electronics",
+      "link": "https://www.amazon.in/s?bbn=1389221031&rh=n%3A976419031%2Cn%3A%2521976420031%2Cn%3A1389221031%2Cp_72%3A1318477031%2Cp_85%3A10440599031%2Cp_89%3Ajxl&_encoding=UTF8&pf_rd_p=cd032ce5-797b-42d6-b166-c4fbc67a993a&pf_rd_r=46A4SMF15Q7Q0WJ669R6&linkCode=ll2&tag=devspirehub-21&linkId=79f3166a3348d64f151063473d57b07a&ref_=as_li_ss_tl",
+      "image": "cars-vehicle-electronics.webp"
+    },
+    {
+      "id": "prod14",
+      "badge": "Up to 53% Off",
+      "name": "Beauty",
+      "link": "https://www.amazon.in/gp/bestsellers/beauty?ie=UTF8&linkCode=ll2&tag=devspirehub-21&linkId=0cff01cf8a36fd419bb710835b054997&ref_=as_li_ss_tl",
+      "image": "beauty.webp"
+    },
+    {
+      "id": "prod15",
+      "badge": "Up to 40% Off",
+      "name": "Shoes",
+      "link": "https://www.amazon.in/s?bbn=100568117031&rh=n%3A100568117031%2Cp_123%3A241770&dc&_encoding=UTF8&pf_rd_p=4ef99ab2-18da-4eeb-8971-9cbb58625e96&pf_rd_r=63MDW3FYD1F259YYFTY8&qid=1745431032&rnid=91049095031&ref=cct_cg_jljioji_2c1",
+      "image": "shoes.webp"
+    },
+    {
+      "id": "prod16",
+      "badge": "Up to 70% Off",
+      "name": "PC Gaming<br>Accessories",
+      "link": "https://www.amazon.in/s?i=computers&bbn=1375248031&rh=n%3A1375248031%2Cp_n_deal_type%3A26921224031%2Cp_89%3ALenovo%257CLogitech%257CLogitech%2BG%257CPortronics%257CZEBRONICS%257Camazon%2Bbasics%2Cp_36%3A29900-&pf_rd_i=1375248031&pf_rd_m=A1VBAL9TL5WCBF&pf_rd_p=7310c59b-0498-4358-ac80-51cc833d7217&pf_rd_r=HYNHSCQM34C61085R276&pf_rd_s=merchandised-search-2&linkCode=ll2&tag=devspirehub-21&linkId=9a109b189961dd8d138097784d962ab2&ref_=as_li_ss_tl",
+      "image": "pc-accessories.webp"
+    },
+    {
+      "id": "prod17",
+      "badge": "Up to 60% Off",
+      "name": "Vehicle Accessories",
+      "link": "https://www.amazon.in/b?node=201490995031&pf_rd_r=CGS6T6ET806Y3HWPZR1Q&pf_rd_p=3f2b81c0-1914-45f0-9f9e-7e1faab95797&pf_rd_m=A1VBAL9TL5WCBF&pf_rd_s=merchandised-search-12&pf_rd_t=&pf_rd_i=4772060031&linkCode=ll2&tag=devspirehub-21&linkId=9862a647ae738c1715b341560e0ca7ca&ref_=as_li_ss_tl",
+      "image": "vehicle-accessories.webp"
+    },
+    {
+      "id": "prod18",
+      "badge": "Min 45% Off",
+      "name": "Furniture",
+      "link": "https://www.amazon.in/s?i=furniture&k=&url=search-alias%3Dfurniture&linkCode=ll2&tag=devspirehub-21&linkId=3abc887cb928fbbe778bed424636db61&ref_=as_li_ss_tl",
+      "image": "furniture.webp"
+    }
+  ]
+}
