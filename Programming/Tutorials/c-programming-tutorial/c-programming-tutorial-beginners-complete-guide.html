@@ -124,10 +124,10 @@
         {
         "@context": "https://schema.org",
         "@type": "Organization",
-        "name": "DevSpireHub",
+        "name": "DevspireHub",
         "url": "https://devspirehub.com/",
         "logo": "https://devspirehub.com/image/icon.webp",
-        "description": "DevSpire - Programming, Projects, Ethical hacking, Networking & AI",
+        "description": "DevspireHub - Programming, Projects, Ethical hacking, Networking & AI",
         "founder": [
             {
             "@type": "Person",
@@ -142,9 +142,34 @@
         }
     </script>
 
+    <script type=application/ld+json>
+        {
+            "@context": "https://schema.org",
+            "@type": "SiteNavigationElement",
+            "name": [
+                "Home",
+                "Projects",
+                "Programming",
+                "Ethical Hacking",
+                "Networking",
+                "Automation",
+                "Resources"
+            ],
+            "url": [
+                "https://devspirehub.com",
+                "https://devspirehub.com/#projects-tutorials-section",
+                "https://devspirehub.com/#programming-tutorials-section",
+                "https://devspirehub.com/#ethical-hacking-section",
+                "https://devspirehub.com/#networking-section",
+                "https://devspirehub.com/#automation-section",
+                "https://devspirehub.com/#info-section",
+            ]
+        }
+    </script>
+
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2368356039533778"
         crossorigin="anonymous"></script>
-	
+
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-6VWY63Q80N"></script>
     <script>
@@ -157,7 +182,7 @@
 
     <script async custom-element="amp-auto-ads" src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
     </script>
-	
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
     <link rel="stylesheet" href="../../Projects/Prism/prism.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -179,7 +204,7 @@
             </div>
             <nav class="nav-links">
                 <ul>
-                    <li><a href="../../../index.html">Home</a></li>
+                    <li><a href="../../../index.html" class="home"><i class="fa-solid fa-house"></i></a></li>
                     <li class="dropdown">
                         <a href="#">Chapter <i class="fas fa-chevron-down"></i></a>
                         <ul class="dropdown-menu">
@@ -10888,7 +10913,8 @@ int main() {
         <main class="right-column">
             <div class="about-website moving-border">
                 <h3>About Website</h3>
-                <p>DevspireHub is a beginner-friendly learning platform offering step-by-step tutorials in
+                <p><a class="homepage typewriter-scan" href="../../../index.html"><strong>DevspireHub</strong></a>
+                    is a beginner-friendly learning platform offering step-by-step tutorials in
                     programming, ethical hacking,
                     networking, automation, and Windows setup. Learn through hands-on projects, clear explanations, and
                     real-world examples
@@ -10994,7 +11020,32 @@ int main() {
                     </div>
                 </div>
             </div>
-	
+
+            <section class="deals-section">
+                <div class="deals-header">
+                    <h2>HOT DEALS</h2>
+                    <div class="deals-underline"></div>
+                </div>
+
+                <!-- Cards injected dynamically from amazon-links.json -->
+                <div class="deals-grid" id="dealsGrid">
+                    <div class="deal-skeleton">
+                    </div>
+                    <div class="deal-skeleton"></div>
+                    <div class="deal-skeleton"></div>
+                    <div class="deal-skeleton"></div>
+                    <div class="deal-skeleton"></div>
+                    <div class="deal-skeleton"></div>
+                </div>
+
+                <div class="deals-page-indicator" id="dealsPageIndicator"></div>
+
+                <div class="deals-nav">
+                    <button class="deal-arrow-btn" onclick="scrollDeals(-1)" aria-label="Previous">&#8592;</button>
+                    <button class="deal-arrow-btn" onclick="scrollDeals(1)" aria-label="Next">&#8594;</button>
+                </div>
+            </section>
+
             <script async
                 src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2368356039533778"
                 crossorigin="anonymous"></script>
@@ -11070,4 +11121,3 @@ int main() {
 </body>
 
 </html>
-

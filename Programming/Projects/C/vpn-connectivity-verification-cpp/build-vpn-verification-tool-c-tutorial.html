@@ -156,28 +156,6 @@
         }
     </script>
 
-    <script type="application/ld+json">
-        {
-            "@context": "https://schema.org",
-            "@type": "Organization",
-            "name": "DevSpireHub",
-            "url": "https://devspirehub.com/",
-            "logo": "https://devspirehub.com/images/icon.webp",
-            "description": "DevSpireHub - Programming, Projects, Ethical Hacking, Networking, Cloud & AI",
-            "founder": [
-            {
-                "@type": "Person",
-                "name": "Kumaradoss",
-                "url": "https://www.linkedin.com/in/kumaradoss-s/"
-            }
-            ],
-            "sameAs": [
-            "https://www.linkedin.com/in/kumaradoss-s/",
-            "https://github.com/kumaradoss16"
-            ]
-        }
-    </script>
-
     <!-- Article Schema -->
     <script type="application/ld+json">
         {
@@ -188,18 +166,18 @@
           "image": "https://devspirehub.com/Programming/Projects/C/images/vpn-tool-before-connection-terminal-output.webp",
           "author": {
             "@type": "Organization",
-            "name": "Security Programming Tutorials"
+            "name": "DevspireHub"
           },
           "publisher": {
             "@type": "Organization",
-            "name": "Security Programming Tutorials",
+            "name": "DevspireHub",
             "logo": {
               "@type": "ImageObject",
               "url": "https://devspirehub.com/"
             }
           },
           "datePublished": "2026-01-20",
-          "dateModified": "2026-01-20",
+          "dateModified": "2026-02-27",
           "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https://devspirehub.com/Programming/Projects/C/vpn-connectivity-verification-cpp"
@@ -215,7 +193,7 @@
         {
             "@context": "https://schema.org",
             "@type": "Organization",
-            "name": "DevSpireHub",
+            "name": "DevspireHub",
             "url": "https://devspirehub.com/",
             "logo": "https://devspirehub.com/images/icon.webp",
             "description": "DevSpireHub - Programming, Projects, Ethical Hacking, Networking, Cloud & AI",
@@ -258,6 +236,31 @@
         }
     </script>
 
+    <script type=application/ld+json>
+        {
+            "@context": "https://schema.org",
+            "@type": "SiteNavigationElement",
+            "name": [
+                "Home",
+                "Projects",
+                "Programming",
+                "Ethical Hacking",
+                "Networking",
+                "Automation",
+                "Resources"
+            ],
+            "url": [
+                "https://devspirehub.com",
+                "https://devspirehub.com/#projects-tutorials-section",
+                "https://devspirehub.com/#programming-tutorials-section",
+                "https://devspirehub.com/#ethical-hacking-section",
+                "https://devspirehub.com/#networking-section",
+                "https://devspirehub.com/#automation-section",
+                "https://devspirehub.com/#info-section",
+            ]
+        }
+    </script>
+
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2368356039533778"
         crossorigin="anonymous"></script>
 
@@ -286,22 +289,32 @@
     <amp-auto-ads type="adsense" data-ad-client="ca-pub-2368356039533778">
     </amp-auto-ads>
 
+    <!-- Header  -->
     <header class="navbar">
         <div class="container">
             <div class="logo">
                 <div class="logo-text">
-                    <img src="../../../../images/icon.webp" alt="Gear Icon" width="23" height="23">
+                    <!-- <i class="fas fa-code"></i> -->
+                    <a href="../../../../index.html"><img src="../../../../images/icon.webp" alt="Gear Icon" width="23"
+                            height="23"></a>
                     <span id="brand" class="typewriter" data-text="DevspireHub"></span>
                 </div>
-                <button class="menu-toggle" aria-label="Toggle navigation">
+                <button class="menu-toggle" type="button" aria-label="Toggle navigation">
                     <i class="fas fa-bars"></i>
                 </button>
             </div>
             <nav class="nav-links">
                 <ul>
-                    <li><a href="../../../../index.html" target="_self">Home</a></li>
-                    <li><a href="#implementation-details">Implementations</a></li>
-                    <li><a href="#other-work-section">Projects</a></li>
+                    <li><a href="../../../../index.html" class="home"><i class="fa-solid fa-house"></i></a></li>
+                    <li><a href="../../../../index.html#projects-tutorials-section" class="projects">Projects</a></li>
+                    <li><a href="../../../../index.html#programming-tutorials-section"
+                            class="programming">Programming</a>
+                    </li>
+                    <li><a href="../../../../index.html#ethical-hacking-section" class="hacking">Ethical Hacking</a>
+                    </li>
+                    <li><a href="../../../../index.html#networking-section" class="networking">Networking</a></li>
+                    <li><a href="../../../../index.html#automation-section" class="ai">Automation</a></li>
+                    <li><a href="../../../../index.html#info-section" class="game">Resources</a></li>
                 </ul>
             </nav>
         </div>
@@ -3779,7 +3792,8 @@ gcc main.c -o vpn_check
         <aside class="right-column">
             <div class="about-website moving-border">
                 <h3>About Website</h3>
-                <p>DevspireHub is a beginner-friendly learning platform offering step-by-step tutorials in
+                <p><a class="homepage typewriter-scan" href="../../../../index.html"><strong>DevspireHub</strong></a> is
+                    a beginner-friendly learning platform offering step-by-step tutorials in
                     programming, ethical hacking,
                     networking, automation, and Windows setup. Learn through hands-on projects, clear explanations, and
                     real-world examples
@@ -3889,6 +3903,31 @@ gcc main.c -o vpn_check
                 </div>
             </div>
 
+            <section class="deals-section">
+                <div class="deals-header">
+                    <h2>HOT DEALS</h2>
+                    <div class="deals-underline"></div>
+                </div>
+
+                <!-- Cards injected dynamically from amazon-links.json -->
+                <div class="deals-grid" id="dealsGrid">
+                    <div class="deal-skeleton">
+                    </div>
+                    <div class="deal-skeleton"></div>
+                    <div class="deal-skeleton"></div>
+                    <div class="deal-skeleton"></div>
+                    <div class="deal-skeleton"></div>
+                    <div class="deal-skeleton"></div>
+                </div>
+
+                <div class="deals-page-indicator" id="dealsPageIndicator"></div>
+
+                <div class="deals-nav">
+                    <button class="deal-arrow-btn" onclick="scrollDeals(-1)" aria-label="Previous">&#8592;</button>
+                    <button class="deal-arrow-btn" onclick="scrollDeals(1)" aria-label="Next">&#8594;</button>
+                </div>
+            </section>
+
             <script async
                 src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2368356039533778"
                 crossorigin="anonymous"></script>
@@ -3971,5 +4010,5 @@ gcc main.c -o vpn_check
 
     <script src="script.js"></script>
 </body>
-</html>
 
+</html>

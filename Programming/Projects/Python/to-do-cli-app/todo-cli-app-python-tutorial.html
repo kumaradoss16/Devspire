@@ -53,7 +53,7 @@
         "name": "DevSpireHub",
         "url": "https://devspirehub.com",
         "logo": "https://devspirehub.com/image/icon.webp",
-        "description": "DevSpire - Programming, Projects, Ethical hacking, Networking & AI",
+        "description": "DevspireHub - Programming, Projects, Ethical hacking, Networking & AI",
         "founder": [
             {
             "@type": "Person",
@@ -68,6 +68,126 @@
         }
     </script>
 
+    <script type=application/ld+json>
+        {
+            "@context": "https://schema.org",
+            "@type": "SiteNavigationElement",
+            "name": [
+                "Home",
+                "Projects",
+                "Programming",
+                "Ethical Hacking",
+                "Networking",
+                "Automation",
+                "Resources"
+            ],
+            "url": [
+                "https://devspirehub.com",
+                "https://devspirehub.com/#projects-tutorials-section",
+                "https://devspirehub.com/#programming-tutorials-section",
+                "https://devspirehub.com/#ethical-hacking-section",
+                "https://devspirehub.com/#networking-section",
+                "https://devspirehub.com/#automation-section",
+                "https://devspirehub.com/#info-section",
+            ]
+        }
+    </script>
+
+    <!-- Structured Data (JSON-LD Schema) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "headline": "How to Build a To-Do CLI App with Python",
+      "description": "Step-by-step beginner-friendly tutorial on building a command-line To-Do application using Python. Learn file handling, functions, and CLI input/output with full source code.",
+      "author": {
+        "@type": "Person",
+        "name": "Kumardoss"
+      },
+      "datePublished": "2026-02-21",
+      "dateModified": "2026-02-27",
+      "image": "https://devspirehub.com/Programming/Projects/Python/to-do-cli-app/images/todo-cli-app-python-tutorial.webp",
+      "publisher": {
+        "@type": "Organization",
+        "name": "DevspireHub",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://devspirehub.com/images/icon.webp"
+        }
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://devspirehub.com/Programming/Projects/Python/to-do-cli-app/todo-cli-app-python-tutorial"
+      },
+      "keywords": [
+        "to-do cli app python",
+        "python command line app",
+        "python beginner project",
+        "python file handling tutorial",
+        "python functions tutorial",
+        "build todo app python",
+        "python CLI project for students"
+      ],
+      "proficiencyLevel": "Beginner",
+      "articleSection": "Python Programming Tutorials",
+      "about": {
+        "@type": "Thing",
+        "name": "Command-Line Application Development with Python"
+      },
+      "teaches": [
+        "Python",
+        "Command-Line Interface",
+        "File Handling",
+        "Functions",
+        "Lists and Loops",
+        "Input and Output"
+      ],
+      "educationalLevel": "Beginner to Intermediate",
+      "inLanguage": "en",
+      "isPartOf": {
+        "@type": "WebSite",
+        "name": "DevspireHub",
+        "url": "https://devspirehub.com"
+      },
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://devspirehub.com"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Programming",
+            "item": "https://devspirehub.com/Programming"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Projects",
+            "item": "https://devspirehub.com/Programming/Projects"
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "name": "Python",
+            "item": "https://devspirehub.com/Programming/Projects/Python"
+          },
+          {
+            "@type": "ListItem",
+            "position": 5,
+            "name": "To-Do CLI App Python Tutorial",
+            "item": "https://devspirehub.com/Programming/Projects/Python/to-do-cli-app/todo-cli-app-python-tutorial"
+          }
+        ]
+      }
+    }
+    </script>
+
+
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2368356039533778"
         crossorigin="anonymous"></script>
 
@@ -80,7 +200,7 @@
 
         gtag('config', 'G-6VWY63Q80N');
     </script>
-    
+
     <script async custom-element="amp-auto-ads" src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
     </script>
 </head>
@@ -90,27 +210,36 @@
     <amp-auto-ads type="adsense" data-ad-client="ca-pub-2368356039533778">
     </amp-auto-ads>
 
+    <!-- Header  -->
     <header class="navbar">
         <div class="container">
             <div class="logo">
                 <div class="logo-text">
-                    <img src="../../../../images/icon.webp" alt="Gear Icon" width="23" height="23">
+                    <!-- <i class="fas fa-code"></i> -->
+                    <a href="../../../../index.html"><img src="../../../../images/icon.webp" alt="Gear Icon" width="23"
+                            height="23"></a>
                     <span id="brand" class="typewriter" data-text="DevspireHub"></span>
                 </div>
-                <button class="menu-toggle" aria-label="Toggle navigation">
+                <button class="menu-toggle" type="button" aria-label="Toggle navigation">
                     <i class="fas fa-bars"></i>
                 </button>
             </div>
             <nav class="nav-links">
                 <ul>
-                    <li><a href="../../../../index.html">Home</a></li>
-                    <li><a href="#implementation-details">Implementations</a></li>
-                    <li><a href="#other-work-section">Projects</a></li>
+                    <li><a href="../../../../index.html" class="home"><i class="fa-solid fa-house"></i></a></li>
+                    <li><a href="../../../../index.html#projects-tutorials-section" class="projects">Projects</a></li>
+                    <li><a href="../../../../index.html#programming-tutorials-section"
+                            class="programming">Programming</a>
+                    </li>
+                    <li><a href="../../../../index.html#ethical-hacking-section" class="hacking">Ethical Hacking</a>
+                    </li>
+                    <li><a href="../../../../index.html#networking-section" class="networking">Networking</a></li>
+                    <li><a href="../../../../index.html#automation-section" class="ai">Automation</a></li>
+                    <li><a href="../../../../index.html#info-section" class="game">Resources</a></li>
                 </ul>
             </nav>
         </div>
     </header>
-
     <div class="main-content-wrapper container">
         <!-- Left Side  -->
         <main class="left-column">
@@ -1685,7 +1814,8 @@ if __name__ == "__main__":
         <aside class="right-column">
             <div class="about-website moving-border">
                 <h3>About Website</h3>
-                <p>DevspireHub is a beginner-friendly learning platform offering step-by-step tutorials in
+                <p><a class="homepage typewriter-scan" href="../../../../index.html"><strong>DevspireHub</strong></a> is
+                    a beginner-friendly learning platform offering step-by-step tutorials in
                     programming, ethical hacking,
                     networking, automation, and Windows setup. Learn through hands-on projects, clear explanations, and
                     real-world examples
@@ -1792,6 +1922,32 @@ if __name__ == "__main__":
                     </div>
                 </div>
             </div>
+
+            <section class="deals-section">
+                <div class="deals-header">
+                    <h2>HOT DEALS</h2>
+                    <div class="deals-underline"></div>
+                </div>
+
+                <!-- Cards injected dynamically from amazon-links.json -->
+                <div class="deals-grid" id="dealsGrid">
+                    <div class="deal-skeleton">
+                    </div>
+                    <div class="deal-skeleton"></div>
+                    <div class="deal-skeleton"></div>
+                    <div class="deal-skeleton"></div>
+                    <div class="deal-skeleton"></div>
+                    <div class="deal-skeleton"></div>
+                </div>
+
+                <div class="deals-page-indicator" id="dealsPageIndicator"></div>
+
+                <div class="deals-nav">
+                    <button class="deal-arrow-btn" onclick="scrollDeals(-1)" aria-label="Previous">&#8592;</button>
+                    <button class="deal-arrow-btn" onclick="scrollDeals(1)" aria-label="Next">&#8594;</button>
+                </div>
+            </section>
+
             <script async
                 src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2368356039533778"
                 crossorigin="anonymous"></script>

@@ -63,11 +63,11 @@
         {
         "@context": "https://schema.org",
         "@type": "Organization",
-        "name": "DevSpireHub",
+        "name": "DevspireHub",
         "url": "https://devspirehub.com",
 
         "logo": "https://devspirehub.com/image/icon.webp",
-        "description": "DevSpire - Programming, Projects, Ethical hacking, Networking & AI",
+        "description": "DevspireHub - Programming, Projects, Ethical hacking, Networking & AI",
         "founder": [
             {
             "@type": "Person",
@@ -96,7 +96,7 @@
         },
         "publisher": {
             "@type": "Organization",
-            "name": "DevSpireHub",
+            "name": "DevspireHub",
             "logo": {
                 "@type": "ImageObject",
                 "url": "https://devspirehub.com/images/icon.webp"
@@ -138,6 +138,31 @@
     }
     </script>
 
+    <script type=application/ld+json>
+        {
+            "@context": "https://schema.org",
+            "@type": "SiteNavigationElement",
+            "name": [
+                "Home",
+                "Projects",
+                "Programming",
+                "Ethical Hacking",
+                "Networking",
+                "Automation",
+                "Resources"
+            ],
+            "url": [
+                "https://devspirehub.com",
+                "https://devspirehub.com/#projects-tutorials-section",
+                "https://devspirehub.com/#programming-tutorials-section",
+                "https://devspirehub.com/#ethical-hacking-section",
+                "https://devspirehub.com/#networking-section",
+                "https://devspirehub.com/#automation-section",
+                "https://devspirehub.com/#info-section",
+            ]
+        }
+    </script>
+
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2368356039533778"
         crossorigin="anonymous"></script>
     <!-- Google tag (gtag.js) -->
@@ -158,22 +183,32 @@
 <body>
     <amp-auto-ads type="adsense" data-ad-client="ca-pub-2368356039533778">
     </amp-auto-ads>
+    <!-- Header  -->
     <header class="navbar">
         <div class="container">
             <div class="logo">
                 <div class="logo-text">
-                    <img src="../../../../images/icon.webp" alt="Gear Icon" width="23" height="23">
+                    <!-- <i class="fas fa-code"></i> -->
+                    <a href="../../../../index.html"><img src="../../../../images/icon.webp" alt="Gear Icon" width="23"
+                            height="23"></a>
                     <span id="brand" class="typewriter" data-text="DevspireHub"></span>
                 </div>
-                <button class="menu-toggle" aria-label="Toggle navigation">
+                <button class="menu-toggle" type="button" aria-label="Toggle navigation">
                     <i class="fas fa-bars"></i>
                 </button>
             </div>
             <nav class="nav-links">
                 <ul>
-                    <li><a href="../../../../index.html">Home</a></li>
-                    <li><a href="#implementation-details">Implementations</a></li>
-                    <li><a href="#other-work-section">Projects</a></li>
+                    <li><a href="../../../../index.html" class="home"><i class="fa-solid fa-house"></i></a></li>
+                    <li><a href="../../../../index.html#projects-tutorials-section" class="projects">Projects</a></li>
+                    <li><a href="../../../../index.html#programming-tutorials-section"
+                            class="programming">Programming</a>
+                    </li>
+                    <li><a href="../../../../index.html#ethical-hacking-section" class="hacking">Ethical Hacking</a>
+                    </li>
+                    <li><a href="../../../../index.html#networking-section" class="networking">Networking</a></li>
+                    <li><a href="../../../../index.html#automation-section" class="ai">Automation</a></li>
+                    <li><a href="../../../../index.html#info-section" class="game">Resources</a></li>
                 </ul>
             </nav>
         </div>
@@ -228,7 +263,8 @@
 
             <section id="implementation-details" class="implementation-section">
                 <h2>Implementation Details</h2>
-                <p>This Space Invader game, built with Python and Pygame, features a player-controlled spaceship, enemy
+                <p>This Space Invader game, built with Python and Pygame, features a player-controlled spaceship,
+                    enemy
                     waves, real-time movement, shooting, collision detection, and simple scoring. The game loop runs
                     smoothly, making gameplay increasingly challenging as enemies respawn.
                 </p>
@@ -698,7 +734,8 @@ pygame.display.update()
                 <p>The Space Invaders Game is a beginner-friendly Python project built using the
                     <a href="#language-python">Python</a> programming language and the
                     <a href="https://www.pygame.org/wiki/tutorials" target="_blank">Pygame</a> library.
-                    This project teaches step-by-step concepts such as player movement, enemy generation, bullet firing,
+                    This project teaches step-by-step concepts such as player movement, enemy generation, bullet
+                    firing,
                     collision detection, scoring system, and game-over handling.
                     It is a perfect hands-on tutorial for beginners to understand game loops, real-time graphics
                     rendering,
@@ -709,7 +746,8 @@ pygame.display.update()
                     <ul>
                         <li><b>Player controls and shooting mechanics</b> with smooth left/right movement and bullet
                             firing.</li>
-                        <li><b>Enemy spawning and collision detection</b> to track hits, remove enemies, and increase
+                        <li><b>Enemy spawning and collision detection</b> to track hits, remove enemies, and
+                            increase
                             the score.</li>
                         <li><b>Score system and Game Over condition</b> providing real-time feedback and a complete
                             arcade experience.</li>
@@ -731,9 +769,11 @@ pygame.display.update()
                         <i class="fab fa-github"></i>Source Code</a>
                 </div>
                 <p class="last">
-                    This tutorial provides a complete, functional Space Invaders game that demonstrates fundamental game
+                    This tutorial provides a complete, functional Space Invaders game that demonstrates fundamental
+                    game
                     development concepts
-                    including object-oriented programming, game loops, collision detection, and user input handling. The
+                    including object-oriented programming, game loops, collision detection, and user input handling.
+                    The
                     modular structure
                     makes it easy to extend and customize for your own projects!
                 </p>
@@ -784,7 +824,8 @@ pygame.display.update()
                                 <span class="project-tag">Python</span>
                             </div>
                             <a href="../to-do-cli-app/todo-cli-app-python-tutorial.html"
-                                title="To-Do CLI App Python Project Tutorial" class="view-project-button">View Project
+                                title="To-Do CLI App Python Project Tutorial" class="view-project-button">View
+                                Project
                                 <span>&rarr;</span></a>
                         </div>
                     </div>
@@ -794,7 +835,8 @@ pygame.display.update()
                             fetchpriority="auto">
                         <div class="project-card-content">
                             <h4>Weather App</h4>
-                            <p>Responsive weather app with real-time API data, feature comparison, and intuitive design
+                            <p>Responsive weather app with real-time API data, feature comparison, and intuitive
+                                design
                                 for global city forecasts.</p>
                             <div class="project-tags">
                                 <span class="project-tag">HTML</span>
@@ -814,7 +856,8 @@ pygame.display.update()
                             fetchpriority="auto">
                         <div class="project-card-content">
                             <h4>Team Card App</h4>
-                            <p>Interactive team card application for cricket, featuring dynamic team selection, player
+                            <p>Interactive team card application for cricket, featuring dynamic team selection,
+                                player
                                 filters, and customizable
                                 light/dark themes.</p>
                             <div class="project-tags">
@@ -873,11 +916,14 @@ pygame.display.update()
         <aside class="right-column">
             <div class="about-website moving-border">
                 <h3>About Website</h3>
-                <p>DevspireHub is a beginner-friendly learning platform offering step-by-step tutorials in
+                <p><a class="homepage typewriter-scan" href="../../../../index.html"><strong>DevspireHub</strong></a> is
+                    a beginner-friendly learning platform offering step-by-step tutorials in
                     programming, ethical hacking,
-                    networking, automation, and Windows setup. Learn through hands-on projects, clear explanations, and
+                    networking, automation, and Windows setup. Learn through hands-on projects, clear explanations,
+                    and
                     real-world examples
-                    using practical tools and open-source resources—no signups, no tracking, just actionable knowledge
+                    using practical tools and open-source resources—no signups, no tracking, just actionable
+                    knowledge
                     to accelerate your
                     technical skills.
                 </p>
@@ -980,6 +1026,32 @@ pygame.display.update()
                     </div>
                 </div>
             </div>
+
+            <section class="deals-section">
+                <div class="deals-header">
+                    <h2>HOT DEALS</h2>
+                    <div class="deals-underline"></div>
+                </div>
+
+                <!-- Cards injected dynamically from amazon-links.json -->
+                <div class="deals-grid" id="dealsGrid">
+                    <div class="deal-skeleton">
+                    </div>
+                    <div class="deal-skeleton"></div>
+                    <div class="deal-skeleton"></div>
+                    <div class="deal-skeleton"></div>
+                    <div class="deal-skeleton"></div>
+                    <div class="deal-skeleton"></div>
+                </div>
+
+                <div class="deals-page-indicator" id="dealsPageIndicator"></div>
+
+                <div class="deals-nav">
+                    <button class="deal-arrow-btn" onclick="scrollDeals(-1)" aria-label="Previous">&#8592;</button>
+                    <button class="deal-arrow-btn" onclick="scrollDeals(1)" aria-label="Next">&#8594;</button>
+                </div>
+            </section>
+
             <script async
                 src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2368356039533778"
                 crossorigin="anonymous"></script>
@@ -1023,14 +1095,17 @@ pygame.display.update()
         <ul class="menu">
             <li class="menu-item"><a class="menu-link" href="../../../../index.html">Home</a></li>
             <li class="menu-item"><a class="menu-link" href="../../../../Wallpaper/index.html">Wallpapers</a></li>
-            <li class="menu-item"><a class="menu-link" href="../../../../color-palettes/index.html">Color Palettes</a>
+            <li class="menu-item"><a class="menu-link" href="../../../../color-palettes/index.html">Color
+                    Palettes</a>
             </li>
             <li class="menu-item"><a class="menu-link"
                     href="../../../../Resources/digital-resources/digital-resources-hub.html">Resources</a>
             </li>
             <li class="menu-item"><a class="menu-link" href="../../../../Website/about/about.html">About</a></li>
-            <li class="menu-item"><a class="menu-link" href="../../../../Website/contact/index.html">Contact</a></li>
-            <li class="menu-item"><a class="menu-link" href="../../../../Website/privacy/index.html">Privacy policy</a>
+            <li class="menu-item"><a class="menu-link" href="../../../../Website/contact/index.html">Contact</a>
+            </li>
+            <li class="menu-item"><a class="menu-link" href="../../../../Website/privacy/index.html">Privacy
+                    policy</a>
             </li>
         </ul>
         <div class="contacts">
@@ -1062,4 +1137,3 @@ pygame.display.update()
 </body>
 
 </html>
-

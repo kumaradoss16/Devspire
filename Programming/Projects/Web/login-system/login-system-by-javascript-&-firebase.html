@@ -163,7 +163,7 @@
             </div>
             <nav class="nav-links">
                 <ul>
-                    <li><a href="../../../../index.html" class="projects">Home</a></li>
+                    <li><a href="../../../../index.html" class="home"><i class="fa-solid fa-house"></i></a></li>
                     <li><a href="../../../../index.html#projects-tutorials-section" class="projects">Projects</a></li>
                     <li><a href="../../../../index.html#programming-tutorials-section"
                             class="programming">Programming</a></li>
@@ -2077,6 +2077,33 @@ function handleAuthError(error) {
                     </div>
                 </div>
             </div>
+
+            <section class="deals-section">
+                <div class="deals-header">
+                    <h2>HOT DEALS</h2>
+                    <div class="deals-underline"></div>
+                </div>
+
+                <!-- Cards injected dynamically from amazon-links.json -->
+                <div class="deals-grid" id="dealsGrid">
+                    <div class="deal-skeleton">
+                    </div>
+                    <div class="deal-skeleton"></div>
+                    <div class="deal-skeleton"></div>
+                    <div class="deal-skeleton"></div>
+                    <div class="deal-skeleton"></div>
+                    <div class="deal-skeleton"></div>
+                </div>
+
+                <div class="deals-page-indicator" id="dealsPageIndicator"></div>
+
+                <div class="deals-nav">
+                    <button class="deal-arrow-btn" onclick="scrollDeals(-1)" aria-label="Previous">&#8592;</button>
+                    <button class="deal-arrow-btn" onclick="scrollDeals(1)" aria-label="Next">&#8594;</button>
+                </div>
+            </section>
+
+
             <script async
                 src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2368356039533778"
                 crossorigin="anonymous"></script>
