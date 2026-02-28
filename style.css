@@ -465,6 +465,7 @@ body {
     display: inline-block;
     padding: 5px 20px;
     border-radius: 15px;
+    margin: 0 20px;
 }
 
 .recent a {
