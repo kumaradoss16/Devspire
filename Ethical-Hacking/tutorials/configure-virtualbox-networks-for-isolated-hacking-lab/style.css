@@ -2668,10 +2668,6 @@ body.has-sticky-ad {
         }
 
         @media (max-width: 600px) {
-            .container {
-                padding: 20px;
-            }
-
             h1 {
                 font-size: 22px;
             }
