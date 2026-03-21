@@ -471,7 +471,7 @@ hr {
 }
 
 /* Tables */
-.linux-card .table-container {
+.table-container {
     overflow-x: auto;
     width: 100%;
     margin: 5px 0;
@@ -1799,4 +1799,3 @@ svg {
         font-weight: 500;
     }
 }
-
