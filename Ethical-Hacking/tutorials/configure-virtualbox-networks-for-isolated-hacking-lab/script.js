@@ -211,3 +211,45 @@ function scrollDeals(dir) {
 
 // ── Run on page load ──────────────────────────────────
 document.addEventListener('DOMContentLoaded', loadDeals);
+
+// Definition data - store all your terms here
+    const definitions = {
+            virtual_router: {
+                definition: "In VirtualBox, a virtual router refers to the built-in networking engine that VirtualBox provides to manage traffic between your VMs and the outside world — it's not a separate device you install, but a software component embedded in VirtualBox's networking stack.",
+            }
+        };
+
+        const modal = document.getElementById('modal');
+        const closeBtn = document.getElementById('close-btn');
+        const wordTitle = document.getElementById('word-title');
+        const definitionText = document.getElementById('definition');
+        const exampleText = document.getElementById('example');
+
+        document.querySelectorAll('.word-link').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const word = link.getAttribute('data-word');
+                if (definitions[word]) {
+                    wordTitle.textContent = word.charAt(0).toUpperCase() + word.slice(1);
+                    definitionText.textContent = definitions[word].definition;
+                    exampleText.textContent = `"${definitions[word].example}"`;
+                    modal.classList.add('active');
+                }
+            });
+        });
+
+        closeBtn.addEventListener('click', () => {
+            modal.classList.remove('active');
+        });
+
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.classList.remove('active');
+            }
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                modal.classList.remove('active');
+            }
+        });

