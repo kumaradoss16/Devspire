@@ -58,6 +58,7 @@
 
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://sibforms.com/forms/end-form/build/sib-styles.css">
 
     <!-- Google Tag Manager -->
     <script>(function (w, d, s, l, i) {
@@ -1495,9 +1496,66 @@
             <div class="wave" id="wave3"></div>
             <div class="wave" id="wave4"></div>
         </div>
-        
-        <div class="cf-turnstile" data-sitekey="0x4AAAAAACvUub6HL8CTg7z8" data-theme="drak" data-size="normal"
-            data-callback="onSuccess"></div>
+
+        <!-- ═══════════════ Newsletter Section ═══════════════ -->
+        <section class="newsletter-section" id="newsletter-section">
+
+            <!-- Brevo SDK anchors — hidden, required by main.js — do NOT remove -->
+            <div id="error-message" style="display:none;" aria-hidden="true"></div>
+            <div id="success-message" style="display:none;" aria-hidden="true"></div>
+            <div id="sib-container" style="display:none;" aria-hidden="true"></div>
+
+            <!-- Left: Text -->
+            <div class="newsletter-text">
+                <h2>Stay Ahead in Tech! 🚀</h2>
+                <p>Get the latest tutorials on Ethical Hacking, Linux, Networking,
+                    and Programming — straight to your inbox. No spam, ever.</p>
+            </div>
+
+            <!-- Right: Form -->
+            <div class="newsletter-form-wrapper">
+                <form id="sib-form" method="POST"
+                    action="https://4be2b08d.sibforms.com/serve/MUIFAFDOzGXIR0IRjss0Xmd0ia6WIzBYPsTi1Ka41zBc9y8kp3Km6_7bnidtNIPpmbtEXvO7S79nnRQheDr90aKn7gZILtpm1ugICm0_dfes4TUEWEtG_JyXyhUu_zhdI0ufW5R9EdunUyL51Vyod6Z-FbfYhT1tgUxz1ZOVkw8EOhcRVBSSg-13hxsYQXpMZinxbOzTZzbMhQl80g=="
+                    data-type="subscription" novalidate>
+
+                    <div class="newsletter-input-row">
+                        <!-- ✅ FIXED: type="email" not type="text" -->
+                        <input type="email" id="EMAIL" name="EMAIL" autocomplete="email"
+                            placeholder="Enter your email address" data-required="true" required
+                            aria-label="Email address" />
+                        <button type="submit" id="newsletter-submit-btn" aria-label="Subscribe">
+                            <span class="btn-text">Subscribe</span>
+                            <span class="btn-loader" aria-hidden="true"></span>
+                        </button>
+
+                    </div>
+                    <div style="text-align: center" class="cf-turnstile" data-sitekey="0x4AAAAAACvUub6HL8CTg7z8"
+                        data-theme="dark" data-size="normal" data-callback="onSuccess"></div>
+
+                    <p class="newsletter-field-error" id="newsletter-email-error" role="alert" aria-live="polite"></p>
+
+                    <!-- Brevo required hidden fields — do NOT remove -->
+                    <input type="text" name="email_address_check" value="" style="display:none;" tabindex="-1"
+                        autocomplete="off">
+                    <input type="hidden" name="locale" value="en">
+                </form>
+
+                <!-- Success / Error feedback -->
+                <div id="newsletter-success" class="newsletter-status newsletter-status--success" role="alert"
+                    aria-live="polite" hidden>
+                    <!-- <i class="fas fa-check-circle"></i> -->
+                    <span>You're subscribed! Welcome to DevspireHub 🎉</span>
+                </div>
+                <div id="newsletter-error" class="newsletter-status newsletter-status--error" role="alert"
+                    aria-live="polite" hidden>
+                    <!-- <i class="fas fa-exclamation-circle"></i> -->
+                    <span>Something went wrong. Please try again.</span>
+                </div>
+            </div>
+
+        </section>
+
+
         <ul class="menu">
             <li class="menu-item"><a class="menu-link" href="#hero-section">Home</a></li>
             <li class="menu-item"><a class="menu-link" href="Wallpaper/index.html" target="_blank">Wallpapers</a>
@@ -1533,6 +1591,7 @@
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.6.2/dist/dotlottie-wc.js" type="module"></script>
     <script src="script.js"></script>
+    <script defer src="https://sibforms.com/forms/end-form/build/main.js"></script>
 </body>
 
 </html>
