@@ -247,104 +247,11 @@ if (tabButtons.length > 0 && projectCards.length > 0) {
         });
     }
 
-    /* ═══════════════════════════════════════════════════
-   Newsletter — production handler
-   ═══════════════════════════════════════════════════ */
-window.REQUIRED_CODE_ERROR_MESSAGE = 'Please choose a country code';
-window.LOCALE = 'en';
-window.EMAIL_INVALID_MESSAGE   = 'Please enter a valid email address.';
-window.SMS_INVALID_MESSAGE     = 'The information provided is invalid.';
-window.REQUIRED_ERROR_MESSAGE  = 'This field cannot be left blank.';
-window.GENERIC_INVALID_MESSAGE = 'The information provided is invalid.';
-window.translation = {
-  common: {
-    selectedList: '{quantity} list selected',
-    selectedLists: '{quantity} lists selected',
-    selectedOption: '{quantity} selected',
-    selectedOptions: '{quantity} selected',
-  }
-};
-
-// Newsletter handler — runs after DOMContentLoaded already fired above
-(function initNewsletter() {
-  const form       = document.getElementById('sib-form');
-  const emailInput = document.getElementById('EMAIL');
-  const submitBtn  = document.getElementById('newsletter-submit-btn');
-  const emailError = document.getElementById('newsletter-email-error');
-  const successBox = document.getElementById('newsletter-success');
-  const errorBox   = document.getElementById('newsletter-error');
-
-  if (!form || !emailInput || !submitBtn) return; // not on this page
-
-  function isValidEmail(v) {
-    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim());
-  }
-  function showErr(msg) {
-    if (emailError) emailError.textContent = msg;
-    emailInput.setAttribute('aria-invalid', 'true');
-  }
-  function clearErr() {
-    if (emailError) emailError.textContent = '';
-    emailInput.removeAttribute('aria-invalid');
-  }
-  function setLoading(on) {
-    submitBtn.disabled = on;
-    submitBtn.classList.toggle('loading', on);
-  }
-  function showStatus(type) {
-    if (successBox) successBox.hidden = type !== 'success';
-    if (errorBox)   errorBox.hidden   = type !== 'error';
-  }
-
-  emailInput.addEventListener('blur', () => {
-    if (emailInput.value && !isValidEmail(emailInput.value))
-      showErr('Please enter a valid email (e.g. you@example.com)');
-    else clearErr();
-  });
-  emailInput.addEventListener('input', () => {
-    if (!emailInput.value) clearErr();
-  });
-
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    clearErr();
-    showStatus(null);
-
-    const email = emailInput.value.trim();
-    if (!email)              { showErr('This field cannot be left blank.'); emailInput.focus(); return; }
-    if (!isValidEmail(email)){ showErr('Please enter a valid email (e.g. you@example.com)'); emailInput.focus(); return; }
-
-    setLoading(true);
-    try {
-      await fetch(form.action, {
-        method: 'POST',
-        body: new FormData(form),
-        headers: { Accept: 'application/json' },
-        mode: 'no-cors'   // Brevo requires no-cors
-      });
-      showStatus('success');
-      form.reset();
-      clearErr();
-      if (typeof gtag === 'function')
-        gtag('event', 'newsletter_subscribe', { event_category: 'engagement' });
-    } catch (err) {
-      console.error('Newsletter error:', err);
-      showStatus('error');
-    } finally {
-      setLoading(false);
-    }
-  });
-})();
-
     window.REQUIRED_CODE_ERROR_MESSAGE = 'Please choose a country code';
-  window.LOCALE = 'en';
-  window.EMAIL_INVALID_MESSAGE = window.SMS_INVALID_MESSAGE = "The information provided is invalid. Please review the field format and try again.";
-
-  window.REQUIRED_ERROR_MESSAGE = "This field cannot be left blank. ";
-
-  window.GENERIC_INVALID_MESSAGE = "The information provided is invalid. Please review the field format and try again.";
-
-
+    window.LOCALE = 'en';
+    window.EMAIL_INVALID_MESSAGE = window.SMS_INVALID_MESSAGE = "The information provided is invalid. Please review the field format and try again.";
+    window.REQUIRED_ERROR_MESSAGE = "This field cannot be left blank. ";
+    window.GENERIC_INVALID_MESSAGE = "The information provided is invalid. Please review the field format and try again.";
 
 
   window.translation = {
@@ -382,8 +289,6 @@ window.translation = {
     return { success: false, "error-codes": ["internal-error"] };
   }
 }
-
-
 });
 
 document.addEventListener("click", (e) => {
