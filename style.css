@@ -3874,13 +3874,13 @@ button[type="submit"].loading .btn-loader { display: inline-block; }
   #sib-container input::placeholder {
     text-align: left;
     font-family: Helvetica, sans-serif;
-    color: #c0ccda;
+    color: #020617;
   }
 
   #sib-container textarea::placeholder {
     text-align: left;
     font-family: Helvetica, sans-serif;
-    color: #c0ccda;
+    color: #020617;
   }
 
   #sib-container a {
