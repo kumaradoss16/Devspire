@@ -289,6 +289,17 @@ if (tabButtons.length > 0 && projectCards.length > 0) {
     return { success: false, "error-codes": ["internal-error"] };
   }
 }
+
+    // Add this to your script.js
+const submitBtn = document.getElementById('newsletter-submit-btn');
+
+// Disable button initially
+if (submitBtn) submitBtn.disabled = true;
+
+// Enable only after Turnstile passes
+window.onSuccess = function(token) {
+  if (submitBtn) submitBtn.disabled = false;
+}
 });
 
 document.addEventListener("click", (e) => {
