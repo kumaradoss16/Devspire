@@ -1,0 +1,1930 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="../../../images/icon.webp" sizes="32x46" type="image/png">
+    <!-- Primary SEO Tags -->
+    <title>How to Implement Google Sign-In with Firebase JavaScript</title>
+    <meta name="description"
+        content="Learn how to implement Google Sign-In with Firebase JavaScript using signInWithPopup and signInWithRedirect. Covers GoogleAuthProvider setup, user profile display, sign-out handling, and error management — no backend required.">
+    <meta name="keywords"
+        content="Google Sign-In Firebase JavaScript, Firebase Google authentication tutorial, signInWithPopup Firebase, Firebase GoogleAuthProvider, implement Google login JavaScript, Firebase auth JS SDK v10, signInWithRedirect Firebase, Google OAuth Firebase, Firebase authentication beginner, onAuthStateChanged Firebase">
+
+    <!-- Canonical URL -->
+    <link rel="canonical"
+        href="https://devspirehub.com/ProgrammingTutorials/implement-google-sign-in-with-firebase-javascript">
+
+    <!-- Robots Meta -->
+    <meta name="robots" content="index, follow, max-snippet=-1, max-image-preview=large, max-video-preview=-1">
+
+    <!-- Author & Publisher -->
+    <meta name="author" content="Kumaradoss DevspireHub">
+    <meta name="publisher" content="DevspireHub">
+    <link rel="author" href="https://devspirehub.com/about">
+
+    <!-- Author Information -->
+    <meta name="author" content="Kumaradoss / DevspireHub">
+    <link rel="author" href="https://devspirehub.com/about">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="DevspireHub">
+    <meta property="og:title" content="How to Implement Google Sign-In with Firebase JavaScript | DevspireHub">
+    <meta property="og:description"
+        content="A complete step-by-step guide to implementing Google Sign-In with Firebase Authentication using signInWithPopup and signInWithRedirect. Covers user profile display, sign-out, and error handling — no backend server required.">
+    <meta property="og:url"
+        content="https://devspirehub.com/ProgrammingTutorials/implement-google-sign-in-with-firebase-javascript">
+    <meta property="og:image"
+        content="https://devspirehub.com/ProgrammingTutorials/images/implement-google-sign-in-with-firebase-javascript.webp">
+    <meta property="og:image:alt"
+        content="How to Implement Google Sign-In with Firebase JavaScript | DevspireHub Tutorial">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="en_IN">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="How to Implement Google Sign-In with Firebase JavaScript | DevspireHub">
+    <meta name="twitter:description"
+        content="Step-by-step guide to implementing Google Sign-In with Firebase Authentication using signInWithPopup and signInWithRedirect for beginners.">
+    <meta name="twitter:image"
+        content="https://devspirehub.com/ProgrammingTutorials/images/implement-google-sign-in-with-firebase-javascript.webp">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <!-- Prism.js CSS theme -->
+    <link rel="stylesheet" href="../../../Ethical-Hacking/Linux/prism/prism.js" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+
+
+    <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+    <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="../../Projects/Web/weather-app/prism.css" />
+
+
+    <script type="application/ld+json">
+        {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "DevspireHub",
+        "url": "https://devspirehub.com",
+        "logo": "https://devspirehub.com/image/icon.webp",
+        "description": "DevspireHub - Programming, Projects, Ethical hacking, Networking & AI",
+        "founder": [
+            {
+            "@type": "Person",
+            "name": "Kumaradoss",
+            "url": "https://www.linkedin.com/in/kumaradoss-s/"
+            }
+        ],
+        "sameAs": [
+            "https://www.linkedin.com/in/kumaradoss-s/",
+            "https://github.com/kumaradoss16",
+        ]
+        }
+    </script>
+
+    <script type=application/ld+json>
+        {
+            "@context": "https://schema.org",
+            "@type": "SiteNavigationElement",
+            "name": [
+                "Home",
+                "Projects",
+                "Programming",
+                "Ethical Hacking",
+                "Networking",
+                "Automation",
+                "Resources"
+            ],
+            "url": [
+                "https://devspirehub.com",
+                "https://devspirehub.com/#projects-tutorials-section",
+                "https://devspirehub.com/#programming-tutorials-section",
+                "https://devspirehub.com/#ethical-hacking-section",
+                "https://devspirehub.com/#networking-section",
+                "https://devspirehub.com/#automation-section",
+                "https://devspirehub.com/#info-section",
+            ]
+        }
+    </script>
+
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Tutorial",
+      "headline": "How to Implement Google Sign-In with Firebase JavaScript",
+      "description": "Learn How to Implement Google Sign-In with Firebase JavaScript with step-by-step instructions.",
+      "author": { "@type": "Organization", "name": "DevspireHub" },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Kumaradoss DevspireHub",
+        "url": "https://devspirehub.com/about"
+      },
+      "datePublished": "2026-03-28",
+      "dateModified": "2026-03-28",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://devspirehub.com/ProgrammingTutorials/implement-google-sign-in-with-firebase-javascript"
+      }
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      "@id": "https://devspirehub.com/ProgrammingTutorials/implement-google-sign-in-with-firebase-javascript#howto",
+      "name": "How to Implement Google Sign-In with Firebase JavaScript",
+      "description": "Step-by-step guide to add Google Sign-In to a JavaScript web app using Firebase Authentication — covering popup and redirect methods, user profile display, sign-out, and error handling.",
+      "totalTime": "PT20M",
+      "estimatedCost": {
+        "@type": "MonetaryAmount",
+        "currency": "INR",
+        "value": "0"
+      },
+      "supply": [
+        { "@type": "HowToSupply", "name": "Firebase project at console.firebase.google.com" },
+        { "@type": "HowToSupply", "name": "Firebase JS SDK v10 imported via CDN" },
+        { "@type": "HowToSupply", "name": "firebaseConfig object from previous tutorial" },
+        { "@type": "HowToSupply", "name": "Basic JavaScript knowledge (async/await, DOM events)" }
+      ],
+      "tool": [
+        { "@type": "HowToTool", "name": "VS Code or any code editor" },
+        { "@type": "HowToTool", "name": "Firebase Console" },
+        { "@type": "HowToTool", "name": "Browser DevTools" },
+        { "@type": "HowToTool", "name": "Live Server extension (VS Code)" }
+      ]
+    }
+    </script>
+
+    <!-- Google Tag Manager -->
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-M457RGDF');</script>
+    <!-- End Google Tag Manager -->
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2368356039533778"
+        crossorigin="anonymous"></script>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6VWY63Q80N"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-6VWY63Q80N');
+    </script>
+
+    <script async custom-element="amp-auto-ads" src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+
+
+</head>
+
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M457RGDF" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <amp-auto-ads type="adsense" data-ad-client="ca-pub-2368356039533778">
+    </amp-auto-ads>
+
+    <!-- Header  -->
+    <header class="navbar">
+        <div class="container">
+            <div class="logo">
+                <div class="logo-text">
+                    <!-- <i class="fas fa-code"></i> -->
+                    <a href="../../../index.html"><img src="../../../images/icon.webp" alt="Gear Icon" width="23"
+                            height="23"></a>
+                    <span id="brand" class="typewriter" data-text="DevspireHub"></span>
+                </div>
+                <button class="menu-toggle" type="button" aria-label="Toggle navigation">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            <nav class="nav-links">
+                <ul>
+                    <li><a href="../../../index.html" class="home"><i class="fa-solid fa-house"></i></a></li>
+                    <li><a href="../../../index.html#projects-tutorials-section" class="projects">Projects</a></li>
+                    <li><a href="../../../index.html#programming-tutorials-section" class="programming">Programming</a>
+                    </li>
+                    <li><a href="../../../index.html#ethical-hacking-section" class="hacking">Ethical Hacking</a>
+                    </li>
+                    <li><a href="../../../index.html#networking-section" class="networking">Networking</a></li>
+                    <li><a href="../../../index.html#automation-section" class="ai">Automation</a></li>
+                    <li><a href="../../../index.html#info-section" class="game">Resources</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="main-content-wrapper container">
+        <!-- Left Side  -->
+        <main class="left-column">
+            <section class="project-details-section">
+                <h1>How to Implement Google Sign-In with Firebase JavaScript</h1>
+                <p class="keywords"><strong>Keywords:</strong> Google Sign-In Firebase JavaScript | Firebase Google
+                    authentication tutorial | signInWithPopup Firebase | Firebase
+                    GoogleAuthProvider | implement Google login JavaScript</p>
+                <p>If you have ever abandoned a signup form because it asked for too many details, you already
+                    understand why Sign in with
+                    Google is the most clicked button on the modern web. Users trust it, browsers autofill it, and
+                    Firebase makes it
+                    possible in fewer lines of JavaScript — no backend server, no OAuth configuration from
+                    scratch, no database
+                    setup required.</p>
+                <p style="margin-top: 5px;">This is Part 2 of the DevspireHub Firebase Authentication Series — building
+                    directly on the
+                    email/password <a href="../../Projects/Web/login-system/login-system-by-javascript-&-firebase.html"
+                        class="link">login system</a>
+                    from the previous tutorial and adding Google Sign-In as a one-click alternative.</p>
+
+                <div class="image-placeholder">
+                    <img src="images/implementation-google-sign-in-with-firebase-javasript.webp"
+                        alt="How to Implement Google Sign-In with Firebase JavaScript" loading="lazy" decoding="async"
+                        fetchpriority="auto" />
+                </div>
+
+                <div class="list">
+                    <h4>Why Add Google Sign-In to Your App?</h4>
+                    <ul>
+                        <li>One-click login — no password to remember</li>
+                        <li>Pre-verified email — Google already confirmed it</li>
+                        <li>Profile data included — name, photo, email, UID</li>
+                        <li>Works on all browsers — desktop and mobile</li>
+                        <li>Completely free — no Firebase billing required</li>
+                        <li>No backend needed — Firebase handles everything</li>
+                    </ul>
+                </div>
+                <div class="list">
+                    <h4>What You Will Build</h4>
+                    <p>By the end of this tutorial your app will have a fully working Sign in with Google button that:
+                    </p>
+                    <ul>
+                        <li>Opens a Google account selection popup (<code class="code">signInWithPopup</code>).</li>
+                        <li>Supports full-page redirect for mobile browsers (<code
+                                class="code">signInWithRedirect</code>).</li>
+                        <li>Reads the user's display name, email, and profile photo from Google.</li>
+                        <li>Shows the profile on a protected dashboard page.</li>
+                        <li>Handles sign-out correctly for Google-authenticated users.</li>
+                        <li>Catches and displays all common Google auth errors gracefully.</li>
+                    </ul>
+                </div>
+                <div class="table-container">
+                    <h4>Two Methods Firebase Provides</h4>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Method</th>
+                                <th>How It Works</th>
+                                <th>Best For</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>signInWithPopup</strong> <span class="method-star">⭐</span></td>
+                                <td>Opens a Google login popup window</td>
+                                <td>Desktop, SPAs, most web apps</td>
+                            </tr>
+                            <tr>
+                                <td><strong>signInWithRedirect</strong></td>
+                                <td>Redirects entire page to Google then back</td>
+                                <td>Mobile browsers, PWAs</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <p class="sub"><strong class="subtitle">What Data Google Sign-In Returns</strong></p>
+                <div id="language-js" class="code-block">
+                    <div class="title">
+                        <p>javascript</p>
+                    </div>
+                    <pre class="line-numbers">
+                            <code id="codeSnippetJs" class="language-js">
+const user = result.user;
+
+user.displayName  // ⟶  "Kumaradoss S"
+user.email        // ⟶  "user@gmail.com"
+user.photoURL     // ⟶  "https://lh3.googleusercontent.com/..."
+user.uid          // ⟶  "unique Firebase user ID"
+                            </code>
+                        </pre>
+                </div>
+                <p>No extra database call needed — Google sends all of this in the authentication response.</p>
+            </section>
+
+            <section class="table-of-contents-section">
+                <h2><i class="fas fa-list"></i>Table of Contents</h2>
+                <ol>
+                    <li><a href="#step-1">Enable Google Sign-In in Firebase Console</a></li>
+                    <li><a href="#step-2">Add the Authorized Domain</a></li>
+                    <li><a href="#step-3">Update Your HTML (index.html)</a></li>
+                    <li><a href="#step-4">Import Google Auth Modules in app.js</a></li>
+                    <li><a href="#step-5">Implement Google Sign-In with Popup</a></li>
+                    <li><a href="#step-6">Google Sign-In with Redirect (Alternative)</a></li>
+                    <li><a href="#step-7">Display User Profile on Dashboard</a></li>
+                    <li><a href="#step-8">Sign Out Google Users</a></li>
+                    <li><a href="#step-9">Customize the Google Provider (Optional)</a></li>
+                    <li><a href="#step-10">Handle Google Auth Errors</a></li>
+                    <li><a href="#conclusion">Conclusion</a></li>
+                </ol>
+            </section>
+
+            <section id="prerequisites" class="prerequisites-section">
+                <h2><i class="fas fa-clipboard-check"></i>Prerequisites</h2>
+                <p>
+                    <strong>Before starting, make sure you have:</strong>
+                </p>
+                <div class="list">
+                    <ul>
+                        <li>Completed the Firebase Email/Password <a
+                                href="../../Projects/Web/login-system/login-system-by-javascript-&-firebase.html"
+                                class="link">Login tutorial</a>.</li>
+                        <li>Firebase project created at <a href="https://console.firebase.google.com"
+                                class="link">console.firebase.google.com</a>.</li>
+                        <li>Firebase JS SDK v10 (modular) already imported via CDN.</li>
+                        <li>Your firebaseConfig object set up in app.js.</li>
+                        <li>Basic JavaScript knowledge (async/await, DOM events).</li>
+                    </ul>
+                </div>
+                <div class="tip">
+                    <p><strong>💡 Tutorial</strong>: Review the <a
+                            href="../../Projects/Web/login-system/login-system-by-javascript-&-firebase.html"><span>Login
+                                System by Firebase and JavaScript</span></a> on DevspireHub before starting this guide.
+                    </p>
+                </div>
+            </section>
+
+            <section id="implementation-details introduction" class="implementation-section introduction">
+                <div class="content">
+                    <h2>Introduction</h2>
+                    <p><a href="https://firebase.google.com/docs/auth/web/google-signin" class="link">Google Sign-In</a>
+                        is one of the most popular authentication methods on the web. With Firebase
+                        Authentication and
+                        GoogleAuthProvider, you can add a fully functional "Sign in with Google" button to your app in
+                        just a few lines of code
+                        — no backend server required.
+                    </p>
+                    <p>Google Sign-In is an authentication service that lets users log into third-party websites and
+                        apps using their existing
+                        Google account, eliminating the need to create a separate username and password. It is built on
+                        two open standards:
+                        OAuth 2.0 (authorization) and OpenID Connect (identity layer on top of OAuth 2.0). [ <a
+                            href="https://dev.to/yaswanth_bonumaddi/understanding-google-oauth-20-57fn">1</a> ]
+                    </p>
+
+                    <div class="list">
+                        <h3>Core Concepts</h3>
+                        <p>Before the flow, understand three key terms:</p>
+                        <ul>
+                            <li><strong>Authentication (AuthN)</strong> — Who are you? Confirms your identity (login).
+                            </li>
+                            <li><strong>Authorization (AuthZ)</strong> — What can you access? Grants permissions to
+                                data. [ <a
+                                    href="https://cloud.google.com/blog/topics/developers-practitioners/identity-access-management-authentication-cloud-identity">2</a>
+                                ]</li>
+                            <li><strong>ID Token</strong> — A JWT (JSON Web Token) Google issues to prove your identity
+                                to the
+                                app. [ <a href="https://developers.google.com/identity/gsi/web/guides/overview">3</a> ]
+                            </li>
+                            <li><strong>Access Token</strong> — A short-lived credential that lets the app access your
+                                Google data
+                                (Drive, Gmail, etc.).</li>
+                        </ul>
+                        <p>Google Sign-In separates these two concerns deliberately — authentication returns only an ID
+                            token, authorization
+                            returns access/code tokens — keeping them clean and secure.</p>
+                    </div>
+
+                    <h4>How Google Sign-In Works — Step by Step</h4>
+                    <p class="sub"><strong class="subtitle">Step 1 — User Clicks "Sign in with Google"</strong></p>
+                    <p class="bottom">The app renders a Google-hosted button (an &lt;iframe&gt; injected by Google's JS
+                        SDK). The user
+                        clicks
+                        it, triggering the
+                        OAuth 2.0 flow.
+                    </p>
+                    <div class="bg-color">
+                        <pre>
+https://accounts.google.com/o/oauth2/v2/auth?
+  client_id=YOUR_CLIENT_ID
+  &redirect_uri=https://yourapp.com/callback
+  &response_type=code
+  &scope=openid email profile
+  &state=random_csrf_token
+</pre>
+                    </div>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Parameter</th>
+                                    <th>Purpose</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code class="code">client_id</code></td>
+                                    <td>Identifies your app (from Google Cloud Console)</td>
+                                </tr>
+                                <tr>
+                                    <td><code class="code">redirect_uri</code></td>
+                                    <td>Where Google sends the user after login</td>
+                                </tr>
+                                <tr>
+                                    <td><code class="code">scope</code></td>
+                                    <td>What data you're requesting (openid, email, profile)</td>
+                                </tr>
+                                <tr>
+                                    <td><code class="code">state</code></td>
+                                    <td>CSRF protection token</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p class="sub"><strong class="subtitle">Step 3 — Google Authenticates the User</strong></p>
+                    <p>Google shows its own login/password page (your app never sees the password). If the user is
+                        already logged in, this step
+                        is skipped. If 2FA is enabled, Google handles it entirely. [ <a
+                            href="https://dev.to/masonbarnes645/utilizing-oauth-20-with-google-59p3">4</a> ]
+                    </p>
+                    <p class="sub"><strong class="subtitle">Step 4 — Consent Screen</strong></p>
+                    <p>Google displays a consent screen listing exactly what the app is requesting (e.g., "See your
+                        name, email address"). The
+                        user approves or denies. [ <a
+                            href="https://dev.to/yaswanth_bonumaddi/understanding-google-oauth-20-57fn">1</a> ]</p>
+
+                    <p class="sub"><strong class="subtitle">Step 5 — Google Returns an Authorization Code</strong></p>
+                    <p>After consent, Google redirects back to your redirect_uri with a one-time authorization code:</p>
+                    <div class="bg-color">
+                        <pre>
+https://yourapp.com/callback?code=4/P7q7W91a-oMsCeLvIaQm6bTrgtp7&state=random_csrf_token
+</pre>
+                    </div>
+                    <p class="sub"><strong class="subtitle">Step 6 — Backend Exchanges Code for Tokens</strong></p>
+                    <p>Your server (never the browser) sends the code to Google's token endpoint:</p>
+                    <div class="bg-color">
+                        <pre>
+POST https://oauth2.googleapis.com/token
+  code=4/P7q7W91...
+  client_id=YOUR_CLIENT_ID
+  client_secret=YOUR_CLIENT_SECRET   ← Never exposed to frontend
+  redirect_uri=https://yourapp.com/callback
+  grant_type=authorization_code
+</pre>
+                    </div>
+                    <p>Google responds with:</p>
+                    <div id="language-js" class="code-block">
+                        <div class="title">
+                            <p>json</p>
+                        </div>
+                        <pre class="line-numbers">
+                            <code id="codeSnippetJs" class="language-js">
+{
+  "id_token": "eyJhbGciOiJSUzI1NiJ9...",   ← Proves identity
+  "access_token": "ya29.A0ARrdaM...",        ← Access Google APIs
+  "refresh_token": "1//04...",               ← Get new tokens silently
+  "expires_in": 3599
+}
+                            </code>
+                        </pre>
+                    </div>
+                    <p class="sub"><strong class="subtitle">Step 7 — Validate the ID Token</strong></p>
+                    <p>Your backend validates the ID token by verifying its signature against Google's public keys,
+                        ensuring it wasn't tampered with.</p>
+                    <p>The decoded token contains:</p>
+                    <div id="language-js" class="code-block">
+                        <div class="title">
+                            <p>json</p>
+                        </div>
+                        <pre class="line-numbers">
+                            <code id="codeSnippetJs" class="language-js">
+{
+  "sub": "1234567890",          ← Unique Google user ID
+  "email": "user@gmail.com",
+  "name": "Wave Function",
+  "picture": "https://...",
+  "iss": "https://accounts.google.com",
+  "aud": "YOUR_CLIENT_ID",
+  "exp": 1711234567
+}
+                            </code>
+                        </pre>
+                    </div>
+                    <p class="sub"><strong class="subtitle">Step 8 — Session Created</strong></p>
+                    <p>Your app uses the sub (subject) field as the unique user identifier, creates a session or JWT of
+                        its own, and the user
+                        is now logged in.
+                    </p>
+                    <h4>Token Lifecycle</h4>
+                    <div class="bg-color">
+                        <pre>
+Access Token  ⟶   expires in ~1 hour   ⟶   use Refresh Token to get new one
+Refresh Token ⟶   long-lived           ⟶   stored securely server-side
+ID Token      ⟶   one-time use         ⟶   validate once, discard
+</pre>
+                    </div>
+                    <p>When the access token expires, the app silently uses the refresh token to get a new one — the
+                        user never has to log in
+                        again.
+                    </p>
+                    <h4>Popup vs. Redirect — Which Should You Use?</h4>
+                    <p>Firebase provides two methods for Google Sign-In. Choose based on your target platform:</p>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Method</th>
+                                    <th>How It Works</th>
+                                    <th>Best For</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code class="code">signInWithPopup()</code></td>
+                                    <td>Opens a Google login popup window</td>
+                                    <td>Desktop browsers, SPAs</td>
+                                </tr>
+                                <tr>
+                                    <td><code class="code">signInWithRedirect()</code></td>
+                                    <td>Redirects the entire page to Google, then back</td>
+                                    <td>Mobile browsers, PWAs</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="pro-tip">
+                        <p><strong>💡 Firebase recommends</strong> signInWithPopup() for most web apps since several
+                            modern browsers
+                            block cross-origin storage
+                            access required by signInWithRedirect().</p>
+                    </div>
+                    <hr>
+
+                    <div class="content" id="step-1">
+                        <div class="list">
+                            <h3>Step 1: Enable Google Sign-In in Firebase Console</h3>
+                            <ol>
+                                <li>Go to <a href="https://console.firebase.google.com"
+                                        class="link">console.firebase.google.com</a></li>
+                                <li>Navigate to Build ⟶ Authentication ⟶ Sign-in method</li>
+                                <li>Click Google under the "Native providers" section</li>
+                                <li>Toggle it to Enable</li>
+                                <li>Set a Project support email (required by Google OAuth)</li>
+                                <li>Click Save</li>
+                            </ol>
+                        </div>
+                    </div>
+                    <hr>
+
+                    <div class="content" id="step-2">
+                        <div class="list">
+                            <h3>Step 2: Add the Authorized Domain</h3>
+                            <p>Firebase only allows Google Sign-In from pre-approved domains.</p>
+                            <ol>
+                                <li>In Authentication, click the Settings tab.</li>
+                                <li>Under Authorized domains, verify that localhost is listed (for local dev)./li>
+                                <li>When deploying, add your live domain (e.g., myapp.com) here as well.</li>
+                            </ol>
+                        </div>
+                    </div>
+                    <hr>
+
+                    <div class="content" id="step-3">
+                        <h3>Step 3: Update Your HTML (index.html)</h3>
+                        <p>Add a dedicated "Sign in with Google" button alongside your existing email/password form:</p>
+                        <div id="language-js" class="code-block">
+                            <div class="title">
+                                <p>index.html</p>
+                            </div>
+                            <pre class="line-numbers">
+                            <code id="codeSnippetJs" class="language-js">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8" /&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"/&gt;
+  &lt;title&gt;Login | My App&lt;/title&gt;
+  &lt;meta name="description" content="Sign in to your account using email/password or Google." /&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+  &lt;main&gt;
+    &lt;h1&gt;Welcome Back&lt;/h1&gt;
+
+    &lt;!-- Email/Password Login (from previous tutorial) --&gt;
+    &lt;form id="login-form"&gt;
+      &lt;label for="email"&gt;Email Address&lt;/label&gt;
+      &lt;input id="email" type="email" placeholder="you@example.com" required /&gt;
+
+      &lt;label for="password"&gt;Password&lt;/label&gt;
+      &lt;input id="password" type="password" placeholder="Your password" required /&gt;
+
+      &lt;button type="button" id="login-btn"&gt;Login with Email&lt;/button&gt;
+    &lt;/form&gt;
+
+    &lt;hr /&gt;
+
+    &lt;!-- Google Sign-In Button --&gt;
+    &lt;button id="google-signin-btn"&gt;
+      🔵 Sign in with Google
+    &lt;/button&gt;
+
+    &lt;p&gt;Don't have an account? &lt;a href="signup.html"&gt;Sign Up for Free&lt;/a&gt;&lt;/p&gt;
+  &lt;/main&gt;
+
+  &lt;script type="module" src="app.js"&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+                            </code>
+                        </pre>
+                        </div>
+                    </div>
+                    <hr>
+
+                    <div class="content" id="step-4">
+                        <h3>Step 4: Import Google Auth Modules in app.js</h3>
+                        <p>Add <code class="code">GoogleAuthProvider</code> and <code
+                                class="code">signInWithPopup</code> to your existing Firebase imports:</p>
+                        <div id="language-js" class="code-block">
+                            <div class="title">
+                                <p>app.js</p>
+                            </div>
+                            <pre class="line-numbers">
+                            <code id="codeSnippetJs" class="language-js">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+import {
+  getAuth,
+  GoogleAuthProvider,        // ← Google provider
+  signInWithPopup,            // ← Popup method
+  signInWithRedirect,         // ← Redirect method (optional)
+  getRedirectResult,          // ← To retrieve redirect result
+  onAuthStateChanged,
+  signOut
+} from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+
+const firebaseConfig = {
+  apiKey: "YOUR_API_KEY",
+  authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
+  projectId: "YOUR_PROJECT_ID",
+  storageBucket: "YOUR_PROJECT_ID.appspot.com",
+  messagingSenderId: "YOUR_SENDER_ID",
+  appId: "YOUR_APP_ID"
+};
+
+const app      = initializeApp(firebaseConfig);
+const auth     = getAuth(app);
+const provider = new GoogleAuthProvider(); // Initialize the Google provider
+                            </code>
+                        </pre>
+                        </div>
+                    </div>
+                    <hr>
+
+                    <div class="content" id="step-5">
+                        <h3>Step 5: Implement Google Sign-In with Popup</h3>
+                        <p>This is the recommended approach for desktop and most web apps. A Google account selection
+                            popup opens and closes
+                            automatically after sign-in:</p>
+                        <div id="language-js" class="code-block">
+                            <div class="title">
+                                <p>app.js</p>
+                            </div>
+                            <pre class="line-numbers">
+                            <code id="codeSnippetJs" class="language-js">
+// ---- GOOGLE SIGN-IN (POPUP) ----
+const googleBtn = document.getElementById("google-signin-btn");
+
+if (googleBtn) {
+  googleBtn.addEventListener("click", async () => {
+    try {
+      const result = await signInWithPopup(auth, provider);
+
+      // Get the Google OAuth access token
+      const credential = GoogleAuthProvider.credentialFromResult(result);
+      const token      = credential.accessToken;
+
+      // Get the signed-in user's profile info
+      const user = result.user;
+      console.log("Name:",  user.displayName);
+      console.log("Email:", user.email);
+      console.log("Photo:", user.photoURL);
+      console.log("UID:",   user.uid);
+
+      // Redirect to dashboard
+      window.location.href = "dashboard.html";
+
+    } catch (error) {
+      handleGoogleAuthError(error);
+    }
+  });
+}
+                            </code>
+                        </pre>
+                        </div>
+                        <h4>Step-by-Step Breakdown</h4>
+                        <p>This code makes a "Sign in with Google" button work on your webpage. When clicked, it opens a
+                            Google popup, logs the
+                            user in, and redirects them to <code class="code">dashboard.html</code>.</p>
+                        <p><strong>1. Grab the button from the page</strong></p>
+                        <div id="language-js" class="code-block">
+                            <div class="title">
+                                <p>app.js</p>
+                            </div>
+                            <pre class="line-numbers">
+                            <code id="codeSnippetJs" class="language-js">
+const googleBtn = document.getElementById("google-signin-btn");
+                            </code>
+                        </pre>
+                        </div>
+                        <p>Finds the Google sign-in button in your HTML by its ID and stores it in a variable.</p>
+
+                        <p><strong>2. Check if the button actually exists</strong></p>
+                        <div id="language-js" class="code-block">
+                            <div class="title">
+                                <p>app.js</p>
+                            </div>
+                            <pre class="line-numbers">
+                            <code id="codeSnippetJs" class="language-js">
+if (googleBtn) { ... }
+                            </code>
+                        </pre>
+                        </div>
+                        <p>A safety check — runs the code only if the button is found on the page. Prevents crashes on
+                            pages that don't have this
+                            button.</p>
+
+                        <p><strong>3. Listen for a click</strong></p>
+                        <div id="language-js" class="code-block">
+                            <div class="title">
+                                <p>app.js</p>
+                            </div>
+                            <pre class="line-numbers">
+                            <code id="codeSnippetJs" class="language-js">
+googleBtn.addEventListener("click", async () => { ... });
+                            </code>
+                        </pre>
+                        </div>
+                        <p>Waits for the user to click the button, then runs the async function (async means it can
+                            handle waiting — like waiting
+                            for Google to respond).</p>
+
+                        <p><strong>4. Open the Google sign-in popup/strong></p>
+                        <div id="language-js" class="code-block">
+                            <div class="title">
+                                <p>app.js</p>
+                            </div>
+                            <pre class="line-numbers">
+                            <code id="codeSnippetJs" class="language-js">
+const result = await signInWithPopup(auth, provider);
+                            </code>
+                        </pre>
+                        </div>
+                        <p>Opens a Google popup window asking the user to choose/sign into their Google account. await
+                            pauses until the user
+                            finishes.</p>
+
+                        <p><strong>5. Extract the access token</strong></p>
+                        <div id="language-js" class="code-block">
+                            <div class="title">
+                                <p>app.js</p>
+                            </div>
+                            <pre class="line-numbers">
+                            <code id="codeSnippetJs" class="language-js">
+const credential = GoogleAuthProvider.credentialFromResult(result);
+const token = credential.accessToken;
+                            </code>
+                        </pre>
+                        </div>
+                        <p>Pulls out the access token — a temporary key Google gives you to verify the login is real.
+                            Useful for making further
+                            Google API calls.</p>
+
+                        <p><strong>6. Get the user's profile info</strong></p>
+                        <div id="language-js" class="code-block">
+                            <div class="title">
+                                <p>app.js</p>
+                            </div>
+                            <pre class="line-numbers">
+                            <code id="codeSnippetJs" class="language-js">
+const user = result.user;
+console.log("Name:",  user.displayName);
+console.log("Email:", user.email);
+console.log("Photo:", user.photoURL);
+console.log("UID:",   user.uid);
+                            </code>
+                        </pre>
+                        </div>
+                        <div class="list">
+                            <ul>
+                                <li><code class="code">displayName</code> — their full name</li>
+                                <li><code class="code">email</code> — their Gmail address</li>
+                                <li><code class="code">photoURL</code> — their profile picture link</li>
+                                <li><code class="code">uid</code> — a unique ID Firebase assigns to every user (used for
+                                    database operations)</li>
+                            </ul>
+                        </div>
+
+                        <p><strong>7. Redirect to dashboard</strong></p>
+                        <div id="language-js" class="code-block">
+                            <div class="title">
+                                <p>app.js</p>
+                            </div>
+                            <pre class="line-numbers">
+                            <code id="codeSnippetJs" class="language-js">
+window.location.href = "dashboard.html";
+                            </code>
+                        </pre>
+                        </div>
+                        <p>After successful login, automatically sends the user to your dashboard page.</p>
+
+                        <p><strong>8. Handle errors gracefully</strong></p>
+                        <div id="language-js" class="code-block">
+                            <div class="title">
+                                <p>app.js</p>
+                            </div>
+                            <pre class="line-numbers">
+                            <code id="codeSnippetJs" class="language-js">
+} catch (error) {
+  handleGoogleAuthError(error);
+}
+                            </code>
+                        </pre>
+                        </div>
+                        <p>If anything goes wrong (user closes the popup, network error, etc.), it catches the error and
+                            passes it to your custom
+                            handleGoogleAuthError() function instead of crashing.</p>
+
+                        <p class="sub"><strong class="subtitle">Quick Flow Summary</strong></p>
+                        <div class="bg-color">
+                            <pre>
+User clicks button
+    ⟶  Google popup opens
+    ⟶  User picks account
+    ⟶  Firebase returns user info + token
+    ⟶  Logged to console
+    ⟶  Redirect to dashboard.html
+    ⟶  (If anything fails ⟶  show error)
+</pre>
+                        </div>
+                        <p>This is a standard Firebase Authentication pattern you'll reuse across most of your projects
+                            — the same flow works for
+                            any Firebase-powered app like your DevspireHub or Flask integrations.</p>
+                    </div>
+                    <hr>
+
+                    <div class="content" id="step-6">
+                        <h3>Step 6: (Alternative) Google Sign-In with Redirect</h3>
+                        <p>Use this method for mobile browsers and PWAs where popups may be blocked:</p>
+                        <h4>Step-by-Step Breakdown</h4>
+                        <p>This code handles Google Sign-In using a redirect flow — instead of a pop-up window, the user
+                            gets sent to Google's
+                            login page and brought back to your app after signing in.</p>
+                        <p><strong>Part 1 — Starting the Sign-In</strong></p>
+                        <div id="language-js" class="code-block">
+                            <div class="title">
+                                <p>app.js</p>
+                            </div>
+                            <pre class="line-numbers">
+                            <code id="codeSnippetJs" class="language-js">
+async function signInWithGoogleRedirect() {
+  await signInWithRedirect(auth, provider);
+}
+                            </code>
+                        </pre>
+                        </div>
+                        <div class="list">
+                            <ul>
+                                <li>When a user clicks "Sign in with Google", this function is called.</li>
+                                <li><code class="code">signInWithRedirect(auth, provider)</code> tells Firebase: "Send
+                                    the user to Google's login page".</li>
+                                <li>The entire page navigates away to Google — no pop-up, just a full redirect.</li>
+                                <li>If something goes wrong before the redirect, the error is logged to console.</li>
+                            </ul>
+                        </div>
+
+                        <p><strong>Part 2 — Handling the Return</strong></p>
+                        <div id="language-js" class="code-block">
+                            <div class="title">
+                                <p>app.js</p>
+                            </div>
+                            <pre class="line-numbers">
+                            <code id="codeSnippetJs" class="language-js">
+getRedirectResult(auth)
+  .then((result) => { ... })
+  .catch((error) => { ... });
+                            </code>
+                        </pre>
+                        </div>
+                        <div class="list">
+                            <p>This block runs automatically every time the page loads. Here's the flow:</p>
+                            <ul>
+                                <li>After the user picks their Google account, Google sends them back to your page.</li>
+                                <li>Firebase catches the returning result via <code
+                                        class="code">getRedirectResult(auth)</code>.</li>
+                                <li>If <code class="code">result</code> exists (meaning login was successful), it
+                                    extracts <code class="code">result.user</code> — which
+                                    contains info like the user's email.</li>
+                                <li>It then sends the user to <code class="code">dashboard.html</code> via <code
+                                        class="code">window.location.href</code>.</li>
+                                <li>If something fails (wrong account, network error, etc.),
+                                    <code class="code">handleGoogleAuthError(error)</code> is called.
+                                </li>
+                            </ul>
+                        </div>
+                        <p class="sub"><strong class="subtitle">The Flow, Step by Step</strong></p>
+                        <div class="bg-color">
+                            <pre>
+User clicks "Sign In"
+        ↓
+signInWithGoogleRedirect() is called
+        ↓
+Page leaves your site ⟶  goes to Google Login
+        ↓
+User picks their Google account
+        ↓
+Google sends user BACK to your page
+        ↓
+getRedirectResult() fires on page load
+        ↓
+Login confirmed ⟶  redirect to dashboard.html
+</pre>
+                        </div>
+                        <p>Always call <code class="code">getRedirectResult()</code> on every page load if using
+                            redirect — this is how Firebase delivers the auth result
+                            after the page returns from Google.</p>
+                    </div>
+                    <hr>
+
+                    <div class="content" id="step-7">
+                        <h3>Step 7: Display User Profile on Dashboard</h3>
+                        <p>Google Sign-In provides richer user profile data than email/password. Display it on your
+                            dashboard:</p>
+                        <div id="language-js" class="code-block">
+                            <div class="title">
+                                <p>app.js</p>
+                            </div>
+                            <pre class="line-numbers">
+                            <code id="codeSnippetJs" class="language-js">
+// ---- SHOW GOOGLE USER PROFILE ON DASHBOARD ----
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    // Display name and profile picture (from Google)
+    const nameEl  = document.getElementById("user-name");
+    const emailEl = document.getElementById("user-email");
+    const photoEl = document.getElementById("user-photo");
+
+    if (nameEl)  nameEl.textContent  = "Hello, " + (user.displayName || "User");
+    if (emailEl) emailEl.textContent = user.email;
+    if (photoEl && user.photoURL) {
+      photoEl.src     = user.photoURL;
+      photoEl.style.display = "block";
+    }
+  } else {
+    // Protect the page
+    if (window.location.pathname.includes("dashboard.html")) {
+      window.location.href = "index.html";
+    }
+  }
+});
+                            </code>
+                        </pre>
+                        </div>
+                        <h4>Step-by-Step Breakdown</h4>
+                        <p>This code watches whether a user is logged in or not, and reacts accordingly — either showing
+                            their profile info or
+                            kicking them out of the dashboard.</p>
+                        <p><strong>onAuthStateChanged — The Watcher</strong></p>
+
+                        <p>Google Sign-In provides richer user profile data than email/password. Display it on your
+                            dashboard:</p>
+                        <div id="language-js" class="code-block">
+                            <div class="title">
+                                <p>app.js</p>
+                            </div>
+                            <pre class="line-numbers">
+                            <code id="codeSnippetJs" class="language-js">
+onAuthStateChanged(auth, (user) => { ... })
+                            </code>
+                        </pre>
+                        </div>
+                        <p>This is a Firebase listener that constantly watches the login state. Think of it as a
+                            security guard standing at the
+                            door — every time the page loads, it checks: "Is someone logged in?</p>
+                        <p><strong>If User is Logged In (<code class="code">if (user)</code>)</strong></p>
+                        <div id="language-js" class="code-block">
+                            <div class="title">
+                                <p>app.js</p>
+                            </div>
+                            <pre class="line-numbers">
+                            <code id="codeSnippetJs" class="language-js">
+const nameEl = document.getElementById("user-name");
+const emailEl = document.getElementById("user-email");
+const photoEl = document.getElementById("user-photo");
+                            </code>
+                        </pre>
+                        </div>
+                        <p>These three lines grab HTML elements from the page by their IDs — the spots where the
+                            name, email, and profile photo
+                            will be displayed.</p>
+                        <div id="language-js" class="code-block">
+                            <div class="title">
+                                <p>app.js</p>
+                            </div>
+                            <pre class="line-numbers">
+                            <code id="codeSnippetJs" class="language-js">
+if (nameEl) nameEl.textContent = "Hello, " + (user.displayName || "User");
+                            </code>
+                        </pre>
+                        </div>
+                        <p>Sets the name element to say "Hello, [Name]". If Google didn't provide a display name, it
+                            falls back to just "User".</p>
+                        <div id="language-js" class="code-block">
+                            <div class="title">
+                                <p>app.js</p>
+                            </div>
+                            <pre class="line-numbers">
+                            <code id="codeSnippetJs" class="language-js">
+if (emailEl) emailEl.textContent = user.email;
+                            </code>
+                        </pre>
+                        </div>
+                        <p>Fills in the email address from the Google account.</p>
+                        <div id="language-js" class="code-block">
+                            <div class="title">
+                                <p>app.js</p>
+                            </div>
+                            <pre class="line-numbers">
+                            <code id="codeSnippetJs" class="language-js">
+if (photoEl && user.photoURL) {
+  photoEl.src = user.photoURL;
+  photoEl.style.display = "block";
+}
+                            </code>
+                        </pre>
+                        </div>
+                        <p>Sets the profile picture using the Google account photo URL, and makes it visible (it
+                            might be hidden by default).</p>
+                        <p><strong>If User is NOT Logged In (<code class="code">else</code>)</strong></p>
+                        <div id="language-js" class="code-block">
+                            <div class="title">
+                                <p>app.js</p>
+                            </div>
+                            <pre class="line-numbers">
+                            <code id="codeSnippetJs" class="language-js">
+if (window.location.pathname.includes("dashboard.html")) {
+  window.location.href = "index.html";
+}
+                            </code>
+                                    </pre>
+                        </div>
+                        <p>If someone tries to visit dashboard.html without being logged in, they get automatically
+                            redirected to index.html (the
+                            login/home page). This is a basic page protection mechanism.</p>
+
+                        <h4>Updated dashboard.html</h4>
+                        <div id="language-js" class="code-block">
+                            <div class="title">
+                                <p>dashboard.html</p>
+                            </div>
+                            <pre class="line-numbers">
+                            <code id="codeSnippetJs" class="language-js">
+&lt;main&gt;
+  &lt;h1&gt;Dashboard&lt;/h1&gt;
+
+  &lt;!-- Google profile info --&gt;
+  &lt;img id="user-photo" src="" alt="Profile Picture"
+       style="display:none; width:64px; height:64px; border-radius:50%;" /&gt;
+  &lt;p id="user-name"&gt;Loading...&lt;/p&gt;
+  &lt;p id="user-email"&gt;&lt;/p&gt;
+
+  &lt;button id="logout-btn"&gt;Logout&lt;/button&gt;
+&lt;/main&gt;
+
+&lt;script type="module" src="app.js"&gt;&lt;/script&gt;</script>
+                            </code>
+                        </pre>
+                        </div>
+
+                        <hr>
+
+                        <div class="content" id="step-8">
+                            <h3>Step 8: Sign Out Google Users</h3>
+                            <p>Logout is identical for Google-authenticated users — signOut() is provider-agnostic:</p>
+                            <div id="language-js" class="code-block">
+                                <div class="title">
+                                    <p>app.js</p>
+                                </div>
+                                <pre class="line-numbers">
+                            <code id="codeSnippetJs" class="language-js">
+// ---- LOGOUT (works for Google + Email/Password users) ----
+const logoutBtn = document.getElementById("logout-btn");
+
+if (logoutBtn) {
+  logoutBtn.addEventListener("click", async () => {
+    try {
+      await signOut(auth);
+      window.location.href = "index.html";
+    } catch (error) {
+      alert("Logout failed: " + error.message);
+    }
+  });
+}
+                            </code>
+                                </pre>
+                            </div>
+                            <h4>Step-by-Step Breakdown</h4>
+                            <p>When a user clicks the logout button, it signs them out of Firebase (works for both
+                                Google and Email/Password accounts)
+                                and redirects them to the homepage.</p>
+                            <div id="language-js" class="code-block">
+                                <div class="title">
+                                    <p>app.js</p>
+                                </div>
+                                <pre class="line-numbers">
+                            <code id="codeSnippetJs" class="language-js">
+const logoutBtn = document.getElementById("logout-btn");
+                            </code>
+                                </pre>
+                            </div>
+                            <p>Finds the logout button on the page using its <code class="code">id</code>.</p>
+
+                            <div id="language-js" class="code-block">
+                                <div class="title">
+                                    <p>app.js</p>
+                                </div>
+                                <pre class="line-numbers">
+                            <code id="codeSnippetJs" class="language-js">
+if (logoutBtn) {
+                            </code>
+                                </pre>
+                            </div>
+                            <p>Checks if the button actually exists on the page before doing anything — prevents errors
+                                if the button is missing.</p>
+                        </div>
+
+                        <div id="language-js" class="code-block">
+                            <div class="title">
+                                <p>app.js</p>
+                            </div>
+                            <pre class="line-numbers">
+                            <code id="codeSnippetJs" class="language-js">
+logoutBtn.addEventListener("click", async () => {
+                            </code>
+                                </pre>
+                        </div>
+                        <p>Waits and listens for the user to click the button. <code class="code">async</code> means the
+                            function can handle waiting (for Firebase to
+                            respond).</p>
+
+                        <div id="language-js" class="code-block">
+                            <div class="title">
+                                <p>app.js</p>
+                            </div>
+                            <pre class="line-numbers">
+                            <code id="codeSnippetJs" class="language-js">
+window.location.href = "index.html";
+                            </code>
+                                </pre>
+                        </div>
+                        <p>After logout succeeds, redirects the user to index.html (your homepage/login page).</p>
+
+                        <div id="language-js" class="code-block">
+                            <div class="title">
+                                <p>app.js</p>
+                            </div>
+                            <pre class="line-numbers">
+                            <code id="codeSnippetJs" class="language-js">
+} catch (error) {
+  alert("Logout failed: " + error.message);
+}
+                            </code>
+                                </pre>
+                        </div>
+                        <p>If anything goes wrong (e.g., network issue), it catches the error and shows an alert with
+                            the reason instead of
+                            silently failing.</p>
+                    </div>
+
+                    <div id="language-js" class="code-block">
+                        <div class="title">
+                            <p>app.js</p>
+                        </div>
+                        <pre class="line-numbers">
+                            <code id="codeSnippetJs" class="language-js">
+const logoutBtn = document.getElementById("logout-btn");
+                            </code>
+                                </pre>
+                    </div>
+                    <p>Finds the logout button on the page using its <code class="code">id</code>.</p>
+                    <div class="pro-tip">
+                        <p><strong>💡 Note:</strong> signOut() only ends the Firebase session. It does not sign the user
+                            out
+                            of their Google account in the browser.
+                            The next time they click "Sign in with Google", they may be auto-signed back in if Google
+                            remembers their session.</p>
+                    </div>
+                </div>
+                <hr>
+
+                <div class="content" id="step-9">
+                    <h3>Step 9: Customize the Google Provider (Optional)</h3>
+                    <p>You can configure the GoogleAuthProvider to request specific OAuth scopes or force account
+                        selection:</p>
+                    <div id="language-js" class="code-block">
+                        <div class="title">
+                            <p>app.js</p>
+                        </div>
+                        <pre class="line-numbers">
+                            <code id="codeSnippetJs" class="language-js">
+const provider = new GoogleAuthProvider();
+
+// Request access to the user's Google Calendar (optional scope)
+provider.addScope("https://www.googleapis.com/auth/calendar.readonly");
+
+// Force the account chooser to appear even if already signed in
+provider.setCustomParameters({
+  prompt: "select_account"
+});
+                            </code>
+                                </pre>
+                    </div>
+                </div>
+                <hr>
+                <div class="content" id="step-10">
+                    <h3>Step 10: Handle Google Auth Errors</h3>
+                    <div id="language-js" class="code-block">
+                        <div class="title">
+                            <p>app.js</p>
+                        </div>
+                        <pre class="line-numbers">
+                            <code id="codeSnippetJs" class="language-js">
+// ---- GOOGLE AUTH ERROR HANDLER ----
+function handleGoogleAuthError(error) {
+  const msgs = {
+    "auth/popup-closed-by-user":       "Sign-in popup was closed. Please try again.",
+    "auth/popup-blocked":              "Popup was blocked by your browser. Allow popups and retry.",
+    "auth/account-exists-with-different-credential":
+                                       "An account already exists with this email using a different sign-in method.",
+    "auth/cancelled-popup-request":    "Another popup is already open.",
+    "auth/network-request-failed":     "Network error. Please check your connection.",
+    "auth/unauthorized-domain":        "This domain is not authorized. Add it in Firebase Console ⟶  Authentication ⟶  Settings."
+  };
+
+  const message = msgs[error.code] || "Google Sign-In failed. Please try again.";
+  alert(message);
+  console.error(error.code, error.message);
+}
+                            </code>
+                                </pre>
+                    </div>
+                </div>
+
+
+                <div class="content">
+                    <h4>Complete Google Sign-In Flow (Visual Summary)</h4>
+                    <div class="card-image-output">
+                        <img src="images/complete-google-sign-in-flow.webp"
+                            alt="How to Implement Google Sign-In with Firebase JavaScript" loading="lazy"
+                            decoding="async" fetchpriority="auto" />
+                    </div>
+                </div>
+                <hr>
+
+                <div class="content">
+                    <h3>Complete app.js (All Auth Methods Combined)</h3>
+                    <div id="language-js" class="code-block">
+                        <div class="title">
+                            <p>app.js</p>
+                        </div>
+                        <pre class="line-numbers">
+                            <code id="codeSnippetJs" class="language-js">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+import {
+  getAuth,
+  GoogleAuthProvider,
+  signInWithPopup,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  onAuthStateChanged,
+  signOut
+} from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+
+const firebaseConfig = {
+  apiKey: "YOUR_API_KEY",
+  authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
+  projectId: "YOUR_PROJECT_ID",
+  storageBucket: "YOUR_PROJECT_ID.appspot.com",
+  messagingSenderId: "YOUR_SENDER_ID",
+  appId: "YOUR_APP_ID"
+};
+
+const app      = initializeApp(firebaseConfig);
+const auth     = getAuth(app);
+const provider = new GoogleAuthProvider();
+provider.setCustomParameters({ prompt: "select_account" });
+
+// Auth State
+onAuthStateChanged(auth, (user) => {
+  const path = window.location.pathname;
+  if (user) {
+    const nameEl  = document.getElementById("user-name");
+    const emailEl = document.getElementById("user-email");
+    const photoEl = document.getElementById("user-photo");
+    if (nameEl)  nameEl.textContent = "Hello, " + (user.displayName || user.email);
+    if (emailEl) emailEl.textContent = user.email;
+    if (photoEl && user.photoURL) { photoEl.src = user.photoURL; photoEl.style.display = "block"; }
+    if (path.includes("index.html") || path.includes("signup.html")) window.location.href = "dashboard.html";
+  } else {
+    if (path.includes("dashboard.html")) window.location.href = "index.html";
+  }
+});
+
+// Google Sign-In
+const googleBtn = document.getElementById("google-signin-btn");
+if (googleBtn) {
+  googleBtn.addEventListener("click", async () => {
+    try {
+      await signInWithPopup(auth, provider);
+      window.location.href = "dashboard.html";
+    } catch (error) { handleGoogleAuthError(error); }
+  });
+}
+
+// Email Sign-Up
+const signupBtn = document.getElementById("signup-btn");
+if (signupBtn) {
+  signupBtn.addEventListener("click", () => {
+    const email    = document.getElementById("email-signup").value.trim();
+    const password = document.getElementById("password-signup").value.trim();
+    createUserWithEmailAndPassword(auth, email, password)
+      .then(() => { window.location.href = "index.html"; })
+      .catch(handleAuthError);
+  });
+}
+
+// Email Login
+const loginBtn = document.getElementById("login-btn");
+if (loginBtn) {
+  loginBtn.addEventListener("click", () => {
+    const email    = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value.trim();
+    signInWithEmailAndPassword(auth, email, password)
+      .then(() => { window.location.href = "dashboard.html"; })
+      .catch(handleAuthError);
+  });
+}
+
+// Logout
+const logoutBtn = document.getElementById("logout-btn");
+if (logoutBtn) {
+  logoutBtn.addEventListener("click", async () => {
+    try { await signOut(auth); window.location.href = "index.html"; }
+    catch (error) { alert("Logout failed: " + error.message); }
+  });
+}
+
+// Error Handlers
+function handleAuthError(error) {
+  const msgs = {
+    "auth/email-already-in-use": "Email already registered.",
+    "auth/invalid-email":         "Invalid email address.",
+    "auth/weak-password":         "Password must be at least 6 characters.",
+    "auth/user-not-found":        "No account found with this email.",
+    "auth/wrong-password":        "Incorrect password."
+  };
+  alert(msgs[error.code] || "An error occurred.");
+}
+
+function handleGoogleAuthError(error) {
+  const msgs = {
+    "auth/popup-closed-by-user":  "Popup closed. Please try again.",
+    "auth/popup-blocked":         "Popup blocked. Allow popups in your browser.",
+    "auth/account-exists-with-different-credential": "Account exists with a different sign-in method.",
+    "auth/unauthorized-domain":   "Domain not authorized in Firebase Console."
+  };
+  alert(msgs[error.code] || "Google Sign-In failed.");
+}
+                            </code>
+                                </pre>
+                    </div>
+                    <div class="table-container">
+                        <h4>Common Google Sign-In Issues & Fixes</h4>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Issue</th>
+                                    <th>Cause</th>
+                                    <th>Fix</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><span class="issue-text">Popup blocked</span></td>
+                                    <td>Browser popup blocker</td>
+                                    <td><span class="fix-text">Only call <code class="code">signInWithPopup()</code>
+                                            inside a user
+                                            click event.</span></td>
+                                </tr>
+                                <tr>
+                                    <td><span class="issue-text">auth/unauthorized-domain</span></td>
+                                    <td>Domain not whitelisted</td>
+                                    <td><span class="fix-text">Add domain in Firebase Console ⟶ Authentication ⟶
+                                            Settings.</span></td>
+                                </tr>
+                                <tr>
+                                    <td><span class="issue-text">Auto-sign back in</span></td>
+                                    <td>Google session active</td>
+                                    <td><span class="fix-text">Use <code>prompt: "select_account"</code> in custom
+                                            parameters.</span></td>
+                                </tr>
+                                <tr>
+                                    <td><span class="issue-text">Blank popup flashes</span></td>
+                                    <td>Called outside click handler</td>
+                                    <td><span class="fix-text">Ensure trigger is a direct user-initiated button
+                                            click.</span></td>
+                                </tr>
+                                <tr>
+                                    <td><span class="issue-text">Account exists (conflict)</span></td>
+                                    <td>Email used with Password</td>
+                                    <td><span class="fix-text">Link accounts using <code
+                                                class="code">linkWithCredential()</code>
+                                            logic.</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <hr>
+
+                <div class="content" id="conclusio">
+                    <h3>Conclusion</h3>
+                    <p>You have now successfully implemented Google Sign-In with Firebase Authentication in your
+                        JavaScript web app. Starting
+                        from enabling the Google provider in the Firebase Console, you built a complete auth flow —
+                        including popup and redirect
+                        sign-in methods, user profile display, sign-out handling, and robust error management — all
+                        without a backend server.
+                    </p>
+
+                    <div class="action-buttons">
+                        <!-- <a href="space_shooter_demo.html" target="_blank" class="action-button live-preview"><i
+                                                                        class="fas fa-gamepad"></i>Play Demo</a> -->
+                        <a href="https://github.com/kumaradoss16/Web-Projects/tree/main/implement-google-sign-in-with-firebase-javascript"
+                            class="action-button source-code">
+                            <i class="fab fa-github"></i>Source Code</a>
+                        <a onclick="downloadProject()" class="action-button download" target="_blank" rel="noopener">
+                            <i class="fa-solid fa-download"></i> Download
+                        </a>
+                    </div>
+
+                    <div class="list">
+                        <h4>Key Takeaways</h4>
+                        <p>Keep these best practices in mind as you move forward:</p>
+                        <ul>
+                            <li>Always call <code class="code">signInWithPopup()</code> inside a direct user click event
+                                — never on page load — to
+                                prevent popup blockers from
+                                interfering.</li>
+                            <li>Use <code class="code">provider.setCustomParameters({ prompt: "select_account" })</code>
+                                to force the Google
+                                account chooser, especially important
+                                in shared or multi-account environments.</li>
+                            <li><code class="code">signOut()</code> ends the Firebase session only — it does not log
+                                the user out of their Google
+                                account in the browser.</li>
+                            <li>Add every domain you deploy to under Firebase Console ⟶ Authentication Settings ⟶
+                                Authorized Domains before going
+                                live.</li>
+                        </ul>
+                    </div>
+
+                    <div class="list">
+                        <h4>What's Next?</h4>
+                        <p>Now that your app supports both email/password and Google Sign-In, here are the natural next
+                            steps to build a
+                            production-ready system</p>
+                        <ol>
+                            <li>Save user profiles to Firestore — After sign-in, use <code class="code">setDoc()</code>
+                                with merge: true to store
+                                displayName, photoURL, and email
+                                in a users collection.</li>
+                            <li>Add Phone Number Authentication — Firebase supports SMS-based OTP as a third login
+                                method.</li>
+                            <li>Implement account linking — Handle the auth/account-exists-with-different-credential
+                                error by linking Google and
+                                email/password accounts using <code class="code">linkWithCredential()</code>.</li>
+                            <li>Secure Firestore rules — Use <code class="code">request.auth.uid</code> in Firestore
+                                Security Rules so only
+                                authenticated users can read/write
+                                their own data.</li>
+                            <li>Deploy to production — Host your app via Firebase Hosting or Cloudflare Pages and add
+                                your live domain to the authorized
+                                list.</li>
+                        </ol>
+                    </div>
+
+                    <h4>Frequently Asked Questions (FAQ)</h4>
+                    <p><strong>Q: Does Google Sign-In create a new Firebase user automatically?</strong></p>
+                    <p>Yes — Firebase automatically creates a new user record the first time someone signs in with
+                        Google. If the same email
+                        already exists as an email/password user, Firebase throws
+                        <code class="code">auth/account-exists-with-different-credential</code>.
+                    </p>
+
+                    <p><strong>Q: Can I get the user's Google access token?</strong></p>
+                    <p>Yes — use <code class="code">GoogleAuthProvider.credentialFromResult(result)</code> to extract
+                        the <code class="code">credential</code>, then read <code
+                            class="code">credential.accessToken</code>.
+                        This token can be used to call Google APIs directly.
+                    </p>
+
+                    <p><strong>Q: Does this work in React?</strong></p>
+                    <p>Absolutely. Replace the button click DOM listener with a React onClick handler and call
+                        <code class="code">signInWithPopup()</code> the same way.
+                        The Firebase logic is identical.
+                    </p>
+
+                    <p><strong>Q: Is <code class="code">signInWithPopup</code> free?</strong></p>
+                    <p>Yes — Google Sign-In via Firebase Auth is completely free with no usage limits on active users
+                        for the standard OAuth
+                        flow.
+                    </p>
+                </div>
+                <div class="pro-tip">
+                    <p>💡 Google Sign-In via Firebase Authentication is completely free with no usage limits on the
+                        standard OAuth flow, making
+                        it an ideal first step toward a full-featured, secure authentication system for any web app.</p>
+                </div>
+            </section>
+
+            <!-- My Other Projects  -->
+            <section id="other-work-section" class="other-work-section">
+                <h2 style="margin-top: 20px;">Other Projects</h2>
+                <div class="project-grid">
+                    <div class="project-card">
+                        <img src="../../Projects/Python/shooter-game/images/space-shooter-game-python-pygame-tutorial.webp"
+                            alt="Space Shooter Game Python Pygame Tutorial" loading="lazy" decoding="async"
+                            fetchpriority="auto">
+                        <div class="project-card-content">
+                            <h4>Shooter Game</h4>
+                            <p>This is a beginner-friendly guide for building a Space Shooter game with Python and
+                                Pygame, covering coding concepts and
+                                project structure.</p>
+                            <div class="project-tags">
+                                <span class="project-tag">Python</span>
+                                <span class="project-tag">Pygame</span>
+                            </div>
+                            <a href="../../Projects/Python/shooter-game/space-shooter-game-python-pygame-tutorial.html"
+                                title="Space Shooter Game Python Pygame Tutorial" class="view-project-button">View
+                                Project
+                                <span>&rarr;</span></a>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <img src="../../Projects/Python/atm-management-system/images/atm-management-system-python-cli-interface.webp"
+                            alt="ATM Management System Python Tutorial" loading="lazy" decoding="async"
+                            fetchpriority="auto">
+                        <div class="project-card-content">
+                            <h4>ATM Management System</h4>
+                            <p>This Python application implements a multi-user ATM system with SQLite-backed
+                                persistence,
+                                featuring account management, financial transactions, and administrative controls.</p>
+                            <div class="project-tags">
+                                <span class="project-tag">Python</span>
+                                <span class="project-tag">SQLite</span>
+                            </div>
+                            <a href="../../Projects/Python/atm-management-system/atm-management-system-python-sqlite-tutorial.html"
+                                title="ATM Management System Python Tutorial" class="view-project-button">View Project
+                                <span>&rarr;</span></a>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <img src="../../Projects/Web/weather-app/images/weather-app-html-css-javascript-tutorial.webp"
+                            alt="Weather App HTML CSS JavaScript Tutorial" loading="lazy" decoding="async"
+                            fetchpriority="auto">
+                        <div class="project-card-content">
+                            <h4>Weather App</h4>
+                            <p>Responsive weather app with real-time API data, feature comparison, and intuitive design
+                                for global city forecasts.</p>
+                            <div class="project-tags">
+                                <span class="project-tag">HTML</span>
+                                <span class="project-tag">CSS</span>
+                                <span class="project-tag">JavaScript</span>
+                            </div>
+                            <a href="../../Projects/Web/weather-app/weather-app-html-css-javascript-tutorial.html"
+                                title="Weather App HTML CSS JavaScript Tutorial" class="view-project-button">View
+                                Project
+                                <span>&rarr;</span></a>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <img src="../../Projects/Web/team-card-app/images/cricket-team-card-app.webp"
+                            alt="Team Card App HTML CSS JavaScript Tutorial" loading="lazy" decoding="async"
+                            fetchpriority="auto">
+                        <div class="project-card-content">
+                            <h4>Team Card App</h3>
+                                <p>Interactive team card application for cricket, featuring dynamic team selection,
+                                    player
+                                    filters, and customizable
+                                    light/dark themes.</p>
+                                <div class="project-tags">
+                                    <span class="project-tag">HTML</span>
+                                    <span class="project-tag">CSS</span>
+                                    <span class="project-tag">JavaScript</span>
+                                </div>
+                                <a href="../../Projects/Web/team-card-app/cricket-team-card-app-html-css-javascript-tutorial.html"
+                                    title="Team Card App HTML CSS JavaScript Tutorial" class="view-project-button">View
+                                    Project
+                                    <span>&rarr;</span></a>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <img src="../../Projects/C++/password-strength-checker/images/password-strength-checker.webp"
+                            alt="Password Strength Checker C++ Tutorial" loading="lazy" decoding="async"
+                            fetchpriority="auto">
+                        <div class="project-card-content">
+                            <h4>Password Strength Checker</h4>
+                            <p>Multi-Password Batch Strength Checker (C++), designed to check multiple passwords at
+                                once, show
+                                individual strength, and
+                                provide a summary report.</p>
+                            <div class="project-tags">
+                                <span class="project-tag">C++</span>
+                            </div>
+                            <a href="../../Projects/C++/password-strength-checker/password-strength-checker-cpp-tutorial-guide.html"
+                                title="Password Strength Checker C++ Tutorial" class="view-project-button">View
+                                Project
+                                <span>&rarr;</span></a>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <img src="../../Projects/C/vpn-connectivity-verification-cpp/images/vpn-tool-before-connection-terminal-output.webp"
+                            alt="VPN Connectivity verification in C Tutorial" loading="lazy" decoding="async"
+                            fetchpriority="auto">
+                        <div class="project-card-content">
+                            <h4>VPN Connectivity verification in C</h4>
+                            <p>Efficient C program to verify VPN status, routing, and DNS configurations through
+                                comprehensive public IP and network
+                                adapter analysis.</p>
+                            <div class="project-tags">
+                                <span class="project-tag">C</span>
+                            </div>
+                            <a href="../../Projects/C/vpn-connectivity-verification-cpp/build-vpn-verification-tool-c-tutorial.html"
+                                title="VPN Connectivity verification in C Tutorial" class="view-project-button">View
+                                Project
+                                <span>&rarr;</span></a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Right Side  -->
+        <aside class="right-column">
+            <div class="about-website moving-border">
+                <h3>About Website</h3>
+                <p><a class="homepage typewriter-scan" href="../../../index.html"><strong>DevspireHub</strong></a>
+                    is a
+                    beginner-friendly learning
+                    platform offering
+                    step-by-step tutorials in
+                    programming, ethical hacking,
+                    networking, automation, cloud and Windows setup. Learn through hands-on projects, clear
+                    explanations, and
+                    real-world examples
+                    using practical tools and open-source resources—no signups, no tracking, just actionable knowledge
+                    to accelerate your
+                    technical skills.
+                </p>
+            </div>
+            <script async
+                src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2368356039533778"
+                crossorigin="anonymous"></script>
+            <!-- sidebar ads -->
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2368356039533778"
+                data-ad-slot="5621407319" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+
+            <div class="color-palette">
+                <div>
+                    <h3>Color Space</h3>
+                    <p>Discover Perfect Palettes</p>
+                </div>
+                <div class="palette-grid">
+                    <div class="palette-card">
+                        <!-- Color bars (set your palette colors here) -->
+                        <div class="color-wave colors-5">
+                            <div class="wave-bar" style="background:#F2C447" data-color="#F2C447"></div>
+                            <div class="wave-bar" style="background:#F76218" data-color="#F76218"></div>
+                            <div class="wave-bar" style="background:#FF1D68" data-color="#FF1D68"></div>
+                            <div class="wave-bar" style="background:#B10065" data-color="#B10065"></div>
+                            <div class="wave-bar" style="background:#740580" data-color="#740580"></div>
+                        </div>
+
+                        <div class="card-info">
+                            <div class="card-title">Sample Palette</div>
+                        </div>
+                    </div>
+                    <div class="button">
+                        <a href="../../../color-palettes/index.html" class="color-button">Go To Color Space Home
+                            Page</a>
+                    </div>
+                </div>
+            </div>
+            <div class="wallpaper">
+                <div>
+                    <h3>Featured Wallpapers (For desktop)</h3>
+                    <p>Download for FREE!</p>
+                </div>
+                <div class="image-grid">
+                    <div class="image-card">
+                        <img src="../../../Wallpaper/images_upscale/wallpaper (1).png" alt="Wallpaper 1">
+                    </div>
+                    <div class="image-card">
+                        <img src="../../../Wallpaper/images_upscale/wallpaper (23).png" alt="Wallpaper 23">
+                    </div>
+                    <div class="image-card">
+                        <img src="../../../Wallpaper/images_upscale/wallpaper (46).png" alt="Wallpaper 46">
+                    </div>
+                    <div class="image-card">
+                        <img src="../../../Wallpaper/images_upscale/wallpaper (81).png" alt="Wallpaper 81">
+                    </div>
+                    <div class="image-card">
+                        <img src="../../../Wallpaper/images_upscale/wallpaper (111).png" alt="Wallpaper 111">
+                    </div>
+                    <div class="image-card">
+                        <img src="../../../Wallpaper/images_upscale/wallpaper (116).png" alt="Wallpaper 116">
+                    </div>
+                </div>
+                <div class="button">
+                    <a href="../../../Wallpaper/index.html" class="wallpaper-button">Go To Wallpaper Home
+                        Page</a>
+                </div>
+            </div>
+
+            <!-- Open Source Tools Directory -->
+            <div class="related-topics">
+                <div class="header">
+                    <h3>Open-Source Tools Directory</h3>
+                    <p><strong>Complete spectrum of open-source software in Github</strong>
+                    </p>
+                </div>
+                <div class="content">
+                    <ul>
+                        <li><i class="fas fa-code"></i><a
+                                href="../../../Resources/tools-directory/index.html#category-2"
+                                class="link">Programming</a></li>
+                        <li><i class="fas fa-globe"></i><a
+                                href="../../../Resources/tools-directory/index.html#category-3" class="link">Web
+                                Development</a></li>
+                        <li><i class="fas fa-network-wired"></i><a
+                                href="../../../Resources/tools-directory/index.html#category-4"
+                                class="link">Networking</a>
+                        </li>
+                        <li><i class="fas fa-shield-alt"></i><a
+                                href="../../../Resources/tools-directory/index.html#category-5" class="link">Ethical
+                                Hacking</a></li>
+                        <li><i class="fas fa-microchip"></i><a
+                                href="../../../Resources/tools-directory/index.html#category-6"
+                                class="link">Hardware</a>
+                        </li>
+                        <li><i class="fas fa-tasks"></i><a
+                                href="../../../Resources/tools-directory/index.html#category-7"
+                                class="link">Productivity</a></li>
+                    </ul>
+                </div>
+                <div class="button-container">
+                    <div class="btn-cyber">
+                        <span class="btn-bg"></span>
+                        <span class="btn-border"></span>
+                        <span class="btn-text">
+                            <a href="../../../Resources/digital-resources/digital-resources-hub.html"
+                                class="related-button">
+                                Open-Source
+                                Tools</a> <span class="blink">_</span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <section class="deals-section">
+                <div class="deals-header">
+                    <h2>HOT DEALS</h2>
+                    <div class="deals-underline"></div>
+                </div>
+
+                <!-- Cards injected dynamically from amazon-links.json -->
+                <div class="deals-grid" id="dealsGrid">
+                    <div class="deal-skeleton">
+                    </div>
+                    <div class="deal-skeleton"></div>
+                    <div class="deal-skeleton"></div>
+                    <div class="deal-skeleton"></div>
+                    <div class="deal-skeleton"></div>
+                    <div class="deal-skeleton"></div>
+                </div>
+
+                <div class="deals-page-indicator" id="dealsPageIndicator"></div>
+
+                <div class="deals-nav">
+                    <button class="deal-arrow-btn" onclick="scrollDeals(-1)" aria-label="Previous">&#8592;</button>
+                    <button class="deal-arrow-btn" onclick="scrollDeals(1)" aria-label="Next">&#8594;</button>
+                </div>
+            </section>
+
+
+            <script async
+                src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2368356039533778"
+                crossorigin="anonymous"></script>
+            <!-- sidebar ads -->
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2368356039533778"
+                data-ad-slot="5621407319" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+
+            <script async
+                src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2368356039533778"
+                crossorigin="anonymous"></script>
+            <!-- sidebar ads -->
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2368356039533778"
+                data-ad-slot="5621407319" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </aside>
+        <button id="scrollUpBtn" aria-label="Scroll to top">
+            <svg class="progress-circle" viewBox="0 0 36 36">
+                <path class="bg" d="M18 2.0845
+                  a 15.9155 15.9155 0 0 1 0 31.831
+                  a 15.9155 15.9155 0 0 1 0 -31.831" />
+                <path class="progress" d="M18 2.0845
+                  a 15.9155 15.9155 0 0 1 0 31.831
+                  a 15.9155 15.9155 0 0 1 0 -31.831" />
+                <span class="arrow-overlay">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 19V5M5 12L12 5L19 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                </span>
+            </svg>
+        </button>
+    </div>
+    <!--Footer  -->
+    <footer class="footer">
+        <ul class="menu">
+            <li class="menu-item"><a class="menu-link" href="../../../index.html">Home</a></li>
+            <li class="menu-item"><a class="menu-link" href="../../../Wallpaper/index.html">Wallpapers</a></li>
+            <li class="menu-item"><a class="menu-link" href="../../../color-palettes/index.html">Color Space</a></li>
+            <li class="menu-item"><a class="menu-link"
+                    href="../../../Resources/digital-resources/digital-resources-hub.html">Resources</a></li>
+            <li class="menu-item"><a class="menu-link" href="../../../Website/about/about.html">About</a></li>
+            <li class="menu-item"><a class="menu-link" href="../../../Website/contact/index.html">Contact</a></li>
+            <li class="menu-item"><a class="menu-link" href="../../../Website/privacy/index.html">Privacy policy</a>
+            </li>
+        </ul>
+        <div class="contacts">
+            <a class="contact github" href="https://github.com/kumaradoss16" target="_blank"><i
+                    class="fa-brands fa-github"></i></a>
+            <a class="contact instagram" href="https://www.instagram.com/devspirehub/" target="_blank"><i
+                    class="fa-brands fa-instagram"></i></a>
+            <a class="contact linkedin" href="https://www.linkedin.com/in/kumaradoss-s/" target="_blank"><i
+                    class="fa-brands fa-linkedin"></i></a>
+            <a class="contact pinterest" href="https://pin.it/1AfU80D2E" target="_blank"><i
+                    class="fa-brands fa-pinterest"></i></a>
+            <a class="contact gmail" href="https://mail.google.com/mail/?view=cm&fs=1&to=devspirehub.website@gmail.com"
+                aria-label="Email us at devspirehub.website@gmail.com" title="Send us an email" target="_blank"
+                rel="noopener noreferrer">
+                <i class="fa-solid fa-envelope"></i>
+            </a>
+        </div>
+        <p>&copy;2026 DevspireHub | All Rights Reserved</p>
+    </footer>
+
+    <script src="../../Projects/Web/weather-app/prism.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
