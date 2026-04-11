@@ -1040,6 +1040,11 @@ body {
     background-color: #fb540729;
 }
 
+.tech-tag.telegram {
+    color: #f0f0f0;
+    background-color: #0088cc;
+}
+
 .language-tags .language-tag.c {
     color: #004482;
     background-color: #202026;
