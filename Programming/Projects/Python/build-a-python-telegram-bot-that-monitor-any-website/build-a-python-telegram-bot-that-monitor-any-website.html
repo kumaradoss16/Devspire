@@ -1,0 +1,2928 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="../../../../images/icon.webp" sizes="32x46" type="image/png">
+    <!-- Primary SEO Tags -->
+    <title>Build a Python Telegram Bot That Monitors Any Website and Alerts You Instantly</title>
+    <meta name="description"
+        content="Learn to build a Python Telegram Bot that monitors any website 24/7 and sends instant alerts when it goes down, recovers, or loses critical content. Step-by-step beginner tutorial with full source code using aiohttp, python-telegram-bot, and async Python.">
+    <meta name="keywords"
+        content="Python Telegram bot website monitor, website uptime monitor Python, python-telegram-bot tutorial, aiohttp async Python tutorial, website monitoring bot Python, Telegram bot Python beginners, Python automation project, website downtime alert bot, async Python bot, build Telegram bot Python">
+
+    <!-- Canonical URL -->
+    <link rel="canonical"
+        href="https://devspirehub.com/ProgrammingProjects/build-a-python-telegram-bot-that-monitor-any-website/build-a-python-telegram-bot-that-monitor-any-website.html">
+
+    <!-- Robots Meta -->
+    <meta name="robots" content="index, follow, max-snippet=-1, max-image-preview=large, max-video-preview=-1">
+
+    <!-- Author & Publisher -->
+    <meta name="author" content="Kumaradoss DevspireHub">
+    <meta name="publisher" content="DevspireHub">
+    <link rel="author" href="https://devspirehub.com/about">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="DevspireHub">
+    <meta property="og:title"
+        content="Build a Python Telegram Bot That Monitors Any Website and Alerts You Instantly | DevspireHub">
+    <meta property="og:description"
+        content="Build a real-world Python bot that watches your websites 24/7 and fires instant Telegram alerts when something goes wrong. Covers aiohttp, async loops, JSON storage, and all Telegram commands — beginner friendly with full source code.">
+    <meta property="og:url"
+        content="https://devspirehub.com/ProgrammingProjects/build-a-python-telegram-bot-that-monitor-any-website/build-a-python-telegram-bot-that-monitor-any-website.html">
+    <meta property="og:image"
+        content="https://devspirehub.com/ProgrammingProjects/build-a-python-telegram-bot-that-monitor-any-website/images/build-a-python-telegram-bot-that-monitor-any-website.webp">
+    <meta property="og:image:alt"
+        content="Build a Python Telegram Bot That Monitors Any Website and Alerts You Instantly | DevspireHub Tutorial">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="en_IN">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Build a Python Telegram Bot That Monitors Any Website | DevspireHub">
+    <meta name="twitter:description"
+        content="Build a real-world Python Telegram bot that monitors websites 24/7 and sends instant downtime alerts. Step-by-step tutorial using aiohttp, python-telegram-bot, and async Python.">
+    <meta name="twitter:image"
+        content="https://devspirehub.com/ProgrammingProjects/build-a-python-telegram-bot-that-monitor-any-website/images/build-a-python-telegram-bot-that-monitor-any-website.webp">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <!-- Prism.js CSS theme -->
+    <link rel="stylesheet" href="../../Prism/prism.css" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+
+
+    <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+    <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+
+    <link rel="stylesheet" href="style.css" />
+
+
+    <script type="application/ld+json">
+        {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "DevspireHub",
+        "url": "https://devspirehub.com",
+        "logo": "https://devspirehub.com/image/icon.webp",
+        "description": "DevspireHub - Programming, Projects, Ethical hacking, Networking & AI",
+        "founder": [
+            {
+            "@type": "Person",
+            "name": "Kumaradoss",
+            "url": "https://www.linkedin.com/in/kumaradoss-s/"
+            }
+        ],
+        "sameAs": [
+            "https://www.linkedin.com/in/kumaradoss-s/",
+            "https://github.com/kumaradoss16",
+        ]
+        }
+    </script>
+
+    <script type=application/ld+json>
+        {
+            "@context": "https://schema.org",
+            "@type": "SiteNavigationElement",
+            "name": [
+                "Home",
+                "Projects",
+                "Programming",
+                "Ethical Hacking",
+                "Networking",
+                "Automation",
+                "Resources"
+            ],
+            "url": [
+                "https://devspirehub.com",
+                "https://devspirehub.com/#projects-tutorials-section",
+                "https://devspirehub.com/#programming-tutorials-section",
+                "https://devspirehub.com/#ethical-hacking-section",
+                "https://devspirehub.com/#networking-section",
+                "https://devspirehub.com/#automation-section",
+                "https://devspirehub.com/#info-section",
+            ]
+        }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "DevspireHub",
+      "url": "https://devspirehub.com",
+      "logo": "https://devspirehub.com/images/icon.webp",
+      "description": "DevspireHub - Programming, Projects, Ethical Hacking, Networking & AI",
+      "founder": {
+        "@type": "Person",
+        "name": "Kumaradoss",
+        "url": "https://www.linkedin.com/in/kumaradoss-s"
+      },
+      "sameAs": [
+        "https://www.linkedin.com/in/kumaradoss-s",
+        "https://github.com/kumaradoss16"
+      ]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "@id": "https://devspirehub.com/ProgrammingProjects/build-a-python-telegram-bot-that-monitor-any-website/#article",
+      "headline": "Build a Python Telegram Bot That Monitors Any Website and Alerts You Instantly",
+      "description": "A complete step-by-step guide to building a Python Telegram bot that monitors any website 24/7 and sends instant alerts when it goes down, recovers, or loses critical content. Covers aiohttp async HTTP engine, JSON-based persistent storage, background monitoring loop, and all Telegram bot commands.",
+      "url": "https://devspirehub.com/ProgrammingProjects/build-a-python-telegram-bot-that-monitor-any-website/build-a-python-telegram-bot-that-monitor-any-website.html",
+      "datePublished": "2026-04-11",
+      "dateModified": "2026-04-11",
+      "inLanguage": "en-IN",
+      "articleSection": "Programming",
+      "proficiencyLevel": "Beginner",
+      "dependencies": "Python 3.10+, python-telegram-bot, aiohttp, beautifulsoup4, python-dotenv",
+      "keywords": "Python Telegram bot, website monitoring bot, aiohttp async Python, python-telegram-bot tutorial, website uptime monitor, Telegram bot Python beginners, async Python project, downtime alert bot",
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://devspirehub.com/ProgrammingProjects/build-a-python-telegram-bot-that-monitor-any-website/images/build-a-python-telegram-bot-that-monitor-any-website.webp",
+        "width": 1200,
+        "height": 630
+      },
+      "author": {
+        "@type": "Person",
+        "name": "Kumaradoss",
+        "url": "https://devspirehub.com/about",
+        "sameAs": [
+          "https://www.linkedin.com/in/kumaradoss-s",
+          "https://github.com/kumaradoss16"
+        ]
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "DevspireHub",
+        "url": "https://devspirehub.com",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://devspirehub.com/images/icon.webp",
+          "width": 200,
+          "height": 60
+        }
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://devspirehub.com/ProgrammingProjects/build-a-python-telegram-bot-that-monitor-any-website/build-a-python-telegram-bot-that-monitor-any-website.html"
+      },
+      "about": [
+        { "@type": "Thing", "name": "Telegram Bot API", "sameAs": "https://en.wikipedia.org/wiki/Telegram_(software)" },
+        { "@type": "Thing", "name": "Python", "sameAs": "https://en.wikipedia.org/wiki/Python_(programming_language)" },
+        { "@type": "Thing", "name": "Asyncio", "sameAs": "https://en.wikipedia.org/wiki/Async/await" },
+        { "@type": "Thing", "name": "Web Scraping", "sameAs": "https://en.wikipedia.org/wiki/Web_scraping" },
+        { "@type": "Thing", "name": "Website Monitoring", "sameAs": "https://en.wikipedia.org/wiki/Website_monitoring" }
+      ],
+      "mentions": [
+        { "@type": "SoftwareApplication", "name": "python-telegram-bot", "applicationCategory": "Python Library", "operatingSystem": "Cross-platform" },
+        { "@type": "SoftwareApplication", "name": "aiohttp", "applicationCategory": "Async HTTP Client", "operatingSystem": "Cross-platform" },
+        { "@type": "SoftwareApplication", "name": "BeautifulSoup4", "applicationCategory": "HTML Parser", "operatingSystem": "Cross-platform" },
+        { "@type": "SoftwareApplication", "name": "python-dotenv", "applicationCategory": "Environment Config", "operatingSystem": "Cross-platform" }
+      ]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      "@id": "https://devspirehub.com/ProgrammingProjects/build-a-python-telegram-bot-that-monitor-any-website/#howto",
+      "name": "How to Build a Python Telegram Bot That Monitors Any Website",
+      "description": "Step-by-step guide to build a Python Telegram bot that monitors websites 24/7, sends instant downtime alerts, and supports commands like /add, /remove, /list, /status, /pause, and /resume.",
+      "totalTime": "PT30M",
+      "estimatedCost": {
+        "@type": "MonetaryAmount",
+        "currency": "INR",
+        "value": "0"
+      },
+      "supply": [
+        { "@type": "HowToSupply", "name": "Python 3.10+ installed" },
+        { "@type": "HowToSupply", "name": "Telegram account and BotFather token" },
+        { "@type": "HowToSupply", "name": "pip packages: python-telegram-bot, aiohttp, beautifulsoup4, python-dotenv" },
+        { "@type": "HowToSupply", "name": ".env file with BOT_TOKEN and CHAT_ID" }
+      ],
+      "tool": [
+        { "@type": "HowToTool", "name": "VS Code or any Python code editor" },
+        { "@type": "HowToTool", "name": "Telegram app (mobile or desktop)" },
+        { "@type": "HowToTool", "name": "Terminal / Command Prompt" }
+      ],
+      "step": [
+        { "@type": "HowToStep", "name": "Get Your Telegram Bot Token", "text": "Open Telegram, search for BotFather, send /newbot, copy the token, and get your Chat ID from the getUpdates API." },
+        { "@type": "HowToStep", "name": "Install Dependencies", "text": "Run: pip install python-telegram-bot requests beautifulsoup4 python-dotenv aiohttp" },
+        { "@type": "HowToStep", "name": "Create .env File", "text": "Create a .env file with BOT_TOKEN, CHAT_ID, and CHECK_INTERVAL values. Never commit this to GitHub." },
+        { "@type": "HowToStep", "name": "Settings & Defaults — config.py", "text": "Create config.py to load environment variables using python-dotenv and define global constants like STORAGE_FILE, REQUEST_TIMEOUT, and MAX_SITES." },
+        { "@type": "HowToStep", "name": "JSON Database — storage.py", "text": "Build storage.py with load, save, add_site, remove_site, update_site, is_paused, and set_paused functions to persist site data in sites.json." },
+        { "@type": "HowToStep", "name": "HTTP Check Engine — checker.py", "text": "Create checker.py using aiohttp to asynchronously check website status, measure response time, and optionally verify keyword presence in page body." },
+        { "@type": "HowToStep", "name": "Background Monitoring Loop — monitor.py", "text": "Build monitor.py with an infinite async loop that checks all sites every CHECK_INTERVAL seconds and fires Telegram alerts only when status changes." },
+        { "@type": "HowToStep", "name": "Main Bot with All Commands — bot.py", "text": "Build bot.py with CommandHandlers for /start, /add, /remove, /list, /status, /statusall, /pause, /resume, and /help using python-telegram-bot v20+." }
+      ]
+    }
+    </script>
+
+    <!-- Google Tag Manager -->
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-M457RGDF');</script>
+    <!-- End Google Tag Manager -->
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2368356039533778"
+        crossorigin="anonymous"></script>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6VWY63Q80N"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-6VWY63Q80N');
+    </script>
+
+    <script async custom-element="amp-auto-ads" src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+
+</head>
+
+<body>
+
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M457RGDF" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <amp-auto-ads type="adsense" data-ad-client="ca-pub-2368356039533778">
+    </amp-auto-ads>
+
+    <!-- Header  -->
+    <header class="navbar">
+        <div class="container">
+            <div class="logo">
+                <div class="logo-text">
+                    <!-- <i class="fas fa-code"></i> -->
+                    <a href="../../../../index.html"><img src="../../../../images/icon.webp" alt="Gear Icon" width="23"
+                            height="23"></a>
+                    <span id="brand" class="typewriter" data-text="DevspireHub"></span>
+                </div>
+                <button class="menu-toggle" type="button" aria-label="Toggle navigation">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            <nav class="nav-links">
+                <ul>
+                    <li><a href="../../../../index.html" class="home"><i class="fa-solid fa-house"></i></a></li>
+                    <li><a href="../../../../index.html#projects-tutorials-section" class="projects">Projects</a></li>
+                    <li><a href="../../../../index.html#programming-tutorials-section"
+                            class="programming">Programming</a></li>
+                    <li><a href="../../../../index.html#ethical-hacking-section" class="hacking">Ethical Hacking</a>
+                    </li>
+                    <li><a href="../../../../index.html#networking-section" class="networking">Networking</a></li>
+                    <li><a href="../../../../index.html#automation-section" class="ai">Automation</a></li>
+                    <li><a href="../../../../index.html#info-section" class="game">Resources</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="main-content-wrapper container">
+        <!-- Left Side  -->
+        <main class="left-column">
+            <section class="project-details-section">
+                <h1>Build a Python Telegram Bot That Monitors Any Website and Alerts You Instantly</h1>
+                <p>Learn How to Create a Python Telegram Bot That Monitors Any Website and Alerts You Instantly:
+                    Step-by-Step
+                    Guide for
+                    Beginners:</p>
+
+                <div class="image-placeholder">
+                    <img src="images/build-a-python-telegram-bot-that-monitor-any-website.webp"
+                        alt="Build a Python Telegram Bot That Monitors Any Website and Alerts You Instantly"
+                        loading="lazy" decoding="async" fetchpriority="auto" />
+                </div>
+                <p>Imagine you run a website, an online shop, or a personal blog. What if your site goes down at 3 AM
+                    and you don't know
+                    until your customers start complaining? That's a nightmare scenario — and it's completely avoidable.
+                </p>
+                <p>In this tutorial, you'll learn how to build a Python Telegram Bot that watches your websites 24/7 and
+                    sends you an
+                    instant Telegram alert the moment something goes wrong — whether the site is down, too slow, or
+                    missing critical
+                    content.
+                </p>
+                <div class="list">
+                    <p>This is a real-world, production-ready Python project that teaches you:</p>
+                    <ul>
+                        <li>Asynchronous Python programming (<code class="code">async</code>/<code
+                                class="code">await</code>).</li>
+                        <li>HTTP request handling with <code class="code">aiohttp</code>.</li>
+                        <li>Telegram Bot API integration.</li>
+                        <li>JSON-based data persistence.</li>
+                        <li>Background task loops.</li>
+                    </ul>
+                </div>
+
+                <div class="list">
+                    <h4>Who Is This Tutorial For?</h4>
+                    <ul>
+                        <li><strong>Beginners</strong> who know basic Python and want a real project to build.</li>
+                        <li><strong>Developers</strong> who want to monitor their own websites for free.</li>
+                        <li><strong>Bug bounty hunters</strong> who need to track when target sites change.</li>
+                        <li><strong>Freelancers</strong> who manage client websites and need uptime alerts.</li>
+                        <li><strong>Students</strong> learning Python automation, bots, and async programming.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="table-of-contents-section">
+                <h2><i class="fas fa-list"></i>Table of Contents</h2>
+                <ol>
+                    <li><a href="#step-1">Get Your Telegram Bot Token</a></li>
+                    <li><a href="#step-2">Install Dependencies</a></li>
+                    <li><a href="#step-3">Create Your .env File</a></li>
+                    <li><a href="#step-4">Settings & Defaults (config.py)</a></li>
+                    <li><a href="#step-5">JSON Database (Persistent State)</a></li>
+                    <li><a href="#step-6">HTTP Check Engine</a></li>
+                    <li><a href="#step-7">The Background Loop</a></li>
+                    <li><a href="#step-8">Main Bot + All Commands</a></li>
+                    <li><a href="#step-9">Conclusion</a></li>
+                </ol>
+            </section>
+
+            <section id="implementation-details" class="implementation-section">
+                <h2>Introduction</h2>
+                <p>Never miss a downtime again. In this tutorial, you'll learn how to build a Python Telegram bot that
+                    automatically
+                    monitors any website 24/7 and sends you an instant Telegram alert the moment something changes —
+                    whether your site goes
+                    down, recovers, or loses critical content.
+                </p>
+                <p>Whether you're a web developer protecting your live site, an ethical hacker tracking page changes for
+                    bug bounty
+                    hunting, or a Python beginner looking for a real-world automation project — this guide is built for
+                    you.
+                </p>
+                <p>
+                    By the end, you'll have a fully working website monitoring Python script with commands like <code
+                        class="code">/add</code>,
+                    <code class="code">/status</code>, and <code class="code">/pause</code> —
+                    all controlled directly from your Telegram app.
+                </p>
+                <h4>Project Architecture — How the Components Fit Together</h4>
+                <p>Before diving into code, understand how the five Python files work together:</p>
+                <div class="image-placeholder">
+                    <img src="images/project-architecture.webp"
+                        alt="Build a Python Telegram Bot That Monitors Any Website and Alerts You Instantly"
+                        loading="lazy" decoding="async" fetchpriority="auto" />
+                </div>
+                <div class="list">
+                    <p class="sub"><strong class="subtitle">In Simple Terms:</strong></p>
+                    <ul>
+                        <li><code class="code">config.py</code> — reads your secret setting</li>
+                        <li><code class="code">storage.py</code> — saves and loads site data from a JSON file.</li>
+                        <li><code class="code">checker.py</code> — visits each website and checks if it's alive.</li>
+                        <li><code class="code">monitor.py</code> — runs forever in the background, checking sites on a
+                            schedule.</li>
+                        <li><code class="code">bot.py</code> — the brain: handles your Telegram commands and starts
+                            everything.</li>
+                    </ul>
+                </div>
+                <h4>Project File Structure</h4>
+                <div class="code-block block">
+                    <pre>
+<code>website-monitor-bot/
+├── bot.py           ← Main bot: all Telegram commands
+├── monitor.py       ← Background loop: checks sites automatically
+├── checker.py       ← HTTP engine: visits websites, checks status
+├── storage.py       ← Database: reads/writes sites.json
+├── config.py        ← Settings: loads .env variables
+├── sites.json       ← Auto-created: stores all your site data
+├── .env             ← Secret file: bot token and chat ID
+└── requirements.txt ← Python packages needed</code>
+</pre>
+                </div>
+
+                <div class="content" id="step-1">
+                    <h3>Step 1: Get Your Telegram Bot Token</h3>
+                    <div class="list">
+                        <p>Before writing any code, you need a Telegram bot token.</p>
+                        <ol>
+                            <li>Open Telegram → search for "BotFather"</li>
+                            <li>Send: /newbot</li>
+                            <li>Follow the prompts → give your bot a name</li>
+                            <li>Copy the token BotFather gives you (looks like: 123456789:ABCdef...)</li>
+                            <li>Start your bot, then visit: https://api.telegram.org/bot<TOKEN>/getUpdates</li>
+                            <li>Send any message to your bot</li>
+                            <li>Note your "chat_id" from the JSON response</li>
+                        </ol>
+                    </div>
+                    <div class="pro-tip">
+                        <p><strong>Beginner Tip:</strong> Never share your bot token publicly. Treat it like a password.
+                            Anyone with your token can control your bot.
+                        </p>
+                    </div>
+                </div>
+                <hr>
+                <div class="content" id="step-2">
+                    <h3>Step 2: Install Dependencies</h3>
+                    <div id="language-bash" class="code-block">
+                        <div class="title">
+                            <p>Bash</p>
+                        </div>
+                        <pre class="line-numbers">
+<code class="language-bash">pip install python-telegram-bot requests beautifulsoup4 python-dotenv aiohttp
+</code></pre>
+                    </div>
+                    <h4>What each package does:</h4>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Package</th>
+                                    <th>Purpose</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code class="code">python-telegram-bot</code></td>
+                                    <td>Connects your Python code to Telegram's API</td>
+                                </tr>
+                                <tr>
+                                    <td><code class="code">aiohttp</code></td>
+                                    <td>Makes fast, asynchronous HTTP requests to websites</td>
+                                </tr>
+                                <tr>
+                                    <td><code class="code">beautifulsoup4</code></td>
+                                    <td>Parses HTML (used for content checking)</td>
+                                </tr>
+                                <tr>
+                                    <td><code class="code">python-dotenv</code></td>
+                                    <td>Loads secret values from your .env file</td>
+                                </tr>
+                                <tr>
+                                    <td><code class="code">requests</code></td>
+                                    <td>Standard HTTP library (fallback utility)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <hr>
+                <div class="content" id="step-3">
+                    <h3>Step 3: Create Your .env File</h3>
+                    <p>Create a file named <code class="code">.env</code> in your project folder:</p>
+                    <div class="code-block block">
+                        <pre>
+<code>BOT_TOKEN=123456789:ABCdefGHIjklMNOpqrstUVwxyz
+CHAT_ID=987654321
+CHECK_INTERVAL=60</code>
+</pre>
+                    </div>
+                    <h4>What each variable means:</h4>
+                    <div class="list">
+                        <ul>
+                            <li><code class="code">BOT_TOKEN</code>: Your Telegram bot's unique token for
+                                authentication.</p>
+                            </li>
+                            <li><code class="code">CHAT_ID</code>: The ID of the chat where you want to receive
+                                notifications.</p>
+                            </li>
+                            <li><code class="code">CHECK_INTERVAL</code>: How often (in seconds) the bot should check
+                                the website for changes.</p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="pro-tip">
+                        <p><strong>Beginner Tip:</strong> Never commit your .env file to GitHub. Add it to .gitignore to
+                            keep your
+                            secrets safe.</p>
+                    </div>
+                </div>
+                <hr>
+
+                <div class="content" id="step-4">
+                    <h3>Step 4: Settings & Defaults (config.py)</h3>
+                    <div id="language-python" class="code-block">
+                        <p>config.py</p>
+                        <pre class="line-numbers">
+                            <code id="codeSnippetPython" class="language-python">
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
+BOT_TOKEN      = os.getenv("BOT_TOKEN")
+CHAT_ID        = os.getenv("CHAT_ID")
+CHECK_INTERVAL = int(os.getenv("CHECK_INTERVAL", 60))  # default: 60 seconds
+STORAGE_FILE   = "sites.json"
+REQUEST_TIMEOUT = 10   # max seconds to wait for a site response
+MAX_SITES      = 50    # maximum number of sites per bot instance</code>
+                        </pre>
+                    </div>
+
+                    <h4>What This Does</h4>
+                    <div class="list">
+                        <ul>
+                            <li><code class="code">load_dotenv()</code> reads your .env file and makes those values
+                                available as
+                                environment variables.</li>
+                            <li><code class="code">os.getenv("BOT_TOKEN")</code> fetches the value of BOT_TOKEN from the
+                                environment.</li>
+                            <li><code class="code">int(os.getenv("CHECK_INTERVAL", 60))</code> if <code
+                                    class="code">CHECK_INTERVAL</code> is not
+                                set in .env, it defaults to 60.</li>
+                            <li><code class="code">STORAGE_FILE</code> the name of the JSON file used as a simple
+                                database.</li>
+                            <li><code class="code">REQUEST_TIMEOUT</code> if a website doesn't respond within 10
+                                seconds, it's marked as down.</li>
+                            <li><code class="code">MAX_SITES</code> prevents abuse by limiting to 50 monitored sites.
+                            </li>
+                        </ul>
+                    </div>
+                    <p>Centralizing all settings in one file means you only need to
+                        change one place when adjusting bot behavior. This is a
+                        professional practice called configuration management.</p>
+
+                </div>
+                <hr>
+
+                <div class="content" id="step-5">
+                    <h3>Step 5: JSON Database (Persistent State) [storage.py]</h3>
+                    <div id="language-python" class="code-block">
+                        <p>storage.py</p>
+                        <pre class="line-numbers">
+                            <code id="codeSnippetPython" class="language-python">
+import json, os
+from config import STORAGE_FILE
+
+# Default data structure when no sites.json exists yet
+DEFAULT = {"sites": {}, "paused": False}
+
+def load() -> dict:
+    """Read sites.json from disk. Return default if file doesn't exist."""
+    if os.path.exists(STORAGE_FILE):
+        with open(STORAGE_FILE, "r") as f:
+            return json.load(f)
+    return dict(DEFAULT)
+
+def save(data: dict):
+    """Write updated data back to sites.json."""
+    with open(STORAGE_FILE, "w") as f:
+        json.dump(data, f, indent=2)
+
+def get_sites() -> dict:
+    """Return the dictionary of all monitored sites."""
+    return load().get("sites", {})
+
+def add_site(url: str, name: str, keyword: str = None):
+    """Add a new site to the watchlist."""
+    data = load()
+    data["sites"][url] = {
+        "name": name,
+        "keyword": keyword,
+        "status": "unknown",
+        "last_checked": None,
+        "response_time": None,
+        "failures": 0
+    }
+    save(data)
+
+def remove_site(url: str) -> bool:
+    """Remove a site from the watchlist. Returns True if found."""
+    data = load()
+    if url in data["sites"]:
+        del data["sites"][url]
+        save(data)
+        return True
+    return False
+
+def update_site(url: str, **kwargs):
+    """Update specific fields for a site (status, response time, etc.)."""
+    data = load()
+    if url in data["sites"]:
+        data["sites"][url].update(kwargs)
+        save(data)
+
+def is_paused() -> bool:
+    """Check if monitoring is currently paused."""
+    return load().get("paused", False)
+
+def set_paused(val: bool):
+    """Set the global monitoring pause state."""
+    data = load()
+    data["paused"] = val
+    save(data)
+</code>
+                        </pre>
+                    </div>
+
+                    <h4>Code Explanation</h4>
+                    <p class="sub"><strong class="subtitle">Imports & Config</strong></p>
+                    <div id="language-python" class="code-block">
+                        <pre class="line-numbers">
+                            <code id="codeSnippetPython" class="language-python">
+import json, os
+from config import STORAGE_FILE</code>
+                        </pre>
+                    </div>
+                    <div class="list">
+                        <ul>
+                            <li><code class="code">json</code> — reads/writes JSON files.</li>
+                            <li><code class="code">os</code> — checks if the file exists on disk.</li>
+                            <li><code class="code">STORAGE_FILE</code> — a file path constant imported from your
+                                config (e.g.,
+                                "storage.json" or "data/sites.json")</li>
+                        </ul>
+                    </div>
+
+                    <p class="sub"><strong class="subtitle">Default Data Structure</strong></p>
+                    <div id="language-python" class="code-block">
+                        <pre class="line-numbers">
+                            <code id="codeSnippetPython" class="language-python">
+DEFAULT = {
+    "sites": {},   # url -> { name, keyword, status, last_seen, response_time, added_by }
+    "paused": False
+}</code>
+                        </pre>
+                    </div>
+
+                    <p>This defines the skeleton of your JSON file when it doesn't exist yet:</p>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Key</th>
+                                    <th>Type</th>
+                                    <th>Purpose</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code>"sites"</code></td>
+                                    <td>dict</td>
+                                    <td>All monitored websites, keyed by URL</td>
+                                </tr>
+                                <tr>
+                                    <td><code>"paused"</code></td>
+                                    <td>bool</td>
+                                    <td>Global toggle to pause all monitoring</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p>Each site entry (nested inside <code class="code">"sites"</code>) stores:</p>
+                    <div id="language-python" class="code-block">
+                        <pre class="line-numbers">
+                            <code id="codeSnippetPython" class="language-python">
+{
+  "https://example.com": {
+    "name": "Example Site",
+    "keyword": "Welcome",
+    "status": "unknown",
+    "last_checked": null,
+    "response_time": null,
+    "failures": 0
+  }
+}</code>
+                        </pre>
+                    </div>
+
+                    <p class="sub"><strong class="subtitle">Core Read/Write Functions</strong></p>
+                    <p>➤ <code class="code">load()</code> — Read from disk</p>
+                    <div id="language-python" class="code-block">
+                        <pre class="line-numbers">
+                            <code id="codeSnippetPython" class="language-python">
+def load() -> dict:
+    if os.path.exists(STORAGE_FILE):
+        with open(STORAGE_FILE, "r") as f:
+            return json.load(f)
+    return dict(DEFAULT)</code>
+                        </pre>
+                    </div>
+                    <p><strong>Flow:</strong></p>
+                    <div class="list">
+                        <ol>
+                            <li>Checks if the JSON file exists on disk.</li>
+                            <li>If yes → opens it and parses it into a Python <code class="code">dict</code>.</li>
+                            <li>If no → returns a fresh copy of <code class="code">DEFAULT</code>.</li>
+                        </ol>
+                    </div>
+
+                    <p class="sub"><strong class="subtitle">Site Management Functions</strong></p>
+                    <p>➤ <code class="code">get_sites()</code> — Fetch all monitored sites</p>
+                    <div id="language-python" class="code-block">
+                        <pre class="line-numbers">
+                            <code id="codeSnippetPython" class="language-python">
+def get_sites() -> dict:
+    return load().get("sites", {})</code>
+                        </pre>
+                    </div>
+                    <div class="list">
+                        <ul>
+                            <li>Loads the file and returns only the <code class="code">"sites"</code> dictionary.</li>
+                            <li>Falls back to <code class="code">{}</code> if <code class="code">"sites"</code> key is
+                                somehow missing.</li>
+                        </ul>
+                    </div>
+                    <p>➤ <code class="code">add_site()</code> — Register a new site</p>
+                    <div id="language-python" class="code-block">
+                        <pre class="line-numbers">
+                            <code id="codeSnippetPython" class="language-python">
+def add_site(url: str, name: str, keyword: str = None):
+    data = load()
+    data["sites"][url] = {
+        "name": name,
+        "keyword": keyword,
+        "status": "unknown",
+        "last_checked": None,
+        "response_time": None,
+        "failures": 0,
+    }
+    save(data)</code>
+                        </pre>
+                    </div>
+                    <div class="list">
+                        <ul>
+                            <li><code class="code">url</code> is the dictionary key — acts as a unique ID for each site.
+                            </li>
+                            <li><code class="code">keyword</code> is optional (= None) — used to check if a specific
+                                word appears in the response body.
+                            </li>
+                            <li>All monitoring fields start at neutral defaults:</li>
+                            <div class="nested-list">
+                                <ul>
+                                    <li><code class="code">status: "unknown"</code> — not yet checked</li>
+                                    <li><code class="code">last_checked: None</code> — never checked</li>
+                                    <li><code class="code">response_time: None</code> — not measured yet</li>
+                                    <li><code class="code">failures: 0</code> — no failures recorded</li>
+                                </ul>
+                            </div>
+                        </ul>
+                    </div>
+
+                    <p>➤ <code class="code">remove_site()</code> — Delete a site</p>
+                    <div id="language-python" class="code-block">
+                        <pre class="line-numbers">
+                            <code id="codeSnippetPython" class="language-python">
+def remove_site(url: str) -> bool:
+    data = load()
+    if url in data["sites"]:
+        del data["sites"][url]
+        save(data)
+        return True
+    return False</code>
+                        </pre>
+                    </div>
+                    <div class="list">
+                        <ol>
+                            <li>Returns <code class="code">True</code> if the site was found and deleted.</li>
+                            <li>Returns <code class="code">False</code> if the URL didn't exist — lets the caller handle
+                                the "not found" case
+                                gracefully.</li>
+                            <li>Safe — won't crash if URL is missing.</li>
+                        </ol>
+                    </div>
+
+                    <p>➤ <code class="code">update_site()</code> — Updates site fields</p>
+                    <div id="language-python" class="code-block">
+                        <pre class="line-numbers">
+                            <code id="codeSnippetPython" class="language-python">
+def update_site(url: str, **kwargs):
+    data = load()
+    if url in data["sites"]:
+        data["sites"][url].update(kwargs)
+        save(data)</code>
+                        </pre>
+                    </div>
+                    <div class="list">
+                        <ol>
+                            <li><code class="code">**kwargs</code> accepts any number of keyword arguments dynamically.
+                            </li>
+                            <li><code class="code">.update(kwargs)</code> merges them into the existing site dict — only
+                                updating the fields you
+                                pass.</li>
+                            <li>Used by the monitoring engine to write results back, e.g.:</li>
+                            <div id="language-python" class="code-block">
+                                <pre class="line-numbers">
+                            <code id="codeSnippetPython" class="language-python">
+# Called after checking a site
+update_site(
+    "https://example.com",
+    status="up",
+    last_checked="2026-04-08T12:00:00",
+    response_time=0.342,
+    failures=0
+)</code>
+                        </pre>
+                            </div>
+                        </ol>
+                    </div>
+
+                    <p class="sub"><strong class="subtitle">Pause Control Functions</strong></p>
+                    <p>➤ <code class="code">is_paused()</code> — Check if
+                        monitoring is
+                        paused</p>
+                    <div id="language-python" class="code-block">
+                        <pre class="line-numbers">
+                            <code id="codeSnippetPython" class="language-python">
+def is_paused() -> bool:
+    return load().get("paused", False)</code>
+                        </pre>
+                    </div>
+                    <div class="list">
+                        <ol>
+                            <li>Returns <code class="code">True</code> or <code class="code">False</code>.</li>
+                            <li>The monitoring loop checks this before each check cycle — if <code
+                                    class="code">True</code>, it skips all checks.
+                            </li>
+                        </ol>
+                    </div>
+                    <p>➤ <code class="code">set_paused()</code> — Pause or resume monitoring</p>
+                    <div id="language-python" class="code-block">
+                        <pre class="line-numbers">
+                            <code id="codeSnippetPython" class="language-python">
+def set_paused(val: bool):
+    data = load()
+    data["paused"] = val
+    save(data)</code>
+                        </pre>
+                    </div>
+
+                    <p>Usage:</p>
+                    <div class="code-block block">
+                        <pre>
+<code>set_paused(True)   # Pause all monitoring
+set_paused(False)  # Resume monitoring</code>
+</pre>
+                    </div>
+                </div>
+                <hr>
+
+                <div class="content" id="step-6">
+                    <h3>Step 6: HTTP Check Engine [checker.py]</h3>
+                    <div id="language-python" class="code-block">
+                        <pre class="line-numbers">
+                            <code id="codeSnippetPython" class="language-python">
+import aiohttp
+import asyncio
+from datetime import datetime
+
+
+async def check_site(url: str, keyword: str = None, timeout: int = 10) -> dict:
+    """
+    Returns a result dict:
+      status     : "up" | "down" | "keyword_missing"
+      status_code: int or None
+      response_ms: int (milliseconds)
+      error      : str or None
+      keyword_found: bool or None
+    """
+    result = {
+        "status": "down",
+        "status_code": None,
+        "response_ms": None,
+        "error": None,
+        "keyword_found": None,
+        "checked_at": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+    }
+
+    headers = {
+        "User-Agent": (
+            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+            "AppleWebKit/537.36 Chrome/122.0 Safari/537.36"
+        )
+    }
+
+    try:
+        start = asyncio.get_event_loop().time()
+        async with aiohttp.ClientSession() as session:
+            async with session.get(url, headers=headers,
+                                   timeout=aiohttp.ClientTimeout(total=timeout),
+                                   allow_redirects=True, ssl=False) as resp:
+
+                elapsed_ms = int((asyncio.get_event_loop().time() - start) * 1000)
+                result["status_code"] = resp.status
+                result["response_ms"] = elapsed_ms
+
+                if resp.status == 200:
+                    if keyword:
+                        body = await resp.text()
+                        if keyword.lower() in body.lower():
+                            result["status"] = "up"
+                            result["keyword_found"] = True
+                        else:
+                            result["status"] = "keyword_missing"
+                            result["keyword_found"] = False
+                    else:
+                        result["status"] = "up"
+                else:
+                    result["status"] = "down"
+                    result["error"] = f"HTTP {resp.status}"
+
+    except aiohttp.ClientConnectorError:
+        result["error"] = "Connection refused / DNS failure"
+    except asyncio.TimeoutError:
+        result["error"] = f"Timeout after {timeout}s"
+    except Exception as e:
+        result["error"] = str(e)
+
+    return result</code>
+                        </pre>
+                    </div>
+
+                    <h4>Code Breakdown</h4>
+                    <p class="sub"><strong class="subtitle">Imports</strong></p>
+                    <div id="language-python" class="code-block">
+                        <pre class="line-numbers">
+                            <code id="codeSnippetPython" class="language-python">
+import aiohttp       # Async HTTP client (non-blocking requests)
+import asyncio       # Python's async event loop framework
+from datetime import datetime  # For timestamping the check</code>
+                        </pre>
+                    </div>
+                    <div class="list">
+                        <ul>
+                            <li><code class="code">aiohttp</code> — like <code class="code">requests</code> but async;
+                                can check hundreds of sites
+                                simultaneously without waiting for each one.</li>
+                            <li><code class="code">asyncio</code> — manages the event loop that runs async tasks
+                                concurrently.
+                            </li>
+                        </ul>
+                    </div>
+
+                    <p class="sub"><strong class="subtitle">Function Signature</strong></p>
+                    <div id="language-python" class="code-block">
+                        <pre class="line-numbers">
+                            <code id="codeSnippetPython" class="language-python">
+async def check_site(url: str, keyword: str = None, timeout: int = 10) -> dict:</code>
+                        </pre>
+                    </div>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Parameter</th>
+                                    <th>Type</th>
+                                    <th>Purpose</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code class="code">url</code></td>
+                                    <td>str</td>
+                                    <td>The website URL to check</td>
+                                </tr>
+                                <tr>
+                                    <td><code class="code">keyword</code></td>
+                                    <td>str (optional)</td>
+                                    <td>A word to search in the page body</td>
+                                </tr>
+                                <tr>
+                                    <td><code class="code">timeout</code></td>
+                                    <td>int</td>
+                                    <td>Max seconds to wait (default: 10)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p><code class="code">async def</code> — marks this as a coroutine; must be await-ed when called.
+                    </p>
+                    <p><strong>Result Dictionary (Default State)</strong></p>
+                    <div class="code-block block">
+                        <pre>
+<code>result = {
+    "status": "down",          # Assume down until proven otherwise
+    "status_code": None,       # HTTP status code (200, 404, 500...)
+    "response_ms": None,       # Response time in milliseconds
+    "error": None,             # Error message if something fails
+    "keyword_found": None,     # True/False if keyword was searched
+    "checked_at": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+}</code>
+</pre>
+                    </div>
+                    <p>This is initialized as pessimistic — everything starts as <code class="code">"down"</code> and
+                        gets updated only if the
+                        request succeeds.
+                    </p>
+                    <p><strong>Fake Browser Headers</strong></p>
+                    <div class="code-block block">
+                        <pre>
+<code>headers = {
+    "User-Agent": (
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+        "AppleWebKit/537.36 Chrome/122.0 Safari/537.36"
+    )
+}</code>
+</pre>
+                    </div>
+                    <p>Disguises the HTTP request as a real Chrome browser on Windows. Without this, many sites block
+                        bots or return different
+                        responses.</p>
+                    <p class="sub"><strong class="subtitle">The Core Request (Step by Step)</strong></p>
+                    <div id="language-python" class="code-block">
+                        <pre class="line-numbers">
+                            <code id="codeSnippetPython" class="language-python">
+start = asyncio.get_event_loop().time()</code>
+                        </pre>
+                    </div>
+                    <p>Records the start time using the event loop's high-precision clock (more accurate than
+                        <code class="code">time.time()</code> for async code).
+                    </p>
+                    <div id="language-python" class="code-block">
+                        <pre class="line-numbers">
+                            <code id="codeSnippetPython" class="language-python">
+async with aiohttp.ClientSession() as session:</code>
+                        </pre>
+                    </div>
+                    <p>Opens an HTTP session — like a browser session. The <code class="code">async with</code> ensures
+                        it's properly closed
+                        afterward even if an error
+                        occurs.
+                    </p>
+                    <div id="language-python" class="code-block">
+                        <pre class="line-numbers">
+                            <code id="codeSnippetPython" class="language-python">
+async with session.get(
+    url,
+    headers=headers,
+    timeout=aiohttp.ClientTimeout(total=timeout),
+    allow_redirects=True,
+    ssl=False
+) as resp:</code>
+                        </pre>
+                    </div>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Argument / Parameter</th>
+                                    <th>Type</th>
+                                    <th>Purpose</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code class="code">url</code></td>
+                                    <td>str</td>
+                                    <td>Target website URL</td>
+                                </tr>
+                                <tr>
+                                    <td><code class="code">headers</code></td>
+                                    <td>dict</td>
+                                    <td>Sends fake browser identity (User-Agent)</td>
+                                </tr>
+                                <tr>
+                                    <td><code class="code">timeout</code></td>
+                                    <td>int</td>
+                                    <td>Kills request after N seconds (Default: 10)</td>
+                                </tr>
+                                <tr>
+                                    <td><code class="code">allow_redirects=True</code></td>
+                                    <td>bool</td>
+                                    <td>Follows HTTP 301/302 redirects automatically</td>
+                                </tr>
+                                <tr>
+                                    <td><code class="code">ssl=False</code></td>
+                                    <td>bool</td>
+                                    <td>Skips SSL verification (useful for self-signed or broken HTTPS)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <p><strong>Measuring Response Time</strong></p>
+                    <div id="language-python" class="code-block">
+                        <pre class="line-numbers">
+                            <code id="codeSnippetPython" class="language-python">
+elapsed_ms = int((asyncio.get_event_loop().time() - start) * 1000)
+result["status_code"] = resp.status
+result["response_ms"] = elapsed_ms</code>
+                        </pre>
+                    </div>
+
+                    <p><strong>Status Logic (The Decision Tree)</strong></p>
+                    <div class="code-block block">
+                        <pre>
+<code>HTTP 200 received?
+├── YES → keyword provided?
+│         ├── YES → keyword in body?
+│         │         ├── YES → status = "up", keyword_found = True
+│         │         └── NO  → status = "keyword_missing", keyword_found = False
+│         └── NO  → status = "up"
+└── NO  → status = "down", error = "HTTP {code}"</code>
+</pre>
+                    </div>
+                    <div id="language-python" class="code-block">
+                        <pre class="line-numbers">
+                            <code id="codeSnippetPython" class="language-python">
+if resp.status == 200:
+    if keyword:
+        body = await resp.text()          # Read full HTML body
+        if keyword.lower() in body.lower():  # Case-insensitive search
+            result["status"] = "up"
+            result["keyword_found"] = True
+        else:
+            result["status"] = "keyword_missing"
+            result["keyword_found"] = False
+    else:
+        result["status"] = "up"
+else:
+    result["status"] = "down"
+    result["error"] = f"HTTP {resp.status}"</code>
+                        </pre>
+                    </div>
+                    <div class="table-container">
+                        <p>The 3 possible outcomes:</p>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Status</th>
+                                    <th>Meaning</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code class="code">"up"</code></td>
+                                    <td>Site responded 200, keyword found (or not required)</td>
+                                </tr>
+                                <tr>
+                                    <td><code class="code">"keyword_missing"</code></td>
+                                    <td>Site is online but expected content not found</td>
+                                </tr>
+                                <tr>
+                                    <td><code class="code">"down"</code></td>
+                                    <td>Non-200 response (404, 500, etc.)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <p><strong>Error Handling</strong></p>
+                    <div id="language-python" class="code-block">
+                        <pre class="line-numbers">
+                            <code id="codeSnippetPython" class="language-python">
+except aiohttp.ClientConnectorError:
+    result["error"] = "Connection refused / DNS failure"</code>
+                        </pre>
+                    </div>
+                    <p>Site doesn't exist, server is down, or DNS can't resolve the domain.</p>
+                    <div id="language-python" class="code-block">
+                        <pre class="line-numbers">
+                            <code id="codeSnippetPython" class="language-python">
+except asyncio.TimeoutError:
+    result["error"] = f"Timeout after {timeout}s"</code>
+                        </pre>
+                    </div>
+                    <p>Server took too long to respond — likely overloaded or dead.</p>
+                    <div id="language-python" class="code-block">
+                        <pre class="line-numbers">
+                            <code id="codeSnippetPython" class="language-python">
+except Exception as e:
+    result["error"] = str(e)</code>
+                        </pre>
+                    </div>
+                    <p>Catches any other unexpected error (SSL errors if ssl=True, malformed URL, etc.).</p>
+                </div>
+                <hr>
+
+                <div class="content" id="step-7">
+                    <h3>Step 7: The Background Loop [monitor.py]</h3>
+                    <p>This is the brain of the monitoring system. It runs silently in the background, checks every
+                        website on your list at
+                        regular intervals, and fires a Telegram alert instantly when a site's status changes.</p>
+                    <div id="language-python" class="code-block">
+                        <pre class="line-numbers">
+                            <code id="codeSnippetPython" class="language-python">
+import asyncio
+from datetime import datetime
+from checker import check_site
+from storage import get_sites, update_site, is_paused
+from config import CHECK_INTERVAL, CHAT_ID
+
+
+def status_emoji(status: str) -> str:
+    return {"up": "✅", "down": "🔴", "keyword_missing": "⚠️", "unknown": "❓"}.get(status, "❓")
+
+
+async def run_monitor(app):
+    """Runs forever in the background — checks all sites on interval."""
+    print(f"🔍 Monitor started — checking every {CHECK_INTERVAL}s")
+
+    while True:
+        if not is_paused():
+            sites = get_sites()
+
+            for url, info in sites.items():
+                prev_status = info.get("status", "unknown")
+                result = await check_site(url, info.get("keyword"))
+                new_status = result["status"]
+
+                update_site(url,
+                    status=new_status,
+                    last_checked=result["checked_at"],
+                    response_time=result["response_ms"],
+                    failures=info.get("failures", 0) + (1 if new_status != "up" else 0)
+                )
+
+                # Only alert on STATUS CHANGE (no spam)
+                if new_status != prev_status:
+                    await send_alert(app, url, info["name"], prev_status,
+                                     new_status, result)
+
+        await asyncio.sleep(CHECK_INTERVAL)
+
+
+async def send_alert(app, url: str, name: str, prev: str, curr: str, result: dict):
+    """Fire an instant Telegram alert on status change."""
+    emoji = status_emoji(curr)
+    prev_emoji = status_emoji(prev)
+
+    if curr == "up":
+        header = f"*SITE RECOVERED*"
+        color_word = "is back ONLINE"
+    elif curr == "down":
+        header = f"*SITE DOWN ALERT*"
+        color_word = "went OFFLINE"
+    else:
+        header = f"*CONTENT CHANGED*"
+        color_word = "is missing expected content"
+
+    msg = (
+        f"{header}\n"
+        f"{'─'*30}\n"
+        f"*Site:* {name}\n"
+        f"*URL:* `{url}`\n"
+        f"*Status:* {prev_emoji} → {emoji}  _{color_word}_\n"
+        f"*Response:* {result['response_ms']} ms\n"
+        f"*Time:* {result['checked_at']}\n"
+    )
+
+    if result.get("error"):
+        msg += f"*Error:* `{result['error']}`\n"
+
+    if curr != "up":
+        msg += f"\nRechecking every {CHECK_INTERVAL}s until recovery..."
+
+    await app.bot.send_message(
+        chat_id=CHAT_ID,
+        text=msg,
+        parse_mode="Markdown",
+        disable_web_page_preview=True
+    )
+    print(f"  Alert sent: {name} → {curr}")</code>
+                        </pre>
+                    </div>
+
+                    <h4>Code Breakdown</h4>
+                    <p class="sub"><strong class="subtitle">Imports</strong></p>
+                    <div id="language-python" class="code-block">
+                        <pre class="line-numbers">
+                            <code id="codeSnippetPython" class="language-python">
+import asyncio
+from datetime import datetime
+from checker import check_site
+from storage import get_sites, update_site, is_paused
+from config import CHECK_INTERVAL, CHAT_ID</code>
+                        </pre>
+                    </div>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Import / Function / Constant</th>
+                                    <th>Purpose</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code class="code">asyncio</code></td>
+                                    <td>Runs multiple tasks concurrently without blocking</td>
+                                </tr>
+                                <tr>
+                                    <td><code class="code">datetime</code></td>
+                                    <td>Handles timestamps for last-checked time</td>
+                                </tr>
+                                <tr>
+                                    <td><code class="code">check_site</code></td>
+                                    <td>Sends HTTP request and returns site status</td>
+                                </tr>
+                                <tr>
+                                    <td><code class="code">get_sites</code></td>
+                                    <td>Loads all monitored URLs from <code>sites.json</code></td>
+                                </tr>
+                                <tr>
+                                    <td><code class="code">update_site</code></td>
+                                    <td>Saves updated status back to <code>sites.json</code></td>
+                                </tr>
+                                <tr>
+                                    <td><code class="code">is_paused</code></td>
+                                    <td>Checks if monitoring is paused by user</td>
+                                </tr>
+                                <tr>
+                                    <td><code class="code">CHECK_INTERVAL</code></td>
+                                    <td>How often to check (e.g., every 60 seconds)</td>
+                                </tr>
+                                <tr>
+                                    <td><code class="code">CHAT_ID</code></td>
+                                    <td>Your Telegram user ID to send alerts to</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p class="sub"><strong class="subtitle">Function 1 — status_emoji()</strong></p>
+                    <div id="language-python" class="code-block">
+                        <pre class="line-numbers">
+                            <code id="codeSnippetPython" class="language-python">
+def status_emoji(status: str) -> str:
+    return {"up": "✅", "down": "🔴", "keyword_missing": "⚠️", "unknown": "❓"}.get(status, "❓")</code>
+                        </pre>
+                    </div>
+                    <p><strong>What it does:</strong> Converts a plain text status into a visual emoji for Telegram
+                        messages.</p>
+                    <div class="table-container">
+                        <p><strong>How it works:</strong></p>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Status Text</th>
+                                    <th>Returns</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code>"up"</code></td>
+                                    <td>✅</td>
+                                </tr>
+                                <tr>
+                                    <td><code>"down"</code></td>
+                                    <td>🔴</td>
+                                </tr>
+                                <tr>
+                                    <td><code>"keyword_missing"</code></td>
+                                    <td>⚠️</td>
+                                </tr>
+                                <tr>
+                                    <td><code>"unknown"</code></td>
+                                    <td>❓</td>
+                                </tr>
+                                <tr>
+                                    <td><em>Anything else</em></td>
+                                    <td>❓</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <p class="sub"><strong class="subtitle">Function 2 — run_monitor() — The Main Loop</strong></p>
+                    <div id="language-python" class="code-block">
+                        <pre class="line-numbers">
+                            <code id="codeSnippetPython" class="language-python">
+async def run_monitor(app):
+    print(f"🔍 Monitor started — checking every {CHECK_INTERVAL}s")
+
+    while True:
+        if not is_paused():
+            sites = get_sites()
+
+            for url, info in sites.items():
+                ...
+
+        await asyncio.sleep(CHECK_INTERVAL)</code>
+                        </pre>
+                    </div>
+                    <p><strong>What it does:</strong> Runs an infinite loop that never stops. Every <code
+                            class="code">{CHECK_INTERVAL}</code> seconds, it wakes up and checks all your monitored
+                        sites —
+                        unless monitoring is paused.</p>
+                    <div class="code-block block">
+                        <pre>
+<code>Bot starts
+    │
+    ▼
+while True (runs forever)
+    │
+    ├── is_paused? ──► YES → skip, sleep, repeat
+    │
+    └── NO → get all sites → check each one → update → alert if changed
+                                    │
+                                    ▼
+                             sleep(CHECK_INTERVAL)
+                                    │
+                                    ▼
+                              repeat forever ↺</code>
+</pre>
+                    </div>
+                    <p><strong>Inside the Loop — Checking Each Site</strong></p>
+                    <div id="language-python" class="code-block">
+                        <pre class="line-numbers">
+                            <code id="codeSnippetPython" class="language-python">
+for url, info in sites.items():
+    prev_status = info.get("status", "unknown")
+    result = await check_site(url, info.get("keyword"))
+    new_status = result["status"]</code>
+                        </pre>
+                    </div>
+                    <div class="list">
+                        <p><strong>What it does:</strong></p>
+                        <ul>
+                            <li><code class="code">prev_status</code> → Remembers the old status before checking (e.g.,
+                                <code class="code">"up"</code>).
+                            </li>
+                            <li><code class="code">await check_site(...)</code> → Actually visits the URL and gets back
+                                the result.</li>
+                            <li><code class="code">new_status</code> → The fresh status just returned (e.g., <code
+                                    class="code">"down"</code>).
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="pro-tip">
+                        <p><code class="code">await</code> means: wait for the HTTP check to finish before moving on —
+                            but don't block other tasks
+                            while waiting.
+                        </p>
+                    </div>
+                    <p><strong>Updating the Site Data</strong></p>
+                    <div id="language-python" class="code-block">
+                        <pre class="line-numbers">
+                            <code id="codeSnippetPython" class="language-python">
+update_site(url,
+    status=new_status,
+    last_checked=result["checked_at"],
+    response_time=result["response_ms"],
+    failures=info.get("failures", 0) + (1 if new_status != "up" else 0)
+)</code>
+                        </pre>
+                    </div>
+                    <div class="table-container">
+                        <p>What it does: Saves the latest check results back to <code class="code">sites.json</code>.
+                        </p>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Field</th>
+                                    <th>What Gets Saved</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code class="code">status</code></td>
+                                    <td>Latest status: "up", "down", etc.</td>
+                                </tr>
+                                <tr>
+                                    <td><code class="code">last_checked</code></td>
+                                    <td>Timestamp of this check</td>
+                                </tr>
+                                <tr>
+                                    <td><code class="code">response_time</code></td>
+                                    <td>How fast the site responded (ms)</td>
+                                </tr>
+                                <tr>
+                                    <td><code class="code">failures</code></td>
+                                    <td>Increments by 1 if site is NOT up</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="tip">
+                        <p>Failure counter logic:</p>
+                        <code class="code">failures + (1 if new_status != "up" else 0)</code>
+                        <p>→ If up: keep the same count</p>
+                        <p>→ If down/missing: add 1 to the failure count</p>
+                    </div>
+                    <p><strong>The Smart Alert Trigger</strong></p>
+                    <div id="language-python" class="code-block">
+                        <pre class="line-numbers">
+                            <code id="codeSnippetPython" class="language-python">
+if new_status != prev_status:
+    await send_alert(app, url, info["name"], prev_status, new_status, result)</code>
+                        </pre>
+                    </div>
+                    <p><strong>What is does: </strong>Only sends an alert when the status actually changed.</p>
+                    <p><strong>Why this is smart: </strong>Without this check, you'd get a Telegram message every 60
+                        seconds saying "site is up" — which is annoying spam. This way
+                        you only get notified when something actually happens.
+                    </p>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Scenario</th>
+                                    <th>Alert Sent?</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Was up → Still up</td>
+                                    <td>❌ No</td>
+                                </tr>
+                                <tr>
+                                    <td>Was up → Now down</td>
+                                    <td>✅ Yes</td>
+                                </tr>
+                                <tr>
+                                    <td>Was down → Now up</td>
+                                    <td>✅ Yes</td>
+                                </tr>
+                                <tr>
+                                    <td>Was up → Keyword missing</td>
+                                    <td>✅ Yes</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <p class="sub"><strong class="subtitle">Function 3 — send_alert() — The Telegram
+                            Notification</strong>
+                    </p>
+                    <div id="language-python" class="code-block">
+                        <pre class="line-numbers">
+                            <code id="codeSnippetPython" class="language-python">
+async def send_alert(app, url, name, prev, curr, result):</code>
+                        </pre>
+                    </div>
+                    <p><strong>What is does: </strong>Builds a nicely formatted Telegram message and sends it to your
+                        chat when a status change is detected.
+                    </p>
+
+                    <p><strong>Step 1 — Decide the Header and Message</strong></p>
+                    <div id="language-python" class="code-block">
+                        <pre class="line-numbers">
+                            <code id="codeSnippetPython" class="language-python">
+if curr == "up":
+    header = f"*SITE RECOVERED*"
+    color_word = "is back ONLINE"
+elif curr == "down":
+    header = f"*SITE DOWN ALERT*"
+    color_word = "went OFFLINE"
+else:
+    header = f"*CONTENT CHANGED*"
+    color_word = "is missing expected content"</code>
+                        </pre>
+                    </div>
+                    <div class="table-container">
+                        <p>Three possible alert types:</p>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Current Status</th>
+                                    <th>Alert Type</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code>"up"</code></td>
+                                    <td>Site Recovered</td>
+                                </tr>
+                                <tr>
+                                    <td><code>"down"</code></td>
+                                    <td>Site Down Alert</td>
+                                </tr>
+                                <tr>
+                                    <td><code>"keyword_missing"</code></td>
+                                    <td>Content Changed</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p><strong>Step 2 — Build the Message</strong></p>
+                    <div id="language-python" class="code-block">
+                        <pre class="line-numbers">
+                            <code id="codeSnippetPython" class="language-python">
+msg = (
+    f"{header}\n"
+    f"{'─'*30}\n"
+    f"*Site:* {name}\n"
+    f"*URL:* `{url}`\n"
+    f"*Status:* {prev_emoji} → {emoji}  _{color_word}_\n"
+    f"*Response:* {result['response_ms']} ms\n"
+    f"*Time:* {result['checked_at']}\n"
+)</code>
+                        </pre>
+                    </div>
+                    <p><strong>Step 3 — Add Error Info (If Any)</strong></p>
+                    <div id="language-python" class="code-block">
+                        <pre class="line-numbers">
+                            <code id="codeSnippetPython" class="language-python">
+if result.get("error"):
+    msg += f"*Error:* `{result['error']}`\n"</code>
+                        </pre>
+                    </div>
+                    <p>Only adds the error line if the check returned an error (e.g., "Connection timeout"). If the site
+                        is just slow or
+                        missing keyword, there may be no error.
+                    </p>
+                    <p><strong>Step 4 — Add Recheck Reminder (If Down)</strong></p>
+                    <div id="language-python" class="code-block">
+                        <pre class="line-numbers">
+                            <code id="codeSnippetPython" class="language-python">
+if curr != "up":
+    msg += f"\nRechecking every {CHECK_INTERVAL}s until recovery..."</code>
+                        </pre>
+                    </div>
+                    <p>Adds a helpful footer so you know the bot is still watching and will alert you again when it
+                        recovers.
+                    </p>
+                    <p><strong>Step 5 — Send the Message</strong></p>
+                    <div id="language-python" class="code-block">
+                        <pre class="line-numbers">
+                            <code id="codeSnippetPython" class="language-python">
+await app.bot.send_message(
+    chat_id=CHAT_ID,
+    text=msg,
+    parse_mode="Markdown",
+    disable_web_page_preview=True
+)
+print(f"  Alert sent: {name} → {curr}")</code>
+                        </pre>
+                    </div>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Parameter</th>
+                                    <th>Purpose</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code class="code">chat_id=CHAT_ID</code></td>
+                                    <td>Sends to YOUR Telegram account only</td>
+                                </tr>
+                                <tr>
+                                    <td><code class="code">text=msg</code></td>
+                                    <td>The formatted message built above</td>
+                                </tr>
+                                <tr>
+                                    <td><code class="code">parse_mode="Markdown"</code></td>
+                                    <td>Enables bold, italic, code formatting</td>
+                                </tr>
+                                <tr>
+                                    <td><code class="code">disable_web_page_preview=True</code></td>
+                                    <td>Stops Telegram from generating a URL preview card</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="image-placeholder">
+                        <img src="images/program-work-flow.webp"
+                            alt="Build a Python Telegram Bot That Monitors Any Website and Alerts You Instantly"
+                            loading="lazy" decoding="async" fetchpriority="auto" />
+                    </div>
+                </div>
+                <hr>
+
+                <div class="content" id="step-8">
+                    <h3>Step 8: Main Bot + All Commands [bot.py]</h3>
+                    <div id="language-python" class="code-block">
+                        <pre class="line-numbers">
+                            <code id="codeSnippetPython" class="language-python">
+import asyncio
+import logging
+from telegram import Update, BotCommand
+from telegram.ext import (
+    Application, CommandHandler, ContextTypes
+)
+from config import BOT_TOKEN, CHECK_INTERVAL
+from storage import (add_site, remove_site, get_sites,
+                     update_site, is_paused, set_paused)
+from checker import check_site
+from monitor import run_monitor, status_emoji
+
+logging.basicConfig(
+    format="%(asctime)s [%(levelname)s] %(message)s",
+    level=logging.INFO
+)
+
+
+# ─── /start ──────────────────────────────────────────────────
+async def cmd_start(update: Update, ctx: ContextTypes.DEFAULT_TYPE):
+    await update.message.reply_text(
+        " *Website Monitor Bot*\n"
+        "━━━━━━━━━━━━━━━━━━━━━━━\n"
+        "I'll watch your websites and alert you the *instant* anything changes.\n\n"
+        " *Commands:*\n"
+        "`/add <url> <name> [keyword]` — Add a site\n"
+        "`/remove <url>` — Remove a site\n"
+        "`/list` — Show all monitored sites\n"
+        "`/status <url>` — Check a site right now\n"
+        "`/statusall` — Check all sites immediately\n"
+        "`/pause` — Pause monitoring\n"
+        "`/resume` — Resume monitoring\n"
+        "`/help` — Show this menu",
+        parse_mode="Markdown"
+    )
+
+
+# ─── /add ────────────────────────────────────────────────────
+async def cmd_add(update: Update, ctx: ContextTypes.DEFAULT_TYPE):
+    args = ctx.args
+    if len(args) < 2:
+        await update.message.reply_text(
+            " Usage: `/add <url> <name> [keyword]`\n\n"
+            "Example:\n"
+            "`/add https://devspirehub.com DevspireHub`\n"
+            "`/add https://mysite.com MyShop \"Add to Cart\"`",
+            parse_mode="Markdown"
+        )
+        return
+
+    url = args[0]
+    if not url.startswith("http"):
+        url = "https://" + url
+
+    name = args[1]
+    keyword = " ".join(args[2:]) if len(args) > 2 else None
+
+    if len(get_sites()) >= 50:
+        await update.message.reply_text(" Max 50 sites reached. Remove one first.")
+        return
+
+    add_site(url, name, keyword)
+
+    msg = (
+        f" *Site added to watchlist!*\n"
+        f" *Name:* {name}\n"
+        f" *URL:* `{url}`\n"
+    )
+    if keyword:
+        msg += f" *Monitoring keyword:* `{keyword}`\n"
+    msg += f"⏱ *Check interval:* every {CHECK_INTERVAL}s"
+
+    await update.message.reply_text(msg, parse_mode="Markdown")
+
+
+# ─── /remove ─────────────────────────────────────────────────
+async def cmd_remove(update: Update, ctx: ContextTypes.DEFAULT_TYPE):
+    if not ctx.args:
+        await update.message.reply_text("Usage: `/remove <url>`", parse_mode="Markdown")
+        return
+
+    url = ctx.args[^0]
+    if remove_site(url):
+        await update.message.reply_text(f" Removed: `{url}`", parse_mode="Markdown")
+    else:
+        await update.message.reply_text(" URL not found in watchlist.")
+
+
+# ─── /list ───────────────────────────────────────────────────
+async def cmd_list(update: Update, ctx: ContextTypes.DEFAULT_TYPE):
+    sites = get_sites()
+    if not sites:
+        await update.message.reply_text(" No sites monitored yet. Use /add to start.")
+        return
+
+    paused_tag = "  ⏸ *PAUSED*" if is_paused() else ""
+    msg = f" *Monitored Sites*{paused_tag}\n{'━'*30}\n"
+
+    for url, info in sites.items():
+        emoji = status_emoji(info.get("status", "unknown"))
+        rt = f"{info['response_time']}ms" if info.get("response_time") else "N/A"
+        kw = f" |  `{info['keyword']}`" if info.get("keyword") else ""
+        msg += (
+            f"{emoji} *{info['name']}*{kw}\n"
+            f"   └ `{url}`\n"
+            f"   └  {rt} |  {info.get('last_checked') or 'Never'}\n\n"
+        )
+
+    await update.message.reply_text(msg, parse_mode="Markdown",
+                                    disable_web_page_preview=True)
+
+
+# ─── /status ─────────────────────────────────────────────────
+async def cmd_status(update: Update, ctx: ContextTypes.DEFAULT_TYPE):
+    if not ctx.args:
+        await update.message.reply_text("Usage: `/status <url>`", parse_mode="Markdown")
+        return
+
+    url = ctx.args[^0]
+    sites = get_sites()
+    keyword = sites.get(url, {}).get("keyword")
+
+    await update.message.reply_text(f" Checking `{url}`...", parse_mode="Markdown")
+    result = await check_site(url, keyword)
+
+    emoji = status_emoji(result["status"])
+    msg = (
+        f"{emoji} *Live Check Result*\n"
+        f"{'─'*28}\n"
+        f"`{url}`\n"
+        f" Status: *{result['status'].upper()}*\n"
+        f" HTTP Code: `{result['status_code'] or 'N/A'}`\n"
+        f" Response: `{result['response_ms']} ms`\n"
+        f" Checked: {result['checked_at']}\n"
+    )
+    if result.get("error"):
+        msg += f"Error: `{result['error']}`\n"
+    if result.get("keyword") and result.get("keyword_found") is not None:
+        found = "Found" if result["keyword_found"] else "Not Found"
+        msg += f"Keyword: {found}\n"
+
+    await update.message.reply_text(msg, parse_mode="Markdown",
+                                    disable_web_page_preview=True)
+
+
+# ─── /statusall ──────────────────────────────────────────────
+async def cmd_statusall(update: Update, ctx: ContextTypes.DEFAULT_TYPE):
+    sites = get_sites()
+    if not sites:
+        await update.message.reply_text("No sites to check.")
+        return
+
+    await update.message.reply_text(f"Checking {len(sites)} site(s)...")
+
+    msg = "*Live Status — All Sites*\n" + "━" * 30 + "\n"
+    for url, info in sites.items():
+        result = await check_site(url, info.get("keyword"))
+        emoji = status_emoji(result["status"])
+        update_site(url, status=result["status"],
+                    response_time=result["response_ms"],
+                    last_checked=result["checked_at"])
+        rt = f"{result['response_ms']}ms" if result["response_ms"] else "N/A"
+        msg += f"{emoji} *{info['name']}* — `{rt}`\n   `{url}`\n\n"
+
+    await update.message.reply_text(msg, parse_mode="Markdown",
+                                    disable_web_page_preview=True)
+
+
+# ─── /pause & /resume ────────────────────────────────────────
+async def cmd_pause(update: Update, ctx: ContextTypes.DEFAULT_TYPE):
+    set_paused(True)
+    await update.message.reply_text("⏸ Monitoring *paused*. Use /resume to restart.",
+                                    parse_mode="Markdown")
+
+
+async def cmd_resume(update: Update, ctx: ContextTypes.DEFAULT_TYPE):
+    set_paused(False)
+    await update.message.reply_text("▶Monitoring *resumed*!", parse_mode="Markdown")
+
+
+# ─── Boot ────────────────────────────────────────────────────
+async def post_init(app: Application):
+    await app.bot.set_my_commands([
+        BotCommand("start",     "Show welcome & help"),
+        BotCommand("add",       "Add a site to monitor"),
+        BotCommand("remove",    "Remove a site"),
+        BotCommand("list",      "List all monitored sites"),
+        BotCommand("status",    "Live check one site"),
+        BotCommand("statusall", "Live check all sites"),
+        BotCommand("pause",     "Pause monitoring"),
+        BotCommand("resume",    "Resume monitoring"),
+    ])
+    asyncio.create_task(run_monitor(app))
+    print("Bot is live and monitoring!")
+
+
+def main():
+    app = (
+        Application.builder()
+        .token(BOT_TOKEN)
+        .post_init(post_init)
+        .build()
+    )
+
+    app.add_handler(CommandHandler("start",     cmd_start))
+    app.add_handler(CommandHandler("help",      cmd_start))
+    app.add_handler(CommandHandler("add",       cmd_add))
+    app.add_handler(CommandHandler("remove",    cmd_remove))
+    app.add_handler(CommandHandler("list",      cmd_list))
+    app.add_handler(CommandHandler("status",    cmd_status))
+    app.add_handler(CommandHandler("statusall", cmd_statusall))
+    app.add_handler(CommandHandler("pause",     cmd_pause))
+    app.add_handler(CommandHandler("resume",    cmd_resume))
+
+    print("Starting Website Monitor Bot...")
+    app.run_polling(drop_pending_updates=True)
+
+
+if __name__ == "__main__":
+    main()</code>
+                        </pre>
+                    </div>
+
+                    <h4>Code Breakdown</h4>
+                    <p class="sub"><strong class="subtitle">Imports</strong></p>
+                    <div id="language-python" class="code-block">
+                        <pre class="line-numbers">
+                            <code id="codeSnippetPython" class="language-python">
+import asyncio
+import logging
+from telegram import Update, BotCommand
+from telegram.ext import Application, CommandHandler, ContextTypes
+from config import BOT_TOKEN, CHECK_INTERVAL
+from storage import (add_site, remove_site, get_sites,
+                     update_site, is_paused, set_paused)
+from checker import check_site
+from monitor import run_monitor, status_emoji</code>
+                        </pre>
+                    </div>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Import / Function / Constant</th>
+                                    <th>What It Does</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code class="code">asyncio</code></td>
+                                    <td>Runs async tasks (background monitor loop)</td>
+                                </tr>
+                                <tr>
+                                    <td><code class="code">logging</code></td>
+                                    <td>Prints log messages with timestamps</td>
+                                </tr>
+                                <tr>
+                                    <td><code class="code">Update</code></td>
+                                    <td>Represents an incoming Telegram message/command</td>
+                                </tr>
+                                <tr>
+                                    <td><code class="code">BotCommand</code></td>
+                                    <td>Defines slash commands shown in Telegram menu</td>
+                                </tr>
+                                <tr>
+                                    <td><code class="code">Application</code></td>
+                                    <td>The main bot app object from <code>python-telegram-bot</code></td>
+                                </tr>
+                                <tr>
+                                    <td><code class="code">CommandHandler</code></td>
+                                    <td>Links a <code>/command</code> to a Python function</td>
+                                </tr>
+                                <tr>
+                                    <td><code class="code">BOT_TOKEN</code></td>
+                                    <td>Your secret bot token from <code>.env</code></td>
+                                </tr>
+                                <tr>
+                                    <td><code class="code">CHECK_INTERVAL</code></td>
+                                    <td>How often (seconds) to check sites</td>
+                                </tr>
+                                <tr>
+                                    <td><code class="code">storage functions</code></td>
+                                    <td>Load, save, update site data</td>
+                                </tr>
+                                <tr>
+                                    <td><code class="code">check_site</code></td>
+                                    <td>Performs the actual HTTP request</td>
+                                </tr>
+                                <tr>
+                                    <td><code class="code">run_monitor</code></td>
+                                    <td>The background loop that checks sites</td>
+                                </tr>
+                                <tr>
+                                    <td><code class="code">status_emoji</code></td>
+                                    <td>Returns ✅🔴⚠️ based on site status</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <p class="sub"><strong class="subtitle">Logging Setup</strong></p>
+                    <div id="language-python" class="code-block">
+                        <pre class="line-numbers">
+                            <code id="codeSnippetPython" class="language-python">
+logging.basicConfig(
+    format="%(asctime)s [%(levelname)s] %(message)s",
+    level=logging.INFO
+)</code>
+                        </pre>
+                    </div>
+                    <p><strong>What it does:</strong> Configures Python's built-in logger to print timestamped messages
+                        in your terminal.
+                    </p>
+                    <div class="code-block block">
+                        <pre>
+<code>2026-04-11 10:00:01 [INFO] Bot started polling...
+2026-04-11 10:01:00 [INFO] Checking https://mysite.com</code>
+</pre>
+                    </div>
+                    <p><strong>Why it's used:</strong> Helps you debug and monitor the bot's activity in real time
+                        without adding print() everywhere.
+                    </p>
+
+                    <p class="sub"><strong class="subtitle">/start Command</strong></p>
+                    <div id="language-python" class="code-block">
+                        <pre class="line-numbers">
+                            <code id="codeSnippetPython" class="language-python">
+async def cmd_start(update: Update, ctx: ContextTypes.DEFAULT_TYPE):
+    await update.message.reply_text(
+        " *Website Monitor Bot*\n..."
+        parse_mode="Markdown"
+    )</code>
+                        </pre>
+                    </div>
+                    <p><strong>What it does:</strong> Sends a welcome message with the full list of available commands
+                        when the user sends <code class="code">/start</code> or <code class="code">/help</code>.
+                    </p>
+
+                    <p class="sub"><strong class="subtitle">/add Command</strong></p>
+                    <div id="language-python" class="code-block">
+                        <pre class="line-numbers">
+                            <code id="codeSnippetPython" class="language-python">
+async def cmd_add(update: Update, ctx: ContextTypes.DEFAULT_TYPE):
+    args = ctx.args
+    if len(args) < 2:
+        await update.message.reply_text(" Usage: ...")
+        return
+
+    url = args[0]
+    if not url.startswith("http"):
+        url = "https://" + url
+
+    name    = args[1]
+    keyword = " ".join(args[2:]) if len(args) > 2 else None
+
+    if len(get_sites()) >= 50:
+        await update.message.reply_text(" Max 50 sites reached.")
+        return
+
+    add_site(url, name, keyword)
+    await update.message.reply_text(msg, parse_mode="Markdown")</code>
+                        </pre>
+                    </div>
+                    <p><strong>What it does:</strong> Adds a new website to the monitoring watchlist.
+                    </p>
+                    <div class="code-block block">
+                        <pre>
+<code>User sends: /add https://mysite.com MySite "Add to Cart"
+                   ↓           ↓         ↓
+               args[0]      args[1]   args[2:]
+                 url          name     keyword</code>
+</pre>
+                    </div>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Step</th>
+                                    <th>What Happens</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Check <code class="code">len(args) &lt; 2</code></td>
+                                    <td>Show usage hint if URL or name is missing</td>
+                                </tr>
+                                <tr>
+                                    <td>Check <code class="code">if not url.startswith("http")</code></td>
+                                    <td>Auto-adds <code>https://</code> if user forgot it</td>
+                                </tr>
+                                <tr>
+                                    <td><code class="code">" ".join(args[2:])</code></td>
+                                    <td>Joins multi-word keywords like "Add to Cart"</td>
+                                </tr>
+                                <tr>
+                                    <td><code class="code">len(get_sites()) &gt;= 50</code></td>
+                                    <td>Hard limit of 50 sites to prevent abuse</td>
+                                </tr>
+                                <tr>
+                                    <td><code class="code">add_site(url, name, keyword)</code></td>
+                                    <td>Saves the site to <code>sites.json</code></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <p class="sub"><strong class="subtitle">/remove Command</strong></p>
+                    <div id="language-python" class="code-block">
+                        <pre class="line-numbers">
+                            <code id="codeSnippetPython" class="language-python">
+async def cmd_remove(update: Update, ctx: ContextTypes.DEFAULT_TYPE):
+    if not ctx.args:
+        await update.message.reply_text("Usage: `/remove <url>`")
+        return
+
+    url = ctx.args[0]
+    if remove_site(url):
+        await update.message.reply_text(f" Removed: `{url}`")
+    else:
+        await update.message.reply_text(" URL not found in watchlist.")</code>
+                        </pre>
+                    </div>
+                    <div class="list">
+                        <p><strong>What it does:</strong> Removes a website from the watchlist by its URL.
+                        </p>
+                        <ul>
+                            <li><code class="code">remove_site(url)</code> returns True if found and deleted, False if
+                                not found.</li>
+                            <li>The bot replies with a different message depending on whether deletion succeeded.</li>
+                        </ul>
+                    </div>
+
+                    <p class="sub"><strong class="subtitle">/list Command</strong></p>
+                    <div id="language-python" class="code-block">
+                        <pre class="line-numbers">
+                            <code id="codeSnippetPython" class="language-python">
+async def cmd_list(update: Update, ctx: ContextTypes.DEFAULT_TYPE):
+    sites = get_sites()
+    if not sites:
+        await update.message.reply_text(" No sites monitored yet.")
+        return
+
+    paused_tag = "  ⏸ *PAUSED*" if is_paused() else ""
+    msg = f" *Monitored Sites*{paused_tag}\n{'━'*30}\n"
+
+    for url, info in sites.items():
+        emoji = status_emoji(info.get("status", "unknown"))
+        rt    = f"{info['response_time']}ms" if info.get("response_time") else "N/A"
+        kw    = f" |  `{info['keyword']}`" if info.get("keyword") else ""
+        msg  += f"{emoji} *{info['name']}*{kw}\n└ `{url}`\n└ ⏱ {rt}\n\n"
+
+    await update.message.reply_text(msg, parse_mode="Markdown",
+                                    disable_web_page_preview=True)</code>
+                        </pre>
+                    </div>
+                    <p><strong>What it does:</strong> Shows all monitored websites in a formatted list with their
+                        status, response time, and last checked time.</p>
+                    <p><strong>Sample output in Telegram:</strong></p>
+                    <div class="code-block block">
+                        <pre>
+<code> Monitored Sites  ⏸ PAUSED
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ DevspireHub |  `login`
+   └ https://devspirehub.com
+   └  320ms |  2026-04-11 09:55:00
+
+ MyShop
+   └ https://myshop.com
+   └  N/A |  Never</code>
+</pre>
+                    </div>
+                    <p>why <code class="code">disable_web_page_preview=True</code>? Prevents Telegram from generating
+                        link
+                        previews for
+                        every URL in the list, which would clutter the message.
+                    </p>
+
+                    <p class="sub"><strong class="subtitle">/status Command</strong></p>
+                    <div id="language-python" class="code-block">
+                        <pre class="line-numbers">
+                            <code id="codeSnippetPython" class="language-python">
+async def cmd_status(update: Update, ctx: ContextTypes.DEFAULT_TYPE):
+    url     = ctx.args[0]
+    keyword = sites.get(url, {}).get("keyword")
+
+    await update.message.reply_text(f" Checking `{url}`...")
+    result  = await check_site(url, keyword)
+
+    # Build and send result message
+    await update.message.reply_text(msg, parse_mode="Markdown")</code>
+                        </pre>
+                    </div>
+                    <p><strong>What it does:</strong> Instantly checks a single site right now (outside the regular
+                        interval) and reports the live result.</p>
+                    <p><strong>Flow:</strong></p>
+                    <div class="code-block block">
+                        <pre>
+<code> /status https://mysite.com
+       ↓
+Send " Checking..." message
+       ↓
+await check_site() → HTTP request
+       ↓
+Reply with live result:
+   Status: UP
+   HTTP Code: 200
+   Response: 245ms
+   Keyword:  Found</code>
+</pre>
+                    </div>
+                    <p>why <code class="code">" Checking..."</code> first? Because <code
+                            class="code">check_site()</code> takes time (network request). The immediate reply lets the
+                        user know the bot received the command
+                        and is working on it — prevents them thinking the bot is frozen.
+                    </p>
+
+                    <p class="sub"><strong class="subtitle">/statusall Command</strong></p>
+                    <div id="language-python" class="code-block">
+                        <pre class="line-numbers">
+                            <code id="codeSnippetPython" class="language-python">
+async def cmd_statusall(update: Update, ctx: ContextTypes.DEFAULT_TYPE):
+    sites = get_sites()
+    await update.message.reply_text(f" Checking {len(sites)} site(s)...")
+
+    for url, info in sites.items():
+        result = await check_site(url, info.get("keyword"))
+        update_site(url, status=result["status"], ...)
+        msg += f"{emoji} *{info['name']}* — `{rt}`\n`{url}`\n\n"
+
+    await update.message.reply_text(msg, parse_mode="Markdown")</code>
+                        </pre>
+                    </div>
+                    <p><strong>What it does:</strong> Checks ALL monitored sites immediately and sends one combined
+                        status report.</p>
+                    <p><strong>Bonus Bebavior:</strong> It also calls <code class="code">update_site()</code> to save
+                        the fresh status back to
+                        <code class="code">sites.json</code> — so <code class="code">/list</code> will show updated data
+                        after
+                        <code class="code">/statusall</code> runs.
+                    </p>
+
+                    <p class="sub"><strong class="subtitle">/pause and /resume Commands</strong></p>
+                    <div id="language-python" class="code-block">
+                        <pre class="line-numbers">
+                            <code id="codeSnippetPython" class="language-python">
+async def cmd_pause(update: Update, ctx: ContextTypes.DEFAULT_TYPE):
+    set_paused(True)
+    await update.message.reply_text("⏸ Monitoring *paused*.")
+
+async def cmd_resume(update: Update, ctx: ContextTypes.DEFAULT_TYPE):
+    set_paused(False)
+    await update.message.reply_text("▶ Monitoring *resumed*!")</code>
+                        </pre>
+                    </div>
+                    <div class="list">
+                        <p>
+                            <strong>What they do:</strong>
+                        </p>
+                        <ul>
+                            <li><code class="code">/pause</code> → Sets "paused": true in sites.json → monitor.py skips
+                                all checks.</li>
+                            <li><code class="code">/resume</code> → Sets "paused": false → monitoring continues normally
+                            </li>
+                        </ul>
+                        <p>These are the simplest functions — just one storage call and one reply each.</p>
+                    </div>
+
+                    <p class="sub"><strong class="subtitle">post_init() Boot Hook</strong></p>
+                    <div id="language-python" class="code-block">
+                        <pre class="line-numbers">
+                            <code id="codeSnippetPython" class="language-python">
+async def post_init(app: Application):
+    await app.bot.set_my_commands([
+        BotCommand("start",     "Show welcome & help"),
+        BotCommand("add",       "Add a site to monitor"),
+        # ... more commands
+    ])
+    asyncio.create_task(run_monitor(app))
+    print(" Bot is live and monitoring!")</code>
+                        </pre>
+                    </div>
+                    <p><strong>What it does:</strong> Runs automatically right after the bot connects to Telegram —
+                        before it starts listening for messages.</p>
+                    <div class="table-container">
+                        <p>It does two critical things:</p>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Task</th>
+                                    <th>What It Does</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code class="code">set_my_commands([...])</code></td>
+                                    <td>Registers all slash commands in Telegram's UI menu (the / popup)</td>
+                                </tr>
+                                <tr>
+                                    <td><code class="code">asyncio.create_task(run_monitor(app))</code></td>
+                                    <td>Launches the background monitoring loop as a parallel async task</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p>Why <code class="code">asyncio.create_task()</code>? It runs <code
+                            class="code">run_monitor()</code> in the background
+                        without blocking the bot. The bot can still respond to commands while
+                        monitoring runs simultaneously.</p>
+                    <div class="code-block block">
+                        <pre>
+<code>post_init() fires on startup
+     ├──► set_my_commands()  → Registers /add, /list etc. in Telegram UI
+     └──► create_task()      → Launches background monitor loop
+                                      ↓
+                          Runs forever every 60s
+                          (while bot handles commands in parallel)</code>
+</pre>
+                    </div>
+
+                    <p class="sub"><strong class="subtitle">main() — The Entry Point</strong></p>
+                    <div id="language-python" class="code-block">
+                        <pre class="line-numbers">
+                            <code id="codeSnippetPython" class="language-python">
+def main():
+    app = (
+        Application.builder()
+        .token(BOT_TOKEN)
+        .post_init(post_init)
+        .build()
+    )
+
+    app.add_handler(CommandHandler("start",     cmd_start))
+    app.add_handler(CommandHandler("help",      cmd_start))
+    app.add_handler(CommandHandler("add",       cmd_add))
+    app.add_handler(CommandHandler("remove",    cmd_remove))
+    app.add_handler(CommandHandler("list",      cmd_list))
+    app.add_handler(CommandHandler("status",    cmd_status))
+    app.add_handler(CommandHandler("statusall", cmd_statusall))
+    app.add_handler(CommandHandler("pause",     cmd_pause))
+    app.add_handler(CommandHandler("resume",    cmd_resume))
+
+    app.run_polling(drop_pending_updates=True)
+
+if __name__ == "__main__":
+    main()</code>
+                        </pre>
+                    </div>
+                    <p><strong>What it does:</strong> Builds the bot, registers all command handlers, and starts it.</p>
+                    <p>Line by line:</p>
+                    <div id="language-python" class="code-block">
+                        <pre class="line-numbers">
+                            <code id="codeSnippetPython" class="language-python">
+Application.builder().token(BOT_TOKEN).post_init(post_init).build()</code>
+                        </pre>
+                    </div>
+                    <div class="list">
+                        <ul>
+                            <li><code class="code">Application.builder()</code> → Creates a bot builder object.</li>
+                            <li><code class="code">.token(BOT_TOKEN)</code> → Authenticates with Telegram using your
+                                secret token.</li>
+                            <li><code class="code">.post_init(post_init)</code> → Registers the boot hook to run after
+                                connection.</li>
+                            <li><code class="code">.build()</code> → Finalizes and returns the bot app/</li>
+                        </ul>
+                    </div>
+                    <div id="language-python" class="code-block">
+                        <pre class="line-numbers">
+                            <code id="codeSnippetPython" class="language-python">
+app.add_handler(CommandHandler("add", cmd_add))</code>
+                        </pre>
+                    </div>
+                    <div class="list">
+                        <ul>
+                            <li>Tells the bot: "When someone sends <code class="code">/add</code>, call the <code
+                                    class="code">cmd_add()</code> function".</li>
+                            <li>Note: Both <code class="code">"start"</code> and <code class="code">"help"</code> are
+                                mapped
+                                to the same cmd_start function.</li>
+                        </ul>
+                    </div>
+                    <div id="language-python" class="code-block">
+                        <pre class="line-numbers">
+                            <code id="codeSnippetPython" class="language-python">
+app.run_polling(drop_pending_updates=True)</code>
+                        </pre>
+                    </div>
+                    <div class="list">
+                        <ul>
+                            <li>Starts the bot and continuously polls Telegram for new messages.</li>
+                            <li><code class="code">drop_pending_updates=True</code> → Ignores any commands sent while
+                                the bot was offline
+                                (prevents old command flooding on
+                                restart).</li>
+                        </ul>
+                    </div>
+                    <div id="language-python" class="code-block">
+                        <pre class="line-numbers">
+                            <code id="codeSnippetPython" class="language-python">
+if __name__ == "__main__":
+    main()</code>
+                        </pre>
+                    </div>
+                    <p>Ensures <code class="code">main()</code> only runs when you directly execute <code
+                            class="code">python bot.py</code>, not
+                        when imported as a module.
+                    </p>
+
+                    <h4>Full Flow — How It All Works Together</h4>
+                    <div class="code-block block">
+                        <pre>
+<code>python bot.py
+     ↓
+main() runs
+     ↓
+Application built with BOT_TOKEN
+     ↓
+post_init() fires:
+  ├── Registers /commands in Telegram UI
+  └── Starts run_monitor() as background task
+            ↓
+Bot starts polling Telegram
+            │
+  ┌─────────┴──────────┐
+  │                    │
+User sends /add     Background loop
+  ↓                    ↓
+cmd_add()          Every 60s:
+  ↓                check_site()
+add_site() saves     ↓
+to sites.json      Status changed?
+                     ↓
+                   send_alert() → Telegram message to you 📱)</code>
+</pre>
+                    </div>
+                    <h4>Running the Bot</h4>
+                    <div id="language-python" class="code-block">
+                        <pre class="line-numbers">
+                            <code id="codeSnippetPython" class="language-python">
+# Run locally
+python bot.py
+
+# Run on VPS in background (persistent)
+nohup python bot.py > bot.log 2>&1 &
+
+# Or with screen
+screen -S monitor
+python bot.py
+# Ctrl+A, D to detach</code>
+                        </pre>
+                    </div>
+
+                    <div class="table-container">
+                        <h4>Quick Reference — All Commands</h4>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Command</th>
+                                    <th>Function</th>
+                                    <th>What It Does</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code class="code">/start</code> or <code class="code">/help</code></td>
+                                    <td><code class="code">cmd_start</code></td>
+                                    <td>Shows welcome + all commands</td>
+                                </tr>
+                                <tr>
+                                    <td><code class="code">/add &lt;url&gt; &lt;name&gt;</code></td>
+                                    <td><code class="code">cmd_add</code></td>
+                                    <td>Adds site to watchlist</td>
+                                </tr>
+                                <tr>
+                                    <td><code class="code">/remove &lt;url&gt;</code></td>
+                                    <td><code class="code">cmd_remove</code></td>
+                                    <td>Removes site from watchlist</td>
+                                </tr>
+                                <tr>
+                                    <td><code class="code">/list</code></td>
+                                    <td><code class="code">cmd_list</code></td>
+                                    <td>Shows all sites + status</td>
+                                </tr>
+                                <tr>
+                                    <td><code class="code">/status &lt;url&gt;</code></td>
+                                    <td><code class="code">cmd_status</code></td>
+                                    <td>Live checks one site now</td>
+                                </tr>
+                                <tr>
+                                    <td><code class="code">/statusall</code></td>
+                                    <td><code class="code">cmd_statusall</code></td>
+                                    <td>Live checks all sites now</td>
+                                </tr>
+                                <tr>
+                                    <td><code class="code">/pause</code></td>
+                                    <td><code class="code">cmd_pause</code></td>
+                                    <td>Pauses background monitoring</td>
+                                </tr>
+                                <tr>
+                                    <td><code class="code">/resume</code></td>
+                                    <td><code class="code">cmd_resume</code></td>
+                                    <td>Resumes background monitoring</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <hr>
+
+                <div class="content" id="step-9">
+                    <h2>Project Conclusion</h2>
+                    <p>Congratulations! You've just built a fully functional Python Telegram bot that monitors any
+                        website 24/7, detects
+                        downtime, tracks keyword changes, and delivers instant Telegram alerts — all from a single
+                        lightweight Python script.
+                    </p>
+                    <p>This project is more than just a beginner exercise. It's a real-world automation tool you can
+                        deploy on a VPS today and
+                        use to protect your live websites, monitor competitors, or supercharge your bug bounty workflow.
+                    </p>
+
+                    <div class="action-buttons">
+                        <!-- <a href="space_shooter_demo.html" target="_blank" class="action-button live-preview"><i
+                                                    class="fas fa-gamepad"></i>Play Demo</a> -->
+                        <a href="https://github.com/kumaradoss16/Projects/tree/main/Python/Website%20Monitor%20Bot"
+                            class="action-button source-code">
+                            <i class="fab fa-github"></i>Source Code</a>
+                        <a onclick="downloadProject()" class="action-button download" target="_blank" rel="noopener">
+                            <i class="fa-solid fa-download"></i> Download
+                        </a>
+                    </div>
+                    <h4>Take It Further — What to Build Next</h4>
+                    <p>This bot is a strong foundation. Here are some powerful ways to extend it:</p>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Next Step</th>
+                                    <th>What to Add</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>📧 Email Alerts</td>
+                                    <td>Add <code>smtplib</code> for dual Telegram + Email notifications</td>
+                                </tr>
+                                <tr>
+                                    <td>📊 Response Time Chart</td>
+                                    <td>Use <code>matplotlib</code> to visualize uptime history</td>
+                                </tr>
+                                <tr>
+                                    <td>🔐 SSL Expiry Checker</td>
+                                    <td>Alert when an SSL certificate is about to expire</td>
+                                </tr>
+                                <tr>
+                                    <td>☁️ Cloudflare Integration</td>
+                                    <td>Monitor your Cloudflare Pages deployments by checking for your latest Git commit
+                                        hash in the HTML</td>
+                                </tr>
+                                <tr>
+                                    <td>👥 Multi-User Support</td>
+                                    <td>Let a team manage their own separate watchlists</td>
+                                </tr>
+                                <tr>
+                                    <td>📦 Docker Deployment</td>
+                                    <td>Containerize the bot for easy cloud deployment</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <h4>Why This Project Matters</h4>
+                    <p>Whether you're a web developer guarding your production site, a bug bounty hunter tracking target
+                        page changes, or a
+                        Python beginner building your first automation tool — this Python Telegram bot project delivers
+                        practical, real-world
+                        skills that directly apply to modern development, DevOps, and cybersecurity.</p>
+
+                    <p>Found this tutorial helpful? Share it with your developer community and follow along for more
+                        real-world Python
+                        automation, website monitoring, and ethical hacking projects.</p>
+                </div>
+
+
+            </section>
+
+            <!-- My Other Projects  -->
+            <section id="other-work-section" class="other-work-section">
+                <h2 style="margin-top: 20px;">Other Projects</h2>
+                <div class="project-grid">
+                    <div class="project-card">
+                        <img src="../../Python/shooter-game/images/space-shooter-game-python-pygame-tutorial.webp"
+                            alt="Space Shooter Game Python Pygame Tutorial" loading="lazy" decoding="async"
+                            fetchpriority="auto">
+                        <div class="project-card-content">
+                            <h4>Shooter Game</h4>
+                            <p>This is a beginner-friendly guide for building a Space Shooter game with Python and
+                                Pygame, covering coding concepts and
+                                project structure.</p>
+                            <div class="project-tags">
+                                <span class="project-tag">Python</span>
+                                <span class="project-tag">Pygame</span>
+                            </div>
+                            <a href="../../Python/shooter-game/space-shooter-game-python-pygame-tutorial.html"
+                                title="Space Shooter Game Python Pygame Tutorial" class="view-project-button">View
+                                Project
+                                <span>&rarr;</span></a>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <img src="../../Python/atm-management-system/images/atm-management-system-python-cli-interface.webp"
+                            alt="ATM Management System Python Tutorial" loading="lazy" decoding="async"
+                            fetchpriority="auto">
+                        <div class="project-card-content">
+                            <h4>ATM Management System</h4>
+                            <p>This Python application implements a multi-user ATM system with SQLite-backed
+                                persistence,
+                                featuring account management, financial transactions, and administrative controls.</p>
+                            <div class="project-tags">
+                                <span class="project-tag">Python</span>
+                                <span class="project-tag">SQLite</span>
+                            </div>
+                            <a href="../../Python/atm-management-system/atm-management-system-python-sqlite-tutorial.html"
+                                title="ATM Management System Python Tutorial" class="view-project-button">View Project
+                                <span>&rarr;</span></a>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <img src="../../Web/weather-app/images/weather-app-html-css-javascript-tutorial.webp"
+                            alt="Weather App HTML CSS JavaScript Tutorial" loading="lazy" decoding="async"
+                            fetchpriority="auto">
+                        <div class="project-card-content">
+                            <h4>Weather App</h4>
+                            <p>Responsive weather app with real-time API data, feature comparison, and intuitive design
+                                for global city forecasts.</p>
+                            <div class="project-tags">
+                                <span class="project-tag">HTML</span>
+                                <span class="project-tag">CSS</span>
+                                <span class="project-tag">JavaScript</span>
+                            </div>
+                            <a href="../../Web/weather-app/weather-app-html-css-javascript-tutorial.html"
+                                title="Weather App HTML CSS JavaScript Tutorial" class="view-project-button">View
+                                Project
+                                <span>&rarr;</span></a>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <img src="../../Web/team-card-app/images/cricket-team-card-app.webp"
+                            alt="Team Card App HTML CSS JavaScript Tutorial" loading="lazy" decoding="async"
+                            fetchpriority="auto">
+                        <div class="project-card-content">
+                            <h4>Team Card App</h3>
+                                <p>Interactive team card application for cricket, featuring dynamic team selection,
+                                    player
+                                    filters, and customizable
+                                    light/dark themes.</p>
+                                <div class="project-tags">
+                                    <span class="project-tag">HTML</span>
+                                    <span class="project-tag">CSS</span>
+                                    <span class="project-tag">JavaScript</span>
+                                </div>
+                                <a href="../../Web/team-card-app/cricket-team-card-app-html-css-javascript-tutorial.html"
+                                    title="Team Card App HTML CSS JavaScript Tutorial" class="view-project-button">View
+                                    Project
+                                    <span>&rarr;</span></a>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <img src="../../C++/password-strength-checker/images/password-strength-checker.webp"
+                            alt="Password Strength Checker C++ Tutorial" loading="lazy" decoding="async"
+                            fetchpriority="auto">
+                        <div class="project-card-content">
+                            <h4>Password Strength Checker</h4>
+                            <p>Multi-Password Batch Strength Checker (C++), designed to check multiple passwords at
+                                once, show
+                                individual strength, and
+                                provide a summary report.</p>
+                            <div class="project-tags">
+                                <span class="project-tag">C++</span>
+                            </div>
+                            <a href="../../C++//password-strength-checker/password-strength-checker-cpp-tutorial-guide.html"
+                                title="Password Strength Checker C++ Tutorial" class="view-project-button">View
+                                Project
+                                <span>&rarr;</span></a>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <img src="../../C/vpn-connectivity-verification-cpp/images/vpn-tool-before-connection-terminal-output.webp"
+                            alt="VPN Connectivity verification in C Tutorial" loading="lazy" decoding="async"
+                            fetchpriority="auto">
+                        <div class="project-card-content">
+                            <h4>VPN Connectivity verification in C</h4>
+                            <p>Efficient C program to verify VPN status, routing, and DNS configurations through
+                                comprehensive public IP and network
+                                adapter analysis.</p>
+                            <div class="project-tags">
+                                <span class="project-tag">C</span>
+                            </div>
+                            <a href="../../C/vpn-connectivity-verification-cpp/build-vpn-verification-tool-c-tutorial.html"
+                                title="VPN Connectivity verification in C Tutorial" class="view-project-button">View
+                                Project
+                                <span>&rarr;</span></a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Right Side  -->
+        <aside class="right-column">
+            <div class="about-website moving-border">
+                <h3>About Website</h3>
+                <p><a class="homepage typewriter-scan" href="../../../../index.html"><strong>DevspireHub</strong></a>
+                    is a
+                    beginner-friendly learning
+                    platform offering
+                    step-by-step tutorials in
+                    programming, ethical hacking,
+                    networking, automation, cloud and Windows setup. Learn through hands-on projects, clear
+                    explanations, and
+                    real-world examples
+                    using practical tools and open-source resources—no signups, no tracking, just actionable knowledge
+                    to accelerate your
+                    technical skills.
+                </p>
+            </div>
+            <script async
+                src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2368356039533778"
+                crossorigin="anonymous"></script>
+            <!-- sidebar ads -->
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2368356039533778"
+                data-ad-slot="5621407319" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+
+            <div class="color-palette">
+                <div>
+                    <h3>Color Space</h3>
+                    <p>Discover Perfect Palettes</p>
+                </div>
+                <div class="palette-grid">
+                    <div class="palette-card">
+                        <!-- Color bars (set your palette colors here) -->
+                        <div class="color-wave colors-5">
+                            <div class="wave-bar" style="background:#F2C447" data-color="#F2C447"></div>
+                            <div class="wave-bar" style="background:#F76218" data-color="#F76218"></div>
+                            <div class="wave-bar" style="background:#FF1D68" data-color="#FF1D68"></div>
+                            <div class="wave-bar" style="background:#B10065" data-color="#B10065"></div>
+                            <div class="wave-bar" style="background:#740580" data-color="#740580"></div>
+                        </div>
+
+                        <div class="card-info">
+                            <div class="card-title">Sample Palette</div>
+                        </div>
+                    </div>
+                    <div class="button">
+                        <a href="../../../../color-palettes/index.html" class="color-button">Go To Color Space Home
+                            Page</a>
+                    </div>
+                </div>
+            </div>
+            <div class="wallpaper">
+                <div>
+                    <h3>Featured Wallpapers (For desktop)</h3>
+                    <p>Download for FREE!</p>
+                </div>
+                <div class="image-grid">
+                    <div class="image-card">
+                        <img src="../../../../Wallpaper/images_upscale/wallpaper (1).png" alt="Wallpaper 1">
+                    </div>
+                    <div class="image-card">
+                        <img src="../../../../Wallpaper/images_upscale/wallpaper (23).png" alt="Wallpaper 23">
+                    </div>
+                    <div class="image-card">
+                        <img src="../../../../Wallpaper/images_upscale/wallpaper (46).png" alt="Wallpaper 46">
+                    </div>
+                    <div class="image-card">
+                        <img src="../../../../Wallpaper/images_upscale/wallpaper (81).png" alt="Wallpaper 81">
+                    </div>
+                    <div class="image-card">
+                        <img src="../../../../Wallpaper/images_upscale/wallpaper (111).png" alt="Wallpaper 111">
+                    </div>
+                    <div class="image-card">
+                        <img src="../../../../Wallpaper/images_upscale/wallpaper (116).png" alt="Wallpaper 116">
+                    </div>
+                </div>
+                <div class="button">
+                    <a href="../../../../Wallpaper/index.html" class="wallpaper-button">Go To Wallpaper Home
+                        Page</a>
+                </div>
+            </div>
+
+            <!-- Open Source Tools Directory -->
+            <div class="related-topics">
+                <div class="header">
+                    <h3>Open-Source Tools Directory</h3>
+                    <p><strong>Complete spectrum of open-source software in Github</strong>
+                    </p>
+                </div>
+                <div class="content">
+                    <ul>
+                        <li><i class="fas fa-code"></i><a
+                                href="../../../../Resources/tools-directory/index.html#category-2"
+                                class="link">Programming</a></li>
+                        <li><i class="fas fa-globe"></i><a
+                                href="../../../../Resources/tools-directory/index.html#category-3" class="link">Web
+                                Development</a></li>
+                        <li><i class="fas fa-network-wired"></i><a
+                                href="../../../../Resources/tools-directory/index.html#category-4"
+                                class="link">Networking</a></li>
+                        <li><i class="fas fa-shield-alt"></i><a
+                                href="../../../../Resources/tools-directory/index.html#category-5" class="link">Ethical
+                                Hacking</a></li>
+                        <li><i class="fas fa-microchip"></i><a
+                                href="../../../../Resources/tools-directory/index.html#category-6"
+                                class="link">Hardware</a>
+                        </li>
+                        <li><i class="fas fa-tasks"></i><a
+                                href="../../../../Resources/tools-directory/index.html#category-7"
+                                class="link">Productivity</a></li>
+                    </ul>
+                </div>
+                <div class="button-container">
+                    <div class="btn-cyber">
+                        <span class="btn-bg"></span>
+                        <span class="btn-border"></span>
+                        <span class="btn-text">
+                            <a href="../../../../Resources/digital-resources/digital-resources-hub.html"
+                                class="related-button">
+                                Open-Source
+                                Tools</a> <span class="blink">_</span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <section class="deals-section">
+                <div class="deals-header">
+                    <h2>HOT DEALS</h2>
+                    <div class="deals-underline"></div>
+                </div>
+
+                <!-- Cards injected dynamically from amazon-links.json -->
+                <div class="deals-grid" id="dealsGrid">
+                    <div class="deal-skeleton">
+                    </div>
+                    <div class="deal-skeleton"></div>
+                    <div class="deal-skeleton"></div>
+                    <div class="deal-skeleton"></div>
+                    <div class="deal-skeleton"></div>
+                    <div class="deal-skeleton"></div>
+                </div>
+
+                <div class="deals-page-indicator" id="dealsPageIndicator"></div>
+
+                <div class="deals-nav">
+                    <button class="deal-arrow-btn" onclick="scrollDeals(-1)" aria-label="Previous">&#8592;</button>
+                    <button class="deal-arrow-btn" onclick="scrollDeals(1)" aria-label="Next">&#8594;</button>
+                </div>
+            </section>
+
+
+            <script async
+                src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2368356039533778"
+                crossorigin="anonymous"></script>
+            <!-- sidebar ads -->
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2368356039533778"
+                data-ad-slot="5621407319" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+
+            <script async
+                src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2368356039533778"
+                crossorigin="anonymous"></script>
+            <!-- sidebar ads -->
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2368356039533778"
+                data-ad-slot="5621407319" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </aside>
+        <button id="scrollUpBtn" aria-label="Scroll to top">
+            <svg class="progress-circle" viewBox="0 0 36 36">
+                <path class="bg" d="M18 2.0845
+                  a 15.9155 15.9155 0 0 1 0 31.831
+                  a 15.9155 15.9155 0 0 1 0 -31.831" />
+                <path class="progress" d="M18 2.0845
+                  a 15.9155 15.9155 0 0 1 0 31.831
+                  a 15.9155 15.9155 0 0 1 0 -31.831" />
+                <span class="arrow-overlay">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 19V5M5 12L12 5L19 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                </span>
+            </svg>
+        </button>
+    </div>
+    <!--Footer  -->
+    <footer class="footer">
+        <ul class="menu">
+            <li class="menu-item"><a class="menu-link" href="../../../../index.html">Home</a></li>
+            <li class="menu-item"><a class="menu-link" href="../../../../Wallpaper/index.html">Wallpapers</a></li>
+            <li class="menu-item"><a class="menu-link" href="../../../../color-palettes/index.html">Color Space</a></li>
+            <li class="menu-item"><a class="menu-link"
+                    href="../../../../Resources/digital-resources/digital-resources-hub.html">Resources</a></li>
+            <li class="menu-item"><a class="menu-link" href="../../../../Website/about/about.html">About</a></li>
+            <li class="menu-item"><a class="menu-link" href="../../../../Website/contact/index.html">Contact</a></li>
+            <li class="menu-item"><a class="menu-link" href="../../../../Website/privacy/index.html">Privacy policy</a>
+            </li>
+        </ul>
+        <div class="contacts">
+            <a class="contact github" href="https://github.com/kumaradoss16" target="_blank"><i
+                    class="fa-brands fa-github"></i></a>
+            <a class="contact instagram" href="https://www.instagram.com/devspirehub/" target="_blank"><i
+                    class="fa-brands fa-instagram"></i></a>
+            <a class="contact linkedin" href="https://www.linkedin.com/in/kumaradoss-s/" target="_blank"><i
+                    class="fa-brands fa-linkedin"></i></a>
+            <a class="contact facebook" href="https://www.facebook.com/profile.php?id=61577667990170&_rdr"
+                target="_blank"><i class="fa-brands fa-facebook"></i></a>
+            <a class="contact gmail" href="https://mail.google.com/mail/?view=cm&fs=1&to=devspirehub.website@gmail.com"
+                aria-label="Email us at devspirehub.website@gmail.com" title="Send us an email" target="_blank"
+                rel="noopener noreferrer">
+                <i class="fa-solid fa-envelope"></i>
+            </a>
+        </div>
+        <p>&copy;2026 DevspireHub | All Rights Reserved</p>
+    </footer>
+
+    <script src="../../Prism/prism.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
