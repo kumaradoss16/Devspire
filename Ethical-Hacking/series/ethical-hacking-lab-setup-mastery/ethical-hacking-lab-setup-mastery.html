@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../../../images/icon.webp" sizes="32x46" type="image/png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Primary SEO Tags -->
+    <title>Ethical Hacking Lab Setup Mastery | DevspireHub</title>
+    <meta name="description"
+        content="Master the art of setting up ethical hacking labs with our comprehensive tutorial series. Learn to configure virtual environments, install tools, and create secure testing setups from scratch.">
+    <meta name="keywords"
+        content="ethical hacking lab setup, Kali Linux VirtualBox setup, Metasploitable2 tutorial, penetration testing lab, cybersecurity lab for beginners, Nmap tutorial beginners, ethical hacking series, zero to pentester, VirtualBox network isolation, hacking lab from scratch">
+
+    <!-- Canonical URL -->
+    <link rel="canonical"
+        href="https://devspirehub.com/Ethical-Hacking/series/ethical-hacking-lab-setup-mastery/ethical-hacking-lab-setup-mastery.html">
+
+    <!-- Robots Meta -->
+    <meta name="robots" content="index, follow, max-snippet=-1, max-image-preview=large, max-video-preview=-1">
+
+    <!-- Author & Publisher -->
+    <meta name="author" content="Kumaradoss DevspireHub">
+    <meta name="publisher" content="DevspireHub">
+    <link rel="author" href="https://devspirehub.com/about">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="DevspireHub">
+    <meta property="og:title" content="Ethical Hacking Lab Setup Mastery — Zero to Pentester Series | DevspireHub">
+    <meta property="og:description"
+        content="Start your ethical hacking journey with a real, controlled lab environment. Step-by-step series covering VirtualBox, Kali Linux, Metasploitable2, Nmap, exploitation, and beyond.">
+    <meta property="og:url"
+        content="https://devspirehub.com/Ethical-Hacking/series/ethical-hacking-lab-setup-mastery/ethical-hacking-lab-setup-mastery.html">
+    <meta property="og:image"
+        content="https://devspirehub.com/Ethical-Hacking/series/ethical-hacking-lab-setup-mastery/images/ethical-hacking-lab-setup-mastery.webp">
+    <meta property="og:image:alt" content="Zero to Pentester — Complete Ethical Hacking Lab Setup Series | DevspireHub">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="en_IN">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Ethical Hacking Lab Setup Mastery — Zero to Pentester | DevspireHub">
+    <meta name="twitter:description"
+        content="Build a real ethical hacking lab from scratch. Step-by-step series covering Kali Linux, VirtualBox, Metasploitable2, Nmap, and exploitation techniques for beginners.">
+    <meta name="twitter:image"
+        content="https://devspirehub.com/Ethical-Hacking/series/ethical-hacking-lab-setup-mastery/images/ethical-hacking-lab-setup-mastery.webp">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "DevspireHub",
+      "url": "https://devspirehub.com",
+      "logo": "https://devspirehub.com/images/icon.webp",
+      "description": "DevspireHub - Programming, Projects, Ethical Hacking, Networking, Cloud & AI",
+      "founder": {
+        "@type": "Person",
+        "name": "Kumaradoss",
+        "url": "https://www.linkedin.com/in/kumaradoss-s"
+      },
+      "sameAs": [
+        "https://www.linkedin.com/in/kumaradoss-s",
+        "https://github.com/kumaradoss16"
+      ]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Course",
+      "@id": "https://devspirehub.com/Ethical-Hacking/series/ethical-hacking-lab-setup-mastery/#course",
+      "name": "Zero to Pentester: Complete Ethical Hacking Lab Setup Series",
+      "description": "A structured, step-by-step ethical hacking series taking beginners from zero setup to a fully functional penetration testing lab. Covers VirtualBox, Kali Linux, Metasploitable2, Nmap, exploitation, privilege escalation, and automation.",
+      "url": "https://devspirehub.com/Ethical-Hacking/series/ethical-hacking-lab-setup-mastery/ethical-hacking-lab-setup-mastery.html",
+      "image": "https://devspirehub.com/Ethical-Hacking/series/ethical-hacking-lab-setup-mastery/images/ethical-hacking-lab-setup-mastery.webp",
+      "inLanguage": "en-IN",
+      "educationalLevel": "Beginner",
+      "isFree": true,
+      "provider": {
+        "@type": "Organization",
+        "name": "DevspireHub",
+        "url": "https://devspirehub.com"
+      },
+      "author": {
+        "@type": "Person",
+        "name": "Kumaradoss",
+        "url": "https://devspirehub.com/about",
+        "sameAs": [
+          "https://www.linkedin.com/in/kumaradoss-s",
+          "https://github.com/kumaradoss16"
+        ]
+      },
+      "hasCourseInstance": [
+        { "@type": "CourseInstance", "name": "How to Setup a Personal Cybersecurity Lab", "url": "https://devspirehub.com/tutorials/set-up-ethical-hacking-lab-virtualbox-kali-linux-metasploitable2/set-up-ethical-hacking-lab-virtualbox-kali-linux-metasploitable2.html" },
+        { "@type": "CourseInstance", "name": "Configure VirtualBox Networks for Secure Cybersecurity Lab", "url": "https://devspirehub.com/tutorials/configure-virtualbox-networks-for-isolated-hacking-lab/configure-virtualbox-networks-for-isolated-hacking-lab.html" },
+        { "@type": "CourseInstance", "name": "Linux Server Setup", "url": "https://devspirehub.com/Linux/linux-server-setup/index.html" },
+        { "@type": "CourseInstance", "name": "Nmap Tutorial: Complete Guide for Beginners & Pentesters", "url": "https://devspirehub.com/Linux/nmap-tutorial-complete-guide-for-beginners-and-pentesters/nmap-tutorial-complete-guide-for-beginners-and-pentesters.html" }
+      ]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "@id": "https://devspirehub.com/Ethical-Hacking/series/ethical-hacking-lab-setup-mastery/#article",
+      "headline": "Ethical Hacking Lab Setup Mastery — Zero to Pentester Series",
+      "description": "Master the art of setting up ethical hacking labs with a comprehensive tutorial series. Learn to configure virtual environments, install tools, and create secure testing setups from scratch using VirtualBox, Kali Linux, and Metasploitable2.",
+      "url": "https://devspirehub.com/Ethical-Hacking/series/ethical-hacking-lab-setup-mastery/ethical-hacking-lab-setup-mastery.html",
+      "datePublished": "2026-04-07",
+      "dateModified": "2026-04-07",
+      "inLanguage": "en-IN",
+      "articleSection": "Ethical Hacking",
+      "proficiencyLevel": "Beginner",
+      "keywords": "ethical hacking lab setup, Kali Linux VirtualBox, Metasploitable2, Nmap tutorial, penetration testing lab, zero to pentester, cybersecurity lab beginners, VirtualBox network isolation, OWASP Top 10, privilege escalation",
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://devspirehub.com/Ethical-Hacking/series/ethical-hacking-lab-setup-mastery/images/ethical-hacking-lab-setup-mastery.webp",
+        "width": 1200,
+        "height": 630
+      },
+      "author": {
+        "@type": "Person",
+        "name": "Kumaradoss",
+        "url": "https://devspirehub.com/about",
+        "sameAs": [
+          "https://www.linkedin.com/in/kumaradoss-s",
+          "https://github.com/kumaradoss16"
+        ]
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "DevspireHub",
+        "url": "https://devspirehub.com",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://devspirehub.com/images/icon.webp",
+          "width": 200,
+          "height": 60
+        }
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://devspirehub.com/Ethical-Hacking/series/ethical-hacking-lab-setup-mastery/ethical-hacking-lab-setup-mastery.html"
+      },
+      "isPartOf": {
+        "@type": "Series",
+        "name": "Zero to Pentester: Ethical Hacking Lab Setup Series",
+        "url": "https://devspirehub.com/Ethical-Hacking/series/ethical-hacking-lab-setup-mastery/"
+      },
+      "about": [
+        { "@type": "Thing", "name": "Ethical Hacking", "sameAs": "https://en.wikipedia.org/wiki/Ethical_hacking" },
+        { "@type": "Thing", "name": "Kali Linux", "sameAs": "https://en.wikipedia.org/wiki/Kali_Linux" },
+        { "@type": "Thing", "name": "VirtualBox", "sameAs": "https://en.wikipedia.org/wiki/VirtualBox" },
+        { "@type": "Thing", "name": "Metasploitable", "sameAs": "https://en.wikipedia.org/wiki/Metasploit_Project" },
+        { "@type": "Thing", "name": "Nmap", "sameAs": "https://en.wikipedia.org/wiki/Nmap" },
+        { "@type": "Thing", "name": "Penetration Testing", "sameAs": "https://en.wikipedia.org/wiki/Penetration_test" }
+      ],
+      "mentions": [
+        { "@type": "SoftwareApplication", "name": "Kali Linux", "applicationCategory": "Security OS", "operatingSystem": "Linux" },
+        { "@type": "SoftwareApplication", "name": "VirtualBox", "applicationCategory": "Virtualization Software", "operatingSystem": "Windows, macOS, Linux" },
+        { "@type": "SoftwareApplication", "name": "Metasploitable2", "applicationCategory": "Vulnerable Practice VM", "operatingSystem": "Linux" },
+        { "@type": "SoftwareApplication", "name": "Nmap", "applicationCategory": "Network Scanner", "operatingSystem": "Cross-platform" }
+      ]
+    }
+    </script>
+
+
+    <!-- Performance Optimization -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- SEO: Fixed Organization Schema (corrected logo URL + trailing comma) -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "DevspireHub",
+            "url": "https://devspirehub.com/",
+            "logo": "https://devspirehub.com/images/icon.webp",
+            "description": "DevspireHub - Programming, Projects, Ethical Hacking, Networking, Cloud & AI",
+            "founder": [
+            {
+                "@type": "Person",
+                "name": "Kumaradoss",
+                "url": "https://www.linkedin.com/in/kumaradoss-s/"
+            }
+            ],
+            "sameAs": [
+            "https://www.linkedin.com/in/kumaradoss-s/",
+            "https://github.com/kumaradoss16"
+            ]
+        }
+    </script>
+
+    <script type=application/ld+json>
+        {
+            "@context": "https://schema.org",
+            "@type": "SiteNavigationElement",
+            "name": [
+                "Home",
+                "Projects",
+                "Programming",
+                "Ethical Hacking",
+                "Networking",
+                "Automation",
+                "Resources"
+            ],
+            "url": [
+                "https://devspirehub.com",
+                "https://devspirehub.com/#projects-tutorials-section",
+                "https://devspirehub.com/#programming-tutorials-section",
+                "https://devspirehub.com/#ethical-hacking-section",
+                "https://devspirehub.com/#networking-section",
+                "https://devspirehub.com/#automation-section",
+                "https://devspirehub.com/#info-section",
+            ]
+        }
+    </script>
+
+    <!-- Google Tag Manager -->
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-M457RGDF');</script>
+    <!-- End Google Tag Manager -->
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2368356039533778"
+        crossorigin="anonymous"></script>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6VWY63Q80N"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-6VWY63Q80N');
+    </script>
+
+    <script async custom-element="amp-auto-ads" src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M457RGDF" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <amp-auto-ads type="adsense" data-ad-client="ca-pub-2368356039533778">
+    </amp-auto-ads>
+    <!-- Header  -->
+    <header class="navbar">
+        <div class="container">
+            <div class="logo">
+                <div class="logo-text">
+                    <!-- <i class="fas fa-code"></i> -->
+                    <a href="../../../../index.html"><img src="../../../images/icon.webp" alt="Gear Icon" width="23"
+                            height="23"></a>
+                    <span id="brand" class="typewriter" data-text="DevspireHub"></span>
+                </div>
+                <button class="menu-toggle" type="button" aria-label="Toggle navigation">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            <nav class="nav-links">
+                <ul>
+                    <li><a href="../../../index.html" class="home"><i class="fa-solid fa-house"></i></a></li>
+                    <li><a href="../../../index.html#projects-tutorials-section" class="projects">Projects</a></li>
+                    <li><a href="../../../index.html#programming-tutorials-section" class="programming">Programming</a>
+                    </li>
+                    <li><a href="../../../index.html#ethical-hacking-section" class="hacking">Ethical Hacking</a>
+                    </li>
+                    <li><a href="../../../index.html#networking-section" class="networking">Networking</a></li>
+                    <li><a href="../../../index.html#automation-section" class="ai">Automation</a></li>
+                    <li><a href="../../../index.html#info-section" class="game">Resources</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="main-content-wrapper container">
+        <main class="left-column">
+            <!-- Course Header Card  -->
+            <div class="card">
+                <h1>Introduction: Zero to Pentester — Complete Ethical Hacking Lab Setup Series</h1>
+                <p style="margin-bottom: 20px;">If you're serious about becoming an ethical hacker, blindly watching
+                    tutorials won’t get you anywhere. You need a <strong>real,
+                        controlled environment where you can break, test, and learn without consequences.</strong>
+                </p>
+                <p>This series is designed to take you from zero setup to a fully functional ethical hacking lab, using
+                    industry-relevant
+                    tools and practical configurations. Instead of scattered guides, you’ll follow a structured,
+                    step-by-step workflow that
+                    mirrors how professionals actually build and use testing environments.
+                </p>
+
+                <div class="list">
+                    <h3>What This Series Covers (Now and Ahead)</h3>
+                    <p>You’ll start by building a strong technical foundation:</p>
+                    <ul>
+                        <li>Linux server setup and system configuration.</li>
+                        <li>VirtualBox network isolation for safe testing environments.</li>
+                        <li>Setting up Kali Linux and Metasploitable2 for attack simulations.</li>
+                        <li>Network scanning and reconnaissance using Nmap.</li>
+                    </ul>
+                    <p>But this is only the beginning.</p>
+                    <p>As the series evolves, you’ll move into:</p>
+                    <ul>
+                        <li>Web application security (OWASP Top 10 vulnerabilities).</li>
+                        <li>Exploitation techniques and privilege escalation.</li>
+                        <li>Bug bounty hunting workflows and real-world targets.</li>
+                        <li>Automation tools and scripting for hacking.</li>
+                        <li>Advanced reconnaissance and post-exploitation strategies.</li>
+                    </ul>
+                </div>
+                <div class="content">
+                    <h4>How This Series Is Structured</h4>
+                    <p>This is not random content. It follows a <strong>real-world penetration testing
+                            lifecycle</strong>:</p>
+                    <p>Setup ⟶ Environment ⟶ Recon ⟶ Exploitation ⟶ Post-Exploitation ⟶ Automation</p>
+                    <p>Each tutorial builds on the previous one, ensuring you develop deep, connected knowledge—not
+                        isolated skills.
+                    </p>
+                    <p><i>All tutorials are free, practical, and designed to work on Windows, macOS, and Linux host
+                            machines using VirtualBox.</i></p>
+                </div>
+                <div class="card-image-output">
+                    <img src="images/ethical-hacking-lab-setup-mastery.webp"
+                        alt="Zero to Pentester — Complete Ethical Hacking Lab Setup Series" loading="lazy"
+                        decoding="async" fetchpriority="auto">
+                </div>
+                <div class="hacking-card-grid">
+                    <!-- Card 1  -->
+                    <div class="hacking-card">
+                        <div class="header">
+                            <i class="fas fa-flask"></i>
+                            <div class="title-group">
+                                <h3>How to Setup a Personal Cybersecurity Lab</h3>
+                                <span class="tag level-tag">Beginner</span>
+                            </div>
+                        </div>
+                        <p>Build a beginner ethical hacking lab using VirtualBox, Kali Linux, and Metasploitable 2.
+                            Learn setup, scanning,
+                            exploitation, and safe penetration testing practice.</p>
+                        <div class="card-footer">
+                            <span><i class="fas fa-clock"></i>2 hr</span>
+                            <a href="../../tutorials/set-up-ethical-hacking-lab-virtualbox-kali-linux-metasploitable2/set-up-ethical-hacking-lab-virtualbox-kali-linux-metasploitable2.html"
+                                title="How to Setup a Personal Cybersecurity Lab">Start
+                                Learning</a>
+                        </div>
+                    </div>
+                    <!-- Card 2  -->
+                    <div class="hacking-card">
+                        <div class="header">
+                            <i class="fas fa-network-wired"></i>
+                            <div class="title-group">
+                                <h3>Configure VirtualBox networks for Secure Cybersecurity Lab</h3>
+                                <span class="tag level-tag">Beginner</span>
+                            </div>
+                        </div>
+                        <p>Configure VirtualBox networks for an isolated hacking lab with step-by-step setup, enabling secure communication between VMs while keeping systems safely separated from external networks.</p>
+                        <div class="card-footer">
+                            <span><i class="fas fa-clock"></i>2 hr</span>
+                            <a href="../../tutorials/configure-virtualbox-networks-for-isolated-hacking-lab/configure-virtualbox-networks-for-isolated-hacking-lab.html"
+                                title="Configure VirtualBox networks for Secure Cybersecurity Lab">Start Learning</a>
+                        </div>
+                    </div>
+                    <!-- Card 3  -->
+                    <div class="hacking-card">
+                        <div class="header">
+                            <i class="fas fa-server"></i>
+                            <div class="title-group">
+                                <h3>Linux Server Setup</h3>
+                                <span class="tag level-tag">Beginner</span>
+                            </div>
+                        </div>
+                        <p>Free step-by-step Linux server setup tutorial covering Ubuntu, SSH, Apache/Nginx, firewall,
+                            databases, security, and
+                            monitoring for beginners</p>
+                        <div class="card-footer">
+                            <span><i class="fas fa-clock"></i>5 hr</span>
+                            <a href="../../Linux/linux-server-setup/index.html" title="Linux Server Setup">Start
+                                Learning</a>
+                        </div>
+                    </div>
+                    <!-- Card 4  -->
+                    <div class="hacking-card">
+                        <div class="header">
+                            <i class="fas fa-tools"></i>
+                            <div class="title-group">
+                                <h3>Nmap Tutorial — Complete Guide for Beginners & Pentesters</h3>
+                                <span class="tag level-tag">Beginner</span>
+                            </div>
+                        </div>
+                        <p>Master Nmap from scratch: port scanning, OS fingerprinting, stealth scans, UDP scanning & 6 hands-on labs on Metasploitable2. Complete 2026 guide for beginners & pentesters.</p>
+                        <div class="card-footer">
+                            <span><i class="fas fa-clock"></i>4 hr</span>
+                            <a href="../../Linux/nmap-tutorial-complete-guide-for-beginners-and-pentesters/nmap-tutorial-complete-guide-for-beginners-and-pentesters.html"
+                                title="Nmap Tutorial — Complete Guide for Beginners & Pentesters">Start Learning</a>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+
+                <div class="content">
+                    <h4>Stay Connected 🛡️</h4>
+                    <p>Don't miss out when the new content drops! Stay in touch with me to get notified the moment
+                        these
+                        modules go live.</p>
+                    <p><strong>Bookmark this page</strong> and check back weekly.</p>
+                </div>
+
+            </div>
+        </main>
+
+        <!-- Right Side -->
+        <main class="right-column">
+            <div class="about-website moving-border">
+                <h3>About Website</h3>
+                <p><a class="homepage typewriter-scan" href="../../../../index.html"><strong>DevspireHub</strong></a> is
+                    a beginner-friendly learning platform offering step-by-step tutorials in
+                    programming, ethical hacking,
+                    networking, automation, and Windows setup. Learn through hands-on projects, clear
+                    explanations, and
+                    real-world examples
+                    using practical tools and open-source resources—no signups, no tracking, just actionable
+                    knowledge
+                    to accelerate your
+                    technical skills.
+                </p>
+            </div>
+
+            <!-- Color palette -->
+            <div class="color-palette">
+                <div>
+                    <h3>Color Space</h3>
+                    <p>Discover Perfect Palettes</p>
+                </div>
+                <div class="palette-grid">
+                    <div class="palette-card">
+                        <!-- Color bars (set your palette colors here) -->
+                        <div class="color-wave colors-5">
+                            <div class="wave-bar" style="background:#F2C447" data-color="#F2C447"></div>
+                            <div class="wave-bar" style="background:#F76218" data-color="#F76218"></div>
+                            <div class="wave-bar" style="background:#FF1D68" data-color="#FF1D68"></div>
+                            <div class="wave-bar" style="background:#B10065" data-color="#B10065"></div>
+                            <div class="wave-bar" style="background:#740580" data-color="#740580"></div>
+                        </div>
+
+                        <div class="card-info">
+                            <div class="card-title">Sample Palette</div>
+                        </div>
+                    </div>
+                    <div class="button">
+                        <a href="../../../color-palettes/index.html" class="color-button">Go To Color Space Home
+                            Page</a>
+                    </div>
+                </div>
+            </div>
+            <div class="wallpaper">
+                <div>
+                    <h3>Featured Wallpapers (For desktop)</h3>
+                    <p>Download for FREE!</p>
+                </div>
+                <div class="image-grid">
+                    <div class="image-card">
+                        <img src="../../../Wallpaper/images_upscale/wallpaper (1).png" alt="Wallpaper 1">
+                    </div>
+                    <div class="image-card">
+                        <img src="../../../Wallpaper/images_upscale/wallpaper (23).png" alt="Wallpaper 23">
+                    </div>
+                    <div class="image-card">
+                        <img src="../../../Wallpaper/images_upscale/wallpaper (46).png" alt="Wallpaper 46">
+                    </div>
+                    <div class="image-card">
+                        <img src="../../../Wallpaper/images_upscale/wallpaper (81).png" alt="Wallpaper 81">
+                    </div>
+                    <div class="image-card">
+                        <img src="../../../Wallpaper/images_upscale/wallpaper (111).png" alt="Wallpaper 111">
+                    </div>
+                    <div class="image-card">
+                        <img src="../../../Wallpaper/images_upscale/wallpaper (116).png" alt="Wallpaper 116">
+                    </div>
+                </div>
+                <div class="button">
+                    <a href="../../../Wallpaper/index.html" class="wallpaper-button">Go To Wallpaper Home
+                        Page</a>
+                </div>
+            </div>
+
+            <div class="related-topics">
+                <div class="header">
+                    <h3>Open-Source Tools Directory</h3>
+                    <p><strong>Complete spectrum of open-source software in Github</strong>
+                    </p>
+                </div>
+                <div class="content">
+                    <ul>
+                        <li><i class="fas fa-code"></i><a
+                                href="../../../Resources/tools-directory/index.html#category-2"
+                                class="link">Programming</a></li>
+                        <li><i class="fas fa-globe"></i><a
+                                href="../../../Resources/tools-directory/index.html#category-3" class="link">Web
+                                Development</a></li>
+                        <li><i class="fas fa-network-wired"></i><a
+                                href="../../../Resources/tools-directory/index.html#category-4"
+                                class="link">Networking</a>
+                        </li>
+                        <li><i class="fas fa-shield-alt"></i><a
+                                href="../../../Resources/tools-directory/index.html#category-5" class="link">Ethical
+                                Hacking</a></li>
+                        <li><i class="fas fa-microchip"></i><a
+                                href="../../../Resources/tools-directory/index.html#category-6"
+                                class="link">Hardware</a>
+                        </li>
+                        <li><i class="fas fa-tasks"></i><a
+                                href="../../../Resources/tools-directory/index.html#category-7"
+                                class="link">Productivity</a></li>
+                    </ul>
+                </div>
+                <div class="button-container">
+                    <div class="btn-cyber">
+                        <span class="btn-bg"></span>
+                        <span class="btn-border"></span>
+                        <span class="btn-text">
+                            <a href="../../../Resources/tools-directory/index.html" class="related-button">
+                                Open-Source
+                                Tools</a> <span class="blink">_</span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <section class="deals-section">
+                <div class="deals-header">
+                    <h2>HOT DEALS</h2>
+                    <div class="deals-underline"></div>
+                </div>
+
+                <!-- Cards injected dynamically from amazon-links.json -->
+                <div class="deals-grid" id="dealsGrid">
+                    <div class="deal-skeleton">
+                    </div>
+                    <div class="deal-skeleton"></div>
+                    <div class="deal-skeleton"></div>
+                    <div class="deal-skeleton"></div>
+                    <div class="deal-skeleton"></div>
+                    <div class="deal-skeleton"></div>
+                </div>
+
+                <div class="deals-page-indicator" id="dealsPageIndicator"></div>
+
+                <div class="deals-nav">
+                    <button class="deal-arrow-btn" onclick="scrollDeals(-1)" aria-label="Previous">&#8592;</button>
+                    <button class="deal-arrow-btn" onclick="scrollDeals(1)" aria-label="Next">&#8594;</button>
+                </div>
+            </section>
+
+            <script async
+                src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2368356039533778"
+                crossorigin="anonymous"></script>
+            <!-- sidebar ads -->
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2368356039533778"
+                data-ad-slot="5621407319" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+
+            <script async
+                src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2368356039533778"
+                crossorigin="anonymous"></script>
+            <!-- sidebar ads -->
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2368356039533778"
+                data-ad-slot="5621407319" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </main>
+        <button id="scrollUpBtn" aria-label="Scroll to top" style="display:none;">
+            <svg class="progress-circle" viewBox="0 0 36 36">
+                <path class="bg1" d="M18 2.0845
+                                  a 15.9155 15.9155 0 0 1 0 31.831
+                                  a 15.9155 15.9155 0 0 1 0 -31.831" />
+                <path class="progress" d="M18 2.0845
+                                  a 15.9155 15.9155 0 0 1 0 31.831
+                                  a 15.9155 15.9155 0 0 1 0 -31.831" />
+                <span class="arrow-overlay">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 19V5M5 12L12 5L19 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                </span>
+            </svg>
+        </button>
+    </div>
+
+    <footer class="footer">
+        <ul class="menu">
+            <li class="menu-item"><a class="menu-link" href="../../../index.html">Home</a></li>
+            <li class="menu-item"><a class="menu-link" href="../../../Wallpaper/index.html">Wallpapers</a></li>
+            <li class="menu-item"><a class="menu-link" href="../../../color-palettes/index.html">Color Spaces</a></li>
+            <li class="menu-item"><a class="menu-link"
+                    href="../../../Resources/digital-resources/digital-resources-hub.html">Resources</a></li>
+            <li class="menu-item"><a class="menu-link" href="../../../Website/about/about.html">About</a></li>
+            <li class="menu-item"><a class="menu-link" href="../../../Website/contact/index.html">Contact</a></li>
+            <li class="menu-item"><a class="menu-link" href="../../../Website/privacy/index.html">Privacy policy</a>
+            </li>
+        </ul>
+        <div class="contacts">
+            <a class="contact github" href="https://github.com/kumaradoss16" target="_blank"><i
+                    class="fa-brands fa-github"></i></a>
+            <a class="contact instagram" href="https://www.instagram.com/devspirehub/" target="_blank"><i
+                    class="fa-brands fa-instagram"></i></a>
+            <a class="contact linkedin" href="https://www.linkedin.com/in/kumaradoss-s/" target="_blank"><i
+                    class="fa-brands fa-linkedin"></i></a>
+            <a class="contact facebook" href="https://www.facebook.com/profile.php?id=61577667990170&_rdr"
+                target="_blank"><i class="fa-brands fa-facebook"></i></a>
+            <a class="contact gmail" href="https://mail.google.com/mail/?view=cm&fs=1&to=devspirehub.website@gmail.com"
+                aria-label="Email us at devspirehub.website@gmail.com" title="Send us an email" target="_blank"
+                rel="noopener noreferrer">
+                <i class="fa-solid fa-envelope"></i>
+            </a>
+        </div>
+        <p>&copy;2026 DevspireHub | All Rights Reserved</p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+</body>
+
+</html>
