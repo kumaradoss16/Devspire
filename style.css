@@ -3608,3 +3608,141 @@ svg {
     transform: translateY(0);
 }
 
+
+/* ── Stats Banner ── */
+.stats-banner {
+  width: 100%;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 255, 255, 0.05) 0%,
+    rgba(10, 10, 40, 0.9) 40%,
+    rgba(100, 0, 200, 0.07) 100%
+  );
+  border-top: 1px solid rgba(0, 255, 255, 0.15);
+  border-bottom: 1px solid rgba(0, 255, 255, 0.15);
+  padding: 28px 20px 18px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  margin-top: 60px;
+}
+
+/* Subtle glow line at the top (matches site's rainbow bar style) */
+.stats-banner::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    #ff4e00, #ff9500, #ffe600,
+    #00ff88, #00cfff, #7c3aed, #ff00e5
+  );
+  opacity: 0.7;
+}
+
+/* Inner flex row */
+.stats-banner-inner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+  flex-wrap: wrap;
+  max-width: 800px;
+  margin: 0 auto 12px;
+}
+
+/* Each stat block */
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px 36px;
+  gap: 4px;
+  transition: transform 0.2s ease;
+}
+
+.stat-item:hover {
+  transform: translateY(-3px);
+}
+
+/* Emoji icon */
+.stat-icon {
+  font-size: 1.6rem;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+/* Big number */
+.stat-number {
+  font-size: 1.8rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+
+  /* Gradient text matching site accent colors */
+  background: linear-gradient(90deg, #00cfff, #00ff88);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Label below number */
+.stat-label {
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+/* Vertical divider between stats */
+.stat-divider {
+  width: 1px;
+  height: 48px;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(0, 207, 255, 0.4),
+    transparent
+  );
+  flex-shrink: 0;
+}
+
+/* Bottom subtitle row */
+.stats-subtitle {
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.38);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-top: 4px;
+}
+
+/* ── Responsive — Mobile ── */
+@media (max-width: 600px) {
+  .stats-banner-inner {
+    gap: 8px;
+  }
+
+  .stat-item {
+    padding: 8px 20px;
+  }
+
+  .stat-divider {
+    display: none;
+  }
+
+  .stat-number {
+    font-size: 1.4rem;
+  }
+
+  .stat-icon {
+    font-size: 1.3rem;
+  }
+
+  .stats-subtitle {
+    font-size: 0.65rem;
+    letter-spacing: 1.2px;
+  }
+}
