@@ -3840,7 +3840,7 @@ svg {
 /* Hover glow per accent */
 .project:hover  { box-shadow: 0 8px 32px rgba(93, 0, 255, 0.12); }
 .hacking:hover { box-shadow: 0 8px 32px rgba(0, 255, 0, 0.12); }
-.accent-blue:hover   { box-shadow: 0 8px 32px rgba(0, 207, 255, 0.12); }
+.tutorial:hover   { box-shadow: 0 8px 32px rgba(255, 98, 0, 0.12); }
 
 /* ── Card Top Row (tags + time) ── */
 .card-top {
