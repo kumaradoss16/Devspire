@@ -3835,7 +3835,7 @@ svg {
 
 .project::before  { background: linear-gradient(to bottom, #5e11e3, #2f00ff); }
 .hacking::before { background: linear-gradient(to bottom, #00ff00, #00ff8c); }
-.accent-blue::before   { background: linear-gradient(to bottom, #00cfff, #7c3aed); }
+.tutorial::before   { background: linear-gradient(to bottom, #ff4d00, #ed933a); }
 
 /* Hover glow per accent */
 .project:hover  { box-shadow: 0 8px 32px rgba(93, 0, 255, 0.12); }
@@ -3867,6 +3867,8 @@ svg {
 }
 
 .tag-python     { background: rgba(0, 207, 255, 0.12); color: #00cfff; border: 1px solid rgba(0, 207, 255, 0.25); }
+.tag-js  { background: rgba(204, 255, 0, 0.12); color: #d9ff00; border: 1px solid rgba(204, 255, 0, 0.25); }
+.tag-tutorial    { background: rgba(255, 68, 0, 0.12); color: var(--color-orange); border: 1px solid rgba(255, 81, 0, 0.25); }
 .tag-automation { background: rgba(255, 0, 217, 0.1); color: #ff0080; border: 1px solid rgba(208, 0, 255, 0.25); }
 .tag-hacking    { background: rgba(0, 255, 0, 0.12); color: #00ff0d; border: 1px solid rgba(0, 255, 51, 0.25); }
 .tag-networking { background: rgba(64, 58, 237, 0.15); color: #4a4cbc; border: 1px solid rgba(58, 106, 237, 0.3); }
@@ -3878,6 +3880,10 @@ svg {
   color: rgba(255, 255, 255, 0.38);
   white-space: nowrap;
   padding-top: 2px;
+}
+
+.card-time i {
+    margin-right: 5px;
 }
 
 /* ── Card Emoji Icon ── */
@@ -3919,6 +3925,10 @@ svg {
 .card-date {
   font-size: 0.72rem;
   color: rgba(255, 255, 255, 0.459);
+}
+
+.card-date i {
+    margin-right: 5px;
 }
 
 /* ── Card CTA Button ── */
