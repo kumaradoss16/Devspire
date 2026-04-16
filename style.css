@@ -543,7 +543,7 @@ body {
 }
 
 .card {
-    background-color: #1e1e1e;
+    /* background-color: #1e1e1e; */
     border: 2px solid var(--color-blue);
     border-radius: 5px;
     padding: 30px;
