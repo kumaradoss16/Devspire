@@ -718,7 +718,7 @@ body {
     border-radius: 5px;
 
     background:
-        linear-gradient(#1f1f1f 0 0) padding-box,
+        linear-gradient(var(--bg-secondary) 0 0) padding-box,
         conic-gradient(from var(--glow-deg), var(--gradient-glow)) border-box;
 
     font-size: 16px;
