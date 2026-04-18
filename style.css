@@ -1128,7 +1128,8 @@ body {
 #view-all-btn-programming::before,
 #view-all-btn-hacking-series::before,
 #view-all-btn-networking::before,
-#view-all-btn-guide-link::before {
+#view-all-btn-guide-link::before,
+#view-all-btn-ebooks::before {
     content: '';
     position: absolute;
     top: 0;
@@ -1144,7 +1145,8 @@ body {
 #view-all-btn-programming:hover::before,
 #view-all-btn-hacking-series:hover::before,
 #view-all-btn-networking:hover::before,
-#view-all-btn-guide-link:hover::before {
+#view-all-btn-guide-link:hover::before 
+#view-all-btn-ebooks:hover::before {
     left: 0;
 }
 
@@ -1153,7 +1155,8 @@ body {
 .networking-card.hidden-networking,
 .automation-card.hidden-automation-tutorial,
 .automation-project-card.hidden-automation-project,
-.card-cheat.hidden-card-cheat {
+.card-cheat.hidden-card-cheat,
+.card-guide.hidden-card-guide {
     max-height: 0;
     opacity: 0;
     padding-top: 0;
@@ -1171,7 +1174,8 @@ body {
 .networking-card.show-networking,
 .automation-card.show-automation-tutorial,
 .automation-project-card.show-automation-project,
-.card-cheat.show-card-cheat {
+.card-cheat.show-card-cheat,
+.card-guide.show-card-guide {
     opacity: 1;
     visibility: visible;
     transition: max-height 0.5s ease, opacity 0.5s ease, margin 0.5s ease, visibility 0.5s ease;
