@@ -210,7 +210,15 @@ if (tabButtons.length > 0 && projectCards.length > 0) {
         'View All',
         'Show Less'
     );
-
+  
+  setupViewAllToggle(
+        'view-all-btn-ebooks',
+        'hidden-card-guide', // Pass only the class name 'hidden-project'
+        'show-card-guide',
+        'View All',
+        'Show Less'
+    );
+  
     // --- Scroll to top with progress indicator ---
     const scrollBtn = document.getElementById("scrollUpBtn");
     if (scrollBtn) {
