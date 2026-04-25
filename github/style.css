@@ -16,7 +16,8 @@
   --font-h2: clamp(1.2rem, 2vw + 0.8rem, 1.55rem);
 
     --dark-bg: #020617;
-    --dark-blue: #090f20;
+    --dark-black: #030303;
+    --dark-blue: #0b0f1e;
     --main-bg: #090f20;
     --card-bg: #212536;
     --text-color: #d2d4e0;
@@ -441,6 +442,7 @@ section {
     margin: 0;
     padding: 0;
     text-align: center;
+     background: var(--dark-blue);
 }
 
 .navbar nav ul li:hover a.home {
