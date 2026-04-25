@@ -1,0 +1,90 @@
+{
+  "last_updated": "2026-04-24T14:15:49.395798",
+  "total_seen": 14,
+  "projects": {
+    "forrestchang/andrej-karpathy-skills": {
+      "first_seen": "2026-04-24T14:15:49.395798",
+      "last_seen": "2026-04-24T14:15:49.395798",
+      "times_seen": 1,
+      "source": "trending"
+    },
+    "SimoneAvogadro/android-reverse-engineering-skill": {
+      "first_seen": "2026-04-24T14:15:49.395798",
+      "last_seen": "2026-04-24T14:15:49.395798",
+      "times_seen": 1,
+      "source": "trending"
+    },
+    "EvoMap/evolver": {
+      "first_seen": "2026-04-24T14:15:49.395798",
+      "last_seen": "2026-04-24T14:15:49.395798",
+      "times_seen": 1,
+      "source": "trending"
+    },
+    "openai/openai-agents-python": {
+      "first_seen": "2026-04-24T14:15:49.395798",
+      "last_seen": "2026-04-24T14:15:49.395798",
+      "times_seen": 1,
+      "source": "trending"
+    },
+    "jamiepine/voicebox": {
+      "first_seen": "2026-04-24T14:15:49.395798",
+      "last_seen": "2026-04-24T14:15:49.395798",
+      "times_seen": 1,
+      "source": "trending"
+    },
+    "thedotmack/claude-mem": {
+      "first_seen": "2026-04-24T14:15:49.395798",
+      "last_seen": "2026-04-24T14:15:49.395798",
+      "times_seen": 1,
+      "source": "trending"
+    },
+    "NousResearch/hermes-agent": {
+      "first_seen": "2026-04-24T14:15:49.395798",
+      "last_seen": "2026-04-24T14:15:49.395798",
+      "times_seen": 1,
+      "source": "trending"
+    },
+    "multica-ai/multica": {
+      "first_seen": "2026-04-24T14:15:49.395798",
+      "last_seen": "2026-04-24T14:15:49.395798",
+      "times_seen": 1,
+      "source": "trending"
+    },
+    "Lordog/dive-into-llms": {
+      "first_seen": "2026-04-24T14:15:49.395798",
+      "last_seen": "2026-04-24T14:15:49.395798",
+      "times_seen": 1,
+      "source": "trending"
+    },
+    "Tracer-Cloud/opensre": {
+      "first_seen": "2026-04-24T14:15:49.395798",
+      "last_seen": "2026-04-24T14:15:49.395798",
+      "times_seen": 1,
+      "source": "trending"
+    },
+    "BasedHardware/omi": {
+      "first_seen": "2026-04-24T14:15:49.395798",
+      "last_seen": "2026-04-24T14:15:49.395798",
+      "times_seen": 1,
+      "source": "trending"
+    },
+    "mksglu/context-mode": {
+      "first_seen": "2026-04-24T14:15:49.395798",
+      "last_seen": "2026-04-24T14:15:49.395798",
+      "times_seen": 1,
+      "source": "trending"
+    },
+    "zilliztech/claude-context": {
+      "first_seen": "2026-04-24T14:15:49.395798",
+      "last_seen": "2026-04-24T14:15:49.395798",
+      "times_seen": 1,
+      "source": "trending"
+    },
+    "microsoft/markitdown": {
+      "first_seen": "2026-04-24T14:15:49.395798",
+      "last_seen": "2026-04-24T14:15:49.395798",
+      "times_seen": 1,
+      "source": "trending"
+    }
+  }
+}

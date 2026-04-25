@@ -1,0 +1,1321 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Open-Source Projects — DevSpireHub</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <style>
+        /* =============================================
+   DESIGN TOKENS
+============================================= */
+        :root {
+            --font-body: 'Space Grotesk', sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+
+            /* fluid type */
+            --xs: .72rem;
+            --sm: .85rem;
+            --md: .95rem;
+            --lg: 1.05rem;
+            --2xl: 1.8rem;
+
+            --r-sm: .4rem;
+            --r-md: .6rem;
+            --r-lg: .9rem;
+            --r-xl: 1.15rem;
+            --r-full: 9999px;
+            --ease: 200ms cubic-bezier(.16, 1, .3, 1);
+
+            --side-w: 220px;
+            --max-w: 1200px;
+            --gap: 1rem;
+            --pad: 1rem;
+        }
+
+        /* 768px+ */
+        @media(min-width:768px) {
+            :root {
+                --xs: .74rem;
+                --sm: .87rem;
+                --md: .97rem;
+                --lg: 1.08rem;
+                --2xl: 2rem;
+                --side-w: 220px;
+                --gap: 1.1rem;
+                --pad: 1.5rem;
+            }
+        }
+
+        /* 1024px+ */
+        @media(min-width:1024px) {
+            :root {
+                --xs: .76rem;
+                --sm: .88rem;
+                --md: .98rem;
+                --lg: 1.1rem;
+                --2xl: 2.3rem;
+                --side-w: 230px;
+                --gap: 1.25rem;
+                --pad: 2rem;
+            }
+        }
+
+        /* 1280px+ */
+        @media(min-width:1280px) {
+            :root {
+                --xs: .78rem;
+                --sm: .9rem;
+                --md: 1rem;
+                --lg: 1.12rem;
+                --2xl: 2.6rem;
+                --side-w: 240px;
+                --max-w: 1240px;
+                --gap: 1.35rem;
+                --pad: 2.5rem;
+            }
+        }
+
+        /* 1440px+ */
+        @media(min-width:1440px) {
+            :root {
+                --xs: .8rem;
+                --sm: .92rem;
+                --md: 1.02rem;
+                --lg: 1.15rem;
+                --2xl: 2.8rem;
+                --side-w: 260px;
+                --max-w: 1380px;
+                --gap: 1.5rem;
+                --pad: 3rem;
+            }
+        }
+
+        /* =============================================
+   COLOR PALETTE
+============================================= */
+        [data-theme="dark"] {
+            --bg: #0b0d10;
+            --s: #131619;
+            --s2: #181c21;
+            --s3: #1d2229;
+            --bd: #232b35;
+            --bd2: #2c3540;
+            --t: #dde4ee;
+            --tm: #7e8ea4;
+            --tf: #3d4d60;
+            --green: #22d3a0;
+            --gd: rgba(34, 211, 160, .07);
+            --gb: rgba(34, 211, 160, .18);
+            --blue: #60a5fa;
+            --bld: rgba(96, 165, 250, .07);
+            --blb: rgba(96, 165, 250, .18);
+            --purple: #a78bfa;
+            --pd: rgba(167, 139, 250, .07);
+            --pb: rgba(167, 139, 250, .18);
+            --amber: #fbbf24;
+            --ad: rgba(251, 191, 36, .07);
+            --ab: rgba(251, 191, 36, .18);
+            --red: #f87171;
+            --rd: rgba(248, 113, 113, .07);
+            --rb: rgba(248, 113, 113, .18);
+            --cyan: #22d3ee;
+            --cd: rgba(34, 211, 238, .07);
+            --cb: rgba(34, 211, 238, .18);
+        }
+
+        /* =============================================
+   RESET + BASE
+============================================= */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            -webkit-font-smoothing: antialiased;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            font-size: var(--md);
+            color: var(--t);
+            background: var(--bg);
+            line-height: 1.65;
+            min-height: 100dvh;
+            padding: 1.5rem var(--pad);
+        }
+
+        /* =============================================
+   SECTION WRAPPER
+============================================= */
+        .oss {
+            max-width: var(--max-w);
+            margin-inline: auto;
+            padding-block: clamp(1.5rem, 4vw, 4rem);
+        }
+
+        /* =============================================
+   HEADER
+============================================= */
+        .oss__top {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 1.75rem;
+        }
+
+        @media(min-width:768px) {
+            .oss__top {
+                margin-bottom: 2rem;
+            }
+        }
+
+        @media(min-width:1280px) {
+            .oss__top {
+                margin-bottom: 2.5rem;
+            }
+        }
+
+        .oss__chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-family: var(--font-mono);
+            font-size: var(--xs);
+            font-weight: 500;
+            color: var(--green);
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            background: var(--gd);
+            border: 1px solid var(--gb);
+            padding: 3px 11px;
+            border-radius: var(--r-full);
+            margin-bottom: 10px;
+        }
+
+        .oss__chip svg {
+            width: 11px;
+            height: 11px;
+        }
+
+        .oss__title {
+            font-size: var(--2xl);
+            font-weight: 700;
+            line-height: 1.08;
+            letter-spacing: -.025em;
+        }
+
+        .oss__title em {
+            color: var(--green);
+            font-style: normal;
+        }
+
+        .oss__sub {
+            margin-top: 8px;
+            font-size: var(--sm);
+            color: var(--tm);
+            max-width: 48ch;
+        }
+
+        @media(min-width:1024px) {
+            .oss__sub {
+                max-width: 52ch;
+            }
+        }
+
+        /* =============================================
+   LAYOUT  (sidebar + content)
+============================================= */
+        .oss__layout {
+            display: flex;
+            flex-direction: column;
+            /* <768 stacked */
+            gap: var(--gap);
+            align-items: stretch;
+        }
+
+        @media(min-width:768px) {
+            .oss__layout {
+                flex-direction: row;
+                align-items: flex-start;
+            }
+        }
+
+        /* =============================================
+   SIDEBAR
+============================================= */
+        .oss__sidebar {
+            width: 100%;
+            /* <768 full-width */
+            flex-shrink: 0;
+            background: var(--s);
+            border: 1px solid var(--bd);
+            border-radius: var(--r-xl);
+            padding: .9rem;
+            display: flex;
+            flex-direction: column;
+            gap: .5rem;
+        }
+
+        /* 768px: sticky side panel */
+        @media(min-width:768px) {
+            .oss__sidebar {
+                width: var(--side-w);
+                padding: 1rem;
+                position: sticky;
+                top: 1.5rem;
+            }
+        }
+
+        @media(min-width:1024px) {
+            .oss__sidebar {
+                padding: 1.1rem;
+            }
+        }
+
+        @media(min-width:1280px) {
+            .oss__sidebar {
+                padding: 1.2rem;
+                top: 2rem;
+            }
+        }
+
+        @media(min-width:1440px) {
+            .oss__sidebar {
+                padding: 1.35rem;
+                top: 2rem;
+            }
+        }
+
+        .sb__section {
+            font-family: var(--font-mono);
+            font-size: var(--xs);
+            font-weight: 600;
+            color: var(--tf);
+            text-transform: uppercase;
+            letter-spacing: .1em;
+            padding-bottom: .6rem;
+            border-bottom: 1px solid var(--bd);
+            margin-bottom: .2rem;
+        }
+
+        /* ---- DROPDOWN ---- */
+        .sb__dropdown {
+            position: relative;
+        }
+
+        .sb__trigger {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            width: 100%;
+            padding: 8px 11px;
+            background: var(--s2);
+            border: 1px solid var(--bd2);
+            border-radius: var(--r-lg);
+            color: var(--t);
+            cursor: pointer;
+            font-family: var(--font-body);
+            font-size: var(--sm);
+            font-weight: 500;
+            transition: border-color var(--ease), background var(--ease);
+            user-select: none;
+        }
+
+        .sb__trigger:hover {
+            background: var(--s3);
+        }
+
+        .sb__trigger.open {
+            border-color: var(--cat-color, var(--green));
+            box-shadow: 0 0 0 3px var(--cat-glow, rgba(34, 211, 160, .1));
+        }
+
+        @media(min-width:1024px) {
+            .sb__trigger {
+                padding: 9px 12px;
+            }
+        }
+
+        .sb__trigger-icon {
+            font-size: .92rem;
+            flex-shrink: 0;
+        }
+
+        .sb__trigger-label {
+            flex: 1;
+            text-align: left;
+            line-height: 1.2;
+            font-size: var(--sm);
+        }
+
+        .sb__trigger-sub {
+            font-size: .6rem;
+            color: var(--tm);
+            font-family: var(--font-mono);
+        }
+
+        .sb__trigger-chevron {
+            width: 15px;
+            height: 15px;
+            flex-shrink: 0;
+            color: var(--tf);
+            transition: transform var(--ease);
+        }
+
+        .sb__trigger.open .sb__trigger-chevron {
+            transform: rotate(180deg);
+        }
+
+        .sb__trigger-bar {
+            width: 3px;
+            height: 60%;
+            border-radius: var(--r-full);
+            background: var(--cat-color, transparent);
+            flex-shrink: 0;
+        }
+
+        /* ---- DROPDOWN MENU ---- */
+
+        /* Mobile: renders inline below trigger as pill row */
+        .sb__menu {
+            display: none;
+            flex-wrap: wrap;
+            gap: .4rem;
+            padding: .6rem 0 .2rem;
+        }
+
+        .sb__menu.open {
+            display: flex;
+        }
+
+        /* 768px+: absolute floating panel */
+        @media(min-width:768px) {
+            .sb__menu {
+                display: block;
+                position: absolute;
+                top: calc(100% + 6px);
+                left: 0;
+                right: 0;
+                z-index: 100;
+                background: var(--s2);
+                border: 1px solid var(--bd2);
+                border-radius: var(--r-lg);
+                padding: .4rem;
+                box-shadow: 0 12px 40px rgba(0, 0, 0, .55);
+                opacity: 0;
+                transform: translateY(-6px);
+                pointer-events: none;
+                transition: opacity var(--ease), transform var(--ease);
+            }
+
+            .sb__menu.open {
+                opacity: 1;
+                transform: translateY(0);
+                pointer-events: all;
+            }
+        }
+
+        .sb__menu-item {
+            display: flex;
+            align-items: center;
+            gap: 9px;
+            background: transparent;
+            border: 1px solid var(--bd);
+            color: var(--tm);
+            cursor: pointer;
+            font-family: var(--font-body);
+            font-size: var(--sm);
+            font-weight: 500;
+            text-align: left;
+            transition: all var(--ease);
+            position: relative;
+            /* mobile pill style */
+            padding: 5px 12px;
+            border-radius: var(--r-full);
+            flex: 0 0 auto;
+        }
+
+        .sb__menu-item:hover {
+            background: var(--s3);
+            color: var(--t);
+        }
+
+        .sb__menu-item.selected {
+            color: var(--item-color, var(--green));
+            background: var(--item-dim, var(--gd));
+            border-color: var(--item-color, var(--green));
+        }
+
+        /* 768px+: full-width row style */
+        @media(min-width:768px) {
+            .sb__menu-item {
+                width: 100%;
+                padding: 8px 10px;
+                border-radius: var(--r-md);
+                border: none;
+                flex: initial;
+            }
+
+            .sb__menu-item.selected::before {
+                content: '';
+                position: absolute;
+                left: 0;
+                top: 50%;
+                transform: translateY(-50%);
+                width: 3px;
+                height: 55%;
+                border-radius: 0 var(--r-full) var(--r-full) 0;
+                background: var(--item-color, var(--green));
+            }
+
+            .sb__menu-item.selected {
+                border: none;
+            }
+        }
+
+        .sb__item-emoji {
+            font-size: .9rem;
+            flex-shrink: 0;
+        }
+
+        .sb__item-body {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .sb__item-label {
+            line-height: 1.1;
+            font-size: var(--sm);
+        }
+
+        .sb__item-desc {
+            font-size: .6rem;
+            color: var(--tf);
+            font-family: var(--font-mono);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: none;
+            /* hidden on mobile */
+        }
+
+        @media(min-width:768px) {
+            .sb__item-desc {
+                display: block;
+            }
+        }
+
+        .sb__item-count {
+            font-family: var(--font-mono);
+            font-size: .6rem;
+            font-weight: 700;
+            min-width: 20px;
+            height: 18px;
+            padding: 0 5px;
+            border-radius: var(--r-full);
+            display: none;
+            /* hidden on mobile */
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, .05);
+            color: var(--tf);
+        }
+
+        @media(min-width:768px) {
+            .sb__item-count {
+                display: flex;
+            }
+        }
+
+        .sb__menu-item.selected .sb__item-count {
+            background: var(--item-dim, var(--gd));
+            color: var(--item-color, var(--green));
+        }
+
+        .sb__menu-div {
+            display: none;
+        }
+
+        @media(min-width:768px) {
+            .sb__menu-div {
+                display: block;
+                height: 1px;
+                background: var(--bd);
+                margin: .3rem 0;
+            }
+        }
+
+        /* Stats */
+        .sb__divider {
+            height: 1px;
+            background: var(--bd);
+            margin: .4rem 0;
+            display: none;
+        }
+
+        @media(min-width:768px) {
+            .sb__divider {
+                display: block;
+            }
+        }
+
+        .sb__stat {
+            display: none;
+            /* hidden mobile */
+            align-items: center;
+            justify-content: space-between;
+            font-family: var(--font-mono);
+            font-size: var(--xs);
+            color: var(--tf);
+            padding: 2px 0;
+        }
+
+        @media(min-width:768px) {
+            .sb__stat {
+                display: flex;
+            }
+        }
+
+        .sb__stat strong {
+            color: var(--tm);
+        }
+
+        /* =============================================
+   CONTENT AREA
+============================================= */
+        .oss__content {
+            flex: 1;
+            min-width: 0;
+        }
+
+        /* ---- BANNER ---- */
+        .cat-banner {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 13px;
+            border-radius: var(--r-lg);
+            border: 1px solid var(--catb, var(--gb));
+            background: var(--catd, var(--gd));
+            margin-bottom: 1rem;
+            font-size: var(--sm);
+            font-weight: 600;
+            color: var(--cat, var(--green));
+            transition: all var(--ease);
+        }
+
+        @media(min-width:768px) {
+            .cat-banner {
+                padding: 9px 14px;
+                margin-bottom: 1.2rem;
+            }
+        }
+
+        @media(min-width:1280px) {
+            .cat-banner {
+                margin-bottom: 1.4rem;
+            }
+        }
+
+        .cat-banner__right {
+            margin-left: auto;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .cat-banner span {
+            color: var(--tm);
+            font-weight: 400;
+            font-size: var(--xs);
+            font-family: var(--font-mono);
+        }
+
+        /* =============================================
+   GRID — responsive columns per breakpoint
+============================================= */
+        .oss__grid {
+            display: grid;
+            gap: var(--gap);
+
+            /* <768: 1 col */
+            grid-template-columns: 1fr;
+        }
+
+        /* 768px: 2 cols */
+        @media(min-width:768px) {
+            .oss__grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* 1024px: 2 cols (sidebar takes width) */
+        @media(min-width:1024px) {
+            .oss__grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* 1280px: 3 cols */
+        @media(min-width:1280px) {
+            .oss__grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        /* 1440px: 3 cols wider gap */
+        @media(min-width:1440px) {
+            .oss__grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: var(--gap);
+            }
+        }
+
+        /* =============================================
+   CARD
+============================================= */
+        .oss-card {
+            background: var(--s);
+            border: 1px solid var(--bd);
+            border-radius: var(--r-xl);
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: .8rem;
+            text-decoration: none;
+            color: inherit;
+            position: relative;
+            overflow: hidden;
+            min-height: 200px;
+            transition: border-color var(--ease), box-shadow var(--ease), background var(--ease), transform var(--ease);
+        }
+
+        @media(min-width:768px) {
+            .oss-card {
+                padding: 1.05rem;
+                min-height: 210px;
+            }
+        }
+
+        @media(min-width:1024px) {
+            .oss-card {
+                padding: 1.1rem;
+                min-height: 215px;
+            }
+        }
+
+        @media(min-width:1280px) {
+            .oss-card {
+                padding: 1.15rem;
+                min-height: 220px;
+            }
+        }
+
+        @media(min-width:1440px) {
+            .oss-card {
+                padding: 1.2rem;
+                min-height: 225px;
+            }
+        }
+
+        .oss-card::before {
+            content: '';
+            position: absolute;
+            inset: 0 0 auto 0;
+            height: 2px;
+            opacity: 0;
+            transition: opacity var(--ease);
+            border-radius: var(--r-xl) var(--r-xl) 0 0;
+            background: linear-gradient(90deg, transparent, var(--cat, var(--green)) 45%, var(--blue) 85%, transparent);
+        }
+
+        .oss-card::after {
+            content: '';
+            position: absolute;
+            inset: auto 0 0 0;
+            height: 1px;
+            opacity: 0;
+            background: linear-gradient(90deg, var(--cat, var(--green)), transparent);
+            transition: opacity var(--ease);
+        }
+
+        .oss-card:hover {
+            transform: translateY(-3px);
+            background: var(--s2);
+        }
+
+        .oss-card:hover::before,
+        .oss-card:hover::after {
+            opacity: 1;
+        }
+
+        .oss-card.hidden {
+            display: none;
+        }
+
+        .oss-card[data-cat="security"] {
+            --cat: var(--green);
+            --catd: var(--gd);
+            --catb: var(--gb);
+        }
+
+        .oss-card[data-cat="ai"] {
+            --cat: var(--purple);
+            --catd: var(--pd);
+            --catb: var(--pb);
+        }
+
+        .oss-card[data-cat="dev"] {
+            --cat: var(--blue);
+            --catd: var(--bld);
+            --catb: var(--blb);
+        }
+
+        .oss-card[data-cat="network"] {
+            --cat: var(--cyan);
+            --catd: var(--cd);
+            --catb: var(--cb);
+        }
+
+        .oss-card[data-cat="systems"] {
+            --cat: var(--amber);
+            --catd: var(--ad);
+            --catb: var(--ab);
+        }
+
+        .oss-card[data-cat="web"] {
+            --cat: var(--red);
+            --catd: var(--rd);
+            --catb: var(--rb);
+        }
+
+        .oss-card:hover {
+            border-color: var(--catb);
+            box-shadow: 0 6px 28px rgba(0, 0, 0, .45);
+        }
+
+        /* Card top */
+        .card__top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 8px;
+        }
+
+        .card__badges {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            flex-wrap: wrap;
+        }
+
+        .card__cat-pill {
+            font-family: var(--font-mono);
+            font-size: .57rem;
+            font-weight: 700;
+            padding: 3px 9px;
+            border-radius: var(--r-full);
+            text-transform: uppercase;
+            letter-spacing: .06em;
+            color: var(--cat, var(--green));
+            background: var(--catd, var(--gd));
+            border: 1px solid var(--catb, var(--gb));
+        }
+
+        @media(min-width:1024px) {
+            .card__cat-pill {
+                font-size: .58rem;
+            }
+        }
+
+        .card__new {
+            font-family: var(--font-mono);
+            font-size: .57rem;
+            font-weight: 600;
+            padding: 3px 8px;
+            border-radius: var(--r-full);
+            color: var(--amber);
+            background: var(--ad);
+            border: 1px solid var(--ab);
+        }
+
+        .card__arrow {
+            width: 27px;
+            height: 27px;
+            border-radius: var(--r-full);
+            border: 1px solid var(--bd2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--tf);
+            flex-shrink: 0;
+            transition: color var(--ease), border-color var(--ease), background var(--ease);
+        }
+
+        .oss-card:hover .card__arrow {
+            color: var(--cat, var(--green));
+            border-color: var(--catb, var(--gb));
+            background: var(--catd, var(--gd));
+        }
+
+        .card__arrow svg {
+            width: 11px;
+            height: 11px;
+        }
+
+        /* Repo title */
+        .card__owner {
+            font-family: var(--font-mono);
+            font-size: .62rem;
+            color: var(--tf);
+            margin-bottom: 2px;
+        }
+
+        .card__name {
+            font-size: var(--lg);
+            font-weight: 700;
+            color: var(--t);
+            line-height: 1.2;
+            word-break: break-word;
+            transition: color var(--ease);
+        }
+
+        .oss-card:hover .card__name {
+            color: var(--cat, var(--green));
+        }
+
+        /* Description */
+        .card__desc {
+            font-size: var(--xs);
+            color: var(--tm);
+            line-height: 1.75;
+            flex: 1;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        @media(min-width:1280px) {
+            .card__desc {
+                -webkit-line-clamp: 4;
+            }
+        }
+
+        /* Topics */
+        .card__topics {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4px;
+        }
+
+        .card__topic {
+            font-family: var(--font-mono);
+            font-size: .56rem;
+            font-weight: 500;
+            padding: 2px 7px;
+            border-radius: var(--r-full);
+            color: var(--cat, var(--green));
+            background: var(--catd, var(--gd));
+            border: 1px solid var(--catb, var(--gb));
+            white-space: nowrap;
+        }
+
+        @media(min-width:1024px) {
+            .card__topic {
+                font-size: .57rem;
+            }
+        }
+
+        /* Footer */
+        .card__footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 6px;
+            border-top: 1px solid var(--bd);
+            padding-top: 9px;
+            margin-top: auto;
+            flex-wrap: wrap;
+        }
+
+        .card__lang {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-family: var(--font-mono);
+            font-size: var(--xs);
+            color: var(--tm);
+        }
+
+        .lang-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .card__updated {
+            font-family: var(--font-mono);
+            font-size: .6rem;
+            color: var(--tf);
+            white-space: nowrap;
+        }
+
+        /* EMPTY */
+        .oss-empty {
+            grid-column: 1/-1;
+            text-align: center;
+            padding: 3rem 1rem;
+            color: var(--tm);
+        }
+
+        .oss-empty svg {
+            width: 38px;
+            height: 38px;
+            margin: 0 auto .75rem;
+            display: block;
+            color: var(--tf);
+        }
+
+        .oss-empty p {
+            font-size: var(--sm);
+        }
+
+        /* =============================================
+   CTA FOOTER
+============================================= */
+        .oss__footer {
+            text-align: center;
+            margin-top: 1.75rem;
+        }
+
+        @media(min-width:1024px) {
+            .oss__footer {
+                margin-top: 2rem;
+            }
+        }
+
+        @media(min-width:1280px) {
+            .oss__footer {
+                margin-top: 2.5rem;
+            }
+        }
+
+        .oss__cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: var(--sm);
+            font-weight: 600;
+            color: var(--green);
+            background: var(--gd);
+            border: 1px solid var(--gb);
+            padding: 9px 26px;
+            border-radius: var(--r-full);
+            text-decoration: none;
+            transition: background var(--ease), box-shadow var(--ease);
+        }
+
+        .oss__cta:hover {
+            background: rgba(34, 211, 160, .13);
+            box-shadow: 0 0 0 4px rgba(34, 211, 160, .07);
+        }
+
+        .oss__cta svg {
+            width: 13px;
+            height: 13px;
+        }
+
+        /* =============================================
+   SCROLL REVEAL
+============================================= */
+        .fade {
+            opacity: 1;
+        }
+
+        @supports(animation-timeline:scroll()) {
+            .fade {
+                opacity: 0;
+                animation: rv linear both;
+                animation-timeline: view();
+                animation-range: entry 0% entry 75%;
+            }
+
+            @keyframes rv {
+                to {
+                    opacity: 1;
+                }
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <section class="oss" aria-labelledby="oss-title">
+
+        <!-- HEADER -->
+        <div class="oss__top fade">
+            <div>
+                <div class="oss__chip">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" aria-hidden="true">
+                        <path
+                            d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77 5.44 5.44 0 0 0 3.5 8.55c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+                    </svg>
+                    Open-Source Picks
+                </div>
+                <h2 class="oss__title" id="oss-title">Featured <em>Open-Source</em> Projects</h2>
+                <p class="oss__sub">Pick a technology category from the dropdown to filter projects instantly.</p>
+            </div>
+        </div>
+
+        <!-- LAYOUT -->
+        <div class="oss__layout">
+
+            <!-- SIDEBAR -->
+            <aside class="oss__sidebar fade" id="oss-sidebar" aria-label="Category filter">
+                <div class="sb__section">Filter by Category</div>
+
+                <div class="sb__dropdown" id="sb-dropdown">
+                    <button class="sb__trigger" id="sb-trigger" aria-haspopup="listbox" aria-expanded="false"
+                        aria-label="Select category">
+                        <div class="sb__trigger-bar" id="sb-trigger-bar"></div>
+                        <span class="sb__trigger-icon" id="sb-trigger-icon">⚡</span>
+                        <div style="flex:1;text-align:left;">
+                            <div class="sb__trigger-label" id="sb-trigger-label">All Projects</div>
+                            <div class="sb__trigger-sub" id="sb-trigger-sub">Show everything</div>
+                        </div>
+                        <svg class="sb__trigger-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <polyline points="6 9 12 15 18 9" />
+                        </svg>
+                    </button>
+                    <div class="sb__menu" id="sb-menu" role="listbox" aria-label="Category options"></div>
+                </div>
+
+                <div class="sb__divider"></div>
+                <div class="sb__stat"><span>Total repos</span><strong id="sb-total">—</strong></div>
+                <div class="sb__stat"><span>Showing</span><strong id="sb-visible">—</strong></div>
+            </aside>
+
+            <!-- CONTENT -->
+            <div class="oss__content">
+                <div class="cat-banner fade" id="cat-banner"></div>
+                <div class="oss__grid" id="oss-grid" aria-live="polite"></div>
+            </div>
+
+        </div>
+
+        <div class="oss__footer fade">
+            <a href="https://github.com/explore" target="_blank" rel="noopener noreferrer" class="oss__cta">
+                Explore More on GitHub
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" aria-hidden="true">
+                    <line x1="5" y1="12" x2="19" y2="12" />
+                    <polyline points="12 5 19 12 12 19" />
+                </svg>
+            </a>
+        </div>
+
+    </section>
+
+    <script>
+        (function () {
+
+            /* ============================================================
+               STATIC REPO DATA
+               cat: "security" | "ai" | "dev" | "network" | "systems" | "web"
+            ============================================================ */
+            const REPOS = [
+                {
+                    owner: "sherlock-project", name: "sherlock",
+                    url: "https://github.com/sherlock-project/sherlock",
+                    cat: "security",
+                    desc: "Hunt down social media accounts by username across social networks.",
+                    language: "Python", topics: ["osint", "social-media", "cli"],
+                    updated: "2 days ago", isNew: false
+                },
+                {
+                    owner: "QwenLM", name: "Qwen3-ASR",
+                    url: "https://github.com/QwenLM/Qwen3-ASR",
+                    cat: "ai",
+                    desc: "Qwen3 automatic speech recognition model with multilingual support.",
+                    language: "Python", topics: ["asr", "speech", "transformer"],
+                    updated: "1 day ago", isNew: true
+                },
+                {
+                    owner: "mindfold-ai", name: "Trellis",
+                    url: "https://github.com/mindfold-ai/Trellis",
+                    cat: "ai",
+                    desc: "Open-source structured reasoning framework for large language models.",
+                    language: "Python", topics: ["llm", "reasoning", "agents"],
+                    updated: "3 days ago", isNew: true
+                },
+                {
+                    owner: "Robbyant", name: "lingbot-world",
+                    url: "https://github.com/Robbyant/lingbot-world",
+                    cat: "ai",
+                    desc: "A multilingual chatbot platform with plugin ecosystem support.",
+                    language: "TypeScript", topics: ["chatbot", "nlp", "multilingual"],
+                    updated: "5 days ago", isNew: false
+                }
+            ];
+
+            const CATS = {
+                all: { label: "All Projects", emoji: "⚡", desc: "Show everything", color: "#22d3a0", dim: "rgba(34,211,160,.09)", border: "rgba(34,211,160,.28)" },
+                security: { label: "Security", emoji: "🛡️", desc: "Hacking & pen-testing", color: "#22d3a0", dim: "rgba(34,211,160,.09)", border: "rgba(34,211,160,.28)" },
+                ai: { label: "AI / ML", emoji: "🧠", desc: "Models & automation", color: "#a78bfa", dim: "rgba(167,139,250,.09)", border: "rgba(167,139,250,.28)" },
+                dev: { label: "Dev Tools", emoji: "🛠️", desc: "CLIs, linters, utils", color: "#60a5fa", dim: "rgba(96,165,250,.09)", border: "rgba(96,165,250,.28)" },
+                network: { label: "Network", emoji: "📡", desc: "Scanners & protocols", color: "#22d3ee", dim: "rgba(34,211,238,.09)", border: "rgba(34,211,238,.28)" },
+                systems: { label: "Systems", emoji: "⚙️", desc: "OS & low-level tools", color: "#fbbf24", dim: "rgba(251,191,36,.09)", border: "rgba(251,191,36,.28)" },
+                web: { label: "Web", emoji: "🌐", desc: "Frameworks & frontends", color: "#f87171", dim: "rgba(248,113,113,.09)", border: "rgba(248,113,113,.28)" }
+            };
+
+            const LANG_COLORS = { Python: "#3572A5", JavaScript: "#f1e05a", TypeScript: "#3178c6", Go: "#00ADD8", Rust: "#dea584", C: "#555", "C++": "#f34b7d", Java: "#b07219", Kotlin: "#A97BFF", Shell: "#89e051", HTML: "#e34c26", CSS: "#563d7c", Ruby: "#701516", Swift: "#F05138", PHP: "#4F5D95", Dart: "#00B4AB", default: "#8892a4" };
+
+            let active = "all", menuOpen = false;
+
+            function buildCard(r) {
+                const lc = LANG_COLORS[r.language] || LANG_COLORS.default;
+                const topics = (r.topics || []).slice(0, 3);
+                const cm = CATS[r.cat] || CATS.all;
+                return `
+    <a href="${r.url}" target="_blank" rel="noopener noreferrer"
+       class="oss-card" data-cat="${r.cat}" aria-label="${r.owner}/${r.name} on GitHub">
+      <div class="card__top">
+        <div class="card__badges">
+          <span class="card__cat-pill">${cm.label}</span>
+          ${r.isNew ? `<span class="card__new">🔥 New</span>` : ""}
+        </div>
+        <div class="card__arrow" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+               stroke-linecap="round" stroke-linejoin="round">
+            <line x1="7" y1="17" x2="17" y2="7"/>
+            <polyline points="7 7 17 7 17 17"/>
+          </svg>
+        </div>
+      </div>
+      <div>
+        <div class="card__owner">${r.owner} /</div>
+        <div class="card__name">${r.name}</div>
+      </div>
+      <p class="card__desc">${r.desc}</p>
+      ${topics.length ? `<div class="card__topics">${topics.map(t => `<span class="card__topic">${t}</span>`).join("")}</div>` : ""}
+      <div class="card__footer">
+        <div class="card__lang">
+          ${r.language ? `<span class="lang-dot" style="background:${lc};" aria-hidden="true"></span>${r.language}` : "—"}
+        </div>
+        <div class="card__updated">Updated ${r.updated}</div>
+      </div>
+    </a>`;
+            }
+
+            function buildMenu() {
+                const menu = document.getElementById("sb-menu");
+                const usedCats = [...new Set(REPOS.map(r => r.cat))];
+                const allCats = ["all", ...usedCats];
+                let html = "";
+                allCats.forEach((cat, i) => {
+                    const m = CATS[cat] || CATS.all;
+                    const count = cat === "all" ? REPOS.length : REPOS.filter(r => r.cat === cat).length;
+                    const isSel = cat === active;
+                    html += `
+      <button class="sb__menu-item${isSel ? " selected" : ""}" data-cat="${cat}"
+              style="--item-color:${m.color};--item-dim:${m.dim};"
+              role="option" aria-selected="${isSel}">
+        <span class="sb__item-emoji">${m.emoji}</span>
+        <div class="sb__item-body">
+          <div class="sb__item-label">${m.label}</div>
+          <div class="sb__item-desc">${m.desc}</div>
+        </div>
+        <span class="sb__item-count">${count}</span>
+      </button>`;
+                    if (i === 0) html += `<div class="sb__menu-div"></div>`;
+                });
+                menu.innerHTML = html;
+                menu.querySelectorAll(".sb__menu-item").forEach(btn => {
+                    btn.addEventListener("click", e => {
+                        e.stopPropagation(); active = btn.dataset.cat; closeMenu();
+                        updateTrigger(); renderGrid(); updateBanner();
+                        menu.querySelectorAll(".sb__menu-item").forEach(b => {
+                            const sel = b.dataset.cat === active;
+                            b.classList.toggle("selected", sel); b.setAttribute("aria-selected", sel);
+                        });
+                    });
+                });
+            }
+
+            const trigger = document.getElementById("sb-trigger");
+            const menuEl = document.getElementById("sb-menu");
+            function openMenu() { menuOpen = true; menuEl.classList.add("open"); trigger.classList.add("open"); trigger.setAttribute("aria-expanded", "true"); }
+            function closeMenu() { menuOpen = false; menuEl.classList.remove("open"); trigger.classList.remove("open"); trigger.setAttribute("aria-expanded", "false"); }
+            trigger.addEventListener("click", e => { e.stopPropagation(); menuOpen ? closeMenu() : openMenu(); });
+            document.addEventListener("click", () => closeMenu());
+            document.addEventListener("keydown", e => { if (e.key === "Escape") closeMenu(); });
+
+            function updateTrigger() {
+                const m = CATS[active] || CATS.all;
+                document.getElementById("sb-trigger-icon").textContent = m.emoji;
+                document.getElementById("sb-trigger-label").textContent = m.label;
+                document.getElementById("sb-trigger-sub").textContent = m.desc;
+                document.getElementById("sb-trigger-bar").style.background = m.color;
+                trigger.style.setProperty("--cat-color", m.color);
+                trigger.style.setProperty("--cat-glow", m.dim);
+            }
+
+            function updateBanner() {
+                const banner = document.getElementById("cat-banner");
+                const m = CATS[active] || CATS.all;
+                const count = active === "all" ? REPOS.length : REPOS.filter(r => r.cat === active).length;
+                banner.style.cssText = `--cat:${m.color};--catd:${m.dim};--catb:${m.border};`;
+                banner.innerHTML = `
+      <span style="font-size:1rem">${m.emoji}</span>
+      <strong style="font-size:.85rem">${m.label}</strong>
+      <div class="cat-banner__right">
+        <span>${count} project${count !== 1 ? "s" : ""}</span>
+      </div>`;
+            }
+
+            function renderGrid() {
+                const grid = document.getElementById("oss-grid");
+                const filtered = active === "all" ? REPOS : REPOS.filter(r => r.cat === active);
+                grid.innerHTML = filtered.length
+                    ? filtered.map(buildCard).join("")
+                    : `<div class="oss-empty">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+               stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="11" cy="11" r="8"/>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+          </svg>
+          <p>No projects in this category yet.</p>
+        </div>`;
+                document.getElementById("sb-total").textContent = REPOS.length;
+                document.getElementById("sb-visible").textContent = filtered.length;
+            }
+
+            buildMenu();
+            updateTrigger();
+            renderGrid();
+            updateBanner();
+
+        })();
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,15 @@
+rank,full_name,description,language,total_stars,stars_today,forks,url
+1,forrestchang/andrej-karpathy-skills,"A single CLAUDE.md file to improve Claude Code behavior, derived from Andrej Karpathy's observations on LLM coding pitfalls.",Unknown,81946,32115 stars this week,7777,https://github.com/forrestchang/andrej-karpathy-skills
+2,SimoneAvogadro/android-reverse-engineering-skill,Claude Code skill to support Android app's reverse engineering,Shell,4781,2702 stars this week,551,https://github.com/SimoneAvogadro/android-reverse-engineering-skill
+3,EvoMap/evolver,"The GEP-powered self-evolving engine for AI agents. Auditable evolution with Genes, Capsules, and Events. | evomap.ai",JavaScript,6741,3759 stars this week,664,https://github.com/EvoMap/evolver
+4,openai/openai-agents-python,"A lightweight, powerful framework for multi-agent workflows",Python,24920,3842 stars this week,3806,https://github.com/openai/openai-agents-python
+5,jamiepine/voicebox,"The open-source AI voice studio. Clone, dictate, create.",TypeScript,22965,3969 stars this week,2697,https://github.com/jamiepine/voicebox
+6,thedotmack/claude-mem,"A Claude Code plugin that automatically captures everything Claude does during your coding sessions, compresses it with AI (using Claude's agent-sdk), and injects relevant context back into future sessions.",TypeScript,66685,7562 stars this week,5655,https://github.com/thedotmack/claude-mem
+7,NousResearch/hermes-agent,The agent that grows with you,Python,114090,20316 stars this week,16657,https://github.com/NousResearch/hermes-agent
+8,multica-ai/multica,"The open-source managed agents platform. Turn coding agents into real teammates — assign tasks, track progress, compound skills.",TypeScript,20405,5741 stars this week,2480,https://github.com/multica-ai/multica
+9,Lordog/dive-into-llms,《动手学大模型Dive into LLMs》系列编程实践教程,Jupyter Notebook,34118,3561 stars this week,4185,https://github.com/Lordog/dive-into-llms
+10,Tracer-Cloud/opensre,Build your own AI SRE agents. The open source toolkit for the AI era ✨,Python,2737,1614 stars this week,300,https://github.com/Tracer-Cloud/opensre
+11,BasedHardware/omi,"AI that sees your screen, listens to your conversations and tells you what to do",Dart,12126,3373 stars this week,1867,https://github.com/BasedHardware/omi
+12,mksglu/context-mode,"Context window optimization for AI coding agents. Sandboxes tool output, 98% reduction. 12 platforms",TypeScript,9632,1797 stars this week,662,https://github.com/mksglu/context-mode
+13,zilliztech/claude-context,Code search MCP for Claude Code. Make entire codebase the context for any coding agent.,TypeScript,8690,2183 stars this week,676,https://github.com/zilliztech/claude-context
+14,microsoft/markitdown,Python tool for converting files and office documents to Markdown.,Python,116276,5758 stars this week,7607,https://github.com/microsoft/markitdown
