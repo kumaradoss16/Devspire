@@ -4008,3 +4008,384 @@ svg {
     text-align: center;
   }
 }
+
+
+/* ============================================================
+   GITHUB OS SHOWCASE — Matches uploaded reference card design
+   ============================================================ */
+
+/* Section */
+.os-section {
+  padding: 80px 5% 90px;
+  background: #080d1a;
+  position: relative;
+  overflow: hidden;
+  margin-top: 40px;
+}
+
+.os-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(
+    circle, rgba(0,212,255,0.035) 1px, transparent 1px
+  );
+  background-size: 30px 30px;
+  pointer-events: none;
+}
+
+/* Section header */
+.os-section-header {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px 20px;
+  margin-bottom: 40px;
+  position: relative;
+  z-index: 1;
+}
+
+.os-section-header h2 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.9rem;
+  font-weight: 700;
+  color: #e2e8f0;
+  margin: 0;
+  flex: 1 1 auto;
+}
+
+.os-github-icon {
+  width: 28px;
+  height: 28px;
+  color: #cbd5e1;
+  flex-shrink: 0;
+}
+
+.os-accent { color: #22d3a0; }
+
+.os-subtitle {
+  width: 100%;
+  color: #64748b;
+  margin: 0;
+  order: 3;
+  text-align: left;
+}
+
+.os-view-all-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 18px;
+  border: 1.5px solid rgba(0, 255, 85, 0.5);
+  border-radius: 6px;
+  color: #22d3a0;
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-decoration: none;
+  letter-spacing: 0.03em;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+  white-space: nowrap;
+  margin-left: auto;
+}
+
+.os-view-all-btn:hover {
+  background: rgba(0,212,255,0.1);
+  box-shadow: 0 0 16px rgba(0,212,255,0.25);
+}
+
+/* Grid */
+.os-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+    position: relative;
+  z-index: 1;
+}
+
+/* ── Card ── */
+.os-card {
+  position: relative;
+  background: #0d1526;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 18px 20px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+  cursor: default;
+}
+
+.os-card:hover {
+  border-color: rgba(255, 255, 255, 0.18);
+  transform: translateY(-3px);
+  box-shadow:
+    0 8px 28px rgba(0, 0, 0, 0.45),
+    0 0 0 1px rgba(255, 255, 255, 0.05);
+}
+
+/* ── Top Row: Category Pill + Arrow Button ── */
+.os-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Category pill — default style */
+.os-category-pill {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  /* Default: AI/ML — soft purple tint */
+  background: rgba(168, 85, 247, 0.12);
+  color: #c084fc;
+  border: 1px solid rgba(168, 85, 247, 0.25);
+}
+
+/* Security variant — amber/orange */
+.os-pill-security {
+  background: rgba(251, 146, 60, 0.12);
+  color: #fb923c;
+  border-color: rgba(251, 146, 60, 0.25);
+}
+
+/* Web/JS variant — cyan */
+.os-pill-web {
+  background: rgba(0, 212, 255, 0.10);
+  color: #00d4ff;
+  border-color: rgba(0, 212, 255, 0.22);
+}
+
+.os-pill-dev {
+  background: rgba(255, 25, 0, 0.1);
+  color: #ff0008;
+  border-color: rgba(255, 0, 30, 0.22);
+}
+
+/* Hacking variant — red */
+.os-pill-hacking {
+  background: rgba(239, 68, 68, 0.10);
+  color: #f87171;
+  border-color: rgba(239, 68, 68, 0.22);
+}
+
+/* Automation variant — green */
+.os-pill-automation {
+  background: rgba(34, 197, 94, 0.10);
+  color: #4ade80;
+  border-color: rgba(34, 197, 94, 0.22);
+}
+
+/* Networking variant — blue */
+.os-pill-networking {
+  background: rgba(59, 130, 246, 0.10);
+  color: #60a5fa;
+  border-color: rgba(59, 130, 246, 0.22);
+}
+
+/* Arrow icon button — top right */
+.os-arrow-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  color: #64748b;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+  flex-shrink: 0;
+}
+
+.os-arrow-btn:hover {
+  background: rgba(255, 255, 255, 0.10);
+  border-color: rgba(255, 255, 255, 0.22);
+  color: #e2e8f0;
+}
+
+/* ── Owner / Repo Name ── */
+.os-card-repo {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 2px 0;
+  line-height: 1.35;
+}
+
+.os-owner {
+  font-size: 0.8rem;
+  color: #64748b;
+  font-weight: 400;
+}
+
+.os-separator {
+  font-size: 0.8rem;
+  color: #64748b;
+  margin: 0 3px;
+}
+
+.os-repo-name {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #ce1d35;
+  text-decoration: none;
+  word-break: break-all;
+  transition: color 0.2s;
+  display: block;
+  width: 100%;
+  margin-top: 1px;
+}
+
+.os-repo-name:hover {
+  color: #c4b5fd;
+}
+
+/* Repo name color per card category */
+.os-card:has(.os-pill-security) .os-repo-name {
+  color: #fb923c;
+}
+.os-card:has(.os-pill-security) .os-repo-name:hover {
+  color: #fdba74;
+}
+
+.os-card:has(.os-pill-web) .os-repo-name {
+  color: #00d4ff;
+}
+.os-card:has(.os-pill-web) .os-repo-name:hover {
+  color: #67e8f9;
+}
+
+.os-card:has(.os-pill-hacking) .os-repo-name {
+  color: #f87171;
+}
+.os-card:has(.os-pill-automation) .os-repo-name {
+  color: #4ade80;
+}
+.os-card:has(.os-pill-networking) .os-repo-name {
+  color: #60a5fa;
+}
+
+/* ── Description ── */
+.os-card-desc {
+  font-size: 0.85rem;
+  color: #7a8fa6;
+  line-height: 1.65;
+  margin: 0;
+  flex: 1;
+  /* Clamp to 3 lines like reference */
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* ── Topic Tags ── */
+.os-topic-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.os-topic {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  color: #64748b;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: color 0.2s, border-color 0.2s, background 0.2s;
+  cursor: default;
+}
+
+.os-topic:hover {
+  color: #94a3b8;
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(255, 255, 255, 0.14);
+}
+
+/* ── Card Footer: Language dot + Date ── */
+.os-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  gap: 8px;
+}
+
+/* Language dot + name */
+.os-lang {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.78rem;
+  color: #94a3b8;
+  font-weight: 500;
+}
+
+.os-lang-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  box-shadow: 0 0 6px currentColor;
+}
+
+/* Date */
+.os-card-date {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.72rem;
+  color: #4a5568;
+  font-family: 'Fira Code', 'Courier New', monospace;
+  white-space: nowrap;
+}
+
+.os-card-date svg {
+  color: #4a5568;
+  flex-shrink: 0;
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .os-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  /* .os-section {
+    padding: 56px 4% 64px;
+  } */
+
+  .os-section-header h2 {
+    font-size: 1.5rem;
+  }
+
+  .os-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .os-view-all-btn {
+    width: 100%;
+    justify-content: center;
+    margin-left: 0;
+  }
+
+  .os-subtitle {
+    order: 3;
+  }
+}
