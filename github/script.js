@@ -958,7 +958,7 @@
                 cat: "dev",
                 desc: "A Go-based AI agent orchestration runtime. Provides a lightweight shell-native framework for spawning, coordinating, and managing multi-step AI agent workflows.",
                 language: null,
-                topics: [],
+                topics: ["GO],
                 updated: "21 February 2026",
                 isNew: false
             },
@@ -1057,7 +1057,7 @@
                 cat: "systems",
                 desc: "A chaos engineering tool for testing the resilience of distributed systems.",
                 language: null,
-                topics: [],
+                topics: ["Go"],
                 updated: "24 February 2026",
                 isNew: false
             },
@@ -1442,7 +1442,7 @@
                 cat: "dev",
                 desc: "DevOps guardrail system that enforces decision policies and compliance rules across automated deployment pipelines.",
                 language: null,
-                topics: [],
+                topics: ["TypeScript"],
                 updated: "4 March 2026",
                 isNew: false
             },
@@ -2069,7 +2069,7 @@
                 cat: "dev",
                 desc: "Lightweight table-of-contents generator for static sites and documentation pages, built as a zero-dependency script.",
                 language: null,
-                topics: [],
+                topics: ["Python"],
                 updated: "18 March 2026",
                 isNew: false
             },
@@ -3334,7 +3334,7 @@
                 cat: "web",
                 desc: "Boilerplate backend service scaffold for production-grade APIs with auth, database, and deployment configuration.",
                 language: null,
-                topics: [],
+                topics: ["TypeScript"],
                 updated: "16 April 2026",
                 isNew: false
             },
