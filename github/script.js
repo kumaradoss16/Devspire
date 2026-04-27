@@ -1,9 +1,15 @@
-(function () {
+'use strict'
+ const CATS = {
+                all: { label: "All Projects", emoji: "⚡", desc: "Show everything", color: "#22d3a0", dim: "rgba(34,211,160,.09)", border: "rgba(34,211,160,.28)" },
+                security: { label: "Security", emoji: "🛡️", desc: "Hacking & pen-testing", color: "#22d3a0", dim: "rgba(34,211,160,.09)", border: "rgba(34,211,160,.28)" },
+                ai: { label: "AI / ML", emoji: "🧠", desc: "Models & automation", color: "#a78bfa", dim: "rgba(167,139,250,.09)", border: "rgba(167,139,250,.28)" },
+                dev: { label: "Dev Tools", emoji: "🛠️", desc: "CLIs, linters, utils", color: "#60a5fa", dim: "rgba(96,165,250,.09)", border: "rgba(96,165,250,.28)" },
+                network: { label: "Network", emoji: "📡", desc: "Scanners & protocols", color: "#22d3ee", dim: "rgba(34,211,238,.09)", border: "rgba(34,211,238,.28)" },
+                systems: { label: "Systems", emoji: "⚙️", desc: "OS & low-level tools", color: "#fbbf24", dim: "rgba(251,191,36,.09)", border: "rgba(251,191,36,.28)" },
+                web: { label: "Web", emoji: "🌐", desc: "Frameworks & frontends", color: "#f87171", dim: "rgba(248,113,113,.09)", border: "rgba(248,113,113,.28)" }
+            };
 
-            /* ============================================================
-               STATIC REPO DATA — Edit all project info here manually.
-               cat options: "security" | "ai" | "dev" | "network" | "systems" | "web"
-            ============================================================ */
+            const LANG_COLORS = { Python: "#3572A5", JavaScript: "#f1e05a", TypeScript: "#3178c6", Go: "#00ADD8", Rust: "#dea584", C: "#555", "C++": "#f34b7d", Java: "#b07219", Kotlin: "#A97BFF", Shell: "#89e051", HTML: "#e34c26", CSS: "#563d7c", Ruby: "#701516", Swift: "#F05138", PHP: "#4F5D95", Dart: "#00B4AB", default: "#8892a4" };
 const REPOS = [
         {
             owner: "yohey-w",
@@ -3756,19 +3762,7 @@ const REPOS = [
             updated: "25 April 2026",
             isNew: true
         }
-];
-
-            const CATS = {
-                all: { label: "All Projects", emoji: "⚡", desc: "Show everything", color: "#22d3a0", dim: "rgba(34,211,160,.09)", border: "rgba(34,211,160,.28)" },
-                security: { label: "Security", emoji: "🛡️", desc: "Hacking & pen-testing", color: "#22d3a0", dim: "rgba(34,211,160,.09)", border: "rgba(34,211,160,.28)" },
-                ai: { label: "AI / ML", emoji: "🧠", desc: "Models & automation", color: "#a78bfa", dim: "rgba(167,139,250,.09)", border: "rgba(167,139,250,.28)" },
-                dev: { label: "Dev Tools", emoji: "🛠️", desc: "CLIs, linters, utils", color: "#60a5fa", dim: "rgba(96,165,250,.09)", border: "rgba(96,165,250,.28)" },
-                network: { label: "Network", emoji: "📡", desc: "Scanners & protocols", color: "#22d3ee", dim: "rgba(34,211,238,.09)", border: "rgba(34,211,238,.28)" },
-                systems: { label: "Systems", emoji: "⚙️", desc: "OS & low-level tools", color: "#fbbf24", dim: "rgba(251,191,36,.09)", border: "rgba(251,191,36,.28)" },
-                web: { label: "Web", emoji: "🌐", desc: "Frameworks & frontends", color: "#f87171", dim: "rgba(248,113,113,.09)", border: "rgba(248,113,113,.28)" }
-            };
-
-            const LANG_COLORS = { Python: "#3572A5", JavaScript: "#f1e05a", TypeScript: "#3178c6", Go: "#00ADD8", Rust: "#dea584", C: "#555", "C++": "#f34b7d", Java: "#b07219", Kotlin: "#A97BFF", Shell: "#89e051", HTML: "#e34c26", CSS: "#563d7c", Ruby: "#701516", Swift: "#F05138", PHP: "#4F5D95", Dart: "#00B4AB", default: "#8892a4" };
+     ];
 
             let active = "all", menuOpen = false;
 
@@ -3894,16 +3888,14 @@ const REPOS = [
                 document.getElementById("sb-total").textContent = REPOS.length;
                 document.getElementById("sb-visible").textContent = filtered.length;
             }
-
+    
+document.addEventListener('DOMContentLoaded', () => {
             /* ---- INIT ---- */
             buildMenu();
             updateTrigger();
             renderGrid();
             updateBanner();
 
-        })();
-    
-document.addEventListener('DOMContentLoaded', () => {
   const menuToggle = document.querySelector('.menu-toggle');
   const navLinks   = document.querySelector('.nav-links');
   if (menuToggle && navLinks) {
