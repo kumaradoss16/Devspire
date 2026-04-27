@@ -3895,15 +3895,14 @@
                 document.getElementById("sb-visible").textContent = filtered.length;
             }
 
+        })();
+    
+document.addEventListener('DOMContentLoaded', () => {
             /* ---- INIT ---- */
             buildMenu();
             updateTrigger();
             renderGrid();
             updateBanner();
-
-        })();
-    
-document.addEventListener('DOMContentLoaded', () => {
   const menuToggle = document.querySelector('.menu-toggle');
   const navLinks   = document.querySelector('.nav-links');
   if (menuToggle && navLinks) {
