@@ -1,4 +1,4 @@
-function initRepoGrid() {
+(function () {
 
             /* ============================================================
                STATIC REPO DATA — Edit all project info here manually.
@@ -3814,7 +3814,6 @@ function initRepoGrid() {
             /* ---- Build dropdown ---- */
             function buildMenu() {
                 const menu = document.getElementById("sb-menu");
-                if (!menu) return;
                 const usedCats = [...new Set(REPOS.map(r => r.cat))];
                 const allCats = ["all", ...usedCats];
                 let html = "";
@@ -3850,8 +3849,6 @@ function initRepoGrid() {
 
             const trigger = document.getElementById("sb-trigger");
             const menuEl = document.getElementById("sb-menu");
-            if (!trigger || !menuEl) return;
-
             function openMenu() { menuOpen = true; menuEl.classList.add("open"); trigger.classList.add("open"); trigger.setAttribute("aria-expanded", "true"); }
             function closeMenu() { menuOpen = false; menuEl.classList.remove("open"); trigger.classList.remove("open"); trigger.setAttribute("aria-expanded", "false"); }
             trigger.addEventListener("click", e => { e.stopPropagation(); menuOpen ? closeMenu() : openMenu(); });
@@ -3860,23 +3857,16 @@ function initRepoGrid() {
 
             function updateTrigger() {
                 const m = CATS[active] || CATS.all;
-                const icon = document.getElementById("sb-trigger-icon");
-                const label = document.getElementById("sb-trigger-label");
-                const sub = document.getElementById("sb-trigger-sub");
-                const bar = document.getElementById("sb-trigger-bar");
-                
-                if (icon) icon.textContent = m.emoji;
-                if (label) label.textContent = m.label;
-                if (sub) sub.textContent = m.desc;
-                if (bar) bar.style.background = m.color;
-                
+                document.getElementById("sb-trigger-icon").textContent = m.emoji;
+                document.getElementById("sb-trigger-label").textContent = m.label;
+                document.getElementById("sb-trigger-sub").textContent = m.desc;
+                document.getElementById("sb-trigger-bar").style.background = m.color;
                 trigger.style.setProperty("--cat-color", m.color);
                 trigger.style.setProperty("--cat-glow", m.dim);
             }
 
             function updateBanner() {
                 const banner = document.getElementById("cat-banner");
-                if (!banner) return;
                 const m = CATS[active] || CATS.all;
                 const visible = active === "all" ? REPOS.length : REPOS.filter(r => r.cat === active).length;
                 banner.style.cssText = `--cat:${m.color};--catd:${m.dim};--catb:${m.border};`;
@@ -3890,7 +3880,6 @@ function initRepoGrid() {
 
             function renderGrid() {
                 const grid = document.getElementById("oss-grid");
-                if (!grid) return;
                 const filtered = active === "all" ? REPOS : REPOS.filter(r => r.cat === active);
                 grid.innerHTML = filtered.length
                     ? filtered.map(buildCard).join("")
@@ -3902,10 +3891,8 @@ function initRepoGrid() {
           </svg>
           <p>No projects in this category yet.</p>
         </div>`;
-                const totalEl = document.getElementById("sb-total");
-                const visibleEl = document.getElementById("sb-visible");
-                if (totalEl) totalEl.textContent = REPOS.length;
-                if (visibleEl) visibleEl.textContent = filtered.length;
+                document.getElementById("sb-total").textContent = REPOS.length;
+                document.getElementById("sb-visible").textContent = filtered.length;
             }
 
             /* ---- INIT ---- */
@@ -3913,82 +3900,80 @@ function initRepoGrid() {
             updateTrigger();
             renderGrid();
             updateBanner();
-        }
+
+        })();
     
 document.addEventListener('DOMContentLoaded', () => {
-  // Initialize Repository Grid
-  initRepoGrid();
-
   const menuToggle = document.querySelector('.menu-toggle');
   const navLinks   = document.querySelector('.nav-links');
   if (menuToggle && navLinks) {
     menuToggle.addEventListener('click', () => {
       navLinks.classList.toggle('active');
       const icon = menuToggle.querySelector('i');
-      if (icon && navLinks.classList.contains('active')) {
+      if (navLinks.classList.contains('active')) {
         icon.classList.remove('fa-bars');
         icon.classList.add('fa-times');
-      } else if (icon) {
+      } else {
         icon.classList.remove('fa-times');
         icon.classList.add('fa-bars');
       }
     });
   }
+});
 
-  // ── Typewriter Effect ─────────────────────────────────
-  const typewriterEl = document.getElementById('brand');
-  if (typewriterEl) {
-    const text         = typewriterEl.dataset.text || 'DevSpireHub';
-    let i              = 0;
-    let isDeleting     = false;
-    const typeSpeed    = 100;
-    const deleteSpeed  = 50;
-    const pauseTime    = 2000;
-    const restartPause = 500;
+// ── Typewriter Effect ─────────────────────────────────
+const el = document.getElementById('brand');
+if (el) {
+  const text         = el.dataset.text || 'DevSpireHub';
+  let i              = 0;
+  let isDeleting     = false;
+  const typeSpeed    = 100;
+  const deleteSpeed  = 50;
+  const pauseTime    = 2000;
+  const restartPause = 500;
 
-    function typeLoop() {
-      typewriterEl.textContent = text.slice(0, i);
-      if (!isDeleting && i < text.length) {
-        i++;
-        setTimeout(typeLoop, typeSpeed);
-      } else if (!isDeleting && i === text.length) {
-        isDeleting = true;
-        setTimeout(typeLoop, pauseTime);
-      } else if (isDeleting && i > 0) {
-        i--;
-        setTimeout(typeLoop, deleteSpeed);
-      } else {
-        isDeleting = false;
-        setTimeout(typeLoop, restartPause);
-      }
+  function typeLoop() {
+    el.textContent = text.slice(0, i);
+    if (!isDeleting && i < text.length) {
+      i++;
+      setTimeout(typeLoop, typeSpeed);
+    } else if (!isDeleting && i === text.length) {
+      isDeleting = true;
+      setTimeout(typeLoop, pauseTime);
+    } else if (isDeleting && i > 0) {
+      i--;
+      setTimeout(typeLoop, deleteSpeed);
+    } else {
+      isDeleting = false;
+      setTimeout(typeLoop, restartPause);
     }
-    typeLoop();
+  }
+  typeLoop();
+}
+
+// ── Scroll To Top + Progress Circle ──────────────────
+const scrollBtn = document.getElementById('scrollUpBtn');
+if (scrollBtn) {
+  const circle        = scrollBtn.querySelector('.progress-circle');
+  const circumference = 2 * Math.PI * 15.9155;
+
+  if (circle) {
+    circle.style.strokeDasharray  = circumference;
+    circle.style.strokeDashoffset = circumference;
   }
 
-  // ── Scroll To Top + Progress Circle ──────────────────
-  const scrollBtn = document.getElementById('scrollUpBtn');
-  if (scrollBtn) {
-    const circle        = scrollBtn.querySelector('.progress-circle');
-    const circumference = 2 * Math.PI * 15.9155;
+  window.addEventListener('scroll', () => {
+    const scrollTop     = window.scrollY;
+    const docHeight     = document.documentElement.scrollHeight - window.innerHeight;
+    const scrollPercent = docHeight > 0 ? scrollTop / docHeight : 0;
 
     if (circle) {
-      circle.style.strokeDasharray  = circumference;
-      circle.style.strokeDashoffset = circumference;
+      circle.style.strokeDashoffset = circumference * (1 - scrollPercent);
     }
+    scrollBtn.style.display = scrollTop > 100 ? 'block' : 'none';
+  });
 
-    window.addEventListener('scroll', () => {
-      const scrollTop     = window.scrollY;
-      const docHeight     = document.documentElement.scrollHeight - window.innerHeight;
-      const scrollPercent = docHeight > 0 ? scrollTop / docHeight : 0;
-
-      if (circle) {
-        circle.style.strokeDashoffset = circumference * (1 - scrollPercent);
-      }
-      scrollBtn.style.display = scrollTop > 100 ? 'block' : 'none';
-    });
-
-    scrollBtn.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-  }
-});
+  scrollBtn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+}
