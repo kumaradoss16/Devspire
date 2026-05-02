@@ -3074,7 +3074,7 @@ svg {
 
 .footer i {
     margin-top: 20px;
-    font-size: var(--font-h1);
+    font-size: var(--font-h2);
 }
 
 @media (min-width: 768px) {
