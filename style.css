@@ -3074,7 +3074,7 @@ svg {
 
 .footer i {
     margin-top: 20px;
-    font-size: var(--font-h2);
+    font-size: var(--font-h1);
 }
 
 @media (min-width: 768px) {
@@ -3871,6 +3871,7 @@ svg {
 }
 
 .tag-python     { background: rgba(0, 207, 255, 0.12); color: #00cfff; border: 1px solid rgba(0, 207, 255, 0.25); }
+.tag-html     { background: rgba(255, 132, 0, 0.12); color: #ff4400; border: 1px solid rgba(255, 42, 0, 0.25); }
 .tag-js  { background: rgba(204, 255, 0, 0.12); color: #d9ff00; border: 1px solid rgba(204, 255, 0, 0.25); }
 .tag-tutorial    { background: rgba(255, 68, 0, 0.12); color: var(--color-orange); border: 1px solid rgba(255, 81, 0, 0.25); }
 .tag-automation { background: rgba(255, 0, 217, 0.1); color: #ff0080; border: 1px solid rgba(208, 0, 255, 0.25); }
