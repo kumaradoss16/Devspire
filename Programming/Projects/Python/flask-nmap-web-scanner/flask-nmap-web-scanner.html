@@ -1,0 +1,2735 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="../../../../images/icon.webp" sizes="32x46" type="image/png">
+    <title>Flask Nmap Web Scanner — Build a Python Network Port Scanner with Dashboard</title>
+
+    <meta name="description"
+        content="Build a browser-based Nmap port scanner with Flask, SQLite, and python-nmap. Scan IPs and subnets, view open ports and services in a live table, and export results as CSV or JSON — step-by-step Python tutorial for beginners and pentesters.">
+
+    <meta name="keywords"
+        content="Flask Nmap web scanner, Python port scanner Flask, python-nmap tutorial, network scanner dashboard Python, ethical hacking Python project, Nmap Flask SQLite, build Nmap GUI Python, port scanning web app, cybersecurity Python beginner project, Nmap automation Python">
+
+    <meta name="robots" content="index, follow, max-snippet=-1, max-image-preview=large, max-video-preview=-1">
+
+    <meta name="author" content="Kumaradoss — DevspireHub">
+    <meta name="publisher" content="DevspireHub">
+    <link rel="author" href="https://devspirehub.com/about">
+
+    <!-- Canonical -->
+    <link rel="canonical"
+        href="https://devspirehub.com/ProgrammingProjects/Python/flask-nmap-web-scanner/flask-nmap-web-scanner.html">
+
+    <!-- ============================================================
+           3. OPEN GRAPH — Facebook, LinkedIn, Discord, WhatsApp
+      ============================================================ -->
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="DevspireHub">
+    <meta property="og:locale" content="en_IN">
+    <meta property="og:title" content="Build a Flask Nmap Web Scanner — Python Network Port Scanner with Dashboard">
+    <meta property="og:description"
+        content="Turn Nmap into a web app. Build a Flask + python-nmap dashboard that scans IPs from your browser, stores history in SQLite, and exports results as CSV or JSON. Free step-by-step Python tutorial.">
+    <meta property="og:url"
+        content="https://devspirehub.com/ProgrammingProjects/Python/flask-nmap-web-scanner/flask-nmap-web-scanner.html">
+    <meta property="og:image"
+        content="https://devspirehub.com/ProgrammingProjects/Python/flask-nmap-web-scanner/images/flask-nmap-web-scanner.webp">
+    <meta property="og:image:alt"
+        content="Flask Nmap Web Scanner — Python Network Port Scanner Dashboard Tutorial | DevspireHub">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <!-- ============================================================
+           4. TWITTER CARD TAGS
+      ============================================================ -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@devspirehub">
+    <meta name="twitter:title" content="Build a Flask Nmap Web Scanner — Python Port Scanner Tutorial | DevspireHub">
+    <meta name="twitter:description"
+        content="Build a browser-based network port scanner using Flask, Nmap, and SQLite. Scan IPs, detect open ports and services, export CSV/JSON — beginner Python cybersecurity project.">
+    <meta name="twitter:image"
+        content="https://devspirehub.com/ProgrammingProjects/Python/flask-nmap-web-scanner/images/flask-nmap-web-scanner.webp">
+
+    <!-- ============================================================
+           5. TECHNICAL SEO + PERFORMANCE TAGS
+      ============================================================ -->
+
+    <!-- Theme Color (browser UI on mobile) -->
+    <meta name="theme-color" content="#0f172a">
+
+    <!-- Favicon -->
+    <link rel="icon" href="../../images/icon.webp" sizes="32x46" type="image/png">
+    <link rel="apple-touch-icon" href="../../images/icon.webp">
+
+    <!-- Preconnect for external resources (Core Web Vitals boost) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://pagead2.googlesyndication.com">
+    <link rel="preconnect" href="https://www.googletagmanager.com">
+
+    <!-- DNS Prefetch (fallback for older browsers) -->
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+
+    <!-- Preload critical above-the-fold image (LCP optimization) -->
+    <link rel="preload" as="image" href="images/flask-nmap-web-scanner.webp" fetchpriority="high">
+
+    <!-- Preload critical font -->
+    <link rel="preload" as="style"
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <!-- ============================================================
+           6. JSON-LD STRUCTURED DATA
+      ============================================================ -->
+
+    <!-- 6a. Organization Schema -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "DevspireHub",
+        "url": "https://devspirehub.com",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://devspirehub.com/images/icon.webp",
+          "width": 200,
+          "height": 60
+        },
+        "description": "DevspireHub — Programming, Projects, Ethical Hacking, Networking, Cloud & AI tutorials for beginners.",
+        "founder": {
+          "@type": "Person",
+          "name": "Kumaradoss",
+          "url": "https://www.linkedin.com/in/kumaradoss-s"
+        },
+        "sameAs": [
+          "https://www.linkedin.com/in/kumaradoss-s",
+          "https://github.com/kumaradoss16",
+          "https://www.instagram.com/devspirehub",
+          "https://www.facebook.com/profile.php?id=61577667990170"
+        ]
+      }
+      </script>
+
+    <!-- 6b. WebSite Schema (enables Google Sitelinks Search Box) -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "DevspireHub",
+        "url": "https://devspirehub.com",
+        "description": "Beginner-friendly tutorials for programming, ethical hacking, networking, automation, and cloud — no signups, no tracking.",
+        "publisher": {
+          "@type": "Organization",
+          "name": "DevspireHub"
+        }
+      }
+      </script>
+
+    <!-- 6c. BreadcrumbList Schema -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://devspirehub.com"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Programming Projects",
+            "item": "https://devspirehub.com/programming-tutorials-section"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Python Projects",
+            "item": "https://devspirehub.com/ProgrammingProjects/Python"
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "name": "Flask Nmap Web Scanner",
+            "item": "https://devspirehub.com/ProgrammingProjects/Python/flask-nmap-web-scanner/flask-nmap-web-scanner.html"
+          }
+        ]
+      }
+      </script>
+
+    <!-- 6d. TechArticle Schema -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "TechArticle",
+        "@id": "https://devspirehub.com/ProgrammingProjects/Python/flask-nmap-web-scanner/#article",
+        "headline": "Flask Nmap Web Scanner — Build a Python Network Port Scanner with Dashboard",
+        "description": "Learn to build a browser-based Nmap port scanner using Flask, python-nmap, and SQLite. Covers scan routing, result rendering, SQLite persistence, CSV/JSON export, and scan history page — complete beginner-to-production Python cybersecurity project.",
+        "url": "https://devspirehub.com/ProgrammingProjects/Python/flask-nmap-web-scanner/flask-nmap-web-scanner.html",
+        "datePublished": "2026-05-08",
+        "dateModified": "2026-05-08",
+        "inLanguage": "en-IN",
+        "articleSection": "Python Projects",
+        "proficiencyLevel": "Beginner",
+        "dependencies": "Python 3.x, Flask, python-nmap, SQLite3, Nmap (binary)",
+        "keywords": "Flask Nmap, Python port scanner, network scanner web app, python-nmap Flask tutorial, ethical hacking Python project, Nmap automation, scan history SQLite, CSV JSON export Flask",
+        "image": {
+          "@type": "ImageObject",
+          "url": "https://devspirehub.com/ProgrammingProjects/Python/flask-nmap-web-scanner/images/flask-nmap-web-scanner.webp",
+          "width": 1200,
+          "height": 630
+        },
+        "author": {
+          "@type": "Person",
+          "name": "Kumaradoss",
+          "url": "https://devspirehub.com/about",
+          "sameAs": [
+            "https://www.linkedin.com/in/kumaradoss-s",
+            "https://github.com/kumaradoss16"
+          ]
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "DevspireHub",
+          "url": "https://devspirehub.com",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://devspirehub.com/images/icon.webp",
+            "width": 200,
+            "height": 60
+          }
+        },
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "https://devspirehub.com/ProgrammingProjects/Python/flask-nmap-web-scanner/flask-nmap-web-scanner.html"
+        },
+        "isPartOf": {
+          "@type": "Series",
+          "name": "Python Cybersecurity Projects",
+          "url": "https://devspirehub.com/ProgrammingProjects/Python"
+        },
+        "about": [
+          { "@type": "Thing", "name": "Flask", "sameAs": "https://en.wikipedia.org/wiki/Flask_(web_framework)" },
+          { "@type": "Thing", "name": "Nmap", "sameAs": "https://en.wikipedia.org/wiki/Nmap" },
+          { "@type": "Thing", "name": "Port Scanning", "sameAs": "https://en.wikipedia.org/wiki/Port_scanner" },
+          { "@type": "Thing", "name": "SQLite", "sameAs": "https://en.wikipedia.org/wiki/SQLite" },
+          { "@type": "Thing", "name": "Ethical Hacking", "sameAs": "https://en.wikipedia.org/wiki/Ethical_hacking" },
+          { "@type": "Thing", "name": "Python", "sameAs": "https://en.wikipedia.org/wiki/Python_(programming_language)" }
+        ],
+        "mentions": [
+          { "@type": "SoftwareApplication", "name": "Flask", "applicationCategory": "Web Framework", "operatingSystem": "Cross-platform" },
+          { "@type": "SoftwareApplication", "name": "Nmap", "applicationCategory": "Network Scanner", "operatingSystem": "Windows, Linux, macOS" },
+          { "@type": "SoftwareApplication", "name": "python-nmap", "applicationCategory": "Python Library", "operatingSystem": "Cross-platform" },
+          { "@type": "SoftwareApplication", "name": "SQLite", "applicationCategory": "Embedded Database", "operatingSystem": "Cross-platform" }
+        ]
+      }
+      </script>
+
+    <!-- 6e. HowTo Schema -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "HowTo",
+        "@id": "https://devspirehub.com/ProgrammingProjects/Python/flask-nmap-web-scanner/#howto",
+        "name": "How to Build a Flask Nmap Web Scanner",
+        "description": "Step-by-step guide to building a browser-based network port scanner with Flask, python-nmap, and SQLite — including scan history and CSV/JSON export.",
+        "totalTime": "PT45M",
+        "estimatedCost": {
+          "@type": "MonetaryAmount",
+          "currency": "INR",
+          "value": "0"
+        },
+        "supply": [
+          { "@type": "HowToSupply", "name": "Python 3.x installed" },
+          { "@type": "HowToSupply", "name": "Nmap binary installed (nmap -V must work in terminal)" },
+          { "@type": "HowToSupply", "name": "pip packages: Flask, python-nmap, colorama" },
+          { "@type": "HowToSupply", "name": "A network or IP you own/have permission to scan" }
+        ],
+        "tool": [
+          { "@type": "HowToTool", "name": "VS Code or any Python editor" },
+          { "@type": "HowToTool", "name": "Terminal / Command Prompt" },
+          { "@type": "HowToTool", "name": "Browser (Chrome, Firefox)" }
+        ],
+        "step": [
+          { "@type": "HowToStep", "position": 1, "name": "Introduction — What is Flask and Nmap?", "text": "Understand how Flask acts as the web front-end for Nmap, handling browser requests and rendering scan results via Jinja2 templates." },
+          { "@type": "HowToStep", "position": 2, "name": "Requirements and Prerequisites", "text": "Install Python 3.x, Nmap binary, and pip packages: Flask, python-nmap, colorama. Set up the project structure: app.py + templates/." },
+          { "@type": "HowToStep", "position": 3, "name": "Build the Main Flask App — app.py", "text": "Create app.py with SQLite DB init, getdb/closedb request lifecycle handlers, run_nmap_scan() function, and 4 routes: /, /api/scan, /api/download/<id>.<fmt>, /history." },
+          { "@type": "HowToStep", "position": 4, "name": "Build the Scan Dashboard — index.html", "text": "Create templates/index.html with a scan form, JavaScript fetch() to POST to /api/scan, dynamic results table, and CSV/JSON download buttons." },
+          { "@type": "HowToStep", "position": 5, "name": "Build the Scan History Page — history.html", "text": "Create templates/history.html using Jinja2 for loop to render all past scans from SQLite with direct CSV and JSON download links." },
+          { "@type": "HowToStep", "position": 6, "name": "Run and Test the Scanner", "text": "Run python app.py, visit http://localhost:5000, enter a target IP, scan, download results, and review scan history at /history." }
+        ]
+      }
+      </script>
+    <!-- Author & Publisher -->
+    <meta name="author" content="Kumaradoss DevspireHub">
+    <meta name="publisher" content="DevspireHub">
+    <link rel="author" href="https://devspirehub.com/about">
+
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <!-- Prism.js CSS theme -->
+    <link rel="stylesheet" href="../../Prism/prism.css" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+
+
+    <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+    <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+
+    <link rel="stylesheet" href="style.css" />
+
+
+    <script type="application/ld+json">
+        {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "DevspireHub",
+        "url": "https://devspirehub.com",
+        "logo": "https://devspirehub.com/image/icon.webp",
+        "description": "DevspireHub - Programming, Projects, Ethical hacking, Networking & AI",
+        "founder": [
+            {
+            "@type": "Person",
+            "name": "Kumaradoss",
+            "url": "https://www.linkedin.com/in/kumaradoss-s/"
+            }
+        ],
+        "sameAs": [
+            "https://www.linkedin.com/in/kumaradoss-s/",
+            "https://github.com/kumaradoss16",
+        ]
+        }
+    </script>
+
+    <script type=application/ld+json>
+        {
+            "@context": "https://schema.org",
+            "@type": "SiteNavigationElement",
+            "name": [
+                "Home",
+                "Projects",
+                "Programming",
+                "Ethical Hacking",
+                "Networking",
+                "Automation",
+                "Resources"
+            ],
+            "url": [
+                "https://devspirehub.com",
+                "https://devspirehub.com/#projects-tutorials-section",
+                "https://devspirehub.com/#programming-tutorials-section",
+                "https://devspirehub.com/#ethical-hacking-section",
+                "https://devspirehub.com/#networking-section",
+                "https://devspirehub.com/#automation-section",
+                "https://devspirehub.com/#info-section",
+            ]
+        }
+    </script>
+
+
+    <!-- Google Tag Manager -->
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-M457RGDF');</script>
+    <!-- End Google Tag Manager -->
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2368356039533778"
+        crossorigin="anonymous"></script>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6VWY63Q80N"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-6VWY63Q80N');
+    </script>
+
+    <script async custom-element="amp-auto-ads" src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+
+</head>
+
+<body>
+
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M457RGDF" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <amp-auto-ads type="adsense" data-ad-client="ca-pub-2368356039533778">
+    </amp-auto-ads>
+
+    <!-- Header  -->
+    <header class="navbar">
+        <div class="container">
+            <div class="logo">
+                <div class="logo-text">
+                    <!-- <i class="fas fa-code"></i> -->
+                    <a href="../../../../index.html"><img src="../../../../images/icon.webp" alt="Gear Icon" width="23"
+                            height="23"></a>
+                    <span id="brand" class="typewriter" data-text="DevspireHub"></span>
+                </div>
+                <button class="menu-toggle" type="button" aria-label="Toggle navigation">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            <nav class="nav-links">
+                <ul>
+                    <li><a href="../../../../index.html" class="home"><i class="fa-solid fa-house"></i></a></li>
+                    <li><a href="../../../../index.html#projects-tutorials-section" class="projects">Projects</a></li>
+                    <li><a href="../../../../index.html#programming-tutorials-section"
+                            class="programming">Programming</a></li>
+                    <li><a href="../../../../index.html#ethical-hacking-section" class="hacking">Ethical Hacking</a>
+                    </li>
+                    <li><a href="../../../../index.html#networking-section" class="networking">Networking</a></li>
+                    <li><a href="../../../../index.html#automation-section" class="ai">Automation</a></li>
+                    <li><a href="../../../../index.html#info-section" class="game">Resources</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="main-content-wrapper container">
+        <!-- Left Side  -->
+        <main class="left-column">
+            <section class="project-details-section">
+                <h1>Flask Nmap Web Scanner – Network Port Scanner Built with Python & Flask</h1>
+                <p>Learn How to Create a Flask-Based Nmap Web Scanner:
+                    Step-by-Step
+                    Guide for
+                    Beginners:</p>
+
+                <div class="image-placeholder">
+                    <img src="images/flask-nmap-web-scanner.webp"
+                        alt="Build a Python Telegram Bot That Monitors Any Website and Alerts You Instantly"
+                        loading="lazy" decoding="async" fetchpriority="auto" />
+                </div>
+                <p>In this tutorial, you’ll learn how to build a Flask‑based Nmap web dashboard that lets you run
+                    network scans directly
+                    from your browser using Python. Instead of running Nmap manually from the command line, you’ll
+                    create a simple but
+                    powerful interface where you can enter a target IP or subnet, specify a port range, and instantly
+                    see open ports,
+                    services, and versions in a clean HTML table.
+                </p>
+                <p>This project is perfect for cybersecurity learners, ethical hackers, DevOps engineers, and Python
+                    developers who want a
+                    practical Python cybersecurity project for their portfolio. You’ll see how to integrate Nmap,
+                    python‑nmap, and Flask to
+                    automate port scanning, visualize results, and lay the foundation for more advanced features like
+                    scan history,
+                    reporting, and dashboards. By the end, you’ll understand how to turn a command‑line scan into a
+                    reusable network scanner
+                    Python web app that can be extended for real‑world security workflows.
+                </p>
+            </section>
+
+            <section class="table-of-contents-section">
+                <h2><i class="fas fa-list"></i>Table of Contents</h2>
+                <ol>
+                    <li><a href="#step-1">Introduction</a></li>
+                    <li><a href="#step-2">Requirements and Prerequisites</a></li>
+                    <li><a href="#step-3">Main Flask application (app.py)</a></li>
+                    <li><a href="#step-4">Scan Dashboard (index.html)</a></li>
+                    <li><a href="#step-5">Scan History Page (history.html)</a></li>
+                    <li><a href="#step-6">Conclusion</a></li>
+                </ol>
+            </section>
+
+            <section id="implementation-details step-1" class="implementation-section">
+                <h2>Introduction</h2>
+                <div class="content">
+                    <h3>What Is Flask?</h3>
+                    <p><strong>Flask</strong> is a lightweight, Python‑based web framework designed for building web
+                        applications and APIs
+                        quickly and with
+                        minimal boilerplate. It follows a “micro‑framework” philosophy: instead of forcing a heavy
+                        structure, Flask gives you
+                        just the essentials—routing, request/response handling, and templating—so you can decide how to
+                        structure your project
+                        and which extensions to add.
+                    </p>
+                    <div class="list">
+                        <p class="sub"><strong class="subtitle">Key points about Flask:</strong></p>
+                        <ul>
+                            <li>Written in Python, perfect for integrating with Python automation tools like Nmap
+                                wrappers.
+                            </li>
+                            <li>Uses Jinja2 templates to render dynamic HTML pages (e.g., your Nmap scan results table).
+                            </li>
+                            <li>Ideal for small to medium projects, dashboards, and internal tools that need a simple
+                                HTTP
+                                interface.</li>
+                        </ul>
+                        <p>In this tutorial, Flask acts as the <strong>web front end</strong> for your Nmap automation.
+                            The
+                            browser sends
+                            scan requests to Flask,
+                            Flask calls Python code that runs Nmap, and then Flask renders the results back to the user.
+                        </p>
+                    </div>
+
+                    <h3>What Is Nmap?</h3>
+                    <p><strong>Nmap (Network Mapper)</strong> is a widely used open‑source tool for <strong>discovery
+                            and
+                            security
+                            auditing</strong> .
+                        It’s designed to
+                        scan hosts and networks to find:
+                    </p>
+                    <div class="list">
+                        <ul>
+                            <li>Which IP addresses are alive.
+                            </li>
+                            <li>Which ports are open.
+                            </li>
+                            <li>Which services and versions are running (HTTP, SSH, FTP, databases, etc.).</li>
+                            <li>Sometimes even operating system fingerprints and basic vulnerabilities.</li>
+                        </ul>
+                        <p>Nmap supports many scan types (TCP SYN, TCP connect, UDP, service/version detection, and
+                            more)
+                            and is a standard tool
+                            for penetration testers, network administrators, and security engineers.
+                        </p>
+                        <p>
+                            In this project, Nmap is the scanning engine. Python and Flask don’t replace Nmap—they
+                            automate
+                            it, capture its output,
+                            and present it in a user‑friendly dashboard.
+                        </p>
+                        <h4>Why Combine Flask and Nmap?</h4>
+                        <p>By combining Flask and Nmap, you turn a command‑line network scanner into a <strong>web‑based
+                                network scanning dashboard</strong>:</p>
+                        <div class="list">
+                            <ul>
+                                <li>Flask handles the web UI and HTTP requests.</li>
+                                <li>Python code (using python-nmap or subprocess) controls Nmap scans programmatically.
+                                </li>
+                                <li>The browser displays structured results: host, port, state, service, and version in
+                                    tables and reports.
+                                </li>
+                            </ul>
+                            <p>This stack gives you a real, practical Python cybersecurity project that demonstrates:
+                            </p>
+                            <ul>
+                                <li>Web development with Flask.</li>
+                                <li>Network scanning with Nmap.</li>
+                                <li>Automation and reporting using Python code and HTML templates.
+                                </li>
+                            </ul>
+                        </div>
+
+                        <h3 id="step-2">Requirements and Prerequisites</h3>
+                        <p>Before you start building the Flask Nmap dashboard, make sure you have the following in
+                            place.
+                        </p>
+                        <div class="list">
+                            <ol>
+                                <li><strong>Technical Skills</strong></li>
+                                <div class="nested-list">
+                                    <ul>
+                                        <li>Basic understanding of Python 3 syntax and virtual environments.</li>
+                                        <li>Familiarity with HTTP, IP addresses, and ports (e.g., 22/SSH, 80/HTTP,
+                                            443/HTTPS).</li>
+                                        <li>Very basic knowledge of Flask (routes, templates) is helpful but not
+                                            mandatory—this tutorial uses a beginner‑friendly
+                                            app.py + templates/ structure.</li>
+                                    </ul>
+                                </div>
+                                <li><strong>Software Requirements</strong></li>
+                                <div class="nested-list">
+                                    <ul>
+                                        <li>Operating System: Windows, Linux, or macOS.</li>
+                                        <li>Python 3.x installed and available in your PATH.</li>
+                                        <li><a href="https://nmap.org/download.html" class="link"
+                                                target="_blank">Nmap</a> installed and accessible from the command line
+                                        </li>
+                                        <div class="nested-list">
+                                            <ul>
+                                                <li style="padding-left: 20px"><code class="code">nmap -V</code> should
+                                                    work in your terminal
+                                                    before you run the app.</li>
+                                            </ul>
+                                        </div>
+                                        <li>The following Python packages (added via requirements.txt):</li>
+                                        <div class="nested-list">
+                                            <ul style="padding-left: 20px">
+                                                <li><code class="code">Flask</code> – to build the web dashboard.</li>
+                                                <li><code class="code">python-nmap</code> – to control Nmap from Python.
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </ul>
+                                </div>
+                                <p>
+                                    You can install all dependencies with:
+                                </p>
+                                <div class="code-block block">
+                                    <pre>
+<code>pip install -r requirements.txt</code>
+</pre>
+                                </div>
+                                <p>
+                                    with requirements.txt containing:
+                                </p>
+                                <div class="code-block block">
+                                    <pre>
+<code>Flask
+python-nmap
+colorama</code>
+</pre>
+                                </div>
+                                <li><strong>Project Structure</strong></li>
+                                <p>You should organize your project similar to this layout to follow along easily:</p>
+                                <div class="code-block block">
+                                    <pre>
+<code>flask-nmap-dashboard/
+├── app.py
+├── requirements.txt
+└── templates/
+    ├── index.html
+    └── history.html</code>
+</pre>
+                                </div>
+                                <div class="list">
+                                    <ul>
+                                        <li><code class="code">app.py</code> – main Flask application and Nmap
+                                            integration.</li>
+                                        <li><code class="code">templates/index.html</code> – form to submit targets,
+                                            port ranges and page to display scan results in a table.</li>
+                                        <li><code class="code">templates/history.html</code> – page to display scan
+                                            history.</li>
+                                    </ul>
+                                </div>
+                            </ol>
+                        </div>
+                        <p>With these requirements ready, you’re set to start building your Flask Nmap dashboard and
+                            automate Nmap scans using
+                            Python in a clean, web‑based interface.</p>
+                    </div>
+                    <hr>
+
+                    <div class="content" id="step-3">
+                        <h3>Main Flask application</h3>
+                        <div id="language-python" class="code-block">
+                            <p>app.py</p>
+                            <pre class="line-numbers">
+                            <code id="codeSnippetPython" class="language-python">
+import json
+import sqlite3
+import uuid
+from datetime import datetime
+from pathlib import Path
+
+from flask import (
+    Flask, render_template, request, jsonify,
+    Response, g
+)
+import nmap
+
+app = Flask(__name__)
+
+DB_PATH = Path("scan_history.db")
+
+
+# ---------- DB Helpers (SQLite) ----------
+
+def get_db():
+    """
+    Get a SQLite connection for the current request.
+    Based on Flask's SQLite pattern.[web:64]
+    """
+    if "db" not in g:
+        g.db = sqlite3.connect(DB_PATH)
+        g.db.row_factory = sqlite3.Row
+    return g.db
+
+@app.teardown_appcontext
+def close_db(exception):
+    db = g.pop("db", None)
+    if db is not None:
+        db.close()
+
+def init_db():
+    """
+    Create the scans table if it does not exist.[web:62]
+    """
+    db = sqlite3.connect(DB_PATH)
+    db.execute(
+        """
+        CREATE TABLE IF NOT EXISTS scans (
+            id TEXT PRIMARY KEY,
+            target TEXT NOT NULL,
+            ports TEXT NOT NULL,
+            timestamp TEXT NOT NULL,
+            result_json TEXT NOT NULL
+        )
+        """
+    )
+    db.commit()
+    db.close()
+
+
+# ---------- Nmap Logic ----------
+
+def run_nmap_scan(target, ports="1-1024", arguments="-sV"):
+    nm = nmap.PortScanner(nmap_search_path=(r"C:\Program Files (x86)\Nmap\nmap.exe",))
+    nm.scan(hosts=target, ports=ports, arguments=arguments)
+
+    scan_results = []
+
+    for host in nm.all_hosts():
+        host_state = nm[host].state()
+        hostname = nm[host].hostname()
+        for proto in nm[host].all_protocols():
+            for port in sorted(nm[host][proto].keys()):
+                pd = nm[host][proto][port]
+                scan_results.append({
+                    "host": host,
+                    "hostname": hostname or "",
+                    "state": host_state,
+                    "protocol": proto,
+                    "port": port,
+                    "port_state": pd.get("state", ""),
+                    "service": pd.get("name", ""),
+                    "product": pd.get("product", ""),
+                    "version": pd.get("version", "")
+                })
+
+    return scan_results
+
+
+# ---------- Routes ----------
+
+@app.route("/")
+def index():
+    return render_template("index.html")
+
+
+@app.route("/api/scan", methods=["POST"])
+def api_scan():
+    data = request.get_json() or {}
+    target = (data.get("target") or "").strip()
+    ports = (data.get("ports") or "").strip() or "1-1024"
+
+    if not target:
+        return jsonify({"error": "Target is required."}), 400
+
+    try:
+        results = run_nmap_scan(target, ports=ports, arguments="-sV")
+    except nmap.PortScannerError as e:
+        return jsonify({"error": f"Nmap error: {e}"}), 500
+    except Exception as e:
+        return jsonify({"error": f"Unexpected error: {e}"}), 500
+
+    timestamp = datetime.utcnow().isoformat() + "Z"
+    meta = {"target": target, "ports": ports, "timestamp": timestamp}
+    payload = {"meta": meta, "results": results}
+
+    # Persist to SQLite
+    scan_id = uuid.uuid4().hex
+    db = get_db()
+    db.execute(
+        "INSERT INTO scans (id, target, ports, timestamp, result_json) VALUES (?, ?, ?, ?, ?)",
+        (scan_id, target, ports, timestamp, json.dumps(payload)),
+    )
+    db.commit()
+
+    return jsonify({
+        "scan_id": scan_id,
+        "target": target,
+        "ports": ports,
+        "timestamp": timestamp,
+        "count": len(results),
+        "results": results
+    })
+
+@app.route("/api/download/<scan_id>.<fmt>", methods=["GET"])
+def api_download(scan_id, fmt):
+    db = get_db()
+    row = db.execute(
+        "SELECT result_json FROM scans WHERE id = ?",
+        (scan_id,),
+    ).fetchone()
+
+    if not row:
+        return jsonify({"error": "Invalid or expired scan_id."}), 404
+    
+    payload = json.loads(row["result_json"])
+    meta = payload["meta"]
+    results = payload["results"]
+
+    if fmt == "json":
+        resp = Response(
+            json.dumps(payload, indent=2),
+            mimetype="application/json"
+        )
+        filename = f"scan_{scan_id}.json"
+        resp.headers["Content-Disposition"] = f"attachment; filename={filename}"
+        return resp
+    elif fmt == "csv":
+        if not results:
+            return jsonify({"error": "No data for this scan."}), 400
+        
+        import io, csv
+        output = io.StringIO()
+        fieldnames = ["host", "hostname", "state", "protocol", "port", "port_state", "service", "product", "version"]
+        writer = csv.DictWriter(output, fieldnames=fieldnames)
+        writer.writeheader()
+        for row in results:
+            writer.writerow(row)
+
+        csv_data = output.getvalue()
+        resp = Response(csv_data, mimetype="text/csv")
+        filename = f"scan_{scan_id}.csv"
+        resp.headers["Content-Disposition"] = f"attachment; filename={filename}"
+        return resp
+    else:
+        return jsonify({"error": "Unsupported format. Use csv or json."}), 400
+
+@app.route("/history")
+def history():
+    """
+    Simple scan history page: lists previous scans with links.
+    """
+    db = get_db()
+    rows = db.execute(
+         "SELECT id, target, ports, timestamp FROM scans ORDER BY timestamp DESC"
+    ).fetchall()
+
+    scans = [
+         {
+             "id": r["id"],
+             "target": r["target"],
+             "ports": r["ports"],
+             "timestamp": r["timestamp"]
+         }
+         for r in rows
+    ]
+
+    return render_template("history.html", scans=scans)
+
+
+if __name__ == "__main__":
+    if not DB_PATH.exists():
+        init_db()
+    else:
+        init_db()
+    app.run(host="0.0.0.0", port=5000, debug=True)</code>
+                        </pre>
+                        </div>
+
+                        <h4>The Imports</h4>
+                        <div id="language-python" class="code-block">
+                            <pre class="line-numbers">
+                            <code id="codeSnippetPython" class="language-python">
+import json
+import sqlite3
+import uuid
+from datetime import datetime
+from pathlib import Path
+
+from flask import Flask, render_template, request, jsonify, Response, g
+import nmap</code>
+                        </pre>
+                        </div>
+                        <p>These are all the tools your app needs — covered in detail previously.</p>
+                        <div class="table-container">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Import</th>
+                                        <th>Role / Purpose</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><code class="code">json</code></td>
+                                        <td>Serialize/deserialize scan results (JSON storage)</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code class="code">sqlite3</code></td>
+                                        <td>Store and retrieve scan history in a local DB</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code class="code">uuid</code></td>
+                                        <td>Generate unique scan IDs for tracking results</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code class="code">datetime</code></td>
+                                        <td>Timestamp each scan and handle last-checked logs</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code class="code">pathlib.Path</code></td>
+                                        <td>Clean, cross-platform file path handling</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code class="code">flask</code></td>
+                                        <td>Web framework core tools for the local dashboard</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code class="code">nmap</code></td>
+                                        <td>Python-nmap wrapper to run network scans programmatically</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p class="sub"><strong class="subtitle">App Instance Creation</strong></p>
+                        <div id="language-python" class="code-block">
+                            <pre class="line-numbers">
+                            <code id="codeSnippetPython" class="language-python">
+app = Flask(__name__)</code>
+                        </pre>
+                        </div>
+                        <p>This creates your Flask web application:</p>
+                        <div class="list">
+                            <ul>
+                                <li><code class="code">Flask(...)</code> — initializes the app object that handles all
+                                    routing,
+                                    templates, and requests.</li>
+                                <li><code class="code">__name__</code> — tells Flask the name of the current
+                                    Python
+                                    module so it knows where to find templates and static files (e.g.,
+                                    templates/index.html, static/style.css).</li>
+                            </ul>
+                        </div>
+                        <div class="pro-tip">
+                            <p>💡 Think of <code class="code">app</code> like the engine of a car — everything else
+                                (routes, DB, scan logic) plugs into it.</p>
+                        </div>
+
+                        <p class="sub"><strong class="subtitle">Database Path</strong></p>
+                        <div id="language-python" class="code-block">
+                            <pre class="line-numbers">
+                            <code id="codeSnippetPython" class="language-python">
+DB_PATH = Path("scan_history.db")</code>
+                        </pre>
+                        </div>
+                        <div class="list">
+                            <ul>
+                                <li>Defines the location of your SQLite database file as a <code
+                                        class="code">pathlib.Path</code> object.</li>
+                                <li><code class="code">scan_history.db</code> will be created in the same folder as
+                                    app.py when init_db() runs.
+                                </li>
+                                <li>Using <code class="code">Path</code> instead of a plain string ("<code
+                                        class="code">scan_history.db</code>") makes it cross-platform —
+                                    works correctly on both Windows (\)
+                                    and Linux/Mac (/).</li>
+                            </ul>
+                        </div>
+                        <p class="sub"><strong class="subtitle">How These Three Lines Connect Everything</strong></p>
+                        <div id="language-python" class="code-block">
+                            <pre class="line-numbers">
+                            <code id="codeSnippetPython" class="language-python">
+app = Flask(__name__)   ← The web app engine
+DB_PATH = Path(...)     ← Where scan data is stored
+
+Every route uses `app`     → @app.route("/")
+Every DB operation uses DB_PATH → sqlite3.connect(DB_PATH)</code>
+                        </pre>
+                        </div>
+                        <p>
+                            These two lines are global — defined once at the top and used throughout the entire <code
+                                class="code">app.py</code>
+                            file.
+                        </p>
+                        <h4><code class="code">get_db()</code> — Open a DB Connection</h4>
+                        <div id="language-python" class="code-block">
+                            <pre class="line-numbers">
+                            <code id="codeSnippetPython" class="language-python">
+def get_db():
+    if "db" not in g:
+        g.db = sqlite3.connect(DB_PATH)
+        g.db.row_factory = sqlite3.Row
+    return g.db</code>
+                        </pre>
+                        </div>
+                        <p>This function gets (or creates) a SQLite database connection for the current web request.</p>
+                        <div class="list">
+                            <ul>
+                                <li><code class="code">g</code> is Flask's request-scoped storage — it lives only for
+                                    the duration of one HTTP request.</li>
+                                <li><code class="code">if "db" not in g</code> — checks if a connection already exists;
+                                    if yes, reuses it (avoids opening multiple connections per request).</li>
+                                <li><code class="code">sqlite3.connect(DB_PATH)</code> — opens the scan_history.db file.
+                                </li>
+                                <li><code class="code">g.db.row_factory = sqlite3.Row</code> g.db.row_factory =
+                                    sqlite3.Row — makes query results behave like dictionaries so you can do
+                                    row["target"] instead of
+                                    row[1].</li>
+                            </ul>
+                        </div>
+                        <div class="pro-tip">
+                            <p>💡 Think of it like: A waiter who brings you one menu per visit, not a new one for every
+                                question you ask.</p>
+                        </div>
+
+                        <h4><code class="code">close_db()</code> — Auto-Close DB After Request</h4>
+                        <div id="language-python" class="code-block">
+                            <pre class="line-numbers">
+                            <code id="codeSnippetPython" class="language-python">
+@app.teardown_appcontext
+def close_db(exception):
+    db = g.pop("db", None)
+    if db is not None:
+        db.close()</code>
+                        </pre>
+                        </div>
+                        <p>This runs automatically after every request ends, whether it succeeded or failed.</p>
+                        <div class="list">
+                            <ul>
+                                <li><code class="code">@app.teardown_appcontext</code> This runs automatically after
+                                    every request ends,
+                                    whether it succeeded or failed.</li>
+                                <li><code class="code">g.pop("db", None)</code> — removes the DB connection from g
+                                    /li> (returns None if no connection was opened).< <li><code
+                                            class="code">db.close()</code> — closes the connection,
+                                        releasing the file lock and freeing memory.
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="pro-tip">
+                            <p>💡 Think of it like: A janitor who automatically cleans up the room after every meeting
+                                ends.</p>
+                        </div>
+
+                        <h4><code class="code">init_db()</code> — Create the Table on Startup</h4>
+                        <div id="language-python" class="code-block">
+                            <pre class="line-numbers">
+                            <code id="codeSnippetPython" class="language-python">
+def init_db():
+    db = sqlite3.connect(DB_PATH)
+    db.execute("""
+        CREATE TABLE IF NOT EXISTS scans (
+            id TEXT PRIMARY KEY,
+            target TEXT NOT NULL,
+            ports TEXT NOT NULL,
+            timestamp TEXT NOT NULL,
+            result_json TEXT NOT NULL
+        )
+    """)
+    db.commit()
+    db.close()</code>
+                        </pre>
+                        </div>
+                        <p>This creates the scans table in scan_history.db if it doesn't already exist.</p>
+                        <div class="table-container">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Column</th>
+                                        <th>Type</th>
+                                        <th>Purpose</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><code class="code">id</code></td>
+                                        <td>TEXT PRIMARY KEY</td>
+                                        <td>UUID hex — unique scan identifier</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code class="code">target</code></td>
+                                        <td>TEXT NOT NULL</td>
+                                        <td>IP/subnet that was scanned</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code class="code">ports</code></td>
+                                        <td>TEXT NOT NULL</td>
+                                        <td>Port range used (e.g., 1-1024)</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code class="code">timestamp</code></td>
+                                        <td>TEXT NOT NULL</td>
+                                        <td>UTC time of the scan</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code class="code">result_json</code></td>
+                                        <td>TEXT NOT NULL</td>
+                                        <td>Full scan results as a JSON blob</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="list">
+                            <ul>
+                                <li><code class="code">CREATE TABLE IF NOT EXISTS</code> — safe to call multiple times;
+                                    won't overwrite existing data.</li>
+                                <li><code class="code">db.commit()</code> — saves the table creation to disk.</li>
+                                <li><code class="code">db.close()</code> — closes the direct connection (this runs at
+                                    startup, before g exists, so it uses a direct connect/close pattern).
+                                </li>
+                            </ul>
+                        </div>
+                        <p class="sub"><strong class="subtitle">How All Three Connect</strong></p>
+                        <div class="code-block block">
+                            <pre>
+<code>App starts → init_db() creates table (once)
+
+Request comes in → get_db() opens connection, stores in g
+    → scan runs, data saved to DB
+
+Request ends → close_db() auto-runs, closes connection</code>
+</pre>
+                        </div>
+                        <p>This is the official Flask SQLite pattern — clean, lightweight, and perfect for your Nmap
+                            Dashboard tutorial.</p>
+
+                        <h4>Function Signature</h4>
+                        <div id="language-python" class="code-block">
+                            <pre class="line-numbers">
+                            <code id="codeSnippetPython" class="language-python">
+def run_nmap_scan(target, ports="1-1024", arguments="-sV"):</code>
+                        </pre>
+                        </div>
+                        <p>This defines the function with 3 parameters:</p>
+                        <div class="table-container">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Parameter</th>
+                                        <th>Default</th>
+                                        <th>Meaning</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><code class="code">target</code></td>
+                                        <td>(required)</td>
+                                        <td>IP or subnet to scan (e.g., 192.168.1.1)</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code class="code">ports</code></td>
+                                        <td><code>"1-1024"</code></td>
+                                        <td>Port range to scan</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code class="code">arguments</code></td>
+                                        <td><code>"-sV"</code></td>
+                                        <td>Nmap flags — -sV means detect service versions</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p class="sub"><strong class="subtitle">Create the Scanner & Run the Scan</strong></p>
+                        <div id="language-python" class="code-block">
+                            <pre class="line-numbers">
+                            <code id="codeSnippetPython" class="language-python">
+nm = nmap.PortScanner()
+nm.scan(hosts=target, ports=ports, arguments=arguments)</code>
+                        </pre>
+                        </div>
+                        <div class="list">
+                            <ul>
+                                <li><code class="code">nm = nmap.PortScanner()</code> — creates a scanner object
+                                    (wrapper around the Nmap binary).</li>
+                                <li><code class="code">nm.scan(...)</code> — runs the Nmap scan with the specified
+                                    parameters.</li>
+                            </ul>
+                        </div>
+                        <div class="pro-tip">
+                            <p>💡 Think of <code class="code">nm</code> like a remote control — <code
+                                    class="code">nm.scan()</code> is pressing the "Start" button.</p>
+                        </div>
+                        <p class="sub" style="margin-top: 10px"><strong class="subtitle">Loop Through the Results (3
+                                Nested Loops)</strong></p>
+                        <div id="language-python" class="code-block">
+                            <pre class="line-numbers">
+                            <code id="codeSnippetPython" class="language-python">
+for host in nm.all_hosts():          # Loop 1: each IP that responded
+    host_state = nm[host].state()    # "up" or "down"
+    hostname = nm[host].hostname()   # Reverse DNS name (if any)
+
+    for proto in nm[host].all_protocols():       # Loop 2: "tcp" or "udp"
+        for port in sorted(nm[host][proto].keys()):  # Loop 3: each port number
+            pd = nm[host][proto][port]           # Port details dict</code>
+                        </pre>
+                        </div>
+                        <p>The 3 nested loops exist because Nmap's data is structured in layers:</p>
+                        <div class="code-block block">
+                            <pre>
+<code>Scan Result
+ └── Host (e.g., 192.168.1.5)
+      └── Protocol (tcp / udp)
+           └── Port (22, 80, 443...)
+                └── State, Service, Version...</code>
+</pre>
+                        </div>
+                        <p class="sub" style="margin-top: 10px"><strong class="subtitle">Extract Port Details & Build a
+                                Row</strong></p>
+                        <div id="language-python" class="code-block">
+                            <pre class="line-numbers">
+                            <code id="codeSnippetPython" class="language-python">
+scan_results.append({
+    "host": host,              # IP address
+    "hostname": hostname or "",# Domain name (empty if none)
+    "state": host_state,       # Host is "up" or "down"
+    "protocol": proto,         # "tcp" or "udp"
+    "port": port,              # Port number (e.g., 80)
+    "port_state": pd.get("state", ""),    # "open", "closed", "filtered"
+    "service": pd.get("name", ""),        # e.g., "http", "ssh"
+    "product": pd.get("product", ""),     # e.g., "Apache httpd"
+    "version": pd.get("version", "")      # e.g., "2.4.51"
+})</code>
+                        </pre>
+                        </div>
+                        <div class="list">
+                            <ul>
+                                <li><code class="code">pd.get("key", "")</code> — safely extracts the value, returns ""
+                                    if the key
+                                    doesn't exist (avoids crashes.</li>
+                                <li><code class="code">Each dict</code> = one row in the results table and one row in
+                                    the CSV export.</li>
+                            </ul>
+                        </div>
+                        <p class="sub" style="margin-top: 10px"><strong class="subtitle">Return All Results</strong></p>
+                        <div id="language-python" class="code-block">
+                            <pre class="line-numbers">
+                            <code id="codeSnippetPython" class="language-python">
+return scan_results</code>
+                        </pre>
+                        </div>
+                        <p>Returns a list of dicts — one dict per open port found. For example, scanning <code
+                                class="code">192.168.1.1</code>
+                            with ports <code class="code">22,80,443</code> might
+                            return:</p>
+                        <div id="language-python" class="code-block">
+                            <p>json</p>
+                            <pre class="line-numbers">
+                            <code id="codeSnippetPython" class="language-python">
+[
+{"host": "192.168.1.1", "port": 22, "service": "ssh", "product": "OpenSSH", "version": "8.9", ...},
+{"host": "192.168.1.1", "port": 80, "service": "http", "product": "nginx", "version": "1.22", ...}
+]</code>
+                        </pre>
+                        </div>
+                        <p>This list is then serialized to JSON (<code class="code">json.dumps</code>) and stored as a
+                            single blob in your SQLite
+                            <code class="code">scans</code> table.
+                        </p>
+                        <p class="sub"><strong class="subtitle">Full Flow in One Line</strong></p>
+                        <div class="code-block block">
+                            <pre>
+<code>Target IP → Nmap binary runs → XML parsed → 3 loops flatten it → list of port dicts returned</code>
+</pre>
+                        </div>
+
+                        <h4>Route 1 — "/" Home Page</h4>
+                        <div id="language-python" class="code-block">
+                            <pre class="line-numbers">
+                            <code id="codeSnippetPython" class="language-python">
+@app.route("/")
+def index():
+    return render_template("index.html")</code>
+                        </pre>
+                        </div>
+                        <p>The simplest route — when a user visits <code class="code">http://localhost:5000/</code>,
+                            Flask loads and returns the <code class="code">index.html</code> template (your
+                            scan form UI). No logic, just serve the page.
+                        </p>
+                        <h4>Route 2 — "/api/scan" Run a Scan</h4>
+                        <p>This is the core route — the entire scan pipeline lives here.</p>
+                        <p class="sub"><strong class="subtitle">Read & Validate Input</strong></p>
+                        <div id="language-python" class="code-block">
+                            <pre class="line-numbers">
+                            <code id="codeSnippetPython" class="language-python">
+data = request.get_json() or {}
+target = (data.get("target") or "").strip()
+ports  = (data.get("ports")  or "").strip() or "1-1024"
+
+if not target:
+    return jsonify({"error": "Target is required."}), 400</code>
+                        </pre>
+                        </div>
+                        <div class="list">
+                            <ul>
+                                <li>Reads the JSON body sent by the frontend (<code
+                                        class="code">fetch('/api/scan', {body: JSON.stringify(...)})</code>).</li>
+                                <li><code class="code">{}</code> — prevents crash if no JSON body is sent.</li>
+                                <li><code class="code">.strip()</code> — removes accidental spaces from user input.</li>
+                                <li>Returns a 400 Bad Request if <code class="code">target</code> is empty.</li>
+                            </ul>
+                        </div>
+                        <p class="sub"><strong class="subtitle">Run the Scan (with Error Handling)</strong></p>
+                        <div id="language-python" class="code-block">
+                            <pre class="line-numbers">
+                            <code id="codeSnippetPython" class="language-python">
+try:
+    results = run_nmap_scan(target, ports=ports, arguments="-sV")
+except nmap.PortScannerError as e:
+    return jsonify({"error": f"Nmap error: {e}"}), 500
+except Exception as e:
+    return jsonify({"error": f"Unexpected error: {e}"}), 500</code>
+                        </pre>
+                        </div>
+                        <div class="list">
+                            <ul>
+                                <li>Calls the <code class="code">run_nmap_scan()</code> function you saw earlier.</li>
+                                <li><code class="code">PortScannerError</code> catches Nmap-specific failures (e.g.,
+                                    Nmap not
+                                    installed, invalid target).</li>
+                                <li>The generic <code class="code">Exception</code> catches anything else — two-layer
+                                    error safety net.</li>
+                            </ul>
+                        </div>
+                        <p class="sub"><strong class="subtitle">Save to SQLite</strong></p>
+                        <div id="language-python" class="code-block">
+                            <pre class="line-numbers">
+                            <code id="codeSnippetPython" class="language-python">
+scan_id = uuid.uuid4().hex
+db = get_db()
+db.execute("INSERT INTO scans (...) VALUES (?, ?, ?, ?, ?)", (...))
+db.commit()</code>
+                        </pre>
+                        </div>
+                        <div class="list">
+                            <ul>
+                                <li>Generates a unique UUID for this scan.</li>
+                                <li>Builds a payload dict containing both metadata and results.</li>
+                                <li><code class="code">json.dumps(payload)</code> serializes the entire result as a
+                                    single JSON blob stored in the
+                                    <code class="code">result_json</code> column.
+                                </li>
+                            </ul>
+                        </div>
+                        <p class="sub"><strong class="subtitle">Return the Response</strong></p>
+                        <div id="language-python" class="code-block">
+                            <pre class="line-numbers">
+                            <code id="codeSnippetPython" class="language-python">
+return jsonify({
+    "scan_id": scan_id, "target": target, "ports": ports,
+    "timestamp": timestamp, "count": len(results), "results": results
+})</code>
+                        </pre>
+                        </div>
+                        <p>Sends back everything the frontend needs to display the table and build the download links..
+                        </p>
+                        <h4>Route 3 — "/api/download/<scan_id>.<fmt>" Download Results</h4>
+                        <div id="language-python" class="code-block">
+                            <pre class="line-numbers">
+                            <code id="codeSnippetPython" class="language-python">
+@app.route("/api/download/<scan_id>.<fmt>", methods=["GET"])
+def api_download(scan_id, fmt):</code>
+                        </pre>
+                        </div>
+                        <p>Flask captures both scan_id and fmt (file format) directly from the URL. So:</p>
+                        <div class="table-container">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>URL Example</th>
+                                        <th>scan_id</th>
+                                        <th>fmt (Format)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><code>/api/download/3e4d5f6a.json</code></td>
+                                        <td><code>3e4d5f6a</code></td>
+                                        <td>json</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>/api/download/3e4d5f6a.csv</code></td>
+                                        <td><code>3e4d5f6a</code></td>
+                                        <td>csv</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p class="sub"><strong class="subtitle">Fetch from DB</strong></p>
+                        <div id="language-python" class="code-block">
+                            <pre class="line-numbers">
+                            <code id="codeSnippetPython" class="language-python">
+db = get_db()
+row = db.execute(
+    "SELECT result_json FROM scans WHERE id = ?",
+    (scan_id,),
+).fetchone()
+
+if not row:
+    return jsonify({"error": "Invalid or expired scan_id."}), 404</code>
+                        </pre>
+                        </div>
+                        <div class="list">
+                            <ul>
+                                <li><code class="code">get_db()</code> — opens (or reuses) the SQLite connection for
+                                    this request.</li>
+                                <li><code class="code">WHERE id = ?</code> — looks up the scan by UUID; the ? is a
+                                    parameterized query (prevents SQL injection).</li>
+                                <li><code class="code">.fetchone()</code> — retrieves a single row (since id is a
+                                    PRIMARY KEY, there's at most one match).
+                                </li>
+                                <li>If nothing is found → returns 404 Not Found with a clear error message.</li>
+                            </ul>
+                        </div>
+                        <p class="sub"><strong class="subtitle">JSON Download</strong></p>
+                        <div id="language-python" class="code-block">
+                            <pre class="line-numbers">
+                            <code id="codeSnippetPython" class="language-python">
+if fmt == "json":
+    resp = Response(
+        json.dumps(payload, indent=2),
+        mimetype="application/json"
+    )
+    filename = f"scan_{scan_id}.json"
+    resp.headers["Content-Disposition"] = f"attachment; filename={filename}"
+    return resp</code>
+                        </pre>
+                        </div>
+                        <div class="list">
+                            <ul>
+                                <li><code class="code">json.dumps(payload, indent=2)</code> — re-serializes the full
+                                    payload as a pretty-printed JSON string (2-space indentation for readability).</li>
+                                <li><code class="code">mimetype="application/json"</code> — tells the browser this is a
+                                    JSON file.</li>
+                                <li><code class="code">Content-Disposition: attachment</code> — the critical header that
+                                    forces the browser to download the file instead of displaying it in the tab.
+                                </li>
+                            </ul>
+                        </div>
+                        <p class="sub"><strong class="subtitle">CSV Download</strong></p>
+                        <div id="language-python" class="code-block">
+                            <pre class="line-numbers">
+                            <code id="codeSnippetPython" class="language-python">
+elif fmt == "csv":
+    if not results:
+        return jsonify({"error": "No data for this scan."}), 400
+
+    import io, csv
+    output = io.StringIO()
+    fieldnames = ["host", "hostname", "state", "protocol",
+                  "port", "port_state", "service", "product", "version"]
+    writer = csv.DictWriter(output, fieldnames=fieldnames)
+    writer.writeheader()
+    for row in results:
+        writer.writerow(row)
+
+    csv_data = output.getvalue()
+    resp = Response(csv_data, mimetype="text/csv")
+    resp.headers["Content-Disposition"] = f"attachment; filename=scan_{scan_id}.csv"
+    return resp</code>
+                        </pre>
+                        </div>
+                        <p>Breaking this down piece by piece:</p>
+                        <div class="table-container">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Line / Component</th>
+                                        <th>What it Does</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><code class="code">if not results</code></td>
+                                        <td>Guard against empty scans — returns 400 if no ports were found</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code class="code">io.StringIO()</code></td>
+                                        <td>Creates an in-memory text buffer (like a virtual file, no disk I/O needed)
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><code class="code">csv.DictWriter(output, fieldnames)</code></td>
+                                        <td>Creates a CSV writer that maps dict keys → columns</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code class="code">writer.writeheader()</code></td>
+                                        <td>Writes the first row: host,hostname,state,protocol,...</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code class="code">writer.writerow(row)</code></td>
+                                        <td>Writes one port result per CSV row</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code class="code">output.getvalue()</code></td>
+                                        <td>Extracts the entire CSV as a string from the buffer</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p class="sub"><strong class="subtitle">Unsupported Format</strong></p>
+                        <div id="language-python" class="code-block">
+                            <pre class="line-numbers">
+                            <code id="codeSnippetPython" class="language-python">
+else:
+return jsonify({"error": "Unsupported format. Use csv or json."}), 400</code>
+                        </pre>
+                        </div>
+                        <p>If someone tries /api/download/abc123.xml or any other format, they get a clean 400 Bad
+                            Request with a helpful message
+                            instead of a server crash.
+                        </p>
+                        <p class="sub"><strong class="subtitle">Full Flow Visualized</strong></p>
+                        <div class="code-block block">
+                            <pre>
+<code>│
+├── Fetch row from SQLite by UUID
+├── 404 if not found
+├── json.loads → Python dict
+│
+├── fmt == "csv"?
+│     └── Build CSV in memory (io.StringIO)
+│         → Set Content-Disposition header
+│         → Browser downloads scan_3e4d5f6a.csv ✅
+│
+└── fmt == "json"?
+      └── json.dumps with indent
+          → Set Content-Disposition header
+          → Browser downloads scan_3e4d5f6a.json ✅</code>
+</pre>
+                        </div>
+                        <h4>Route 4 — "/history" Scan History Page</h4>
+                        <div id="language-python" class="code-block">
+                            <pre class="line-numbers">
+                            <code id="codeSnippetPython" class="language-python">
+@app.route("/history")
+def history():</code>
+                        </pre>
+                        </div>
+                        <p>When a user visits <code class="code">http://localhost:5000/history</code>, Flask calls this
+                            function and returns the
+                            scan history page. It's a
+                            GET-only route (no <code class="code">methods=</code> specified, so Flask defaults to GET).
+                        </p>
+                        <p class="sub"><strong class="subtitle">Fetch All Scans from SQLite</strong></p>
+                        <div id="language-python" class="code-block">
+                            <pre class="line-numbers">
+                            <code id="codeSnippetPython" class="language-python">
+db = get_db()
+rows = db.execute(
+    "SELECT id, target, ports, timestamp FROM scans ORDER BY timestamp DESC"
+).fetchall()</code>
+                        </pre>
+                        </div>
+                        <div class="list">
+                            <ul>
+                                <li><code class="code">get_db()</code> — opens (or reuses) the
+                                    SQLite connection for this request.</li>
+                                <li><code class="code">SELECT id, target, ports, timestamp</code> — fetches only 4
+                                    columns, not
+                                    <code class="code">result_json</code> (no need to load the heavy scan data just for
+                                    the history list).
+                                </li>
+                                <li><code class="code">ORDER BY timestamp DESC</code> — newest scans appear
+                                    first (most recent at the top).
+                                </li>
+                                <li><code class="code">.fetchall()</code> — retrieves all matching rows as a list
+                                    (unlike .fetchone() which gets just one).
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="pro-tip">
+                            <p>💡 This is an intentional performance optimization — skipping result_json avoids loading
+                                potentially large JSON blobs
+                                for every scan just to display a summary list.</p>
+                        </div>
+                        <p class="sub"><strong class="subtitle">Convert Rows to Python Dicts</strong></p>
+                        <div id="language-python" class="code-block">
+                            <pre class="line-numbers">
+                            <code id="codeSnippetPython" class="language-python">
+scans = [
+    {
+        "id": r["id"],
+        "target": r["target"],
+        "ports": r["ports"],
+        "timestamp": r["timestamp"],
+    }
+    for r in rows
+]</code>
+                        </pre>
+                        </div>
+                        <p>This is a list comprehension — a compact Python loop that builds a new list.</p>
+                        <div class="table-container">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th><code class="code">r</code> (sqlite3.Row)</th>
+                                        <th>Why convert to dict?</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Works like a dict already (<code class="code">r["id"]</code>)</td>
+                                        <td>Jinja2 templates handle plain dicts more reliably.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Tied to the DB connection lifecycle</td>
+                                        <td>Plain dicts are independent and safe to pass around.
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p>Each dict in <code class="code">scans</code> represents one row in the history table that
+                            will be rendered in the HTML.
+                        </p>
+                        <p class="sub"><strong class="subtitle">Render the Template</strong></p>
+                        <div id="language-python" class="code-block">
+                            <pre class="line-numbers">
+                            <code id="codeSnippetPython" class="language-python">
+return render_template("history.html", scans=scans)</code>
+                        </pre>
+                        </div>
+                        <div class="list">
+                            <ul>
+                                <li><code class="code">render_template</code> — loads <code
+                                        class="code">templates/history.html</code> and
+                                    processes it
+                                    with Jinja2.</li>
+                                <li><code class="code">scans=scans</code> — passes the list of
+                                    scan dicts into the template as a variable.
+                                </li>
+                            </ul>
+                        </div>
+                        <p>Inside <code class="code">history.html</code>, Jinja2 loops over it like this:</p>
+                        <div id="language-python" class="code-block">
+                            <pre class="line-numbers">
+                            <code id="codeSnippetPython" class="language-python">
+{% for scan in scans %}
+&lt;tr&gt;
+    &lt;td&gt;{{ scan.timestamp }}&lt;/td&gt;
+    &lt;td&gt;{{ scan.target }}&lt;/td&gt;
+    &lt;td&gt;{{ scan.ports }}&lt;/td&gt;
+    &lt;td&gt;
+        &lt;a href="/api/download/{{ scan.id }}.json"&gt;JSON&lt;/a&gt;
+        &lt;a href="/api/download/{{ scan.id }}.csv"&gt;CSV&lt;/a&gt;
+    &lt;/td&gt;
+&lt;/tr&gt;
+{% endfor %}</code>
+                        </pre>
+                        </div>
+                        <p>Each row in the table has direct download links built from the <code
+                                class="code">scan.id</code> UUID — connecting the
+                            history page directly to
+                            the <code class="code">api_download</code> route you saw earlier.</p>
+                        <p class="sub"><strong class="subtitle">Full Flow</strong></p>
+                        <div class="code-block block">
+                            <pre>
+<code>User visits /history
+    │
+    ├── SQLite → fetch all scans (id, target, ports, timestamp) newest first
+    ├── Convert sqlite3.Row objects → plain Python dicts
+    └── Pass to history.html → Jinja2 renders HTML table
+              │
+              └── Each row shows: Timestamp | Target | Ports | [JSON] [CSV]</code>
+</pre>
+                        </div>
+                        <p>The route is intentionally simple and read-only — it only reads from the DB, never writes,
+                            making it fast and safe.
+                        </p>
+                        <div id="language-python" class="code-block">
+                            <pre class="line-numbers">
+                            <code id="codeSnippetPython" class="language-python">
+rows = db.execute(
+    "SELECT id, target, ports, timestamp FROM scans ORDER BY timestamp DESC"
+).fetchall()
+scans = [{"id": r["id"], "target": r["target"], ...} for r in rows]
+return render_template("history.html", scans=scans)</code>
+                        </pre>
+                        </div>
+                        <div class="list">
+                            <ul>
+                                <li>Fetches all past scans, newest first (<code
+                                        class="code">ORDER BY timestamp DESC</code>).</li>
+                                <li>Converts <code class="code">sqlite3.Row</code> objects into plain Python dicts
+                                    (easier to use in Jinja2
+                                    templates).
+                                </li>
+                                <li>Passes the list to <code class="code">history.html</code> where Jinja2 loops over it
+                                    to render the table</li>
+                            </ul>
+                        </div>
+
+                        <h4>App Startup</h4>
+                        <div id="language-python" class="code-block">
+                            <pre class="line-numbers">
+                            <code id="codeSnippetPython" class="language-python">
+if __name__ == "__main__":
+    if not DB_PATH.exists():
+        init_db()
+    else:
+        init_db()   # Safe: CREATE TABLE IF NOT EXISTS
+    app.run(host="0.0.0.0", port=5000, debug=True)</code>
+                        </pre>
+                        </div>
+                        <div class="table-container">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Part</th>
+                                        <th>Meaning / Role</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><code class="code">__name__ == "__main__"</code></td>
+                                        <td>Ensures the script only runs when executed directly (e.g.,
+                                            <code class="code">python app.py</code>), not when
+                                            imported as a module.
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><code class="code">init_db()</code></td>
+                                        <td>Initializes the SQLite database; creates the <code class="code">scans</code>
+                                            table if it
+                                            doesn't already exist
+                                            (idempotent operation).</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code class="code">host="0.0.0.0"</code></td>
+                                        <td>Binds the server to all available network interfaces, making it accessible
+                                            from other devices in the
+                                            lab.</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code class="code">port=5000</code></td>
+                                        <td>The specific TCP port the Flask web server listens on for incoming dashboard
+                                            requests.</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code class="code">debug=True</code></td>
+                                        <td>Enables auto-reloading and detailed error pages. ⚠️ Disable in production
+                                            for security.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p class="sub"><strong class="subtitle">Full Request Lifecycle</strong></p>
+                        <div class="code-block block">
+                            <pre>
+<code>Browser → POST /api/scan
+    → Validate input → run_nmap_scan() → save to SQLite → return JSON
+
+Browser → GET /api/download/abc123.csv
+    → Fetch from SQLite → build CSV in memory → send as file download
+
+Browser → GET /history
+    → Fetch all scans from SQLite → render history.html table</code>
+</pre>
+                        </div>
+                    </div>
+                    <hr>
+
+                    <div class="content" id="step-4">
+                        <h3>How Templates Connect to Flask</h3>
+                        <p>When Flask calls <code class="code">render_template("index.html")</code> or <code
+                                class="code">render_template("history.html", scans=scans)</code>, it looks inside the
+                            templates/ folder and processes the files using Jinja2 — a templating engine that lets you
+                            embed Python-like logic
+                            inside HTML.
+                        </p>
+                        <h3>The Scan Dashboard</h3>
+                        <div id="language-python" class="code-block">
+                            <p>index.html</p>
+                            <pre class="line-numbers">
+                            <code id="codeSnippetPython" class="language-python">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Nmap Web Dashboard (Flask + API + Downloads)&lt;/title&gt;
+    &lt;style&gt;
+        body {
+            font-family: Arial, sans-serif;
+            margin: 2rem;
+            background: #0f172a;
+            color: #e5e7eb;
+        }
+
+        h1 {
+            margin-bottom: 0.5rem;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        label {
+            display: block;
+            margin-top: 1rem;
+            font-weight: 600;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 0.5rem;
+            margin-top: 0.3rem;
+            border-radius: 4px;
+            border: 1px solid #334155;
+            background: #020617;
+            color: #e5e7eb;
+        }
+
+        button {
+            margin-top: 1.5rem;
+            padding: 0.6rem 1.4rem;
+            border-radius: 4px;
+            border: none;
+            cursor: pointer;
+            background: #22c55e;
+            color: #022c22;
+            font-weight: 600;
+        }
+
+        button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .status {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            min-height: 1.2rem;
+        }
+
+        .status.error {
+            color: #fca5a5;
+        }
+
+        .status.ok {
+            color: #6ee7b7;
+        }
+
+        .meta {
+            margin-top: 1rem;
+            font-size: 0.85rem;
+            color: #9ca3af;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 1.5rem;
+            font-size: 0.9rem;
+        }
+
+        th,
+        td {
+            border: 1px solid #1f2933;
+            padding: 0.4rem 0.5rem;
+            text-align: left;
+        }
+
+        th {
+            background: #020617;
+        }
+
+        tr:nth-child(even) {
+            background: #020617;
+        }
+
+        tr:nth-child(odd) {
+            background: #020617;
+        }
+
+        .open {
+            color: #22c55e;
+            font-weight: 600;
+        }
+
+        .closed {
+            color: #f87171;
+        }
+
+        .filtered {
+            color: #eab308;
+        }
+
+        .downloads {
+            margin-top: 1rem;
+            display: none;
+            gap: 0.5rem;
+        }
+
+        .downloads a {
+            display: inline-block;
+            padding: 0.4rem 0.9rem;
+            border-radius: 4px;
+            background: #1d4ed8;
+            color: #e5e7eb;
+            text-decoration: none;
+            font-size: 0.85rem;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+    &lt;div class="container"&gt;
+        &lt;h1&gt;Automating Nmap with Python – Web Dashboard&lt;/h1&gt;
+        &lt;p style="color:#9ca3af;"&gt;
+            Run Nmap scans from your browser. Backend powered by Flask + python-nmap.
+            Use only on networks you own or have permission to scan.
+        &lt;/p&gt;
+
+        &lt;form id="scan-form"&gt;
+            &lt;label for="target"&gt;Target IP or Subnet&lt;/label&gt;
+            &lt;input id="target" name="target" type="text" placeholder="e.g. 192.168.1.10 or 192.168.1.0/24"
+required&gt;
+
+            &lt;label for="ports"&gt;Port Range (optional)&lt;/label&gt;
+            &lt;input id="ports" name="ports" type="text" placeholder="e.g. 1-1024 or 22,80,443"&gt;
+
+            &lt;button type="submit" id="scan-btn"&gt;Run Scan&lt;/button&gt;
+        &lt;/form&gt;
+
+        &lt;div class="status" id="status"&gt;&lt;/div&gt;
+
+        &lt;div class="meta" id="meta"&gt;&lt;/div&gt;
+
+        &lt;div class="downloads" id="downloads"&gt;
+            &lt;a id="download-csv" href="#" target="_blank"&gt;Download CSV&lt;/a&gt;
+            &lt;a id="download-json" href="#" target="_blank"&gt;Download JSON&lt;/a&gt;
+        &lt;/div&gt;
+
+        &lt;table id="results-table" style="display:none;"&gt;
+            &lt;thead&gt;
+                &lt;tr&gt;
+                    &lt;th&gt;Host&lt;/th&gt;
+                    &lt;th&gt;Hostname&lt;/th&gt;
+                    &lt;th&gt;Protocol&lt;/th&gt;
+                    &lt;th&gt;Port&lt;/th&gt;
+                    &lt;th&gt;State&lt;/th&gt;
+                    &lt;th&gt;Service&lt;/th&gt;
+                    &lt;th&gt;Product&lt;/th&gt;
+                    &lt;th&gt;Version&lt;/th&gt;
+                &lt;/tr&gt;
+            &lt;/thead&gt;
+            &lt;tbody id="results-body"&gt;
+            &lt;/tbody&gt;
+        &lt;/table&gt;
+        &lt;p style="margin-top:1rem;font-size:0.85rem;"&gt;
+            &lt;a href="{{ url_for('history') }}" style="color:#60a5fa;"&gt;View scan history&lt;/a&gt;
+        &lt;/p&gt;
+    &lt;/div&gt;
+
+    &lt;script&gt;
+        const form = document.getElementById("scan-form");
+        const btn = document.getElementById("scan-btn");
+        const statusEl = document.getElementById("status");
+        const metaEl = document.getElementById("meta");
+        const table = document.getElementById("results-table");
+        const tbody = document.getElementById("results-body");
+        const downloadsBox = document.getElementById("downloads");
+        const downloadCsvLink = document.getElementById("download-csv");
+        const downloadJsonLink = document.getElementById("download-json");
+
+        let lastScanId = null;
+
+        form.addEventListener("submit", async (e) =&gt; {
+            e.preventDefault();
+
+            const target = document.getElementById("target").value.trim();
+            const ports = document.getElementById("ports").value.trim();
+
+            if (!target) {
+                statusEl.textContent = "Target is required.";
+                statusEl.className = "status error";
+                return;
+            }
+
+            btn.disabled = true;
+            statusEl.textContent = "Running scan... this may take a moment.";
+            statusEl.className = "status";
+
+            metaEl.textContent = "";
+            table.style.display = "none";
+            tbody.innerHTML = "";
+            downloadsBox.style.display = "none";
+            lastScanId = null;
+
+            try {
+                const resp = await fetch("/api/scan", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ target, ports })
+                });
+
+                const data = await resp.json();
+
+                if (!resp.ok) {
+                    statusEl.textContent = data.error || "Scan failed.";
+                    statusEl.className = "status error";
+                    return;
+                }
+
+                statusEl.textContent = `Scan completed. ${data.count} results.`;
+                statusEl.className = "status ok";
+
+                metaEl.textContent = `Target: ${data.target} | Ports: ${data.ports} | Time: ${data.timestamp}`;
+
+                if (data.results && data.results.length &gt; 0) {
+                    data.results.forEach(r =&gt; {
+                        const tr = document.createElement("tr");
+
+                        tr.innerHTML = `
+            &lt;td&gt;${r.host}&lt;/td&gt;
+            &lt;td&gt;${r.hostname || ""}&lt;/td&gt;
+            &lt;td&gt;${r.protocol}&lt;/td&gt;
+            &lt;td&gt;${r.port}&lt;/td&gt;
+            &lt;td class="${r.port_state}"&gt;${r.port_state}&lt;/td&gt;
+            &lt;td&gt;${r.service || ""}&lt;/td&gt;
+            &lt;td&gt;${r.product || ""}&lt;/td&gt;
+            &lt;td&gt;${r.version || ""}&lt;/td&gt;
+          `;
+
+                        tbody.appendChild(tr);
+                    });
+                    table.style.display = "table";
+                } else {
+                    table.style.display = "none";
+                }
+
+                // Enable download links for this scan_id
+                lastScanId = data.scan_id;
+                if (lastScanId) {
+                    downloadCsvLink.href = `/api/download/${lastScanId}.csv`;
+                    downloadJsonLink.href = `/api/download/${lastScanId}.json`;
+                    downloadsBox.style.display = "flex";
+                }
+
+            } catch (err) {
+                console.error(err);
+                statusEl.textContent = "Error calling API: " + err;
+                statusEl.className = "status error";
+            } finally {
+                btn.disabled = false;
+            }
+        });
+    &lt;/script&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;</code>
+                        </pre>
+                        </div>
+                        <p>This is the main page served at <code class="code">http://localhost:5000/</code>. It has
+                            three major sections:
+                        </p>
+                        <h4>1. The Header / Navigation</h4>
+                        <div class="code-block block">
+                            <pre>
+<code>Run Nmap scans from your browser.
+Backend powered by Flask + python-nmap.
+Use only on networks you own or have permission to scan.
+→ View scan history</code>
+</pre>
+                        </div>
+                        <div class="list">
+                            <ul>
+                                <li>Displays a legal disclaimer — critical for an ethical hacking tool, reminding users
+                                    to only scan networks they
+                                    own or have permission to test.</li>
+                                <li>A "View scan history" link navigates to <code class="code">/history</code> — the
+                                    <code class="code">history()</code> route in Flask.
+                                </li>
+                            </ul>
+                        </div>
+                        <h4>2. The Scan Form</h4>
+                        <p>This is where the user enters:</p>
+                        <div class="list">
+                            <ul>
+                                <li>Target — IP address or subnet (e.g., 192.168.1.1 or 192.168.1.0/24).</li>
+                                <li>Ports — port range (defaults to 1-1024).</li>
+                                <li>A "Start Scan" button that triggers the JavaScript fetch request.</li>
+                            </ul>
+                        </div>
+                        <h4>3. The JavaScript Fetch (Core Frontend Logic)</h4>
+                        <p>When the user clicks "Start Scan", the JS does this:</p>
+                        <div id="language-python" class="code-block">
+                            <pre class="line-numbers">
+                            <code id="codeSnippetPython" class="language-python">
+// Step 1 — Read form values
+const target = document.querySelector('#target').value;
+const ports  = document.querySelector('#ports').value;
+// Step 2 — POST to /api/scan
+const response = await fetch('/api/scan', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ target, ports })
+});
+// Step 3 — Parse and display results
+const data = await response.json();
+// Renders results table + download links using scan_id</code>
+                        </pre>
+                        </div>
+                        <div class="table-container">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Step</th>
+                                        <th>What Happens</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>User clicks Scan</td>
+                                        <td>JS reads form values and validates the input targets.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>fetch('/api/scan')</td>
+                                        <td>Sends a POST request to the Flask backend with JSON payload.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Flask runs Nmap</td>
+                                        <td>Backend executes the scanner and returns JSON containing scan_id, results,
+                                            and count.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>JS renders table</td>
+                                        <td>The browser dynamically builds HTML rows for every open port discovered.
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Download links built</td>
+                                        <td>The UI updates download buttons using the scan_id to point to
+                                            /api/download/{scan_id}.csv and .json.
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <h4>4. Results Table</h4>
+                        <p>The results table is dynamically built by JavaScript (not Jinja2) because the scan runs
+                            asynchronously after page load.
+                            Each row shows:
+                        </p>
+                        <div class="code-block block">
+                            <pre>
+<code>Host | Hostname | Protocol | Port | State | Service | Product | Version</code>
+</pre>
+                        </div>
+                        <p>This maps exactly to the dict keys returned by <code class="code">run_nmap_scan()</code> in
+                            your Python backend.</p>
+                    </div>
+                    <hr>
+
+                    <div class="content" id="step-5">
+                        <h3>The Scan History Page</h3>
+                        <div id="language-python" class="code-block">
+                            <p>history.html</p>
+                            <pre class="line-numbers">
+                            <code id="codeSnippetPython" class="language-python">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;title&gt;Nmap Scan History&lt;/title&gt;
+  &lt;style&gt;
+    body { font-family: Arial, sans-serif; margin: 2rem; background:#0f172a; color:#e5e7eb; }
+    h1 { margin-bottom: 0.5rem; }
+    a { color:#60a5fa; text-decoration:none; }
+    a:hover { text-decoration:underline; }
+    table { border-collapse: collapse; width: 100%; margin-top: 1rem; font-size: 0.9rem; }
+    th, td { border: 1px solid #1f2933; padding: 0.4rem 0.5rem; text-align: left; }
+    th { background: #020617; }
+    tr:nth-child(even) { background:#020617; }
+    tr:nth-child(odd) { background:#020617; }
+    .actions a { margin-right:0.5rem; }
+  &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;h1&gt;Nmap Scan History&lt;/h1&gt;
+  &lt;p&gt;&lt;a href="{{ url_for('index') }}"&gt;&amp;larr; Back to Dashboard&lt;/a&gt;&lt;/p&gt;
+
+  {% if scans %}
+    &lt;table&gt;
+      &lt;thead&gt;
+        &lt;tr&gt;
+          &lt;th&gt;Timestamp (UTC)&lt;/th&gt;
+          &lt;th&gt;Target&lt;/th&gt;
+          &lt;th&gt;Ports&lt;/th&gt;
+          &lt;th&gt;Actions&lt;/th&gt;
+        &lt;/tr&gt;
+      &lt;/thead&gt;
+      &lt;tbody&gt;
+      {% for s in scans %}
+        &lt;tr&gt;
+          &lt;td&gt;{{ s.timestamp }}&lt;/td&gt;
+          &lt;td&gt;{{ s.target }}&lt;/td&gt;
+          &lt;td&gt;{{ s.ports }}&lt;/td&gt;
+          &lt;td class="actions"&gt;
+            &lt;a href="{{ url_for('api_download', scan_id=s.id, fmt='csv') }}"&gt;CSV&lt;/a&gt;
+            &lt;a href="{{ url_for('api_download', scan_id=s.id, fmt='json') }}"&gt;JSON&lt;/a&gt;
+          &lt;/td&gt;
+        &lt;/tr&gt;
+      {% endfor %}
+      &lt;/tbody&gt;
+    &lt;/table&gt;
+  {% else %}
+    &lt;p&gt;No scans recorded yet.&lt;/p&gt;
+  {% endif %}
+&lt;/body&gt;
+&lt;/html&gt;</code>
+                        </pre>
+                        </div>
+                        <p>This page is served at <code class="code">http://localhost:5000/history</code> and uses
+                            Jinja2 templating (server-side
+                            rendering, unlike
+                            <code class="code">index.html</code> which uses client-side JS).
+                        </p>
+                        <h4>Jinja2 Conditional Block</h4>
+                        <div id="language-python" class="code-block">
+                            <pre class="line-numbers">
+                            <code id="codeSnippetPython" class="language-python">
+{% if scans %}
+    <!-- Table with all scans -->
+{% else %}
+    No scans recorded yet.
+{% endif %}</code>
+                        </pre>
+                        </div>
+                        <div class="list">
+                            <ul>
+                                <li><code class="code">{% if scans %}</code> — Jinja2 checks if the scans list passed
+                                    from Flask is
+                                    non-empty.</li>
+                                <li>If empty → shows a friendly "No scans recorded yet." message instead of a blank
+                                    table.
+                                </li>
+                            </ul>
+                        </div>
+                        <h4>The Table Loop</h4>
+                        <div id="language-python" class="code-block">
+                            <pre class="line-numbers">
+                            <code id="codeSnippetPython" class="language-python">
+{% for s in scans %}
+&lt;tr&gt;
+    &lt;td&gt;{{ s.timestamp }}&lt;/td&gt;   &lt;!-- e.g., 2026-05-07T12:03:22Z --&gt;
+    &lt;td&gt;{{ s.target }}&lt;/td&gt;      &lt;!-- e.g., 192.168.1.1 --&gt;
+    &lt;td&gt;{{ s.ports }}&lt;/td&gt;       &lt;!-- e.g., 1-1024 --&gt;
+    &lt;td&gt;
+        &lt;a href="/api/download/{{ s.id }}.csv"&gt;CSV&lt;/a&gt;
+        &lt;a href="/api/download/{{ s.id }}.json"&gt;JSON&lt;/a&gt;
+    &lt;/td&gt;
+&lt;/tr&gt;
+{% endfor %}</code>
+                        </pre>
+                        </div>
+                        <div class="list">
+                            <ul>
+                                <li><code class="code">{% for s in scans %}</code> — Jinja2 loop over the list Flask
+                                    passed
+                                    in.</li>
+                                <li><code class="code">{{ s.timestamp }}</code> — Jinja2 expression — outputs the value
+                                    of
+                                    <code class="code">s["timestamp"]</code> into HTML.
+                                </li>
+                                <li>The CSV and JSON download links are built using <code class="code">s.id
+                                </code> — connecting directly to your
+                                    <code class="code">api_download()</code> Flask route.
+                                </li>
+                            </ul>
+                        </div>
+                        <h4>Navigation</h4>
+                        <div class="code-block block">
+                            <pre>
+<code>← Back to Dashboard</code>
+</pre>
+                        </div>
+                        <p>A simple link back to <code class="code">/</code> (the <code class="code">index()</code>
+                            route) — keeping navigation between the two pages clean.
+                        </p>
+                        <p class="sub"><strong class="subtitle">Full Two-Page Flow</strong></p>
+                        <div class="code-block block">
+                            <pre>
+<code>Flask starts → init_db() creates scan_history.db
+       │
+       ▼
+User visits /  →  render_template("index.html")
+       │               Frontend JS handles all scan logic
+       │               POST /api/scan → results rendered in browser
+       │               Download links: /api/download/{id}.csv/.json
+       │
+       ▼
+User visits /history  →  history() fetches scans from SQLite
+                          render_template("history.html", scans=scans)
+                          Jinja2 loops over scans → builds HTML table
+                          Each row has CSV + JSON download links</code>
+</pre>
+                        </div>
+                        <p>The key split: <code class="code">index.html</code> uses JavaScript (client-side) to
+                            dynamically show scan results
+                            without reloading the page,
+                            while <code class="code">history.html</code> uses Jinja2 (server-side) to render the table
+                            from data Flask passes in.
+                        </p>
+                    </div>
+
+                    <div class="content" id="step-6">
+                        <h2>Project Conclusion</h2>
+                        <p>By now, you’ve built a fully working Flask‑based Nmap web dashboard that can scan targets,
+                            enumerate open ports, and
+                            display services and versions directly in the browser using Python. Instead of running
+                            single‑use commands in a
+                            terminal, you now have a reusable network scanner Python app that combines Flask,
+                            python-nmap, and HTML templates to
+                            automate and visualize Nmap results in a clean, user‑friendly interface.
+                        </p>
+
+                        <div class="action-buttons">
+                            <!-- <a href="space_shooter_demo.html" target="_blank" class="action-button live-preview"><i
+                                                    class="fas fa-gamepad"></i>Play Demo</a> -->
+                            <a href="https://github.com/kumaradoss16/Projects/tree/main/Python/Flask‑based%20Nmap%20web%20dashboard"
+                                class="action-button source-code" target="_blank" rel="noopener">
+                                <i class="fab fa-github"></i>Source Code</a>
+                            <a onclick="downloadProject()" class="action-button download" target="_blank"
+                                rel="noopener">
+                                <i class="fa-solid fa-download"></i> Download
+                            </a>
+                        </div>
+                        <p>This project is a solid foundation for more advanced Python cybersecurity projects. You can
+                            extend it with scan history,
+                            CSV/JSON export, authentication, role‑based access, or integration into a larger security
+                            monitoring stack. Whether you
+                            are a cybersecurity student, ethical hacker, or backend developer, this Flask Nmap tutorial
+                            gives you a practical,
+                            portfolio‑ready example of how to turn core security tools into real‑world web applications
+                            that your team can actually
+                            use.</p>
+                    </div>
+
+
+            </section>
+
+            <!-- My Other Projects  -->
+            <section id="other-work-section" class="other-work-section">
+                <h2 style="margin-top: 20px;">Other Projects</h2>
+                <div class="project-grid">
+                    <div class="project-card">
+                        <img src="../../Python/shooter-game/images/space-shooter-game-python-pygame-tutorial.webp"
+                            alt="Space Shooter Game Python Pygame Tutorial" loading="lazy" decoding="async"
+                            fetchpriority="auto">
+                        <div class="project-card-content">
+                            <h4>Shooter Game</h4>
+                            <p>This is a beginner-friendly guide for building a Space Shooter game with Python and
+                                Pygame, covering coding concepts and
+                                project structure.</p>
+                            <div class="project-tags">
+                                <span class="project-tag">Python</span>
+                                <span class="project-tag">Pygame</span>
+                            </div>
+                            <a href="../../Python/shooter-game/space-shooter-game-python-pygame-tutorial.html"
+                                title="Space Shooter Game Python Pygame Tutorial" class="view-project-button">View
+                                Project
+                                <span>&rarr;</span></a>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <img src="../../Python/atm-management-system/images/atm-management-system-python-cli-interface.webp"
+                            alt="ATM Management System Python Tutorial" loading="lazy" decoding="async"
+                            fetchpriority="auto">
+                        <div class="project-card-content">
+                            <h4>ATM Management System</h4>
+                            <p>This Python application implements a multi-user ATM system with SQLite-backed
+                                persistence,
+                                featuring account management, financial transactions, and administrative controls.</p>
+                            <div class="project-tags">
+                                <span class="project-tag">Python</span>
+                                <span class="project-tag">SQLite</span>
+                            </div>
+                            <a href="../../Python/atm-management-system/atm-management-system-python-sqlite-tutorial.html"
+                                title="ATM Management System Python Tutorial" class="view-project-button">View Project
+                                <span>&rarr;</span></a>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <img src="../../Web/weather-app/images/weather-app-html-css-javascript-tutorial.webp"
+                            alt="Weather App HTML CSS JavaScript Tutorial" loading="lazy" decoding="async"
+                            fetchpriority="auto">
+                        <div class="project-card-content">
+                            <h4>Weather App</h4>
+                            <p>Responsive weather app with real-time API data, feature comparison, and intuitive design
+                                for global city forecasts.</p>
+                            <div class="project-tags">
+                                <span class="project-tag">HTML</span>
+                                <span class="project-tag">CSS</span>
+                                <span class="project-tag">JavaScript</span>
+                            </div>
+                            <a href="../../Web/weather-app/weather-app-html-css-javascript-tutorial.html"
+                                title="Weather App HTML CSS JavaScript Tutorial" class="view-project-button">View
+                                Project
+                                <span>&rarr;</span></a>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <img src="../../Web/team-card-app/images/cricket-team-card-app.webp"
+                            alt="Team Card App HTML CSS JavaScript Tutorial" loading="lazy" decoding="async"
+                            fetchpriority="auto">
+                        <div class="project-card-content">
+                            <h4>Team Card App</h3>
+                                <p>Interactive team card application for cricket, featuring dynamic team selection,
+                                    player
+                                    filters, and customizable
+                                    light/dark themes.</p>
+                                <div class="project-tags">
+                                    <span class="project-tag">HTML</span>
+                                    <span class="project-tag">CSS</span>
+                                    <span class="project-tag">JavaScript</span>
+                                </div>
+                                <a href="../../Web/team-card-app/cricket-team-card-app-html-css-javascript-tutorial.html"
+                                    title="Team Card App HTML CSS JavaScript Tutorial" class="view-project-button">View
+                                    Project
+                                    <span>&rarr;</span></a>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <img src="../../C++/password-strength-checker/images/password-strength-checker.webp"
+                            alt="Password Strength Checker C++ Tutorial" loading="lazy" decoding="async"
+                            fetchpriority="auto">
+                        <div class="project-card-content">
+                            <h4>Password Strength Checker</h4>
+                            <p>Multi-Password Batch Strength Checker (C++), designed to check multiple passwords at
+                                once, show
+                                individual strength, and
+                                provide a summary report.</p>
+                            <div class="project-tags">
+                                <span class="project-tag">C++</span>
+                            </div>
+                            <a href="../../C++//password-strength-checker/password-strength-checker-cpp-tutorial-guide.html"
+                                title="Password Strength Checker C++ Tutorial" class="view-project-button">View
+                                Project
+                                <span>&rarr;</span></a>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <img src="../../C/vpn-connectivity-verification-cpp/images/vpn-tool-before-connection-terminal-output.webp"
+                            alt="VPN Connectivity verification in C Tutorial" loading="lazy" decoding="async"
+                            fetchpriority="auto">
+                        <div class="project-card-content">
+                            <h4>VPN Connectivity verification in C</h4>
+                            <p>Efficient C program to verify VPN status, routing, and DNS configurations through
+                                comprehensive public IP and network
+                                adapter analysis.</p>
+                            <div class="project-tags">
+                                <span class="project-tag">C</span>
+                            </div>
+                            <a href="../../C/vpn-connectivity-verification-cpp/build-vpn-verification-tool-c-tutorial.html"
+                                title="VPN Connectivity verification in C Tutorial" class="view-project-button">View
+                                Project
+                                <span>&rarr;</span></a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Right Side  -->
+        <aside class="right-column">
+            <div class="about-website moving-border">
+                <h3>About Website</h3>
+                <p><a class="homepage typewriter-scan" href="../../../../index.html"><strong>DevspireHub</strong></a>
+                    is a
+                    beginner-friendly learning
+                    platform offering
+                    step-by-step tutorials in
+                    programming, ethical hacking,
+                    networking, automation, cloud and Windows setup. Learn through hands-on projects, clear
+                    explanations, and
+                    real-world examples
+                    using practical tools and open-source resources—no signups, no tracking, just actionable knowledge
+                    to accelerate your
+                    technical skills.
+                </p>
+            </div>
+            <script async
+                src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2368356039533778"
+                crossorigin="anonymous"></script>
+            <!-- sidebar ads -->
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2368356039533778"
+                data-ad-slot="5621407319" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+
+            <div class="color-palette">
+                <div>
+                    <h3>Color Space</h3>
+                    <p>Discover Perfect Palettes</p>
+                </div>
+                <div class="palette-grid">
+                    <div class="palette-card">
+                        <!-- Color bars (set your palette colors here) -->
+                        <div class="color-wave colors-5">
+                            <div class="wave-bar" style="background:#F2C447" data-color="#F2C447"></div>
+                            <div class="wave-bar" style="background:#F76218" data-color="#F76218"></div>
+                            <div class="wave-bar" style="background:#FF1D68" data-color="#FF1D68"></div>
+                            <div class="wave-bar" style="background:#B10065" data-color="#B10065"></div>
+                            <div class="wave-bar" style="background:#740580" data-color="#740580"></div>
+                        </div>
+
+                        <div class="card-info">
+                            <div class="card-title">Sample Palette</div>
+                        </div>
+                    </div>
+                    <div class="button">
+                        <a href="../../../../color-palettes/index.html" class="color-button">Go To Color Space Home
+                            Page</a>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <!-- BANNER — Featured Open-Source Projects -->
+                <aside class="banner" aria-label="Featured Open-Source Projects">
+
+                    <!-- HEADER -->
+                    <div class="banner-header">
+                        <div class="banner-count-badge">
+                            <span class="live-dot"></span>
+                            <span>Live</span>
+                        </div>
+
+                        <div class="banner-chip">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+                                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61
+                                 c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77
+                                 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48
+                                 a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1
+                                 A5.07 5.07 0 0 0 5 4.77 5.44 5.44 0 0 0 3.5 8.55
+                                 c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+                            </svg>
+                            Open-Source Picks
+                        </div>
+
+                        <h3 class="banner-title">
+                            Featured <em>Open-Source</em><br>Projects
+                        </h3>
+                        <p class="banner-sub">
+                            Hand-picked repos across AI, Security, Dev&nbsp;&amp;&nbsp;more — updated weekly.
+                        </p>
+
+                        <!-- STATS -->
+                        <div class="banner-stats">
+                            <div class="stat-pill">
+                                <span class="stat-pill-num" id="js-total-count">0</span>
+                                <span class="stat-pill-lbl">Repos</span>
+                            </div>
+                            <div class="stat-pill">
+                                <span class="stat-pill-num" id="js-cats-count">0</span>
+                                <span class="stat-pill-lbl">Cats</span>
+                            </div>
+                            <div class="stat-pill">
+                                <span class="stat-pill-num" id="js-new-count">0</span>
+                                <span class="stat-pill-lbl">New</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- TICKER -->
+                    <div class="banner-ticker" aria-label="Categories">
+                        <div class="ticker-track" id="ticker">
+                            <!-- filled by JS -->
+                        </div>
+                    </div>
+
+                    <!-- CTA -->
+                    <a href="https://devspirehub.com/github/featured_open-source_projects" target="_blank"
+                        rel="noopener noreferrer" class="banner-cta">
+                        Explore All Projects
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+                            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            e x1="7" y1="17" x2="17" y2="7"/>
+                            <polyline points="7 7 17 7 17 17" />
+                        </svg>
+                    </a>
+
+                </aside>
+            </div>
+
+            <div class="wallpaper">
+                <div>
+                    <h3>Featured Wallpapers (For desktop)</h3>
+                    <p>Download for FREE!</p>
+                </div>
+                <div class="image-grid">
+                    <div class="image-card">
+                        <img src="../../../../Wallpaper/images_upscale/wallpaper (1).png" alt="Wallpaper 1">
+                    </div>
+                    <div class="image-card">
+                        <img src="../../../../Wallpaper/images_upscale/wallpaper (23).png" alt="Wallpaper 23">
+                    </div>
+                    <div class="image-card">
+                        <img src="../../../../Wallpaper/images_upscale/wallpaper (46).png" alt="Wallpaper 46">
+                    </div>
+                    <div class="image-card">
+                        <img src="../../../../Wallpaper/images_upscale/wallpaper (81).png" alt="Wallpaper 81">
+                    </div>
+                    <div class="image-card">
+                        <img src="../../../../Wallpaper/images_upscale/wallpaper (111).png" alt="Wallpaper 111">
+                    </div>
+                    <div class="image-card">
+                        <img src="../../../../Wallpaper/images_upscale/wallpaper (116).png" alt="Wallpaper 116">
+                    </div>
+                </div>
+                <div class="button">
+                    <a href="../../../../Wallpaper/index.html" class="wallpaper-button">Go To Wallpaper Home
+                        Page</a>
+                </div>
+            </div>
+
+            <!-- Open Source Tools Directory -->
+            <div class="related-topics">
+                <div class="header">
+                    <h3>Open-Source Tools Directory</h3>
+                    <p><strong>Complete spectrum of open-source software in Github</strong>
+                    </p>
+                </div>
+                <div class="content">
+                    <ul>
+                        <li><i class="fas fa-code"></i><a
+                                href="../../../../Resources/tools-directory/index.html#category-2"
+                                class="link">Programming</a></li>
+                        <li><i class="fas fa-globe"></i><a
+                                href="../../../../Resources/tools-directory/index.html#category-3" class="link">Web
+                                Development</a></li>
+                        <li><i class="fas fa-network-wired"></i><a
+                                href="../../../../Resources/tools-directory/index.html#category-4"
+                                class="link">Networking</a></li>
+                        <li><i class="fas fa-shield-alt"></i><a
+                                href="../../../../Resources/tools-directory/index.html#category-5" class="link">Ethical
+                                Hacking</a></li>
+                        <li><i class="fas fa-microchip"></i><a
+                                href="../../../../Resources/tools-directory/index.html#category-6"
+                                class="link">Hardware</a>
+                        </li>
+                        <li><i class="fas fa-tasks"></i><a
+                                href="../../../../Resources/tools-directory/index.html#category-7"
+                                class="link">Productivity</a></li>
+                    </ul>
+                </div>
+                <div class="button-container">
+                    <div class="btn-cyber">
+                        <span class="btn-bg"></span>
+                        <span class="btn-border"></span>
+                        <span class="btn-text">
+                            <a href="../../../../Resources/digital-resources/digital-resources-hub.html"
+                                class="related-button">
+                                Open-Source
+                                Tools</a> <span class="blink">_</span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <section class="deals-section">
+                <div class="deals-header">
+                    <h2>HOT DEALS</h2>
+                    <div class="deals-underline"></div>
+                </div>
+
+                <!-- Cards injected dynamically from amazon-links.json -->
+                <div class="deals-grid" id="dealsGrid">
+                    <div class="deal-skeleton">
+                    </div>
+                    <div class="deal-skeleton"></div>
+                    <div class="deal-skeleton"></div>
+                    <div class="deal-skeleton"></div>
+                    <div class="deal-skeleton"></div>
+                    <div class="deal-skeleton"></div>
+                </div>
+
+                <div class="deals-page-indicator" id="dealsPageIndicator"></div>
+
+                <div class="deals-nav">
+                    <button class="deal-arrow-btn" onclick="scrollDeals(-1)" aria-label="Previous">&#8592;</button>
+                    <button class="deal-arrow-btn" onclick="scrollDeals(1)" aria-label="Next">&#8594;</button>
+                </div>
+            </section>
+
+
+            <script async
+                src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2368356039533778"
+                crossorigin="anonymous"></script>
+            <!-- sidebar ads -->
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2368356039533778"
+                data-ad-slot="5621407319" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+
+            <script async
+                src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2368356039533778"
+                crossorigin="anonymous"></script>
+            <!-- sidebar ads -->
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2368356039533778"
+                data-ad-slot="5621407319" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </aside>
+        <button id="scrollUpBtn" aria-label="Scroll to top">
+            <svg class="progress-circle" viewBox="0 0 36 36">
+                <path class="bg" d="M18 2.0845
+                  a 15.9155 15.9155 0 0 1 0 31.831
+                  a 15.9155 15.9155 0 0 1 0 -31.831" />
+                <path class="progress" d="M18 2.0845
+                  a 15.9155 15.9155 0 0 1 0 31.831
+                  a 15.9155 15.9155 0 0 1 0 -31.831" />
+                <span class="arrow-overlay">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 19V5M5 12L12 5L19 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                </span>
+            </svg>
+        </button>
+    </div>
+    <!--Footer  -->
+    <footer class="footer">
+        <ul class="menu">
+            <li class="menu-item"><a class="menu-link" href="../../../../index.html">Home</a></li>
+            <li class="menu-item"><a class="menu-link" href="../../../../Wallpaper/index.html">Wallpapers</a></li>
+            <li class="menu-item"><a class="menu-link" href="../../../../color-palettes/index.html">Color Space</a></li>
+            <li class="menu-item"><a class="menu-link"
+                    href="../../../../Resources/digital-resources/digital-resources-hub.html">Resources</a></li>
+            <li class="menu-item"><a class="menu-link" href="../../../../Website/about/about.html">About</a></li>
+            <li class="menu-item"><a class="menu-link" href="../../../../Website/contact/index.html">Contact</a></li>
+            <li class="menu-item"><a class="menu-link" href="../../../../Website/privacy/index.html">Privacy policy</a>
+            </li>
+        </ul>
+        <div class="contacts">
+            <a class="contact github" href="https://github.com/kumaradoss16" target="_blank"><i
+                    class="fa-brands fa-github"></i></a>
+            <a class="contact instagram" href="https://www.instagram.com/devspirehub/" target="_blank"><i
+                    class="fa-brands fa-instagram"></i></a>
+            <a class="contact linkedin" href="https://www.linkedin.com/in/kumaradoss-s/" target="_blank"><i
+                    class="fa-brands fa-linkedin"></i></a>
+            <a class="contact facebook" href="https://www.facebook.com/profile.php?id=61577667990170&_rdr"
+                target="_blank"><i class="fa-brands fa-facebook"></i></a>
+            <a class="contact gmail" href="https://mail.google.com/mail/?view=cm&fs=1&to=devspirehub.website@gmail.com"
+                aria-label="Email us at devspirehub.website@gmail.com" title="Send us an email" target="_blank"
+                rel="noopener noreferrer">
+                <i class="fa-solid fa-envelope"></i>
+            </a>
+        </div>
+        <p>&copy;2026 DevspireHub | All Rights Reserved</p>
+    </footer>
+
+    <script src="../../Prism/prism.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+    <script src="../../../../repos-data.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
