@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <!-- ═══════════════════════════════════════════════
+       CORE — Charset & Viewport
+  ════════════════════════════════════════════════ -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  <!-- ═══════════════════════════════════════════════
+       PRIMARY SEO
+  ════════════════════════════════════════════════ -->
+  <title>netpulse — Free Internet Speed Test | Download, Upload & Ping Analyzer</title>
+
+  <meta name="description"
+    content="Test your internet speed instantly with netpulse. Measure real-time download speed, upload speed, ping, jitter, and packet loss — no ads, no install, works on any device." />
+
+  <meta name="keywords"
+    content="internet speed test, net pulse speed test, download speed test, upload speed check, ping test, jitter test, packet loss checker, wifi speed analyzer, broadband speed test, online speed test, free speed test, network analyzer" />
+
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <meta name="author" content="DevspireHub" />
+  <meta name="copyright" content="© 2026 DevspireHub" />
+  <meta name="theme-color" content="#0d1117" />
+  <meta name="color-scheme" content="dark" />
+  <meta name="rating" content="general" />
+  <meta name="revisit-after" content="7 days" />
+
+  <link rel="canonical" href="https://devspirehub.com/netpulse/" />
+
+  <!-- ═══════════════════════════════════════════════
+       OPEN GRAPH — Facebook, LinkedIn, Discord, WhatsApp
+  ════════════════════════════════════════════════ -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="DevspireHub" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:url" content="https://devspirehub.com/netpulse/" />
+  <meta property="og:title" content="netpulse — Free Internet Speed Test | Download, Upload & Ping" />
+  <meta property="og:description"
+    content="Instantly measure your internet download speed, upload speed, ping, jitter, and packet loss. No ads. No install. Works on every device." />
+  <meta property="og:image" content="https://devspirehub.com/netpulse/og-preview.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="netpulse internet speed test dashboard showing download and upload gauges" />
+
+  <!-- ═══════════════════════════════════════════════
+       TWITTER CARD
+  ════════════════════════════════════════════════ -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@devspirehub" />
+  <meta name="twitter:creator" content="@devspirehub" />
+  <meta name="twitter:title" content="netpulse — Free Internet Speed Test" />
+  <meta name="twitter:description"
+    content="Test your real internet speed in seconds. Download, upload, ping, jitter, and packet loss — live charts, geo-sorted servers, no ads." />
+  <meta name="twitter:image" content="https://devspirehub.com/netpulse/og-preview.png" />
+  <meta name="twitter:image:alt" content="netpulse speed test dashboard" />
+
+  <!-- ═══════════════════════════════════════════════
+       FAVICON
+  ════════════════════════════════════════════════ -->
+  <link rel="icon" type="image/webp" href="../images/icon.webp" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/netpulse/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/netpulse/favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/netpulse/apple-touch-icon.png" />
+  <link rel="manifest" href="/netpulse/site.webmanifest" />
+  <link rel="shortcut icon" type="image/x-icon" href="/netpulse/favicon.ico" />
+
+  <!-- ═══════════════════════════════════════════════
+       PRECONNECT & DNS PREFETCH — Performance
+  ════════════════════════════════════════════════ -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+  <link rel="preconnect" href="https://speed.cloudflare.com" />
+  <link rel="preconnect" href="https://ip-api.com" />
+
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
+  <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
+  <link rel="dns-prefetch" href="https://speed.cloudflare.com" />
+
+  <!-- ═══════════════════════════════════════════════
+       FONTS — Optimized loading (single request, display=swap)
+  ════════════════════════════════════════════════ -->
+  <link rel="preload" as="style"
+    href="https://fonts.googleapis.com/css2?family=Saira:wght@300;400;500;600;700&family=Poppins:wght@400;600;700&display=swap"
+    onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript>
+    <link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Saira:wght@300;400;500;600;700&family=Poppins:wght@400;600;700&display=swap" />
+  </noscript>
+
+  <!-- ═══════════════════════════════════════════════
+       ICONS — Deferred non-critical CSS
+  ════════════════════════════════════════════════ -->
+  <link rel="preload" as="style" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css"
+    onload="this.onload=null;this.rel='stylesheet'" />
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  </noscript>
+
+  <!-- ═══════════════════════════════════════════════
+       CRITICAL CSS — Local stylesheet (render-blocking, load first)
+  ════════════════════════════════════════════════ -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- ═══════════════════════════════════════════════
+       STRUCTURED DATA — JSON-LD
+  ════════════════════════════════════════════════ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "@id": "https://devspirehub.com/netpulse/",
+        "name": "netpulse Internet Speed Test",
+        "alternateName": "NetPulse Speed Analyzer",
+        "url": "https://devspirehub.com/netpulse/",
+        "description": "A free browser-based internet speed tester that measures download speed, upload speed, ping, jitter, and packet loss in real time with live charts and geo-sorted nearby servers.",
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "All — browser-based, no install required",
+        "isAccessibleForFree": true,
+        "screenshot": "https://devspirehub.com/netpulse/og-preview.png",
+        "featureList": [
+          "Real-time download speed measurement",
+          "Real-time upload speed measurement",
+          "Ping and jitter analysis",
+          "Packet loss detection",
+          "Live throughput charts",
+          "Geo-sorted nearby server selection",
+          "Auto IP and ISP detection",
+          "Test history with localStorage",
+          "No ads, no login, no install"
+        ],
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "author": {
+          "@type": "Organization",
+          "name": "DevspireHub",
+          "url": "https://devspirehub.com",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://devspirehub.com/icon.webp"
+          },
+          "sameAs": [
+            "https://github.com/kumaradoss16",
+            "https://www.instagram.com/devspirehub/",
+            "https://www.linkedin.com/in/kumaradoss-s/"
+          ]
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "DevspireHub",
+          "url": "https://devspirehub.com"
+        }
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://devspirehub.com/netpulse/#webpage",
+        "url": "https://devspirehub.com/netpulse/",
+        "name": "netpulse — Free Internet Speed Test | Download, Upload & Ping Analyzer",
+        "description": "Test your internet speed instantly with netpulse. Measure real-time download, upload, ping, jitter, and packet loss — no ads, no install, works on any device.",
+        "inLanguage": "en-US",
+        "isPartOf": {
+          "@type": "WebSite",
+          "@id": "https://devspirehub.com/#website",
+          "url": "https://devspirehub.com",
+          "name": "DevspireHub",
+          "description": "Programming tutorials, ethical hacking, networking, web development, and open-source tools.",
+          "publisher": {
+            "@type": "Organization",
+            "name": "DevspireHub"
+          }
+        },
+        "breadcrumb": {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://devspirehub.com"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "netpulse Speed Test",
+              "item": "https://devspirehub.com/netpulse/"
+            }
+          ]
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How does netpulse measure internet speed?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "netpulse connects to the nearest geo-sorted server, measures ping and jitter first, then runs parallel download and upload streams to calculate your real-world internet speed in Mbps."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is a good internet speed?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "100+ Mbps is Excellent for 4K streaming and gaming. 50–99 Mbps is Good for HD video and video calls. 20–49 Mbps is Fair for basic use. Under 20 Mbps is Poor and may struggle with HD content."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is ping and why does it matter?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Ping is the delay in milliseconds between your device and the server. Lower ping means a more responsive connection. Under 20 ms is excellent for gaming and video calls."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is jitter in an internet speed test?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Jitter is the variation in ping over time. High jitter causes choppy audio and video in calls and unstable gameplay even if average ping appears low. Under 5 ms is ideal."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is netpulse free to use?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. netpulse is completely free, runs entirely in your browser, requires no app install, no sign-up, and shows no ads."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
+</head>
+
+<body>
+  <header class="navbar">
+    <div class="container">
+      <div class="logo">
+        <div class="logo-text">
+          <!-- <i class="fas fa-code"></i> -->
+          <a href="https://devspirehub.com"><img src="../images/icon.webp" alt="Gear Icon" width="23" height="23"></a>
+          <span id="brand" class="typewriter" data-text="DevspireHub"></span>
+        </div>
+        <button class="menu-toggle" type="button" aria-label="Toggle navigation">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+      <nav class="nav-links">
+        <ul>
+          <li><a href="https://devspirehub.com" class="home"><i class="fa-solid fa-house"></i></a></li>
+          <li><a href="https://devspirehub.com#projects-tutorials-section" class="projects">Projects</a></li>
+          <li><a href="https://devspirehub.com#programming-tutorials-section" class="programming">Programming</a>
+          </li>
+          <li><a href="https://devspirehub.com#ethical-hacking-section" class="hacking">Ethical Hacking</a>
+          </li>
+          <li><a href="https://devspirehub.com#networking-section" class="networking">Networking</a></li>
+          <li><a href="https://devspirehub.com#automation-section" class="ai">Automation</a></li>
+          <li><a href="https://devspirehub.com#info-section" class="game">Resources</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <h2 class="sr-only">netpulse — Network speed analyzer with real-time speedometer, geo-sorted servers, and test
+    history.</h2>
+
+  <div class="page-wrap">
+    <div class="D">
+
+      <!-- ── Header ── -->
+      <div class="hdr">
+        <div class="logo">
+          <div class="dot"></div>
+          <div>
+            <div class="logo-txt">NetPulse</div>
+            <div class="logo-sub">Network Speed Analyzer</div>
+          </div>
+        </div>
+        <div class="ip-block">
+          <div>Server: <b id="activeSrv">—</b></div>
+          <div>ISP: <b id="ispName">Detecting…</b></div>
+          <div class="ip-pill">
+            <i class="ti ti-wifi" aria-hidden="true"></i>
+            <span id="pubIp">Fetching IP…</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── Server selector ── -->
+      <div class="srv-label">
+        <i class="ti ti-map-pin" aria-hidden="true"></i>
+        Nearby servers
+        <span class="geo-status" id="geoStatus">
+          <i class="ti ti-loader" aria-hidden="true"></i> Locating…
+        </span>
+      </div>
+      <div class="srv-row" id="srvRow">
+        <span class="srv-btn loading-btn">
+          <i class="ti ti-loader" aria-hidden="true"></i> Detecting location…
+        </span>
+      </div>
+
+      <!-- ── Speedometer card ── -->
+      <div class="spd-card">
+        <div class="speedo-wrap">
+          <svg id="speedoSvg" viewBox="0 0 300 175" role="img" aria-label="Speedometer gauge showing current speed">
+            <defs>
+              <linearGradient id="aGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#085041" />
+                <stop offset="55%" stop-color="#1D9E75" />
+                <stop offset="100%" stop-color="#9FE1CB" />
+              </linearGradient>
+            </defs>
+            <path id="trk" fill="none" stroke="#1a1e28" stroke-width="14" stroke-linecap="round" />
+            <path id="fil" fill="none" stroke="url(#aGrad)" stroke-width="14" stroke-linecap="round" />
+            <g id="tks"></g>
+            <g id="ndlG">
+              <line x1="150" y1="143" x2="150" y2="55" stroke="#1D9E75" stroke-width="2.5" stroke-linecap="round" />
+              <circle cx="150" cy="143" r="8" fill="#1a1e28" stroke="#1D9E75" stroke-width="1.5" />
+              <circle cx="150" cy="143" r="3.5" fill="#1D9E75" />
+            </g>
+            <text id="lbl0" x="85" y="175" font-size="10" fill="#555c75" text-anchor="middle">0</text>
+            <text id="lbl25" x="48" y="91" font-size="10" fill="#555c75" text-anchor="middle">25</text>
+            <text id="lbl50" x="150" y="32" font-size="10" fill="#555c75" text-anchor="middle">50</text>
+            <text id="lbl75" x="252" y="91" font-size="10" fill="#555c75" text-anchor="middle">75</text>
+            <text id="lbl100" x="215" y="175" font-size="10" fill="#555c75" text-anchor="middle">100+</text>
+          </svg>
+        </div>
+
+        <div class="spd-vals">
+          <div class="sv">
+            <div class="n" id="dlN">—</div>
+            <div class="u">Mbps</div>
+            <div class="l">Download</div>
+          </div>
+          <div class="sc">
+            <div class="big" id="liveSpd">0.0</div>
+            <div class="unit" id="liveUnit">Mbps</div>
+            <div class="badge" id="modeBadge">Ready</div>
+          </div>
+          <div class="sv">
+            <div class="n" id="ulN">—</div>
+            <div class="u">Mbps</div>
+            <div class="l">Upload</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── Progress cards ── -->
+      <div class="prog-grid">
+        <div class="prog-card">
+          <div class="prog-top">
+            <div class="prog-lbl dl">
+              <i class="ti ti-download" aria-hidden="true"></i> Download
+            </div>
+            <div class="prog-spd" id="dlSpd">0.0 <span>Mbps</span></div>
+          </div>
+          <div class="bar-bg">
+            <div class="bar-fill dl" id="dlBar"></div>
+          </div>
+          <div class="prog-foot">
+            <span id="dlSt">Waiting…</span>
+            <span id="dlPct">0%</span>
+          </div>
+        </div>
+        <div class="prog-card">
+          <div class="prog-top">
+            <div class="prog-lbl ul">
+              <i class="ti ti-upload" aria-hidden="true"></i> Upload
+            </div>
+            <div class="prog-spd" id="ulSpd">0.0 <span>Mbps</span></div>
+          </div>
+          <div class="bar-bg">
+            <div class="bar-fill ul" id="ulBar"></div>
+          </div>
+          <div class="prog-foot">
+            <span id="ulSt">Waiting…</span>
+            <span id="ulPct">0%</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── Timer ring + Start button (side by side) ── -->
+      <div class="mid-row">
+        <div class="timer-ring">
+          <div class="ring-wrap">
+            <svg class="ring-svg" viewBox="0 0 80 80">
+              <circle class="ring-bg" cx="40" cy="40" r="34" />
+              <circle class="ring-fg" id="ringFg" cx="40" cy="40" r="34" />
+            </svg>
+            <div class="ring-num" id="ringNum">—</div>
+          </div>
+          <div class="ring-lbl" id="ringLbl">Press start to begin</div>
+        </div>
+        <div class="action">
+          <button class="main-btn start" id="mainBtn" onclick="toggleTest()">
+            <i class="ti ti-player-play" aria-hidden="true"></i> Start Test
+          </button>
+        </div>
+      </div>
+
+      <!-- ── Stats ── -->
+      <div class="stats">
+        <div class="stat">
+          <div class="sn" id="pingV">—</div>
+          <div class="sl">Ping ms</div>
+        </div>
+        <div class="stat">
+          <div class="sn" id="jitV">—</div>
+          <div class="sl">Jitter ms</div>
+        </div>
+        <div class="stat">
+          <div class="sn" id="lossV">—</div>
+          <div class="sl">Packet loss</div>
+        </div>
+      </div>
+
+      <!-- ── Charts ── -->
+      <div class="chart-grid">
+        <div class="chart-card">
+          <div class="chart-hd">
+            <i class="ti ti-chart-line" aria-hidden="true"></i> Live throughput
+          </div>
+          <div class="chart-legend">
+            <span><span class="leg-line" style="background:#1D9E75"></span> Download</span>
+            <span><span class="leg-line" style="background:#378ADD"></span> Upload</span>
+          </div>
+          <div class="chart-wrap">
+            <canvas id="liveC" role="img" aria-label="Live throughput chart"></canvas>
+          </div>
+        </div>
+        <div class="chart-card">
+          <div class="chart-hd">
+            <i class="ti ti-activity" aria-hidden="true"></i> Ping / jitter
+          </div>
+          <div class="chart-legend">
+            <span><span class="leg-line" style="background:#EF9F27"></span> Ping</span>
+            <span><span class="leg-line" style="background:#D4537E"></span> Jitter</span>
+          </div>
+          <div class="chart-wrap">
+            <canvas id="pingC" role="img" aria-label="Ping and jitter chart"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── Network Info ── -->
+      <div class="netinfo-card">
+        <div class="netinfo-hd">
+          <div class="netinfo-title">
+            <i class="ti ti-network" aria-hidden="true"></i> Network Info
+          </div>
+          <span class="netinfo-country-badge" id="niCountryBadge">—</span>
+        </div>
+        <div class="netinfo-body">
+          <div class="netinfo-row">
+            <span class="netinfo-lbl">ISP</span>
+            <span class="netinfo-val" id="niIsp">Detecting…</span>
+          </div>
+          <div class="netinfo-row">
+            <span class="netinfo-lbl">IP Address</span>
+            <span class="netinfo-val" id="niIp">Detecting…</span>
+          </div>
+          <div class="netinfo-row">
+            <span class="netinfo-lbl">City</span>
+            <span class="netinfo-val" id="niCity">—</span>
+          </div>
+          <div class="netinfo-row">
+            <span class="netinfo-lbl">Country</span>
+            <span class="netinfo-val" id="niCountry">—</span>
+          </div>
+          <div class="netinfo-row">
+            <span class="netinfo-lbl">Timezone</span>
+            <span class="netinfo-val" id="niTimezone">—</span>
+          </div>
+          <div class="netinfo-row">
+            <span class="netinfo-lbl">Hostname</span>
+            <span class="netinfo-val" id="niHostname">—</span>
+          </div>
+        </div>
+        <div class="netinfo-foot">
+          <button class="netinfo-refresh" onclick="fetchIpInfo()">
+            <i class="ti ti-refresh" aria-hidden="true"></i> Refresh
+          </button>
+        </div>
+      </div>
+
+      <!-- ── History ── -->
+      <div class="hist-card">
+        <div class="hist-hd">
+          <div class="hist-title">
+            <i class="ti ti-history" aria-hidden="true"></i> Test history
+          </div>
+          <button class="hist-clear" onclick="clearHist()">
+            <i class="ti ti-trash" aria-hidden="true"></i> Clear
+          </button>
+        </div>
+        <div class="hist-scroll">
+          <div id="histBody">
+            <div class="empty">
+              <i class="ti ti-wifi-off" style="font-size:24px;display:block;margin-bottom:8px" aria-hidden="true"></i>
+              No tests yet
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /.D -->
+    <div class="netpulse-content">
+      <h2>NetPulse</h2>
+      <p><strong>NetPulse</strong> is a free browser-based internet speed tester built by DevspireHub. It connects to
+        the nearest server and runs a live
+        test to show how fast your internet connection really is — including download speed, upload speed, ping, jitter,
+        and
+        packet loss.
+      </p>
+      <hr>
+      <h3>How does it work?</h3>
+      <div class="list">
+        <ol>
+          <li><strong>Click "Start Test"</strong> — NetPulse automatically detects your location and selects the best
+            nearby
+            server using geo-sorted proximity, so you
+            always get the most accurate result for your region.</li>
+          <li><strong>Your IP and ISP are identified</strong> — tNetPulse detects your public IP address, ISP name, and
+            city automatically. No manual input is needed.</li>
+          <li><strong>Ping is measured first</strong> — NetPulse sends multiple requests to the server and measures how
+            long the response takes. This is your connection's
+            reaction time in milliseconds.</li>
+          <li><strong>Jitter is calculated</strong> — The variation between consecutive ping samples is measured to
+            check how stable your connection is under real conditions.</li>
+          <li><strong>Download speed is tested</strong> — NetPulse measures how fast data flows from the server to your
+            device using multiple parallel streams for an accurate,
+            real-world reading.</li>
+          <li><strong>Upload speed is tested</strong> — Your device sends data back to the server. This measures how
+            fast your connection can transmit, which affects video
+            calls, gaming, and cloud uploads.</li>
+          <li><strong>Packet loss is checked</strong> — NetPulse detects whether any data packets are being dropped,
+            which causes buffering, lag, and call quality issues.</li>
+          <li><strong>Live charts update in real time</strong> — A live throughput chart and ping/jitter graph update as
+            the test runs, giving you a visual picture of your connection's
+            performance over time.</li>
+          <li><strong>Results are saved</strong> — Your last test results are stored locally so you can review and
+            compare your connection's performance over time.</li>
+        </ol>
+      </div>
+      <hr>
+      <h3>What the Results Mean</h3>
+      <div class="list">
+        <ul>
+          <li><strong>Download Speed:</strong> How fast you receive data from the internet. This affects streaming, web
+            browsing, video playback, and file downloads.
+            Higher is better.</li>
+          <li><strong>Upload Speed:</strong> How fast your device sends data to the internet. This affects video calls,
+            live streaming, cloud uploads, and online
+            gaming. Higher is better.</li>
+          <li><strong>Ping:</strong> The delay between your device and the server in milliseconds. Lower ping means a
+            more responsive connection. Under 20 ms
+            is excellent for gaming and video calls.</li>
+          <li><strong>Jitter (ms):</strong> The inconsistency in your ping over time. High jitter causes choppy
+            audio/video in
+            calls and unstable gameplay even if
+            your average ping looks fine. Lower is better.</li>
+          <li><strong>Packet Loss (%):</strong> The percentage of data packets that fail to reach their destination. Any
+            packet loss above 1% will noticeably degrade
+            call quality, streaming, and gaming. 0% is ideal.</li>
+        </ul>
+      </div>
+      <hr>
+      <h3>Speed Rating Guide</h3>
+      <div class="table-container">
+        <table border="1">
+          <thead>
+            <tr>
+              <th>Rating</th>
+              <th>Speed Range</th>
+              <th>Best For...</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Excellent</strong></td>
+              <td>100+ Mbps</td>
+              <td>4K streaming, gaming, large file transfers, and multiple users simultaneously.</td>
+            </tr>
+            <tr>
+              <td><strong>Good</strong></td>
+              <td>50–99 Mbps</td>
+              <td>HD streaming, video calls, and smooth browsing for 2–4 users.</td>
+            </tr>
+            <tr>
+              <td><strong>Fair</strong></td>
+              <td>20–49 Mbps</td>
+              <td>Basic streaming and browsing. May slow down with multiple devices connected.</td>
+            </tr>
+            <tr>
+              <td><strong>Poor</strong></td>
+              <td>Under 20 Mbps</td>
+              <td>May struggle with HD video, large downloads, or multiple connected devices.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <hr>
+      <h3>Why Use NetPulse?</h3>
+      <p>Most speed test tools are cluttered with ads, require app installs, or give inaccurate results. NetPulse is
+        different —
+        it's lightweight, open-source, and built for accuracy. Here's why users choose NetPulse to test their internet
+        connection:</p>
+      <div class="list">
+        <ol>
+          <li><strong>Geo-sorted nearby servers</strong> — NetPulse detects your location and automatically ranks
+            available servers by proximity, so your test always uses the
+            closest and most relevant server.</li>
+          <li><strong>Real-time live charts</strong> — Watch your download, upload, ping, and jitter plotted live as the
+            test runs — not just a final number at the end.</li>
+          <li><strong>Multi-metric analysis</strong> — Your public IP address and ISP name are detected automatically
+            and shown on screen alongside your test results.</li>
+          <li><strong>Auto IP & ISP detection</strong> — Auto IP & ISP detection</li>
+          <li><strong>No ads, no installs</strong> — NetPulse runs entirely in your browser. No sign-up, no extension,
+            no app required.</li>
+          <li><strong>Test history</strong> — Your recent results are saved locally so you can track your connection
+            quality over time without creating an account.</li>
+          <li><strong>Open-source & transparent</strong> — The full source code is publicly available on GitHub, so you
+            can verify exactly how every measurement is made.</li>
+          <li><strong>Works on any device</strong> — Fully optimized for desktop, tablet, and mobile with a responsive
+            dark-theme dashboard that looks great on any screen
+            size.</li>
+        </ol>
+      </div>
+    </div>
+  </div><!-- /.page-wrap -->
+
+  <!--Footer  -->
+  <footer class="footer">
+    <ul class="menu">
+      <li class="menu-item"><a class="menu-link" href="https://devspirehub.com">Home</a></li>
+      <li class="menu-item"><a class="menu-link" href="https://devspirehub.com/Wallpaper/">Wallpapers</a></li>
+      <li class="menu-item"><a class="menu-link" href="https://devspirehub.com/Color-Palettes/">Color Space</a>
+      </li>
+      <li class="menu-item"><a class="menu-link"
+          href="https://devspirehub.com/Resources/Digital-Resources/Digital-Resources-Hub.html">Resources</a>
+      </li>
+      <li class="menu-item"><a class="menu-link" href="https://devspirehub.com/Website/About/About.html">About</a>
+      </li>
+      <li class="menu-item"><a class="menu-link" href="https://devspirehub.com/Website/Contact/Index.html">Contact</a>
+      </li>
+      <li class="menu-item"><a class="menu-link" href="https://devspirehub.com/Website/privacy/index.html">Privacy
+          policy</a>
+      </li>
+    </ul>
+    <div class="contacts">
+      <a class="contact github" href="https://github.com/kumaradoss16" target="_blank"><i
+          class="fa-brands fa-github"></i></a>
+      <a class="contact instagram" href="https://www.instagram.com/devspirehub/" target="_blank"><i
+          class="fa-brands fa-instagram"></i></a>
+      <a class="contact linkedin" href="https://www.linkedin.com/in/kumaradoss-s/" target="_blank"><i
+          class="fa-brands fa-linkedin"></i></a>
+      <a class="contact facebook" href="https://www.facebook.com/profile.php?id=61577667990170&_rdr" target="_blank"><i
+          class="fa-brands fa-facebook"></i></a>
+      <a class="contact gmail" href="https://mail.google.com/mail/?view=cm&fs=1&to=devspirehub.website@gmail.com"
+        aria-label="Email us at devspirehub.website@gmail.com" title="Send us an email" target="_blank"
+        rel="noopener noreferrer">
+        <i class="fa-solid fa-envelope"></i>
+      </a>
+    </div>
+    <p>&copy;2026 DevspireHub | All Rights Reserved</p>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>
