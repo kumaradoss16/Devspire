@@ -10,6 +10,1076 @@ const CATS = {
 };
             
 const REPOS = [
+  {
+    "owner": "MayersScott",
+    "name": "rkn-block-checker",
+    "url": "https://github.com/MayersScott/rkn-block-checker",
+    "cat": "network",
+    "desc": "Command line tool to diagnose Russian internet censorship by checking RKN and TSPU blocks across DNS, TCP, TLS and HTTP layers.",
+    "language": "Python",
+    "topics": [
+      "censorship",
+      "cli",
+      "dns",
+      "dpi",
+      "network_diagnostics",
+      "networking",
+      "python",
+      "rkn",
+      "tls",
+      "tspu"
+    ],
+    "updated": "09 May 2026",
+    "isNew": true
+  },
+  {
+    "owner": "vercel-labs",
+    "name": "zero-native",
+    "url": "https://github.com/vercel-labs/zero-native",
+    "cat": "dev",
+    "desc": "Toolkit for building native desktop and mobile applications using a web-based UI layer and Zig.",
+    "language": "Zig",
+    "topics": [
+      "desktop",
+      "mobile",
+      "native",
+      "web",
+      "zig",
+      "ui"
+    ],
+    "updated": "09 May 2026",
+    "isNew": true
+  },
+  {
+    "owner": "zarazhangrui",
+    "name": "beautiful-html-templates",
+    "url": "https://github.com/zarazhangrui/beautiful-html-templates",
+    "cat": "web",
+    "desc": "Collection of HTML slide templates designed so code agents can automatically assemble visually appealing presentation decks.",
+    "language": "HTML",
+    "topics": [
+      "html",
+      "templates",
+      "slides",
+      "presentation",
+      "web"
+    ],
+    "updated": "10 May 2026",
+    "isNew": true
+  },
+  {
+    "owner": "LayrKits",
+    "name": "Sprite-Pipeline",
+    "url": "https://github.com/LayrKits/Sprite-Pipeline",
+    "cat": "dev",
+    "desc": "Pipeline tool for creating and managing 2D sprite sheets for games and visual projects.",
+    "language": "Python",
+    "topics": [
+      "sprites",
+      "graphics",
+      "game_dev",
+      "pipeline",
+      "python"
+    ],
+    "updated": "10 May 2026",
+    "isNew": true
+  },
+  {
+    "owner": "kitft",
+    "name": "natural_language_autoencoders",
+    "url": "https://github.com/kitft/natural_language_autoencoders",
+    "cat": "ai",
+    "desc": "Implementations of autoencoder models for natural language data in Python.",
+    "language": "Python",
+    "topics": [
+      "natural_language",
+      "autoencoder",
+      "ml",
+      "nlp",
+      "python"
+    ],
+    "updated": "10 May 2026",
+    "isNew": true
+  },
+  {
+    "owner": "butthtio",
+    "name": "solidity-cot-auditor",
+    "url": "https://github.com/butthtio/solidity-cot-auditor",
+    "cat": "security",
+    "desc": "Multi role chain of thought LLM pipeline for auditing Solidity smart contract security on top of Slither analysis.",
+    "language": "Python",
+    "topics": [
+      "solidity",
+      "security",
+      "audit",
+      "llm",
+      "blockchain",
+      "defi",
+      "python"
+    ],
+    "updated": "10 May 2026",
+    "isNew": true
+  },
+  {
+    "owner": "joshawome",
+    "name": "chainreason",
+    "url": "https://github.com/joshawome/chainreason",
+    "cat": "ai",
+    "desc": "Benchmark suite for evaluating large language model reasoning on Ethereum and DeFi related tasks.",
+    "language": "Python",
+    "topics": [
+      "benchmark",
+      "llm",
+      "reasoning",
+      "ethereum",
+      "defi",
+      "python"
+    ],
+    "updated": "11 May 2026",
+    "isNew": true
+  },
+  {
+    "owner": "moxailoo",
+    "name": "univ3-pool-lens",
+    "url": "https://github.com/moxailoo/univ3-pool-lens",
+    "cat": "data",
+    "desc": "TypeScript toolkit for inspecting Uniswap V3 pools including liquidity distribution, fee yield and impermanent loss analysis from the terminal.",
+    "language": "TypeScript",
+    "topics": [
+      "uniswap",
+      "v3",
+      "defi",
+      "pool",
+      "liquidity",
+      "typescript",
+      "terminal"
+    ],
+    "updated": "11 May 2026",
+    "isNew": true
+  },
+  {
+    "owner": "huangserva",
+    "name": "3DCellForge",
+    "url": "https://github.com/huangserva/3DCellForge",
+    "cat": "ai",
+    "desc": "AI powered interactive 3D cell generation and exploration studio built with JavaScript.",
+    "language": "JavaScript",
+    "topics": [
+      "ai",
+      "3d",
+      "cells",
+      "visualization",
+      "javascript"
+    ],
+    "updated": "11 May 2026",
+    "isNew": true
+  },
+  {
+    "owner": "Ch1rpy2613",
+    "name": "Mirrai",
+    "url": "https://github.com/Ch1rpy2613/Mirrai",
+    "cat": "ai",
+    "desc": "TypeScript based project related to AI or agentic functionality.",
+    "language": "TypeScript",
+    "topics": [
+      "typescript",
+      "ai",
+      "agents"
+    ],
+    "updated": "11 May 2026",
+    "isNew": true
+  },
+  {
+    "owner": "L1v1ng0ffTh3L4N",
+    "name": "EdgeSavedPasswordsDumper",
+    "url": "https://github.com/L1v1ng0ffTh3L4N/EdgeSavedPasswordsDumper",
+    "cat": "security",
+    "desc": "Proof of concept tool demonstrating that Microsoft Edge stores saved credentials in cleartext.",
+    "language": "C#",
+    "topics": [
+      "edge",
+      "passwords",
+      "credentials",
+      "security",
+      "poc",
+      "csharp"
+    ],
+    "updated": "12 May 2026",
+    "isNew": true
+  },
+  {
+    "owner": "PentHertz",
+    "name": "LUKSbox",
+    "url": "https://github.com/PentHertz/LUKSbox",
+    "cat": "security",
+    "desc": "Rust based encrypted container tool for storing sensitive files in the cloud or on shared media using passphrases, FIDO2, TPM 2.0 and post quantum key slots.",
+    "language": "Rust",
+    "topics": [
+      "encryption",
+      "file",
+      "secure",
+      "sensitive_data",
+      "vault",
+      "rust",
+      "luks"
+    ],
+    "updated": "12 May 2026",
+    "isNew": true
+  },
+  {
+    "owner": "pixel-point",
+    "name": "media-downloader",
+    "url": "https://github.com/pixel-point/media-downloader",
+    "cat": "desktop",
+    "desc": "Native macOS application for downloading and trimming video in a single app.",
+    "language": "Swift",
+    "topics": [
+      "macos",
+      "video",
+      "downloader",
+      "swift"
+    ],
+    "updated": "12 May 2026",
+    "isNew": true
+  },
+  {
+    "owner": "RadianceToadAmend",
+    "name": "cs2-overlay-utility",
+    "url": "https://github.com/RadianceToadAmend/cs2-overlay-utility",
+    "cat": "systems",
+    "desc": "External overlay utility for Counter Strike 2 providing memory reading, ESP and visual aids using D3D11 rendering without injection.",
+    "language": "C++",
+    "topics": [
+      "cs2",
+      "csgo",
+      "overlay",
+      "d3d11",
+      "memory_reader",
+      "game_tool",
+      "imgui",
+      "source2",
+      "c++"
+    ],
+    "updated": "12 May 2026",
+    "isNew": true
+  },
+  {
+    "owner": "darkrishabh",
+    "name": "agent-skills-eval",
+    "url": "https://github.com/darkrishabh/agent-skills-eval",
+    "cat": "ai",
+    "desc": "Command line test runner for evaluating AI agent skills in agentskills.io style workflows.",
+    "language": "TypeScript",
+    "topics": [
+      "agent_evals",
+      "agent_skills",
+      "ai_agents",
+      "cli",
+      "jsonl",
+      "llm_evals",
+      "llm_evaluation",
+      "openai_compatible",
+      "typescript",
+      "yaml"
+    ],
+    "updated": "13 May 2026",
+    "isNew": true
+  },
+  {
+    "owner": "haydenbleasel",
+    "name": "files-sdk",
+    "url": "https://github.com/haydenbleasel/files-sdk",
+    "cat": "dev",
+    "desc": "Unified storage SDK providing a single API for object and blob backends with web standards based I O.",
+    "language": "TypeScript",
+    "topics": [
+      "storage",
+      "sdk",
+      "files",
+      "blob",
+      "s3",
+      "r2",
+      "cloudflare",
+      "minio",
+      "vercel",
+      "typescript"
+    ],
+    "updated": "13 May 2026",
+    "isNew": true
+  },
+  {
+    "owner": "FULU-Foundation",
+    "name": "OrcaSlicer-bambulab",
+    "url": "https://github.com/FULU-Foundation/OrcaSlicer-bambulab",
+    "cat": "dev",
+    "desc": "Fork of OrcaSlicer tailored for Bambu Lab 3D printers.",
+    "language": "C++",
+    "topics": [
+      "3d_printing",
+      "slicer",
+      "bambulab",
+      "c++"
+    ],
+    "updated": "13 May 2026",
+    "isNew": true
+  },
+  {
+    "owner": "ywnd1144",
+    "name": "Gopay_plus_automatic",
+    "url": "https://github.com/ywnd1144/Gopay_plus_automatic",
+    "cat": "dev",
+    "desc": "Automation utility for Gopay Plus related workflows written in Python.",
+    "language": "Python",
+    "topics": [
+      "gopay",
+      "automation",
+      "python"
+    ],
+    "updated": "13 May 2026",
+    "isNew": true
+  },
+  {
+    "owner": "patchfighterway90",
+    "name": "cs2-external-overlay",
+    "url": "https://github.com/patchfighterway90/cs2-external-overlay",
+    "cat": "systems",
+    "desc": "External helper tool for CS2 providing a customizable DirectX based overlay and in game utilities for Windows.",
+    "language": "Python",
+    "topics": [
+      "cs2",
+      "directx",
+      "external",
+      "game_development",
+      "game_helper",
+      "game_tool",
+      "overlay",
+      "windows",
+      "python"
+    ],
+    "updated": "14 May 2026",
+    "isNew": true
+  },
+  {
+    "owner": "RadianceToadAmend",
+    "name": "ARC-Raiders-External-Tool",
+    "url": "https://github.com/RadianceToadAmend/ARC-Raiders-External-Tool",
+    "cat": "systems",
+    "desc": "External overlay tool for ARC Raiders featuring UE5 memory reading, radar and performance monitoring with D3D11 rendering and no injection.",
+    "language": "C++",
+    "topics": [
+      "arc_raiders",
+      "overlay",
+      "d3d11",
+      "memory_reader",
+      "game_tool",
+      "imgui",
+      "ue5",
+      "windows",
+      "c++"
+    ],
+    "updated": "14 May 2026",
+    "isNew": true
+  },
+  {
+    "owner": "HermannBjorgvin",
+    "name": "Clawdmeter",
+    "url": "https://github.com/HermannBjorgvin/Clawdmeter",
+    "cat": "systems",
+    "desc": "ESP32 powered desk dashboard that displays Claude Code usage metrics.",
+    "language": "C",
+    "topics": [
+      "esp32",
+      "dashboard",
+      "hardware",
+      "meter",
+      "c"
+    ],
+    "updated": "14 May 2026",
+    "isNew": true
+  },
+  {
+    "owner": "TencentARC",
+    "name": "Pixal3D",
+    "url": "https://github.com/TencentARC/Pixal3D",
+    "cat": "ai",
+    "desc": "Research code for Pixal3D, a pixel aligned method for 3D generation from images presented at SIGGRAPH 2026.",
+    "language": "Python",
+    "topics": [
+      "3d",
+      "generation",
+      "images",
+      "siggraph",
+      "ml",
+      "python"
+    ],
+    "updated": "14 May 2026",
+    "isNew": true
+  },
+  {
+    "owner": "cclank",
+    "name": "cell-architecture-studio",
+    "url": "https://github.com/cclank/cell-architecture-studio",
+    "cat": "web",
+    "desc": "Interactive 3D cell architecture gallery built with React and Three.js.",
+    "language": "TypeScript",
+    "topics": [
+      "react",
+      "threejs",
+      "3d",
+      "cells",
+      "gallery",
+      "typescript",
+      "web"
+    ],
+    "updated": "15 May 2026",
+    "isNew": true
+  },
+  {
+    "owner": "amircloner",
+    "name": "g2ray",
+    "url": "https://github.com/amircloner/g2ray",
+    "cat": "network",
+    "desc": "Self hosted proxy setup running inside GitHub Codespaces for educational use.",
+    "language": "Dockerfile",
+    "topics": [
+      "proxy",
+      "self_hosted",
+      "codespaces",
+      "network",
+      "docker"
+    ],
+    "updated": "15 May 2026",
+    "isNew": true
+  },
+  {
+    "owner": "nexu-io",
+    "name": "html-anything",
+    "url": "https://github.com/nexu-io/html-anything",
+    "cat": "ai",
+    "desc": "Agentic HTML editor where local AI agents write HTML for magazines, decks, posters, social posts and prototypes with sandboxed preview and export options.",
+    "language": "HTML",
+    "topics": [
+      "agent_skills",
+      "agentic",
+      "ai_agents",
+      "ai_design",
+      "ai_editor",
+      "claude_code",
+      "coding_agents",
+      "generative_ai",
+      "html",
+      "html_editor",
+      "hyperframes",
+      "local_first",
+      "markdown",
+      "nextjs",
+      "wechat"
+    ],
+    "updated": "15 May 2026",
+    "isNew": true
+  },
+  {
+    "owner": "lillian039",
+    "name": "ELF",
+    "url": "https://github.com/lillian039/ELF",
+    "cat": "systems",
+    "desc": "Python project related to ELF binaries or low level executable analysis.",
+    "language": "Python",
+    "topics": [
+      "elf",
+      "binaries",
+      "python",
+      "systems"
+    ],
+    "updated": "15 May 2026",
+    "isNew": true
+  },
+  {
+    "owner": "DepthFirstDisclosures",
+    "name": "Nginx-Rift",
+    "url": "https://github.com/DepthFirstDisclosures/Nginx-Rift",
+    "cat": "security",
+    "desc": "Exploit implementation for Nginx vulnerability CVE 2026 42945.",
+    "language": "Python",
+    "topics": [
+      "nginx",
+      "exploit",
+      "cve-2026-42945",
+      "security",
+      "python"
+    ],
+    "updated": "16 May 2026",
+    "isNew": true
+  },
+  {
+    "owner": "AvenueSleuth",
+    "name": "delta-exec",
+    "url": "https://github.com/AvenueSleuth/delta-exec",
+    "cat": "security",
+    "desc": "Delta Exec scripting utility associated with Windows delta exploits and execution.",
+    "language": "Python",
+    "topics": [
+      "delta_executor_windows",
+      "delta_exploit",
+      "delta_pc",
+      "security",
+      "python"
+    ],
+    "updated": "16 May 2026",
+    "isNew": true
+  },
+  {
+    "owner": "jasonkneen",
+    "name": "tiny-world-builder",
+    "url": "https://github.com/jasonkneen/tiny-world-builder",
+    "cat": "web",
+    "desc": "HTML based tiny world builder for voxel or Minecraft style environments.",
+    "language": "HTML",
+    "topics": [
+      "build",
+      "minecraft",
+      "voxel",
+      "html",
+      "web"
+    ],
+    "updated": "16 May 2026",
+    "isNew": true
+  },
+    {
+        "owner": "MayersScott",
+        "name": "rkn-block-checker",
+        "url": "https://github.com/MayersScott/rkn-block-checker",
+        "cat": "network",
+        "desc": "Command line tool to diagnose Russian internet censorship by checking RKN and TSPU blocks across DNS, TCP, TLS and HTTP layers.",
+        "language": "Python",
+        "topics": [
+        "censorship",
+        "cli",
+        "dns",
+        "dpi",
+        "network_diagnostics",
+        "networking",
+        "python",
+        "rkn",
+        "tls",
+        "tspu"
+        ],
+        "updated": "09 May 2026",
+        "isNew": false
+    },
+    {
+        "owner": "vercel-labs",
+        "name": "zero-native",
+        "url": "https://github.com/vercel-labs/zero-native",
+        "cat": "dev",
+        "desc": "Toolkit for building native desktop and mobile applications using a web-based UI layer and Zig.",
+        "language": "Zig",
+        "topics": [
+        "desktop",
+        "mobile",
+        "native",
+        "web",
+        "zig",
+        "ui"
+        ],
+        "updated": "09 May 2026",
+        "isNew": false
+    },
+    {
+        "owner": "zarazhangrui",
+        "name": "beautiful-html-templates",
+        "url": "https://github.com/zarazhangrui/beautiful-html-templates",
+        "cat": "web",
+        "desc": "Collection of HTML slide templates designed so code agents can automatically assemble visually appealing presentation decks.",
+        "language": "HTML",
+        "topics": [
+        "html",
+        "templates",
+        "slides",
+        "presentation",
+        "web"
+        ],
+        "updated": "10 May 2026",
+        "isNew": false
+    },
+    {
+        "owner": "LayrKits",
+        "name": "Sprite-Pipeline",
+        "url": "https://github.com/LayrKits/Sprite-Pipeline",
+        "cat": "dev",
+        "desc": "Pipeline tool for creating and managing 2D sprite sheets for games and visual projects.",
+        "language": "Python",
+        "topics": [
+        "sprites",
+        "graphics",
+        "game_dev",
+        "pipeline",
+        "python"
+        ],
+        "updated": "10 May 2026",
+        "isNew": false
+    },
+    {
+        "owner": "kitft",
+        "name": "natural_language_autoencoders",
+        "url": "https://github.com/kitft/natural_language_autoencoders",
+        "cat": "ai",
+        "desc": "Implementations of autoencoder models for natural language data in Python.",
+        "language": "Python",
+        "topics": [
+        "natural_language",
+        "autoencoder",
+        "ml",
+        "nlp",
+        "python"
+        ],
+        "updated": "10 May 2026",
+        "isNew": false
+    },
+    {
+        "owner": "butthtio",
+        "name": "solidity-cot-auditor",
+        "url": "https://github.com/butthtio/solidity-cot-auditor",
+        "cat": "security",
+        "desc": "Multi role chain of thought LLM pipeline for auditing Solidity smart contract security on top of Slither analysis.",
+        "language": "Python",
+        "topics": [
+        "solidity",
+        "security",
+        "audit",
+        "llm",
+        "blockchain",
+        "defi",
+        "python"
+        ],
+        "updated": "10 May 2026",
+        "isNew": false
+    },
+    {
+        "owner": "joshawome",
+        "name": "chainreason",
+        "url": "https://github.com/joshawome/chainreason",
+        "cat": "ai",
+        "desc": "Benchmark suite for evaluating large language model reasoning on Ethereum and DeFi related tasks.",
+        "language": "Python",
+        "topics": [
+        "benchmark",
+        "llm",
+        "reasoning",
+        "ethereum",
+        "defi",
+        "python"
+        ],
+        "updated": "11 May 2026",
+        "isNew": false
+    },
+    {
+        "owner": "moxailoo",
+        "name": "univ3-pool-lens",
+        "url": "https://github.com/moxailoo/univ3-pool-lens",
+        "cat": "data",
+        "desc": "TypeScript toolkit for inspecting Uniswap V3 pools including liquidity distribution, fee yield and impermanent loss analysis from the terminal.",
+        "language": "TypeScript",
+        "topics": [
+        "uniswap",
+        "v3",
+        "defi",
+        "pool",
+        "liquidity",
+        "typescript",
+        "terminal"
+        ],
+        "updated": "11 May 2026",
+        "isNew": false
+    },
+    {
+        "owner": "huangserva",
+        "name": "3DCellForge",
+        "url": "https://github.com/huangserva/3DCellForge",
+        "cat": "ai",
+        "desc": "AI powered interactive 3D cell generation and exploration studio built with JavaScript.",
+        "language": "JavaScript",
+        "topics": [
+        "ai",
+        "3d",
+        "cells",
+        "visualization",
+        "javascript"
+        ],
+        "updated": "11 May 2026",
+        "isNew": false
+    },
+    {
+        "owner": "Ch1rpy2613",
+        "name": "Mirrai",
+        "url": "https://github.com/Ch1rpy2613/Mirrai",
+        "cat": "ai",
+        "desc": "TypeScript based project related to AI or agentic functionality.",
+        "language": "TypeScript",
+        "topics": [
+        "typescript",
+        "ai",
+        "agents"
+        ],
+        "updated": "11 May 2026",
+        "isNew": false
+    },
+    {
+        "owner": "L1v1ng0ffTh3L4N",
+        "name": "EdgeSavedPasswordsDumper",
+        "url": "https://github.com/L1v1ng0ffTh3L4N/EdgeSavedPasswordsDumper",
+        "cat": "security",
+        "desc": "Proof of concept tool demonstrating that Microsoft Edge stores saved credentials in cleartext.",
+        "language": "C#",
+        "topics": [
+        "edge",
+        "passwords",
+        "credentials",
+        "security",
+        "poc",
+        "csharp"
+        ],
+        "updated": "12 May 2026",
+        "isNew": false
+    },
+    {
+        "owner": "PentHertz",
+        "name": "LUKSbox",
+        "url": "https://github.com/PentHertz/LUKSbox",
+        "cat": "security",
+        "desc": "Rust based encrypted container tool for storing sensitive files in the cloud or on shared media using passphrases, FIDO2, TPM 2.0 and post quantum key slots.",
+        "language": "Rust",
+        "topics": [
+        "encryption",
+        "file",
+        "secure",
+        "sensitive_data",
+        "vault",
+        "rust",
+        "luks"
+        ],
+        "updated": "12 May 2026",
+        "isNew": false
+    },
+    {
+        "owner": "pixel-point",
+        "name": "media-downloader",
+        "url": "https://github.com/pixel-point/media-downloader",
+        "cat": "desktop",
+        "desc": "Native macOS application for downloading and trimming video in a single app.",
+        "language": "Swift",
+        "topics": [
+        "macos",
+        "video",
+        "downloader",
+        "swift"
+        ],
+        "updated": "12 May 2026",
+        "isNew": false
+    },
+    {
+        "owner": "RadianceToadAmend",
+        "name": "cs2-overlay-utility",
+        "url": "https://github.com/RadianceToadAmend/cs2-overlay-utility",
+        "cat": "systems",
+        "desc": "External overlay utility for Counter Strike 2 providing memory reading, ESP and visual aids using D3D11 rendering without injection.",
+        "language": "C++",
+        "topics": [
+        "cs2",
+        "csgo",
+        "overlay",
+        "d3d11",
+        "memory_reader",
+        "game_tool",
+        "imgui",
+        "source2",
+        "c++"
+        ],
+        "updated": "12 May 2026",
+        "isNew": false
+    },
+    {
+        "owner": "darkrishabh",
+        "name": "agent-skills-eval",
+        "url": "https://github.com/darkrishabh/agent-skills-eval",
+        "cat": "ai",
+        "desc": "Command line test runner for evaluating AI agent skills in agentskills.io style workflows.",
+        "language": "TypeScript",
+        "topics": [
+        "agent_evals",
+        "agent_skills",
+        "ai_agents",
+        "cli",
+        "jsonl",
+        "llm_evals",
+        "llm_evaluation",
+        "openai_compatible",
+        "typescript",
+        "yaml"
+        ],
+        "updated": "13 May 2026",
+        "isNew": false
+    },
+    {
+        "owner": "haydenbleasel",
+        "name": "files-sdk",
+        "url": "https://github.com/haydenbleasel/files-sdk",
+        "cat": "dev",
+        "desc": "Unified storage SDK providing a single API for object and blob backends with web standards based I O.",
+        "language": "TypeScript",
+        "topics": [
+        "storage",
+        "sdk",
+        "files",
+        "blob",
+        "s3",
+        "r2",
+        "cloudflare",
+        "minio",
+        "vercel",
+        "typescript"
+        ],
+        "updated": "13 May 2026",
+        "isNew": false
+    },
+    {
+        "owner": "FULU-Foundation",
+        "name": "OrcaSlicer-bambulab",
+        "url": "https://github.com/FULU-Foundation/OrcaSlicer-bambulab",
+        "cat": "dev",
+        "desc": "Fork of OrcaSlicer tailored for Bambu Lab 3D printers.",
+        "language": "C++",
+        "topics": [
+        "3d_printing",
+        "slicer",
+        "bambulab",
+        "c++"
+        ],
+        "updated": "13 May 2026",
+        "isNew": false
+    },
+    {
+        "owner": "ywnd1144",
+        "name": "Gopay_plus_automatic",
+        "url": "https://github.com/ywnd1144/Gopay_plus_automatic",
+        "cat": "dev",
+        "desc": "Automation utility for Gopay Plus related workflows written in Python.",
+        "language": "Python",
+        "topics": [
+        "gopay",
+        "automation",
+        "python"
+        ],
+        "updated": "13 May 2026",
+        "isNew": false
+    },
+    {
+        "owner": "patchfighterway90",
+        "name": "cs2-external-overlay",
+        "url": "https://github.com/patchfighterway90/cs2-external-overlay",
+        "cat": "systems",
+        "desc": "External helper tool for CS2 providing a customizable DirectX based overlay and in game utilities for Windows.",
+        "language": "Python",
+        "topics": [
+        "cs2",
+        "directx",
+        "external",
+        "game_development",
+        "game_helper",
+        "game_tool",
+        "overlay",
+        "windows",
+        "python"
+        ],
+        "updated": "14 May 2026",
+        "isNew": false
+    },
+    {
+        "owner": "RadianceToadAmend",
+        "name": "ARC-Raiders-External-Tool",
+        "url": "https://github.com/RadianceToadAmend/ARC-Raiders-External-Tool",
+        "cat": "systems",
+        "desc": "External overlay tool for ARC Raiders featuring UE5 memory reading, radar and performance monitoring with D3D11 rendering and no injection.",
+        "language": "C++",
+        "topics": [
+        "arc_raiders",
+        "overlay",
+        "d3d11",
+        "memory_reader",
+        "game_tool",
+        "imgui",
+        "ue5",
+        "windows",
+        "c++"
+        ],
+        "updated": "14 May 2026",
+        "isNew": false
+    },
+    {
+        "owner": "HermannBjorgvin",
+        "name": "Clawdmeter",
+        "url": "https://github.com/HermannBjorgvin/Clawdmeter",
+        "cat": "systems",
+        "desc": "ESP32 powered desk dashboard that displays Claude Code usage metrics.",
+        "language": "C",
+        "topics": [
+        "esp32",
+        "dashboard",
+        "hardware",
+        "meter",
+        "c"
+        ],
+        "updated": "14 May 2026",
+        "isNew": false
+    },
+    {
+        "owner": "TencentARC",
+        "name": "Pixal3D",
+        "url": "https://github.com/TencentARC/Pixal3D",
+        "cat": "ai",
+        "desc": "Research code for Pixal3D, a pixel aligned method for 3D generation from images presented at SIGGRAPH 2026.",
+        "language": "Python",
+        "topics": [
+        "3d",
+        "generation",
+        "images",
+        "siggraph",
+        "ml",
+        "python"
+        ],
+        "updated": "14 May 2026",
+        "isNew": false
+    },
+    {
+        "owner": "cclank",
+        "name": "cell-architecture-studio",
+        "url": "https://github.com/cclank/cell-architecture-studio",
+        "cat": "web",
+        "desc": "Interactive 3D cell architecture gallery built with React and Three.js.",
+        "language": "TypeScript",
+        "topics": [
+        "react",
+        "threejs",
+        "3d",
+        "cells",
+        "gallery",
+        "typescript",
+        "web"
+        ],
+        "updated": "15 May 2026",
+        "isNew": true
+    },
+    {
+        "owner": "amircloner",
+        "name": "g2ray",
+        "url": "https://github.com/amircloner/g2ray",
+        "cat": "network",
+        "desc": "Self hosted proxy setup running inside GitHub Codespaces for educational use.",
+        "language": "Dockerfile",
+        "topics": [
+        "proxy",
+        "self_hosted",
+        "codespaces",
+        "network",
+        "docker"
+        ],
+        "updated": "15 May 2026",
+        "isNew": true
+    },
+    {
+        "owner": "nexu-io",
+        "name": "html-anything",
+        "url": "https://github.com/nexu-io/html-anything",
+        "cat": "ai",
+        "desc": "Agentic HTML editor where local AI agents write HTML for magazines, decks, posters, social posts and prototypes with sandboxed preview and export options.",
+        "language": "HTML",
+        "topics": [
+        "agent_skills",
+        "agentic",
+        "ai_agents",
+        "ai_design",
+        "ai_editor",
+        "claude_code",
+        "coding_agents",
+        "generative_ai",
+        "html",
+        "html_editor",
+        "hyperframes",
+        "local_first",
+        "markdown",
+        "nextjs",
+        "wechat"
+        ],
+        "updated": "15 May 2026",
+        "isNew": true
+    },
+    {
+        "owner": "lillian039",
+        "name": "ELF",
+        "url": "https://github.com/lillian039/ELF",
+        "cat": "systems",
+        "desc": "Python project related to ELF binaries or low level executable analysis.",
+        "language": "Python",
+        "topics": [
+        "elf",
+        "binaries",
+        "python",
+        "systems"
+        ],
+        "updated": "15 May 2026",
+        "isNew": true
+    },
+    {
+        "owner": "DepthFirstDisclosures",
+        "name": "Nginx-Rift",
+        "url": "https://github.com/DepthFirstDisclosures/Nginx-Rift",
+        "cat": "security",
+        "desc": "Exploit implementation for Nginx vulnerability CVE 2026 42945.",
+        "language": "Python",
+        "topics": [
+        "nginx",
+        "exploit",
+        "cve-2026-42945",
+        "security",
+        "python"
+        ],
+        "updated": "16 May 2026",
+        "isNew": true
+    },
+    {
+        "owner": "AvenueSleuth",
+        "name": "delta-exec",
+        "url": "https://github.com/AvenueSleuth/delta-exec",
+        "cat": "security",
+        "desc": "Delta Exec scripting utility associated with Windows delta exploits and execution.",
+        "language": "Python",
+        "topics": [
+        "delta_executor_windows",
+        "delta_exploit",
+        "delta_pc",
+        "security",
+        "python"
+        ],
+        "updated": "16 May 2026",
+        "isNew": true
+    },
+    {
+        "owner": "jasonkneen",
+        "name": "tiny-world-builder",
+        "url": "https://github.com/jasonkneen/tiny-world-builder",
+        "cat": "web",
+        "desc": "HTML based tiny world builder for voxel or Minecraft style environments.",
+        "language": "HTML",
+        "topics": [
+        "build",
+        "minecraft",
+        "voxel",
+        "html",
+        "web"
+        ],
+        "updated": "16 May 2026",
+        "isNew": true
+    },
     {
         "owner": "lightseekorg",
         "name": "tokenspeed",
@@ -19,7 +1089,7 @@ const REPOS = [
         "language": "Python",
         "topics": ["blackwell", "deepseek", "gpt_oss", "kimi", "lightseek", "llm", "minimax", "qwen", "speed_of_light", "tokenspeed"],
         "updated": "09 May 2026",
-        "isNew": true,
+        "isNew": false,
     },
     {
         owner: "antirez",
@@ -30,7 +1100,7 @@ const REPOS = [
         language: "C",
         topics: ["deepseek", "inference", "llm", "metal", "local", "model"],
         updated: "09 May 2026",
-        isNew: true
+        isNew: false
     },
     {
         owner: "strukto-ai",
@@ -41,7 +1111,7 @@ const REPOS = [
         language: "TypeScript",
         topics: ["ai_agents", "virtual_filesystem", "llm_agents", "langchain", "claude_code", "fuse", "sandbox"],
         updated: "08 May 2026",
-        isNew: true
+        isNew: false
     },
     {
         owner: "V4bel",
@@ -52,7 +1122,7 @@ const REPOS = [
         language: "C",
         topics: ["security", "exploit", "low_level", "systems"],
         updated: "08 May 2026",
-        isNew: true
+        isNew: false
     },
     {
         owner: "StartupHakk",
@@ -63,7 +1133,7 @@ const REPOS = [
         language: "C#",
         topics: ["ai", "agents", "llm", "terminal", "local", "open_source"],
         updated: "08 May 2026",
-        isNew: true
+        isNew: false
     },
     {
         owner: "virgiliojr94",
@@ -74,7 +1144,7 @@ const REPOS = [
         language: "Python",
         topics: ["ai", "claude_code", "pdf", "skill", "education"],
         updated: "08 May 2026",
-        isNew: true
+        isNew: false
     },
     {
         owner: "NamKhoa-07",
@@ -85,7 +1155,7 @@ const REPOS = [
         language: "C#",
         topics: ["roblox", "bloxstrap", "open_source", "customization"],
         updated: "07 May 2026",
-        isNew: true
+        isNew: false
     },
     {
         owner: "Kappaemme-git",
@@ -96,7 +1166,7 @@ const REPOS = [
         language: "JavaScript",
         topics: ["codex", "startup", "testing", "dev_tool"],
         updated: "07 May 2026",
-        isNew: true
+        isNew: false
     },
     {
         owner: "techjarves",
@@ -107,7 +1177,7 @@ const REPOS = [
         language: "HTML",
         topics: ["claude", "portable", "usb", "cli", "dev_tool"],
         updated: "07 May 2026",
-        isNew: true
+        isNew: false
     },
     {
         owner: "raiyanyahya",
@@ -118,7 +1188,7 @@ const REPOS = [
         language: "Jupyter Notebook",
         topics: ["llm", "gpt", "deep_learning", "transformers", "pytorch", "nlp", "tutorial", "machine_learning"],
         updated: "07 May 2026",
-        isNew: true
+        isNew: false
     },
     {
         owner: "crafter-station",
@@ -129,7 +1199,7 @@ const REPOS = [
         language: "TypeScript",
         topics: ["codex", "gallery", "animation"],
         updated: "06 May 2026",
-        isNew: true
+        isNew: false
     },
     {
         owner: "XBuilderLAB",
@@ -140,7 +1210,7 @@ const REPOS = [
         language: "Python",
         topics: ["ai", "automation", "social_media", "content", "claude_code"],
         updated: "06 May 2026",
-        isNew: true
+        isNew: false
     },
     {
         owner: "pluk-inc",
@@ -151,7 +1221,7 @@ const REPOS = [
         language: "Swift",
         topics: ["markdown", "macos", "viewer", "dev_tool"],
         updated: "06 May 2026",
-        isNew: true
+        isNew: false
     },
     {
         owner: "Tommy-yw",
@@ -162,7 +1232,7 @@ const REPOS = [
         language: "Python",
         topics: ["ai", "aiops", "agents", "incident_response", "automation", "runbook"],
         updated: "06 May 2026",
-        isNew: true
+        isNew: false
     },
     {
         owner: "vercel-labs",
@@ -173,7 +1243,7 @@ const REPOS = [
         language: "TypeScript",
         topics: ["security", "vulnerability", "agents", "codebase", "pentest"],
         updated: "05 May 2026",
-        isNew: true
+        isNew: false
     },
     {
         owner: "tddworks",
@@ -184,7 +1254,7 @@ const REPOS = [
         language: "Swift",
         topics: ["ios", "simulator", "cli", "devicefarm", "streaming", "agent", "apple"],
         updated: "05 May 2026",
-        isNew: true
+        isNew: false
     },
     {
         owner: "aattaran",
@@ -195,7 +1265,7 @@ const REPOS = [
         language: "JavaScript",
         topics: ["ai", "llm", "claude", "deepseek", "agents", "openrouter"],
         updated: "05 May 2026",
-        isNew: true
+        isNew: false
     },
     {
         owner: "evanklem",
@@ -206,7 +1276,7 @@ const REPOS = [
         language: "Shell",
         topics: ["tdd", "automation", "dev_tool", "claude_code", "workflow"],
         updated: "05 May 2026",
-        isNew: true
+        isNew: false
     },
     {
         owner: "noonghunna",
@@ -217,7 +1287,7 @@ const REPOS = [
         language: "Shell",
         topics: ["llm", "inference", "gpu", "vllm", "llama_cpp", "sglang", "model"],
         updated: "04 May 2026",
-        isNew: true
+        isNew: false
     },
     {
         owner: "vibeforge1111",
@@ -228,7 +1298,7 @@ const REPOS = [
         language: "Python",
         topics: ["codex", "backup", "dev_tool", "cli"],
         updated: "04 May 2026",
-        isNew: true
+        isNew: false
     },
     {
         owner: "rootsecdev",
@@ -239,7 +1309,7 @@ const REPOS = [
         language: "Python",
         topics: ["exploit", "cve", "security", "poc", "vulnerability"],
         updated: "04 May 2026",
-        isNew: true
+        isNew: false
     },
     {
         owner: "sandeco",
@@ -250,7 +1320,7 @@ const REPOS = [
         language: "JavaScript",
         topics: ["ai", "agents", "legacy", "specifications", "automation"],
         updated: "04 May 2026",
-        isNew: true
+        isNew: false
     },
     {
         owner: "EvanBacon",
@@ -261,7 +1331,7 @@ const REPOS = [
         language: "TypeScript",
         topics: ["simulator", "ios", "cli", "dev_tool"],
         updated: "03 May 2026",
-        isNew: true
+        isNew: false
     },
     {
         owner: "mattpocock",
@@ -272,7 +1342,7 @@ const REPOS = [
         language: "TypeScript",
         topics: ["ai", "llm", "education", "reference"],
         updated: "03 May 2026",
-        isNew: true
+        isNew: false
     },
     {
         owner: "Kianmhz",
@@ -283,7 +1353,7 @@ const REPOS = [
         language: "Go",
         topics: ["vpn", "socks5", "tunneling", "proxy", "aes_gcm", "sni", "network"],
         updated: "03 May 2026",
-        isNew: true
+        isNew: false
     },
     {
         owner: "NyxTides",
@@ -294,7 +1364,7 @@ const REPOS = [
         language: "Python",
         topics: ["powerpoint", "ppt", "slides", "office", "cli"],
         updated: "03 May 2026",
-        isNew: true
+        isNew: false
     },
     {
         owner: "t8y2",
@@ -305,7 +1375,7 @@ const REPOS = [
         language: "Vue",
         topics: ["database", "database_client", "mysql", "postgresql", "sqlite", "redis", "mongodb", "duckdb", "clickhouse", "gui"],
         updated: "02 May 2026",
-        isNew: true
+        isNew: false
     },
     {
         owner: "darrylmorley",
@@ -316,7 +1386,7 @@ const REPOS = [
         language: "Swift",
         topics: ["macos", "menubar", "usb_c", "swift", "swiftui", "thunderbolt", "utility", "apple_silicon"],
         updated: "02 May 2026",
-        isNew: true
+        isNew: false
     },
     {
         owner: "yohey-w",
