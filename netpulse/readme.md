@@ -1,0 +1,1 @@
+NetPulse is a free browser-based internet speed tester built by DevspireHub. It connects to the nearest server and runs a live test to show how fast your internet connection really is — including download speed, upload speed, ping, jitter, and packet loss.
