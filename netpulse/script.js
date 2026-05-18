@@ -622,13 +622,14 @@ function setToggle(mode) {
 function applyServerMode(mode) {
     setToggle(mode);
     if (mode === 'all') {
-        // "All" still shows de-duplicated city list so the UI isn't overwhelming
+        // "All" shows a de-duplicated global city list (one best node per city)
         renderServers(ALL_SERVERS);
-        setGeoStatus(`${ALL_SERVERS.length.toLocaleString()} servers across ${new Set(ALL_SERVERS.map(s=>s.country)).size} countries`, '');
+        const countryCnt = new Set(ALL_SERVERS.map(s => s.country)).size;
+        setGeoStatus(`${ALL_SERVERS.length.toLocaleString()} servers · ${countryCnt} countries`, '');
     } else {
         if (locationGranted && nearbySorted.length) {
             renderServers(nearbySorted);
-            setGeoStatus('✓ ' + new Set(nearbySorted.map(s=>s.city+'|'+s.country)).size + ' nearby cities', 'ok');
+            setGeoStatus('✓ ' + new Set(nearbySorted.map(s => s.city + '|' + s.country)).size + ' nearby cities', 'ok');
         } else {
             showGeoPrompt();
             setGeoStatus('Waiting…', '');
@@ -661,21 +662,46 @@ function requestGeolocation() {
             locationGranted = true;
             setGeoStatus('Sorting 2 100 + servers…');
 
-            // Sort ALL servers by distance, then take top-40 raw nodes
-            // which typically covers 8-12 unique nearby cities
-            const NEARBY_NODES = 40;
-            nearbySorted = ALL_SERVERS
+            // Sort ALL servers by distance.
+            // We collect nodes until we have exactly 9 unique cities,
+            // guaranteeing the UI always shows 8–9 nearby city buttons.
+            const TARGET_CITIES = 9;
+            const sorted = ALL_SERVERS
                 .map(s => ({ ...s, _dist: haversine(userLat, userLng, s.lat, s.lng) }))
-                .sort((a, b) => a._dist - b._dist)
-                .slice(0, NEARBY_NODES);
+                .sort((a, b) => a._dist - b._dist);
 
-            const nearbyUnique = new Set(nearbySorted.map(s => s.city + '|' + s.country)).size;
+            const seenCities = new Set();
+            nearbySorted = [];
+            for (const s of sorted) {
+                nearbySorted.push(s);
+                seenCities.add(s.city + '|' + s.country);
+                if (seenCities.size >= TARGET_CITIES) break;
+            }
+
+            const nearbyUnique = seenCities.size;
             setGeoStatus(`✓ ${nearbyUnique} nearby cities`, 'ok');
             if (srvMode === 'nearby') renderServers(nearbySorted);
         },
         () => {
-            setGeoStatus('Location denied — showing nearest defaults', 'err');
-            applyServerMode('all');
+            // Location denied — show 9 globally spread default cities
+            const FALLBACK_CITIES = [
+                'Mumbai|IN', 'Singapore|SG', 'Frankfurt|DE', 'London|GB',
+                'Tokyo|JP', 'New York|US', 'Sydney|AU', 'Dubai|AE', 'São Paulo|BR'
+            ];
+            const seen = new Set();
+            const fallback = [];
+            for (const s of ALL_SERVERS) {
+                const key = s.city + '|' + s.country;
+                if (FALLBACK_CITIES.includes(key) && !seen.has(key)) {
+                    seen.add(key); fallback.push(s);
+                    if (seen.size >= FALLBACK_CITIES.length) break;
+                }
+            }
+            nearbySorted = fallback;
+            locationGranted = false;
+            renderServers(fallback);
+            setGeoStatus('Location denied — showing defaults', 'err');
+            setToggle('nearby');
         },
         { timeout: 10000, enableHighAccuracy: false }
     );
@@ -689,9 +715,10 @@ function skipGeolocation() {
 document.getElementById('geoAllowBtn').addEventListener('click', requestGeolocation);
 document.getElementById('geoDenyBtn').addEventListener('click', skipGeolocation);
 
-/* Show prompt on load; render a compact default list while the user decides */
+/* Show the geo-permission prompt on load.
+   Do NOT pre-populate the server list — keep the "Waiting for location…"
+   placeholder from the HTML until the user allows or skips. */
 showGeoPrompt();
-renderServers(ALL_SERVERS.slice(0, 24));   // show first 8 unique cities as placeholder
 
 /* ════════════════════════════════════════════════
    SPEEDOMETER
