@@ -570,6 +570,16 @@ section {
     max-height: 450px;
 }
 
+.os-github-icon {
+  width: 32px;
+  height: 28px;
+  color: #cbd5e1;
+  flex-shrink: 0;
+  /* border: 1px solid #22d3a0;
+  border-radius: 50%;
+  padding: 4px; */
+}
+
 /* ==========================================================================
    FOOTER
    ========================================================================== */
