@@ -1053,6 +1053,157 @@ SERVER ROW
 }
 
 /* ═══════════════════════════════════════════════
+   GEO PERMISSION PROMPT BANNER
+   ═══════════════════════════════════════════════ */
+.geo-prompt {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(233, 30, 140, 0.06);
+    border: 0.5px solid rgba(233, 30, 140, 0.25);
+    border-radius: 10px;
+    padding: 10px 12px;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+    transition: opacity .25s, max-height .3s;
+    overflow: hidden;
+    max-height: 200px;
+}
+
+.geo-prompt.geo-prompt-hidden {
+    opacity: 0;
+    max-height: 0;
+    padding: 0;
+    margin: 0;
+    border: none;
+    pointer-events: none;
+}
+
+.geo-prompt-icon {
+    font-size: 18px;
+    color: #e91e8c;
+    flex-shrink: 0;
+    line-height: 1;
+}
+
+.geo-prompt-body {
+    flex: 1;
+    min-width: 0;
+}
+
+.geo-prompt-title {
+    font-size: 11.5px;
+    font-weight: 600;
+    color: var(--t1);
+    margin-bottom: 2px;
+}
+
+.geo-prompt-desc {
+    font-size: 10.5px;
+    color: var(--t3);
+    line-height: 1.4;
+}
+
+.geo-prompt-actions {
+    display: flex;
+    gap: 6px;
+    flex-shrink: 0;
+}
+
+.geo-allow-btn {
+    font-size: 11px;
+    font-weight: 600;
+    color: #e91e8c;
+    background: rgba(233, 30, 140, 0.12);
+    border: 0.5px solid rgba(233, 30, 140, 0.35);
+    border-radius: 7px;
+    padding: 5px 11px;
+    cursor: pointer;
+    font-family: inherit;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    transition: background .15s, border-color .15s;
+    white-space: nowrap;
+}
+
+.geo-allow-btn:hover {
+    background: rgba(233, 30, 140, 0.22);
+    border-color: rgba(233, 30, 140, 0.6);
+}
+
+.geo-deny-btn {
+    font-size: 11px;
+    color: var(--t3);
+    background: none;
+    border: 0.5px solid var(--bd);
+    border-radius: 7px;
+    padding: 5px 11px;
+    cursor: pointer;
+    font-family: inherit;
+    transition: border-color .15s, color .15s;
+    white-space: nowrap;
+}
+
+.geo-deny-btn:hover {
+    border-color: var(--bd2);
+    color: var(--t2);
+}
+
+/* ═══════════════════════════════════════════════
+   SERVER MODE TOGGLE  (Nearby / All)
+   ═══════════════════════════════════════════════ */
+.srv-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.srv-label-left {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    flex: 1;
+}
+
+.srv-mode-toggle {
+    display: inline-flex;
+    background: var(--bg2);
+    border: 0.5px solid var(--bd);
+    border-radius: 7px;
+    padding: 2px;
+    gap: 2px;
+}
+
+.srv-mode-btn {
+    font-size: 10px;
+    font-weight: 600;
+    color: var(--t3);
+    background: none;
+    border: none;
+    border-radius: 5px;
+    padding: 3px 9px;
+    cursor: pointer;
+    font-family: inherit;
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    transition: background .15s, color .15s;
+    white-space: nowrap;
+}
+
+.srv-mode-btn.active {
+    background: rgba(233, 30, 140, 0.15);
+    color: #e91e8c;
+}
+
+.srv-mode-btn:hover:not(.active) {
+    color: var(--t2);
+    background: var(--bg3);
+}
+
+/* ═══════════════════════════════════════════════
 SPEEDOMETER CARD
 ═══════════════════════════════════════════════ */
 .spd-card {
