@@ -438,6 +438,16 @@ th {
     overflow: auto;
 }
 
+.logo-txt img {
+  width: 35px;
+  height: 28px;
+  color: #cbd5e1;
+  flex-shrink: 0;
+  /* border: 1px solid #22d3a0;
+  border-radius: 50%;
+  padding: 4px; */
+}
+
 .footer {
   position: relative;
   width: 100%;
@@ -905,8 +915,8 @@ HEADER
     color: #ffffff;
 }
 
-.logo-txt .blue {
-    color: #008BFF;
+.logo-txt .pink {
+    color: #e91e8c;
 }
 
 .logo-sub {
