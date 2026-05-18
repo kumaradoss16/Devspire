@@ -105,7 +105,7 @@
     --font-table: 14px;
 
     /* Component-specific scales (derived) */
-    --logo-size: 15px;
+    --logo-size: 18px;
     --logo-sub-size: 10px;
     --ip-size: 11px;
     --srv-btn-size: 11px;
@@ -519,6 +519,11 @@ th {
     margin-bottom: 20px;
 }
 
+.netpulse-content img {
+    width: 180px;
+    height: 60px;
+}
+
 .footer p {
     color: #ffffff;
     margin: 15px 0 10px 0;
@@ -584,7 +589,7 @@ th {
     --font-i: 14px;
     --font-table: 14.5px;
 
-    --logo-size: 16px;
+    --logo-size:21px;
     --logo-sub-size: 11px;
     --ip-size: 11px;
     --srv-btn-size: 12px;
@@ -595,6 +600,11 @@ th {
     --stat-n-size: 19px;
     --stat-l-size: 10px;
     --ring-num-size: 19px;
+    }
+
+    .netpulse-content img {
+        width: 150px;
+        height: 50px;
     }
 
 }
@@ -612,7 +622,7 @@ th {
     --font-i: 14px;
     --font-table: 15px;
 
-    --logo-size: 17px;
+    --logo-size: 23px;
     --logo-sub-size: 11px;
     --ip-size: 12px;
     --srv-btn-size: 12px;
@@ -635,8 +645,13 @@ th {
         font-size: var(--logo-size);
     }
 
+    .netpulse-content img {
+        width: 170px;
+        height: 55px;
+    }
+
     .container    { max-width: 768px; }
-  .logo img     { width: 27px; height: 27px; }
+    .logo img     { width: 27px; height: 27px; }
 }
 
 /* ── 1024px ── */
@@ -652,7 +667,7 @@ th {
     --font-i: 15px;
     --font-table: 16px;
 
-    --logo-size: 18px;
+    --logo-size: 25px;
     --logo-sub-size: 12px;
     --ip-size: 13px;
     --srv-btn-size: 13px;
@@ -670,6 +685,10 @@ th {
 
     .logo-txt {
         font-size: var(--logo-size);
+    }
+    .netpulse-content img {
+        width: 260px;
+        height: 100px;
     }
 
     .container        { max-width: 1200px; margin: 0 auto; }
@@ -875,11 +894,19 @@ HEADER
 }
 
 .logo-txt {
-    /* font-size: var(--logo-size); */
+    font-size: var(--logo-size);
     font-weight: 600;
-    color: var(--color-yellow);
+    /* color: var(--color-yellow); */
     letter-spacing: -.3px;
     line-height: 1.2;
+}
+
+.logo-txt .white {
+    color: #ffffff;
+}
+
+.logo-txt .blue {
+    color: #008BFF;
 }
 
 .logo-sub {
