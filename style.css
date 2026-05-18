@@ -4395,10 +4395,13 @@ svg {
 }
 
 .os-github-icon {
-  width: 28px;
+  width: 32px;
   height: 28px;
   color: #cbd5e1;
   flex-shrink: 0;
+  /* border: 1px solid #22d3a0;
+  border-radius: 50%;
+  padding: 4px; */
 }
 
 .os-accent { color: #22d3a0; }
