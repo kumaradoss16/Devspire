@@ -2969,7 +2969,10 @@ svg {
     flex-direction: column;
     align-items: center;
     width: 100%;
+    max-width: 100%;
     gap: 32px;
+    padding: 0 20px;
+    box-sizing: border-box;
 }
 
 /* 768px–1023px: one per row, centered, full width */
@@ -2978,16 +2981,17 @@ svg {
         flex-direction: column;
         align-items: center;
         gap: 28px;
+        padding: 0 24px;
     }
 
     .np-stats-row > section {
         width: 100%;
-        max-width: 520px;
+        max-width: 100%;
     }
 
     .np-stats-row .stats-banner {
         width: 100%;
-        max-width: 520px;
+        max-width: 100%;
         margin-top: 0;
         border-radius: 16px;
         border: 1px solid rgba(0, 255, 255, 0.15);
@@ -3001,7 +3005,10 @@ svg {
         align-items: stretch;
         justify-content: center;
         gap: 36px;
-        /* padding: 0 24px; */
+        padding: 0 40px;
+        max-width: 1024px;
+        margin-left: auto;
+        margin-right: auto;
     }
 
     .np-stats-row > section:first-child {
@@ -3010,7 +3017,7 @@ svg {
 
     .np-stats-row .stats-banner {
         flex: 1 1 0;
-        max-width: 540px;
+        max-width: none;
         margin-top: 0;
         border-radius: 20px;
         border: 1px solid rgba(0, 255, 255, 0.15);
@@ -3030,6 +3037,7 @@ svg {
     flex-direction: column;
     align-items: center;
     gap: 14px;
+    width: 100%;
     max-width: 100%;
 }
 
