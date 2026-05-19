@@ -543,6 +543,22 @@ body {
     gap: 20px;
 }
 
+.stat-icon .fa-book-open {
+    color: #EF9F27;
+}
+
+.stat-icon .fa-screwdriver-wrench {
+    color: #4285F4;
+}
+
+.stat-icon .fa-tag {
+    color: #EA4335;
+}
+
+.stat-icon .fa-globe {
+    color: #34A853;
+}
+
 .card {
     /* background-color: #1e1e1e; */
     border: 2px solid var(--color-blue);
