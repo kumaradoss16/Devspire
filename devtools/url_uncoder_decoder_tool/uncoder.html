@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DevTools – Small Banner</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Syne:wght@700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <style>
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-0: #080d14;
+            --bg-1: #0d1520;
+            --bg-2: #111d2e;
+            --bg-3: #162438;
+            --border: rgba(0, 255, 136, 0.12);
+            --border-hi: rgba(0, 255, 136, 0.4);
+            --glow: rgba(0, 255, 136, 0.15);
+            --g: #00ff88;
+            --g-dim: #00b85c;
+            --b: #00d4ff;
+            --y: #ffcc00;
+            --p: #cc88ff;
+            --t1: #e8f4f0;
+            --t2: #8fb8a8;
+            --t3: #4a7060;
+            --mono: 'Fira Code', monospace;
+            --sans: 'Syne', system-ui, sans-serif;
+            --ease: cubic-bezier(0.4, 0, 0.2, 1);
+            --dur: 0.22s;
+        }
+
+        body {
+            background: var(--bg-0);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            min-height: 100vh;
+            padding: 2rem;
+            font-family: var(--mono);
+        }
+
+        /* scanline */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            pointer-events: none;
+            background: repeating-linear-gradient(0deg,
+                    transparent 0px, transparent 2px,
+                    rgba(0, 0, 0, 0.04) 2px, rgba(0, 0, 0, 0.04) 4px);
+        }
+
+        /* ══════════════════════════════════
+       BANNER — WIDE RECTANGLE (728×90)
+    ══════════════════════════════════ */
+        .banner-wide {
+            width: 100%;
+            max-width: 728px;
+            height: 90px;
+            border-radius: 10px;
+            background: var(--bg-1);
+            border: 1px solid var(--border);
+            overflow: hidden;
+            display: flex;
+            align-items: stretch;
+            position: relative;
+            box-shadow: 0 4px 32px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(0, 255, 136, 0.04);
+            transition: border-color var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+        }
+
+        .banner-wide:hover {
+            border-color: var(--border-hi);
+            box-shadow: 0 6px 40px rgba(0, 0, 0, 0.6), 0 0 32px rgba(0, 255, 136, 0.07);
+        }
+
+        /* Left accent stripe */
+        .bw-stripe {
+            width: 4px;
+            background: linear-gradient(180deg, var(--g) 0%, var(--b) 100%);
+            flex-shrink: 0;
+        }
+
+        /* Icon block */
+        .bw-icon {
+            width: 58px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 255, 136, 0.05);
+            border-right: 1px solid var(--border);
+            font-size: 1.3rem;
+            color: var(--g);
+            text-shadow: 0 0 14px rgba(0, 255, 136, 0.5);
+        }
+
+        /* Main content */
+        .bw-body {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 1rem;
+            gap: 0.75rem;
+            overflow: hidden;
+        }
+
+        .bw-text {
+            display: flex;
+            flex-direction: column;
+            gap: 0.18rem;
+            min-width: 0;
+        }
+
+        .bw-site {
+            font-size: 0.6rem;
+            color: var(--t3);
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            font-family: var(--mono);
+        }
+
+        .bw-site b {
+            color: var(--g);
+            font-weight: 600;
+        }
+
+        .bw-title {
+            font-family: var(--sans);
+            font-size: 1rem;
+            font-weight: 800;
+            color: var(--t1);
+            white-space: nowrap;
+            letter-spacing: -0.3px;
+            line-height: 1.2;
+        }
+
+        .bw-title span {
+            color: var(--g);
+        }
+
+        .bw-desc {
+            font-size: 0.64rem;
+            color: var(--t2);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .bw-desc b {
+            color: var(--b);
+            font-weight: 500;
+        }
+
+        /* Chips */
+        .bw-chips {
+            display: flex;
+            gap: 0.35rem;
+            flex-shrink: 0;
+        }
+
+        .bchip {
+            padding: 0.18rem 0.5rem;
+            border-radius: 99px;
+            font-size: 0.6rem;
+            font-weight: 600;
+            border: 1px solid;
+            white-space: nowrap;
+            letter-spacing: 0.2px;
+        }
+
+        .bc-g {
+            color: var(--g);
+            border-color: rgba(0, 255, 136, 0.3);
+            background: rgba(0, 255, 136, 0.07);
+        }
+
+        .bc-b {
+            color: var(--b);
+            border-color: rgba(0, 212, 255, 0.3);
+            background: rgba(0, 212, 255, 0.07);
+        }
+
+        .bc-y {
+            color: var(--y);
+            border-color: rgba(255, 204, 0, 0.3);
+            background: rgba(255, 204, 0, 0.07);
+        }
+
+        .bc-p {
+            color: var(--p);
+            border-color: rgba(204, 136, 255, 0.3);
+            background: rgba(204, 136, 255, 0.07);
+        }
+
+        /* CTA */
+        .bw-cta {
+            flex-shrink: 0;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.45rem 1rem;
+            border-radius: 6px;
+            border: 1px solid rgba(0, 255, 136, 0.35);
+            background: rgba(0, 255, 136, 0.1);
+            color: var(--g);
+            font-family: var(--mono);
+            font-size: 0.72rem;
+            font-weight: 600;
+            text-decoration: none;
+            letter-spacing: 0.2px;
+            transition: all var(--dur) var(--ease);
+            cursor: pointer;
+            white-space: nowrap;
+        }
+
+        .bw-cta:hover {
+            background: rgba(0, 255, 136, 0.18);
+            box-shadow: 0 0 14px rgba(0, 255, 136, 0.2);
+            transform: translateY(-1px);
+        }
+
+        /* glow blob */
+        .banner-wide::after {
+            content: '';
+            position: absolute;
+            top: -30px;
+            right: 160px;
+            width: 180px;
+            height: 140px;
+            background: radial-gradient(circle, rgba(0, 255, 136, 0.06) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+
+        /* ══════════════════════════════════
+       BANNER — MEDIUM RECTANGLE (300×250)
+    ══════════════════════════════════ */
+        .banner-rect {
+            width: 300px;
+            height: 250px;
+            border-radius: 12px;
+            background: var(--bg-1);
+            border: 1px solid var(--border);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            box-shadow: 0 4px 32px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(0, 255, 136, 0.04);
+            transition: border-color var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+        }
+
+        .banner-rect:hover {
+            border-color: var(--border-hi);
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.6), 0 0 40px rgba(0, 255, 136, 0.08);
+        }
+
+        .banner-rect::before {
+            content: '';
+            position: absolute;
+            top: -40px;
+            right: -40px;
+            width: 160px;
+            height: 160px;
+            background: radial-gradient(circle, rgba(0, 255, 136, 0.08) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* top accent bar */
+        .br-topbar {
+            height: 3px;
+            background: linear-gradient(90deg, var(--g) 0%, var(--b) 60%, transparent 100%);
+            flex-shrink: 0;
+        }
+
+        /* header row */
+        .br-header {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 0.7rem 0.9rem 0.55rem;
+            border-bottom: 1px solid var(--border);
+            background: var(--bg-2);
+        }
+
+        .br-dots {
+            display: flex;
+            gap: 5px;
+        }
+
+        .br-dots span {
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+        }
+
+        .br-icon {
+            margin-left: auto;
+            width: 28px;
+            height: 28px;
+            border-radius: 6px;
+            background: rgba(0, 255, 136, 0.08);
+            border: 1px solid rgba(0, 255, 136, 0.25);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            color: var(--g);
+        }
+
+        .br-fname {
+            font-size: 0.62rem;
+            color: var(--t3);
+        }
+
+        .br-fname b {
+            color: var(--g);
+        }
+
+        /* body */
+        .br-body {
+            position: relative;
+            z-index: 1;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 0.85rem 0.9rem 0.75rem;
+        }
+
+        .br-title {
+            font-family: var(--sans);
+            font-size: 1.05rem;
+            font-weight: 800;
+            color: var(--t1);
+            line-height: 1.25;
+            letter-spacing: -0.3px;
+        }
+
+        .br-title span {
+            color: var(--g);
+        }
+
+        .br-sub {
+            font-size: 0.64rem;
+            color: var(--t2);
+            line-height: 1.55;
+            margin-top: 0.3rem;
+        }
+
+        .br-sub b {
+            color: var(--b);
+            font-weight: 500;
+        }
+
+        /* terminal line */
+        .br-terminal {
+            background: var(--bg-0);
+            border: 1px solid var(--border);
+            border-radius: 5px;
+            padding: 0.45rem 0.65rem;
+            font-size: 0.62rem;
+            line-height: 1.7;
+            margin-top: 0.5rem;
+        }
+
+        .t-p {
+            color: var(--g);
+        }
+
+        .t-o {
+            color: var(--b);
+        }
+
+        .t-d {
+            color: var(--t3);
+        }
+
+        .t-e {
+            color: var(--y);
+        }
+
+        .cur {
+            display: inline-block;
+            width: 6px;
+            height: 0.85em;
+            background: var(--g);
+            vertical-align: text-bottom;
+            border-radius: 1px;
+            margin-left: 2px;
+            animation: blink 1.1s step-end infinite;
+        }
+
+        @keyframes blink {
+            50% {
+                opacity: 0;
+            }
+        }
+
+        /* chips row */
+        .br-chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.3rem;
+            margin-top: 0.55rem;
+        }
+
+        /* footer */
+        .br-footer {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.55rem 0.9rem;
+            border-top: 1px solid var(--border);
+            background: var(--bg-2);
+        }
+
+        .br-meta {
+            font-size: 0.6rem;
+            color: var(--t3);
+        }
+
+        .br-meta b {
+            color: var(--t2);
+            font-weight: 500;
+        }
+
+        .br-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            padding: 0.32rem 0.75rem;
+            border-radius: 5px;
+            border: 1px solid rgba(0, 255, 136, 0.35);
+            background: rgba(0, 255, 136, 0.09);
+            color: var(--g);
+            font-family: var(--mono);
+            font-size: 0.64rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all var(--dur) var(--ease);
+            cursor: pointer;
+        }
+
+        .br-cta:hover {
+            background: rgba(0, 255, 136, 0.16);
+            box-shadow: 0 0 12px rgba(0, 255, 136, 0.18);
+        }
+
+
+        /* ══════════════════════════════════
+       BANNER — SMALL LEADERBOARD (468×60)
+    ══════════════════════════════════ */
+        .banner-slim {
+            width: 100%;
+            max-width: 468px;
+            height: 60px;
+            border-radius: 8px;
+            background: var(--bg-1);
+            border: 1px solid var(--border);
+            overflow: hidden;
+            display: flex;
+            align-items: stretch;
+            position: relative;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.4);
+            transition: border-color var(--dur) var(--ease);
+        }
+
+        .banner-slim:hover {
+            border-color: var(--border-hi);
+        }
+
+        .bs-stripe {
+            width: 3px;
+            background: linear-gradient(180deg, var(--g), var(--b));
+            flex-shrink: 0;
+        }
+
+        .bs-icon {
+            width: 46px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            color: var(--g);
+            background: rgba(0, 255, 136, 0.05);
+            border-right: 1px solid var(--border);
+        }
+
+        .bs-body {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 0.85rem;
+            gap: 0.5rem;
+            overflow: hidden;
+        }
+
+        .bs-text {
+            display: flex;
+            flex-direction: column;
+            gap: 0.1rem;
+            min-width: 0;
+        }
+
+        .bs-title {
+            font-family: var(--sans);
+            font-size: 0.82rem;
+            font-weight: 800;
+            color: var(--t1);
+            white-space: nowrap;
+            letter-spacing: -0.2px;
+        }
+
+        .bs-title span {
+            color: var(--g);
+        }
+
+        .bs-sub {
+            font-size: 0.58rem;
+            color: var(--t3);
+            white-space: nowrap;
+        }
+
+        .bs-sub b {
+            color: var(--b);
+            font-weight: 500;
+        }
+
+        .bs-badge {
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .bs-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            padding: 0.3rem 0.8rem;
+            border-radius: 5px;
+            border: 1px solid rgba(0, 255, 136, 0.35);
+            background: rgba(0, 255, 136, 0.09);
+            color: var(--g);
+            font-family: var(--mono);
+            font-size: 0.64rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all var(--dur) var(--ease);
+            white-space: nowrap;
+            cursor: pointer;
+        }
+
+        .bs-cta:hover {
+            background: rgba(0, 255, 136, 0.17);
+            box-shadow: 0 0 10px rgba(0, 255, 136, 0.18);
+        }
+
+        /* labels */
+        .size-label {
+            font-family: var(--mono);
+            font-size: 0.62rem;
+            color: var(--t3);
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+            align-self: flex-start;
+        }
+
+        .size-label b {
+            color: var(--g);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Label -->
+    <span class="size-label">▸ Leaderboard <b>728 × 90</b></span>
+
+    <!-- WIDE BANNER 728×90 -->
+    <div class="banner-wide">
+        <div class="bw-stripe"></div>
+        <div class="bw-icon"><i class="fa-solid fa-link"></i></div>
+        <div class="bw-body">
+            <div class="bw-text">
+                <span class="bw-site">Devspire<b>Hub</b> · DevTools</span>
+                <div class="bw-title">URL Encoder <span>&</span> Decoder</div>
+                <div class="bw-desc">Real-time · <b>Base64</b> · <b>JWT</b> · <b>Hash</b> · Zero backend · UTF-8 + Emoji
+                </div>
+            </div>
+            <div class="bw-chips">
+                <span class="bchip bc-g">⚡ Real-time</span>
+                <span class="bchip bc-b">🔒 No backend</span>
+                <span class="bchip bc-y"># Hash</span>
+                <span class="bchip bc-p">JWT</span>
+            </div>
+            <a class="bw-cta" href="https://devspirehub.com" target="_blank">
+                Open Tool <i class="fa-solid fa-arrow-up-right-from-square fa-xs"></i>
+            </a>
+        </div>
+    </div>
+
+    <!-- Label -->
+    <span class="size-label">▸ Medium Rectangle <b>300 × 250</b></span>
+
+    <!-- MEDIUM RECTANGLE 300×250 -->
+    <div class="banner-rect">
+        <div class="br-topbar"></div>
+        <div class="br-header">
+            <div class="br-dots">
+                <span style="background:#ff5f57"></span>
+                <span style="background:#febc2e"></span>
+                <span style="background:#28c840"></span>
+            </div>
+            <span class="br-fname"><b>url</b>-encode-decode.sh</span>
+            <div class="br-icon"><i class="fa-solid fa-link"></i></div>
+        </div>
+        <div class="br-body">
+            <div>
+                <div class="br-title">URL Encoder<br><span>&</span> Decoder</div>
+                <div class="br-sub">
+                    Professional dev tool — <b>Base64</b>, <b>JWT</b>,<br>
+                    <b>Hash</b>, Diff & Query Params. All in-browser.
+                </div>
+                <div class="br-terminal">
+                    <div><span class="t-p">❯</span> encode <span class="t-e">"hello world"</span></div>
+                    <div><span class="t-d"> </span><span class="t-o">hello%20world</span> <span class="cur"></span>
+                    </div>
+                </div>
+                <div class="br-chips">
+                    <span class="bchip bc-g">⚡ Real-time</span>
+                    <span class="bchip bc-b">Base64</span>
+                    <span class="bchip bc-y">SHA-256</span>
+                    <span class="bchip bc-p">JWT</span>
+                </div>
+            </div>
+        </div>
+        <div class="br-footer">
+            <span class="br-meta">DevspireHub · <b>Free Tool</b></span>
+            <a class="br-cta" href="https://devspirehub.com" target="_blank">
+                Open <i class="fa-solid fa-arrow-up-right-from-square fa-xs"></i>
+            </a>
+        </div>
+    </div>
+
+    <!-- Label -->
+    <span class="size-label">▸ Half Banner <b>468 × 60</b></span>
+
+    <!-- SLIM BANNER 468×60 -->
+    <div class="banner-slim">
+        <div class="bs-stripe"></div>
+        <div class="bs-icon"><i class="fa-solid fa-link"></i></div>
+        <div class="bs-body">
+            <div class="bs-text">
+                <div class="bs-title">URL Encoder <span>&</span> Decoder</div>
+                <div class="bs-sub">DevspireHub DevTools · <b>Base64 · JWT · Hash</b> · Zero backend</div>
+            </div>
+            <div class="bs-badge">
+                <span class="bchip bc-g" style="font-size:0.58rem;padding:0.14rem 0.45rem;">⚡ Free</span>
+                <a class="bs-cta" href="https://devspirehub.com" target="_blank">
+                    Try Now <i class="fa-solid fa-arrow-right fa-xs"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

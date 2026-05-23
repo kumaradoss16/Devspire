@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="../../images/icon.webp" sizes="32x46" type="image/png">
+  <title>URL Encoder &amp; Decoder Online — Free Developer Tools | DevspireHub</title>
+
+  <meta name="description"
+    content="Free online URL encoder &amp; decoder with real-time percent-encoding, Base64 converter, JWT inspector, SHA hash generator, query param builder, and text diff. No sign-up. Zero backend.">
+
+  <meta name="keywords"
+    content="url encoder, url decoder, percent encoding, encodeURIComponent online, base64 encoder decoder, jwt decoder online, sha256 hash generator, query string builder, text diff tool, developer tools online, free web tools">
+
+  <!-- Robots: index this page and follow all links -->
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+
+  <!-- Author / Publisher -->
+  <meta name="author" content="Kumaradoss S — DevspireHub">
+
+  <!-- Language -->
+  <meta http-equiv="content-language" content="en">
+
+  <!-- Canonical — update to the exact live URL of this page -->
+  <link rel="canonical" href="https://devspirehub.com/devtools/url-encoder-decoder_tool/">
+  <meta name="theme-color" content="#080d14">
+  <!-- iOS Safari top bar -->
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="DevTools">
+  <!-- Microsoft Tiles -->
+  <meta name="application-name" content="DevspireHub DevTools">
+  <meta name="msapplication-TileColor" content="#080d14">
+  <!-- <meta name="msapplication-TileImage" content="https://devspirehub.com/images/icon-144.png"> -->
+
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:site_name" content="DevspireHub">
+  <meta property="og:url" content="https://devspirehub.com/devtools/url-encoder-decoder_tool/">
+  <meta property="og:title" content="URL Encoder &amp; Decoder + 5 Free Dev Tools — DevspireHub">
+  <meta property="og:description"
+    content="Instantly encode/decode URLs, inspect JWTs, convert Base64, generate SHA hashes, build query strings, and compare text diffs — all in-browser with zero backend.">
+  <meta property="og:image" content="https://devspirehub.com/devtools/url-encoder-decoder_tool/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt"
+    content="DevspireHub DevTools — URL Encoder, Base64, JWT, Hash, Diff tools in a dark terminal UI">
+  <meta property="og:image:type" content="image/png">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@devspirehub">
+  <meta name="twitter:creator" content="@devspirehub">
+  <meta name="twitter:title" content="URL Encoder &amp; Decoder + 5 Free Dev Tools">
+  <meta name="twitter:description"
+    content="Encode/decode URLs, inspect JWTs, convert Base64, hash with SHA-256, build query strings and diff text — all free, in-browser, no login.">
+  <meta name="twitter:image" content="https://devspirehub.com/devtools/url-encoder-decoder_tool/og-image.png">
+  <meta name="twitter:image:alt" content="DevspireHub URL Encoder &amp; Decoder tool preview">
+
+  <!-- SVG favicon (modern browsers — scales perfectly) -->
+  <link rel="icon" type="image/svg+xml"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%23080d14' width='100' height='100' rx='12'/><text x='50' y='68' font-size='58' fill='%2300ff88' font-family='monospace' text-anchor='middle'>&gt;_</text></svg>">
+  <!-- PNG fallback for older browsers -->
+  <link rel="icon" type="image/png" sizes="32x32" href="https://devspirehub.com/images/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://devspirehub.com/images/favicon-16.png">
+  <!-- Apple Touch Icon — required for iOS "Add to Home Screen" -->
+  <link rel="apple-touch-icon" sizes="180x180" href="https://devspirehub.com/images/apple-touch-icon.png">
+  <!-- Web App Manifest — enables PWA-like install prompts -->
+  <link rel="manifest" href="https://devspirehub.com/manifest.json">
+
+  <!-- Google Fonts — critical (render-blocking fonts) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- CDNs used for icon webfonts -->
+  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+  <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+  <!-- Analytics / Ads -->
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  <link rel="dns-prefetch" href="https://www.google-analytics.com">
+  <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+
+  <link rel="preload" as="style"
+    href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&family=Syne:wght@400;700;800&display=swap"
+    onload="this.rel='stylesheet'">
+  <noscript>
+    <link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&family=Syne:wght@400;700;800&display=swap">
+  </noscript>
+  <link rel="preload" as="style" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.19.0/tabler-icons.min.css"
+    onload="this.rel='stylesheet'">
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    onload="this.rel='stylesheet'">
+  <noscript>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.19.0/tabler-icons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  </noscript>
+
+  <link rel="stylesheet" href="style.css">
+
+  <link rel="preload" as="image" href="image/url_uncoder_decoder_tool_logo.png" fetchpriority="high">
+
+
+  <!-- 1. Organization -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "DevspireHub",
+      "url": "https://devspirehub.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://devspirehub.com/images/icon.webp",
+        "width": 192,
+        "height": 192
+      },
+      "description": "DevspireHub — tutorials and free tools covering programming, projects, ethical hacking, networking, and automation.",
+      "founder": {
+        "@type": "Person",
+        "name": "Kumaradoss S",
+        "url": "https://www.linkedin.com/in/kumaradoss-s/"
+      },
+      "sameAs": [
+        "https://www.linkedin.com/in/kumaradoss-s/",
+        "https://github.com/kumaradoss16",
+        "https://www.instagram.com/devspirehub/",
+        "https://www.facebook.com/profile.php?id=61577667990170"
+      ]
+    }
+    </script>
+
+  <!-- 2. WebApplication — the tool itself (most important for this page) -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "URL Encoder & Decoder — DevspireHub DevTools",
+      "url": "https://devspirehub.com/devtools/url-encoder-decoder_tool/",
+      "description": "Free in-browser developer utility suite: URL encode/decode with percent-encoding, Base64 encoder/decoder, JWT inspector, SHA-1/256/384/512 hash generator, query param builder, and text diff tool.",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Any (browser-based, no install required)",
+      "browserRequirements": "Requires JavaScript. Works in Chrome, Firefox, Safari, Edge.",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "featureList": [
+        "URL Encoder and Decoder with auto-detect",
+        "Percent-encoding with UTF-8 and emoji support",
+        "Base64 encoder and decoder with URL-safe mode",
+        "JWT inspector with expiry check and syntax highlighting",
+        "SHA-1, SHA-256, SHA-384, SHA-512 hash generator",
+        "Query string / query param builder and parser",
+        "Side-by-side text diff viewer",
+        "Conversion history with localStorage",
+        "One-click copy and download output",
+        "Keyboard shortcuts for power users"
+      ],
+      "screenshot": "https://devspirehub.com/Tools/URL-Encoder-Decoder/og-image.png",
+      "author": {
+        "@type": "Person",
+        "name": "Kumaradoss S",
+        "url": "https://www.linkedin.com/in/kumaradoss-s/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "DevspireHub",
+        "url": "https://devspirehub.com"
+      },
+      "inLanguage": "en",
+      "isAccessibleForFree": true
+    }
+    </script>
+
+  <!-- 3. BreadcrumbList — generates sitelinks breadcrumb in Google SERP -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "DevspireHub",
+          "item": "https://devspirehub.com"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Tools",
+          "item": "https://devspirehub.com/Tools/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "URL Encoder & Decoder",
+          "item": "https://devspirehub.com/Tools/URL-Encoder-Decoder/"
+        }
+      ]
+    }
+    </script>
+
+  <!-- 4. FAQPage — targets featured snippets / People Also Ask box -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is URL encoding?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "URL encoding (also called percent-encoding) converts characters that are unsafe or reserved in URLs into a % sign followed by two hexadecimal digits. For example, a space becomes %20 and an emoji like 🚀 becomes %F0%9F%9A%80."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the difference between encodeURI and encodeURIComponent?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "encodeURI encodes a full URL, preserving characters like : / ? # that have structural meaning. encodeURIComponent encodes everything including those characters, making it suitable for encoding individual query parameter values."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I decode a JWT token?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A JWT consists of three Base64URL-encoded sections separated by dots: header, payload, and signature. Our JWT Inspector tab decodes the header and payload into readable JSON and checks whether the token has expired. Note: the payload is signed, not encrypted, so it is readable without a secret key."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is Base64 the same as URL encoding?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. URL encoding (percent-encoding) converts characters to %XX hex sequences for safe transmission in URLs. Base64 encodes arbitrary binary data as ASCII text using 64 printable characters. URL-safe Base64 replaces + with - and / with _ so the output can be used inside URLs."
+          }
+        }
+      ]
+    }
+    </script>
+
+  <!-- 5. SiteNavigationElement — helps Google understand site structure -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SiteNavigationElement",
+      "name": ["Home", "Projects", "Programming", "Ethical Hacking", "Networking", "Automation", "Resources"],
+      "url": [
+        "https://devspirehub.com",
+        "https://devspirehub.com/#projects-tutorials-section",
+        "https://devspirehub.com/#programming-tutorials-section",
+        "https://devspirehub.com/#ethical-hacking-section",
+        "https://devspirehub.com/#networking-section",
+        "https://devspirehub.com/#automation-section",
+        "https://devspirehub.com/#info-section"
+      ]
+    }
+    </script>
+
+  <!-- ┌──────────────────────────────────────────────────────────┐
+         │  ANALYTICS & ADS  (all async — never block rendering)    │
+         └──────────────────────────────────────────────────────────┘ -->
+
+  <!-- Google Tag Manager (loads all tags, including GA4, in one script) -->
+  <script>
+    (function (w, d, s, l, i) {
+      w[l] = w[l] || [];
+      w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+      var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s),
+        dl = l != 'dataLayer' ? '&l=' + l : '';
+      j.async = true;
+      j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+      f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-M457RGDF');
+  </script>
+
+  <!--
+      NOTE: If GTM is already loading GA4 (G-6VWY63Q80N) as a tag inside GTM,
+      remove the standalone gtag.js block below to avoid double-tracking.
+      Keep one or the other — not both.
+    -->
+  <!-- GA4 standalone (remove if GA4 is managed via GTM) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-6VWY63Q80N"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-6VWY63Q80N', {
+      'send_page_view': true,
+      'anonymize_ip': true       /* GDPR best practice */
+    });
+  </script>
+
+  <!-- Google AdSense (async — does not block paint) -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2368356039533778"
+    crossorigin="anonymous">
+    </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&family=Syne:wght@400;500;700;800&display=swap"
+    rel="stylesheet">
+
+  <link rel="icon" type="image/svg+xml"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect fill='%23080d14' width='100' height='100' rx='12'/><text x='50' y='68' font-size='58' fill='%2300ff88' font-family='monospace' text-anchor='middle'>&gt;_</text></svg>">
+
+  <link rel="preload" as="style" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css"
+    onload="this.onload=null;this.rel='stylesheet'" />
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    onload="this.onload=null;this.rel='stylesheet'" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <link rel="stylesheet" href="style.css">
+
+  <script type="application/ld+json">
+          {
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          "name": "DevspireHub",
+          "url": "https://devspirehub.com",
+          "logo": "https://devspirehub.com/image/icon.webp",
+          "description": "DevspireHub - Programming, Projects, Ethical hacking, Networking & AI",
+          "founder": [
+              {
+              "@type": "Person",
+              "name": "Kumaradoss",
+              "url": "https://www.linkedin.com/in/kumaradoss-s/"
+              }
+          ],
+          "sameAs": [
+              "https://www.linkedin.com/in/kumaradoss-s/",
+              "https://github.com/kumaradoss16",
+          ]
+          }
+      </script>
+
+  <script type=application/ld+json>
+          {
+              "@context": "https://schema.org",
+              "@type": "SiteNavigationElement",
+              "name": [
+                  "Home",
+                  "Projects",
+                  "Programming",
+                  "Ethical Hacking",
+                  "Networking",
+                  "Automation",
+                  "Resources"
+              ],
+              "url": [
+                  "https://devspirehub.com",
+                  "https://devspirehub.com/#projects-tutorials-section",
+                  "https://devspirehub.com/#programming-tutorials-section",
+                  "https://devspirehub.com/#ethical-hacking-section",
+                  "https://devspirehub.com/#networking-section",
+                  "https://devspirehub.com/#automation-section",
+                  "https://devspirehub.com/#info-section",
+              ]
+          }
+      </script>
+
+  <!-- Google Tag Manager -->
+  <script>(function (w, d, s, l, i) {
+      w[l] = w[l] || []; w[l].push({
+        'gtm.start':
+          new Date().getTime(), event: 'gtm.js'
+      }); var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-M457RGDF');</script>
+  <!-- End Google Tag Manager -->
+
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2368356039533778"
+    crossorigin="anonymous"></script>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-6VWY63Q80N"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-6VWY63Q80N');
+  </script>
+
+  <script async custom-element="amp-auto-ads" src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+  </script>
+</head>
+
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M457RGDF" height="0" width="0"
+      style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <amp-auto-ads type="adsense" data-ad-client="ca-pub-2368356039533778">
+  </amp-auto-ads>
+
+  <header class="navbar">
+    <div class="container">
+      <div class="logo">
+        <div class="logo-text">
+          <!-- <i class="fas fa-code"></i> -->
+          <a href="https://devspirehub.com"><img src="../../images/icon.webp" alt="Gear Icon" width="23"
+              height="23"></a>
+          <span id="brand" class="typewriter" data-text="DevspireHub"></span>
+        </div>
+        <button class="menu-toggle" type="button" aria-label="Toggle navigation">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+      <nav class="nav-links">
+        <ul>
+          <li><a href="../../index.html" class="home"><i class="fa-solid fa-house"></i></a></li>
+          <li><a href="../../index.html#projects-tutorials-section" class="projects">Projects</a></li>
+          <li><a href="../../index.html#programming-tutorials-section" class="programming">Programming</a>
+          </li>
+          <li><a href="../../index.html#ethical-hacking-section" class="hacking">Ethical Hacking</a>
+          </li>
+          <li><a href="../../index.html#networking-section" class="networking">Networking</a></li>
+          <li><a href="../../index.html#automation-section" class="ai">Automation</a></li>
+          <li><a href="../../index.html#info-section" class="game">Resources</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HEADER -->
+  <header class="header" id="siteHeader">
+    <div class="header-inner">
+      <img class="url" src="image/url_uncoder_decoder_tool_logo.png" alt="">
+      <h3 class="tool">DevTools</h3>
+
+      <!-- Dropdown trigger — visible only below 480px -->
+      <button class="nav-dropdown-trigger" id="navDropdownTrigger" aria-haspopup="true" aria-expanded="false"
+        aria-controls="navDropdownPanel" aria-label="Open navigation menu">
+        <span class="nav-dropdown-label" id="navDropdownLabel">URL Encode</span>
+        <svg class="nav-dropdown-chevron" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <polyline points="2,4 6,8 10,4" />
+        </svg>
+      </button>
+
+      <!-- Scrollable wrapper — visible 480px+ -->
+      <div class="tab-nav-wrapper" id="tabNavWrapper">
+        <!-- <button class="tab-scroll-btn tab-scroll-left" id="tabScrollLeft" aria-label="Scroll tabs left"
+          hidden>‹</button> -->
+        <nav class="tab-nav" id="tabNav" role="tablist">
+          <button class="tab-btn active" data-tab="url" role="tab">URL Encode</button>
+          <button class="tab-btn" data-tab="qparams" role="tab">Query Params</button>
+          <button class="tab-btn" data-tab="base64" role="tab">Base64</button>
+          <button class="tab-btn" data-tab="jwt" role="tab">JWT</button>
+          <button class="tab-btn" data-tab="hash" role="tab">Hash</button>
+          <button class="tab-btn" data-tab="diff" role="tab">Diff</button>
+          <button class="tab-btn" data-tab="ref" role="tab">Reference</button>
+          <button class="tab-btn" data-tab="settings" role="tab">Settings</button>
+        </nav>
+        <!-- <button class="tab-scroll-btn tab-scroll-right" id="tabScrollRight" aria-label="Scroll tabs right"
+          hidden>›</button> -->
+      </div>
+
+      <div class="header-right">
+        <span class="kbd-hint" id="modeHint">AUTO</span>
+        <button class="icon-btn" id="clearGlobal" title="Clear (Ctrl+Shift+C)" aria-label="Clear all fields">✕</button>
+      </div>
+    </div>
+
+    <!-- Dropdown panel — slides down below header on mobile -->
+    <div class="nav-dropdown-panel" id="navDropdownPanel" role="listbox" aria-label="Tool navigation">
+      <button class="nav-dd-item active" data-tab="url" role="option" aria-selected="true">
+        <span class="nav-dd-icon">⇄</span> URL Encode
+      </button>
+      <button class="nav-dd-item" data-tab="qparams" role="option" aria-selected="false">
+        <span class="nav-dd-icon">?</span> Query Params
+      </button>
+      <button class="nav-dd-item" data-tab="base64" role="option" aria-selected="false">
+        <span class="nav-dd-icon">64</span> Base64
+      </button>
+      <button class="nav-dd-item" data-tab="jwt" role="option" aria-selected="false">
+        <span class="nav-dd-icon">JWT</span> JWT Inspector
+      </button>
+      <button class="nav-dd-item" data-tab="hash" role="option" aria-selected="false">
+        <span class="nav-dd-icon">#</span> Hash
+      </button>
+      <button class="nav-dd-item" data-tab="diff" role="option" aria-selected="false">
+        <span class="nav-dd-icon">±</span> Diff
+      </button>
+      <button class="nav-dd-item" data-tab="ref" role="option" aria-selected="false">
+        <span class="nav-dd-icon">☰</span> Reference
+      </button>
+      <button class="nav-dd-item" data-tab="settings" role="option" aria-selected="false">
+        <span class="nav-dd-icon">⚙</span> Settings
+      </button>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ============================================================
+       TAB: URL ENCODER
+  ============================================================ -->
+    <div class="panel active" id="panel-url">
+      <div class="tool-card">
+        <div class="card-header">
+          <div class="card-dots"><span class="d1"></span><span class="d2"></span><span class="d3"></span></div>
+          <span class="card-title"><span>url</span>:encode-decode.sh</span>
+          <div style="margin-left:auto; display:flex; gap:0.5rem; align-items:center;">
+            <span id="urlStatus"></span>
+            <label class="chip-toggle" id="autoChip">
+              <input type="checkbox" id="autoMode" checked>
+              <span>Auto</span>
+            </label>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="ctrl-row">
+            <button class="btn btn-g" id="encodeBtn">⇒ Encode</button>
+            <button class="btn btn-b" id="decodeBtn">⇐ Decode</button>
+            <div class="spacer"></div>
+            <button class="btn btn-ghost" id="swapBtn" title="Ctrl+Shift+S">⇄ Swap</button>
+            <button class="btn btn-r" id="clearBtn" title="Ctrl+Shift+C">✕ Clear</button>
+          </div>
+
+          <div class="split">
+            <!-- Input -->
+            <div>
+              <div class="field-label">
+                <span>INPUT</span>
+                <span class="count" id="inCount">0 chars</span>
+              </div>
+              <textarea id="urlInput" placeholder="Paste your URL or plain text here…" spellcheck="false"
+                rows="8"></textarea>
+            </div>
+
+            <!-- Mid arrows -->
+            <div class="split-mid">
+              <button class="arrow-btn" id="encodeMid" title="Encode">→</button>
+              <button class="arrow-btn" id="decodeMid" title="Decode">←</button>
+            </div>
+
+            <!-- Output -->
+            <div>
+              <div class="field-label">
+                <span>OUTPUT</span>
+                <span class="count" id="outCount">0 chars</span>
+              </div>
+              <textarea id="urlOutput" placeholder="Result appears here…" readonly spellcheck="false"
+                rows="8"></textarea>
+            </div>
+          </div>
+        </div>
+
+        <div class="stats-bar">
+          <div class="stat">Encoded chars: <strong id="statEncoded">0</strong></div>
+          <div class="stat" style="margin-left:1rem">Ratio: <strong id="statRatio">—</strong></div>
+          <div class="stat" style="margin-left:1rem">Bytes (UTF-8): <strong id="statBytes">0</strong></div>
+          <div style="margin-left:auto; display:flex; gap:0.5rem;">
+            <button class="btn btn-ghost btn-icon-only" id="copyUrl" title="Copy (Ctrl+Shift+X)"
+              aria-label="Copy output to clipboard">⎘</button>
+            <button class="btn btn-ghost btn-icon-only" id="downloadUrl" title="Download"
+              aria-label="Download output as text file">⬇</button>
+            <button class="btn btn-ghost btn-icon-only" id="histBtn" title="History"
+              aria-label="Toggle conversion history">☰</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- History drawer -->
+      <div id="historyDrawer" style="margin-top:0.75rem; display:none;">
+        <div class="tool-card">
+          <div class="card-header">
+            <div class="card-dots"><span class="d1"></span><span class="d2"></span><span class="d3"></span></div>
+            <span class="card-title"><span>history</span>.log</span>
+            <button class="btn btn-r" style="margin-left:auto; font-size:0.72rem; padding:0.3rem 0.7rem;"
+              id="clearHistBtn">Clear</button>
+          </div>
+          <div class="card-body">
+            <div class="history-list" id="historyList">
+              <div class="empty-msg"><span class="em">∅</span>No conversions yet</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Char reference map -->
+      <div style="margin-top:0.75rem;">
+        <div class="tool-card">
+          <div class="card-header">
+            <div class="card-dots"><span class="d1"></span><span class="d2"></span><span class="d3"></span></div>
+            <span class="card-title"><span>quick</span>-insert chars</span>
+          </div>
+          <div class="char-map-grid" id="charMap"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================================
+       TAB: QUERY PARAMS BUILDER
+  ============================================================ -->
+    <div class="panel" id="panel-qparams">
+      <div class="tool-card">
+        <div class="card-header">
+          <div class="card-dots"><span class="d1"></span><span class="d2"></span><span class="d3"></span></div>
+          <span class="card-title"><span>query</span>-params-builder.sh</span>
+        </div>
+        <div class="card-body">
+          <div class="url-base-row">
+            <div>
+              <div class="field-label">BASE URL</div>
+              <input class="param-input" id="qpBaseUrl" placeholder="https://api.example.com/endpoint"
+                spellcheck="false">
+            </div>
+            <button class="btn btn-g" id="qpBuild" style="margin-top:1.4rem;">Build URL</button>
+          </div>
+
+          <div class="section-title"><span class="dot">◈</span> Parameters</div>
+          <div id="paramRows"></div>
+          <div style="display:flex; gap:0.5rem; margin-top:0.75rem;">
+            <button class="btn btn-ghost" id="addParam">+ Add Param</button>
+            <button class="btn btn-y" id="parseUrl">Parse URL → Params</button>
+          </div>
+
+          <!-- Inline URL parse input — replaces prompt() -->
+          <div id="parseUrlBox"
+            style="display:none; margin-top:0.75rem; background:var(--bg-2); border:1px solid var(--border-hi); border-radius:var(--r8); padding:1rem;">
+            <div class="field-label" style="margin-bottom:0.5rem;">PASTE FULL URL TO PARSE</div>
+            <div style="display:grid; grid-template-columns:1fr auto; gap:0.5rem; align-items:center;">
+              <input class="param-input" id="parseUrlInput" placeholder="https://example.com/path?foo=bar&baz=qux"
+                spellcheck="false" autocomplete="off">
+              <div style="display:flex; gap:0.4rem;">
+                <button class="btn btn-g" id="parseUrlConfirm">Parse</button>
+                <button class="btn btn-ghost" id="parseUrlCancel" aria-label="Cancel URL parse">✕</button>
+              </div>
+            </div>
+          </div>
+
+          <div style="margin-top:1.5rem;">
+            <div class="field-label">RESULT URL</div>
+            <div class="code-output" id="qpResult">—</div>
+            <div style="display:flex; gap:0.5rem; margin-top:0.5rem; justify-content:flex-end;">
+              <button class="btn btn-g btn-icon-only" id="copyQp" title="Copy" aria-label="Copy result URL">⎘</button>
+              <button class="btn btn-b" id="openQp">Open in Browser ↗</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================================
+       TAB: BASE64
+  ============================================================ -->
+    <div class="panel" id="panel-base64">
+      <div class="tool-card">
+        <div class="card-header">
+          <div class="card-dots"><span class="d1"></span><span class="d2"></span><span class="d3"></span></div>
+          <span class="card-title"><span>base64</span>-encode-decode.sh</span>
+          <span id="b64Status" style="margin-left:auto;"></span>
+        </div>
+        <div class="card-body">
+          <div class="ctrl-row">
+            <button class="btn btn-g" id="b64Encode">Encode →</button>
+            <button class="btn btn-b" id="b64Decode">← Decode</button>
+            <button class="btn btn-y" id="b64UrlSafe">URL-Safe Mode</button>
+            <div class="spacer"></div>
+            <button class="btn btn-ghost" id="b64Swap" aria-label="Swap input and output">⇄</button>
+            <button class="btn btn-r" id="b64Clear" aria-label="Clear Base64 fields">✕</button>
+          </div>
+          <div class="split">
+            <div>
+              <div class="field-label">INPUT<span class="count" id="b64InCount" style="margin-left:auto;">0 chars</span>
+              </div>
+              <textarea id="b64Input" placeholder="Plain text or Base64 string…" rows="8" spellcheck="false"></textarea>
+            </div>
+            <div class="split-mid">
+              <button class="arrow-btn" id="b64MidEnc">→</button>
+              <button class="arrow-btn" id="b64MidDec">←</button>
+            </div>
+            <div>
+              <div class="field-label">OUTPUT<span class="count" id="b64OutCount" style="margin-left:auto;">0
+                  chars</span></div>
+              <textarea id="b64Output" readonly placeholder="Result appears here…" rows="8"
+                spellcheck="false"></textarea>
+            </div>
+          </div>
+        </div>
+        <div class="stats-bar">
+          <div class="stat">Padding: <strong id="b64Padding">—</strong></div>
+          <div class="stat" style="margin-left:1rem;">Valid: <strong id="b64Valid">—</strong></div>
+          <div style="margin-left:auto; display:flex; gap:0.5rem;">
+            <button class="btn btn-ghost btn-icon-only" id="copyB64" aria-label="Copy Base64 output">⎘</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================================
+       TAB: JWT VIEWER
+  ============================================================ -->
+    <div class="panel" id="panel-jwt">
+      <div class="tool-card">
+        <div class="card-header">
+          <div class="card-dots"><span class="d1"></span><span class="d2"></span><span class="d3"></span></div>
+          <span class="card-title"><span>jwt</span>-inspector.sh</span>
+          <span id="jwtStatus" style="margin-left:auto;"></span>
+        </div>
+        <div class="card-body">
+          <div class="field-label">PASTE JWT TOKEN</div>
+          <textarea id="jwtInput" placeholder="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0…" rows="5"
+            spellcheck="false"></textarea>
+          <button class="btn btn-g" style="margin-top:0.75rem; width:100%;" id="jwtDecode">Decode JWT</button>
+          <div style="margin-top:1.25rem;" id="jwtResult"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================================
+       TAB: HASH
+  ============================================================ -->
+    <div class="panel" id="panel-hash">
+      <div class="tool-card">
+        <div class="card-header">
+          <div class="card-dots"><span class="d1"></span><span class="d2"></span><span class="d3"></span></div>
+          <span class="card-title"><span>hash</span>-generator.sh</span>
+        </div>
+        <div class="card-body">
+          <div class="field-label">INPUT STRING</div>
+          <textarea id="hashInput" placeholder="Enter text to hash…" rows="4" spellcheck="false"></textarea>
+          <button class="btn btn-g" style="margin-top:0.75rem; width:100%;" id="hashGenBtn">Generate Hashes</button>
+          <div style="margin-top:1.25rem;" id="hashResult" class="hash-result"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================================
+       TAB: DIFF
+  ============================================================ -->
+    <div class="panel" id="panel-diff">
+      <div class="tool-card">
+        <div class="card-header">
+          <div class="card-dots"><span class="d1"></span><span class="d2"></span><span class="d3"></span></div>
+          <span class="card-title"><span>url</span>-diff.sh</span>
+          <span id="diffStatus" style="margin-left:auto;"></span>
+        </div>
+        <div class="card-body">
+          <div class="diff-grid">
+            <div>
+              <div class="field-label">TEXT A</div>
+              <textarea id="diffA" rows="8" placeholder="First URL or text…" spellcheck="false"></textarea>
+            </div>
+            <div>
+              <div class="field-label">TEXT B</div>
+              <textarea id="diffB" rows="8" placeholder="Second URL or text…" spellcheck="false"></textarea>
+            </div>
+          </div>
+          <button class="btn btn-g" style="margin-top:0.75rem; width:100%;" id="diffBtn">Compare →</button>
+          <div style="margin-top:1rem;">
+            <div class="field-label">DIFF RESULT</div>
+            <div class="diff-output" id="diffOutput">—</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================================
+       TAB: REFERENCE
+  ============================================================ -->
+    <div class="panel" id="panel-ref">
+      <div class="section-title"><span class="dot">◈</span> URL Encoding Quick Reference</div>
+      <div class="info-grid">
+        <div class="info-card">
+          <h3>What is URL Encoding?</h3>
+          <p>Converts special characters to % followed by two hex digits so URLs transmit safely over HTTP.</p>
+          <div class="ex">space → %20&nbsp;&nbsp;&nbsp;! → %21<br>@ → %40&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# → %23</div>
+        </div>
+        <div class="info-card">
+          <h3>encodeURI vs encodeURIComponent</h3>
+          <p><strong style="color:var(--g)">encodeURI</strong> — preserves : / ? # [ ] @ for full URL encoding.<br>
+            <strong style="color:var(--b)">encodeURIComponent</strong> — encodes everything; use for param values.
+          </p>
+          <div class="ex">? → %3F&nbsp;&nbsp;&nbsp;& → %26<br>= → %3D&nbsp;&nbsp;&nbsp;+ → %2B</div>
+        </div>
+        <div class="info-card">
+          <h3>UTF-8 & Emojis</h3>
+          <p>Multi-byte Unicode characters expand to multiple percent-encoded bytes.</p>
+          <div class="ex">café → caf%C3%A9<br>🚀 → %F0%9F%9A%80<br>中 → %E4%B8%AD</div>
+        </div>
+        <div class="info-card">
+          <h3>Reserved Characters</h3>
+          <p>These are safe in URLs but have semantic meaning — encode when used as data.</p>
+          <div class="ex">: / ? # [ ] @ ! $ &amp;<br>' ( ) * + , ; =</div>
+        </div>
+        <div class="info-card">
+          <h3>Base64 Basics</h3>
+          <p>Encodes binary data as ASCII. Used in JWTs, data URIs, email attachments.</p>
+          <div class="ex">hello → aGVsbG8=<br>URL-safe replaces + with - and / with _</div>
+        </div>
+        <div class="info-card">
+          <h3>JWT Structure</h3>
+          <p>Three Base64URL-encoded parts separated by dots: header, payload, signature.</p>
+          <div class="ex">header.payload.signature<br>Payload is NOT encrypted — only signed.</div>
+        </div>
+        <div class="info-card">
+          <h3>Common Hash Algorithms</h3>
+          <p>One-way functions — SHA-256 is recommended for integrity, MD5 only for checksums.</p>
+          <div class="ex">SHA-1: 160-bit (deprecated)<br>SHA-256: 256-bit ✓<br>SHA-512: 512-bit ✓✓</div>
+        </div>
+        <div class="info-card">
+          <h3>Security Notes</h3>
+          <p>URL encoding ≠ encryption. Never put secrets in URLs — they appear in server logs and history.</p>
+          <div class="ex">✓ Use HTTPS<br>✗ Don't URL-encode passwords<br>✓ Use Authorization header</div>
+        </div>
+      </div>
+
+      <div class="section-title" style="margin-top:2rem;"><span class="dot">◈</span> Keyboard Shortcuts</div>
+      <div class="shortcuts-grid">
+        <div class="shortcut-row"><span class="action">Encode</span>
+          <div class="keys"><span class="key">Ctrl</span><span class="key">Enter</span></div>
+        </div>
+        <div class="shortcut-row"><span class="action">Decode</span>
+          <div class="keys"><span class="key">Ctrl</span><span class="key">⇧</span><span class="key">D</span></div>
+        </div>
+        <div class="shortcut-row"><span class="action">Swap</span>
+          <div class="keys"><span class="key">Ctrl</span><span class="key">⇧</span><span class="key">S</span></div>
+        </div>
+        <div class="shortcut-row"><span class="action">Clear</span>
+          <div class="keys"><span class="key">Ctrl</span><span class="key">⇧</span><span class="key">C</span></div>
+        </div>
+        <div class="shortcut-row"><span class="action">Copy Output</span>
+          <div class="keys"><span class="key">Ctrl</span><span class="key">⇧</span><span class="key">X</span></div>
+        </div>
+        <div class="shortcut-row"><span class="action">Open History</span>
+          <div class="keys"><span class="key">Ctrl</span><span class="key">⇧</span><span class="key">H</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================================
+       TAB: SETTINGS
+  ============================================================ -->
+    <div class="panel" id="panel-settings">
+      <div class="section-title"><span class="dot">◈</span> Preferences</div>
+      <div class="settings-grid">
+        <div class="setting-item">
+          <div class="setting-label">
+            Auto-detect mode
+            <small>Automatically encode or decode based on input</small>
+          </div>
+          <label class="toggle"><input type="checkbox" id="settingAuto" checked><span
+              class="toggle-track"></span></label>
+        </div>
+        <div class="setting-item">
+          <div class="setting-label">
+            Save history
+            <small>Store conversions in localStorage</small>
+          </div>
+          <label class="toggle"><input type="checkbox" id="settingHistory" checked><span
+              class="toggle-track"></span></label>
+        </div>
+        <div class="setting-item">
+          <div class="setting-label">
+            Scanline effect
+            <small>CRT scanline overlay</small>
+          </div>
+          <label class="toggle"><input type="checkbox" id="settingScanline" checked><span
+              class="toggle-track"></span></label>
+        </div>
+        <div class="setting-item">
+          <div class="setting-label">
+            Show char stats
+            <small>Display encoding statistics</small>
+          </div>
+          <label class="toggle"><input type="checkbox" id="settingStats" checked><span
+              class="toggle-track"></span></label>
+        </div>
+      </div>
+
+      <div class="section-title" style="margin-top:2rem;"><span class="dot">◈</span> Data Management</div>
+      <div style="display:flex; gap:0.75rem; flex-wrap:wrap;">
+        <button class="btn btn-r" id="clearAllHistory">🗑 Clear All History</button>
+        <button class="btn btn-ghost" id="exportHistory">⬇ Export History JSON</button>
+      </div>
+    </div>
+
+  </main>
+
+  <!--Footer  -->
+  <footer class="footer">
+    <ul class="menu">
+      <li class="menu-item"><a class="menu-link" href="https://devspirehub.com">Home</a></li>
+      <li class="menu-item"><a class="menu-link" href="https://devspirehub.com/Wallpaper/">Wallpapers</a></li>
+      <li class="menu-item"><a class="menu-link" href="https://devspirehub.com/Color-Palettes/">Color Space</a>
+      </li>
+      <li class="menu-item"><a class="menu-link"
+          href="https://devspirehub.com/Resources/Digital-Resources/Digital-Resources-Hub.html">Resources</a>
+      </li>
+      <li class="menu-item"><a class="menu-link" href="https://devspirehub.com/Website/About/About.html">About</a>
+      </li>
+      <li class="menu-item"><a class="menu-link" href="https://devspirehub.com/Website/Contact/Index.html">Contact</a>
+      </li>
+      <li class="menu-item"><a class="menu-link" href="https://devspirehub.com/Website/privacy/index.html">Privacy
+          policy</a>
+      </li>
+    </ul>
+    <div class="contacts">
+      <a class="contact github" href="https://github.com/kumaradoss16" target="_blank"><i
+          class="fa-brands fa-github"></i></a>
+      <a class="contact instagram" href="https://www.instagram.com/devspirehub/" target="_blank"><i
+          class="fa-brands fa-instagram"></i></a>
+      <a class="contact linkedin" href="https://www.linkedin.com/in/kumaradoss-s/" target="_blank"><i
+          class="fa-brands fa-linkedin"></i></a>
+      <a class="contact facebook" href="https://www.facebook.com/profile.php?id=61577667990170&_rdr" target="_blank"><i
+          class="fa-brands fa-facebook"></i></a>
+      <a class="contact gmail" href="https://mail.google.com/mail/?view=cm&fs=1&to=devspirehub.website@gmail.com"
+        aria-label="Email us at devspirehub.website@gmail.com" title="Send us an email" target="_blank"
+        rel="noopener noreferrer">
+        <i class="fa-solid fa-envelope"></i>
+      </a>
+    </div>
+    <p>&copy;2026 DevspireHub | All Rights Reserved</p>
+  </footer>
+
+  <div id="toast"></div>
+
+  <!-- ============================================================
+     JAVASCRIPT
+============================================================ -->
+  <script src="script.js"></script>
+</body>
+
+</html>
