@@ -11,6 +11,446 @@ const CATS = {
             
 const REPOS = [
   {
+    "owner": "FlashML-org",
+    "name": "flashlib",
+    "url": "https://github.com/FlashML-org/flashlib",
+    "cat": "ai",
+    "desc": "Fast and memory-efficient classical machine learning operators library for Python.",
+    "language": "Python",
+    "topics": ["machine-learning", "python", "performance", "memory-efficient", "operators", "ai"],
+    "updated": "30 May 2026",
+    "isNew": true
+  },
+  {
+    "owner": "withkynam",
+    "name": "vibecode-pro-max-kit",
+    "url": "https://github.com/withkynam/vibecode-pro-max-kit",
+    "cat": "dev",
+    "desc": "Spec-driven coding harness with self-improving context memory, 12 agents, and 32 skills for Claude Code and Codex. Eliminates context rot and ships features consistently.",
+    "language": "JavaScript",
+    "topics": ["claudecode", "codex", "ai-agents", "context-memory", "vibecoding", "developer-tools", "prompt-engineering", "typescript"],
+    "updated": "30 May 2026",
+    "isNew": true
+  },
+  {
+    "owner": "akitaonrails",
+    "name": "ai-memory",
+    "url": "https://github.com/akitaonrails/ai-memory",
+    "cat": "ai",
+    "desc": "Long-term memory solution for coding agent CLIs enabling seamless handoff between different AI agent vendors.",
+    "language": "Rust",
+    "topics": ["ai", "memory", "agents", "rust", "cli", "long-term-memory", "handoff"],
+    "updated": "29 May 2026",
+    "isNew": true
+  },
+  {
+    "owner": "UditAkhouri",
+    "name": "iadhd",
+    "url": "https://github.com/UditAkhouri/iadhd",
+    "cat": "ai",
+    "desc": "ADHD-inspired coding agent skill using tree-of-thought with pruning built on Claude Agent SDK. Fans out parallel divergent thoughts, scores and prunes traps, and deepens surviving ideas.",
+    "language": "TypeScript",
+    "topics": ["ai", "agents", "claude", "tree-of-thought", "brainstorm", "creativity", "llm", "typescript", "prompt-engineering"],
+    "updated": "28 May 2026",
+    "isNew": true
+  },
+  {
+    "owner": "OpenBMB",
+    "name": "PilotDeck",
+    "url": "https://github.com/OpenBMB/PilotDeck",
+    "cat": "ai",
+    "desc": "Task-oriented AI agent productivity platform for managing and executing complex workflows.",
+    "language": "TypeScript",
+    "topics": ["ai", "agents", "productivity", "task-automation", "typescript", "llm"],
+    "updated": "28 May 2026",
+    "isNew": true
+  },
+  {
+    "owner": "VILA-Lab",
+    "name": "FigMirror",
+    "url": "https://github.com/VILA-Lab/FigMirror",
+    "cat": "ai",
+    "desc": "Automated AI agent tool for plotting research data in any academic paper figure style using matplotlib and LLM agents.",
+    "language": "Python",
+    "topics": ["ai", "agent", "data-visualization", "matplotlib", "research", "plotting", "claudecode", "codex"],
+    "updated": "28 May 2026",
+    "isNew": true
+  },
+  {
+    "owner": "XingYu-Zhong",
+    "name": "DeepSeek-GUI",
+    "url": "https://github.com/XingYu-Zhong/DeepSeek-GUI",
+    "cat": "ai",
+    "desc": "AI agent workspace for DeepSeek models with Code and Claw modes built into a TypeScript desktop application.",
+    "language": "TypeScript",
+    "topics": ["deepseek", "ai", "gui", "desktop-app", "coding-agent", "llm", "typescript"],
+    "updated": "28 May 2026",
+    "isNew": true
+  },
+  {
+    "owner": "nv-tlabs",
+    "name": "PiD",
+    "url": "https://github.com/nv-tlabs/PiD",
+    "cat": "ai",
+    "desc": "Fast and high-resolution latent decoding using pixel diffusion for image generation models.",
+    "language": "Python",
+    "topics": ["diffusion", "image-generation", "latent-decoding", "ai", "deep-learning", "pixel-diffusion"],
+    "updated": "27 May 2026",
+    "isNew": true
+  },
+  {
+    "owner": "Unclecheng-li",
+    "name": "poc-lab",
+    "url": "https://github.com/Unclecheng-li/poc-lab",
+    "cat": "security",
+    "desc": "Recent CVE proof-of-concept reproduction scripts focused on high-severity vulnerabilities across Linux kernel, Windows, and macOS.",
+    "language": "C",
+    "topics": ["cve", "poc", "exploit", "linux", "windows", "macos", "vulnerability", "security", "pentest"],
+    "updated": "27 May 2026",
+    "isNew": true
+  },
+  {
+    "owner": "zhaoyue4810",
+    "name": "pianke",
+    "url": "https://github.com/zhaoyue4810/pianke",
+    "cat": "dev",
+    "desc": "Python-based developer tool with scripting and automation capabilities.",
+    "language": "Python",
+    "topics": ["python", "automation", "scripting", "developer-tools"],
+    "updated": "26 May 2026",
+    "isNew": true
+  },
+  {
+    "owner": "MoonshotAI",
+    "name": "kimi-code",
+    "url": "https://github.com/MoonshotAI/kimi-code",
+    "cat": "ai",
+    "desc": "The starting point for next-generation AI coding agents by Moonshot AI.",
+    "language": "TypeScript",
+    "topics": ["ai", "coding-agent", "llm", "kimi", "typescript", "next-gen"],
+    "updated": "26 May 2026",
+    "isNew": true
+  },
+  {
+    "owner": "0xSero",
+    "name": "codex-shim",
+    "url": "https://github.com/0xSero/codex-shim",
+    "cat": "dev",
+    "desc": "Local Responses API shim that exposes Factory BYOK models and optional ChatGPT GPT-5.5 passthrough to Codex Desktop.",
+    "language": "Python",
+    "topics": ["codex", "api", "shim", "byok", "gpt", "developer-tools", "openai"],
+    "updated": "26 May 2026",
+    "isNew": true
+  },
+  {
+    "owner": "Tong89",
+    "name": "smartNode",
+    "url": "https://github.com/Tong89/smartNode",
+    "cat": "ai",
+    "desc": "Smart node automation system built with Python.",
+    "language": "Python",
+    "topics": ["python", "automation", "node", "ai"],
+    "updated": "25 May 2026",
+    "isNew": true
+  },
+  {
+    "owner": "open-gsd",
+    "name": "get-shit-done-redux",
+    "url": "https://github.com/open-gsd/get-shit-done-redux",
+    "cat": "dev",
+    "desc": "Spec-driven development framework using context engineering and meta-prompting with Claude Code for structured software delivery.",
+    "language": "JavaScript",
+    "topics": ["claudecode", "context-engineering", "meta-prompting", "spec-driven", "developer-tools", "productivity"],
+    "updated": "25 May 2026",
+    "isNew": true
+  },
+  {
+    "owner": "ZoyaMalhotra",
+    "name": "DualSenseX-DSX-Steam-Edition",
+    "url": "https://github.com/ZoyaMalhotra/DualSenseX-DSX-Steam-Edition",
+    "cat": "dev",
+    "desc": "DualSenseX Steam edition with adaptive triggers, audio-to-haptics, Xbox 360 and DualShock 4 emulation support for PC games via ViGEmBus driver.",
+    "language": "C",
+    "topics": ["dualsense", "controller", "steam", "haptics", "ps5", "ds4", "vigembus", "windows"],
+    "updated": "25 May 2026",
+    "isNew": true
+  },
+  {
+    "owner": "paradigmxyz",
+    "name": "centaur",
+    "url": "https://github.com/paradigmxyz/centaur",
+    "cat": "ai",
+    "desc": "Multiplayer self-hosted secure AI agents platform.",
+    "language": "Python",
+    "topics": ["agents", "ai", "self-hosted", "security", "multiplayer", "automation"],
+    "updated": "24 May 2026",
+    "isNew": true
+  },
+  {
+    "owner": "evilsocket",
+    "name": "audit",
+    "url": "https://github.com/evilsocket/audit",
+    "cat": "security",
+    "desc": "An 8-stage automated vulnerability discovery agent for security auditing.",
+    "language": "Python",
+    "topics": ["security", "vulnerability", "pentest", "agent", "audit", "recon"],
+    "updated": "24 May 2026",
+    "isNew": true
+  },
+  {
+    "owner": "perplexityai",
+    "name": "bumblebee",
+    "url": "https://github.com/perplexityai/bumblebee",
+    "cat": "security",
+    "desc": "Read-only tool for inventorying packages, extensions, and developer-tool metadata on macOS and Linux endpoints, built for fast software supply-chain exposure checks.",
+    "language": "Go",
+    "topics": ["security", "supply-chain", "packages", "inventory", "golang", "macos", "linux", "devtools"],
+    "updated": "24 May 2026",
+    "isNew": true
+  },
+  {
+    "owner": "WUBING2023",
+    "name": "PaperSpine",
+    "url": "https://github.com/WUBING2023/PaperSpine",
+    "cat": "ai",
+    "desc": "Motivation-driven Codex skill for learning from academic papers, building central arguments, and rewriting manuscripts using evidence-aware blueprints and LaTeX-safe audits.",
+    "language": "Python",
+    "topics": ["codex", "research", "academic", "latex", "ai", "writing", "papers"],
+    "updated": "24 May 2026",
+    "isNew": true
+  },
+  {
+    "owner": "lynote-ai",
+    "name": "humanize-text",
+    "url": "https://github.com/lynote-ai/humanize-text",
+    "cat": "ai",
+    "desc": "Free open-source AI text humanizer that converts AI-generated content into undetectable human-like writing. Bypasses major AI detectors including Turnitin and GPTZero.",
+    "language": "Python",
+    "topics": ["ai", "humanizer", "text", "ai-detection", "bypass", "n8n", "dify", "python"],
+    "updated": "23 May 2026",
+    "isNew": true
+  },
+  {
+    "owner": "kageroumado",
+    "name": "phosphene",
+    "url": "https://github.com/kageroumado/phosphene",
+    "cat": "systems",
+    "desc": "A video wallpaper engine for macOS Tahoe.",
+    "language": "Swift",
+    "topics": ["macos", "wallpaper", "video", "swift", "desktop"],
+    "updated": "23 May 2026",
+    "isNew": true
+  },
+  {
+    "owner": "Helvesec",
+    "name": "rmux",
+    "url": "https://github.com/Helvesec/rmux",
+    "cat": "dev",
+    "desc": "Universal Rust multiplexer with a typed SDK to drive any CLI or TUI application from code. Supports Linux, macOS, and Windows natively.",
+    "language": "Rust",
+    "topics": ["rust", "cli", "tui", "multiplexer", "terminal", "linux", "macos", "windows", "tokio"],
+    "updated": "23 May 2026",
+    "isNew": true
+  },
+  {
+    "owner": "openclaw",
+    "name": "clawpatch",
+    "url": "https://github.com/openclaw/clawpatch",
+    "cat": "dev",
+    "desc": "Automated code review bot that patches bugs and helps land pull requests.",
+    "language": "TypeScript",
+    "topics": ["code-review", "bot", "automation", "github", "pull-request", "developer-tools"],
+    "updated": "23 May 2026",
+    "isNew": true
+  },
+  {
+    "owner": "sapientinc",
+    "name": "HRM-Text",
+    "url": "https://github.com/sapientinc/HRM-Text",
+    "cat": "ai",
+    "desc": "A 1B parameter text generation model based on the Hierarchical Reasoning Model architecture with latent space reasoning and task completion.",
+    "language": "Python",
+    "topics": ["llm", "text-generation", "hierarchical-reasoning", "pretraining", "ai", "language-model"],
+    "updated": "22 May 2026",
+    "isNew": true
+  },
+  {
+    "owner": "bytedance",
+    "name": "Lance",
+    "url": "https://github.com/bytedance/Lance",
+    "cat": "ai",
+    "desc": "A 3B-active-parameter native unified multimodal model for image and video understanding, generation, and editing.",
+    "language": "Python",
+    "topics": ["multimodal", "ai", "image-generation", "video-understanding", "deep-learning", "llm"],
+    "updated": "22 May 2026",
+    "isNew": true
+  },
+  {
+    "owner": "Nightmare-Eclipse",
+    "name": "MiniPlasma",
+    "url": "https://github.com/Nightmare-Eclipse/MiniPlasma",
+    "cat": "security",
+    "desc": "Proof of concept for CVE-2020-17103, a local privilege escalation vulnerability in cldflt.sys on Windows.",
+    "language": "C",
+    "topics": ["cve", "exploit", "windows", "lpe", "vulnerability", "security", "poc"],
+    "updated": "22 May 2026",
+    "isNew": true
+  },
+  {
+    "owner": "thananon9",
+    "name": "arm-skills",
+    "url": "https://github.com/thananon9/arm-skills",
+    "cat": "systems",
+    "desc": "Collection of ARM architecture skills and low-level programming resources.",
+    "language": "Shell",
+    "topics": ["arm", "low-level", "assembly", "systems", "shell", "architecture"],
+    "updated": "21 May 2026",
+    "isNew": true
+  },
+  {
+    "owner": "FoundZiGuGu",
+    "name": "Jumpgate",
+    "url": "https://github.com/FoundZiGuGu/Jumpgate",
+    "cat": "dev",
+    "desc": "Jumpgate — a developer productivity and routing tool.",
+    "language": "JavaScript",
+    "topics": ["jumpgate", "developer-tools", "javascript"],
+    "updated": "21 May 2026",
+    "isNew": true
+  },
+  {
+    "owner": "0xdeadbeefnetwork",
+    "name": "ssh-keysign-pwn",
+    "url": "https://github.com/0xdeadbeefnetwork/ssh-keysign-pwn",
+    "cat": "security",
+    "desc": "Exploit to steal SSH host private keys and /etc/shadow via ptrace/mayaccess mm-NULL bypass and pidfd_getfd on pre-patched Linux kernels.",
+    "language": "C",
+    "topics": ["ssh", "exploit", "linux", "kernel", "privilege-escalation", "security", "cve", "pentest"],
+    "updated": "21 May 2026",
+    "isNew": true
+  },
+  {
+    "owner": "Doorman11991",
+    "name": "smallcode",
+    "url": "https://github.com/Doorman11991/smallcode",
+    "cat": "ai",
+    "desc": "AI coding agent optimized for small language models, achieving 87% benchmark accuracy with a 4B-active parameter model.",
+    "language": "JavaScript",
+    "topics": ["ai", "coding-agent", "llm", "small-model", "benchmark", "developer-tools"],
+    "updated": "20 May 2026",
+    "isNew": true
+  },
+  {
+    "owner": "boona13",
+    "name": "mykonos-island-voxels",
+    "url": "https://github.com/boona13/mykonos-island-voxels",
+    "cat": "web",
+    "desc": "Browser-based isometric island builder with a soft Mykonos aesthetic. Built with vanilla ES modules, no bundler required, and fully mobile-friendly.",
+    "language": "JavaScript",
+    "topics": ["html5", "game", "isometric", "canvas2d", "vanillajs", "mobile-friendly", "citybuilder", "opensource"],
+    "updated": "20 May 2026",
+    "isNew": true
+  },
+  {
+    "owner": "gi-della",
+    "name": "vzerostack",
+    "url": "https://github.com/gi-della/vzerostack",
+    "cat": "dev",
+    "desc": "Minimalistic coding agent written in Rust, optimized for low memory footprint and high performance.",
+    "language": "Rust",
+    "topics": ["rust", "coding-agent", "cli", "performance", "memory-efficient"],
+    "updated": "19 May 2026",
+    "isNew": true
+  },
+  {
+    "owner": "mark9-droid",
+    "name": "TomodachiPC",
+    "url": "https://github.com/mark9-droid/TomodachiPC",
+    "cat": "dev",
+    "desc": "Ultimate Mii manager and life simulator for PC. Features virtual island community, apartment editor, food preferences database, gift system, and voice synthesizer.",
+    "language": "C",
+    "topics": ["tomodachi", "life-simulator", "mii", "nintendo", "game", "desktop", "windows"],
+    "updated": "19 May 2026",
+    "isNew": true
+  },
+  {
+    "owner": "Kappaemme-git",
+    "name": "codex-complexity-optimizer",
+    "url": "https://github.com/Kappaemme-git/codex-complexity-optimizer",
+    "cat": "dev",
+    "desc": "Codex skill for safe codebase complexity analysis and performance optimization reporting.",
+    "language": "Python",
+    "topics": ["codex", "code-analysis", "complexity", "optimization", "performance", "developer-tools"],
+    "updated": "18 May 2026",
+    "isNew": true
+  },
+  {
+    "owner": "facebookresearch",
+    "name": "vggt-omega",
+    "url": "https://github.com/facebookresearch/vggt-omega",
+    "cat": "ai",
+    "desc": "CVPR 2026 Oral paper implementation — VGGT Omega visual grounding and generation transformer model.",
+    "language": "Python",
+    "topics": ["cvpr", "ai", "vision", "transformer", "research", "deep-learning"],
+    "updated": "18 May 2026",
+    "isNew": true
+  },
+  {
+    "owner": "yaassin12",
+    "name": "DeepSeek-V4-Pro-App",
+    "url": "https://github.com/yaassin12/DeepSeek-V4-Pro-App",
+    "cat": "ai",
+    "desc": "Advanced AI desktop app using DeepSeek V4 Pro with 1.6T MoE architecture, 1M token context window, Engram memory, real-time web search, and repo-level reasoning.",
+    "language": "C",
+    "topics": ["deepseek", "ai", "llm", "desktop-app", "coding-agent", "web-search", "streaming"],
+    "updated": "18 May 2026",
+    "isNew": true
+  },
+  {
+    "owner": "vercel-labs",
+    "name": "zero",
+    "url": "https://github.com/vercel-labs/zero",
+    "cat": "dev",
+    "desc": "A programming language designed specifically for AI agents.",
+    "language": "C",
+    "topics": ["programming-language", "agents", "ai", "compiler", "vercel"],
+    "updated": "17 May 2026",
+    "isNew": true
+  },
+  {
+    "owner": "Nightmare-Eclipse",
+    "name": "GreenPlasma",
+    "url": "https://github.com/Nightmare-Eclipse/GreenPlasma",
+    "cat": "security",
+    "desc": "Windows CTFMON arbitrary section creation elevation of privileges vulnerability proof of concept.",
+    "language": "C",
+    "topics": ["exploit", "windows", "privilege-escalation", "vulnerability", "ctfmon", "security"],
+    "updated": "17 May 2026",
+    "isNew": true
+  },
+  {
+    "owner": "ChristianJR19",
+    "name": "p-peg",
+    "url": "https://github.com/ChristianJR19/p-peg",
+    "cat": "blockchain",
+    "desc": "Pinocchio peg stability module — an on-chain creature engine for Solana DeFi with stablecoin and zero-copy support.",
+    "language": "Rust",
+    "topics": ["solana", "defi", "rust", "stablecoin", "onchain", "pinocchio", "typescript", "zerocopy"],
+    "updated": "17 May 2026",
+    "isNew": true
+  },
+  {
+    "owner": "Rhythmplocutter",
+    "name": "printer-offline-fix",
+    "url": "https://github.com/Rhythmplocutter/printer-offline-fix",
+    "cat": "dev",
+    "desc": "PowerShell scripts to fix printer offline issues on Windows for HP, Brother, and other printer brands.",
+    "language": "PowerShell",
+    "topics": ["printer", "windows", "powershell", "driver", "fix", "hp", "brother"],
+    "updated": "16 May 2026",
+    "isNew": true
+  }
+  ,{
     "owner": "MayersScott",
     "name": "rkn-block-checker",
     "url": "https://github.com/MayersScott/rkn-block-checker",
@@ -30,7 +470,7 @@ const REPOS = [
       "tspu"
     ],
     "updated": "09 May 2026",
-    "isNew": true
+    "isNew": false
   },
   {
     "owner": "vercel-labs",
@@ -48,7 +488,7 @@ const REPOS = [
       "ui"
     ],
     "updated": "09 May 2026",
-    "isNew": true
+    "isNew": false
   },
   {
     "owner": "zarazhangrui",
@@ -65,7 +505,7 @@ const REPOS = [
       "web"
     ],
     "updated": "10 May 2026",
-    "isNew": true
+    "isNew": false
   },
   {
     "owner": "LayrKits",
@@ -82,7 +522,7 @@ const REPOS = [
       "python"
     ],
     "updated": "10 May 2026",
-    "isNew": true
+    "isNew": false
   },
   {
     "owner": "kitft",
@@ -99,7 +539,7 @@ const REPOS = [
       "python"
     ],
     "updated": "10 May 2026",
-    "isNew": true
+    "isNew": false
   },
   {
     "owner": "butthtio",
@@ -118,7 +558,7 @@ const REPOS = [
       "python"
     ],
     "updated": "10 May 2026",
-    "isNew": true
+    "isNew": false
   },
   {
     "owner": "joshawome",
@@ -136,7 +576,7 @@ const REPOS = [
       "python"
     ],
     "updated": "11 May 2026",
-    "isNew": true
+    "isNew": false
   },
   {
     "owner": "moxailoo",
@@ -155,7 +595,7 @@ const REPOS = [
       "terminal"
     ],
     "updated": "11 May 2026",
-    "isNew": true
+    "isNew": false
   },
   {
     "owner": "huangserva",
@@ -172,7 +612,7 @@ const REPOS = [
       "javascript"
     ],
     "updated": "11 May 2026",
-    "isNew": true
+    "isNew": false
   },
   {
     "owner": "Ch1rpy2613",
@@ -187,7 +627,7 @@ const REPOS = [
       "agents"
     ],
     "updated": "11 May 2026",
-    "isNew": true
+    "isNew": false
   },
   {
     "owner": "L1v1ng0ffTh3L4N",
@@ -205,7 +645,7 @@ const REPOS = [
       "csharp"
     ],
     "updated": "12 May 2026",
-    "isNew": true
+    "isNew": false
   },
   {
     "owner": "PentHertz",
@@ -224,7 +664,7 @@ const REPOS = [
       "luks"
     ],
     "updated": "12 May 2026",
-    "isNew": true
+    "isNew": false
   },
   {
     "owner": "pixel-point",
@@ -240,7 +680,7 @@ const REPOS = [
       "swift"
     ],
     "updated": "12 May 2026",
-    "isNew": true
+    "isNew": false
   },
   {
     "owner": "RadianceToadAmend",
@@ -261,7 +701,7 @@ const REPOS = [
       "c++"
     ],
     "updated": "12 May 2026",
-    "isNew": true
+    "isNew": false
   },
   {
     "owner": "darkrishabh",
@@ -283,7 +723,7 @@ const REPOS = [
       "yaml"
     ],
     "updated": "13 May 2026",
-    "isNew": true
+    "isNew": false
   },
   {
     "owner": "haydenbleasel",
@@ -305,7 +745,7 @@ const REPOS = [
       "typescript"
     ],
     "updated": "13 May 2026",
-    "isNew": true
+    "isNew": false
   },
   {
     "owner": "FULU-Foundation",
@@ -321,7 +761,7 @@ const REPOS = [
       "c++"
     ],
     "updated": "13 May 2026",
-    "isNew": true
+    "isNew": false
   },
   {
     "owner": "ywnd1144",
@@ -336,7 +776,7 @@ const REPOS = [
       "python"
     ],
     "updated": "13 May 2026",
-    "isNew": true
+    "isNew": false
   },
   {
     "owner": "patchfighterway90",
@@ -357,7 +797,7 @@ const REPOS = [
       "python"
     ],
     "updated": "14 May 2026",
-    "isNew": true
+    "isNew": false
   },
   {
     "owner": "RadianceToadAmend",
@@ -378,7 +818,7 @@ const REPOS = [
       "c++"
     ],
     "updated": "14 May 2026",
-    "isNew": true
+    "isNew": false
   },
   {
     "owner": "HermannBjorgvin",
@@ -395,7 +835,7 @@ const REPOS = [
       "c"
     ],
     "updated": "14 May 2026",
-    "isNew": true
+    "isNew": false
   },
   {
     "owner": "TencentARC",
@@ -413,7 +853,7 @@ const REPOS = [
       "python"
     ],
     "updated": "14 May 2026",
-    "isNew": true
+    "isNew": false
   },
   {
     "owner": "cclank",
@@ -432,7 +872,7 @@ const REPOS = [
       "web"
     ],
     "updated": "15 May 2026",
-    "isNew": true
+    "isNew": false
   },
   {
     "owner": "amircloner",
@@ -449,7 +889,7 @@ const REPOS = [
       "docker"
     ],
     "updated": "15 May 2026",
-    "isNew": true
+    "isNew": false
   },
   {
     "owner": "nexu-io",
@@ -476,7 +916,7 @@ const REPOS = [
       "wechat"
     ],
     "updated": "15 May 2026",
-    "isNew": true
+    "isNew": false
   },
   {
     "owner": "lillian039",
@@ -492,7 +932,7 @@ const REPOS = [
       "systems"
     ],
     "updated": "15 May 2026",
-    "isNew": true
+    "isNew": false
   },
   {
     "owner": "DepthFirstDisclosures",
@@ -509,7 +949,7 @@ const REPOS = [
       "python"
     ],
     "updated": "16 May 2026",
-    "isNew": true
+    "isNew": false
   },
   {
     "owner": "AvenueSleuth",
@@ -526,7 +966,7 @@ const REPOS = [
       "python"
     ],
     "updated": "16 May 2026",
-    "isNew": true
+    "isNew": false
   },
   {
     "owner": "jasonkneen",
@@ -543,7 +983,7 @@ const REPOS = [
       "web"
     ],
     "updated": "16 May 2026",
-    "isNew": true
+    "isNew": false
   },
     {
         "owner": "MayersScott",
@@ -967,7 +1407,7 @@ const REPOS = [
         "web"
         ],
         "updated": "15 May 2026",
-        "isNew": true
+        "isNew": false
     },
     {
         "owner": "amircloner",
@@ -984,7 +1424,7 @@ const REPOS = [
         "docker"
         ],
         "updated": "15 May 2026",
-        "isNew": true
+        "isNew": false
     },
     {
         "owner": "nexu-io",
@@ -1011,7 +1451,7 @@ const REPOS = [
         "wechat"
         ],
         "updated": "15 May 2026",
-        "isNew": true
+        "isNew": false
     },
     {
         "owner": "lillian039",
@@ -1027,7 +1467,7 @@ const REPOS = [
         "systems"
         ],
         "updated": "15 May 2026",
-        "isNew": true
+        "isNew": false
     },
     {
         "owner": "DepthFirstDisclosures",
@@ -1044,7 +1484,7 @@ const REPOS = [
         "python"
         ],
         "updated": "16 May 2026",
-        "isNew": true
+        "isNew": false
     },
     {
         "owner": "AvenueSleuth",
@@ -1061,7 +1501,7 @@ const REPOS = [
         "python"
         ],
         "updated": "16 May 2026",
-        "isNew": true
+        "isNew": false
     },
     {
         "owner": "jasonkneen",
@@ -1078,7 +1518,7 @@ const REPOS = [
         "web"
         ],
         "updated": "16 May 2026",
-        "isNew": true
+        "isNew": false
     },
     {
         "owner": "lightseekorg",
