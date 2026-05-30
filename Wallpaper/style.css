@@ -156,6 +156,23 @@ hr {
     padding: 0 1rem;
 }
 
+.icon {
+    width: 28px; 
+    height: 28px;
+    border-radius: 5px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 13px;
+    flex-shrink: 0;
+    margin-left: 20px;
+}
+
+.main-title {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
 /* ==========================================================================
    NAVBAR
    ========================================================================== */
