@@ -49,12 +49,15 @@ document.addEventListener("DOMContentLoaded", () => {
     if (scrollBtn) {
         const circle = scrollBtn.querySelector(".progress-circle .progress");
         const circumference = 2 * Math.PI * 15.9155;
-        if (circle) { circle.style.strokeDasharray = `${circumference}`; circle.style.strokeDashoffset = `${circumference}`; }
+        if (circle) {
+            circle.style.strokeDasharray  = `${circumference}`;
+            circle.style.strokeDashoffset = `${circumference}`;
+        }
 
         window.addEventListener("scroll", () => {
-            const scrollTop  = window.scrollY;
-            const docHeight  = document.documentElement.scrollHeight - window.innerHeight;
-            const pct        = docHeight > 0 ? scrollTop / docHeight : 0;
+            const scrollTop = window.scrollY;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const pct       = docHeight > 0 ? scrollTop / docHeight : 0;
             if (circle) circle.style.strokeDashoffset = circumference * (1 - pct);
             scrollBtn.style.display = scrollTop > 100 ? "block" : "none";
         });
@@ -66,24 +69,45 @@ document.addEventListener("DOMContentLoaded", () => {
     // Gallery Configuration
     // ========================================
     const PC_CONFIG = {
-        total:       628,   // fallback; overwritten dynamically below
-        initialLoad: 30,
-        loadMore:    15,
+        total:       628,   
+        initialLoad: 30,   
+        loadMore:    18,
         imagePath:   (n) => `images_upscale/wallpaper (${n}).png`,
         altPrefix:   "Desktop Wallpaper",
+        cacheKey:    "wallspire_pc_count",
     };
 
     const MOBILE_CONFIG = {
-        total:       441,   // fallback; overwritten dynamically below
-        initialLoad: 30,
-        loadMore:    15,
+        total:       441,   
+        initialLoad: 30,    
+        loadMore:    18,
         imagePath:   (n) => `images_mobile/wallpaper (${n}).png`,
         altPrefix:   "Mobile Wallpaper",
+        cacheKey:    "wallspire_mobile_count",
     };
 
-    // ========================================
-    // Dynamic image count via binary search
-    // ========================================
+    const CACHE_TTL_MS = 24 * 60 * 60 * 1000; // 24 hours
+
+    function readCachedCount(cacheKey) {
+        try {
+            const raw = localStorage.getItem(cacheKey);
+            if (!raw) return null;
+            const { count, ts } = JSON.parse(raw);
+            if (Date.now() - ts < CACHE_TTL_MS) return count;
+        } catch {
+            // Corrupted cache entry — ignore and re-probe
+        }
+        return null;
+    }
+
+    function writeCachedCount(cacheKey, count) {
+        try {
+            localStorage.setItem(cacheKey, JSON.stringify({ count, ts: Date.now() }));
+        } catch {
+            // localStorage full or unavailable — silently skip caching
+        }
+    }
+
     async function probeImageExists(url) {
         try {
             const res = await fetch(url, { method: 'HEAD' });
@@ -93,34 +117,18 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    async function detectImageCount(cfg) {
-        if (!(await probeImageExists(cfg.imagePath(1)))) {
-            return cfg.total;
-        }
+    async function resolveImageCount(cfg) {
+        // 1. Try cache first
+        const cached = readCachedCount(cfg.cacheKey);
+        if (cached !== null) return cached;
 
-        let lo = 1;
-        // BUG 1 FIX: hi must start ABOVE the known fallback total so the
-        // "expand hi" loop below can actually confirm the boundary.
-        // Using cfg.total directly as hi caused the loop to skip expansion
-        // when the real count equalled the fallback, returning lo=1.
-        let hi = cfg.total + 1;
+        // 2. Cache miss — probe ONE image beyond current hardcoded total
+        const probeUrl   = cfg.imagePath(cfg.total + 1);
+        const hasMore    = await probeImageExists(probeUrl);
+        const finalCount = hasMore ? cfg.total + 1 : cfg.total;
 
-        // Expand hi until it overshoots the real last image
-        while (await probeImageExists(cfg.imagePath(hi))) {
-            hi *= 2;
-            if (hi > 50000) { hi = 50000; break; }
-        }
-
-        // Binary search for the exact boundary
-        while (lo < hi - 1) {
-            const mid = Math.floor((lo + hi) / 2);
-            if (await probeImageExists(cfg.imagePath(mid))) {
-                lo = mid;
-            } else {
-                hi = mid;
-            }
-        }
-        return lo;
+        writeCachedCount(cfg.cacheKey, finalCount);
+        return finalCount;
     }
 
     // ========================================
@@ -138,7 +146,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
             observer.unobserve(img);
         });
-    }, { rootMargin: '100px', threshold: 0.01 });
+    }, { rootMargin: '200px', threshold: 0.01 });
 
     // ========================================
     // Card Factory
@@ -146,6 +154,7 @@ document.addEventListener("DOMContentLoaded", () => {
     function createWallpaperCard(index, cfg) {
         const card = document.createElement('div');
         card.className = 'wallpaper-card';
+
         card.innerHTML = `
             <div class="image-wrapper">
                 <img
@@ -153,6 +162,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 9'%3E%3Crect fill='%23212536' width='16' height='9'/%3E%3C/svg%3E"
                     alt="${cfg.altPrefix} ${index}"
                     loading="lazy"
+                    decoding="async"
                     class="lazy-image">
                 <button class="download-btn-overlay" title="Download Wallpaper" aria-label="Download wallpaper ${index}">
                     <i class="fas fa-download" aria-hidden="true"></i>
@@ -212,10 +222,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 btn.classList.add('loading');
                 btn.disabled = true;
 
-                // BUG 2 FIX: capture loaded BEFORE the batch runs so the
-                // scroll target index is calculated correctly.
-                // Previously `loaded` was already updated by loadBatch()
-                // before the scroll timeout read it, pointing to the wrong card.
                 const prevLoaded = loaded;
 
                 setTimeout(() => {
@@ -235,29 +241,29 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // ========================================
-    // Init: resolve dynamic counts, then build both galleries
+    // Init — resolve counts (cache-first), then build both galleries
     // ========================================
     (async () => {
         const [pcCount, mobileCount] = await Promise.all([
-            detectImageCount(PC_CONFIG),
-            detectImageCount(MOBILE_CONFIG),
+            resolveImageCount(PC_CONFIG),
+            resolveImageCount(MOBILE_CONFIG),
         ]);
 
         PC_CONFIG.total     = pcCount;
         MOBILE_CONFIG.total = mobileCount;
 
         buildGallery({
-            gridSelector:  '.pc-grid',
-            btnSelector:   'view-all-btn-pc',
-            countBadgeId:  'tab-count-pc',
-            cfg:           PC_CONFIG,
+            gridSelector: '.pc-grid',
+            btnSelector:  'view-all-btn-pc',
+            countBadgeId: 'tab-count-pc',
+            cfg:          PC_CONFIG,
         });
 
         buildGallery({
-            gridSelector:  '.mobile-grid',
-            btnSelector:   'view-all-btn-mobile',
-            countBadgeId:  'tab-count-mobile',
-            cfg:           MOBILE_CONFIG,
+            gridSelector: '.mobile-grid',
+            btnSelector:  'view-all-btn-mobile',
+            countBadgeId: 'tab-count-mobile',
+            cfg:          MOBILE_CONFIG,
         });
     })();
 
@@ -290,9 +296,6 @@ document.addEventListener("DOMContentLoaded", () => {
 async function downloadWallpaper(num, cfg) {
     const url = cfg.imagePath(num);
 
-    // BUG 3 FIX: filename was taken from the raw URL path which contains
-    // spaces and parentheses — e.g. "wallpaper (42).png" — some browsers
-    // silently drop or mangle such filenames. Use a clean sanitised name.
     const filename = `wallpaper_${num}.png`;
 
     try {
@@ -308,9 +311,6 @@ async function downloadWallpaper(num, cfg) {
         a.click();
         a.remove();
 
-        // BUG 4 FIX: 10 seconds is sometimes not enough for large wallpaper
-        // files on slow connections — the blob gets revoked before the browser
-        // finishes reading it, silently aborting the download. Use 60 seconds.
         setTimeout(() => URL.revokeObjectURL(blobUrl), 60_000);
 
     } catch (err) {
