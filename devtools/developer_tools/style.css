@@ -1860,7 +1860,7 @@ h1 {
     --font-h3: 1.12rem;
     --font-a:  14.5px;
     }
-    .container { max-width: 480px; padding: 0 15px; }
+    .container { max-width: 100%; padding: 0 15px; }
     .tools-section { padding: 30px 15px 50px; }
     .tools-grid { gap: 20px; }
 }
