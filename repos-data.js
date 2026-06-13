@@ -11,6 +11,490 @@ const CATS = {
             
 const REPOS = [
   {
+    "owner": "DietrichGebert",
+    "name": "ponytail",
+    "url": "https://github.com/DietrichGebert/ponytail",
+    "cat": "ai",
+    "desc": "Makes AI agents apply YAGNI principles and write minimal, pragmatic code like a senior developer.",
+    "language": "JavaScript",
+    "topics": ["agent_skills", "ai_agents", "claude", "claude_code", "cursor_rules", "llm", "prompt_engineering", "yagni"],
+    "updated": "13 June 2026",
+    "isNew": true
+  },
+  {
+    "owner": "valkor-ai",
+    "name": "loom",
+    "url": "https://github.com/valkor-ai/loom",
+    "cat": "ai",
+    "desc": "Loop engineering framework for agentic software delivery.",
+    "language": "TypeScript",
+    "topics": ["agents", "ai", "automation", "typescript", "agentic", "delivery"],
+    "updated": "13 June 2026",
+    "isNew": true
+  },
+  {
+    "owner": "FerroxLabs",
+    "name": "wayland",
+    "url": "https://github.com/FerroxLabs/wayland",
+    "cat": "ai",
+    "desc": "AI agent that perceives, reasons, acts, and evolves.",
+    "language": "TypeScript",
+    "topics": ["ai", "agents", "typescript", "automation", "reasoning"],
+    "updated": "12 June 2026",
+    "isNew": true
+  },
+  {
+    "owner": "MSNightmare",
+    "name": "RoguePlanet",
+    "url": "https://github.com/MSNightmare/RoguePlanet",
+    "cat": "security",
+    "desc": "Windows Defender vulnerability research and proof-of-concept.",
+    "language": "C++",
+    "topics": ["vulnerability", "windows", "defender", "exploit", "security", "cve"],
+    "updated": "11 June 2026",
+    "isNew": true
+  },
+  {
+    "owner": "IvanSobolev",
+    "name": "Neo3dEngine",
+    "url": "https://github.com/IvanSobolev/Neo3dEngine",
+    "cat": "systems",
+    "desc": "Minimalist CPU-based 3D console engine in C# built from scratch with raycasting, dynamic lighting, shadows, OBJ loader, and custom TCP-based multiplayer with real-time chat.",
+    "language": "C#",
+    "topics": ["3d_engine", "console", "csharp", "dotnet", "game_engine", "multiplayer", "raycasting", "tcp_socket"],
+    "updated": "11 June 2026",
+    "isNew": true
+  },
+  {
+    "owner": "XiaomiMiMo",
+    "name": "MiMo-Code",
+    "url": "https://github.com/XiaomiMiMo/MiMo-Code",
+    "cat": "ai",
+    "desc": "MiMo Code AI model by Xiaomi.",
+    "language": "TypeScript",
+    "topics": ["ai", "llm", "model", "xiaomi", "typescript"],
+    "updated": "11 June 2026",
+    "isNew": true
+  },
+  {
+    "owner": "Tencent-Hunyuan",
+    "name": "UniRL",
+    "url": "https://github.com/Tencent-Hunyuan/UniRL",
+    "cat": "ai",
+    "desc": "UniRL is a unified framework for multimodal model reinforcement learning.",
+    "language": "Python",
+    "topics": ["ai", "reinforcement_learning", "multimodal", "model", "python"],
+    "updated": "11 June 2026",
+    "isNew": true
+  },
+  {
+    "owner": "apple",
+    "name": "coreai-models",
+    "url": "https://github.com/apple/coreai-models",
+    "cat": "ai",
+    "desc": "Model export recipes, Python primitives, and Swift runtime utilities for on-device AI from Apple.",
+    "language": "Python",
+    "topics": ["ai", "apple", "model", "on_device", "python", "swift"],
+    "updated": "10 June 2026",
+    "isNew": true
+  },
+  {
+    "owner": "rednote-hilab",
+    "name": "dots.tts",
+    "url": "https://github.com/rednote-hilab/dots.tts",
+    "cat": "ai",
+    "desc": "Text-to-speech model project by RedNote Hi-Lab.",
+    "language": "Python",
+    "topics": ["ai", "tts", "text_to_speech", "model", "python"],
+    "updated": "10 June 2026",
+    "isNew": true
+  },
+  {
+    "owner": "razr001",
+    "name": "align-dev",
+    "url": "https://github.com/razr001/align-dev",
+    "cat": "ai",
+    "desc": "Helps AI-assisted frontend teams generate shared coding standards and SKILL.md so Claude Code, Codex, Cursor, Copilot, and other agents write consistently.",
+    "language": "TypeScript",
+    "topics": ["ai", "claude_code", "codex", "copilot", "cursor", "nextjs", "standards", "typescript"],
+    "updated": "09 June 2026",
+    "isNew": true
+  },
+  {
+    "owner": "diffusionstudio",
+    "name": "lottie",
+    "url": "https://github.com/diffusionstudio/lottie",
+    "cat": "dev",
+    "desc": "Open-source skill and harness for generating production-ready Lottie animations with Codex and Claude Code.",
+    "language": "TypeScript",
+    "topics": ["animation", "claude_code", "codex", "lottie", "typescript", "tooling"],
+    "updated": "09 June 2026",
+    "isNew": true
+  },
+  {
+    "owner": "superloglabs",
+    "name": "superlog",
+    "url": "https://github.com/superloglabs/superlog",
+    "cat": "ai",
+    "desc": "Open-source observability tool that uses AI agents to self-heal your software.",
+    "language": "TypeScript",
+    "topics": ["ai", "llm", "memory", "observability", "opentelemetry", "react", "self_hosted", "typescript"],
+    "updated": "09 June 2026",
+    "isNew": true
+  },
+  {
+    "owner": "zenhosta",
+    "name": "9drive",
+    "url": "https://github.com/zenhosta/9drive",
+    "cat": "web",
+    "desc": "Storage gateway web app for connecting multiple Google Drive accounts into one virtual storage dashboard with quota tracking, file uploads, virtual folders, and intelligent routing.",
+    "language": "TypeScript",
+    "topics": ["drive", "gateway", "google", "storage", "web", "dashboard", "typescript"],
+    "updated": "08 June 2026",
+    "isNew": true
+  },
+  {
+    "owner": "JimLiu",
+    "name": "baoyu-design",
+    "url": "https://github.com/JimLiu/baoyu-design",
+    "cat": "ai",
+    "desc": "Run Claude Design locally as an agent skill in Cursor and Claude Code to produce polished UI mockups, prototypes, decks, and wireframes as self-contained HTML.",
+    "language": "JavaScript",
+    "topics": ["agent_skills", "claude", "claude_code", "cursor", "design", "prototyping", "ui_design"],
+    "updated": "08 June 2026",
+    "isNew": true
+  },
+  {
+    "owner": "NoopApp",
+    "name": "noop",
+    "url": "https://github.com/NoopApp/noop",
+    "cat": "mobile",
+    "desc": "Offline WHOOP companion app that pairs your strap over Bluetooth and keeps all data on-device without cloud, account, or subscription.",
+    "language": "Swift",
+    "topics": ["bluetooth", "fitness", "ios", "offline", "privacy", "swift", "whoop"],
+    "updated": "08 June 2026",
+    "isNew": true
+  },
+  {
+    "owner": "MatixYo",
+    "name": "ESP32-Plane-Radar",
+    "url": "https://github.com/MatixYo/ESP32-Plane-Radar",
+    "cat": "network",
+    "desc": "Open-source ESP32 firmware for a 1.28-inch round display showing live ADS-B aircraft around your location as a sonar-style plane radar.",
+    "language": "C++",
+    "topics": ["ads_b", "aircraft", "esp32", "flight_tracker", "iot", "radar"],
+    "updated": "07 June 2026",
+    "isNew": true
+  },
+  {
+    "owner": "S-Sigdel",
+    "name": "vimhjkl",
+    "url": "https://github.com/S-Sigdel/vimhjkl",
+    "cat": "dev",
+    "desc": "Learn Vim from your terminal using spaced repetition.",
+    "language": "Python",
+    "topics": ["vim", "terminal", "spaced_repetition", "learning", "cli"],
+    "updated": "07 June 2026",
+    "isNew": true
+  },
+  {
+    "owner": "chaitanyagiri",
+    "name": "munder-difflin",
+    "url": "https://github.com/chaitanyagiri/munder-difflin",
+    "cat": "ai",
+    "desc": "Local multi-agent harness for running and coordinating AI agents.",
+    "language": "TypeScript",
+    "topics": ["agents", "claude_code", "harness", "memory", "typescript", "multi_agent"],
+    "updated": "07 June 2026",
+    "isNew": true
+  },
+  {
+    "owner": "Fullive-AI",
+    "name": "Anima",
+    "url": "https://github.com/Fullive-AI/Anima",
+    "cat": "ai",
+    "desc": "Open-source Agent OS for hardware intelligence, making every hardware device intelligent.",
+    "language": "Python",
+    "topics": ["ai", "agents", "hardware", "iot", "open_source", "agent_os"],
+    "updated": "07 June 2026",
+    "isNew": true
+  },
+  {
+    "owner": "bytedance",
+    "name": "Bernini",
+    "url": "https://github.com/bytedance/Bernini",
+    "cat": "ai",
+    "desc": "Unified framework for video generation and editing combining an MLLM-based semantic planner with a DiT-based renderer.",
+    "language": "Python",
+    "topics": ["ai", "image_editing", "image_generation", "video_editing", "video_generation", "model"],
+    "updated": "06 June 2026",
+    "isNew": true
+  },
+  {
+    "owner": "tastyeffectco",
+    "name": "sandboxes",
+    "url": "https://github.com/tastyeffectco/sandboxes",
+    "cat": "dev",
+    "desc": "Self-hosted dev sandboxes with preview URLs in a single command. No Kubernetes required, designed for coding agents and SaaS factories.",
+    "language": "Go",
+    "topics": ["ai", "ai_agent", "dev_environment", "docker", "sandbox", "self_hosted", "preview"],
+    "updated": "06 June 2026",
+    "isNew": true
+  },
+  {
+    "owner": "VAST-AI-Research",
+    "name": "TripoSplat",
+    "url": "https://github.com/VAST-AI-Research/TripoSplat",
+    "cat": "ai",
+    "desc": "Converts a single 2D image into high-quality 3D Gaussians, developed by TripoAI.",
+    "language": "Python",
+    "topics": ["ai", "3d", "gaussian_splat", "image_to_3d", "model", "computer_vision"],
+    "updated": "06 June 2026",
+    "isNew": true
+  },
+  {
+    "owner": "c0deJedi",
+    "name": "nbd-vram",
+    "url": "https://github.com/c0deJedi/nbd-vram",
+    "cat": "systems",
+    "desc": "Uses NVIDIA GPU VRAM as Linux swap space, ideal for laptops with soldered memory and no upgrade path.",
+    "language": "Shell",
+    "topics": ["cuda", "gpu", "linux", "memory", "nvidia", "swap", "vram", "performance"],
+    "updated": "06 June 2026",
+    "isNew": true
+  },
+  {
+    "owner": "ideogram-oss",
+    "name": "ideogram4",
+    "url": "https://github.com/ideogram-oss/ideogram4",
+    "cat": "ai",
+    "desc": "Ideogram 4 open image generation model at the forefront of design.",
+    "language": "Python",
+    "topics": ["ai", "image_generation", "model", "design", "open_source"],
+    "updated": "05 June 2026",
+    "isNew": true
+  },
+  {
+    "owner": "jd-opensource",
+    "name": "JoyAI-Echo",
+    "url": "https://github.com/jd-opensource/JoyAI-Echo",
+    "cat": "ai",
+    "desc": "JoyAI-Echo pushes the frontier of long audio-visual generation.",
+    "language": "Python",
+    "topics": ["ai", "audio", "video", "generation", "multimodal"],
+    "updated": "05 June 2026",
+    "isNew": true
+  },
+  {
+    "owner": "V0id-v2",
+    "name": "Void-Tools-v2.0",
+    "url": "https://github.com/V0id-v2/Void-Tools-v2.0",
+    "cat": "security",
+    "desc": "Python terminal multitool for OSINT, web and network utilities with a Rich TUI, 13 themes, and remote updates. Educational use only.",
+    "language": "Python",
+    "topics": ["osint", "network", "python", "tui", "multitool", "recon"],
+    "updated": "05 June 2026",
+    "isNew": true
+  },
+  {
+    "owner": "DannyMac180",
+    "name": "skills",
+    "url": "https://github.com/DannyMac180/skills",
+    "cat": "ai",
+    "desc": "Collection of AI agent skills created by Dan McAteer.",
+    "language": "Python",
+    "topics": ["ai", "agents", "python", "skills"],
+    "updated": "04 June 2026",
+    "isNew": true
+  },
+  {
+    "owner": "garnix-io",
+    "name": "garnix-ci",
+    "url": "https://github.com/garnix-io/garnix-ci",
+    "cat": "dev",
+    "desc": "CI and hosting service for Nix-based flakified GitHub repositories.",
+    "language": "Haskell",
+    "topics": ["ci", "nix", "haskell", "hosting", "flake", "devops"],
+    "updated": "04 June 2026",
+    "isNew": true
+  },
+  {
+    "owner": "cpaczek",
+    "name": "skylight",
+    "url": "https://github.com/cpaczek/skylight",
+    "cat": "network",
+    "desc": "Projects live aircraft from an RTL-SDR receiver onto your ceiling with a sky layer showing sun, moon, stars, and ISS positions.",
+    "language": "TypeScript",
+    "topics": ["ads_b", "aircraft", "flight_tracker", "raspberry_pi", "react", "rtl_sdr", "typescript"],
+    "updated": "04 June 2026",
+    "isNew": true
+  },
+  {
+    "owner": "SenhorH",
+    "name": "tab-labeler",
+    "url": "https://github.com/SenhorH/tab-labeler",
+    "cat": "dev",
+    "desc": "Browser extension to rename browser tabs locally and organize chaotic sessions.",
+    "language": "TypeScript",
+    "topics": ["browser", "tabs", "typescript", "productivity", "extension"],
+    "updated": "04 June 2026",
+    "isNew": true
+  },
+  {
+    "owner": "anomalyco",
+    "name": "rift",
+    "url": "https://github.com/anomalyco/rift",
+    "cat": "systems",
+    "desc": "Rust-based systems project.",
+    "language": "Rust",
+    "topics": ["rust", "systems"],
+    "updated": "03 June 2026",
+    "isNew": true
+  },
+  {
+    "owner": "paraschopra",
+    "name": "make-pages-interactive",
+    "url": "https://github.com/paraschopra/make-pages-interactive",
+    "cat": "web",
+    "desc": "JavaScript tool to make web pages interactive.",
+    "language": "JavaScript",
+    "topics": ["javascript", "web", "interactive", "frontend"],
+    "updated": "03 June 2026",
+    "isNew": true
+  },
+  {
+    "owner": "b-nnett",
+    "name": "goose",
+    "url": "https://github.com/b-nnett/goose",
+    "cat": "dev",
+    "desc": "Goose Swift proof-of-concept project.",
+    "language": "Rust",
+    "topics": ["rust", "swift", "proof_of_concept"],
+    "updated": "03 June 2026",
+    "isNew": true
+  },
+  {
+    "owner": "ClaudioDrews",
+    "name": "memory-os",
+    "url": "https://github.com/ClaudioDrews/memory-os",
+    "cat": "ai",
+    "desc": "7-layer memory operating system for Hermes Agent with persistent memory using Qdrant, structured facts, auto-curated wiki, and surgical context injection. Runs locally with any LLM provider.",
+    "language": "Python",
+    "topics": ["ai", "llm", "memory", "qdrant", "agents", "rag", "context", "self_hosted"],
+    "updated": "03 June 2026",
+    "isNew": true
+  },
+  {
+    "owner": "BlackCandleLab",
+    "name": "polymarket-trading-bot",
+    "url": "https://github.com/BlackCandleLab/polymarket-trading-bot",
+    "cat": "dev",
+    "desc": "Automated trading and arbitrage bot for Polymarket prediction markets with copy trading and market-making features.",
+    "language": "JavaScript",
+    "topics": ["algorithmic_trading", "arbitrage", "automated_trading", "crypto_trading_bot", "defi", "polymarket", "prediction_markets", "trading_bot", "web3"],
+    "updated": "02 June 2026",
+    "isNew": true
+  },
+  {
+    "owner": "boona13",
+    "name": "image-extender",
+    "url": "https://github.com/boona13/image-extender",
+    "cat": "ai",
+    "desc": "Open-source web app to seamlessly extend any image in any direction using AI powered by Gemini via OpenRouter, with Poisson-blended seams and best-of-3 variant picker.",
+    "language": "TypeScript",
+    "topics": ["ai", "gemini", "image_generation", "nextjs", "openrouter", "outpainting", "poisson_blending", "tailwindcss", "typescript"],
+    "updated": "02 June 2026",
+    "isNew": true
+  },
+  {
+    "owner": "jdevalk",
+    "name": "specification.website",
+    "url": "https://github.com/jdevalk/specification.website",
+    "cat": "web",
+    "desc": "Platform-agnostic MIT-licensed website specification covering HTML, accessibility, security, SEO, and agent-readiness.",
+    "language": "TypeScript",
+    "topics": ["accessibility", "agent_readiness", "astro", "seo", "web_security", "web_standards", "mcp"],
+    "updated": "02 June 2026",
+    "isNew": true
+  },
+  {
+    "owner": "ytnrvdf",
+    "name": "wha-spell-simulator",
+    "url": "https://github.com/ytnrvdf/wha-spell-simulator",
+    "cat": "web",
+    "desc": "Fan-made browser-based spell simulator for Witch Hat Atelier.",
+    "language": "JavaScript",
+    "topics": ["browser", "simulator", "javascript", "web", "game"],
+    "updated": "01 June 2026",
+    "isNew": true
+  },
+  {
+    "owner": "AmmarkoV",
+    "name": "SAM3DBody-cpp",
+    "url": "https://github.com/AmmarkoV/SAM3DBody-cpp",
+    "cat": "ai",
+    "desc": "Real-time 3D full-body reconstruction from a single camera with multiperson BVH output using pure C++ runtime, ONNX, and ggml with a 70-joint skeleton.",
+    "language": "C",
+    "topics": ["3d_human_pose", "bvh", "computer_vision", "cpp", "cuda", "ggml", "motion_capture", "onnx", "opengl", "pose_estimation", "real_time"],
+    "updated": "01 June 2026",
+    "isNew": true
+  },
+  {
+    "owner": "pewdiepie-archdaemon",
+    "name": "odysseus",
+    "url": "https://github.com/pewdiepie-archdaemon/odysseus",
+    "cat": "ai",
+    "desc": "Self-hosted AI workspace.",
+    "language": "JavaScript",
+    "topics": ["ai", "self_hosted", "workspace", "javascript"],
+    "updated": "01 June 2026",
+    "isNew": true
+  },
+  {
+    "owner": "lceminecraft-launcher",
+    "name": "LCE-Emerald-Launcher",
+    "url": "https://github.com/lceminecraft-launcher/LCE-Emerald-Launcher",
+    "cat": "dev",
+    "desc": "Minecraft Legacy Console Edition launcher with mod support and download utilities.",
+    "language": "TypeScript",
+    "topics": ["launcher", "minecraft", "lce_minecraft", "mc_launcher", "mclauncher", "typescript"],
+    "updated": "01 June 2026",
+    "isNew": true
+  },
+  {
+    "owner": "MatinSenPai",
+    "name": "SenPaiScanner",
+    "url": "https://github.com/MatinSenPai/SenPaiScanner",
+    "cat": "network",
+    "desc": "Lightweight scanner for Cloudflare IPs written in Go.",
+    "language": "Go",
+    "topics": ["scanner", "cloudflare", "network", "golang", "ip"],
+    "updated": "31 May 2026",
+    "isNew": true
+  },
+  {
+    "owner": "AprilNEA",
+    "name": "OpenLogi",
+    "url": "https://github.com/AprilNEA/OpenLogi",
+    "cat": "systems",
+    "desc": "Native local-first alternative to Logitech Options+ for remapping buttons, DPI, and SmartShift over HID++. No account or telemetry required.",
+    "language": "Rust",
+    "topics": ["dpi", "hid", "hidpp", "local_first", "logitech", "mouse_remapping", "mx_master", "privacy", "rust", "smartshift"],
+    "updated": "31 May 2026",
+    "isNew": true
+  },
+  {
+    "owner": "GordenSun",
+    "name": "GordenPPTSkill",
+    "url": "https://github.com/GordenSun/GordenPPTSkill",
+    "cat": "ai",
+    "desc": "AI-friendly PPT builder skill with 17 Chinese PPTX templates and non-destructive text-only editing tools based on python-pptx.",
+    "language": "Python",
+    "topics": ["ai", "pptx", "python", "templates", "presentation", "automation"],
+    "updated": "31 May 2026",
+    "isNew": true
+  }
+  ,{
     "owner": "FlashML-org",
     "name": "flashlib",
     "url": "https://github.com/FlashML-org/flashlib",
@@ -19,7 +503,7 @@ const REPOS = [
     "language": "Python",
     "topics": ["machine-learning", "python", "performance", "memory-efficient", "operators", "ai"],
     "updated": "30 May 2026",
-    "isNew": true
+    "isNew": false
   },
   {
     "owner": "withkynam",
@@ -30,7 +514,7 @@ const REPOS = [
     "language": "JavaScript",
     "topics": ["claudecode", "codex", "ai-agents", "context-memory", "vibecoding", "developer-tools", "prompt-engineering", "typescript"],
     "updated": "30 May 2026",
-    "isNew": true
+    "isNew": false
   },
   {
     "owner": "akitaonrails",
@@ -41,7 +525,7 @@ const REPOS = [
     "language": "Rust",
     "topics": ["ai", "memory", "agents", "rust", "cli", "long-term-memory", "handoff"],
     "updated": "29 May 2026",
-    "isNew": true
+    "isNew": false
   },
   {
     "owner": "UditAkhouri",
@@ -52,7 +536,7 @@ const REPOS = [
     "language": "TypeScript",
     "topics": ["ai", "agents", "claude", "tree-of-thought", "brainstorm", "creativity", "llm", "typescript", "prompt-engineering"],
     "updated": "28 May 2026",
-    "isNew": true
+    "isNew": false
   },
   {
     "owner": "OpenBMB",
@@ -63,7 +547,7 @@ const REPOS = [
     "language": "TypeScript",
     "topics": ["ai", "agents", "productivity", "task-automation", "typescript", "llm"],
     "updated": "28 May 2026",
-    "isNew": true
+    "isNew": false
   },
   {
     "owner": "VILA-Lab",
@@ -74,7 +558,7 @@ const REPOS = [
     "language": "Python",
     "topics": ["ai", "agent", "data-visualization", "matplotlib", "research", "plotting", "claudecode", "codex"],
     "updated": "28 May 2026",
-    "isNew": true
+    "isNew": false
   },
   {
     "owner": "XingYu-Zhong",
@@ -85,7 +569,7 @@ const REPOS = [
     "language": "TypeScript",
     "topics": ["deepseek", "ai", "gui", "desktop-app", "coding-agent", "llm", "typescript"],
     "updated": "28 May 2026",
-    "isNew": true
+    "isNew": false
   },
   {
     "owner": "nv-tlabs",
@@ -96,7 +580,7 @@ const REPOS = [
     "language": "Python",
     "topics": ["diffusion", "image-generation", "latent-decoding", "ai", "deep-learning", "pixel-diffusion"],
     "updated": "27 May 2026",
-    "isNew": true
+    "isNew": false
   },
   {
     "owner": "Unclecheng-li",
@@ -107,7 +591,7 @@ const REPOS = [
     "language": "C",
     "topics": ["cve", "poc", "exploit", "linux", "windows", "macos", "vulnerability", "security", "pentest"],
     "updated": "27 May 2026",
-    "isNew": true
+    "isNew": false
   },
   {
     "owner": "zhaoyue4810",
@@ -118,7 +602,7 @@ const REPOS = [
     "language": "Python",
     "topics": ["python", "automation", "scripting", "developer-tools"],
     "updated": "26 May 2026",
-    "isNew": true
+    "isNew": false
   },
   {
     "owner": "MoonshotAI",
@@ -129,7 +613,7 @@ const REPOS = [
     "language": "TypeScript",
     "topics": ["ai", "coding-agent", "llm", "kimi", "typescript", "next-gen"],
     "updated": "26 May 2026",
-    "isNew": true
+    "isNew": false
   },
   {
     "owner": "0xSero",
@@ -140,7 +624,7 @@ const REPOS = [
     "language": "Python",
     "topics": ["codex", "api", "shim", "byok", "gpt", "developer-tools", "openai"],
     "updated": "26 May 2026",
-    "isNew": true
+    "isNew": false
   },
   {
     "owner": "Tong89",
@@ -151,7 +635,7 @@ const REPOS = [
     "language": "Python",
     "topics": ["python", "automation", "node", "ai"],
     "updated": "25 May 2026",
-    "isNew": true
+    "isNew": false
   },
   {
     "owner": "open-gsd",
@@ -162,7 +646,7 @@ const REPOS = [
     "language": "JavaScript",
     "topics": ["claudecode", "context-engineering", "meta-prompting", "spec-driven", "developer-tools", "productivity"],
     "updated": "25 May 2026",
-    "isNew": true
+    "isNew": false
   },
   {
     "owner": "ZoyaMalhotra",
@@ -173,7 +657,7 @@ const REPOS = [
     "language": "C",
     "topics": ["dualsense", "controller", "steam", "haptics", "ps5", "ds4", "vigembus", "windows"],
     "updated": "25 May 2026",
-    "isNew": true
+    "isNew": false
   },
   {
     "owner": "paradigmxyz",
@@ -184,7 +668,7 @@ const REPOS = [
     "language": "Python",
     "topics": ["agents", "ai", "self-hosted", "security", "multiplayer", "automation"],
     "updated": "24 May 2026",
-    "isNew": true
+    "isNew": false
   },
   {
     "owner": "evilsocket",
@@ -195,7 +679,7 @@ const REPOS = [
     "language": "Python",
     "topics": ["security", "vulnerability", "pentest", "agent", "audit", "recon"],
     "updated": "24 May 2026",
-    "isNew": true
+    "isNew": false
   },
   {
     "owner": "perplexityai",
@@ -206,7 +690,7 @@ const REPOS = [
     "language": "Go",
     "topics": ["security", "supply-chain", "packages", "inventory", "golang", "macos", "linux", "devtools"],
     "updated": "24 May 2026",
-    "isNew": true
+    "isNew": false
   },
   {
     "owner": "WUBING2023",
@@ -217,7 +701,7 @@ const REPOS = [
     "language": "Python",
     "topics": ["codex", "research", "academic", "latex", "ai", "writing", "papers"],
     "updated": "24 May 2026",
-    "isNew": true
+    "isNew": false
   },
   {
     "owner": "lynote-ai",
@@ -228,7 +712,7 @@ const REPOS = [
     "language": "Python",
     "topics": ["ai", "humanizer", "text", "ai-detection", "bypass", "n8n", "dify", "python"],
     "updated": "23 May 2026",
-    "isNew": true
+    "isNew": false
   },
   {
     "owner": "kageroumado",
@@ -239,7 +723,7 @@ const REPOS = [
     "language": "Swift",
     "topics": ["macos", "wallpaper", "video", "swift", "desktop"],
     "updated": "23 May 2026",
-    "isNew": true
+    "isNew": false
   },
   {
     "owner": "Helvesec",
@@ -250,7 +734,7 @@ const REPOS = [
     "language": "Rust",
     "topics": ["rust", "cli", "tui", "multiplexer", "terminal", "linux", "macos", "windows", "tokio"],
     "updated": "23 May 2026",
-    "isNew": true
+    "isNew": false
   },
   {
     "owner": "openclaw",
@@ -261,7 +745,7 @@ const REPOS = [
     "language": "TypeScript",
     "topics": ["code-review", "bot", "automation", "github", "pull-request", "developer-tools"],
     "updated": "23 May 2026",
-    "isNew": true
+    "isNew": false
   },
   {
     "owner": "sapientinc",
@@ -272,7 +756,7 @@ const REPOS = [
     "language": "Python",
     "topics": ["llm", "text-generation", "hierarchical-reasoning", "pretraining", "ai", "language-model"],
     "updated": "22 May 2026",
-    "isNew": true
+    "isNew": false
   },
   {
     "owner": "bytedance",
@@ -283,7 +767,7 @@ const REPOS = [
     "language": "Python",
     "topics": ["multimodal", "ai", "image-generation", "video-understanding", "deep-learning", "llm"],
     "updated": "22 May 2026",
-    "isNew": true
+    "isNew": false
   },
   {
     "owner": "Nightmare-Eclipse",
@@ -294,7 +778,7 @@ const REPOS = [
     "language": "C",
     "topics": ["cve", "exploit", "windows", "lpe", "vulnerability", "security", "poc"],
     "updated": "22 May 2026",
-    "isNew": true
+    "isNew": false
   },
   {
     "owner": "thananon9",
@@ -305,7 +789,7 @@ const REPOS = [
     "language": "Shell",
     "topics": ["arm", "low-level", "assembly", "systems", "shell", "architecture"],
     "updated": "21 May 2026",
-    "isNew": true
+    "isNew": false
   },
   {
     "owner": "FoundZiGuGu",
@@ -316,7 +800,7 @@ const REPOS = [
     "language": "JavaScript",
     "topics": ["jumpgate", "developer-tools", "javascript"],
     "updated": "21 May 2026",
-    "isNew": true
+    "isNew": false
   },
   {
     "owner": "0xdeadbeefnetwork",
@@ -327,7 +811,7 @@ const REPOS = [
     "language": "C",
     "topics": ["ssh", "exploit", "linux", "kernel", "privilege-escalation", "security", "cve", "pentest"],
     "updated": "21 May 2026",
-    "isNew": true
+    "isNew": false
   },
   {
     "owner": "Doorman11991",
@@ -338,7 +822,7 @@ const REPOS = [
     "language": "JavaScript",
     "topics": ["ai", "coding-agent", "llm", "small-model", "benchmark", "developer-tools"],
     "updated": "20 May 2026",
-    "isNew": true
+    "isNew": false
   },
   {
     "owner": "boona13",
@@ -349,7 +833,7 @@ const REPOS = [
     "language": "JavaScript",
     "topics": ["html5", "game", "isometric", "canvas2d", "vanillajs", "mobile-friendly", "citybuilder", "opensource"],
     "updated": "20 May 2026",
-    "isNew": true
+    "isNew": false
   },
   {
     "owner": "gi-della",
@@ -360,7 +844,7 @@ const REPOS = [
     "language": "Rust",
     "topics": ["rust", "coding-agent", "cli", "performance", "memory-efficient"],
     "updated": "19 May 2026",
-    "isNew": true
+    "isNew": false
   },
   {
     "owner": "mark9-droid",
@@ -371,7 +855,7 @@ const REPOS = [
     "language": "C",
     "topics": ["tomodachi", "life-simulator", "mii", "nintendo", "game", "desktop", "windows"],
     "updated": "19 May 2026",
-    "isNew": true
+    "isNew": false
   },
   {
     "owner": "Kappaemme-git",
@@ -382,7 +866,7 @@ const REPOS = [
     "language": "Python",
     "topics": ["codex", "code-analysis", "complexity", "optimization", "performance", "developer-tools"],
     "updated": "18 May 2026",
-    "isNew": true
+    "isNew": false
   },
   {
     "owner": "facebookresearch",
@@ -393,7 +877,7 @@ const REPOS = [
     "language": "Python",
     "topics": ["cvpr", "ai", "vision", "transformer", "research", "deep-learning"],
     "updated": "18 May 2026",
-    "isNew": true
+    "isNew": false
   },
   {
     "owner": "yaassin12",
@@ -404,7 +888,7 @@ const REPOS = [
     "language": "C",
     "topics": ["deepseek", "ai", "llm", "desktop-app", "coding-agent", "web-search", "streaming"],
     "updated": "18 May 2026",
-    "isNew": true
+    "isNew": false
   },
   {
     "owner": "vercel-labs",
@@ -415,7 +899,7 @@ const REPOS = [
     "language": "C",
     "topics": ["programming-language", "agents", "ai", "compiler", "vercel"],
     "updated": "17 May 2026",
-    "isNew": true
+    "isNew": false
   },
   {
     "owner": "Nightmare-Eclipse",
@@ -426,7 +910,7 @@ const REPOS = [
     "language": "C",
     "topics": ["exploit", "windows", "privilege-escalation", "vulnerability", "ctfmon", "security"],
     "updated": "17 May 2026",
-    "isNew": true
+    "isNew": false
   },
   {
     "owner": "ChristianJR19",
@@ -437,7 +921,7 @@ const REPOS = [
     "language": "Rust",
     "topics": ["solana", "defi", "rust", "stablecoin", "onchain", "pinocchio", "typescript", "zerocopy"],
     "updated": "17 May 2026",
-    "isNew": true
+    "isNew": false
   },
   {
     "owner": "Rhythmplocutter",
@@ -448,7 +932,7 @@ const REPOS = [
     "language": "PowerShell",
     "topics": ["printer", "windows", "powershell", "driver", "fix", "hp", "brother"],
     "updated": "16 May 2026",
-    "isNew": true
+    "isNew": false
   }
   ,{
     "owner": "MayersScott",
