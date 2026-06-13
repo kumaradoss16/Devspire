@@ -1580,7 +1580,7 @@ svg {
    =================================== */
 @media (min-width: 480px) {
     .container {
-        max-width: 480px;
+        max-width: 100%;
         padding: 0 1.25rem;
     }
 
