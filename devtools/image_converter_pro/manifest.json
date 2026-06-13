@@ -1,0 +1,17 @@
+{
+  "name": "Image Converter Pro",
+  "short_name": "ImgConvert",
+  "description": "Convert, compress, resize, and optimize images directly in your browser.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0D1117",
+  "theme_color": "#0D1117",
+  "icons": [
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 28'><rect width='28' height='28' rx='7' fill='url(%23g)'/><path d='M7 20L11 14l3 4 3-5 4 7H7z' fill='white' opacity='0.9'/><circle cx='19' cy='9' r='2.5' fill='white' opacity='0.7'/><defs><linearGradient id='g' x1='0' y1='0' x2='28' y2='28'><stop stop-color='%2358A6FF'/><stop offset='1' stop-color='%23238636'/></linearGradient></defs></svg>",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
