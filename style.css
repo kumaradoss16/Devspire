@@ -342,7 +342,7 @@ body {
 
 .hero-section h1 { font-size: 1.4rem; margin-bottom: 20px; font-weight: 700; }
 .hero-section p.description {
-  font-size: var(--p);
+  /* font-size: var(--p); */
   max-width: 800px;
   margin: 0 auto 80px;
   color: #ccc;
@@ -704,7 +704,6 @@ body {
 .networking-section .section-header p,
 .automation-section .section-header p,
 .info-section .section-header p,
-.hero-section p,
 .menu-link,
 .footer p {
   font-size: var(--p);
@@ -883,7 +882,7 @@ body {
   margin-bottom: 10px;
   display: flex; align-items: center; justify-content: center; gap: 10px;
 }
-.programming-section .section-header p { font-size: var(--p); max-width: 700px; margin: 0 auto; color: #ccc; font-weight: 200; }
+.programming-section .section-header p { max-width: 700px; margin: 0 auto; color: #ccc; font-weight: 200; }
 
 .card-grid { display: flex; flex-direction: column; align-items: center; gap: 20px; }
 
@@ -1064,7 +1063,7 @@ body {
   margin-bottom: 10px;
   display: flex; align-items: center; justify-content: center; gap: 10px;
 }
-.ethical-hacking-section .section-header p { font-size: var(--p); max-width: 700px; margin: 0 auto; color: #ccc; font-weight: 200; }
+.ethical-hacking-section .section-header p {max-width: 700px; margin: 0 auto; color: #ccc; font-weight: 200; }
 
 .hacking-card-grid { display: grid; grid-template-columns: 1fr; gap: 20px; grid-auto-rows: 1fr; }
 
