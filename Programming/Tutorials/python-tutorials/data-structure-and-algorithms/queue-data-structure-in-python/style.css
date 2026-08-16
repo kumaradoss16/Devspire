@@ -133,6 +133,7 @@ h1 {
   font-size: var(--font-h1);
   font-weight: 700;
   color: var(--tag-orange);
+  border-bottom: 1px solid var(--color-orange);
 }
 
 h2 {
