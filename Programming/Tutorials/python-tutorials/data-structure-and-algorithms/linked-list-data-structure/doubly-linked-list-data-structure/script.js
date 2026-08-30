@@ -165,7 +165,7 @@ document.addEventListener("DOMContentLoaded", addContentImageFallback);
   const DEALS_PER_PAGE = 6;
   let   dealsPage      = 0;
 
-  const SITEROOT  = '../../../../../';
+  const SITEROOT  = '../../../../../../';
   const JSONPATH  = SITEROOT + 'amazon-links.json';
   const IMGFOLDER = SITEROOT + 'images/products/';
 
