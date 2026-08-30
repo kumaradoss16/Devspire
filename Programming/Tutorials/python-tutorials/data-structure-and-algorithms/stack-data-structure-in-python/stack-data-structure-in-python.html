@@ -1,0 +1,2491 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="../../../../../images/icon.webp" sizes="32x46" type="image/png">
+    <title>Stack in Python: Complete Tutorial for Beginners & Interview Prep</title>
+
+    <meta name="description"
+    content="Learn the Stack data structure in Python: LIFO principles, push/pop/peek operations, and 3 implementations (list, deque, linked list) with real interview problems and complexity breakdowns.">
+
+<meta name="keywords"
+    content="stack data structure python, python stack tutorial, LIFO python, stack implementation python, stack push pop peek, python collections deque stack, stack interview questions, monotonic stack python">
+    <meta name="robots" content="index, follow, max-snippet=-1, max-image-preview=large, max-video-preview=-1">
+
+    <meta name="author" content="Kumaradoss - DevspireHub">
+    <meta name="publisher" content="DevspireHub">
+    <link rel="author" href="https://devspirehub.com/about">
+
+    <!-- Canonical -->
+    <link rel="canonical"
+        href="https://devspirehub.com/Programming/Tutorials/python-tutorials/data-structure-and-algorithms/stack-data-structure-in-python/sstack-data-structure-in-python.html">
+
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="DevspireHub">
+    <meta property="og:locale" content="en_IN">
+    <meta property="og:title" content="Stack Data Structure in Python – Complete Tutorial with Examples">
+    <meta property="og:description"
+        content="A beginner-to-interview-ready guide to Stacks in Python: LIFO fundamentals, three implementation methods, real-world use cases, and classic interview problems.">
+    <meta property="og:url"
+        content="https://devspirehub.com/Programming/Tutorials/python-tutorials/data-structure-and-algorithms/stack-data-structure-in-python/stack-data-structure-in-python.html">
+    <meta property="og:image"
+        content="https://devspirehub.com/Programming/Tutorials/python-tutorials/data-structure-and-algorithms/stack-data-structure-in-python/images/stack-data-structure-in-python.webp">
+    <meta property="og:image:alt" content="Stack Data Structure in Python – Tutorial Diagram | DevspireHub">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@devspirehub">
+    <meta name="twitter:title" content="Stack Data Structure in Python – Complete Tutorial | DevspireHub">
+    <meta name="twitter:description"
+        content="Learn Stacks in Python with LIFO fundamentals, 3 implementations, and real interview problems — beginner-friendly, code-first tutorial.">
+    <meta name="twitter:image"
+        content="https://devspirehub.com/Programming/Tutorials/python-tutorials/data-structure-and-algorithms/stack-data-structure-in-python/images/stack-data-structure-in-python.webp">
+
+    <!-- ============================================================
+           5. TECHNICAL SEO + PERFORMANCE TAGS
+      ============================================================ -->
+
+    <!-- Theme Color (browser UI on mobile) -->
+    <meta name="theme-color" content="#0f172a">
+
+    <!-- Favicon -->
+    <link rel="icon" href="../../images/icon.webp" sizes="32x46" type="image/png">
+    <link rel="apple-touch-icon" href="../../images/icon.webp">
+
+    <!-- Preconnect for external resources (Core Web Vitals boost) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://pagead2.googlesyndication.com">
+    <link rel="preconnect" href="https://www.googletagmanager.com">
+
+    <!-- DNS Prefetch (fallback for older browsers) -->
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+
+    <!-- Preload critical above-the-fold image (LCP optimization) -->
+    <link rel="preload" as="image" href="images/flask-nmap-web-scanner.webp" fetchpriority="high">
+
+    <!-- Preload critical font -->
+    <link rel="preload" as="style"
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <!-- ============================================================
+           6. JSON-LD STRUCTURED DATA
+      ============================================================ -->
+
+    <!-- 6a. Organization Schema -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "DevspireHub",
+        "url": "https://devspirehub.com",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://devspirehub.com/images/icon.webp",
+          "width": 200,
+          "height": 60
+        },
+        "description": "DevspireHub - Programming, Projects, Ethical Hacking, Networking, Cloud & AI tutorials for beginners.",
+        "founder": {
+          "@type": "Person",
+          "name": "Kumaradoss",
+          "url": "https://www.linkedin.com/in/kumaradoss-s"
+        },
+        "sameAs": [
+          "https://www.linkedin.com/in/kumaradoss-s",
+          "https://github.com/kumaradoss16",
+          "https://www.instagram.com/devspirehub",
+          "https://www.facebook.com/profile.php?id=61577667990170"
+        ]
+      }
+      </script>
+
+    <!-- ============================================================
+     JSON-LD — Breadcrumb (corrected path)
+     ============================================================ -->
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://devspirehub.com" },
+        { "@type": "ListItem", "position": 2, "name": "Programming Tutorials", "item": "https://devspirehub.com/Programming/Tutorials/python-tutorials" },
+        { "@type": "ListItem", "position": 3, "name": "Data Structures & Algorithms", "item": "https://devspirehub.com/Programming/Tutorials/python-tutorials/data-structure-and-algorithms" },
+        { "@type": "ListItem", "position": 4, "name": "Stack", "item": "https://devspirehub.com/Programming/Tutorials/python-tutorials/data-structure-and-algorithms/stack/stack-data-structure-in-python.html" }
+    ]
+    }
+    </script>
+
+
+    <!-- JSON-LD — TechArticle (corrected content) -->
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "@id": "https://devspirehub.com/Programming/Tutorials/python-tutorials/data-structure-and-algorithms/stack/#article",
+    "headline": "Stack Data Structure in Python – Complete Tutorial with Examples",
+    "description": "Learn the Stack data structure in Python covering LIFO principles, core operations, three implementation methods, real-world problems, and interview questions.",
+    "url": "https://devspirehub.com/Programming/Tutorials/python-tutorials/data-structure-and-algorithms/stack-data-structure-in-python/stack-data-structure-in-python.html",
+    "datePublished": "2026-08-09",
+    "dateModified": "2026-08-09",
+    "inLanguage": "en-IN",
+    "articleSection": "Data Structures & Algorithms",
+    "proficiencyLevel": "Beginner",
+    "dependencies": "Python 3.x",
+    "keywords": "stack data structure python, LIFO, push pop peek, collections deque, linked list stack, monotonic stack, interview questions",
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://devspirehub.com/Programming/Tutorials/python-tutorials/data-structure-and-algorithms/stack-data-structure-in-python/images/stack-data-structure-in-python.webp",
+        "width": 1200,
+        "height": 630
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Kumaradoss",
+        "url": "https://devspirehub.com/about",
+        "sameAs": ["https://www.linkedin.com/in/kumaradoss-s", "https://github.com/kumaradoss16"]
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "DevspireHub",
+        "url": "https://devspirehub.com",
+        "logo": { "@type": "ImageObject", "url": "https://devspirehub.com/images/icon.webp", "width": 200, "height": 60 }
+    },
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://devspirehub.com/Programming/Tutorials/python-tutorials/data-structure-and-algorithms/stack-data-structure-in-python/stack-data-structure-in-python.html"
+    },
+    "isPartOf": {
+        "@type": "Series",
+        "name": "Python Data Structures & Algorithms",
+        "url": "https://devspirehub.com/Programming/Tutorials/python-tutorials/data-structure-and-algorithms"
+    },
+    "about": [
+        { "@type": "Thing", "name": "Stack (abstract data type)", "sameAs": "https://en.wikipedia.org/wiki/Stack_(abstract_data_type)" },
+        { "@type": "Thing", "name": "Python (programming language)", "sameAs": "https://en.wikipedia.org/wiki/Python_(programming_language)" }
+    ]
+    }
+    </script>
+
+    <!-- Author & Publisher -->
+    <meta name="author" content="Kumaradoss DevspireHub">
+    <meta name="publisher" content="DevspireHub">
+    <link rel="author" href="https://devspirehub.com/about">
+
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <!-- Prism.js CSS theme -->
+    <link rel="stylesheet" href="../../../../Prism/prism.css" />
+     <!-- <link rel="stylesheet" href="../../../Prism/nightfall-theme.css" /> -->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+
+
+    <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+    <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+
+    <link rel="stylesheet" href="style.css" />
+
+
+    <script type="application/ld+json">
+        {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "DevspireHub",
+        "url": "https://devspirehub.com",
+        "logo": "https://devspirehub.com/image/icon.webp",
+        "description": "DevspireHub - Programming, Projects, Ethical hacking, Networking & AI",
+        "founder": [
+            {
+            "@type": "Person",
+            "name": "Kumaradoss",
+            "url": "https://www.linkedin.com/in/kumaradoss-s/"
+            }
+        ],
+        "sameAs": [
+            "https://www.linkedin.com/in/kumaradoss-s/",
+            "https://github.com/kumaradoss16",
+        ]
+        }
+    </script>
+
+    <script type=application/ld+json>
+        {
+            "@context": "https://schema.org",
+            "@type": "SiteNavigationElement",
+            "name": [
+                "Home",
+                "Projects",
+                "Programming",
+                "Ethical Hacking",
+                "Networking",
+                "Automation",
+                "Resources"
+            ],
+            "url": [
+                "https://devspirehub.com",
+                "https://devspirehub.com/#projects-tutorials-section",
+                "https://devspirehub.com/#programming-tutorials-section",
+                "https://devspirehub.com/#ethical-hacking-section",
+                "https://devspirehub.com/#networking-section",
+                "https://devspirehub.com/#automation-section",
+                "https://devspirehub.com/#info-section",
+            ]
+        }
+    </script>
+
+
+    <!-- Google Tag Manager -->
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-M457RGDF');</script>
+    <!-- End Google Tag Manager -->
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2368356039533778"
+        crossorigin="anonymous"></script>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6VWY63Q80N"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-6VWY63Q80N');
+    </script>
+
+    <script async custom-element="amp-auto-ads" src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+
+</head>
+
+<body>
+
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M457RGDF" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <amp-auto-ads type="adsense" data-ad-client="ca-pub-2368356039533778">
+    </amp-auto-ads>
+
+    <!-- Header  -->
+    <header class="navbar">
+        <div class="container">
+            <div class="logo">
+                <div class="logo-text">
+                    <!-- <i class="fas fa-code"></i> -->
+                    <a href="../../../../../index.html"><img src="../../../../../images/icon.webp" alt="Gear Icon" width="23"
+                            height="23"></a>
+                    <span id="brand" class="typewriter" data-text="DevspireHub"></span>
+                </div>
+                <button class="menu-toggle" type="button" aria-label="Toggle navigation">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            <nav class="nav-links">
+                <ul>
+                    <li><a href="../../../../../index.html" class="home"><i class="fa-solid fa-house"></i></a></li>
+                    <li><a href="../../../../../index.html#projects-tutorials-section" class="projects">Projects</a></li>
+                    <li><a href="../../../../../index.html#programming-tutorials-section"
+                            class="programming">Programming</a></li>
+                    <li><a href="../../../../../index.html#ethical-hacking-section" class="hacking">Ethical Hacking</a>
+                    </li>
+                    <li><a href="../../../../../index.html#networking-section" class="networking">Networking</a></li>
+                    <li><a href="../../../../../index.html#automation-section" class="ai">Automation</a></li>
+                    <li><a href="../../../../../index.html#info-section" class="game">Resources</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="main-content-wrapper container">
+        <!-- Left Side  -->
+        <main class="left-column">
+            <section class="tutorial-details-section">
+                <h1>Stack Data Structure in Python – Complete Tutorial with Examples</h1>
+                <p>Learn the <b>Stack data structure in Python</b> with this complete, beginner-friendly guide covering LIFO (Last In, First Out) principles, real-world use cases, and hands-on coding examples. This Python stack tutorial walks you through three implementation methods - using a Python <code class="code">list</code>, <code class="code">collections.deque</code>, and a custom linked list stack - along with time and space complexity for each core operation (<code class="code">push</code>, <code class="code">pop</code>, <code class="code">peek</code>, <code class="code">is_empty</code>, <code class="code">size</code>).</p>
+
+                <div class="image-placeholder">
+                    <img src="images/stack-data-structure-in-python.webp"
+                        alt="Build a Python Telegram Bot That Monitors Any Website and Alerts You Instantly"
+                        loading="lazy" decoding="async" fetchpriority="auto" />
+                </div>
+                <div class="list">
+                    <p>Designed for both beginners and developers preparing for technical interviews, this tutorial covers:</p>
+                    <ul>
+                        <li><strong>Core Concepts & Architecture:</strong> Clear real-world analogies (like a stack of cafeteria plates) and system use cases (such as the call stack, browser history, and undo features).</li>
+                        <li><strong>Implementations:</strong> Step-by-step code examples using Python's built-in list, collections.deque, and a custom Linked List from scratch.</li>
+                        <li><strong>Real-World Applications:</strong> Practical solutions for valid parentheses, text editor undo features, and Reverse Polish Notation (RPN) evaluation.</li>
+                        <li><strong>Interview Prep & Patterns:</strong> etailed walkthroughs of classic problems-including Min Stack, Monotonic Stack patterns, and Largest Rectangle in Histogram-along with a structured practice roadmap.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="table-of-contents-section">
+                <h2></i>Table of Contents</h2>
+                <ol>
+                    <li><a href="#step-1">What is a Stack?</a></li>
+                    <li><a href="#step-2">Core Operations & Complexity</a></li>
+                    <li><a href="#step-3">Implementing a Stack in Python (3 Ways)</a></li>
+                    <li><a href="#step-4">Real-World Practical Problems</a></li>
+                    <li><a href="#step-5">Interview Questions</a></li>
+                    <li><a href="#step-6">Common Patterns to Remember</a></li>
+                    <li><a href="#step-7">Practice Roadmap</a></li>
+                </ol>
+            </section>
+
+            <section id="implementation-details step-1" class="implementation-section">
+                <h2>Introduction</h2>
+                <div class="content" id="step-1">
+                    <h3>1. What Is Stack?</h3>
+                    <p>A <b>Stack</b> is a linear data structure that follows LIFO - Last In, First Out. The most recently added element is always the first one removed.</p>
+                    <p><strong>Real-World Analogy:</strong> A stack of plates in a cafeteria. You place new plates on top, and when someone needs a plate, they take it from the top - never from the bottom or middle. To reach the bottom plate, every plate above it must be removed first.</p>
+                    <div class="card-image">
+                        <img src="images/stack-operations.webp"
+                        alt="Stack operations diagram showing push and pop actions">
+                    </div>
+                    <div class="list">
+                        <h4>Real systems/software that use stacks internally:</h4>
+                        <ul>
+                            <li><strong>Call stack:</strong> every programming language uses this to manage function calls and recursion.</li>
+                            <li><strong>Undo/Redo:</strong> text editors, Photoshop, IDEs (Ctrl+Z).</li>
+                            <li><strong>Browser history:</strong> the back button.</li>
+                            <li><strong>Compilers/interpreters:</strong> syntax parsing, matching brackets, expression evaluation.</li>
+                            <li><strong>DFS traversal:</strong> depth-first search in trees and graphs (either via recursion, which uses the call stack, or an explicit stack).</li>
+                            <li><strong>Memory management:</strong> stack memory allocation for local variables.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="content" id="step-2">
+                    <h3>2. Core Operations & Complexity</h3>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Operation</th>
+                                    <th>Description</th>
+                                    <th>Time Complexity</th>
+                                    <th>Space Complexity</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code class="code">push(x)</code></td>
+                                    <td>Add element x to the top</td>
+                                    <td>O(1)</td>
+                                    <td>O(1)</td>
+                                </tr>
+                                <tr>
+                                    <td><code class="code">pop()</code></td>
+                                    <td>Remove and return the top element</td>
+                                    <td>O(1)</td>
+                                    <td>O(1)</td>
+                                </tr>
+                                <tr>
+                                    <td><code class="code">peek() / top()</code></td>
+                                    <td>View the top element without removing it</td>
+                                    <td>O(1)</td>
+                                    <td>O(1)</td>
+                                </tr>
+                                <tr>
+                                    <td><code class="code">is_empty()</code></td>
+                                    <td>Check if the stack has no elements</td>
+                                    <td>O(1)</td>
+                                    <td>O(1)</td>
+                                </tr>
+                                <tr>
+                                    <td><code class="code">size()</code></td>
+                                    <td>Return count of elements</td>
+                                    <td>O(1)</td>
+                                    <td>O(1)</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Overall structure</strong></td>
+                                    <td>--</td>
+                                    <td>--</td>
+                                    <td>O(n) for n elements</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- 3. Implementation -->
+                <div class="content" id="step-2">
+                    <h3>3. Implementation</h3>
+                    <h4>Method A: Using a Python list (most common)</h4>
+                    <div id="language-python" class="code-block">
+                            <p>Python</p>
+                            <pre class="line-numbers">
+                            <code id="codeSnippetPython" class="language-python">
+class Stack:
+    def __init__(self):
+        self.items = []
+
+    def push(self, item):
+        self.items.append(item)          # Adds item to the top
+
+    def pop(self):
+        if self.is_empty():
+            raise IndexError("pop from empty stack")
+        return self.items.pop()          # Removes and returns top item
+
+    def peek(self):
+        if self.is_empty():
+            raise IndexError("peek from empty stack")
+        return self.items[-1]            # Looks at top item without removing
+
+    def is_empty(self):
+        return len(self.items) == 0      # True if stack is empty
+
+    def size(self):
+        return len(self.items)           # Returns total count of items
+
+# --- Testing the Stack ---
+s = Stack()
+s.push(10)  # Stack is now [10]
+s.push(20)  # Stack is now [10, 20]
+s.push(30)  # Stack is now [10, 20, 30]
+
+print(s.peek())   # Output: 30 (looks at the top item)
+print(s.pop())    # Output: 30 (removes 30 from the top)
+print(s.size())   # Output: 2  (only 10 and 20 remain)
+</code>
+                        </pre>
+                    </div>
+
+                    <div class="list">
+                        <p class="sub"><strong class="subtitle">Detailed Method Breakdown</strong></p>
+                        <ul>
+                            <li><code class="code">__init__(self)</code>: Creates an empty list (<code class="code">self.items</code>) whenever a new Stack object is created.</li>
+                            <li><code class="code">push(self, item)</code>: Appends an item to the end of the list. This operates in $O(1)$ time.</li>
+                            <li><code class="code">pop(self)</code>: Checks if the stack is empty first (raising an error if it is), then removes and returns the last item using <code class="code">.pop()</code>. This operates in $O(1)$ time.</li>
+                            <li><code class="code">peek(self)</code>: Returns the last element in the list (<code class="code">self.items[-1]</code>) without deleting it.</li>
+                            <li><code class="code">is_empty(self)</code>: Returns <code class="code">True</code> if the stack contains no elements, otherwise <code class="code">False</code>.</li>
+                            <li><code class="code">size(self)</code>: Returns the count of items in the stack using the <code class="code">len()</code> function.</li>
+                        </ul>
+                    </div>
+                    <div class="pro-tip">
+                        <p><strong>Why the end of the list, not the beginning?</strong></p>
+                        <p><code class="code">list.append()</code> and <code class="code">list.pop()</code> are O(1). If you used <code class="code">insert(0, x)</code> and <code class="code">pop(0)</code> instead, they'd be O(n) because every other element has to shift.</p>
+                    </div>   
+
+                    <!-- Method B -->
+                    <div>
+                        <h4>Method B: Using <code class="code">collections.deque</code> (preferred for performance)</h4>
+                        <div id="language-python" class="code-block">
+                            <p>Python</p>
+                            <pre class="line-numbers">
+                            <code id="codeSnippetPython" class="language-python">
+from collections import deque
+
+# Create an empty stack using deque
+stack = deque()
+
+# Push items onto the stack
+stack.append(10)      # Adds 10
+stack.append(20)      # Adds 20
+stack.append(30)      # Adds 30
+
+# Pop the top item (LIFO - Last In, First Out)
+print(stack.pop())    # Removes and prints 30
+
+# Peek at the new top item without removing it
+print(stack[-1])      # Prints 20
+</code>
+                            </pre>
+                        </div>
+                        <p><code class="code">deque</code> is implemented as a doubly linked list internally, giving guaranteed O(1) appends/pops from both ends, slightly faster and safer than a plain list for stack-heavy workloads.</p> 
+                    </div>
+                        
+                    <!-- Method c -->
+                    <div>
+                        <h4>Method C: Using <code class="code">queue.LifoQueue</code> (thread-safe, preferred for concurrent applications)</h4>
+                        <div id="language-python" class="code-block">
+                            <p>Python</p>
+                            <pre class="line-numbers">
+                            <code id="codeSnippetPython" class="language-python">
+from queue import LifoQueue
+
+# Initialize a thread-safe LIFO (Last-In, First-Out) queue with a max size of 3
+stack = LifoQueue(3)  
+
+# Put elements into the stack
+stack.put(10)
+stack.put(20)
+stack.put(30)
+
+# Get (remove and return) elements out of the stack
+print(stack.get())  # Removes and prints 30
+print(stack.get())  # Removes and prints 20
+</code>
+                            </pre>
+                        </div>
+                        <p><code class="code">LifoQueue</code> is implemented as a thread-safe queue internally, giving guaranteed O(1) appends/pops from both ends, slightly faster and safer than a plain list for stack-heavy workloads.</p> 
+                    </div>
+                </div>
+
+                <!-- Section 4  -->
+                <div class="content" id="step-4">
+                    <h3>4. Real-World Practical Problems</h3>
+                    <div>
+                        <h4>Problem 1: Valid Parentheses / Bracket Matching</h4>
+                        <p><strong>Use case:</strong> Compilers, linters, and JSON/XML parsers all need to verify that brackets, braces, and tags are properly nested and closed.</p>
+                        <div id="language-python" class="code-block">
+                                <p>Python</p>
+                                <pre class="line-numbers">
+                                <code id="codeSnippetPython" class="language-python">
+    def is_valid(expression: str) -> bool:
+        stack = []
+        pairs = {')': '(', ']': '[', '}': '{'}
+
+        for char in expression:
+            if char in '([{':
+                stack.append(char)             # Opening bracket - remember it
+            elif char in ')]}':
+                # A closing bracket must match the MOST RECENT opening
+                # bracket - this is exactly why LIFO fits this problem.
+                if not stack or stack[-1] != pairs[char]:
+                    return False
+                stack.pop()
+
+        return len(stack) == 0    # Nothing left unmatched
+
+
+    # --- Testing the Function ---
+    print(is_valid("([{}])"))    # Output: True
+    print(is_valid("([)]"))      # Output: False - wrong nesting order
+    </code>
+                                </pre>
+                            </div>
+                            <div class="explanation">
+                            <p class="sub"><strong class="subtitle">Step-by-Step Explanation</strong></p>
+                            <p class="sub"><strong>What the program does</strong></p>
+                            <p>It checks if the brackets <code class="code">()</code>, <code class="code">[]</code>, <code class="code">{}</code> in a string are balanced - meaning every opening bracket has a matching closing bracket, and they close in the right order (like nested boxes: the last box you opened must be the first one you close).</p>
+
+                            <p class="sub"><strong>Step 1: Set up two helpers</strong></p>
+                            <div id="language-python" class="code-block no-line-number">
+                                <pre>
+                                <code id="codeSnippetPython" class="language-python">
+                        stack = []
+                        pairs = {')': '(', ']': '[', '}': '{'}
+                                </code>
+                                </pre>
+                            </div>
+                            <div class="list">
+                                <ul>
+                                    <li><code class="code">stack</code> - an empty list. We'll use it like a stack of plates: you can only add or remove from the top.</li>
+                                    <li><code class="code">pairs</code> - a dictionary that says "this closing bracket belongs to this opening bracket." For example, <code class="code">)</code> belongs to <code class="code">(</code>.</li>
+                                </ul>
+                            </div>
+
+                            <p class="sub"><strong>Step 2: Go through the string one character at a time</strong></p>
+                            <div id="language-python" class="code-block no-line-number">
+                                <pre>
+                                <code id="codeSnippetPython" class="language-python">
+                        for char in s:
+                                </code>
+                                </pre>
+                            </div>
+                            <p>We look at each character in the input string, left to right, one at a time.</p>
+
+                            <p class="sub"><strong>Step 3: If it's an opening bracket, save it</strong></p>
+                            <div id="language-python" class="code-block no-line-number">
+                                <pre>
+                                <code id="codeSnippetPython" class="language-python">
+                            if char in '([{':
+                                stack.append(char)
+                                </code>
+                                </pre>
+                            </div>
+                            <div class="list">
+                                <ul>
+                                    <li>If the character is <code class="code">(</code>, <code class="code">[</code>, or <code class="code">{</code>, we <strong>push</strong> it onto the stack - just place it on top.</li>
+                                    <li>This means: "remember this bracket is open and still waiting to be closed."</li>
+                                </ul>
+                            </div>
+
+                            <p class="sub"><strong>Step 4: If it's a closing bracket, check it matches</strong></p>
+                            <div id="language-python" class="code-block no-line-number">
+                                <pre>
+                                <code id="codeSnippetPython" class="language-python">
+                            elif char in ')]}':
+                                if not stack or stack[-1] != pairs[char]:
+                                    return False
+                                stack.pop()
+                                </code>
+                                </pre>
+                            </div>
+                            <div class="list">
+                                <p>If the character is <code class="code">)</code>, <code class="code">]</code>, or <code class="code">}</code>, we need to check if it correctly closes the most recent open bracket.</p>
+                                <ul>
+                                    <li><code class="code">stack[-1]</code> means "look at the top item of the stack" (the most recently opened bracket).</li>
+                                    <li>Two ways this can go wrong:
+                                        <ol>
+                                            <li><strong><code class="code">not stack</code></strong> - the stack is empty, meaning there's no open bracket at all to close. Example: seeing <code class="code">)</code> with nothing opened yet.</li>
+                                            <li><strong><code class="code">stack[-1] != pairs[char]</code></strong> - the top of the stack doesn't match. Example: top is <code class="code">[</code> but we're trying to close with <code class="code">)</code>.</li>
+                                        </ol>
+                                    </li>
+                                    <li>If either problem happens &rarr; return <code class="code">False</code> immediately. The string is invalid.</li>
+                                    <li>If it matches correctly &rarr; <code class="code">stack.pop()</code> removes that opening bracket from the stack, since it's now properly closed.</li>
+                                </ul>
+                            </div>
+
+                            <p class="sub"><strong>Step 5: After checking the whole string, check if anything's left open</strong></p>
+                            <div id="language-python" class="code-block no-line-number">
+                                <pre>
+                                <code id="codeSnippetPython" class="language-python">
+                            return len(stack) == 0
+                                </code>
+                                </pre>
+                            </div>
+                            <div class="list">
+                                <ul>
+                                    <li>If the stack is <strong>empty</strong> at the end, every bracket that was opened also got closed properly &rarr; return <code class="code">True</code>.</li>
+                                    <li>If anything is <strong>still sitting in the stack</strong>, it means some bracket was opened but never closed &rarr; return <code class="code">False</code>.</li>
+                                </ul>
+                            </div>
+
+                            <p class="sub"><strong>Step 6: Run some tests</strong></p>
+                            <div id="language-python" class="code-block no-line-number">
+                                <pre>
+                                <code id="codeSnippetPython" class="language-python">
+                        print(is_valid("([{}])"))   # True
+                        print(is_valid("([)]"))     # False
+                                </code>
+                                </pre>
+                            </div>
+
+                            <p class="sub"><strong class="subtitle">Trace 1: </strong><code class="code">"([{}])"</code></h5>
+                            <div class="table-container">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Step</th>
+                                            <th>char</th>
+                                            <th>What happens</th>
+                                            <th>Stack</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td><code class="code">(</code></td>
+                                            <td>opening &rarr; push</td>
+                                            <td><code class="code">(</code></td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td><code class="code">[</code></td>
+                                            <td>opening &rarr; push</td>
+                                            <td><code class="code">( [</code></td>
+                                        </tr>
+                                        <tr>
+                                            <td>3</td>
+                                            <td><code class="code">{</code></td>
+                                            <td>opening &rarr; push</td>
+                                            <td><code class="code">( [ {</code></td>
+                                        </tr>
+                                        <tr>
+                                            <td>4</td>
+                                            <td><code class="code">}</code></td>
+                                            <td>closing &rarr; matches top <code class="code">{</code> &rarr; pop</td>
+                                            <td><code class="code">( [</code></td>
+                                        </tr>
+                                        <tr>
+                                            <td>5</td>
+                                            <td><code class="code">]</code></td>
+                                            <td>closing &rarr; matches top <code class="code">[</code> &rarr; pop</td>
+                                            <td><code class="code">(</code></td>
+                                        </tr>
+                                        <tr>
+                                            <td>6</td>
+                                            <td><code class="code">)</code></td>
+                                            <td>closing &rarr; matches top <code class="code">(</code> &rarr; pop</td>
+                                            <td>(empty)</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <p>End of string &rarr; stack is empty &rarr; <strong><code class="code">True</code></strong></p>
+
+                            <p class="sub"><strong class="subtitle">Trace 2: </strong><code class="code">"([)]"</code></h5>
+                            <div class="table-container">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Step</th>
+                                            <th>char</th>
+                                            <th>What happens</th>
+                                            <th>Stack</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td><code class="code">(</code></td>
+                                            <td>opening &rarr; push</td>
+                                            <td><code class="code">(</code></td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td><code class="code">[</code></td>
+                                            <td>opening &rarr; push</td>
+                                            <td><code class="code">( [</code></td>
+                                        </tr>
+                                        <tr>
+                                            <td>3</td>
+                                            <td><code class="code">)</code></td>
+                                            <td>closing &rarr; top is <code class="code">[</code>, but <code class="code">)</code> needs <code class="code">(</code> &rarr; <strong>mismatch</strong> &rarr; return <code class="code">False</code> right away</td>
+                                            <td>-</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <p>Stops immediately &rarr; <strong><code class="code">False</code></strong></p>
+
+                            <div class="pro-tip">
+                                <p><strong>One-line summary</strong></p>
+                                <p>Every time you open a bracket, remember it on top of a pile; every time you close one, it must match whatever's on top of that pile - if it doesn't match, or the pile's empty, the string is invalid.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Problem 2 -->
+                    <div>
+                        <h4>Problem 2: Undo Feature in a Text Editor</h4>
+                        <p><strong>Use case:</strong> Every "Ctrl+Z" in Word, VS Code, or Photoshop works by storing previous states on a stack.</p>
+                        <div id="language-python" class="code-block">
+                                <p>Python</p>
+                                <pre class="line-numbers">
+                                <code id="codeSnippetPython" class="language-python">
+class TextEditor:
+    def __init__(self):
+        self.text = ""
+        self.history = []   # Stack to store previous states
+
+    def type_text(self, chars):
+        self.history.append(self.text)   # Save state BEFORE the change
+        self.text += chars
+
+    def undo(self):
+        if not self.history:
+            print("Nothing to undo")
+            return
+        self.text = self.history.pop()   # Restore the most recent state
+
+
+# --- Testing the Text Editor ---
+editor = TextEditor()
+editor.type_text("Hello")
+editor.type_text(" World")
+print(editor.text)   # Output: Hello World
+editor.undo()
+print(editor.text)   # Output: Hello
+    </code>
+                                </pre>
+                            </div>
+                            <div class="explanation">
+                                <p class="sub"><strong class="subtitle">Step-by-Step Explanation</strong></p>
+
+                                <p class="sub"><strong>What the program does</strong></p>
+                                <p>This is a mini text editor with an undo button - like typing in Notepad and pressing <code class="code">Ctrl+Z</code>. Every time you type something, it quietly remembers what the text looked like just before, so it can bring that back later.</p>
+
+                                <p class="sub"><strong>Step 1: Set up the starting point</strong></p>
+                                <div id="language-python" class="code-block no-line-number">
+                                    <pre>
+                                    <code id="codeSnippetPython" class="language-python">
+                            def __init__(self):
+                                self.text = ""
+                                self.history = []
+                                    </code>
+                                    </pre>
+                                </div>
+                                <div class="list">
+                                    <ul>
+                                        <li><code class="code">self.text</code> - starts as an empty string (nothing typed yet).</li>
+                                        <li><code class="code">self.history</code> - starts as an empty list. This will act like a pile of saved snapshots, one for each change made.</li>
+                                    </ul>
+                                </div>
+
+                                <p class="sub"><strong>Step 2: Typing - save first, then change</strong></p>
+                                <div id="language-python" class="code-block no-line-number">
+                                    <pre>
+                                    <code id="codeSnippetPython" class="language-python">
+                            def type(self, chars):
+                                self.history.append(self.text)
+                                self.text += chars
+                                    </code>
+                                    </pre>
+                                </div>
+                                <div class="list">
+                                    <ul>
+                                        <li>Before adding anything new, we save the current text onto the history pile - a snapshot of "this is what it looked like right before this change."</li>
+                                        <li>Then we add the new characters (<code class="code">chars</code>) onto the end of the text.</li>
+                                        <li><strong>Order matters here:</strong> save first, change second. If you did it the other way around, you'd end up saving the already-changed text, and undo would do nothing.</li>
+                                    </ul>
+                                </div>
+
+                                <p class="sub"><strong>Step 3: Undo - grab the last snapshot back</strong></p>
+                                <div id="language-python" class="code-block no-line-number">
+                                    <pre>
+                                    <code id="codeSnippetPython" class="language-python">
+                            def undo(self):
+                                if self.history:
+                                    self.text = self.history.pop()
+                                else:
+                                    print("Nothing to undo")
+                                    </code>
+                                    </pre>
+                                </div>
+                                <div class="list">
+                                    <ul>
+                                        <li><code class="code">if self.history:</code> checks if the pile has anything in it. An empty list is treated as "false" in Python, so this is really asking "is there anything saved?"</li>
+                                        <li><strong>If yes:</strong> <code class="code">self.history.pop()</code> removes and returns the most recently saved snapshot - the last thing put on top of the pile - and we set <code class="code">self.text</code> back to that value.</li>
+                                        <li><strong>If no:</strong> there's nothing to go back to, so it just prints a message instead of crashing or doing something wrong.</li>
+                                    </ul>
+                                </div>
+
+                                <p class="sub"><strong>Step 4: Running it - trace through what happens</strong></p>
+                                <div class="table-container">
+                                    <table>
+                                        <thead>
+                                            <tr>
+                                                <th>Action / Code</th>
+                                                <th>What happens</th>
+                                                <th>Text (<code class="code">self.text</code>)</th>
+                                                <th>History Stack (<code class="code">self.history</code>)</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td><code class="code">editor = TextEditor()</code></td>
+                                                <td>Initial state</td>
+                                                <td><code class="code">""</code></td>
+                                                <td><code class="code">[]</code></td>
+                                            </tr>
+                                            <tr>
+                                                <td><code class="code">editor.type("Hello")</code></td>
+                                                <td>Save current text <code class="code">""</code> onto history, then add <code class="code">"Hello"</code></td>
+                                                <td><code class="code">"Hello"</code></td>
+                                                <td><code class="code">[""]</code></td>
+                                            </tr>
+                                            <tr>
+                                                <td><code class="code">editor.type(" World")</code></td>
+                                                <td>Save current text <code class="code">"Hello"</code> onto history, then add <code class="code">" World"</code></td>
+                                                <td><code class="code">"Hello World"</code></td>
+                                                <td><code class="code">["", "Hello"]</code></td>
+                                            </tr>
+                                            <tr>
+                                                <td><code class="code">print(editor.text)</code></td>
+                                                <td>Prints exactly what we expect - both typed pieces are now joined together (<code class="code"># "Hello World"</code>)</td>
+                                                <td><code class="code">"Hello World"</code></td>
+                                                <td><code class="code">["", "Hello"]</code></td>
+                                            </tr>
+                                            <tr>
+                                                <td><code class="code">editor.undo()</code></td>
+                                                <td>History is not empty, so pop the last item off (<code class="code">"Hello"</code>) and restore <code class="code">self.text</code></td>
+                                                <td><code class="code">"Hello"</code></td>
+                                                <td><code class="code">[""]</code></td>
+                                            </tr>
+                                            <tr>
+                                                <td><code class="code">print(editor.text)</code></td>
+                                                <td>Confirms the undo worked - back to how things looked before the second <code class="code">type()</code> call (<code class="code"># "Hello"</code>)</td>
+                                                <td><code class="code">"Hello"</code></td>
+                                                <td><code class="code">[""]</code></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <p class="sub"><strong>Why a stack (last-in, first-out) fits perfectly</strong></p>
+                                <p>Undo always needs to go back to the most recent change first, not the oldest one. Since a stack always gives you the last thing you added when you ask for something back, it naturally matches how undo is supposed to behave - one step back at a time, most recent first.</p>
+
+                                <div class="pro-tip">
+                                    <p><strong>One-line summary</strong></p>
+                                    <p>Before every change, save a snapshot on top of the history pile; undo just grabs the most recent snapshot off that pile and restores it - no pile, no undo.</p>
+                                </div>
+                            </div>
+
+                            <!-- Problem 3 -->
+                            <div>
+                                <h4>Problem 3: Evaluate Reverse Polish Notation (Calculator Logic)</h4>
+                                <p><strong>Use case:</strong> Calculators and some interpreters evaluate expressions this way because it avoids needing operator precedence or parentheses at all.</p>
+                                <div id="language-python" class="code-block">
+                                        <p>Python</p>
+                                        <pre class="line-numbers">
+                                        <code id="codeSnippetPython" class="language-python">
+def eval_rpn(tokens):
+    stack = []
+    for token in tokens:
+        if token in ('+', '-', '*', '/'):
+            b = stack.pop()
+            a = stack.pop()
+            if token == '+':
+                stack.append(a + b)
+            elif token == '-':
+                stack.append(a - b)
+            elif token == '*':
+                stack.append(a * b)
+            else:
+                stack.append(int(a / b))   # truncate toward zero
+        else:
+            stack.append(int(token))
+    return stack[0]
+
+
+print(eval_rpn(["2", "1", "+", "3", "*"]))  # (2+1)*3 = 9
+    </code>
+                                </pre>
+                            </div>
+                            <div class="explanation">
+                                <p class="sub"><strong class="subtitle">Step-by-Step Explanation</strong></p>
+
+                                <p class="sub"><strong>What the program does</strong></p>
+                                <p>RPN (postfix notation) writes operators after their operands, e.g., <code class="code">"2 1 + 3 *"</code> means <code class="code">(2 + 1) * 3</code>. You can evaluate it with a single stack: push numbers, and when you hit an operator, pop the last two numbers, apply the operator, and push the result back.</p>
+
+                                <p class="sub"><strong>Step 1: Initialize an empty stack</strong></p>
+                                <div id="language-python" class="code-block no-line-number">
+                                    <pre>
+                                    <code id="codeSnippetPython" class="language-python">
+                            stack = []
+                                    </code>
+                                    </pre>
+                                </div>
+                                <div class="list">
+                                    <ul>
+                                        <li><code class="code">stack</code> - an empty list that holds numbers waiting to be combined.</li>
+                                    </ul>
+                                </div>
+
+                                <p class="sub"><strong>Step 2: Loop through each token in the input list</strong></p>
+                                <div id="language-python" class="code-block no-line-number">
+                                    <pre>
+                                    <code id="codeSnippetPython" class="language-python">
+                            for token in tokens:
+                                    </code>
+                                    </pre>
+                                </div>
+                                <div class="list">
+                                    <ul>
+                                        <li>Tokens are strings - either numbers (like <code class="code">"2"</code>, <code class="code">"3"</code>) or operators (like <code class="code">"+"</code>, <code class="code">"-"</code>, <code class="code">"*"</code>, <code class="code">"/"</code>).</li>
+                                    </ul>
+                                </div>
+
+                                <p class="sub"><strong>Step 3: Check if the token is an operator</strong></p>
+                                <div id="language-python" class="code-block no-line-number">
+                                    <pre>
+                                    <code id="codeSnippetPython" class="language-python">
+                                if token in ('+', '-', '*', '/'):
+                                    </code>
+                                    </pre>
+                                </div>
+
+                                <p class="sub"><strong>Step 4: If it's an operator, pop the top two values</strong></p>
+                                <div id="language-python" class="code-block no-line-number">
+                                    <pre>
+                                    <code id="codeSnippetPython" class="language-python">
+                                    b = stack.pop()   # popped first -> this is the RIGHT-hand operand
+                                    a = stack.pop()   # popped second -> this is the LEFT-hand operand
+                                    </code>
+                                    </pre>
+                                </div>
+                                <div class="list">
+                                    <ul>
+                                        <li><strong>Order matters here:</strong> since a stack is Last-In, First-Out (LIFO), the most recently pushed number (<code class="code">b</code>) is the second operand, and the one before it (<code class="code">a</code>) is the first operand.</li>
+                                        <li>This is crucial for non-commutative operations like subtraction (<code class="code">-</code>) and division (<code class="code">/</code>).</li>
+                                    </ul>
+                                </div>
+
+                                <p class="sub"><strong>Step 5: Apply the operator and push the result</strong></p>
+                                <div id="language-python" class="code-block no-line-number">
+                                    <pre class="">
+                                    <code id="codeSnippetPython" class="language-python">
+                                    if token == '+':
+                                        stack.append(a + b)
+                                    elif token == '-':
+                                        stack.append(a - b)
+                                    elif token == '*':
+                                        stack.append(a * b)
+                                    else:
+                                        stack.append(int(a / b))   # truncate toward zero
+                                    </code>
+                                    </pre>
+                                </div>
+                                <div class="list">
+                                    <ul>
+                                        <li>For division, regular Python integer division (<code class="code">//</code>) rounds toward negative infinity.</li>
+                                        <li>Using <code class="code">int(a / b)</code> does float division first and then truncates toward zero (e.g., <code class="code">-7 / 2 = -3</code> instead of <code class="code">-4</code>), which matches standard RPN problem specifications.</li>
+                                    </ul>
+                                </div>
+
+                                <p class="sub"><strong>Step 6: If the token is a number, convert and push it</strong></p>
+                                <div id="language-python" class="code-block no-line-number">
+                                    <pre class="">
+                                    <code id="codeSnippetPython" class="language-python">
+                                else:
+                                    stack.append(int(token))
+                                    </code>
+                                    </pre>
+                                </div>
+                                <div class="list">
+                                    <ul>
+                                        <li>Tokens arrive as strings, so <code class="code">int(token)</code> converts string values into integers (e.g., <code class="code">"2"</code> &rarr; <code class="code">2</code>).</li>
+                                    </ul>
+                                </div>
+
+                                <p class="sub"><strong>Step 7: Return the final answer</strong></p>
+                                <div id="language-python" class="code-block no-line-number">
+                                    <pre class="line-number">
+                                    <code id="codeSnippetPython" class="language-python">
+                            return stack[0]
+                                    </code>
+                                    </pre>
+                                </div>
+                                <div class="list">
+                                    <ul>
+                                        <li>At the end of a valid expression, there should be exactly one element left on the stack.</li>
+                                    </ul>
+                                </div>
+
+                                <p class="sub"><strong>Trace through the example</strong></p>
+                                <p>Tokens: <code class="code">["2", "1", "+", "3", "*"]</code></p>
+                                <div class="table-container">
+                                    <table>
+                                        <thead>
+                                            <tr>
+                                                <th>Token</th>
+                                                <th>Action</th>
+                                                <th>Stack after</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td><code class="code">"2"</code></td>
+                                                <td>push <code class="code">2</code></td>
+                                                <td><code class="code">[2]</code></td>
+                                            </tr>
+                                            <tr>
+                                                <td><code class="code">"1"</code></td>
+                                                <td>push <code class="code">1</code></td>
+                                                <td><code class="code">[2, 1]</code></td>
+                                            </tr>
+                                            <tr>
+                                                <td><code class="code">"+"</code></td>
+                                                <td>pop <code class="code">1</code>, pop <code class="code">2</code> &rarr; <code class="code">2 + 1 = 3</code> &rarr; push <code class="code">3</code></td>
+                                                <td><code class="code">[3]</code></td>
+                                            </tr>
+                                            <tr>
+                                                <td><code class="code">"3"</code></td>
+                                                <td>push <code class="code">3</code></td>
+                                                <td><code class="code">[3, 3]</code></td>
+                                            </tr>
+                                            <tr>
+                                                <td><code class="code">"*"</code></td>
+                                                <td>pop <code class="code">3</code>, pop <code class="code">3</code> &rarr; <code class="code">3 * 3 = 9</code> &rarr; push <code class="code">9</code></td>
+                                                <td><code class="code">[9]</code></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <p>Final result: <code class="code">stack[0] = 9</code> &rarr; matches <code class="code">(2 + 1) * 3 = 9</code>.</p>
+
+                                <div class="pro-tip">
+                                    <p><strong>Note on robustness</strong></p>
+                                    <p>This version assumes well-formed input (exactly one leftover value, valid tokens). It doesn't handle errors like division by zero, malformed tokens, or an empty/invalid expression - for production code, you might want <code class="code">try/except</code> blocks around pops and conversions.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Problem 4 -->
+                        <div>
+                            <h4>Problem 4: Browser Back/Forward Navigation</h4>
+                                <p><strong>Use case:</strong> This is literally how browser history works - two stacks track where you've been and where you can go forward to.</p>
+                                <div id="language-python" class="code-block">
+                                        <p>Python</p>
+                                        <pre class="line-numbers">
+                                        <code id="codeSnippetPython" class="language-python">
+class BrowserHistory:
+    def __init__(self, homepage):
+        self.back_stack = []
+        self.forward_stack = []
+        self.current = homepage
+
+    def visit(self, url):
+        self.back_stack.append(self.current)
+        self.current = url
+        self.forward_stack.clear()   # visiting a new page erases forward history
+
+    def back(self):
+        if self.back_stack:
+            self.forward_stack.append(self.current)
+            self.current = self.back_stack.pop()
+        return self.current
+
+    def forward(self):
+        if self.forward_stack:
+            self.back_stack.append(self.current)
+            self.current = self.forward_stack.pop()
+        return self.current
+
+
+browser = BrowserHistory("home.com")
+browser.visit("google.com")
+browser.visit("github.com")
+print(browser.back())      # google.com
+print(browser.back())      # home.com
+print(browser.forward())   # google.com
+    </code>
+                                </pre>
+                            </div>
+                            <div class="explanation">
+                                <h4>Step-by-Step Explanation</h4>
+
+                                <p class="sub"><strong>What the program does</strong></p>
+                                <p>A browser's back/forward history behaves like two stacks: one for pages you can go <strong>back</strong> to, and one for pages you can go <strong>forward</strong> to (pages you've stepped back from). Visiting a new page always wipes the forward stack &rarr; you can't go "forward" to a page after taking a new path.</p>
+
+                                <p class="sub"><strong>Step 1: Constructor - set up initial state</strong></p>
+                                <div id="language-python" class="code-block no-line-number">
+                                    <pre>
+                                    <code id="codeSnippetPython" class="language-python">
+                            def __init__(self, homepage):
+                                self.back_stack = []
+                                self.forward_stack = []
+                                self.current = homepage
+                                    </code>
+                                    </pre>
+                                </div>
+                                <div class="list">
+                                    <ul>
+                                        <li><code class="code">back_stack</code> - holds pages visited <em>before</em> the current one, in order.</li>
+                                        <li><code class="code">forward_stack</code> - holds pages you've navigated back <em>away from</em>, so you can redo them.</li>
+                                        <li><code class="code">current</code> - simply the page you're on right now.</li>
+                                    </ul>
+                                </div>
+
+                                <p class="sub"><strong>Step 2: <code class="code">visit(url)</code> - go to a new page</strong></p>
+                                <div id="language-python" class="code-block no-line-number">
+                                    <pre>
+                                    <code id="codeSnippetPython" class="language-python">
+                            def visit(self, url):
+                                self.back_stack.append(self.current)
+                                self.current = url
+                                self.forward_stack.clear()
+                                    </code>
+                                    </pre>
+                                </div>
+                                <div class="list">
+                                    <ul>
+                                        <li>Push the page you're leaving onto <code class="code">back_stack</code> (so you can return to it later).</li>
+                                        <li>Update <code class="code">current</code> to the new URL.</li>
+                                        <li>Clear <code class="code">forward_stack</code> &rarr; once you visit a new page, any old "forward" history becomes invalid (just like a real browser).</li>
+                                    </ul>
+                                </div>
+
+                                <p class="sub"><strong>Step 3: <code class="code">back()</code> - go to the previous page</strong></p>
+                                <div id="language-python" class="code-block no-line-number">
+                                    <pre>
+                                    <code id="codeSnippetPython" class="language-python">
+                            def back(self):
+                                if self.back_stack:
+                                    self.forward_stack.append(self.current)
+                                    self.current = self.back_stack.pop()
+                                return self.current
+                                    </code>
+                                    </pre>
+                                </div>
+                                <div class="list">
+                                    <ul>
+                                        <li>Only act if there's something to go back to (<code class="code">back_stack</code> isn't empty).</li>
+                                        <li>Push the current page onto <code class="code">forward_stack</code> (so <code class="code">forward()</code> can undo this).</li>
+                                        <li>Pop the most recent page off <code class="code">back_stack</code> and make it <code class="code">current</code>.</li>
+                                        <li>Return <code class="code">current</code> either way (unchanged if there's nowhere to go back to).</li>
+                                    </ul>
+                                </div>
+
+                                <p class="sub"><strong>Step 4: <code class="code">forward()</code> - redo a page you went back from</strong></p>
+                                <div id="language-python" class="code-block no-line-number">
+                                    <pre>
+                                    <code id="codeSnippetPython" class="language-python">
+                            def forward(self):
+                                if self.forward_stack:
+                                    self.back_stack.append(self.current)
+                                    self.current = self.forward_stack.pop()
+                                return self.current
+                                    </code>
+                                    </pre>
+                                </div>
+                                <div class="list">
+                                    <ul>
+                                        <li>Mirror image of <code class="code">back()</code>: only act if <code class="code">forward_stack</code> has entries.</li>
+                                        <li>Push current page onto <code class="code">back_stack</code> (so you could go back to it again).</li>
+                                        <li>Pop from <code class="code">forward_stack</code> and make it <code class="code">current</code>.</li>
+                                    </ul>
+                                </div>
+
+                                <p class="sub"><strong class="subtitle">Trace through the example</strong></p>
+
+                                <div id="language-python" class="code-block no-line-number">
+                                    <pre>
+                                    <code id="codeSnippetPython" class="language-python">
+                            browser = BrowserHistory("home.com")
+                                    </code>
+                                    </pre>
+                                </div>
+                                <div class="list">
+                                    <ul>
+                                        <li><strong>Action:</strong> Initialize starting page</li>
+                                        <li><strong>State:</strong> <code class="code">back_stack</code>: <code class="code">[]</code> | <code class="code">forward_stack</code>: <code class="code">[]</code> | <code class="code">current</code>: <code class="code">"home.com"</code></li>
+                                    </ul>
+                                </div>
+
+                                <div id="language-python" class="code-block no-line-number">
+                                    <pre>
+                                    <code id="codeSnippetPython" class="language-python">
+                            browser.visit("google.com")
+                                    </code>
+                                    </pre>
+                                </div>
+                                <div class="list">
+                                    <ul>
+                                        <li><strong>Action:</strong> Push <code class="code">"home.com"</code> to <code class="code">back_stack</code>, set <code class="code">current = "google.com"</code>, clear <code class="code">forward_stack</code>.</li>
+                                        <li><strong>State:</strong> <code class="code">back_stack</code>: <code class="code">["home.com"]</code> | <code class="code">forward_stack</code>: <code class="code">[]</code> | <code class="code">current</code>: <code class="code">"google.com"</code></li>
+                                    </ul>
+                                </div>
+
+                                <div id="language-python" class="code-block no-line-number">
+                                    <pre>
+                                    <code id="codeSnippetPython" class="language-python">
+                            browser.visit("github.com")
+                                    </code>
+                                    </pre>
+                                </div>
+                                <div class="list">
+                                    <ul>
+                                        <li><strong>Action:</strong> Push <code class="code">"google.com"</code> to <code class="code">back_stack</code>, set <code class="code">current = "github.com"</code>, clear <code class="code">forward_stack</code>.</li>
+                                        <li><strong>State:</strong> <code class="code">back_stack</code>: <code class="code">["home.com", "google.com"]</code> | <code class="code">forward_stack</code>: <code class="code">[]</code> | <code class="code">current</code>: <code class="code">"github.com"</code></li>
+                                    </ul>
+                                </div>
+
+                                <div id="language-python" class="code-block no-line-number">
+                                    <pre>
+                                    <code id="codeSnippetPython" class="language-python">
+                            print(browser.back())   # google.com
+                                    </code>
+                                    </pre>
+                                </div>
+                                <div class="list">
+                                    <ul>
+                                        <li><strong>Action:</strong> <code class="code">back_stack</code> is non-empty &rarr; push <code class="code">"github.com"</code> to <code class="code">forward_stack</code>, pop <code class="code">"google.com"</code> off <code class="code">back_stack</code>, set as <code class="code">current</code>.</li>
+                                        <li><strong>State:</strong> <code class="code">back_stack</code>: <code class="code">["home.com"]</code> | <code class="code">forward_stack</code>: <code class="code">["github.com"]</code> | <code class="code">current</code>: <code class="code">"google.com"</code></li>
+                                        <li><strong>Output:</strong> <strong><code class="code">"google.com"</code></strong></li>
+                                    </ul>
+                                </div>
+
+                                <div id="language-python" class="code-block no-line-number">
+                                    <pre>
+                                    <code id="codeSnippetPython" class="language-python">
+                            print(browser.back())   # home.com
+                                    </code>
+                                    </pre>
+                                </div>
+                                <div class="list">
+                                    <ul>
+                                        <li><strong>Action:</strong> Push <code class="code">"google.com"</code> to <code class="code">forward_stack</code>, pop <code class="code">"home.com"</code> off <code class="code">back_stack</code>.</li>
+                                        <li><strong>State:</strong> <code class="code">back_stack</code>: <code class="code">[]</code> | <code class="code">forward_stack</code>: <code class="code">["github.com", "google.com"]</code> | <code class="code">current</code>: <code class="code">"home.com"</code></li>
+                                        <li><strong>Output:</strong> <strong><code class="code">"home.com"</code></strong></li>
+                                    </ul>
+                                </div>
+
+                                <div id="language-python" class="code-block no-line-number">
+                                    <pre>
+                                    <code id="codeSnippetPython" class="language-python">
+                            print(browser.forward())   # google.com
+                                    </code>
+                                    </pre>
+                                </div>
+                                <div class="list">
+                                    <ul>
+                                        <li><strong>Action:</strong> <code class="code">forward_stack</code> non-empty &rarr; push <code class="code">"home.com"</code> to <code class="code">back_stack</code>, pop <code class="code">"google.com"</code> off <code class="code">forward_stack</code>.</li>
+                                        <li><strong>State:</strong> <code class="code">back_stack</code>: <code class="code">["home.com"]</code> | <code class="code">forward_stack</code>: <code class="code">["github.com"]</code> | <code class="code">current</code>: <code class="code">"google.com"</code></li>
+                                        <li><strong>Output:</strong> <strong><code class="code">"google.com"</code></strong></li>
+                                    </ul>
+                                </div>
+
+                                <div class="pro-tip">
+                                    <p><strong>Key design points</strong></p>
+                                    <p>• <strong>Two stacks model directional history</strong> cleanly: <code class="code">back_stack</code> = "where I've been," <code class="code">forward_stack</code> = "where I stepped back from."<br>
+                                    • <strong><code class="code">visit()</code> clearing <code class="code">forward_stack</code></strong> is what makes this behave like a real browser &rarr; you can't redo into a page that a new navigation has made obsolete.<br>
+                                    • Both <code class="code">back()</code> and <code class="code">forward()</code> <strong>guard with an <code class="code">if</code></strong> so calling them with empty stacks is a safe no-op (just returns the unchanged <code class="code">current</code>), rather than raising an <code class="code">IndexError</code>.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+
+
+                <div class="content" id="step-5">
+                    <h3>5. Interview Questions</h3>
+                    <p>These come up frequently in coding interviews. Difficulty increases as you go down the list.</p>
+                    <div>
+                        <h4>Q1: Min Stack (Medium - very common)</h4>
+                    <p>Design a stack that supports <code class="code">push</code>, <code class="code">pop</code>, <code class="code">top</code>, and <code class="code">get_min()</code> - all in O(1) time.</p>
+                    <p><strong>Key idea: </strong>Keep a second stack that tracks the minimum at each point.</p>
+                    <div id="language-python" class="code-block">
+                        <p>Python</p>
+                        <pre class="line-numbers">
+                        <code id="codeSnippetPython" class="language-python">
+class MinStack:
+    def __init__(self):
+        self.stack = []
+        self.min_stack = []   # Tracks the minimum value at each level
+
+    def push(self, val):
+        self.stack.append(val)
+        # If min_stack is empty or new value is smaller/equal, push it to min_stack
+        if not self.min_stack or val <= self.min_stack[-1]:
+            self.min_stack.append(val)
+        else:
+            # Otherwise, duplicate the current minimum
+            self.min_stack.append(self.min_stack[-1])
+
+    def pop(self):
+        self.stack.pop()
+        self.min_stack.pop()   # Keep min_stack in sync with the main stack
+
+    def top(self):
+        return self.stack[-1]
+
+    def get_min(self):
+        return self.min_stack[-1]
+
+
+# --- Testing the MinStack ---
+ms = MinStack()
+ms.push(5)
+ms.push(2)
+ms.push(7)
+print(ms.get_min())  # Output: 2
+ms.pop()
+print(ms.get_min())  # Output: 2
+    </code>
+                            </pre>
+                        </div>
+                        <div class="explanation">
+                            <p class="sub"><strong class="subtitle">Step-by-Step Explanation</strong></p>
+
+                            <p class="sub"><strong>What the program does</strong></p>
+                            <p>A normal stack doesn't let you find the minimum value in O(1) time - you'd have to scan the whole stack. <code class="code">MinStack</code> fixes this by keeping a <strong>second, parallel stack</strong> (<code class="code">min_stack</code>) that tracks the minimum-so-far at every level. Every time you push or pop from <code class="code">stack</code>, you push or pop from <code class="code">min_stack</code> too, so both stacks always stay the same height.</p>
+
+                            <p class="sub"><strong>Step 1: Constructor - two empty stacks</strong></p>
+                            <div id="language-python" class="code-block no-line-number">
+                                <pre>
+                                <code id="codeSnippetPython" class="language-python">
+                        def __init__(self):
+                            self.stack = []
+                            self.min_stack = []
+                                </code>
+                                </pre>
+                            </div>
+                            <div class="list">
+                                <ul>
+                                    <li><code class="code">stack</code> - holds the actual values.</li>
+                                    <li><code class="code">min_stack</code> - holds, at each position <code class="code">i</code>, the minimum of all values from <code class="code">stack[0]</code> to <code class="code">stack[i]</code>.</li>
+                                </ul>
+                            </div>
+
+                            <p class="sub"><strong>Step 2: <code class="code">push(val)</code> - add a value to both stacks</strong></p>
+                            <div id="language-python" class="code-block no-line-number">
+                                <pre>
+                                <code id="codeSnippetPython" class="language-python">
+                        def push(self, val):
+                            self.stack.append(val)
+                            if not self.min_stack or val <= self.min_stack[-1]:
+                                self.min_stack.append(val)
+                            else:
+                                self.min_stack.append(self.min_stack[-1])
+                                </code>
+                                </pre>
+                            </div>
+                            <div class="list">
+                                <ul>
+                                    <li>Always push <code class="code">val</code> onto <code class="code">stack</code>.</li>
+                                    <li>For <code class="code">min_stack</code>: if it's empty, or <code class="code">val</code> is smaller than (or equal to) the current minimum, push <code class="code">val</code> itself - it's the new minimum.</li>
+                                    <li>Otherwise, push a <strong>copy of the current minimum</strong> again. This keeps <code class="code">min_stack</code> the same length as <code class="code">stack</code>, so <code class="code">min_stack[-1]</code> always reflects the minimum "at this point in time."</li>
+                                </ul>
+                            </div>
+
+                            <p class="sub"><strong>Step 3: <code class="code">pop()</code> - remove from both stacks together</strong></p>
+                            <div id="language-python" class="code-block no-line-number">
+                                <pre>
+                                <code id="codeSnippetPython" class="language-python">
+                        def pop(self):
+                            self.stack.pop()
+                            self.min_stack.pop()
+                                </code>
+                                </pre>
+                            </div>
+                            <div class="list">
+                                <ul>
+                                    <li>Popping removes the top of both stacks in lockstep. Because <code class="code">min_stack[-1]</code> was the minimum <em>including</em> the value just removed, popping it automatically "reveals" the correct minimum for the smaller stack underneath - no recalculation needed.</li>
+                                </ul>
+                            </div>
+
+                            <p class="sub"><strong>Step 4: <code class="code">top()</code> - peek at the current value</strong></p>
+                            <div id="language-python" class="code-block no-line-number">
+                                <pre>
+                                <code id="codeSnippetPython" class="language-python">
+                        def top(self):
+                            return self.stack[-1]
+                                </code>
+                                </pre>
+                            </div>
+
+                            <p class="sub"><strong>Step 5: <code class="code">get_min()</code> - O(1) minimum lookup</strong></p>
+                            <div id="language-python" class="code-block no-line-number">
+                                <pre>
+                                <code id="codeSnippetPython" class="language-python">
+                        def get_min(self):
+                            return self.min_stack[-1]
+                                </code>
+                                </pre>
+                            </div>
+                            <p>This is the whole point of the design: no scanning, just read the top of <code class="code">min_stack</code>.</p>
+                            <div class="card-image">
+                                <img src="images/min-stack.webp" alt="Min stack problem">
+                            </div>
+
+                            <p class="sub"><strong>Trace through the example</strong></p>
+                            <div id="language-python" class="code-block no-line-number">
+                                <pre>
+                                <code id="codeSnippetPython" class="language-python">
+                        ms = MinStack()
+                        ms.push(5)   # stack=[5]         min_stack=[5]
+                        ms.push(2)   # stack=[5,2]       min_stack=[5,2]   (2 <= 5, so 2 is new min)
+                        ms.push(7)   # stack=[5,2,7]     min_stack=[5,2,2] (7 > 2, so repeat 2)
+
+                        print(ms.get_min())  # reads min_stack[-1] -> 2 
+
+                        ms.pop()      # stack=[5,2]     min_stack=[5,2]   (both 7 and its paired 2 removed)
+
+                        print(ms.get_min())  # reads min_stack[-1] -> 2 
+                                </code>
+                                </pre>
+                            </div>
+                            <p>Notice the top of each stack - that's always what <code class="code">top()</code> and <code class="code">get_min()</code> read from.</p>
+
+                            <div class="pro-tip">
+                                <p><strong>Why it works</strong></p>
+                                <p>The trick is that <strong><code class="code">min_stack</code> remembers the minimum "as of" each push</strong>, not just one global minimum:</p>
+                                <p>• When you push a smaller-or-equal value, that value <em>becomes</em> the new minimum, so it gets recorded.<br>
+                                • When you push a larger value, the minimum doesn't change, so the <em>same</em> minimum gets recorded again - just to keep <code class="code">min_stack</code> synchronized in length with <code class="code">stack</code>.<br>
+                                • When you <code class="code">pop()</code>, you're removing the top of both stacks together. Since <code class="code">min_stack[-1]</code> represented "the min including the popped element," removing it automatically exposes the correct minimum for whatever's left - no recomputation needed.</p>
+                            </div>
+
+                            <p class="sub"><strong>Complexity</strong></p>
+                            <div class="table-container">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Operation</th>
+                                            <th>Time</th>
+                                            <th>Space</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><code class="code">push</code></td>
+                                            <td>O(1)</td>
+                                            <td>-</td>
+                                        </tr>
+                                        <tr>
+                                            <td><code class="code">pop</code></td>
+                                            <td>O(1)</td>
+                                            <td>-</td>
+                                        </tr>
+                                        <tr>
+                                            <td><code class="code">top</code></td>
+                                            <td>O(1)</td>
+                                            <td>-</td>
+                                        </tr>
+                                        <tr>
+                                            <td><code class="code">get_min</code></td>
+                                            <td>O(1)</td>
+                                            <td>-</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <p>Overall space is O(n) since <code class="code">min_stack</code> grows in lockstep with <code class="code">stack</code> - that's the trade-off for making <code class="code">get_min()</code> instant instead of an O(n) scan.</p>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h4>Q2: Next Greater Element (Medium - "Monotonic Stack" pattern)</h4>
+                        <p>For each element in an array, find the next element to its right that is greater. If none exists, use -1.</p>
+                        <div id="language-python" class="code-block">
+                            <p>Python</p>
+                            <pre class="line-numbers">
+                            <code id="codeSnippetPython" class="language-python">
+def next_greater_element(nums):
+    result = [-1] * len(nums)
+    stack = []   # stores indices, kept in decreasing value order
+
+    for i in range(len(nums)):
+        while stack and nums[stack[-1]] < nums[i]:
+            idx = stack.pop()
+            result[idx] = nums[i]
+        stack.append(i)
+
+    return result
+
+
+print(next_greater_element([2, 1, 2, 4, 3]))
+# [4, 2, 4, -1, -1]
+</code>
+                            </pre>
+                        </div>
+                        <div class="explanation">
+                            <p class="sub"><strong class="subtitle">Step-by-Step Explanation</strong></p>
+
+                            <p class="sub"><strong>What the program does</strong></p>
+                            <p>For each number, we want to find the first number to its <em>right</em> that's bigger. Brute force would be O(n²) - for every element, scan rightward. This solution does it in O(n) using a <strong>monotonic decreasing stack</strong>: it stores <em>indices</em> of numbers that are still "waiting" for a greater number to appear.</p>
+                    
+                            <p class="sub"><strong>Step 1: Initialize result array and stack</strong></p>
+                            <div id="language-python" class="code-block no-line-number">
+                                <pre>
+                                <code id="codeSnippetPython" class="language-python">
+                        result = [-1] * len(nums)
+                        stack = []
+                                </code>
+                                </pre>
+                            </div>
+                            <div class="list">
+                                <ul>
+                                    <li><code class="code">result</code> - starts as all <code class="code">-1</code> (the default when no greater element exists).</li>
+                                    <li><code class="code">stack</code> - holds <em>indices</em> (not values), maintained so the values at those indices are always in decreasing order from bottom to top.</li>
+                                </ul>
+                            </div>
+
+                            <p class="sub"><strong>Step 2: Loop through each index</strong></p>
+                            <div id="language-python" class="code-block no-line-number">
+                                <pre>
+                                <code id="codeSnippetPython" class="language-python">
+                        for i in range(len(nums)):
+                                </code>
+                                </pre>
+                            </div>
+
+                            <p class="sub"><strong>Step 3: While the current number beats the stack's top value, resolve it</strong></p>
+                            <div id="language-python" class="code-block no-line-number">
+                                <pre>
+                                <code id="codeSnippetPython" class="language-python">
+                        while stack and nums[stack[-1]] < nums[i]:
+                            idx = stack.pop()
+                            result[idx] = nums[i]
+                                </code>
+                                </pre>
+                            </div>
+                            <div class="list">
+                                <ul>
+                                    <li>Peek at the index on top of the stack (<code class="code">stack[-1]</code>) and compare its value to the current number.</li>
+                                    <li>If the current number is bigger, that index has found its "next greater element" - pop it and record <code class="code">nums[i]</code> as its answer.</li>
+                                    <li>Keep popping as long as the current number beats the new top - one new number can resolve <em>multiple</em> waiting indices at once.</li>
+                                </ul>
+                            </div>
+
+                            <p class="sub"><strong>Step 4: Push the current index</strong></p>
+                            <div id="language-python" class="code-block no-line-number">
+                                <pre>
+                                <code id="codeSnippetPython" class="language-python">
+                        stack.append(i)
+                                </code>
+                                </pre>
+                            </div>
+                            <p>Once no more indices can be resolved by <code class="code">nums[i]</code>, push <code class="code">i</code> itself onto the stack - it now waits for something bigger to come later.</p>
+
+                            <p class="sub"><strong>Step 5: Return the result</strong></p>
+                            <div id="language-python" class="code-block no-line-number">
+                                <pre>
+                                <code id="codeSnippetPython" class="language-python">
+                        return result
+                                </code>
+                                </pre>
+                            </div>
+                            <p>Any index still on the stack when the loop ends never found a greater element, so it keeps its <code class="code">-1</code>.</p>
+                            <div class="card-image">
+                                <img src="images/next-greater-element.webp" alt="Min stack problem">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h4>Q3: Implement a Queue Using Two Stacks (Medium - classic)</h4>
+                        <p>Shows you understand how LIFO can simulate FIFO.</p>
+                        <div id="language-python" class="code-block">
+                            <p>Python</p>
+                            <pre class="line-numbers">
+                            <code id="codeSnippetPython" class="language-python">
+def next_greater_element(nums):
+    result = [-1] * len(nums)
+    stack = []   # stores indices, kept in decreasing value order
+
+    for i in range(len(nums)):
+        while stack and nums[stack[-1]] < nums[i]:
+            idx = stack.pop()
+            result[idx] = nums[i]
+        stack.append(i)
+
+    return result
+
+
+print(next_greater_element([2, 1, 2, 4, 3]))
+# [4, 2, 4, -1, -1]
+</code>
+                            </pre>
+                        </div>
+                        <div class="explanation">
+                            <p class="sub"><strong class="subtitle">Step-by-Step Explanation</strong></p>
+
+                            <p class="sub"><strong>Overall idea</strong></p>
+                            <p>A stack is LIFO (last-in-first-out), but a queue needs FIFO (first-in-first-out). The trick: use two stacks together.</p>
+                            <div class="list">
+                                <ul>
+                                    <li><code class="code">in_stack</code> - where new elements are pushed as they arrive.</li>
+                                    <li><code class="code">out_stack</code> - where elements are popped from to serve <code class="code">dequeue()</code>.</li>
+                                </ul>
+                            </div>
+                            <p>Since a stack reverses order once, and reversing twice restores the original order, moving everything from <code class="code">in_stack</code> to <code class="code">out_stack</code> (one pop-push at a time) flips the order back to FIFO.</p>
+
+                            <p class="sub"><strong>Step 1: Constructor - two empty stacks</strong></p>
+                            <div id="language-python" class="code-block no-line-number">
+                                <pre>
+                                <code id="codeSnippetPython" class="language-python">
+                        def __init__(self):
+                            self.in_stack = []
+                            self.out_stack = []
+                                </code>
+                                </pre>
+                            </div>
+
+                            <p class="sub"><strong>Step 2: <code class="code">enqueue(x)</code> - always push to <code class="code">in_stack</code></strong></p>
+                            <div id="language-python" class="code-block no-line-number">
+                                <pre>
+                                <code id="codeSnippetPython" class="language-python">
+                        def enqueue(self, x):
+                            self.in_stack.append(x)
+                                </code>
+                                </pre>
+                            </div>
+                            <p>This is O(1) - new elements just pile onto <code class="code">in_stack</code>, most recent on top.</p>
+
+                            <p class="sub"><strong>Step 3: <code class="code">dequeue()</code> - pop from <code class="code">out_stack</code>, refilling it if needed</strong></p>
+                            <div id="language-python" class="code-block no-line-number">
+                                <pre>
+                                <code id="codeSnippetPython" class="language-python">
+                        def dequeue(self):
+                            if not self.out_stack:
+                                while self.in_stack:
+                                    self.out_stack.append(self.in_stack.pop())
+                            if not self.out_stack:
+                                raise IndexError("dequeue from empty queue")
+                            return self.out_stack.pop()
+                                </code>
+                                </pre>
+                            </div>
+                            <div class="list">
+                                <ul>
+                                    <li><strong>Only refill <code class="code">out_stack</code> when it's empty:</strong> If <code class="code">out_stack</code> still has elements, they're already in the correct FIFO order - no need to touch <code class="code">in_stack</code>.</li>
+                                    <li><strong>The transfer loop reverses order:</strong> Popping everything off <code class="code">in_stack</code> (which pops most-recently-enqueued first) and pushing it onto <code class="code">out_stack</code> flips it, so the <em>oldest</em> enqueued element ends up on top of <code class="code">out_stack</code>.</li>
+                                    <li><strong>If both stacks are empty:</strong> The queue truly has nothing left - raise an error.</li>
+                                    <li><strong>Pop and return:</strong> The top of <code class="code">out_stack</code> - that's the oldest remaining element.</li>
+                                </ul>
+                            </div>
+                            <div class="card-image">
+                                <img src="images/queue-using-two-stacks.webp" alt="Min stack problem">
+                            </div>
+
+                            <p class="sub"><strong>Trace through the example</strong></p>
+                            <div id="language-python" class="code-block no-line-number">
+                                <pre>
+                                <code id="codeSnippetPython" class="language-python">
+                        q = QueueUsingStacks()
+                        q.enqueue(1)   # in_stack=[1]
+                        q.enqueue(2)   # in_stack=[1,2]
+                        q.enqueue(3)   # in_stack=[1,2,3]   out_stack=[]
+
+                        print(q.dequeue())
+                        # out_stack is empty -> transfer everything:
+                        #   pop 3 from in_stack, push to out_stack -> out_stack=[3]
+                        #   pop 2 from in_stack, push to out_stack -> out_stack=[3,2]
+                        #   pop 1 from in_stack, push to out_stack -> out_stack=[3,2,1]
+                        # in_stack is now empty
+                        # pop from out_stack -> returns 1   (the oldest element, as FIFO requires)
+                                </code>
+                                </pre>
+                            </div>
+                            <p>After this call: <code class="code">in_stack = []</code>, <code class="code">out_stack = [3, 2]</code>. A second <code class="code">dequeue()</code> would return <code class="code">2</code> immediately (no transfer needed, since <code class="code">out_stack</code> isn't empty), and a third would return <code class="code">3</code>.</p>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h4>Q4: Largest Rectangle in Histogram (Hard)</h4>
+                        <p>Given bar heights, find the area of the largest rectangle that fits under the histogram. This is the "boss level" monotonic stack question - once you can solve this, you've mastered the pattern.</p>
+                        <div id="language-python" class="code-block">
+                            <p>Python</p>
+                            <pre class="line-numbers">
+                            <code id="codeSnippetPython" class="language-python">
+def largest_rectangle_area(heights):
+    stack = []          # stores indices, increasing height order
+    max_area = 0
+    heights.append(0)   # sentinel to flush remaining stack at the end
+
+    for i, h in enumerate(heights):
+        while stack and heights[stack[-1]] > h:
+            height = heights[stack.pop()]
+            width = i if not stack else i - stack[-1] - 1
+            max_area = max(max_area, height * width)
+        stack.append(i)
+
+    return max_area
+
+
+print(largest_rectangle_area([2, 1, 5, 6, 2, 3]))  # 10
+</code>
+                            </pre>
+                        </div>
+                        <div class="explanation">
+                            <h4>Step-by-Step Explanation</h4>
+
+                            <p class="sub"><strong>Overall idea</strong></p>
+                            <p>Given a histogram of bar heights, find the largest rectangle that fits entirely within the bars. The brute-force approach checks every pair of left/right boundaries - O(n²). This solution uses a <strong>monotonic increasing stack</strong> of indices to compute it in O(n).</p>
+            
+                            <p class="sub"><strong>Step 1: Setup</strong></p>
+                            <div id="language-python" class="code-block no-line-number">
+                                <pre>
+                                <code id="codeSnippetPython" class="language-python">
+                        stack = []
+                        max_area = 0
+                        heights.append(0)   # sentinel
+                                </code>
+                                </pre>
+                            </div>
+                            <div class="list">
+                                <ul>
+                                    <li><code class="code">stack</code> - holds indices of bars in <strong>increasing height order</strong> - every bar on the stack is taller than the one below it.</li>
+                                    <li>The sentinel <code class="code">0</code> appended at the end guarantees that, by the final iteration, everything still on the stack gets forced to pop and resolve - no leftover bars.</li>
+                                </ul>
+                            </div>
+
+                            <p class="sub"><strong>Step 2: Loop through every bar (including the sentinel)</strong></p>
+                            <div id="language-python" class="code-block no-line-number">
+                                <pre>
+                                <code id="codeSnippetPython" class="language-python">
+                        for i, h in enumerate(heights):
+                                </code>
+                                </pre>
+                            </div>
+
+                            <p class="sub"><strong>Step 3: Pop and resolve while the current bar is shorter than the stack's top</strong></p>
+                            <div id="language-python" class="code-block no-line-number">
+                                <pre>
+                                <code id="codeSnippetPython" class="language-python">
+                        while stack and heights[stack[-1]] > h:
+                            height = heights[stack.pop()]
+                            width = i if not stack else i - stack[-1] - 1
+                            max_area = max(max_area, height * width)
+                                </code>
+                                </pre>
+                            </div>
+                            <div class="list">
+                                <ul>
+                                    <li><code class="code">heights[stack[-1]] > h</code> means the bar on top of the stack can't extend any further right - bar <code class="code">i</code> is too short to continue its rectangle.</li>
+                                    <li>Pop it. Its <strong>height</strong> is just its own height.</li>
+                                    <li>Its <strong>width</strong> is the distance between the <em>new</em> stack top (the nearest shorter bar to its left) and <code class="code">i</code> (the nearest shorter bar to its right), minus 1. If the stack becomes empty, that bar was the shortest seen so far, so it stretches all the way from index <code class="code">0</code> to <code class="code">i</code>.</li>
+                                    <li>Update <code class="code">max_area</code> if this rectangle beats the current best.</li>
+                                </ul>
+                            </div>
+
+                            <p class="sub"><strong>Step 4: Push the current index</strong></p>
+                            <div id="language-python" class="code-block no-line-number">
+                                <pre>
+                                <code id="codeSnippetPython" class="language-python">
+                        stack.append(i)
+                                </code>
+                                </pre>
+                            </div>
+                            <p>Once nothing shorter remains on top, <code class="code">i</code> joins the stack, waiting to be resolved later.</p>
+
+                            <p class="sub"><strong>Step 5: Return the answer</strong></p>
+                            <div id="language-python" class="code-block no-line-number">
+                                <pre>
+                                <code id="codeSnippetPython" class="language-python">
+                        return max_area
+                                </code>
+                                </pre>
+                            </div>
+
+                            <p>The dashed outline shows the winning rectangle: it's capped at height <code class="code">5</code> (the shorter of the two bars it spans) and stretches across bar indices 2 and 3 - width <code class="code">2</code> - giving area <code class="code">10</code>.</p>
+
+                            <p class="sub"><strong>Trace through the stack</strong></p>
+                            <p><code class="code">heights = [2, 1, 5, 6, 2, 3, 0]</code> (sentinel <code class="code">0</code> appended)</p>
+
+                            <div class="table-container">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>i</th>
+                                            <th>h</th>
+                                            <th>Action</th>
+                                            <th>Popped (height, width, area)</th>
+                                            <th>stack after</th>
+                                            <th>max_area</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>0</td>
+                                            <td>2</td>
+                                            <td>push</td>
+                                            <td>-</td>
+                                            <td><code class="code">[0]</code></td>
+                                            <td>0</td>
+                                        </tr>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>1</td>
+                                            <td><code class="code">heights[0]=2 > 1</code> &rarr; pop</td>
+                                            <td>(2, 1, 2)</td>
+                                            <td><code class="code">[1]</code></td>
+                                            <td>2</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>5</td>
+                                            <td>push</td>
+                                            <td>-</td>
+                                            <td><code class="code">[1,2]</code></td>
+                                            <td>2</td>
+                                        </tr>
+                                        <tr>
+                                            <td>3</td>
+                                            <td>6</td>
+                                            <td>push</td>
+                                            <td>-</td>
+                                            <td><code class="code">[1,2,3]</code></td>
+                                            <td>2</td>
+                                        </tr>
+                                        <tr>
+                                            <td>4</td>
+                                            <td>2</td>
+                                            <td><code class="code">heights[3]=6>2</code> &rarr; pop</td>
+                                            <td>(6, 1, 6)</td>
+                                            <td><code class="code">[1,2]</code></td>
+                                            <td>6</td>
+                                        </tr>
+                                        <tr>
+                                            <td>4</td>
+                                            <td>2</td>
+                                            <td><code class="code">heights[2]=5>2</code> &rarr; pop</td>
+                                            <td>(5, 2, <strong>10</strong>)</td>
+                                            <td><code class="code">[1]</code></td>
+                                            <td><strong>10</strong></td>
+                                        </tr>
+                                        <tr>
+                                            <td>4</td>
+                                            <td>2</td>
+                                            <td><code class="code">heights[1]=1</code> not <code class="code">>2</code> &rarr; stop, push</td>
+                                            <td>-</td>
+                                            <td><code class="code">[1,4]</code></td>
+                                            <td>10</td>
+                                        </tr>
+                                        <tr>
+                                            <td>5</td>
+                                            <td>3</td>
+                                            <td>push</td>
+                                            <td>-</td>
+                                            <td><code class="code">[1,4,5]</code></td>
+                                            <td>10</td>
+                                        </tr>
+                                        <tr>
+                                            <td>6</td>
+                                            <td>0</td>
+                                            <td><code class="code">heights[5]=3>0</code> &rarr; pop</td>
+                                            <td>(3, 1, 3)</td>
+                                            <td><code class="code">[1,4]</code></td>
+                                            <td>10</td>
+                                        </tr>
+                                        <tr>
+                                            <td>6</td>
+                                            <td>0</td>
+                                            <td><code class="code">heights[4]=2>0</code> &rarr; pop</td>
+                                            <td>(2, 4, 8)</td>
+                                            <td><code class="code">[1]</code></td>
+                                            <td>10</td>
+                                        </tr>
+                                        <tr>
+                                            <td>6</td>
+                                            <td>0</td>
+                                            <td><code class="code">heights[1]=1>0</code> &rarr; pop</td>
+                                            <td>(1, 6, 6)</td>
+                                            <td><code class="code">[]</code></td>
+                                            <td>10</td>
+                                        </tr>
+                                        <tr>
+                                            <td>6</td>
+                                            <td>0</td>
+                                            <td>stack empty &rarr; stop, push</td>
+                                            <td>-</td>
+                                            <td><code class="code">[6]</code></td>
+                                            <td>10</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <p>Final answer: <strong><code class="code">max_area = 10</code></strong></p>
+
+                            <div class="pro-tip">
+                                <p><strong>The critical width formula</strong></p>
+                                <div id="language-python" class="code-block no-line-number">
+                                    <pre>
+                                    <code id="codeSnippetPython" class="language-python">
+                        width = i if not stack else i - stack[-1] - 1
+                                    </code>
+                                    </pre>
+                                </div>
+                                <p>• <strong><code class="code">i</code> (stack now empty):</strong> The popped bar was the shortest bar seen so far, so its rectangle spans from index <code class="code">0</code> all the way to <code class="code">i - 1</code> - that's <code class="code">i</code> bars wide.<br>
+                                • <strong><code class="code">i - stack[-1] - 1</code> (stack non-empty):</strong> <code class="code">stack[-1]</code> is the nearest <em>shorter</em> bar remaining to the left, and <code class="code">i</code> is the nearest shorter bar to the right. The rectangle spans strictly between them, exclusive of both boundaries.</p>
+                                <p>This is exactly why bar <code class="code">2</code> (height <code class="code">5</code>) gets width <code class="code">2</code>: its left boundary is index <code class="code">1</code> (height <code class="code">1</code>, too short), its right boundary is index <code class="code">4</code> (height <code class="code">2</code>, too short), so it spans indices <code class="code">2</code> and <code class="code">3</code> &rarr; <code class="code">4 - 1 - 1 = 2</code>.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="github-link"><strong> <a href="https://github.com/kumaradoss16/python-learning/tree/main/dsa/stack" target="_blank"><i
+                    class="fa-brands fa-github"></i> Click here</a></strong> to access the source code repository.</p>
+                </div>
+                <hr>
+                
+                <div class="content" id="step-6">
+                    <h3>6. Common Patterns Table</h3>
+
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Pattern</th>
+                                    <th>Signal / Keywords in the Problem</th>
+                                    <th>Example Problems</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Matching / balancing</strong></td>
+                                    <td>"Valid," "balanced," "nested," brackets/tags</td>
+                                    <td><code class="code">Valid Parentheses</code>, HTML tag validation</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Monotonic stack</strong></td>
+                                    <td>"Next greater/smaller," "how many days until," "span"</td>
+                                    <td><code class="code">Next Greater Element</code>, <code class="code">Daily Temperatures</code>, <code class="code">Stock Span</code></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Two-stack trick</strong></td>
+                                    <td>Need FIFO behavior but only LIFO tools available</td>
+                                    <td><code class="code">Queue using Stacks</code></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>State history</strong></td>
+                                    <td>"Undo," "go back," "previous state," "history"</td>
+                                    <td>Text editor undo, <code class="code">Browser history</code></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Expression evaluation</strong></td>
+                                    <td>Postfix/prefix notation, "calculator," nested operators</td>
+                                    <td><code class="code">Evaluate RPN</code>, <code class="code">Basic Calculator</code></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Area/width from bounds</strong></td>
+                                    <td>"Largest rectangle," "trap water," "container"</td>
+                                    <td><code class="code">Largest Rectangle in Histogram</code>, <code class="code">Trapping Rain Water</code></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <hr>
+
+                <div class="content" id="step-7">
+                    <h3>7. Practice Roadmap</h3>
+                    <p>Work through these roughly in order - easy to hard:</p>
+                    <div class="list">
+                        <ol>
+                            <li>Valid Parentheses - Easy (LeetCode #20)</li>
+                            <li>Implement Stack using Array/Linked List - Easy (foundational, not always on LeetCode directly - practice by building your own)</li>
+                            <li>Min Stack - Medium (LeetCode #155)</li>
+                            <li>Evaluate Reverse Polish Notation - Medium (LeetCode #150)</li>
+                            <li>Implement Queue using Stacks - Easy/Medium (LeetCode #232)</li>
+                            <li>Next Greater Element I & II - Easy/Medium (LeetCode #496, #503)</li>
+                            <li>Daily Temperatures - Medium (LeetCode #739)</li>
+                            <li>Basic Calculator - Hard (LeetCode #224)</li>
+                            <li>Largest Rectangle in Histogram - Hard (LeetCode #84)</li>
+                            <li>Trapping Rain Water - Hard (LeetCode #42)</li>
+                        </ol>
+                    </div>
+
+                    <h4>Suggested platforms:</h4>
+                    <div class="list">
+                        <ol>
+                            <li><strong>LeetCode:</strong> filter by the "Stack" tag directly.</li>
+                            <li><strong>NeetCode 150:</strong> curated list that groups these in a logical learning order, with video walkthroughs.</li>
+                            <li><strong>Codeforces:</strong> for more competitive-style stack problems once you're comfortable with the basics.</li>
+                        </ol>
+                    </div>
+                </div>
+                <div class="pro-tip" style="background: #020617;">
+                    <p>Next logical topic: <a href="../queue-data-structure-in-python/queue-data-structure-in-python.html" class="link">Queues</a> - since Question 3 above (Queue using Stacks) is a natural bridge between the two structures, and Queues introduce the BFS traversal pattern that pairs with Stack-driven DFS.</p>
+                </div>
+               <div class="tutorial-card">
+                    <!-- tutorial content -->
+
+                    <a class="next-tutorial"
+                    href="../queue-data-structure-in-python/queue-data-structure-in-python.html">
+                        Next Tutorial: Queue
+                    </a>
+                </div>
+            </section>
+
+            <div class="next-section">
+                <div class="next">
+                    <div class="header">
+                        <h3>How to Implement Google Sign-In with Firebase & JavaScript</h3>
+                        <p>Tutorial</p>
+                    </div>
+                    <div class="content">
+                        <p>mplement Google Sign-In with Firebase JS — no backend.
+                        </p>
+                        <a href="../../../implement-google-sign-in-with-firebase-javascript/implement-google-sign-in-with-firebase-javascript.html" class="next-button" target="_blank">Go To Next Tutorial</a>
+                    </div>
+                </div>
+                <div class="next">
+                    <div class="header">
+                        <h3>C Programming</h3>
+                        <p>Tutorial</p>
+                    </div>
+                    <div class="content">
+                        <p>Beginner-friendly C programming chapters: follow our step-by-step path from Hello World to real-world projects.
+                        <a href="../../../c-programming-tutorial/c-programming-tutorial-beginners-complete-guide.html" class="next-button" target="_blank">Go To Tutorial</a>
+                    </div>
+                </div>
+            </div>
+            <div class="next">
+                    <div class="header">
+                        <h3>How to Create and Deploy a Flask App on VPS</h3>
+                        <p>Tutorial</p>
+                    </div>
+                    <div class="content">
+                        <p>Deploy Flask on VPS with Nginx, Gunicorn & SSL. Free & paid options for beginners.
+                        <a href="../../../how-to-create-and-deploy-a-flask-app-on-vps/how-to-create-and-deploy-a-flask-app-on-vps.html" class="next-button" target="_blank">Go To Tutorial</a>
+                    </div>
+                </div>
+        </main>
+
+        <!-- Right Side  -->
+        <aside class="right-column">
+            <div class="about-website moving-border">
+                <h3>About Website</h3>
+                <p><a class="homepage typewriter-scan" href="../../../../../index.html"><strong>DevspireHub</strong></a>
+                    is a
+                    beginner-friendly learning
+                    platform offering
+                    step-by-step tutorials in
+                    programming, ethical hacking,
+                    networking, automation, cloud and Windows setup. Learn through hands-on projects, clear
+                    explanations, and
+                    real-world examples
+                    using practical tools and open-source resources-no signups, no tracking, just actionable knowledge
+                    to accelerate your
+                    technical skills.
+                </p>
+            </div>
+            <script async
+                src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2368356039533778"
+                crossorigin="anonymous"></script>
+            <!-- sidebar ads -->
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2368356039533778"
+                data-ad-slot="5621407319" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+
+            <div class="color-palette">
+                <div>
+                    <h3>Color Space</h3>
+                    <p>Discover Perfect Palettes</p>
+                </div>
+                <div class="palette-grid">
+                    <div class="palette-card">
+                        <!-- Color bars (set your palette colors here) -->
+                        <div class="color-wave colors-5">
+                            <div class="wave-bar" style="background:#F2C447" data-color="#F2C447"></div>
+                            <div class="wave-bar" style="background:#F76218" data-color="#F76218"></div>
+                            <div class="wave-bar" style="background:#FF1D68" data-color="#FF1D68"></div>
+                            <div class="wave-bar" style="background:#B10065" data-color="#B10065"></div>
+                            <div class="wave-bar" style="background:#740580" data-color="#740580"></div>
+                        </div>
+
+                        <div class="card-info">
+                            <div class="card-title">Sample Palette</div>
+                        </div>
+                    </div>
+                    <div class="button">
+                        <a href="../../../../../color-palettes/index.html" class="color-button">Go To Color Space Home
+                            Page</a>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <!-- BANNER - Featured Open-Source Projects -->
+                <aside class="banner" aria-label="Featured Open-Source Projects">
+
+                    <!-- HEADER -->
+                    <div class="banner-header">
+                        <div class="banner-count-badge">
+                            <span class="live-dot"></span>
+                            <span>Live</span>
+                        </div>
+
+                        <div class="banner-chip">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+                                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61
+                                 c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77
+                                 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48
+                                 a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1
+                                 A5.07 5.07 0 0 0 5 4.77 5.44 5.44 0 0 0 3.5 8.55
+                                 c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+                            </svg>
+                            Open-Source Picks
+                        </div>
+
+                        <h3 class="banner-title">
+                            Featured <em>Open-Source</em><br>Projects
+                        </h3>
+                        <p class="banner-sub">
+                            Hand-picked repos across AI, Security, Dev&nbsp;&amp;&nbsp;more - updated weekly.
+                        </p>
+
+                        <!-- STATS -->
+                        <div class="banner-stats">
+                            <div class="stat-pill">
+                                <span class="stat-pill-num" id="js-total-count">0</span>
+                                <span class="stat-pill-lbl">Repos</span>
+                            </div>
+                            <div class="stat-pill">
+                                <span class="stat-pill-num" id="js-cats-count">0</span>
+                                <span class="stat-pill-lbl">Cats</span>
+                            </div>
+                            <div class="stat-pill">
+                                <span class="stat-pill-num" id="js-new-count">0</span>
+                                <span class="stat-pill-lbl">New</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- TICKER -->
+                    <div class="banner-ticker" aria-label="Categories">
+                        <div class="ticker-track" id="ticker">
+                            <!-- filled by JS -->
+                        </div>
+                    </div>
+
+                    <!-- CTA -->
+                    <a href="https://devspirehub.com/github/featured_open-source_projects" target="_blank"
+                        rel="noopener noreferrer" class="banner-cta">
+                        Explore All Projects
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+                            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            e x1="7" y1="17" x2="17" y2="7"/>
+                            <polyline points="7 7 17 7 17 17" />
+                        </svg>
+                    </a>
+
+                </aside>
+            </div>
+
+            <div class="wallpaper">
+                <div>
+                    <h3>Featured Wallpapers (For desktop)</h3>
+                    <p>Download for FREE!</p>
+                </div>
+                <div class="image-grid">
+                    <div class="image-card">
+                        <img src="../../../../../Wallpaper/images_upscale/wallpaper (1).png" alt="Wallpaper 1">
+                    </div>
+                    <div class="image-card">
+                        <img src="../../../../../Wallpaper/images_upscale/wallpaper (23).png" alt="Wallpaper 23">
+                    </div>
+                    <div class="image-card">
+                        <img src="../../../../../Wallpaper/images_upscale/wallpaper (46).png" alt="Wallpaper 46">
+                    </div>
+                    <div class="image-card">
+                        <img src="../../../../../Wallpaper/images_upscale/wallpaper (81).png" alt="Wallpaper 81">
+                    </div>
+                    <div class="image-card">
+                        <img src="../../../../../Wallpaper/images_upscale/wallpaper (111).png" alt="Wallpaper 111">
+                    </div>
+                    <div class="image-card">
+                        <img src="../../../../../Wallpaper/images_upscale/wallpaper (116).png" alt="Wallpaper 116">
+                    </div>
+                </div>
+                <div class="button">
+                    <a href="../../../../../Wallpaper/index.html" target="_blank" class="wallpaper-button">Go To Wallpaper Home
+                        Page</a>
+                </div>
+            </div>
+
+            <!-- Open Source Tools Directory -->
+            <div class="related-topics">
+                <div class="header">
+                    <h3>Open-Source Tools Directory</h3>
+                    <p><strong>Complete spectrum of open-source software in Github</strong>
+                    </p>
+                </div>
+                <div class="content">
+                    <ul>
+                        <li><i class="fas fa-code"></i><a
+                                href="../../../../../Resources/tools-directory/index.html#category-2"
+                                class="link" target="_blank">Programming</a></li>
+                        <li><i class="fas fa-globe"></i><a
+                                href="../../../../../Resources/tools-directory/index.html#category-3" class="link" target="_blank">Web
+                                Development</a></li>
+                        <li><i class="fas fa-network-wired"></i><a
+                                href="../../../../../Resources/tools-directory/index.html#category-4"
+                                class="link" target="_blank">Networking</a></li>
+                        <li><i class="fas fa-shield-alt"></i><a
+                                href="../../../../../Resources/tools-directory/index.html#category-5" class="link" target="_blank">Ethical
+                                Hacking</a></li>
+                        <li><i class="fas fa-microchip"></i><a
+                                href="../../../../../Resources/tools-directory/index.html#category-6"
+                                class="link" target="_blank">Hardware</a>
+                        </li>
+                        <li><i class="fas fa-tasks"></i><a
+                                href="../../../../../Resources/tools-directory/index.html#category-7"
+                                class="link" target="_blank">Productivity</a></li>
+                    </ul>
+                </div>
+                <div class="button-container">
+                    <div class="btn-cyber">
+                        <span class="btn-bg"></span>
+                        <span class="btn-border"></span>
+                        <span class="btn-text">
+                            <a href="../../../../../Resources/digital-resources/digital-resources-hub.html"
+                                class="related-button" target="_blank">
+                                Open-Source
+                                Tools</a> <span class="blink">_</span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <section class="deals-section">
+                <div class="deals-header">
+                    <h2>HOT DEALS</h2>
+                    <div class="deals-underline"></div>
+                </div>
+
+                <!-- Cards injected dynamically from amazon-links.json -->
+                <div class="deals-grid" id="dealsGrid">
+                    <div class="deal-skeleton">
+                    </div>
+                    <div class="deal-skeleton"></div>
+                    <div class="deal-skeleton"></div>
+                    <div class="deal-skeleton"></div>
+                    <div class="deal-skeleton"></div>
+                    <div class="deal-skeleton"></div>
+                </div>
+
+                <div class="deals-page-indicator" id="dealsPageIndicator"></div>
+
+                <div class="deals-nav">
+                    <button class="deal-arrow-btn" onclick="scrollDeals(-1)" aria-label="Previous">&#8592;</button>
+                    <button class="deal-arrow-btn" onclick="scrollDeals(1)" aria-label="Next">&#8594;</button>
+                </div>
+            </section>
+
+
+            <script async
+                src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2368356039533778"
+                crossorigin="anonymous"></script>
+            <!-- sidebar ads -->
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2368356039533778"
+                data-ad-slot="5621407319" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+
+            <script async
+                src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2368356039533778"
+                crossorigin="anonymous"></script>
+            <!-- sidebar ads -->
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2368356039533778"
+                data-ad-slot="5621407319" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </aside>
+        <button id="scrollUpBtn" aria-label="Scroll to top">
+            <svg class="progress-circle" viewBox="0 0 36 36">
+                <path class="bg" d="M18 2.0845
+                  a 15.9155 15.9155 0 0 1 0 31.831
+                  a 15.9155 15.9155 0 0 1 0 -31.831" />
+                <path class="progress" d="M18 2.0845
+                  a 15.9155 15.9155 0 0 1 0 31.831
+                  a 15.9155 15.9155 0 0 1 0 -31.831" />
+                <span class="arrow-overlay">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 19V5M5 12L12 5L19 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                </span>
+            </svg>
+        </button>
+    </div>
+    <!--Footer  -->
+    <footer class="footer">
+        <ul class="menu">
+            <li class="menu-item"><a class="menu-link" href="../../../../../index.html">Home</a></li>
+            <li class="menu-item"><a class="menu-link" href="../../../../../Wallpaper/index.html">Wallpapers</a></li>
+            <li class="menu-item"><a class="menu-link" href="../../../../../color-palettes/index.html">Color Space</a></li>
+            <li class="menu-item"><a class="menu-link"
+                    href="../../../../../Resources/digital-resources/digital-resources-hub.html">Resources</a></li>
+            <li class="menu-item"><a class="menu-link" href="../../../../../Website/about/about.html">About</a></li>
+            <li class="menu-item"><a class="menu-link" href="../../../../../Website/contact/index.html">Contact</a></li>
+            <li class="menu-item"><a class="menu-link" href="../../../../../Website/privacy/index.html">Privacy policy</a>
+            </li>
+        </ul>
+        <div class="contacts">
+            <a class="contact github" href="https://github.com/kumaradoss16" target="_blank"><i
+                    class="fa-brands fa-github"></i></a>
+            <a class="contact instagram" href="https://www.instagram.com/devspirehub/" target="_blank"><i
+                    class="fa-brands fa-instagram"></i></a>
+            <a class="contact linkedin" href="https://www.linkedin.com/in/kumaradoss-s/" target="_blank"><i
+                    class="fa-brands fa-linkedin"></i></a>
+            <a class="contact facebook" href="https://www.facebook.com/profile.php?id=61577667990170&_rdr"
+                target="_blank"><i class="fa-brands fa-facebook"></i></a>
+            <a class="contact gmail" href="https://mail.google.com/mail/?view=cm&fs=1&to=devspirehub.website@gmail.com"
+                aria-label="Email us at devspirehub.website@gmail.com" title="Send us an email" target="_blank"
+                rel="noopener noreferrer">
+                <i class="fa-solid fa-envelope"></i>
+            </a>
+        </div>
+        <p>&copy;2026 DevspireHub | All Rights Reserved</p>
+    </footer>
+
+    <script>
+        (function () {
+        "use strict";
+
+        // Adds a "Copy" button to every Prism <pre> code block on the page.
+        // Runs after DOM is ready; skips blocks that already have a button
+        // (in case script.js already does this) to avoid duplicates.
+        function addCopyButtons() {
+            document.querySelectorAll("pre").forEach(function (pre) {
+            if (pre.querySelector(".ds-copy-btn")) return; // already has one
+
+            var btn = document.createElement("button");
+            btn.className = "ds-copy-btn";
+            btn.type = "button";
+            btn.textContent = "Copy";
+            btn.setAttribute("aria-label", "Copy code to clipboard");
+
+            // Minimal inline styling so it works even if CSS isn't updated
+            btn.style.position = "absolute";
+            btn.style.top = "8px";
+            btn.style.right = "8px";
+            btn.style.fontSize = "12px";
+            btn.style.padding = "4px 10px";
+            btn.style.cursor = "pointer";
+            btn.style.borderRadius = "4px";
+            btn.style.border = "1px solid #334155";
+            btn.style.background = "#0f172a";
+            btn.style.color = "#e2e8f0";
+
+            pre.style.position = pre.style.position || "relative";
+            pre.appendChild(btn);
+
+            btn.addEventListener("click", function () {
+                var codeEl = pre.querySelector("code") || pre;
+                var text = codeEl.innerText;
+
+                navigator.clipboard.writeText(text).then(function () {
+                btn.textContent = "Copied!";
+                setTimeout(function () { btn.textContent = "Copy"; }, 1500);
+                }).catch(function () {
+                btn.textContent = "Failed";
+                setTimeout(function () { btn.textContent = "Copy"; }, 1500);
+                });
+            });
+            });
+        }
+
+        // Highlights the active Table of Contents link as the user scrolls
+        // through step-1 ... step-7 sections. Uses IntersectionObserver for
+        // performance (no scroll-event polling).
+        function initTocScrollSpy() {
+            var tocLinks = document.querySelectorAll(".table-of-contents-section a[href^='#step-']");
+            if (!tocLinks.length) return;
+
+            var sections = Array.from(tocLinks)
+            .map(function (link) { return document.querySelector(link.getAttribute("href")); })
+            .filter(Boolean);
+
+            if (!sections.length) return;
+
+            var observer = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (!entry.isIntersecting) return;
+                var id = "#" + entry.target.id;
+                tocLinks.forEach(function (link) {
+                link.classList.toggle("active", link.getAttribute("href") === id);
+                });
+            });
+            }, { rootMargin: "-30% 0px -60% 0px" });
+
+            sections.forEach(function (section) { observer.observe(section); });
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            addCopyButtons();
+            initTocScrollSpy();
+        });
+        })();
+        </script>
+
+    <script src="../../../../Prism/prism.js"></script>
+    <!-- <link rel="stylesheet" href="../../../Prism/nightfall.js" /> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+    <script src="../../../../../repos-data.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
