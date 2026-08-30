@@ -180,6 +180,184 @@ document.addEventListener('DOMContentLoaded', () => {
   initBanner();
 });
 
+// Adds checkboxes to <li> items inside the "Practice Roadmap" section
+// (id="step-7") and remembers checked state per-page in localStorage.
+// Shows a "X/Y solved" progress line above the list.
+function initRoadmapTracker() {
+  var roadmap = document.querySelector("#step-7");
+  if (!roadmap) return;
+
+  var items = roadmap.querySelectorAll("li");
+  if (!items.length) return;
+
+  var storageKey = "ds-roadmap-" + location.pathname;
+  var saved = JSON.parse(localStorage.getItem(storageKey) || "{}");
+
+  var progressEl = document.createElement("p");
+  progressEl.style.cssText = "font-weight:600;margin-bottom:12px;color:#f97316;";
+  roadmap.querySelector("h3")?.insertAdjacentElement("afterend", progressEl);
+
+  function updateProgress() {
+    var checked = roadmap.querySelectorAll("input[type=checkbox]:checked").length;
+    progressEl.textContent = checked + " / " + items.length + " problems solved";
+  }
+
+  items.forEach(function (li, i) {
+    var checkbox = document.createElement("input");
+    checkbox.type = "checkbox";
+    checkbox.style.marginRight = "8px";
+    checkbox.checked = !!saved[i];
+    checkbox.addEventListener("change", function () {
+      saved[i] = checkbox.checked;
+      localStorage.setItem(storageKey, JSON.stringify(saved));
+      updateProgress();
+    });
+    li.prepend(checkbox);
+  });
+
+  updateProgress();
+}
+
+// Saves scroll position per-URL in localStorage (throttled) and shows a
+// small dismissible banner on return visits offering to resume reading.
+function initResumeReading() {
+  var storageKey = "ds-scroll-" + location.pathname;
+  var saved = localStorage.getItem(storageKey);
+
+  if (saved && parseInt(saved, 10) > 400) {
+    var banner = document.createElement("div");
+    banner.style.cssText =
+      "position:fixed;bottom:20px;left:20px;right:20px;max-width:360px;" +
+      "background:#0f172a;color:#e2e8f0;padding:12px 16px;border-radius:8px;" +
+      "box-shadow:0 4px 12px rgba(0,0,0,.3);z-index:999;font-size:14px;" +
+      "display:flex;justify-content:space-between;align-items:center;gap:12px;";
+    banner.innerHTML =
+      '<span>Resume where you left off?</span>' +
+      '<span style="display:flex;gap:8px;">' +
+      '<button id="ds-resume-yes" style="background:#f97316;border:none;color:#fff;padding:6px 12px;border-radius:4px;cursor:pointer;">Resume</button>' +
+      '<button id="ds-resume-no" style="background:transparent;border:none;color:#94a3b8;cursor:pointer;">✕</button>' +
+      '</span>';
+    document.body.appendChild(banner);
+
+    document.getElementById("ds-resume-yes").addEventListener("click", function () {
+      window.scrollTo({ top: parseInt(saved, 10), behavior: "smooth" });
+      banner.remove();
+    });
+    document.getElementById("ds-resume-no").addEventListener("click", function () {
+      banner.remove();
+    });
+  }
+
+  var saveTimer;
+  window.addEventListener("scroll", function () {
+    clearTimeout(saveTimer);
+    saveTimer = setTimeout(function () {
+      localStorage.setItem(storageKey, String(window.scrollY));
+    }, 500);
+  });
+}
+
+
+function auditPageMetadata() {
+  var title = document.title.trim();
+  var ogTitle = document.querySelector('meta[property="og:title"]')?.content.trim();
+  var canonical = document.querySelector('link[rel="canonical"]')?.href;
+  var ldScripts = document.querySelectorAll('script[type="application/ld+json"]');
+
+  var articleHeadline = null;
+  ldScripts.forEach(function (s) {
+    try {
+      var data = JSON.parse(s.textContent);
+      if (data['@type'] === 'TechArticle') articleHeadline = data.headline;
+    } catch (e) {}
+  });
+
+  var mismatches = [];
+  if (ogTitle && !titlesRoughlyMatch(title, ogTitle)) mismatches.push('title vs og:title');
+  if (articleHeadline && !titlesRoughlyMatch(title, articleHeadline)) mismatches.push('title vs JSON-LD headline');
+  if (canonical && !canonical.includes(location.pathname.split('/').pop().replace('.html', ''))) {
+    mismatches.push('canonical URL vs current filename');
+  }
+
+  if (mismatches.length) {
+    console.warn('Metadata mismatch detected:', mismatches.join(', '));
+  }
+
+  function titlesRoughlyMatch(a, b) {
+    var norm = function (s) { return s.toLowerCase().replace(/[^a-z0-9]/g, '').slice(0, 20); };
+    return norm(a) === norm(b) || norm(a).includes(norm(b).slice(0, 10)) || norm(b).includes(norm(a).slice(0, 10));
+  }
+}
+
+function secureExternalLinks() {
+  var host = location.hostname;
+  document.querySelectorAll("a[href^='http']").forEach(function (a) {
+    try {
+      var linkHost = new URL(a.href).hostname;
+      if (linkHost !== host && !a.classList.contains("ds-ext")) {
+        a.target = "_blank";
+        a.rel = "noopener noreferrer";
+        a.classList.add("ds-ext");
+        a.style.borderBottom = "1px dotted currentColor";
+      }
+    } catch (e) {}
+  });
+}
+
+function initSearchShortcut() {
+  var searchInput = document.querySelector("input[type='search'], .search-input");
+  if (!searchInput) return;
+
+  document.addEventListener("keydown", function (e) {
+    var isTyping = ["INPUT", "TEXTAREA"].includes(document.activeElement.tagName);
+    if (e.key === "/" && !isTyping) {
+      e.preventDefault();
+      searchInput.focus();
+    }
+  });
+}
+
+function addContentImageFallback() {
+  var SITEROOT = document.querySelector('link[rel="icon"]')
+    ? document.querySelector('link[rel="icon"]').getAttribute('href').replace('images/icon.webp', '')
+    : '../../../../../';
+
+  document.querySelectorAll(".content img, .image-placeholder img").forEach(function (img) {
+    img.addEventListener("error", function () {
+      if (img.dataset.fallbackApplied) return;
+      img.dataset.fallbackApplied = "true";
+      img.src = SITEROOT + "images/placeholder.webp";
+      img.alt = img.alt || "Image unavailable";
+    }, { once: true });
+  });
+}
+
+ function initShareButton() {
+        var btn = document.createElement("button");
+        btn.setAttribute("aria-label", "Share this page");
+        btn.textContent = "Share";
+        btn.style.cssText =
+            "position:fixed;bottom:20px;right:20px;background:#f97316;color:#fff;" +
+            "border:none;padding:10px 16px;border-radius:24px;cursor:pointer;" +
+            "font-size:13px;font-weight:600;z-index:998;box-shadow:0 2px 8px rgba(0,0,0,.25);";
+
+        btn.addEventListener("click", function () {
+            var title = document.querySelector('meta[property="og:title"]')?.content || document.title;
+            var url = document.querySelector('link[rel="canonical"]')?.href || location.href;
+
+            if (navigator.share) {
+            navigator.share({ title: title, url: url }).catch(function () {});
+            } else {
+            navigator.clipboard.writeText(url);
+            btn.textContent = "Copied!";
+            setTimeout(function () { btn.textContent = "Share"; }, 1500);
+            }
+        });
+
+        document.body.appendChild(btn);
+        }
+        document.addEventListener("DOMContentLoaded", initShareButton);
+
 
 /* ─────────────────────────────────────────────────
    BANNER — outside DOMContentLoaded so it can be
