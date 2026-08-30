@@ -1141,6 +1141,42 @@ th {
   transform: translateY(-2px);
 }
 
+.tutorial-card {
+    display: flex;
+    flex-direction: column;
+}
+
+.next-tutorial {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+
+    align-self: flex-end;
+
+    text-decoration: none;
+    background: var(--color-orange);
+    color: #fff;
+
+    padding: 11px 18px;
+    border-radius: 6px;
+
+    font-weight: 600;
+    letter-spacing: 0.2px;
+
+    transition: all 0.25s ease;
+}
+
+.next-tutorial:hover {
+    background-color: #d94f00;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.16);
+}
+
+.next-tutorial:active {
+    transform: translateY(0);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12);
+}
+
 /* ==========================================================================
    NEXT MODULE SECTION
    ========================================================================== */
