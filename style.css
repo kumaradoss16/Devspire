@@ -850,22 +850,27 @@ body {
 .automation-project-card.hidden-automation-project,
 .card-cheat.hidden-card-cheat,
 .card-guide.hidden-card-guide {
-  max-height: 0; opacity: 0;
-  padding-top: 0; padding-bottom: 0;
-  margin-top: 0; margin-bottom: 0;
-  border: none; visibility: hidden; gap: -30px;
-  transition: max-height .5s ease, opacity .5s ease, padding .5s ease, margin .5s ease, visibility .5s ease;
+  display: none;
 }
 
 .project-card.show-project,
 .tutorial-card.show-programming,
-.networking-card.show-networking,
 .automation-card.show-automation-tutorial,
 .automation-project-card.show-automation-project,
 .card-cheat.show-card-cheat,
 .card-guide.show-card-guide {
-  opacity: 1; visibility: visible;
-  transition: max-height .5s ease, opacity .5s ease, margin .5s ease, visibility .5s ease;
+  display: flex;
+  animation: ds-card-reveal .45s ease both;
+}
+
+.networking-card.show-networking {
+  display: block;
+  animation: ds-card-reveal .45s ease both;
+}
+
+@keyframes ds-card-reveal {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 /* ============================================================
@@ -898,11 +903,6 @@ body {
   display: flex; flex-direction: column;
 }
 .tutorial-card:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(211,114,18,.4); }
-.tutorial-card.hidden-programming {
-  min-height: 0; opacity: 0;
-  padding: 0; margin: 0; border: none; visibility: hidden;
-  transition: min-height .5s ease, opacity .5s ease, padding .5s ease, margin .5s ease, visibility .5s ease;
-}
 
 /* Card top gradient area */
 .tutorial-card .card-top {
@@ -1297,10 +1297,6 @@ body {
   transition: transform .3s ease, box-shadow .3s ease;
   display: flex; flex-direction: column; justify-content: space-between;
   min-height: 280px;
-}
-.automation-card.hidden-automation-tutorial {
-  min-height: 0; opacity: 0; padding: 0; margin: 0; border: none; visibility: hidden;
-  transition: max-height .5s ease, opacity .5s ease, padding .5s ease, margin .5s ease, visibility .5s ease;
 }
 .automation-card:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(158,27,108,.4); }
 .automation-card .level-tag { font-size: var(--level-tag); font-weight: var(--tag-weight); padding: 4px 10px; border-radius: 5px; text-transform: uppercase; background-color: var(--color-pink); color: #fff; }
