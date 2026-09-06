@@ -1,0 +1,2687 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="../../../images/icon.webp" sizes="32x46" type="image/png">
+    <title>VLAN Configuration in Cisco Packet Tracer: Complete Practical Lab</title>
+
+    <meta name="description"
+    content="Learn VLAN configuration in Cisco Packet Tracer through a practical lab based on a real network topology covering access ports, trunking, verification, and inter-VLAN routing.">
+
+    <meta name="keywords"
+    content="vlan configuration cisco packet tracer, vlan tutorial, trunk port configuration, inter-vlan routing, cisco switch configuration, packet tracer lab, networking practical lab, vlan security">
+
+    <link rel="preload" as="image"
+        href="images/vlan-configuration-packet-tracer-practical-lab-tutorial.webp" fetchpriority="high">
+
+    <!-- Open Graph (corrected image path to match canonical) -->
+    <meta property="og:image"
+        content="https://devspirehub.com/Networking/practical-labs/vlan/vlan-configuration-cisco-packet-tracer.html">
+
+    <!-- Twitter Card (corrected image path to match canonical) -->
+    <meta name="twitter:image"
+        content="https://devspirehub.com/Networking/practical-labs/vlan/vlan-configuration-cisco-packet-tracer.html">
+
+    <meta name="robots" content="index, follow, max-snippet=-1, max-image-preview=large, max-video-preview=-1">
+
+    <meta name="author" content="Kumaradoss - DevspireHub">
+    <meta name="publisher" content="DevspireHub">
+    <link rel="author" href="https://devspirehub.com/about">
+
+    <!-- Canonical -->
+    <link rel="canonical"
+        href="https://devspirehub.com/Networking/practical-labs/vlan/vlan-configuration-cisco-packet-tracer.html">
+
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="DevspireHub">
+    <meta property="og:locale" content="en_IN">
+    <meta property="og:title" content="VLAN Configuration in Cisco Packet Tracer – Complete Practical Lab">
+    <meta property="og:description"
+        content="Learn VLAN configuration in Cisco Packet Tracer through a practical lab based on a real network topology covering access ports, trunking, verification, and inter-VLAN routing.">
+    <meta property="og:url"
+        content="https://devspirehub.com/Networking/practical-labs/vlan/vlan-configuration-cisco-packet-tracer.html">
+    <meta property="og:image"
+        content="https://devspirehub.com/Networking/practical-labs/vlan/image/vlan-configuration-packet-tracer-practical-lab-tutorial.webp">
+    <meta property="og:image:alt" content="VLAN Configuration in Cisco Packet Tracer – Complete Practical Lab | DevspireHub">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@devspirehub">
+    <meta name="twitter:title" content="VLAN Configuration in Cisco Packet Tracer – Complete Practical Lab">
+    <meta name="twitter:description"
+        content="Learn VLAN configuration in Cisco Packet Tracer through a practical lab based on a real network topology covering access ports, trunking, verification, and inter-VLAN routing.">
+    <meta name="twitter:image"
+        content="https://devspirehub.com/Networking/practical-labs/vlan/image/vlan-configuration-packet-tracer-practical-lab-tutorial.webp">
+
+    <!-- ============================================================
+           5. TECHNICAL SEO + PERFORMANCE TAGS
+      ============================================================ -->
+
+    <!-- Theme Color (browser UI on mobile) -->
+    <meta name="theme-color" content="#0f172a">
+
+    <!-- Favicon -->
+    <link rel="icon" href="../../../images/icon.webp" sizes="32x46" type="image/png">
+    <link rel="apple-touch-icon" href="../../../images/icon.webp">
+
+    <!-- Preconnect for external resources (Core Web Vitals boost) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://pagead2.googlesyndication.com">
+    <link rel="preconnect" href="https://www.googletagmanager.com">
+
+    <!-- DNS Prefetch (fallback for older browsers) -->
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+
+    <!-- Preload critical above-the-fold image (LCP optimization) -->
+    <link rel="preload" as="image" href="images/flask-nmap-web-scanner.webp" fetchpriority="high">
+
+    <!-- Preload critical font -->
+    <link rel="preload" as="style"
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <!-- ============================================================
+           6. JSON-LD STRUCTURED DATA
+      ============================================================ -->
+
+    <!-- 6a. Organization Schema -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "DevspireHub",
+        "url": "https://devspirehub.com",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://devspirehub.com/images/icon.webp",
+          "width": 200,
+          "height": 60
+        },
+        "description": "DevspireHub - Programming, Projects, Ethical Hacking, Networking, Cloud & AI tutorials for beginners.",
+        "founder": {
+          "@type": "Person",
+          "name": "Kumaradoss",
+          "url": "https://www.linkedin.com/in/kumaradoss-s"
+        },
+        "sameAs": [
+          "https://www.linkedin.com/in/kumaradoss-s",
+          "https://github.com/kumaradoss16",
+          "https://www.instagram.com/devspirehub",
+          "https://www.facebook.com/profile.php?id=61577667990170"
+        ]
+      }
+      </script>
+
+    <script type="application/ld+json">
+        {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://devspirehub.com" },
+            { "@type": "ListItem", "position": 2, "name": "Networking", "item": "https://devspirehub.com/Networking" },
+            { "@type": "ListItem", "position": 3, "name": "Practical Labs", "item": "https://devspirehub.com/Networking/practical-labs" },
+            { "@type": "ListItem", "position": 4, "name": "VLAN Configuration", "item": "https://devspirehub.com/Networking/practical-labs/vlan/vlan-configuration-cisco-packet-tracer.html" }
+        ]
+        }
+    </script>
+
+    <!-- JSON-LD — TechArticle (corrected for VLAN practical lab) -->
+    <script type="application/ld+json">
+        {
+        "@context": "https://schema.org",
+        "@type": "TechArticle",
+        "@id": "https://devspirehub.com/Networking/practical-labs/vlan/#article",
+        "headline": "VLAN Configuration in Cisco Packet Tracer – Complete Practical Lab",
+        "description": "Learn VLAN configuration in Cisco Packet Tracer through a practical lab based on a real network topology covering access ports, trunking, verification, and inter-VLAN routing.",
+        "url": "https://devspirehub.com/Networking/practical-labs/vlan/vlan-configuration-cisco-packet-tracer.html",
+        "datePublished": "2026-09-06",
+        "dateModified": "2026-09-06",
+        "inLanguage": "en-IN",
+        "articleSection": "Networking",
+        "proficiencyLevel": "Beginner",
+        "dependencies": "Cisco Packet Tracer",
+        "keywords": "vlan configuration, cisco packet tracer, trunk ports, inter-vlan routing, vlan security, access ports",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://devspirehub.com/Networking/practical-labs/vlan/images/vlan-configuration-packet-tracer-practical-lab-tutorial.webp",
+            "width": 1200,
+            "height": 630
+        },
+        "author": {
+            "@type": "Person",
+            "name": "Kumaradoss",
+            "url": "https://devspirehub.com/about",
+            "sameAs": ["https://www.linkedin.com/in/kumaradoss-s", "https://github.com/kumaradoss16"]
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "DevspireHub",
+            "url": "https://devspirehub.com",
+            "logo": { "@type": "ImageObject", "url": "https://devspirehub.com/images/icon.webp", "width": 200, "height": 60 }
+        },
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://devspirehub.com/Networking/practical-labs/vlan/vlan-configuration-cisco-packet-tracer.html"
+        },
+        "isPartOf": {
+            "@type": "Series",
+            "name": "Networking Practical Labs",
+            "url": "https://devspirehub.com/Networking/practical-labs"
+        },
+        "about": [
+            { "@type": "Thing", "name": "Virtual LAN", "sameAs": "https://en.wikipedia.org/wiki/Virtual_LAN" },
+            { "@type": "Thing", "name": "Cisco Packet Tracer", "sameAs": "https://en.wikipedia.org/wiki/Cisco_Packet_Tracer" }
+        ]
+        }
+    </script>
+
+    <!-- Author & Publisher -->
+    <meta name="author" content="Kumaradoss DevspireHub">
+    <meta name="publisher" content="DevspireHub">
+    <link rel="author" href="https://devspirehub.com/about">
+
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <!-- Prism.js CSS theme -->
+    <link rel="stylesheet" href="../../../../../Prism/prism.css" />
+     <!-- <link rel="stylesheet" href="../../../Prism/nightfall-theme.css" /> -->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+
+
+    <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+    <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+
+    <link rel="stylesheet" href="style.css" />
+
+
+    <script type="application/ld+json">
+        {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "DevspireHub",
+        "url": "https://devspirehub.com",
+        "logo": "https://devspirehub.com/image/icon.webp",
+        "description": "DevspireHub - Programming, Projects, Ethical hacking, Networking & AI",
+        "founder": [
+            {
+            "@type": "Person",
+            "name": "Kumaradoss",
+            "url": "https://www.linkedin.com/in/kumaradoss-s/"
+            }
+        ],
+        "sameAs": [
+            "https://www.linkedin.com/in/kumaradoss-s/",
+            "https://github.com/kumaradoss16",
+        ]
+        }
+    </script>
+
+    <script type=application/ld+json>
+        {
+            "@context": "https://schema.org",
+            "@type": "SiteNavigationElement",
+            "name": [
+                "Home",
+                "Projects",
+                "Programming",
+                "Ethical Hacking",
+                "Networking",
+                "Automation",
+                "Resources"
+            ],
+            "url": [
+                "https://devspirehub.com",
+                "https://devspirehub.com/#projects-tutorials-section",
+                "https://devspirehub.com/#programming-tutorials-section",
+                "https://devspirehub.com/#ethical-hacking-section",
+                "https://devspirehub.com/#networking-section",
+                "https://devspirehub.com/#automation-section",
+                "https://devspirehub.com/#info-section",
+            ]
+        }
+    </script>
+
+
+    <!-- Google Tag Manager -->
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-M457RGDF');</script>
+    <!-- End Google Tag Manager -->
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2368356039533778"
+        crossorigin="anonymous"></script>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6VWY63Q80N"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-6VWY63Q80N');
+    </script>
+
+    <script async custom-element="amp-auto-ads" src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+
+</head>
+
+<body>
+
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M457RGDF" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <amp-auto-ads type="adsense" data-ad-client="ca-pub-2368356039533778">
+    </amp-auto-ads>
+
+    <!-- Header  -->
+    <header class="navbar">
+        <div class="container">
+            <div class="logo">
+                <div class="logo-text">
+                    <!-- <i class="fas fa-code"></i> -->
+                    <a href="../../../index.html"><img src="../../../images/icon.webp" alt="Gear Icon" width="23"
+                            height="23"></a>
+                    <span id="brand" class="typewriter" data-text="DevspireHub"></span>
+                </div>
+                <button class="menu-toggle" type="button" aria-label="Toggle navigation">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            <nav class="nav-links">
+                <ul>
+                    <li><a href="../../../index.html" class="home"><i class="fa-solid fa-house"></i></a></li>
+                    <li><a href="../../../index.html#projects-tutorials-section" class="projects">Projects</a></li>
+                    <li><a href="../../../index.html#programming-tutorials-section"
+                            class="programming">Programming</a></li>
+                    <li><a href="../../../index.html#ethical-hacking-section" class="hacking">Ethical Hacking</a>
+                    </li>
+                    <li><a href="../../../index.html#networking-section" class="networking">Networking</a></li>
+                    <li><a href="../../../index.html#automation-section" class="ai">Automation</a></li>
+                    <li><a href="../../../index.html#info-section" class="game">Resources</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="main-content-wrapper container">
+        <!-- Left Side  -->
+        <main class="left-column">
+            <section class="tutorial-details-section">
+                <h1>VLAN Configuration in Cisco Packet Tracer: Complete Practical Lab</h1>
+                <p>Before configuring VLANs in Cisco Packet Tracer, you need to understand what a VLAN is, why networks use VLANs, and how VLANs separate traffic across switches. This tutorial continues from those essential networking concepts and applies them to a practical topology containing Cisco switches, a router, multiple departments, access ports, trunk links, native VLAN configuration, and inter-VLAN routing.</p>
+
+                <div class="image-placeholder">
+                    <img src="images/vlan-configuration-packet-tracer-practical-lab-tutorial.webp"
+                        alt="Doubly Linked List data structure in python"
+                        loading="lazy" decoding="async" fetchpriority="auto" />
+                </div>
+                    <p>This hands-on guide is designed for beginners, networking students, Cisco certification candidates, and developers or IT professionals preparing for technical interviews. Instead of using an assumed network design, the tutorial follows the uploaded topology exactly, including the device names, switch interfaces, VLAN IDs, department assignments, trunk connections, and visible IP addresses. Any value not shown in the topology is clearly identified as an assumption rather than being presented as an original diagram value.</p>
+            </section>
+
+
+            <section id="implementation-details" class="implementation-section">
+                <h2>Introduction</h2>
+                <div class="content" id="step-1">
+                    <h3>1. What Is a VLAN?</h3>
+                    <p>A <strong>VLAN</strong>, or Virtual Local Area Network, is a logical network created inside a physical switch infrastructure. It allows devices connected to the same physical switch or to different switches connected through trunks-to be grouped into separate logical networks.</p><br>
+                    <p>Without VLANs, all devices connected to a switch normally share the same default Layer 2 broadcast domain. With VLANs, devices can be separated according to department, function, security requirement, or application, even when they use the same physical switching hardware.</p>
+            
+                    <p>For this lab, the network is divided into three department-based VLANs:</p>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Department</th>
+                                    <th>VLAN</th>
+                                    <th>Network</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Engineering</td>
+                                    <td>VLAN 10</td>
+                                    <td>10.0.0.0/26</td>
+                                </tr>
+                                <tr>
+                                    <td>HR</td>
+                                    <td>VLAN 20</td>
+                                    <td>10.0.0.64/26</td>
+                                </tr>
+                                <tr>
+                                    <td>Sales</td>
+                                    <td>VLAN 30</td>
+                                    <td>10.0.0.128/26</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p>The topology also uses VLAN 999 as a dedicated native VLAN for trunk links. VLAN 999 is an assumption selected for this lab because the uploaded diagram does not specify a native VLAN. It is intentionally kept separate from user access VLANs.</p>
+                    <h4>Why Are VLANs Needed?</h4>
+                    <p>VLANs are needed to divide one physical network into multiple logical broadcast domains. In this topology, Engineering, HR, and Sales share physical switching infrastructure, but their traffic remains logically separated.</p>
+                    <p class="subtitle"><strong>1. VLANs separate departments</strong></p>
+                    <p>The Engineering, HR, and Sales devices belong to different logical networks:</p>
+                    <div class="text-diagram explanation">
+                            <pre>
+<code>Engineering → VLAN 10 → 10.0.0.0/26
+HR          → VLAN 20 → 10.0.0.64/26
+Sales       → VLAN 30 → 10.0.0.128/26</code></pre>
+                    </div>
+                    <p>A Layer 2 switch can forward traffic within the same VLAN, but it does not automatically forward traffic between different VLANs.</p>
+                    <p class="subtitle"><strong>2. VLANs reduce broadcast domains</strong></p>
+                    <p>Broadcast traffic sent by one VLAN remains inside that VLAN unless it is deliberately routed elsewhere. This prevents every device in the physical network from receiving every broadcast frame.</p>
+                    <div class="list">
+                        <p>For example:</p>
+                        <ul>
+                            <li>Engineering broadcasts remain within VLAN 10.</li>
+                            <li>HR broadcasts remain within VLAN 20.</li>
+                            <li>Sales broadcasts remain within VLAN 30.</li>
+                        </ul>
+                        <p>This improves network organization and reduces unnecessary broadcast traffic.</p>
+                    </div>
+                    <p class="subtitle"><strong>3. VLANs improve network organization</strong></p>
+                    <p>A small site can use two physical switches for several departments instead of purchasing separate switches for every department. In this lab:</p>
+                    <div class="list">
+                        <ul>
+                            <li>SW1 connects Engineering and Sales devices.</li>
+                            <li>SW2 connects Engineering and HR devices.</li>
+                            <li>VLAN 10 spans both switches.</li>
+                            <li>VLAN 20 exists on SW2.</li>
+                            <li>VLAN 30 exists on SW1.</li>
+                        </ul>
+                        <p>This provides logical separation without requiring one physical network for every department.</p>
+                    </div>
+                    <p class="subtitle"><strong>4. VLANs support basic traffic isolation</strong></p>
+                    <p>VLANs prevent ordinary Layer 2 communication between departments. An Engineering device cannot directly switch a frame to an HR or Sales device because those devices belong to different VLANs.</p><br>
+                    <p>However, VLANs alone are not a complete security solution. Communication between VLANs becomes possible when a router or Layer 3 switch is configured to route between them. In this lab, router R1 performs that inter-VLAN routing.</p>
+
+                    <p class="subtitle"><strong>5. VLANs provide flexibility when devices move</strong></p>
+                    <p>A device's logical network membership can be changed by modifying the switch port configuration. The physical location of the PC does not determine its department; the VLAN assigned to its access port does.</p>
+                    <p>For example:</p>
+                    <div id="language-cisco" class="code-block">
+                        <p>Cisco IOS CLI</p>
+                        <pre>
+<code id="codeSnippetCisco" class="language-cisco">switchport mode access
+switchport access vlan 10</code></pre>
+                    </div>
+                    <p>These commands place the connected endpoint into VLAN 10, regardless of which supported access port is used.</p>
+                    <h4>Essential VLAN Concepts</h4>
+                    <p><strong>Access port</strong></p>
+                    <p>An access port connects a switch to an end device such as a PC. It belongs to one VLAN and normally carries untagged traffic.</p>
+                    <p>In this lab:</p>
+                    <div class="text-diagram explanation">
+                            <pre>
+<code>SW1 F0/1 → Engineering PC → VLAN 10
+SW1 F0/3 → Sales PC       → VLAN 30
+SW2 F1/0 → HR PC          → VLAN 20</code></pre>
+                    </div>
+                    <p>A PC's network interface normally does not understand 802.1Q VLAN tags. Therefore, the switch sends frames to the PC without VLAN tags.</p>
+                    <p>Typical configuration:</p>
+                    <div id="language-cisco" class="code-block">
+                        <p>Cisco IOS CLI</p>
+                        <pre>
+<code id="codeSnippetCisco" class="language-cisco">interface GigabitEthernet0/1
+ switchport mode access
+ switchport access vlan 10</code></pre>
+                    </div>
+
+                    <p class="subtitle"><strong>Trunk port</strong></p>
+                    <p>A trunk port carries traffic for multiple VLANs over one physical link. Trunks are required when one cable must transport traffic belonging to several VLANs.</p>
+                    <p>This lab uses trunks for:</p>
+                    <div class="text-diagram explanation">
+                            <pre>
+<code>SW1 G0/0 ↔ SW2 G0/1
+SW2 G0/2 ↔ R1 G0/0</code></pre>
+                    </div>
+                    <p>Trunk traffic is identified using 802.1Q VLAN tags, allowing the receiving device to determine which VLAN each frame belongs to.</p>
+                    <p>Typical configuration:</p>
+                    <div id="language-cisco" class="code-block">
+                        <p>Cisco IOS CLI</p>
+                        <pre>
+<code id="codeSnippetCisco" class="language-cisco">interface GigabitEthernet0/0
+ switchport mode trunk
+ switchport trunk allowed vlan 10,30</code></pre>
+                    </div>
+                    <p class="subtitle"><strong>Native VLAN</strong></p>
+                    <p>The native VLAN is the VLAN assigned to untagged traffic on an 802.1Q trunk. Both ends of a trunk must use the same native VLAN.</p>
+                    <p>In this lab, VLAN 999 is used as the native VLAN:</p>
+                    <div id="language-cisco" class="code-block">
+                        <p>Cisco IOS CLI</p>
+                        <pre>
+<code id="codeSnippetCisco" class="language-cisco">switchport trunk native vlan 999</code></pre>
+                    </div>
+                    <p>VLAN 999 is not assigned to real user access ports. This prevents ordinary endpoint traffic from being carried accidentally as untagged native VLAN traffic.</p>
+                    <p class="subtitle"><strong>Inter-VLAN routing</strong></p>
+                    <p>A Layer 2 switch can forward frames inside the same VLAN, but it cannot route packets between separate IP networks. Inter-VLAN routing provides communication between VLANs.</p>
+                    <p>This lab uses router-on-a-stick:</p>
+                    <div class="text-diagram explanation">
+                            <pre>
+<code>R1 G0/0.10 → VLAN 10 gateway
+R1 G0/0.20 → VLAN 20 gateway
+R1 G0/0.30 → VLAN 30 gateway</code></pre>
+                    </div>
+                    <p>Each router subinterface becomes the default gateway for one VLAN:</p>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>VLAN</th>
+                                    <th>Router Subinterface</th>
+                                    <th>Gateway</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>10</td>
+                                    <td>G0/0.10</td>
+                                    <td>192.168.1.62</td>
+                                </tr>
+                                <tr>
+                                    <td>20</td>
+                                    <td>G0/0.20</td>
+                                    <td>192.168.1.126</td>
+                                </tr>
+                                <tr>
+                                    <td>30</td>
+                                    <td>G0/0.30</td>
+                                    <td>192.168.1.190</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p>The gateway addresses are labeled assumptions selected to match the subnetting plan in the uploaded tutorial.</p>
+                    <h4>How VLAN Traffic Moves</h4>
+                    <p><strong>Same-VLAN communication</strong></p>
+                    <p>When two Engineering PCs communicate:</p>
+                    <div class="text-diagram explanation">
+                            <pre>
+<code>Engineering PC
+      ↓
+SW1 access port
+      ↓
+VLAN 10
+      ↓
+Destination access port
+      ↓
+Engineering PC</code></pre>
+                    </div>
+                    <p>The switch forwards the traffic at Layer 2. R1 is not involved.</p><br>
+                    <p>If the Engineering PCs are connected to different switches, VLAN 10 crosses the SW1–SW2 trunk:</p>
+                    <div class="text-diagram explanation">
+                            <pre>
+<code>Engineering PC
+      ↓
+SW1 access port
+      ↓
+VLAN 10
+      ↓
+SW1–SW2 trunk
+      ↓
+VLAN 10
+      ↓
+SW2 access port
+      ↓
+Engineering PC</code></pre>
+                    </div>
+                    <p class="subtitle"><strong>Inter-VLAN communication</strong></p>
+                    <p>When an HR PC communicates with an Engineering PC:</p>
+                    <div class="text-diagram explanation">
+                            <pre>
+<code>HR PC
+  ↓
+SW2 access port
+  ↓
+VLAN 20
+  ↓
+SW2–R1 trunk
+  ↓
+R1 VLAN 20 subinterface
+  ↓
+Routing decision
+  ↓
+R1 VLAN 10 subinterface
+  ↓
+SW2–SW1 trunk
+  ↓
+VLAN 10
+  ↓
+Engineering PC</code></pre>
+                    </div>
+                    <p>The router removes the original Layer 2 frame, examines the destination IP address, selects the correct destination network, and forwards the traffic through the appropriate VLAN subinterface.</p>
+                    <h4>What This Tutorial Covers</h4>
+                    <div class="list">
+                        <ul>
+                            <li>Rebuild the uploaded physical topology in Cisco Packet Tracer.</li>
+                            <li>Configure the seven PCs with the documented IP addressing plan.</li>
+                            <li>Create VLANs 10, 20, 30, and the dedicated native VLAN 999.</li>
+                            <li>Assign switch access ports to the correct departments.</li>
+                            <li>Configure the SW1–SW2 trunk.</li>
+                            <li>Configure the SW2–R1 trunk.</li>
+                            <li>Restrict each trunk to the VLANs it actually needs.</li>
+                            <li>Configure VLAN 999 as the native VLAN on both trunk ends.</li>
+                            <li>Configure router-on-a-stick subinterfaces on R1.</li>
+                            <li>Test same-VLAN communication.</li>
+                            <li>Test VLAN 10 across the switch boundary.</li>
+                            <li>Test inter-VLAN routing between Engineering, HR, and Sales.</li>
+                            <li>Verify VLAN membership, trunk state, native VLAN settings, router interfaces, and routing tables.</li>
+                            <li>Troubleshoot incorrect access VLANs, missing trunk VLANs, native VLAN mismatches, incorrect router tags, and wrong default gateways.</li>
+                            <li>Apply basic security hardening such as unused-port shutdown, port security, BPDU Guard, VLAN pruning, and native VLAN protection.</li>
+                        </ul>
+                        
+                    </div>
+                    <p class="sub"><strong class="subtitle">Before Starting the Configuration</strong></p>
+                    <p>Use the following logical sequence while working through the lab:</p>
+                    <div class="text-diagram explanation">
+                            <pre>
+<code>Physical topology
+        ↓
+IP addressing
+        ↓
+VLAN creation
+        ↓
+Access-port assignment
+        ↓
+Trunk configuration
+        ↓
+Native VLAN configuration
+        ↓
+Inter-VLAN routing
+        ↓
+Verification and troubleshooting</code></pre>
+                    </div>
+                    <p>The central rule is:</p>
+                    <div class="text-diagram explanation">
+                            <pre>
+<code>Endpoint
+  ↓
+Access port
+  ↓
+VLAN
+  ↓
+Trunk, if the destination is on another switch or must reach R1
+  ↓
+Router
+  ↓
+Destination VLAN
+  ↓
+Destination endpoint</code></pre>
+                    </div>
+                    <p>Once these concepts are clear, VLAN configuration becomes easier to understand: access ports place endpoints into VLANs, trunk ports transport multiple VLANs, the native VLAN handles untagged trunk traffic, and R1 performs the Layer 3 routing required for communication between separate VLANs.</p>
+                </div>
+                <hr>
+
+                <div class="content" id="step-2">
+                    <h3>VLAN Configuration in Cisco Packet Tracer</h3>
+                    <p>This is a hands-on VLAN configuration in Cisco Packet Tracer project: read the topology, rebuild it, address the endpoints, create the VLANs, wire up access ports, bring up trunk links with an explicit native VLAN, configure inter-VLAN routing, verify every layer, break it on purpose, fix it, and harden it. No <strong>what is a VLAN</strong> filler, you'll pick up the concepts exactly where you need them to finish the next command.</p>
+                    <div class="card-image">
+                        <img src="images/vlan-configuration-packet-tracer-lab.webp"
+                        alt="VLAN configuration in Cisco Packet Tracer showing Cisco switches, router, PCs, VLAN groups, and trunk links">
+                    </div>
+                    <p class="sub"><strong class="subtitle">Topology</strong></p>
+                    <p>Devices and links visible in the diagram:</p>
+                    <div class="list">
+                        <ul>
+                            <li>Router R1 - one downlink interface, labeled <code class="code">G0/0</code>.</li>
+                            <li>Switch SW1 - connects four PCs and one trunk uplink.</li>
+                            <li>Switch SW2 - connects three PCs, one trunk to SW1, and one trunk to R1.</li>
+                            <li>PC1 (.1) and PC2 (.2) on SW1, VLAN 10, network <code class="code">10.0.0.0/26</code> - ports <code class="code">F0/1</code> and <code class="code">F0/2</code>.</li>
+                            <li>PC3 (.129) and PC4 (.130) on SW1, VLAN 30, network 10.0.0.128/26 - ports <code class="code">F0/3</code> and <code class="code">F0/4</code>.</li>
+                            <li>PC7 (.3) and PC6 (.4) on SW2, VLAN 10, same network 10.0.0.0/26 as the SW1 side - ports <code class="code">F0/3</code> and <code class="code">F0/2</code>.</li>
+                            <li>PC5 (.65) on SW2, VLAN 20, network 10.0.0.64/26 - port <code class="code">F0/1</code>.</li>
+                            <li>SW1 <code class="code">G0/0</code> ↔ SW2 <code class="code">G0/0</code> - switch-to-switch trunk.</li>
+                            <li>SW2 <code class="code">G0/1</code> ↔ R1 <code class="code">G0/0</code> - switch-to-router trunk.</li>
+                            <li>R1 has no direct link to SW1 - SW1 traffic bound for R1 must first cross the SW1–SW2 trunk.</li>
+                        </ul>
+                    </div>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Item</th>
+                                    <th>Details</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Routers</strong></td>
+                                    <td>R1 - single downlink <code class="code">G0/0</code>; model not printed in the image</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Switches</strong></td>
+                                    <td>SW1, SW2 - models not printed; ports shown as <code class="code">G0/1–G0/3</code> plus a separate <code class="code">G1/0</code></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>End devices</strong></td>
+                                    <td>7 PCs: 2 Engineering (SW1), 2 Sales (SW1), 2 Engineering (SW2), 1 HR (SW2)</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>VLANs</strong></td>
+                                    <td>VLAN 10 "Engineering" (spans SW1 and SW2), VLAN 20 "HR" (SW2 only), VLAN 30 "Sales" (SW1 only)</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Trunk links</strong></td>
+                                    <td>SW1 <code class="code">G0/0</code> ↔ SW2 <code class="code">G0/0</code>; SW2 <code class="code">G0/1</code> ↔ R1 <code class="code">G0/0</code></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Access links</strong></td>
+                                    <td>SW1 <code class="code">F0/1</code>, <code class="code">F0/2</code>, <code class="code">F0/3</code>, <code class="code">F0/4</code>; SW2 <code class="code">F0/1</code>, <code class="code">F0/2</code>, <code class="code">F0/3</code></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Routed links</strong></td>
+                                    <td>R1 <code class="code">G0/0</code> - router-on-a-stick, subinterfaces implied by the single-link design</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>IP addresses</strong></td>
+                                    <td>PC1 <code class="code">.1</code>, PC2 <code class="code">.2</code>, PC3 <code class="code">.129</code>, PC4 <code class="code">.130</code>, PC5 <code class="code">.65</code>, PC6 <code class="code">.4</code>, PC7 <code class="code">.3</code> - all seven host addresses.</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Unknown details</strong></td>
+                                    <td>Device models not shown, treated as an assumption below. A magnifying-glass icon with a red arrow sits on the SW2–R1 link, read as a visual highlight from the diagram author, not a device or a fault marker. No native VLAN is marked in the image, so the native VLAN used in this lab (VLAN 999) is a labeled assumption, not a value taken from the diagram.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p>Text reconstruction of the wiring, port for port:</p>
+                    <div class="text-diagram explanation">
+                            <pre>
+<code>PC1 (.1)   ── F0/1 ──  SW1
+PC2 (.2)   ── F0/2 ──  SW1
+PC3 (.129) ── F0/3 ──  SW1
+PC4 (.130) ── F0/4 ──  SW1
+
+SW1 G0/1  ═══ trunk ═══  G0/1 SW2
+
+PC7 (.3)  ── F0/3 ── SW2
+PC6 (.4)  ── F0/2 ── SW2
+PC5 (.65) ── F0/1 ── SW2
+
+SW2 G0/2  ═══ trunk ═══  G0/0 R1</code></pre>
+                    </div>
+                    
+                    <div class="list">
+                        <p class="sub"><strong class="subtitle">Network Topology Overview</strong></p>
+                        <div class="list">
+                            <ul>
+                                <li>Access Layer (SW1):</li>
+                                <div class="list">
+                                    <ul>
+                                        <li>PC1 (NIC) ⟶ SW1 (F0/1) | Copper straight-through | Access</li>
+                                        <li>PC2 (NIC) ⟶ SW1 (F0/2) | Copper straight-through | Access</li>
+                                        <li>PC3 (NIC) ⟶ SW1 (F0/3) | Copper straight-through | Access</li>
+                                        <li>PC4 (NIC) ⟶ SW1 (F0/4) | Copper straight-through | Access</li>
+                                    </ul>
+                                </div>
+                                <li>Access Layer (SW2):</li>
+                                <div class="list">
+                                    <ul>
+                                        <li>SW2 (F0/1) ⟶ PC5 (NIC) | Copper straight-through | Access</li>
+                                        <li>SW2 (F0/2) ⟶ PC6 (NIC) | Copper straight-through | Access</li>
+                                        <li>SW2 (F0/3) ⟶ PC7 (NIC) | Copper straight-through | Access</li>
+
+                                    </ul>
+                                </div>
+                                <li>Trunk & Core Connections:</li>
+                                <div class="list">
+                                    <ul>
+                                        <li>SW1 (G0/1) ⟶ SW2 (G0/1) | Copper crossover (See note below) | Trunk (Native VLAN 999)</li>
+                                        <li>SW2 (G0/2) ⟶ R1 (G0/0) | Copper straight-through | Trunk (Router-on-a-Stick, Native VLAN 999)</li>
+                                    </ul>
+                                </div>
+                            </ul>
+                        </div>
+                        
+                        <p>Role of each device:</p>
+                        <ul>
+                            <li>SW1 and SW2 switch frames within a VLAN using learned MAC addresses.</li>
+                            <li>SW1 and SW2 keep VLAN 10, 20, and 30 separated at Layer 2.</li>
+                            <li>R1 is the only Layer-3 device - the sole point where traffic can move between VLANs.</li>
+                            <li>Every access port faces a PC.</li>
+                            <li>Both switch-to-switch and switch-to-router links are trunks.</li>
+                            <li>The default gateway for every host lives on R1, once its subinterfaces exist.</li>
+                        </ul>
+                    </div>
+
+                    <div class="list">
+                        <h4>Explaining the topology conceptually</h4>
+                        <p><strong>Physical view</strong></p>
+                        <ul>
+                            <li>SW1: four PCs (PC1, PC2, PC3, PC4) plus one uplink to SW2.</li>
+                            <li>SW2: three PCs (PC7, PC6, PC5) plus one uplink to SW1 and one uplink to R1.</li>
+                            <li>R1: touches only SW2 physically, but is the only routing point logically.</li>
+                        </ul>
+                        <p><strong>Logical view</strong></p>
+                        <ul>
+                            <li>VLAN 10 (<code class="code">10.0.0.0/26</code>) - members on both SW1 (PC1, PC2) and SW2 (PC7, PC6), connected by the SW1–SW2 trunk.</li>
+                            <li>VLAN 20 (<code class="code">10.0.0.64/26</code>) - members only on SW2 (PC5).</li>
+                            <li>VLAN 30 (<code class="code">10.0.0.128/26</code>) - members only on SW1 (PC3, PC4).</li>
+                            <li>VLAN 10 traffic stays inside VLAN 10 regardless of which switch the hosts sit on - the trunk handles it, R1 is never involve</li>
+                            <li>VLAN 10-to-VLAN 20, VLAN 10-to-VLAN 30, and VLAN 20-to-VLAN 30 traffic all has to leave its own VLAN and get routed by R1.</li>
+                        </ul>
+                        <p><strong>Why this design is used</strong></p>
+                        <ul>
+                            <li>Three departments share two physical switches instead of one switch per department, cheaper, and realistic for a small site.</li>
+                            <li>VLANs give each department its own broadcast domain without dedicated hardware.</li>
+                            <li>Access ports are used for every PC because a PC's NIC doesn't understand 802.1Q tags, it needs untagged traffic.</li>
+                            <li>Trunk ports are used between SW1–SW2 and SW2–R1 because both links carry more than one VLAN.</li>
+                            <li>Inter-VLAN routing is required the moment two departments need to talk, since a Layer-2 switch alone never forwards between subnets.</li>
+                            <li>R1 becomes the default gateway for every VLAN because it's the only device positioned to make that Layer-3 decision.</li>
+                        </ul>
+                    </div>
+                    
+                    <p class="sub"><strong class="subtitle">Lab requirements</strong></p>
+                    <div class="list">
+                        <ul>
+                            <li>Cisco Packet Tracer - any release with subinterface support.</li>
+                            <li>Two switches - 2960-24TT, 2960+, or 3560 all provide enough FastEthernet and GigabitEthernet ports to match F0/1–F0/4 plus G0/1/G0/2. Pick a model, then verify its port names against this article.</li>
+                            <li>One router with subinterface support on its first Ethernet port: a 1941 or 2911 both work; subinterface support is an IOS feature, not tied to one router model.</li>
+                            <li>Seven PCs.</li>
+                            <li>Copper straight-through cabling for every link shown - no serial cables, since none appear in the image.</li>
+                        </ul>
+                    </div>
+
+                    <h4>Stage 1: Physical topology</h4>
+                    <div class="list">
+                        <ol>
+                            <li>Place R1, SW1, SW2, and all seven PCs on the canvas.</li>
+                            <li>Rename each device to match the image: <code class="code">R1</code>, <code class="code">SW1</code>, <code class="code">SW2</code>.</li>
+                            <li>Connect SW1 to PC1 (F0/1), PC2 (F0/2), PC3 (F0/3), and PC4 (F0/4).</li>
+                            <li>Connect SW2 to PC7 (F0/3), PC6 (F0/2), and PC5 (F0/1).</li>
+                            <li>Connect SW1 <code class="code">G0/1</code> to SW2 <code class="code">G0/1</code>.</li>
+                            <li>Connect SW2 <code class="code">G0/2</code> to R1 <code class="code">G0/0</code>.</li>
+                            <li>Wait for link lights to settle, amber to green in the first several seconds is normal spanning-tree behavior, not a fault.</li>
+                        </ol>
+                    </div>
+                    <div class="text-diagram explanation">
+                            <pre>
+<code>Checkpoint:
+Before entering any CLI command, confirm that the Packet Tracer workspace matches Figure 1.</code></pre>
+                    </div>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Device</th>
+                                    <th>Interface</th>
+                                    <th>Connects to</th>
+                                    <th>Link type</th>
+                                    <th>Purpose</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>SW1</strong></td>
+                                    <td><code class="code">F0/1</code></td>
+                                    <td>PC1 (.1)</td>
+                                    <td>Access</td>
+                                    <td>VLAN 10 endpoint</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>SW1</strong></td>
+                                    <td><code class="code">F0/2</code></td>
+                                    <td>PC2 (.2)</td>
+                                    <td>Access</td>
+                                    <td>VLAN 10 endpoint</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>SW1</strong></td>
+                                    <td><code class="code">F0/3</code></td>
+                                    <td>PC3 (.3)</td>
+                                    <td>Access</td>
+                                    <td>VLAN 30 endpoint</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>SW1</strong></td>
+                                    <td><code class="code">F0/0</code></td>
+                                    <td>Sales PC (.4)</td>
+                                    <td>Access</td>
+                                    <td>VLAN 30 endpoint</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>SW1</strong></td>
+                                    <td><code class="code">G0/1</code></td>
+                                    <td>SW2 G0/1</td>
+                                    <td>Trunk</td>
+                                    <td>	Carries VLAN 10 + VLAN 30 to SW2, native VLAN 999</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>SW2</strong></td>
+                                    <td><code class="code">F0/3</code></td>
+                                    <td>PC7 (.3)</td>
+                                    <td>Access</td>
+                                    <td>VLAN 10 endpoint</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>SW2</strong></td>
+                                    <td><code class="code">F0/4</code></td>
+                                    <td>PC6 (.4)</td>
+                                    <td>Access</td>
+                                    <td>VLAN 10 endpoint</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>SW2</strong></td>
+                                    <td><code class="code">F0/1</code></td>
+                                    <td>PC5 (.65)</td>
+                                    <td>Access</td>
+                                    <td>VLAN 20 endpoint</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>SW2</strong></td>
+                                    <td><code class="code">F0/1</code></td>
+                                    <td>SW1 G0/1</td>
+                                    <td>Trunk</td>
+                                    <td>Carries VLAN 10 + VLAN 30 from SW1, native VLAN 999</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>SW2</strong></td>
+                                    <td><code class="code">G0/2</code></td>
+                                    <td>R1 G0/0</td>
+                                    <td>Trunk</td>
+                                    <td>Carries VLAN 10 + VLAN 20 + VLAN 30, native VLAN 999</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>R1</strong></td>
+                                    <td><code class="code">G0/0</code></td>
+                                    <td>SW2 G0/2</td>
+                                    <td>Trunk (routed, router-on-a-stick)</td>
+                                    <td>Single uplink for all three VLANs</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <div class="list">
+                        <p><strong>IP addressing plan</strong></p>
+                        <ul>
+                            <li>The image labels all seven host addresses directly: PC1 <code class="code">192.168.1.1</code>, PC2 <code class="code">192.168.1.2</code>, PC3 <code class="code">192.168.1.129</code>, PC4 <code class="code">192.168.1.130</code>, PC5 <code class="code">192.168.1.65</code>, PC6 <code class="code">192.168.1.4</code>, PC7 <code class="code">192.168.1.3</code>.</li>
+                            <li>Subnet masks are not labeled, but the image shows the three networks as /26 subnets.</li>
+                        </ul>
+                    </div>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Department</th>
+                                    <th>VLAN</th>
+                                    <th>Network</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Engineering</td>
+                                    <td>10</td>
+                                    <td>10.0.0.0/26</td>
+                                </tr>
+                                <tr>
+                                    <td>HR</td>
+                                    <td>20</td>
+                                    <td>10.0.0.64/26</td>
+                                </tr>
+                                <tr>
+                                    <td>Sales</td>
+                                    <td>30</td>
+                                    <td>10.0.0.128/26</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                <th>Device</th>
+                                <th>Interface</th>
+                                <th>VLAN</th>
+                                <th>IP Address</th>
+                                <th>Subnet Mask</th>
+                                <th>Default Gateway</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                <td>PC1</td>
+                                <td>NIC → SW1 F0/1</td>
+                                <td>10</td>
+                                <td>10.0.0.1</td>
+                                <td>255.255.255.192</td>
+                                <td>10.0.0.62</td>
+                                </tr>
+                                <tr>
+                                <td>PC2</td>
+                                <td>NIC → SW1 F0/2</td>
+                                <td>10</td>
+                                <td>10.0.0.2</td>
+                                <td>255.255.255.192</td>
+                                <td>10.0.0.62</td>
+                                </tr>
+                                <tr>
+                                <td>PC3</td>
+                                <td>NIC → SW1 F0/3</td>
+                                <td>30</td>
+                                <td>10.0.0.129</td>
+                                <td>255.255.255.192</td>
+                                <td>10.0.0.190</td>
+                                </tr>
+                                <tr>
+                                <td>PC4</td>
+                                <td>NIC → SW1 F0/4</td>
+                                <td>30</td>
+                                <td>10.0.0.130</td>
+                                <td>255.255.255.192</td>
+                                <td>10.0.0.190</td>
+                                </tr>
+                                <tr>
+                                <td>PC7</td>
+                                <td>NIC → SW2 F0/3</td>
+                                <td>10</td>
+                                <td>10.0.0.3</td>
+                                <td>255.255.255.192</td>
+                                <td>10.0.0.62</td>
+                                </tr>
+                                <tr>
+                                <td>PC6</td>
+                                <td>NIC → SW2 F0/2</td>
+                                <td>10</td>
+                                <td>10.0.0.4</td>
+                                <td>255.255.255.192</td>
+                                <td>10.0.0.62</td>
+                                </tr>
+                                <tr>
+                                <td>PC5</td>
+                                <td>NIC → SW2 F0/1</td>
+                                <td>20</td>
+                                <td>10.0.0.65</td>
+                                <td>255.255.255.192</td>
+                                <td>10.0.0.126</td>
+                                </tr>
+                                <tr>
+                                <td>R1</td>
+                                <td>G0/0.10</td>
+                                <td>10</td>
+                                <td>10.0.0.62</td>
+                                <td>255.255.255.192</td>
+                                <td>-</td>
+                                </tr>
+                                <tr>
+                                <td>R1</td>
+                                <td>G0/0.20</td>
+                                <td>20</td>
+                                <td>10.0.0.126</td>
+                                <td>255.255.255.192</td>
+                                <td>-</td>
+                                </tr>
+                                <tr>
+                                <td>R1</td>
+                                <td>G0/0.30</td>
+                                <td>30</td>
+                                <td>10.0.0.190</td>
+                                <td>255.255.255.192</td>
+                                <td>-</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <p>Why the addressing is laid out this way:</p>
+                    <div class="list">
+                        <ul>
+                            <li>Each VLAN gets its own <code class="code">/26</code> because a VLAN is its own broadcast domain and needs its own subnet.</li>
+                            <li>Hosts in the same VLAN share the same subnet because they're expected to talk directly at Layer 2, without a gateway.</li>
+                            <li>The default gateway matters only when a host needs to reach an address outside its own subnet.</li>
+                            <li>Every PC can have its gateway configured now, but nothing answers at those addresses until Stage 4, that's expected, not a fault.</li>
+                            <li>Don't assign <code class="code">10.0.0.0</code> (network) or <code class="code">10.0.0.63</code> / <code class="code">10.0.0.127</code> / <code class="code">10.0.0.191</code> (broadcast) of each <code class="code">/26</code> to any host or gateway.</li>
+                            <li>The last usable address in each block is used as the gateway specifically to avoid colliding with the .1 host address already shown in the image.</li>
+                        </ul>
+                    </div>
+
+                    <p><strong>Configuring each PC in Packet Tracer:</strong></p>
+                    <div class="list">
+                        <ol>
+                            <li>Click the PC.</li>
+                            <li>Select Desktop.</li>
+                            <li>Select IP Configuration.</li>
+                            <li>Choose Static.</li>
+                            <li>Enter the IP address from the table above.</li>
+                            <li>Enter <code class="code">255.255.255.192</code> as the subnet mask.</li>
+                            <li>Enter the correct default gateway.</li>
+                            <li>Close the configuration window.</li>
+                        </ol>
+                    </div>
+                    <p>Before creating any VLAN, run these two tests and note the result:</p>
+                    <div class="text-diagram explanation">
+                            <pre>
+<code>Same-VLAN endpoint → same-VLAN endpoint
+Different-VLAN endpoint → different-VLAN endpoint</code></pre>
+                    </div>
+                    <div class="list">
+                        <ul>
+                            <li>At this stage, expect both tests to behave unpredictably or fail.</li>
+                            <li>The switches haven't been told anything about VLAN 10, 20, or 30 yet.</li>
+                            <li>Every port is still sitting at the default access VLAN (VLAN 1), not the VLAN this topology actually needs.</li>
+                        </ul>
+                    </div>
+                    <h4>Configure the switches</h4>
+                    <p>Hostnames first, matching the image exactly:</p>
+                    <div id="language-cisco" class="code-block">
+                        <p>Cisco IOS CLI</p>
+                        <pre>
+<code id="codeSnippetCisco" class="language-cisco">enable
+configure terminal
+hostname SW1</code></pre>
+                    </div>
+                    <p>Repeat with hostname SW2 on the second switch.</p>
+                    <p><strong>Create VLANs</strong></p>
+                    <div class="list">
+                        <ul>
+                            <li>VLAN 10 and VLAN 30 belong on SW1.</li>
+                            <li>VLAN 10 and VLAN 20 belong on SW2.</li>
+                            <li>VLAN 10 must be created on both switches, a VLAN ID in one switch's database has no effect on any other switch until it's created there too.</li>
+                            <li>VLAN 999 (the native VLAN used for both trunks in this lab) must also be created on SW1 and SW2 before it can be assigned as a trunk's native VLAN.</li>
+                        </ul>
+                    </div>
+                    <p>On SW1:</p>
+                    <div id="language-cisco" class="code-block">
+                        <p>Cisco IOS CLI</p>
+                        <pre>
+<code id="codeSnippetCisco" class="language-cisco">vlan 10
+ name Engineering
+
+vlan 30
+ name Sales
+
+vlan 999
+ name NATIVE-UNUSED</code></pre>
+                    </div>
+
+                    <p>On SW2:</p>
+                    <div id="language-cisco" class="code-block">
+                        <p>Cisco IOS CLI</p>
+                        <pre>
+<code id="codeSnippetCisco" class="language-cisco">vlan 10
+ name Engineering
+
+vlan 20
+ name HR
+
+vlan 999
+ name NATIVE-UNUSED</code></pre>
+                    </div>
+                    <p>What each line does:</p>
+                    <div class="list">
+                        <ul>
+                            <li>vlan 10 creates VLAN 10 in the switch's VLAN database.</li>
+                            <li>name Engineering assigns a descriptive name to the VLAN. IOS does not require a VLAN name, but using meaningful names makes the configuration easier to understand and troubleshoot.</li>
+                            <li>vlan 999 and name NATIVE-UNUSED create VLAN 999 without assigning any access ports to it. This VLAN is reserved for use as the trunk's native VLA</li>
+                            <li>Creating a VLAN does not assign it to any port. It only adds the VLAN to the switch's VLAN database.</li>
+                            <li>A VLAN will not carry endpoint traffic until an access port is assigned to that VLAN.</li>
+                        </ul>
+                    </div>
+                    <p>Verify:</p>
+                    <div id="language-cisco" class="code-block">
+                        <p>Cisco IOS CLI</p>
+                        <pre>
+<code id="codeSnippetCisco" class="language-cisco">SW1# show vlan brief
+VLAN Name                             Status    Ports
+---- -------------------------------- --------- -------------------------------
+1    default                          active
+10   Engineering                      active
+30   Sales                            active
+999  NATIVE-UNUSED                    active</code></pre>
+                    </div>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Command</th>
+                                    <th>Purpose</th>
+                                    <th>Expected result</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code class="code">show vlan brief</code></td>
+                                    <td>Displays VLANs and access ports</td>
+                                    <td>VLAN 10, 30, 999 appear on SW1; VLAN 10, 20, 999 appear on SW2</td>
+                                </tr>
+                                <tr>
+                                    <td><code class="code">show interfaces status</code></td>
+                                    <td>Displays port state</td>
+                                    <td>Connected ports show connected with the right VLAN column</td>
+                                </tr>
+                                <tr>
+                                    <td><code class="code">show running-config</code></td>
+                                    <td>Displays active configuration</td>
+                                    <td>VLAN and interface blocks match what you typed</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p><strong>Configure access ports</strong></p>
+                    <p>On SW1:</p>
+                    <div id="language-cisco" class="code-block">
+                        <p>Cisco IOS CLI</p>
+                        <pre>
+<code id="codeSnippetCisco" class="language-cisco">interface FastEthernet0/1
+ description PC1-.1
+ switchport mode access
+ switchport access vlan 10
+
+interface FastEthernet0/2
+ description PC2-.2
+ switchport mode access
+ switchport access vlan 10
+
+interface FastEthernet0/3
+ description PC3-.129
+ switchport mode access
+ switchport access vlan 30
+
+interface FastEthernet0/4
+ description PC4-.130
+ switchport mode access
+ switchport access vlan 30</code></pre>
+                    </div>
+
+                    <p>On SW2:</p>
+                    <div id="language-cisco" class="code-block">
+                        <p>Cisco IOS CLI</p>
+                        <pre>
+<code id="codeSnippetCisco" class="language-cisco">interface FastEthernet0/3
+ description PC7-.3
+ switchport mode access
+ switchport access vlan 10
+
+interface FastEthernet0/2
+ description PC6-.4
+ switchport mode access
+ switchport access vlan 10
+
+interface FastEthernet0/1
+ description PC5-.65
+ switchport mode access
+ switchport access vlan 20</code></pre>
+                    </div>
+                    <div class="list">
+                        <ul>
+                            <li>The four SW1 ports have different roles. Two ports belong to VLAN 10 and the other two belong to VLAN 30. Configuring them individually avoids accidentally applying the same VLAN configuration to all four ports.</li>
+                            <li>Using <code class="code">interface range</code> is useful when multiple ports need exactly the same configuration. In this case, the ports belong to different VLANs, so separate interface configurations are safer.</li>
+                            <li><code class="code">switchport mode access</code> forces the interface to operate as an access port. It prevents the port from being used as a trunk through dynamic trunk negotiation.</li>
+                            <li>If the port is left in a dynamic mode, it may negotiate trunking with a connected device when the conditions allow it. An unexpected trunk can create a security and segmentation problem.</li>
+                            <li><code class="code">switchport access vlan 10</code> assigns the access port to VLAN 10. Untagged frames received on that port are associated with VLAN 10.</li>
+                            <li>If you configure the wrong VLAN number, IOS normally accepts the configuration without reporting an error. The port can remain operational, but the connected device will be placed in the wrong VLAN and therefore the wrong logical network.</li>
+                        </ul>
+                    </div>
+                    <p>Verify:</p>
+                    <div id="language-cisco" class="code-block">
+                        <p>Cisco IOS CLI</p>
+                        <pre>
+<code id="codeSnippetCisco" class="language-cisco">show vlan brief
+show interfaces Fa0/1 switchport
+show interfaces Fa0/3 switchport
+show interfaces Fa0/4 switchport</code></pre>
+                    </div>
+                    <h4>Same-VLAN testing</h4>
+                    <div class="text-diagram explanation">
+                            <pre>
+<code>PC2 (SW1) → PC1 (SW1)
+ping 10.0.0.1</code></pre>
+                    </div>
+                    <div class="list">
+                        <p>Expected: <strong>Success</strong>.</p>
+                        <ul>
+                            <li>Both devices are in VLAN 10 and the same <code class="code">10.0.0.0/26</code> subnet.</li>
+                            <li>SW1 switches the frame directly using the destination MAC address once it's learned.</li>
+                            <li>No trunk and no router are involved in this path.</li>
+                        </ul>
+                    </div>
+
+                    <div class="text-diagram explanation">
+                            <pre>
+<code>PC2 (SW1) → PC5 (SW2)
+ping 10.0.0.65</code></pre>
+                    </div>
+                    <div class="list">
+                        <p>Expected before inter-VLAN routing and before the trunk exists: <strong>Failure</strong>.</p>
+                        <ul>
+                            <li>The devices are in different VLANs, on different physical switches, using different IP networks.</li>
+                            <li>No trunk currently connects SW1 to SW2.</li>
+                            <li>Even after the trunk is configured, a Layer 2 switch cannot route traffic between VLAN 10 and VLAN 20. Communication between different VLANs requires a Layer 3 device such as a router or Layer 3 switch.</li>
+                            <li>This is the expected behavior, not a configuration error. VLANs provide Layer 2 isolation, so devices in different VLANs cannot communicate directly through the switch.</li>
+                            <li>The first ping may fail because the devices need to resolve the destination MAC address through ARP. If the next ping attempts succeed, the initial failure is normally expected and does not indicate a network problem.</li>
+                        </ul>
+                    </div>
+                    <h3>Configure trunk links (with native VLAN)</h3>
+                    <p>Two trunks exist in this topology: SW1 <code class="code">G0/1</code> ↔ SW2 <code class="code">G0/1</code>, and SW2 <code class="code">G0/2</code> ↔ R1 <code class="code">G0/0</code>. Both are configured here with an explicit native VLAN rather than leaving the default (VLAN 1) in place.</p>
+                    <p><strong>SW1–SW2 trunk:</strong> needs VLAN 10 and VLAN 30 only because VLAN 20 (HR) has no active members on SW1.</p>
+                    <p>On SW1:</p>
+                    <div id="language-cisco" class="code-block">
+                        <p>Cisco IOS CLI</p>
+                        <pre>
+<code id="codeSnippetCisco" class="language-cisco">interface GigabitEthernet0/1
+ description Trunk-to-SW2
+ switchport mode trunk
+ switchport trunk allowed vlan 10,30
+ switchport trunk native vlan 999
+ no shutdown</code></pre>
+                    </div>
+
+                    <p>On SW2:</p>
+                    <div id="language-cisco" class="code-block">
+                        <p>Cisco IOS CLI</p>
+                        <pre>
+<code id="codeSnippetCisco" class="language-cisco">interface GigabitEthernet0/1
+ description Trunk-to-SW1
+ switchport mode trunk
+ switchport trunk allowed vlan 10,30
+ switchport trunk native vlan 999
+ no shutdown</code></pre>
+                    </div>
+                    <p><strong>On SW2–R1 trunk:</strong> needs all three VLANs because R1 is the routing point for all departments.</p>
+                    <div id="language-cisco" class="code-block">
+                        <p>Cisco IOS CLI</p>
+                        <pre>
+<code id="codeSnippetCisco" class="language-cisco">iinterface GigabitEthernet0/2
+ description Trunk-to-R1
+ switchport mode trunk
+ switchport trunk allowed vlan 10,20,30
+ switchport trunk native vlan 999
+ no shutdown</code></pre>
+                    </div>
+
+                    <div class="list">
+                        <p>What each part of this configuration does:</p>
+                        <ul>
+                            <li>A trunk allows multiple VLANs to use the same physical link. The switch adds an 802.1Q tag to identify the VLAN of each frame.</li>
+                            <li>The receiving switch reads the VLAN tag and forwards the frame within the correct VLAN.</li>
+                            <li><code class="code">switchport trunk allowed vlan</code> controls which VLANs are allowed to pass through the trunk.</li>
+                            <li>VLAN 20 is not allowed on the SW1–SW2 trunk because SW1 does not have any ports using VLAN 20.</li>
+                            <li><code class="code">switchport trunk native vlan 999</code> sets VLAN 999 as the native VLAN. Frames from the native VLAN are sent without an 802.1Q tag.</li>
+                            <li>VLAN 999 is not assigned to any user or endpoint port. This keeps normal endpoint traffic away from the native VLAN.</li>
+                            <li>The native VLAN is configured on the trunk interface. It does not require another physical port or cable.</li>
+                            <li>Both ends of the trunk should use the same native VLAN. If they are different, Cisco IOS can show a native VLAN mismatch warning.</li>
+                            <li><code class="code">switchport trunk encapsulation dot1q</code> depends on the switch model. Some switches support only 802.1Q and do not have this command. If the command is rejected, configure the trunk without it.</li>
+                        </ul>
+                    </div>
+                    <p>Verify:</p>
+                    <div id="language-cisco" class="code-block">
+                        <p>Cisco IOS CLI</p>
+                        <pre>
+<code id="codeSnippetCisco" class="language-cisco">show interfaces trunk
+show interfaces Gi0/1 switchport</code></pre>
+                    </div>
+
+                    <p>Expected trunk output (SW2):</p>
+                    <div id="language-cisco" class="code-block">
+                        <p>Cisco IOS CLI</p>
+                        <pre>
+<code id="codeSnippetCisco" class="language-cisco">SW2# show interfaces trunk
+
+Port        Mode         Encapsulation  Status        Native vlan
+Gi0/1       on           802.1q         trunking      999
+Gi0/2       on           802.1q         trunking      999
+
+Port        Vlans allowed on trunk
+Gi0/1       10,30
+Gi0/2       10,20,30</code></pre>
+                    </div>
+
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Check</th>
+                                    <th>Expected result</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Trunk interface</strong></td>
+                                    <td><code class="code">Gi0/1</code> on both SW1 and SW2; <code class="code">Gi0/2</code> on SW2 toward R1</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Operational mode</strong></td>
+                                    <td><code class="code">trunk</code></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Status</strong></td>
+                                    <td><code class="code">trunking</code></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>VLAN 10</strong></td>
+                                    <td>Allowed and active on both trunks</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>VLAN 20</strong></td>
+                                    <td>Allowed only on the SW2–R1 trunk</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>VLAN 30</strong></td>
+                                    <td>Allowed on both trunks</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Native VLAN</strong></td>
+                                    <td><code class="code">999</code> on both ends of each trunk</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="list">
+                        <p>Common mistakes this setup can prevent or reveal</p>
+                        <ul>
+                            <li>Create VLAN 999 before using it as the native VLAN. If the VLAN does not exist, IOS will not accept the native VLAN configuration.</li>
+                            <li>Make sure both ends of the trunk use the same native VLAN. For example, VLAN 999 on one side and VLAN 1 on the other side will cause a native VLAN mismatch warning.</li>
+                            <li>Do not assign VLAN 999 to a normal access port. A PC connected to that port would be placed in the unused native VLAN and normally would not have access to the intended network.</li>
+                        </ul>
+                    </div>
+
+                    <h4>Extend VLANs across switches</h4>
+                    <div class="list">
+                        <ul>
+                            <li>VLAN 10 is the one VLAN in this topology that lives on two switches.</li>
+                            <li>A VLAN must exist in the VLAN database on every switch that has a member port.</li>
+                            <li>A VLAN must be carried across every trunk that separates those members.</li>
+                        </ul>
+                    </div>
+                    <p>Test same-VLAN reachability across the switch boundary:</p>
+                    <div class="text-diagram explanation">
+                            <pre>
+<code>PC2 (SW1, VLAN 10) → PC7 (SW2, VLAN 10)
+ping 10.0.0.3</code></pre>
+                    </div>
+                    <div class="list">
+                        <p>Expected: <strong>Success</strong>.</p>
+                        <ul>
+                            <li>VLAN 10 is trunked between SW1 and SW2.</li>
+                            <li>This works without R1 doing anything.</li>
+                        </ul>
+                    </div>
+
+                    <p>Test different VLANs across the switch boundary:</p>
+                    <div class="text-diagram explanation">
+                            <pre>
+<code>PC2 (SW1, VLAN 10) → PC5 (SW2, VLAN 20)
+ping 10.0.0.65</code></pre>
+                    </div>
+                    <div class="list">
+                        <p>Expected before routing: <strong>Failure</strong>.</p>
+                        <ul>
+                            <li>The trunk carries both VLAN 10 and (on the R1 side) VLAN 20.</li>
+                            <li>Trunking only extends VLAN membership, it does not provide a path between VLANs.</li>
+                            <li>That's still R1's job, and R1 hasn't been configured yet.</li>
+                        </ul>
+                    </div>
+                    <h3>Configure inter-VLAN routing</h3>
+                    <p>The image shows a standalone router connected to SW2 using one physical link. This is called router-on-a-stick. The router uses logical subinterfaces on the same physical interface, with each subinterface handling a different VLAN.</p>
+                    <p>Physical interface first:</p>
+                    <div id="language-cisco" class="code-block">
+                        <p>Cisco IOS CLI</p>
+                        <pre>
+<code id="codeSnippetCisco" class="language-cisco">interface GigabitEthernet0/0
+ description Trunk-to-SW2
+ no ip address
+ no shutdownn</code></pre>
+                    </div>
+
+                    <p>One subinterface per VLAN:</p>
+                    <div id="language-cisco" class="code-block">
+                        <p>Cisco IOS CLI</p>
+                        <pre>
+<code id="codeSnippetCisco" class="language-cisco">interface GigabitEthernet0/0.10
+ description VLAN10-Gateway
+ encapsulation dot1Q 10
+ ip address 10.0.0.62 255.255.255.192
+
+interface GigabitEthernet0/0.20
+ description VLAN20-Gateway
+ encapsulation dot1Q 20
+ ip address 10.0.0.126 255.255.255.192
+
+interface GigabitEthernet0/0.30
+ description VLAN30-Gateway
+ encapsulation dot1Q 30
+ ip address 10.0.0.190 255.255.255.192</code></pre>
+                    </div>
+                    
+                    <div class="list">
+                        <p>What each command does:</p>
+                        <ul>
+                            <li><code class="code">interface GigabitEthernet0/0.10</code> creates a logical subinterface on the physical G0/0 interface. The .10 is just a label and does not automatically connect it to VLAN 10.</li>
+                            <li><code class="code">encapsulation dot1Q 10</code> connects the subinterface to VLAN 10. It tells the router to process frames that have the VLAN 10 tag.</li>
+                            <li><code class="code">ip address</code> assigns the IP address used as the default gateway for devices in VLAN 10.</li>
+                            <li>The physical <code class="code">G0/0</code>interface must be enabled with <code class="code">no shutdown</code> for the subinterfaces to work.</li>
+                            <li>The SW2 interface connected to R1 must be configured as a trunk and must allow VLAN 10, VLAN 20, and VLAN 30.</li>
+                            <li>The parent interface cannot be shut down or configured as an access port. The subinterfaces depend on the physical interface for connectivity.</li>
+                            <li>VLAN 999 does not need a routed subinterface in this setup. It is the native VLAN on the trunk, so its traffic is sent without an 802.1Q tag. Since VLAN 999 is not being routed in this lab, R1 does not need an <code class="code">encapsulation dot1Q 999 native</code> subinterface.</li>
+                        </ul>
+                    </div>
+                    <p>Verify the router configuration:</p>
+                    <div id="language-cisco" class="code-block">
+                        <p>Cisco IOS CLI</p>
+                        <pre>
+<code id="codeSnippetCisco" class="language-cisco">R1# show ip interface brief
+
+Interface                  IP-Address      OK? Method Status                Protocol
+GigabitEthernet0/0         unassigned      YES manual up                    up
+GigabitEthernet0/0.10      10.0.0.62       YES manual up                    up
+GigabitEthernet0/0.20      10.0.0.126      YES manual up                    up
+GigabitEthernet0/0.30      10.0.0.190      YES manual up                    up</code></pre>
+                    </div>
+
+                    <p>Check the routing table:</p>
+                    <div id="language-cisco" class="code-block">
+                        <p>Cisco IOS CLI</p>
+                        <pre>
+<code id="codeSnippetCisco" class="language-cisco">R1# show ip route
+     10.0.0.0/26 is directly connected, GigabitEthernet0/0.10
+     10.0.0.64/26 is directly connected, GigabitEthernet0/0.20
+     10.0.0.128/26 is directly connected, GigabitEthernet0/0.30</code></pre>
+                    </div>
+
+                    <p>Check each subinterface configuration:</p>
+                    <div id="language-cisco" class="code-block">
+                        <p>Cisco IOS CLI</p>
+                        <pre>
+<code id="codeSnippetCisco" class="language-cisco">show running-config interface GigabitEthernet0/0.10
+show running-config interface GigabitEthernet0/0.20
+show running-config interface GigabitEthernet0/0.30</code></pre>
+                    </div>
+                    <div class="list">
+                        <ul>
+                            <li>If a subinterface shows up/down instead of up/up, check the physical parent interface first.</li>
+                            <li>Then check <code class="code">show interfaces trunk</code> on SW2, a subinterface can't come up if the trunk isn't passing that VLAN.</li>
+                        </ul>
+                    </div>
+                    <h4>Explaining the packet flow</h4>
+                        <p>Example: PC5 (<code class="code">10.0.0.65</code>) pinging the plain Engineering PC on SW1 (<code class="code">10.0.0.2</code>).</p>
+                    <div class="list">
+                        <ol>
+                            <li>PC5 compares <code class="code">10.0.0.2</code> against its own subnet, <code class="code">10.0.0.64/26</code>, and determines the destination is remote.</li>
+                            <li>It sends the frame to its default gateway, <code class="code">10.0.0.126</code>.</li>
+                            <li>SW2 places the frame into VLAN 20 and forwards it out <code class="code">G0/1</code>, tagged, toward R1.</li>
+                            <li>R1's subinterface <code class="code">Gi0/0.20</code> receives the frame and strips the Layer-2 header.</li>
+                            <li>R1 looks up <code class="code">10.0.0.2</code> and finds <code class="code">10.0.0.0/26</code> connected via <code class="code">Gi0/0.10</code>.</li>
+                            <li>R1 re-tags the packet for VLAN 10 and sends it back out the same physical link toward SW2.</li>
+                            <li>SW2 forwards the VLAN-10-tagged frame across the SW2–SW1 trunk to SW1.</li>
+                            <li>SW1 delivers it, untagged, out the VLAN 10 access port to the destination PC.</li>
+                            <li>The return traffic follows the same path in reverse.</li>
+                        </ol>
+                    </div>
+                    <div class="text-diagram explanation">
+                            <pre>
+<code>PC5 (.65)
+ ↓
+Access port (SW2 F0/1)
+ ↓
+VLAN 20
+ ↓
+802.1Q trunk (SW2 G0/2, native VLAN 999)
+ ↓
+R1 Gi0/0.20
+ ↓
+Routing lookup
+ ↓
+R1 Gi0/0.10
+ ↓
+802.1Q trunk (SW2 G0/1 → SW1 G0/1, native VLAN 999)
+ ↓
+VLAN 10
+ ↓
+Access port (SW1 F0/2)
+ ↓
+PC2 (.2)</code></pre>
+                    </div>
+                    <div class="list">
+                        <p>Layer 2 vs. Layer 3 in this flow</p>
+                        <ul>
+                            <li><strong>Layer 2:</strong> Switches use MAC addresses and VLAN information to move Ethernet frames between ports. The frame stays within the same VLAN.</li>
+                            <li><strong>Layer 3:</strong> A router uses IP addresses and routing to move traffic from one subnet/VLAN to another.</li>
+                            <li><strong>R1:</strong> R1 performs the Layer 3 routing in this topology. Its subinterfaces act as the default gateways for VLAN 10, VLAN 20, and VLAN 30.</li>
+                            <li><strong>Trunks:</strong> The switch-to-switch and switch-to-router links carry multiple VLANs. Traffic for VLAN 10, 20, and 30 is carried with 802.1Q tags.</li>
+                            <li><strong>Native VLAN 999:</strong> It is not involved in this communication. VLAN 999 is the native VLAN, so its frames are sent untagged, but the Engineering and HR traffic in this flow is tagged</li>
+                        </ul>
+                    </div>
+                    <p><strong>Verify inter-VLAN routing</strong></p>
+                    <p>Test each subinterface as a gateway:</p>
+                    <div class="text-diagram explanation">
+                            <pre>
+<code>PC1  > ping 10.0.0.62
+PC5  > ping 10.0.0.126
+PC3  > ping 10.0.0.190</code></pre>
+                    </div>
+
+                    <p>Test across VLANs:</p>
+                    <div class="text-diagram explanation">
+                            <pre>
+<code>PC1 > ping 10.0.0.65
+PC1 > ping 10.0.0.129
+PC5 > ping 10.0.0.129</code></pre>
+                    </div>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Source</th>
+                                    <th>Destination</th>
+                                    <th>Expected result</th>
+                                    <th>Why</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Same VLAN host</strong></td>
+                                    <td>Same VLAN host</td>
+                                    <td>Success</td>
+                                    <td>Layer-2 switching</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>VLAN 10 host</strong></td>
+                                    <td>VLAN 20 host</td>
+                                    <td>Success after routing</td>
+                                    <td>Inter-VLAN routing through R1</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>VLAN 20 host</strong></td>
+                                    <td>VLAN 30 host</td>
+                                    <td>Success after routing</td>
+                                    <td>Inter-VLAN routing through R1</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Host</strong></td>
+                                    <td>Unused/wrong address</td>
+                                    <td>Failure</td>
+                                    <td>No reachable destination</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h4>Troubleshooting</h4>
+                    <p>Work through the layers in order:</p>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Problem</th>
+                                    <th>Possible cause</th>
+                                    <th>Verification</th>
+                                    <th>Fix</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>PC cannot reach same-VLAN PC</strong></td>
+                                    <td>Wrong IP, cable, or VLAN</td>
+                                    <td><code class="code">show vlan brief</code></td>
+                                    <td>Correct IP or access VLAN</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>VLAN is missing</strong></td>
+                                    <td>VLAN not created on that switch</td>
+                                    <td><code class="code">show vlan brief</code></td>
+                                    <td>Create the VLAN</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Port is in wrong VLAN</strong></td>
+                                    <td>Incorrect access assignment</td>
+                                    <td><code class="code">show interfaces switchport</code></td>
+                                    <td>Assign the correct VLAN</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Trunk is not active</strong></td>
+                                    <td>One side left in access mode</td>
+                                    <td><code class="code">show interfaces trunk</code></td>
+                                    <td><code class="code">switchport mode trunk</code> on both ends</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>VLAN 10 works on SW1 but not SW2</strong></td>
+                                    <td>VLAN 10 missing on SW2, or absent from a trunk's allowed list</td>
+                                    <td><code class="code">show vlan brief</code>, <code class="code">show interfaces trunk</code></td>
+                                    <td>Create the VLAN and/or update the allowed list</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>One VLAN fails across a trunk</strong></td>
+                                    <td>VLAN not in the allowed list</td>
+                                    <td><code class="code">show interfaces trunk</code></td>
+                                    <td>Add the VLAN to <code class="code">switchport trunk allowed vlan</code></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Native VLAN warning on console</strong></td>
+                                    <td>Native VLAN mismatch between trunk ends</td>
+                                    <td><code class="code">show interfaces trunk</code></td>
+                                    <td>Set <code class="code">switchport trunk native vlan 999</code> on both ends</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Unexpected untagged traffic reaches a port</strong></td>
+                                    <td>Native VLAN set to a VLAN with real access-port members</td>
+                                    <td><code class="code">show interfaces trunk</code></td>
+                                    <td>Move native VLAN to a dedicated unused VLAN (999)</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Router subinterface is down</strong></td>
+                                    <td>Parent <code class="code">Gi0/0</code> disabled</td>
+                                    <td><code class="code">show ip interface brief</code></td>
+                                    <td><code class="code">no shutdown</code> on the physical interface</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Inter-VLAN ping fails</strong></td>
+                                    <td>Wrong gateway on the PC, or wrong dot1Q tag on the router</td>
+                                    <td>Check PC IP config and router subinterface config</td>
+                                    <td>Correct the gateway or the encapsulation dot1Q value</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>All inter-VLAN pings fail</strong></td>
+                                    <td>SW2–R1 link is access mode, not trunk</td>
+                                    <td><code class="code">show interfaces Gi0/1 switchport</code></td>
+                                    <td>Configure the link as a trunk</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>First ping fails, later ones succeed</strong></td>
+                                    <td>ARP resolving</td>
+                                    <td>Repeat the ping</td>
+                                    <td>Confirm it doesn't persist</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>PC cannot reach its own gateway</strong></td>
+                                    <td>Wrong subnet mask or gateway address</td>
+                                    <td>Check PC IP Configuration</td>
+                                    <td>Correct the address settings</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Router has no connected route for a VLAN</strong></td>
+                                    <td>Missing or mistyped subinterface IP</td>
+                                    <td><code class="code">show ip route</code></td>
+                                    <td>Configure the correct IP and mask</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>One-way communication</strong></td>
+                                    <td>Asymmetric routing or PC firewall</td>
+                                    <td>Test both directions</td>
+                                    <td>Correct routing, or check host-side settings</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p><strong>Failure 1: Wrong access VLAN</strong></p>
+                    <div id="language-cisco" class="code-block">
+                        <p>Cisco IOS CLI</p>
+                        <pre>
+<code id="codeSnippetCisco" class="language-cisco">interface FastEthernet0/1
+ switchport access vlan 20</code></pre>
+                    </div>
+                    <p>Expected result:</p>
+                    <div class="list">
+                        <ul>
+                            <li>The Engineering PC on SW1 <code class="code">F0/1</code> is silently placed into HR instead of Engineering.</li>
+                            <li>The port keeps a link light and shows no error.</li>
+                            <li>The PC loses reachability to the rest of VLAN 10.</li>
+                        </ul>
+                    </div>
+                    <p>Fix:</p>
+                    <div id="language-cisco" class="code-block">
+                        <p>Cisco IOS CLI</p>
+                        <pre>
+<code id="codeSnippetCisco" class="language-cisco">interface FastEthernet0/1
+ switchport access vlan 10</code></pre>
+                    </div>
+
+                    <p><strong>Failure 2: Missing VLAN from a trunk</strong></p>
+                    <div id="language-cisco" class="code-block">
+                        <p>Cisco IOS CLI</p>
+                        <pre>
+<code id="codeSnippetCisco" class="language-cisco">switchport trunk allowed vlan 30</code></pre>
+                    </div>
+                    <p>Expected result:</p>
+                    <div class="list">
+                        <ul>
+                            <li>VLAN 10 traffic stops crossing this trunk.</li>
+                            <li>Engineering hosts on SW1 lose reachability to Engineering hosts on SW2.</li>
+                            <li>Engineering hosts on SW1 lose reachability to R1's <code class="code">Gi0/0.10</code> gateway.</li>
+                        </ul>
+                    </div>
+                    <p>Fix:</p>
+                    <div id="language-cisco" class="code-block">
+                        <p>Cisco IOS CLI</p>
+                        <pre>
+<code id="codeSnippetCisco" class="language-cisco">switchport trunk allowed vlan 10,30</code></pre>
+                    </div>
+
+                    <p><strong>Failure 3: Native VLAN mismatch</strong></p>
+                    <div id="language-cisco" class="code-block">
+                        <p>Cisco IOS CLI</p>
+                        <pre>
+<code id="codeSnippetCisco" class="language-cisco">! On SW1 only
+interface GigabitEthernet0/1
+ switchport trunk native vlan 1</code></pre>
+                    </div>
+                    <p>Expected result:</p>
+                    <div class="list">
+                        <ul>
+                            <li>SW1 now treats VLAN 1 as native on this trunk while SW2 still treats VLAN 999 as native.</li>
+                            <li>IOS logs a native VLAN mismatch warning on this link.</li>
+                            <li>Untagged traffic on this trunk is now interpreted inconsistently by each side.</li>
+                        </ul>
+                    </div>
+                    <p>Fix:</p>
+                    <div id="language-cisco" class="code-block">
+                        <p>Cisco IOS CLI</p>
+                        <pre>
+<code id="codeSnippetCisco" class="language-cisco">interface GigabitEthernet0/1
+ switchport trunk native vlan 999</code></pre>
+                    </div>
+
+                    <p><strong>Failure 4: Wrong router VLAN tag</strong></p>
+                    <div id="language-cisco" class="code-block">
+                        <p>Cisco IOS CLI</p>
+                        <pre>
+<code id="codeSnippetCisco" class="language-cisco">interface GigabitEthernet0/0.20
+ encapsulation dot1Q 30</code></pre>
+                    </div>
+                    <p>Expected result:</p>
+                    <div class="list">
+                        <ul>
+                            <li>The subinterface meant to be HR's gateway now listens for VLAN 30 tags instead of VLAN 20.</li>
+                            <li>HR loses its gateway.</li>
+                            <li>Sales unexpectedly has two subinterfaces competing for VLAN 30.</li>
+                        </ul>
+                    </div>
+                    <p>Fix:</p>
+                    <div id="language-cisco" class="code-block">
+                        <p>Cisco IOS CLI</p>
+                        <pre>
+<code id="codeSnippetCisco" class="language-cisco">interface GigabitEthernet0/0.20
+ encapsulation dot1Q 20</code></pre>
+                    </div>
+
+                    <p><strong>Failure 5: Wrong default gateway</strong></p>
+                    <div class="text-diagram explanation">
+                            <pre>
+<code>Default gateway: 10.0.0.190</code></pre>
+                    </div>
+                    <p>Expected result:</p>
+                    <div class="list">
+                        <ul>
+                            <li>The IP address is the Sales gateway, not VLAN 20's.</li>
+                            <li>Communication between devices in the same subnet will still work because it does not need the default gateway.</li>
+                            <li>Communication with other subnets will fail. The PC sends that traffic to the wrong gateway, and that gateway does not have a route back to the subnet (<code class="code">192.168.1.64/26</code>).</li>
+                        </ul>
+                    </div>
+                    <h4>Verification command reference</h4>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Command</th>
+                                    <th>Device</th>
+                                    <th>Purpose</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code class="code">show vlan brief</code></td>
+                                    <td>Switch</td>
+                                    <td>VLANs and access-port membership</td>
+                            
+                                <tr>
+                                    <td><code class="code">show interfaces status</code></td>
+                                    <td>Switch</td>
+                                    <td>Port status and VLAN mode</td>
+                                </tr>
+                                <tr>
+                                    <td><code class="code">show interfaces trunk</code></td>
+                                    <td>Switch</td>
+                                    <td>Trunk state, native VLAN, and allowed VLANs</td>
+                                </tr>
+                                <tr>
+                                    <td><code class="code">show interfaces &lt;port&gt; switchport</code></td>
+                                    <td>Switch</td>
+                                    <td>Detailed switchport information</td>
+                                </tr>
+                                <tr>
+                                    <td><code class="code">show mac address-table</code></td>
+                                    <td>Switch</td>
+                                    <td>Learned MAC addresses</td>
+                                </tr>
+                                <tr>
+                                    <td><code class="code">show spanning-tree</code></td>
+                                    <td>Switch</td>
+                                    <td>STP state</td>
+                                </tr>
+                                <tr>
+                                    <td><code class="code">show ip interface brief</code></td>
+                                    <td>Router</td>
+                                    <td>Interface IP and operational state</td>
+                                </tr>
+                                <tr>
+                                    <td><code class="code">show ip route</code></td>
+                                    <td>Router</td>
+                                    <td>Routing table</td>
+                                </tr>
+                                <tr>
+                                    <td><code class="code">show arp</code></td>
+                                    <td>Router</td>
+                                    <td>IP-to-MAC mappings</td>
+                                </tr>
+                                <tr>
+                                    <td><code class="code">show running-config</code></td>
+                                    <td>All Cisco devices</td>
+                                    <td>Active configuration</td>
+                                </tr>
+                                <tr>
+                                    <td><code class="code">show cdp neighbors</code></td>
+                                    <td>Cisco devices</td>
+                                    <td>Directly connected Cisco neighbors</td>
+                                </tr>
+                                <tr>
+                                    <td><code class="code">ping</code></td>
+                                    <td>PC/router</td>
+                                    <td>Connectivity test</td>
+                                </tr>
+                                <tr>
+                                    <td><code class="code">traceroute</code></td>
+                                    <td>Router</td>
+                                    <td>Layer-3 path test</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h3>VLAN security hardening</h3>
+                    <p>VLAN security hardening means configuring switches and VLANs so that attackers cannot easily gain access to other VLANs, misuse switch ports, or exploit Layer 2 weaknesses.</p>
+                    <div class="list">
+                        <ul>
+                            <li>VLANs separate broadcast domains.</li>
+                            <li>VLANs are not, by themselves, a full security boundary.</li>
+                            <li>Anyone with access to a trunk port or a misconfigured access port can still reach more than intended.</li>
+                            <li>Everything below is hardening layered on top of the VLAN design, not a substitute for it.</li>
+                        </ul>
+                    </div>
+                    <p><strong>Shut down unused ports</strong>, using ports that don't carry a PC, a trunk, or the router link:</p>
+                    <div id="language-cisco" class="code-block">
+                        <p>Cisco IOS CLI</p>
+                        <pre>
+<code id="codeSnippetCisco" class="language-cisco">interface range FastEthernet0/5 - 8
+ description UNUSED
+ switchport mode access
+ switchport access vlan 999
+ shutdown</code></pre>
+                    </div>
+                    <p>VLAN 999 already exists in this lab (it's the native VLAN created earlier), so it doubles as a safe "parking" VLAN for disabled ports.</p>
+                    <p><strong>Port security</strong> on real endpoint ports:</p>
+                    <div id="language-cisco" class="code-block">
+                        <p>Cisco IOS CLI</p>
+                        <pre>
+<code id="codeSnippetCisco" class="language-cisco">interface FastEthernet0/1
+ switchport mode access
+ switchport access vlan 10
+ switchport port-security
+ switchport port-security maximum 2
+ switchport port-security violation restrict
+ switchport port-security mac-address sticky</code></pre>
+                    </div>
+                    <p>Verify:</p>
+                    <div id="language-cisco" class="code-block">
+                        <p>Cisco IOS CLI</p>
+                        <pre>
+<code id="codeSnippetCisco" class="language-cisco">show port-security interface FastEthernet0/1</code></pre>
+                    </div>
+                    <div class="list">
+                        <ul>
+                            <li><code class="code">maximum 2</code> fits a port that might carry an IP phone and a PC daisy-chained together.</li>
+                            <li><code class="code">maximum 1</code> is tighter, appropriate for a single PC with nothing else behind it.</li>
+                            <li><code class="code">violation restrict</code> drops offending traffic and logs it, without shutting down the whole port.</li>
+                            <li>The default <code class="code">shutdown</code> violation mode is stricter but needs a manual re-enable if it trips on a legitimate device.</li>
+                        </ul>
+                    </div>
+                    <p><code class="code">strongBPDU Guard</code> protects an endpoint-facing switch port from receiving BPDUs, which are used by STP.</p>
+                    <p>If a user connects another switch to a port configured with BPDU Guard, the port receives a BPDU and is placed into an err-disabled state. This helps prevent someone from connecting an unauthorized switch and affecting the STP topology.</p>
+                    <div id="language-cisco" class="code-block">
+                        <p>Cisco IOS CLI</p>
+                        <pre>
+<code id="codeSnippetCisco" class="language-cisco">interface range FastEthernet0/1 - 4
+ spanning-tree portfast
+ spanning-tree bpduguard enable</code></pre>
+                    </div>
+                    <p><strong>Native VLAN</strong></p>
+                    <p>The native VLAN is already configured in the main trunk setup from Stage 3.</p>
+                    <div class="list">
+                        <ul>
+                            <li>Both trunks, SW1–SW2 and SW2–R1, use VLAN 999 as the native VLAN.</li>
+                            <li>No access ports are assigned to VLAN 999.</li>
+                            <li>Traffic from the native VLAN is sent without an 802.1Q tag.</li>
+                            <li>You can check the native VLAN with:</li>
+                            <div id="language-cisco" class="code-block">
+                            <p>Cisco IOS CLI</p>
+                        <pre>
+<code id="codeSnippetCisco" class="language-cisco">show interfaces trunk</code></pre>
+                    </div>
+                        <p>Check the Native vlan column for each trunk.</p>
+                        </ul>
+                    </div>
+                    <p><strong>Allowed VLAN Lists</strong></p>
+                    <p>Only allow the VLANs that are needed on each trunk.</p>
+                    <div class="list">
+                        <p>In this topology:</p>
+                        <ul>
+                            <li><strong>SW1–SW2</strong>: VLANs 10 and 30</li>
+                            <li><strong>SW2–R1</strong>: VLANs 10, 20, and 30</li>
+                        </ul>
+                        <p>VLAN 20 is not allowed on the SW1–SW2 trunk because SW1 has no HR devices.</p>
+                    </div>
+                    <p><strong>Other Security Features</strong></p>
+                    <div class="list">
+                        <ul>
+                            <li>DHCP Snooping.</li>
+                            <li>Dynamic ARP Inspection.</li>
+                            <li>A dedicated management VLAN kept off user-facing trunks.</li>
+                            <li>SSH instead of Telnet.</li>
+                            <li>ACLs between departments.</li>
+                            <li>Central logging.</li>
+                            <li>Configuration backups.</li>
+                            <li>Ongoing network monitoring</li>
+                        </ul>
+                        <p>Also remember that a Packet Tracer configuration is only a lab setup. It does not automatically make the network secure enough for production use.</p>
+                    </div>
+                   <h4>Complete configuration</h4>
+                   <p><strong>SW1 Configuration</strong></p>
+                   <div id="language-cisco" class="code-block">
+                        <p>Cisco IOS CLI</p>
+                        <pre>
+<code id="codeSnippetCisco" class="language-cisco">enable
+configure terminal
+
+hostname SW1
+
+vlan 10
+ name Engineering
+
+vlan 30
+ name Sales
+
+vlan 999
+ name NATIVE-UNUSED
+
+interface FastEthernet0/1
+ description PC1-.1
+ switchport mode access
+ switchport access vlan 10
+ no shutdown
+
+interface FastEthernet0/2
+ description PC2-.2
+ switchport mode access
+ switchport access vlan 10
+ no shutdown
+
+interface FastEthernet0/3
+ description PC3-.129
+ switchport mode access
+ switchport access vlan 30
+ no shutdown
+
+interface FastEthernet0/4
+ description PC4-.130
+ switchport mode access
+ switchport access vlan 30
+ no shutdown
+
+interface GigabitEthernet0/1
+ description Trunk-to-SW2
+ switchport mode trunk
+ switchport trunk allowed vlan 10,30
+ switchport trunk native vlan 999
+ no shutdown
+
+end
+copy running-config startup-config</code></pre>
+                    </div>
+                    <p><strong>SW2 Configuration</strong></p>
+                    <div id="language-cisco" class="code-block">
+                        <p>Cisco IOS CLI</p>
+                        <pre>
+<code id="codeSnippetCisco" class="language-cisco">hostname SW2
+
+vlan 10
+ name Engineering
+vlan 20
+ name HR
+vlan 999
+ name NATIVE-UNUSED
+
+interface FastEthernet0/3
+ description PC7-.3
+ switchport mode access
+ switchport access vlan 10
+ no shutdown
+
+interface FastEthernet0/2
+ description PC6-.4
+ switchport mode access
+ switchport access vlan 10
+ no shutdown
+
+interface FastEthernet0/1
+ description PC5-.65
+ switchport mode access
+ switchport access vlan 20
+ no shutdown
+
+interface GigabitEthernet0/1
+ description Trunk-to-SW1
+ switchport mode trunk
+ switchport trunk allowed vlan 10,30
+ switchport trunk native vlan 999
+ no shutdown
+
+interface GigabitEthernet0/2
+ description Trunk-to-R1
+ switchport mode trunk
+ switchport trunk allowed vlan 10,20,30
+ switchport trunk native vlan 999
+ no shutdown
+
+end
+copy running-config startup-config</code></pre>
+                    </div>
+                    <p><strong>R1 Configuration</strong></p>
+                    <div id="language-cisco" class="code-block">
+                        <p>Cisco IOS CLI</p>
+                        <pre>
+<code id="codeSnippetCisco" class="language-cisco">hostname R1
+
+interface GigabitEthernet0/0
+ description Trunk-to-SW2
+ no ip address
+ no shutdown
+
+interface GigabitEthernet0/0.10
+ description Engineering-Gateway
+ encapsulation dot1Q 10
+ ip address 10.0.0.62 255.255.255.192
+
+interface GigabitEthernet0/0.20
+ description HR-Gateway
+ encapsulation dot1Q 20
+ ip address 10.0.0.126 255.255.255.192
+
+interface GigabitEthernet0/0.30
+ description Sales-Gateway
+ encapsulation dot1Q 30
+ ip address 10.0.0.190 255.255.255.192
+
+end
+copy running-config startup-config</code></pre>
+                    </div>
+                    <p class="sub"><strong class="subtitle">Final test plan</strong></p>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Test</th>
+                                    <th>Source</th>
+                                    <th>Destination</th>
+                                    <th>Expected result</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Same-VLAN test</strong></td>
+                                    <td>Engineering PC (SW1)</td>
+                                    <td>Engineering PC (.1, SW1)</td>
+                                    <td>Success</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Gateway test</strong></td>
+                                    <td>Any PC</td>
+                                    <td>Its VLAN gateway</td>
+                                    <td>Success</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Inter-VLAN test</strong></td>
+                                    <td>Engineering device</td>
+                                    <td>HR device</td>
+                                    <td>Success after routing</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Inter-VLAN test</strong></td>
+                                    <td>HR device</td>
+                                    <td>Sales device</td>
+                                    <td>Success after routing</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Trunk test</strong></td>
+                                    <td>Engineering device on SW1</td>
+                                    <td>Engineering device on SW2</td>
+                                    <td>Success</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Native VLAN test</strong></td>
+                                    <td>-</td>
+                                    <td><code class="code">show interfaces trunk</code> on both switches</td>
+                                    <td>VLAN 999 shown on both ends</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Unused-port test</strong></td>
+                                    <td>Disabled port</td>
+                                    <td>Network</td>
+                                    <td>No connectivity</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p>For each test, record:</p>
+                    <div class="list">
+                        <ul>
+                            <li>The command you ran.</li>
+                            <li>The result you expected.</li>
+                            <li>The result you actually got.</li>
+                            <li>The root cause, if the two differ, traced through the troubleshooting table above.</li>
+                        </ul>
+                    </div>
+                    <p>This VLAN configuration project in Cisco Packet Tracer brings together VLANs, access ports, trunk links, a native VLAN, default gateways, and inter-VLAN routing in one working topology.</p>
+                    <p>By the end of the project, you should understand what each part does and be able to explain the configuration line by line instead of simply copying commands.</p>
+
+                </div>
+            </section>
+
+            <div class="next-section">
+                <div class="next">
+                    <div class="header">
+                        <h3>Networking Fundamentals 1</h3>
+                        <p>Tutorial</p>
+                    </div>
+                    <div class="content">
+                        <p>Master Networking Fundamentals I: a beginner's guide to IP, DNS, DHCP, and troubleshooting for IT careers. 
+                        <a href="../../Tutorials/network-fundamentals-1/index.html" class="next-button" target="_blank">Go To Next Tutorial</a>
+                    </div>
+                </div>
+                <div class="next">
+                    <div class="header">
+                        <h3>Networking Fundamentals 2</h3>
+                        <p>Tutorial</p>
+                    </div>
+                    <div class="content">
+                        <p>Master Windows file system: hierarchy, paths, permissions, security, and troubleshooting for beginners. 
+                        </p>
+                        <a href="../../Tutorials/network-fundamentals-2/index.html" class="next-button" target="_blank">Go To Next Tutorial</a>
+                    </div>
+                </div>
+                <div class="next">
+                    <div class="header">
+                        <h3>Windows File System</h3>
+                        <p>Tutorial</p>
+                    </div>
+                    <div class="content">
+                        <p>This comprehensive tutorial is designed for beginners and IT professionals who want to understand how Windows files and folders are organized, managed, and secured.
+                        </p>
+                        <a href="../../Tutorials/windows-file-system/index.html" class="next-button" target="_blank">Go To Next Tutorial</a>
+                    </div>
+                </div>
+                
+            </div>
+        </main>
+
+        <!-- Right Side  -->
+        <aside class="right-column">
+            <div class="about-website moving-border">
+                <h3>About Website</h3>
+                <p><a class="homepage typewriter-scan" href="../../../index.html"><strong>DevspireHub</strong></a>
+                    is a
+                    beginner-friendly learning
+                    platform offering
+                    step-by-step tutorials in
+                    programming, ethical hacking,
+                    networking, automation, cloud and Windows setup. Learn through hands-on projects, clear
+                    explanations, and
+                    real-world examples
+                    using practical tools and open-source resources-no signups, no tracking, just actionable knowledge
+                    to accelerate your
+                    technical skills.
+                </p>
+            </div>
+            <script async
+                src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2368356039533778"
+                crossorigin="anonymous"></script>
+            <!-- sidebar ads -->
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2368356039533778"
+                data-ad-slot="5621407319" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+
+            <div class="color-palette">
+                <div>
+                    <h3>Color Space</h3>
+                    <p>Discover Perfect Palettes</p>
+                </div>
+                <div class="palette-grid">
+                    <div class="palette-card">
+                        <!-- Color bars (set your palette colors here) -->
+                        <div class="color-wave colors-5">
+                            <div class="wave-bar" style="background:#F2C447" data-color="#F2C447"></div>
+                            <div class="wave-bar" style="background:#F76218" data-color="#F76218"></div>
+                            <div class="wave-bar" style="background:#FF1D68" data-color="#FF1D68"></div>
+                            <div class="wave-bar" style="background:#B10065" data-color="#B10065"></div>
+                            <div class="wave-bar" style="background:#740580" data-color="#740580"></div>
+                        </div>
+
+                        <div class="card-info">
+                            <div class="card-title">Sample Palette</div>
+                        </div>
+                    </div>
+                    <div class="button">
+                        <a href="../../../color-palettes/index.html" class="color-button">Go To Color Space Home
+                            Page</a>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <!-- BANNER - Featured Open-Source Projects -->
+                <aside class="banner" aria-label="Featured Open-Source Projects">
+
+                    <!-- HEADER -->
+                    <div class="banner-header">
+                        <div class="banner-count-badge">
+                            <span class="live-dot"></span>
+                            <span>Live</span>
+                        </div>
+
+                        <div class="banner-chip">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+                                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61
+                                 c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77
+                                 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48
+                                 a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1
+                                 A5.07 5.07 0 0 0 5 4.77 5.44 5.44 0 0 0 3.5 8.55
+                                 c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+                            </svg>
+                            Open-Source Picks
+                        </div>
+
+                        <h3 class="banner-title">
+                            Featured <em>Open-Source</em><br>Projects
+                        </h3>
+                        <p class="banner-sub">
+                            Hand-picked repos across AI, Security, Dev&nbsp;&amp;&nbsp;more - updated weekly.
+                        </p>
+
+                        <!-- STATS -->
+                        <div class="banner-stats">
+                            <div class="stat-pill">
+                                <span class="stat-pill-num" id="js-total-count">0</span>
+                                <span class="stat-pill-lbl">Repos</span>
+                            </div>
+                            <div class="stat-pill">
+                                <span class="stat-pill-num" id="js-cats-count">0</span>
+                                <span class="stat-pill-lbl">Cats</span>
+                            </div>
+                            <div class="stat-pill">
+                                <span class="stat-pill-num" id="js-new-count">0</span>
+                                <span class="stat-pill-lbl">New</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- TICKER -->
+                    <div class="banner-ticker" aria-label="Categories">
+                        <div class="ticker-track" id="ticker">
+                            <!-- filled by JS -->
+                        </div>
+                    </div>
+
+                    <!-- CTA -->
+                    <a href="https://devspirehub.com/github/featured_open-source_projects" target="_blank"
+                        rel="noopener noreferrer" class="banner-cta">
+                        Explore All Projects
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+                            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            e x1="7" y1="17" x2="17" y2="7"/>
+                            <polyline points="7 7 17 7 17 17" />
+                        </svg>
+                    </a>
+
+                </aside>
+            </div>
+
+            <div class="wallpaper">
+                <div>
+                    <h3>Featured Wallpapers (For desktop)</h3>
+                    <p>Download for FREE!</p>
+                </div>
+                <div class="image-grid">
+                    <div class="image-card">
+                        <img src="../../../Wallpaper/images_upscale/wallpaper (1).png" alt="Wallpaper 1">
+                    </div>
+                    <div class="image-card">
+                        <img src="../../../Wallpaper/images_upscale/wallpaper (23).png" alt="Wallpaper 23">
+                    </div>
+                    <div class="image-card">
+                        <img src="../../../Wallpaper/images_upscale/wallpaper (46).png" alt="Wallpaper 46">
+                    </div>
+                    <div class="image-card">
+                        <img src="../../../Wallpaper/images_upscale/wallpaper (81).png" alt="Wallpaper 81">
+                    </div>
+                    <div class="image-card">
+                        <img src="../../../Wallpaper/images_upscale/wallpaper (111).png" alt="Wallpaper 111">
+                    </div>
+                    <div class="image-card">
+                        <img src="../../../Wallpaper/images_upscale/wallpaper (116).png" alt="Wallpaper 116">
+                    </div>
+                </div>
+                <div class="button">
+                    <a href="../../../Wallpaper/index.html" target="_blank" class="wallpaper-button">Go To Wallpaper Home
+                        Page</a>
+                </div>
+            </div>
+
+            <!-- Open Source Tools Directory -->
+            <div class="related-topics">
+                <div class="header">
+                    <h3>Open-Source Tools Directory</h3>
+                    <p><strong>Complete spectrum of open-source software in Github</strong>
+                    </p>
+                </div>
+                <div class="content">
+                    <ul>
+                        <li><i class="fas fa-code"></i><a
+                                href="../../../Resources/tools-directory/index.html#category-2"
+                                class="link" target="_blank">Programming</a></li>
+                        <li><i class="fas fa-globe"></i><a
+                                href="../../../Resources/tools-directory/index.html#category-3" class="link" target="_blank">Web
+                                Development</a></li>
+                        <li><i class="fas fa-network-wired"></i><a
+                                href="../../../Resources/tools-directory/index.html#category-4"
+                                class="link" target="_blank">Networking</a></li>
+                        <li><i class="fas fa-shield-alt"></i><a
+                                href="../../../Resources/tools-directory/index.html#category-5" class="link" target="_blank">Ethical
+                                Hacking</a></li>
+                        <li><i class="fas fa-microchip"></i><a
+                                href="../../../Resources/tools-directory/index.html#category-6"
+                                class="link" target="_blank">Hardware</a>
+                        </li>
+                        <li><i class="fas fa-tasks"></i><a
+                                href="../../../Resources/tools-directory/index.html#category-7"
+                                class="link" target="_blank">Productivity</a></li>
+                    </ul>
+                </div>
+                <div class="button-container">
+                    <div class="btn-cyber">
+                        <span class="btn-bg"></span>
+                        <span class="btn-border"></span>
+                        <span class="btn-text">
+                            <a href="../../../Resources/digital-resources/digital-resources-hub.html"
+                                class="related-button" target="_blank">
+                                Open-Source
+                                Tools</a> <span class="blink">_</span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <section class="deals-section">
+                <div class="deals-header">
+                    <h2>HOT DEALS</h2>
+                    <div class="deals-underline"></div>
+                </div>
+
+                <!-- Cards injected dynamically from amazon-links.json -->
+                <div class="deals-grid" id="dealsGrid">
+                    <div class="deal-skeleton">
+                    </div>
+                    <div class="deal-skeleton"></div>
+                    <div class="deal-skeleton"></div>
+                    <div class="deal-skeleton"></div>
+                    <div class="deal-skeleton"></div>
+                    <div class="deal-skeleton"></div>
+                </div>
+
+                <div class="deals-page-indicator" id="dealsPageIndicator"></div>
+
+                <div class="deals-nav">
+                    <button class="deal-arrow-btn" onclick="scrollDeals(-1)" aria-label="Previous">&#8592;</button>
+                    <button class="deal-arrow-btn" onclick="scrollDeals(1)" aria-label="Next">&#8594;</button>
+                </div>
+            </section>
+
+
+            <script async
+                src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2368356039533778"
+                crossorigin="anonymous"></script>
+            <!-- sidebar ads -->
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2368356039533778"
+                data-ad-slot="5621407319" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+
+            <script async
+                src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2368356039533778"
+                crossorigin="anonymous"></script>
+            <!-- sidebar ads -->
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2368356039533778"
+                data-ad-slot="5621407319" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </aside>
+        <button id="scrollUpBtn" aria-label="Scroll to top">
+            <svg class="progress-circle" viewBox="0 0 36 36">
+                <path class="bg" d="M18 2.0845
+                  a 15.9155 15.9155 0 0 1 0 31.831
+                  a 15.9155 15.9155 0 0 1 0 -31.831" />
+                <path class="progress" d="M18 2.0845
+                  a 15.9155 15.9155 0 0 1 0 31.831
+                  a 15.9155 15.9155 0 0 1 0 -31.831" />
+                <span class="arrow-overlay">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 19V5M5 12L12 5L19 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                </span>
+            </svg>
+        </button>
+    </div>
+    <!--Footer  -->
+    <footer class="footer">
+        <ul class="menu">
+            <li class="menu-item"><a class="menu-link" href="../../../index.html">Home</a></li>
+            <li class="menu-item"><a class="menu-link" href="../../../Wallpaper/index.html">Wallpapers</a></li>
+            <li class="menu-item"><a class="menu-link" href="../../../color-palettes/index.html">Color Space</a></li>
+            <li class="menu-item"><a class="menu-link"
+                    href="../../../Resources/digital-resources/digital-resources-hub.html">Resources</a></li>
+            <li class="menu-item"><a class="menu-link" href="../../../Website/about/about.html">About</a></li>
+            <li class="menu-item"><a class="menu-link" href="../../../Website/contact/index.html">Contact</a></li>
+            <li class="menu-item"><a class="menu-link" href="../../../Website/privacy/index.html">Privacy policy</a>
+            </li>
+        </ul>
+        <div class="contacts">
+            <a class="contact github" href="https://github.com/kumaradoss16" target="_blank"><i
+                    class="fa-brands fa-github"></i></a>
+            <a class="contact instagram" href="https://www.instagram.com/devspirehub/" target="_blank"><i
+                    class="fa-brands fa-instagram"></i></a>
+            <a class="contact linkedin" href="https://www.linkedin.com/in/kumaradoss-s/" target="_blank"><i
+                    class="fa-brands fa-linkedin"></i></a>
+            <a class="contact facebook" href="https://www.facebook.com/profile.php?id=61577667990170&_rdr"
+                target="_blank"><i class="fa-brands fa-facebook"></i></a>
+            <a class="contact gmail" href="https://mail.google.com/mail/?view=cm&fs=1&to=devspirehub.website@gmail.com"
+                aria-label="Email us at devspirehub.website@gmail.com" title="Send us an email" target="_blank"
+                rel="noopener noreferrer">
+                <i class="fa-solid fa-envelope"></i>
+            </a>
+        </div>
+        <p>&copy;2026 DevspireHub | All Rights Reserved</p>
+    </footer>
+
+    <script>
+        
+
+        function auditPageMetadata() {
+        var title = document.title.trim();
+        var ogTitle = document.querySelector('meta[property="og:title"]')?.content.trim();
+        var canonical = document.querySelector('link[rel="canonical"]')?.href;
+        var ldScripts = document.querySelectorAll('script[type="application/ld+json"]');
+
+        var articleHeadline = null;
+        ldScripts.forEach(function (s) {
+            try {
+            var data = JSON.parse(s.textContent);
+            if (data['@type'] === 'TechArticle') articleHeadline = data.headline;
+            } catch (e) {}
+        });
+
+        var mismatches = [];
+        if (ogTitle && !titlesRoughlyMatch(title, ogTitle)) mismatches.push('title vs og:title');
+        if (articleHeadline && !titlesRoughlyMatch(title, articleHeadline)) mismatches.push('title vs JSON-LD headline');
+        if (canonical && !canonical.includes(location.pathname.split('/').pop().replace('.html', ''))) {
+            mismatches.push('canonical URL vs current filename');
+        }
+
+        if (mismatches.length) {
+            console.warn('Metadata mismatch detected:', mismatches.join(', '));
+        }
+
+        function titlesRoughlyMatch(a, b) {
+            var norm = function (s) { return s.toLowerCase().replace(/[^a-z0-9]/g, '').slice(0, 20); };
+            return norm(a) === norm(b) || norm(a).includes(norm(b).slice(0, 10)) || norm(b).includes(norm(a).slice(0, 10));
+        }
+        }
+        document.addEventListener("DOMContentLoaded", auditPageMetadata);
+
+        // Adds a "Copy" button to every Prism <pre> code block on the page.
+        // Runs after DOM is ready; skips blocks that already have a button
+        // (in case script.js already does this) to avoid duplicates.
+        function addCopyButtons() {
+            document.querySelectorAll("pre").forEach(function (pre) {
+            if (pre.querySelector(".ds-copy-btn")) return; // already has one
+
+            var btn = document.createElement("button");
+            btn.className = "ds-copy-btn";
+            btn.type = "button";
+            btn.textContent = "Copy";
+            btn.setAttribute("aria-label", "Copy code to clipboard");
+
+            // Minimal inline styling so it works even if CSS isn't updated
+            btn.style.position = "absolute";
+            btn.style.top = "8px";
+            btn.style.right = "8px";
+            btn.style.fontSize = "12px";
+            btn.style.padding = "4px 10px";
+            btn.style.cursor = "pointer";
+            btn.style.borderRadius = "4px";
+            btn.style.border = "1px solid #334155";
+            btn.style.background = "#0f172a";
+            btn.style.color = "#e2e8f0";
+
+            pre.style.position = pre.style.position || "relative";
+            pre.appendChild(btn);
+
+            btn.addEventListener("click", function () {
+                var codeEl = pre.querySelector("code") || pre;
+                var text = codeEl.innerText;
+
+                navigator.clipboard.writeText(text).then(function () {
+                btn.textContent = "Copied!";
+                setTimeout(function () { btn.textContent = "Copy"; }, 1500);
+                }).catch(function () {
+                btn.textContent = "Failed";
+                setTimeout(function () { btn.textContent = "Copy"; }, 1500);
+                });
+            });
+            });
+        }
+        
+
+
+        // Estimates reading time from the word count of the main article
+        // content (everything inside .content blocks) and inserts a small
+        // "X min read" badge right after the <h1>. Skips insertion if a
+        // badge already exists, to avoid duplicates on repeat runs.
+        function addReadingTime() {
+            var h1 = document.querySelector("h1");
+            if (!h1 || document.querySelector(".ds-reading-time")) return;
+
+            var contentBlocks = document.querySelectorAll(".content");
+            if (!contentBlocks.length) return;
+
+            var totalWords = 0;
+            contentBlocks.forEach(function (block) {
+            var text = block.innerText || "";
+            totalWords += text.trim().split(/\s+/).filter(Boolean).length;
+            });
+
+            var wordsPerMinute = 200;
+            var minutes = Math.max(1, Math.round(totalWords / wordsPerMinute));
+
+            var badge = document.createElement("p");
+            badge.className = "ds-reading-time";
+            badge.textContent = minutes + " min read";
+            badge.style.fontSize = "13px";
+            badge.style.color = "#94a3b8";
+            badge.style.margin = "4px 0 16px";
+
+            h1.insertAdjacentElement("afterend", badge);
+        }
+
+        document.addEventListener("DOMContentLoaded", addReadingTime);
+
+
+        function initTocScrollSpy() {
+            var tocLinks = document.querySelectorAll(".table-of-contents-section a[href^='#step-']");
+            if (!tocLinks.length) return;
+
+            var sections = Array.from(tocLinks)
+            .map(function (link) { return document.querySelector(link.getAttribute("href")); })
+            .filter(Boolean);
+
+            if (!sections.length) return;
+
+            var observer = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (!entry.isIntersecting) return;
+                var id = "#" + entry.target.id;
+                tocLinks.forEach(function (link) {
+                link.classList.toggle("active", link.getAttribute("href") === id);
+                });
+            });
+            }, { rootMargin: "-30% 0px -60% 0px" });
+
+            sections.forEach(function (section) { observer.observe(section); });
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            addCopyButtons();
+            initTocScrollSpy();
+        });
+        </script>
+
+        
+
+    <script src="../../../../../Prism/prism.js"></script>
+    <!-- <link rel="stylesheet" href="../../../Prism/nightfall.js" /> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+    <script src="../../../repos-data.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
