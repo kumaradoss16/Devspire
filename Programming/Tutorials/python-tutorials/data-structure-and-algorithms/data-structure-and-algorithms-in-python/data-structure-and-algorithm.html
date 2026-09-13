@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../../../../../images/icon.webp" sizes="32x46" type="image/png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Data Structures & Algorithms in Python – Full Series</title>
+
+<meta name="description"
+    content="Master data structures and algorithms in Python: Stack, Queue, Singly/Doubly/Circular Linked List tutorials with implementations, interview problems, and more modules coming soon.">
+
+<meta name="keywords"
+    content="data structures and algorithms python, dsa python tutorial, python dsa series, linked list python, stack queue python, dsa interview preparation">
+
+    <link rel="canonical" href="https://devspirehub.com/Programming/Tutorials/python-tutorials/data-structure-and-algorithms/data-structure-and-algorithms-in-python/data-structure-and-algorithm.html">
+
+    <!-- SEO: Open Graph Tags -->
+    <meta property="og:title" content="Data structure and AlgorithmS in Python – Complete Tutorial Series">
+    <meta property="og:description"
+        content="Master Python data structures and algorithms with our comprehensive tutorial series. Learn about arrays, linked lists, stacks, queues, sorting, and searching from scratch.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://devspirehub.com/Programming/Tutorials/python-tutorials/data-structure-and-algorithms/data-structure-and-algorithms-in-python/data-structure-and-algorithm.html">
+    <meta property="og:image" content="https://devspirehub.com/Programming/Tutorials/python-tutorials/data-structure-and-algorithms/data-structure-and-algorithms-in-python/images/data-structure-and-algorithm.webp">
+    <meta property="og:site_name" content="DevSpireHub">
+
+    <!-- Author Information -->
+    <meta name="author" content="Kumaradoss / DevspireHub">
+    <link rel="author" href="https://devspirehub.com/about">
+
+    <!-- SEO: Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Data structure and Algorithms in Python – Complete Tutorial Series">
+    <meta name="twitter:description"
+        content="Master Python data structures and algorithms with our comprehensive tutorial series. Learn about arrays, linked lists, stacks, queues, sorting, and searching from scratch.">
+    <meta name="twitter:image" content="https://devspirehub.com/Programming/Tutorials/python-tutorials/data-structure-and-algorithms/data-structure-and-algorithms-in-python/images/data-structure-and-algorithm.webp">
+
+    <link rel="icon" href="../../../images/icon.webp" sizes="32x32" type="image/webp">
+
+    <!-- Performance Optimization -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- SEO: Fixed Organization Schema (corrected logo URL + trailing comma) -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "DevspireHub",
+            "url": "https://devspirehub.com/",
+            "logo": "https://devspirehub.com/images/icon.webp",
+            "description": "DevspireHub - Programming, Projects, Ethical Hacking, Networking, Cloud & AI",
+            "founder": [
+            {
+                "@type": "Person",
+                "name": "Kumaradoss",
+                "url": "https://www.linkedin.com/in/kumaradoss-s/"
+            }
+            ],
+            "sameAs": [
+            "https://www.linkedin.com/in/kumaradoss-s/",
+            "https://github.com/kumaradoss16"
+            ]
+        }
+    </script>
+
+
+    <script type=application/ld+json>
+        {
+            "@context": "https://schema.org",
+            "@type": "SiteNavigationElement",
+            "name": [
+                "Home",
+                "Projects",
+                "Programming",
+                "Ethical Hacking",
+                "Networking",
+                "Automation",
+                "Resources"
+            ],
+            "url": [
+                "https://devspirehub.com",
+                "https://devspirehub.com/#projects-tutorials-section",
+                "https://devspirehub.com/#programming-tutorials-section",
+                "https://devspirehub.com/#ethical-hacking-section",
+                "https://devspirehub.com/#networking-section",
+                "https://devspirehub.com/#automation-section",
+                "https://devspirehub.com/#info-section",
+            ]
+        }
+    </script>
+
+    <script type="application/ld+json">
+        {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://devspirehub.com" },
+            { "@type": "ListItem", "position": 2, "name": "Programming Tutorials", "item": "https://devspirehub.com/Programming/Tutorials/python-tutorials" },
+            { "@type": "ListItem", "position": 3, "name": "Data Structures & Algorithms", "item": "https://devspirehub.com/Programming/Tutorials/python-tutorials/data-structure-and-algorithms/data-structure-and-algorithms-in-python/data-structure-and-algorithm.html" }
+        ]
+        }
+        </script>
+
+        <!-- JSON-LD — CollectionPage (this is a series hub, not a single article) -->
+        <script type="application/ld+json">
+        {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "@id": "https://devspirehub.com/Programming/Tutorials/python-tutorials/data-structure-and-algorithms/data-structure-and-algorithms-in-python/#collection",
+        "name": "Data Structures & Algorithms in Python – Full Series",
+        "description": "A complete series of Python data structure tutorials covering Stack, Queue, and Linked List variants, with more modules planned.",
+        "url": "https://devspirehub.com/Programming/Tutorials/python-tutorials/data-structure-and-algorithms/data-structure-and-algorithms-in-python/data-structure-and-algorithm.html",
+        "inLanguage": "en-IN",
+        "isPartOf": {
+            "@type": "WebSite",
+            "name": "DevspireHub",
+            "url": "https://devspirehub.com"
+        },
+        "hasPart": [
+            { "@type": "TechArticle", "name": "Stack in Python", "url": "https://devspirehub.com/Programming/Tutorials/python-tutorials/data-structure-and-algorithms/stack-data-structure-in-python/stack-data-structure-in-python.html" },
+            { "@type": "TechArticle", "name": "Queue in Python", "url": "https://devspirehub.com/Programming/Tutorials/python-tutorials/data-structure-and-algorithms/queue-data-structure-in-python/queue-data-structure-in-python.html" },
+            { "@type": "TechArticle", "name": "Singly Linked List in Python", "url": "https://devspirehub.com/Programming/Tutorials/python-tutorials/data-structure-and-algorithms/linked-list-data-structure/singly-linked-list-data-structure/singly-linked-list-data-structure-in-python.html" },
+            { "@type": "TechArticle", "name": "Doubly Linked List in Python", "url": "https://devspirehub.com/Programming/Tutorials/python-tutorials/data-structure-and-algorithms/linked-list-data-structure/doubly-linked-list-data-structure/doubly-linked-list-data-structure-in-python.html" },
+            { "@type": "TechArticle", "name": "Circular Singly Linked List in Python", "url": "https://devspirehub.com/Programming/Tutorials/python-tutorials/data-structure-and-algorithms/linked-list-data-structure/circular-singly-linked-list/circular-singly-linked-list-python.html" }
+        ],
+        "publisher": {
+            "@type": "Organization",
+            "name": "DevspireHub",
+            "url": "https://devspirehub.com",
+            "logo": { "@type": "ImageObject", "url": "https://devspirehub.com/images/icon.webp", "width": 200, "height": 60 }
+        }
+        }
+        </script>
+
+    <!-- Google Tag Manager -->
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-M457RGDF');</script>
+    <!-- End Google Tag Manager -->
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2368356039533778"
+        crossorigin="anonymous"></script>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6VWY63Q80N"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-6VWY63Q80N');
+    </script>
+
+    <script async custom-element="amp-auto-ads" src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M457RGDF" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <amp-auto-ads type="adsense" data-ad-client="ca-pub-2368356039533778">
+    </amp-auto-ads>
+    <!-- Header  -->
+    <header class="navbar">
+        <div class="container">
+            <div class="logo">
+                <div class="logo-text">
+                    <!-- <i class="fas fa-code"></i> -->
+                    <a href="../../../../../index.html"><img src="../../../../../images/icon.webp" alt="Gear Icon" width="23"
+                            height="23"></a>
+                    <span id="brand" class="typewriter" data-text="DevspireHub"></span>
+                </div>
+                <button class="menu-toggle" type="button" aria-label="Toggle navigation">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            <nav class="nav-links">
+                <ul>
+                    <li><a href="../../../../../index.html" class="home"><i class="fa-solid fa-house"></i></a></li>
+                    <li><a href="../../../../../index.html#projects-tutorials-section" class="projects">Projects</a></li>
+                    <li><a href="../../../../../index.html#programming-tutorials-section" class="programming">Programming</a>
+                    </li>
+                    <li><a href="../../../../../index.html#ethical-hacking-section" class="hacking">Ethical Hacking</a>
+                    </li>
+                    <li><a href="../../../../../index.html#networking-section" class="networking">Networking</a></li>
+                    <li><a href="../../../../../index.html#automation-section" class="ai">Automation</a></li>
+                    <li><a href="../../../../../index.html#info-section" class="game">Resources</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="main-content-wrapper container">
+        <main class="left-column">
+            <!-- Course Header Card  -->
+            <div class="card">
+                <h1>Data Structure and Algorithms in Python: Complete Tutorial</h1>
+                <p style="margin-bottom: 20px;">Learn Data Structures and Algorithms (DSA) in Python through a beginner-friendly, step-by-step tutorial series designed to build a strong foundation in programming, problem-solving, and algorithmic thinking.
+                </p>
+                <p>This Python DSA tutorial series explains important data structures with clear concepts, diagrams, Python implementations, practical examples, time and space complexity, and common programming and interview problems. Whether you are a beginner learning data structures for the first time or a programmer preparing for coding interviews, this series provides a structured path for learning DSA with Python.</p>
+                <div class="card-image-output">
+                    <img src="images/data-structure-and-algorithm.webp"
+                        alt="Linux for Security Professionals: The Ultimate System Mastery Series" loading="lazy"
+                        decoding="async" fetchpriority="auto">
+                </div>
+                <h2>What You Will Learn</h2>
+                <p>Throughout this tutorial series, you will learn how different data structures work, how their operations are implemented in Python, and when each structure should be used.</p>
+                <p><strong>The series currently covers:</strong></p>
+                <div class="hacking-card-grid">
+                    <!-- Card 1  -->
+                    <div class="hacking-card">
+                        <div class="module">1</div>
+                        <div class="header">
+                            <i class="fab fa-python"></i>
+                            <div class="title-group">
+                                <h3>Stack in Python</h3>
+                                <span class="tag level-tag">Module 1</span>
+                            </div>
+                        </div>
+                        <p>Learn the Stack data structure in Python: LIFO principles, push/pop/peek operations, and 3 implementations (list, deque, linked list) with interview problems and complexity explained.
+                            up.</p>
+                        <div class="card-footer">
+                            <span class="timing"><i class="fas fa-clock"></i>4 - 5 hr</span>
+                            <a href="../stack-data-structure-in-python/stack-data-structure-in-python.html"
+                                title="Stack in Python">Start
+                                Learning</a>
+                        </div>
+                    </div>
+                    <!-- Card 2  -->
+                    <div class="hacking-card">
+                        <div class="header">
+                            <div class="module">2</div>
+                            <i class="fab fa-python"></i>
+                            <div class="title-group">
+                                <h3>Queue in Python</h3>
+                                <span class="tag level-tag">Module 2</span>
+                            </div>
+                        </div>
+                        <p>Learn the Queue data structure in Python with clear examples of FIFO, enqueue and dequeue operations. Explore queue implementations using lists, collections.deque, and dictionaries, plus real-world applications, time complexity, and common DSA interview problems.</p>
+                        <div class="card-footer">
+                            <span class="timing"><i class="fas fa-clock"></i>6 - 8 hr</span>
+                            <a href="../queue-data-structure-in-python/queue-data-structure-in-python.html"
+                                title="Queue in Python" target="_blank">Start Learning</a>
+                        </div>
+                    </div>
+                    <div class="hacking-card">
+                        <div class="header">
+                            <div class="module">3</div>
+                            <i class="fab fa-python"></i>
+                            <div class="title-group">
+                                <h3>Singly Linked List</h3>
+                                <span class="tag level-tag">Module 3</span>
+                            </div>
+                        </div>
+                        <p>Learn the Singly Linked List data structure in Python: node structure, core operations, and 3 implementations with interview problems and complexity explained.</p>
+                        <div class="card-footer">
+                            <span class="timing"><i class="fas fa-clock"></i>4 - 5 hr</span>
+                            <a href="../../data-structure-and-algorithms/linked-list-data-structure/singly-linked-list-data-structure/singly-linked-list-data-structure-in-python.html"
+                                title="Singly Linked List in Python" target="_blank">Start Learning</a>
+                        </div>
+                    </div>
+                    <div class="hacking-card">
+                        <div class="header">
+                            <div class="module">4</div>
+                            <i class="fab fa-python"></i>
+                            <div class="title-group">
+                                <h3>Doubly Linked List</h3>
+                                <span class="tag level-tag">Module 4</span>
+                            </div>
+                        </div>
+                        <p>Learn doubly linked lists with simple explanations, diagrams, Python examples, and trace tables. Understand nodes, next and prev links, insertion, deletion, traversal, and real-world uses.</p>
+                        <div class="card-footer">
+                            <span class="timing"><i class="fas fa-clock"></i>4 - 5 hr</span>
+                            <a href="../../data-structure-and-algorithms/linked-list-data-structure/doubly-linked-list-data-structure/doubly-linked-list-data-structure-in-python.html"
+                                title="Linux User Management Tutorial" target="_blank">Start Learning</a>
+                        </div>
+                    </div>
+                    <div class="hacking-card">
+                        <div class="header">
+                            <div class="module">5</div>
+                            <i class="fab fa-python"></i>
+                            <div class="title-group">
+                                <h3>Circular Singly Linked List</h3>
+                                <span class="tag level-tag">Module 5</span>
+                            </div>
+                        </div>
+                        <p>Learn Circular Singly Linked List in Python: complete tutorial with diagrams, code, and examples. Master insertion, deletion, traversal, cycle detection, Josephus problem, and real-world applications like round-robin scheduling and playlists.</p>
+                        <div class="card-footer">
+                            <span class="timing"><i class="fas fa-clock"></i>4 - 5 hr</span>
+                            <a href="../../data-structure-and-algorithms/linked-list-data-structure/circular-singly-linked-list/circular-singly-linked-list-python.html"
+                                title="Circular Singly Linked List in Python" target="_blank">Start Learning</a>
+                        </div>
+                    </div>
+
+                </div>
+                <hr>
+                <div class="content">
+                    <h3>More Modules Coming Soon!</h3>
+                    <p>More  <strong>Data Structures and Algorithms in Python</strong> topics will be added to the series as the tutorial collection grows.</p>
+                    <div class="content">
+                        <h4>Stay Connected 🛡️</h4>
+                        <p>Don't miss out when the new content drops! Stay in touch with me to get notified the moment
+                            these
+                            modules go live.</p>
+                        <p><strong>Bookmark this page</strong> and check back weekly.</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Right Side -->
+        <main class="right-column">
+            <div class="about-website moving-border">
+                <h3>About Website</h3>
+                <p><a class="homepage typewriter-scan" href="../../../../../index.html"><strong>DevspireHub</strong></a> is
+                    a beginner-friendly learning platform offering step-by-step tutorials in
+                    programming, ethical hacking,
+                    networking, automation, and Windows setup. Learn through hands-on projects, clear
+                    explanations, and
+                    real-world examples
+                    using practical tools and open-source resources—no signups, no tracking, just actionable
+                    knowledge
+                    to accelerate your
+                    technical skills.
+                </p>
+            </div>
+
+            <div>
+                <!-- BANNER - Featured Open-Source Projects -->
+                <aside class="banner" aria-label="Featured Open-Source Projects">
+
+                    <!-- HEADER -->
+                    <div class="banner-header">
+                        <div class="banner-count-badge">
+                            <span class="live-dot"></span>
+                            <span>Live</span>
+                        </div>
+
+                        <div class="banner-chip">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+                                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61
+                                 c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77
+                                 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48
+                                 a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1
+                                 A5.07 5.07 0 0 0 5 4.77 5.44 5.44 0 0 0 3.5 8.55
+                                 c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+                            </svg>
+                            Open-Source Picks
+                        </div>
+
+                        <h3 class="banner-title">
+                            Featured <em>Open-Source</em><br>Projects
+                        </h3>
+                        <p class="banner-sub">
+                            Hand-picked repos across AI, Security, Dev&nbsp;&amp;&nbsp;more - updated weekly.
+                        </p>
+
+                        <!-- STATS -->
+                        <div class="banner-stats">
+                            <div class="stat-pill">
+                                <span class="stat-pill-num" id="js-total-count">0</span>
+                                <span class="stat-pill-lbl">Repos</span>
+                            </div>
+                            <div class="stat-pill">
+                                <span class="stat-pill-num" id="js-cats-count">0</span>
+                                <span class="stat-pill-lbl">Cats</span>
+                            </div>
+                            <div class="stat-pill">
+                                <span class="stat-pill-num" id="js-new-count">0</span>
+                                <span class="stat-pill-lbl">New</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- TICKER -->
+                    <div class="banner-ticker" aria-label="Categories">
+                        <div class="ticker-track" id="ticker">
+                            <!-- filled by JS -->
+                        </div>
+                    </div>
+
+                    <!-- CTA -->
+                    <a href="https://devspirehub.com/github/featured_open-source_projects" target="_blank"
+                        rel="noopener noreferrer" class="banner-cta">
+                        Explore All Projects
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+                            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            e x1="7" y1="17" x2="17" y2="7"/>
+                            <polyline points="7 7 17 7 17 17" />
+                        </svg>
+                    </a>
+
+                </aside>
+            </div>
+
+            <!-- Color palette -->
+            <div class="color-palette">
+                <div>
+                    <h3>Color Space</h3>
+                    <p>Discover Perfect Palettes</p>
+                </div>
+                <div class="palette-grid">
+                    <div class="palette-card">
+                        <!-- Color bars (set your palette colors here) -->
+                        <div class="color-wave colors-5">
+                            <div class="wave-bar" style="background:#F2C447" data-color="#F2C447"></div>
+                            <div class="wave-bar" style="background:#F76218" data-color="#F76218"></div>
+                            <div class="wave-bar" style="background:#FF1D68" data-color="#FF1D68"></div>
+                            <div class="wave-bar" style="background:#B10065" data-color="#B10065"></div>
+                            <div class="wave-bar" style="background:#740580" data-color="#740580"></div>
+                        </div>
+
+                        <div class="card-info">
+                            <div class="card-title">Sample Palette</div>
+                        </div>
+                    </div>
+                    <div class="button">
+                        <a href="../../../../../color-palettes/index.html" class="color-button">Go To Color Space Home
+                            Page</a>
+                    </div>
+                </div>
+            </div>
+            <div class="wallpaper">
+                <div>
+                    <h3>Featured Wallpapers (For desktop)</h3>
+                    <p>Download for FREE!</p>
+                </div>
+                <div class="image-grid">
+                    <div class="image-card">
+                        <img src="../../../../../Wallpaper/images_upscale/wallpaper (1).png" alt="Wallpaper 1">
+                    </div>
+                    <div class="image-card">
+                        <img src="../../../../../Wallpaper/images_upscale/wallpaper (23).png" alt="Wallpaper 23">
+                    </div>
+                    <div class="image-card">
+                        <img src="../../../../../Wallpaper/images_upscale/wallpaper (46).png" alt="Wallpaper 46">
+                    </div>
+                    <div class="image-card">
+                        <img src="../../../../../Wallpaper/images_upscale/wallpaper (81).png" alt="Wallpaper 81">
+                    </div>
+                    <div class="image-card">
+                        <img src="../../../../../Wallpaper/images_upscale/wallpaper (111).png" alt="Wallpaper 111">
+                    </div>
+                    <div class="image-card">
+                        <img src="../../../../../Wallpaper/images_upscale/wallpaper (116).png" alt="Wallpaper 116">
+                    </div>
+                </div>
+                <div class="button">
+                    <a href="../../../../../Wallpaper/index.html" class="wallpaper-button">Go To Wallpaper Home
+                        Page</a>
+                </div>
+            </div>
+
+            <div class="related-topics">
+                <div class="header">
+                    <h3>Open-Source Tools Directory</h3>
+                    <p><strong>Complete spectrum of open-source software in Github</strong>
+                    </p>
+                </div>
+                <div class="content">
+                    <ul>
+                        <li><i class="fas fa-code"></i><a
+                                href="../../../../../Resources/tools-directory/index.html#category-2"
+                                class="link">Programming</a></li>
+                        <li><i class="fas fa-globe"></i><a
+                                href="../../../../../Resources/tools-directory/index.html#category-3" class="link">Web
+                                Development</a></li>
+                        <li><i class="fas fa-network-wired"></i><a
+                                href="../../../../../Resources/tools-directory/index.html#category-4"
+                                class="link">Networking</a>
+                        </li>
+                        <li><i class="fas fa-shield-alt"></i><a
+                                href="../../../../../Resources/tools-directory/index.html#category-5" class="link">Ethical
+                                Hacking</a></li>
+                        <li><i class="fas fa-microchip"></i><a
+                                href="../../../../../Resources/tools-directory/index.html#category-6"
+                                class="link">Hardware</a>
+                        </li>
+                        <li><i class="fas fa-tasks"></i><a
+                                href="../../../../../Resources/tools-directory/index.html#category-7"
+                                class="link">Productivity</a></li>
+                    </ul>
+                </div>
+                <div class="button-container">
+                    <div class="btn-cyber">
+                        <span class="btn-bg"></span>
+                        <span class="btn-border"></span>
+                        <span class="btn-text">
+                            <a href="../../../../../Resources/tools-directory/index.html" class="related-button">
+                                Open-Source
+                                Tools</a> <span class="blink">_</span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <section class="deals-section">
+                <div class="deals-header">
+                    <h2>HOT DEALS</h2>
+                    <div class="deals-underline"></div>
+                </div>
+
+                <!-- Cards injected dynamically from amazon-links.json -->
+                <div class="deals-grid" id="dealsGrid">
+                    <div class="deal-skeleton">
+                    </div>
+                    <div class="deal-skeleton"></div>
+                    <div class="deal-skeleton"></div>
+                    <div class="deal-skeleton"></div>
+                    <div class="deal-skeleton"></div>
+                    <div class="deal-skeleton"></div>
+                </div>
+
+                <div class="deals-page-indicator" id="dealsPageIndicator"></div>
+
+                <div class="deals-nav">
+                    <button class="deal-arrow-btn" onclick="scrollDeals(-1)" aria-label="Previous">&#8592;</button>
+                    <button class="deal-arrow-btn" onclick="scrollDeals(1)" aria-label="Next">&#8594;</button>
+                </div>
+            </section>
+
+            <script async
+                src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2368356039533778"
+                crossorigin="anonymous"></script>
+            <!-- sidebar ads -->
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2368356039533778"
+                data-ad-slot="5621407319" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+
+            <script async
+                src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2368356039533778"
+                crossorigin="anonymous"></script>
+            <!-- sidebar ads -->
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2368356039533778"
+                data-ad-slot="5621407319" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </main>
+        <button id="scrollUpBtn" aria-label="Scroll to top" style="display:none;">
+            <svg class="progress-circle" viewBox="0 0 36 36">
+                <path class="bg1" d="M18 2.0845
+                                  a 15.9155 15.9155 0 0 1 0 31.831
+                                  a 15.9155 15.9155 0 0 1 0 -31.831" />
+                <path class="progress" d="M18 2.0845
+                                  a 15.9155 15.9155 0 0 1 0 31.831
+                                  a 15.9155 15.9155 0 0 1 0 -31.831" />
+                <span class="arrow-overlay">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 19V5M5 12L12 5L19 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                </span>
+            </svg>
+        </button>
+    </div>
+
+    <footer class="footer">
+        <ul class="menu">
+            <li class="menu-item"><a class="menu-link" href="../../../../../index.html">Home</a></li>
+            <li class="menu-item"><a class="menu-link" href="../../../../../Wallpaper/index.html">Wallpapers</a></li>
+            <li class="menu-item"><a class="menu-link" href="../../../../../color-palettes/index.html">Color Spaces</a></li>
+            <li class="menu-item"><a class="menu-link"
+                    href="../../../../../Resources/digital-resources/digital-resources-hub.html">Resources</a></li>
+            <li class="menu-item"><a class="menu-link" href="../../../../../Website/about/about.html">About</a></li>
+            <li class="menu-item"><a class="menu-link" href="../../../../../Website/contact/index.html">Contact</a></li>
+            <li class="menu-item"><a class="menu-link" href="../../../../../Website/privacy/index.html">Privacy policy</a>
+            </li>
+        </ul>
+        <div class="contacts">
+            <a class="contact github" href="https://github.com/kumaradoss16" target="_blank"><i
+                    class="fa-brands fa-github"></i></a>
+            <a class="contact instagram" href="https://www.instagram.com/devspirehub/" target="_blank"><i
+                    class="fa-brands fa-instagram"></i></a>
+            <a class="contact linkedin" href="https://www.linkedin.com/in/kumaradoss-s/" target="_blank"><i
+                    class="fa-brands fa-linkedin"></i></a>
+            <a class="contact facebook" href="https://www.facebook.com/profile.php?id=61577667990170&_rdr"
+                target="_blank"><i class="fa-brands fa-facebook"></i></a>
+            <a class="contact gmail" href="https://mail.google.com/mail/?view=cm&fs=1&to=devspirehub.website@gmail.com"
+                aria-label="Email us at devspirehub.website@gmail.com" title="Send us an email" target="_blank"
+                rel="noopener noreferrer">
+                <i class="fa-solid fa-envelope"></i>
+            </a>
+        </div>
+        <p>&copy;2026 DevspireHub | All Rights Reserved</p>
+    </footer>
+
+    
+
+    <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+    <script src="../../../../../repos-data.js"></script>
+</body>
+
+</html>
