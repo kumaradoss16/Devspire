@@ -889,6 +889,239 @@ body {
 }
 .programming-section .section-header p { max-width: 700px; margin: 0 auto; color: #ccc; font-weight: 200; }
 
+/* ==========================================
+   Python DSA Featured Banner Styles
+   ========================================== */
+.dsa-featured-banner {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1.3fr 0.9fr;
+    gap: 2.5rem;
+    align-items: center;
+    background: #121218; /* Matches DevspireHub dark foundation */
+    border: 1px solid rgba(249, 115, 22, 0.25); /* Orange engineering accent border */
+    border-radius: 12px; /* Matches existing card border-radius */
+    padding: 2.5rem;
+    margin-bottom: 2.5rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4), 0 0 20px rgba(249, 115, 22, 0.05);
+    overflow: hidden;
+}
+
+/* Subtle left indicator accent stripe */
+.dsa-featured-banner::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 5px;
+    background: #f97316;
+}
+
+.dsa-featured-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.dsa-featured-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #fb923c;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    margin-bottom: 0.8rem;
+}
+
+.dsa-featured-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.85rem;
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.3;
+    margin-bottom: 1rem;
+}
+
+.dsa-featured-description {
+    color: #94a3b8;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 1.25rem;
+}
+
+.dsa-featured-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1.25rem;
+    font-size: 0.85rem;
+    color: #cbd5e1;
+}
+
+.dsa-meta-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.dsa-meta-item i {
+    color: #f97316;
+}
+
+.dsa-featured-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+    margin-bottom: 1.75rem;
+}
+
+.dtag {
+    background: rgba(249, 115, 22, 0.1);
+    color: #fed7aa;
+    border: 1px solid rgba(249, 115, 22, 0.2);
+    padding: 0.2rem 0.65rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+.dsa-featured-actions {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.dsa-featured-cta {
+    background: #f97316;
+    color: #ffffff;
+    padding: 0.75rem 1.5rem;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.dsa-featured-cta:hover {
+    background: #ea580c;
+    transform: translateY(-1px);
+}
+
+.dsa-featured-secondary {
+    color: #fb923c;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+/* Technical Visual Representation (Right Column) */
+.dsa-featured-visual {
+    background: #09090b;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 8px;
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+}
+
+.dsa-node-tree {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+    font-family: monospace;
+}
+
+.dsa-node-row {
+    display: flex;
+    justify-content: center;
+}
+
+.dsa-node {
+    background: #18181b;
+    border: 1px solid #27272a;
+    color: #a1a1aa;
+    padding: 0.4rem 0.8rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    letter-spacing: 0.5px;
+    text-align: center;
+}
+
+.dsa-node.root {
+    border-color: rgba(249, 115, 22, 0.4);
+    color: #fed7aa;
+}
+
+.dsa-node.active {
+    background: rgba(249, 115, 22, 0.15);
+    border-color: #f97316;
+    color: #ffffff;
+}
+
+.dsa-node-branches {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.5rem;
+}
+
+.dsa-code-preview {
+    background: #111115;
+    border-left: 2px solid #f97316;
+    padding: 0.75rem 1rem;
+    font-size: 0.8rem;
+    color: #d4d4d8;
+    border-radius: 0 4px 4px 0;
+    line-height: 1.4;
+}
+
+.tok-kw { color: #f97316; }
+.tok-cls { color: #fb923c; }
+.tok-fn { color: #60a5fa; }
+.tok-var { color: #f472b6; }
+
+.dsa-node-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.7rem;
+    color: #71717a;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding-top: 0.25rem;
+}
+
+.dsa-dot-sep {
+    color: #f97316;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 968px) {
+    .dsa-featured-banner {
+        grid-template-columns: 1fr;
+        padding: 1.75rem;
+    }
+    .dsa-featured-visual {
+        display: none; /* Hide complex graphic on smaller widths to avoid clutter */
+    }
+}
+
+/* Reduced Motion Preference */
+@media (prefers-reduced-motion: reduce) {
+    .dsa-featured-cta {
+        transition: none;
+    }
+}
+
 .card-grid { display: flex; flex-direction: column; align-items: center; gap: 20px; }
 
 /* Tutorial card */
