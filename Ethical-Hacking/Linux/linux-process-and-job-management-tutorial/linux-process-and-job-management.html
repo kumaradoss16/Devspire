@@ -1,0 +1,3340 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../../../images/icon.webp" sizes="32x46" type="image/png">
+    <!-- Primary SEO Meta Tags -->
+    <title>Linux Process Management Tutorial: ps, top, kill & Jobs</title>
+
+    <meta name="description"
+    content="Learn Linux process management: monitor with ps, top and htop, send signals with kill, control jobs with fg and bg, and troubleshoot zombies and high CPU.">
+
+    <meta name="keywords"
+    content="linux process management, linux job management, ps top htop commands, kill pkill killall, sigterm sigkill signals, zombie orphan processes linux, nice renice linux, linux server troubleshooting">
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://devspirehub.com/Linux/Ethical-Hacking/linux-process-and-job-management-tutorial">
+
+   <meta property="og:type" content="article">
+    <meta property="og:site_name" content="DevspireHub">
+    <meta property="og:locale" content="en_IN">
+    <meta property="og:title" content="Linux Process & Job Management Tutorial: ps, top, kill, jobs">
+    <meta property="og:description"
+    content="A hands-on guide to Linux process management: ps, top, htop, pgrep, kill, nice and renice, signals, jobs, daemons, zombies and orphans, plus server troubleshooting labs.">
+    <meta property="og:url"
+    content="https://devspirehub.com/Linux/Ethical-Hacking/linux-process-and-job-management-tutorial">
+    <meta property="og:image"
+    content="https://devspirehub.com/Linux/Ethical-Hacking/linux-process-and-job-management-tutorial/images/linux-process-and-job-management-tutorial.webp">
+    <meta property="og:image:alt" content="Linux Process & Job Management Tutorial – DevspireHub">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@devspirehub">
+    <meta name="twitter:title" content="Linux Process Management Tutorial | DevspireHub">
+    <meta name="twitter:description"
+    content="Learn ps, top, kill, jobs, nice and signals, and troubleshoot high CPU, zombies and stuck processes on Linux servers.">
+    <meta name="twitter:image"
+    content="https://devspirehub.com/Linux/Ethical-Hacking/linux-process-and-job-management-tutorial/images/linux-process-and-job-management-tutorial.webp">
+
+    <!-- Author Information -->
+    <meta name="author" content="Kumaradoss / DevSpireHub">
+    <link rel="author" href="https://devspirehub.com/about">
+
+    <script type="application/ld+json">
+        {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "DevspireHub",
+        "url": "https://devspirehub.com/",
+        "logo": "https://devspirehub.com/images/icon.webp",
+        "description": "DevSpireHub - Programming, Projects, Ethical hacking, Networking, Cloud & AI",
+        "founder": [
+        { "@type": "Person", "name": "Kumaradoss", "url": "https://www.linkedin.com/in/kumaradoss-s/" }
+        ],
+        "sameAs": [
+        "https://www.linkedin.com/in/kumaradoss-s/",
+        "https://github.com/kumaradoss16"
+        ]
+        }
+        </script>
+
+        <!-- JSON-LD — Breadcrumb (add a series/hub level once you confirm the path) -->
+        <script type="application/ld+json">
+        {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://devspirehub.com" },
+        { "@type": "ListItem", "position": 2, "name": "Linux Process & Job Management", "item": "https://devspirehub.com/Linux/Ethical-Hacking/linux-process-and-job-management-tutorial" }
+        ]
+        }
+        </script>
+
+        <!-- JSON-LD — TechArticle -->
+        <script type="application/ld+json">
+        {
+        "@context": "https://schema.org",
+        "@type": "TechArticle",
+        "@id": "https://devspirehub.com/Linux/Ethical-Hacking/linux-process-and-job-management-tutorial#article",
+        "headline": "Linux Processes & Job Management Tutorial: Master ps, top, kill, jobs, and Server Troubleshooting",
+        "description": "Learn Linux process management: process fundamentals, ps, top, htop, pgrep, kill, nice and renice, signals, job control, daemons, zombies and orphans, and real-world server troubleshooting.",
+        "url": "https://devspirehub.com/Linux/Ethical-Hacking/linux-process-and-job-management-tutorial",
+        "datePublished": "2026-11-01",
+        "dateModified": "2026-11-01",
+        "inLanguage": "en-IN",
+        "articleSection": "Linux",
+        "proficiencyLevel": "Beginner",
+        "dependencies": "Linux (Ubuntu, Debian, Fedora, RHEL-family)",
+        "keywords": "linux process management, ps, top, htop, pgrep, kill, pkill, killall, nice, renice, signals, jobs, zombie processes",
+        "image": {
+        "@type": "ImageObject",
+        "url": "https://devspirehub.com/Linux/Ethical-Hacking/linux-process-and-job-management-tutorial/images/linux-process-and-job-management-tutorial.webp",
+        "width": 1200,
+        "height": 630
+        },
+        "author": {
+        "@type": "Person",
+        "name": "Kumaradoss",
+        "url": "https://devspirehub.com/about",
+        "sameAs": ["https://www.linkedin.com/in/kumaradoss-s", "https://github.com/kumaradoss16"]
+        },
+        "publisher": {
+        "@type": "Organization",
+        "name": "DevspireHub",
+        "url": "https://devspirehub.com",
+        "logo": { "@type": "ImageObject", "url": "https://devspirehub.com/images/icon.webp", "width": 200, "height": 60 }
+        },
+        "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://devspirehub.com/Linux/Ethical-Hacking/linux-process-and-job-management-tutorial"
+        },
+        "isPartOf": { "@type": "Series", "name": "Linux Tutorials" },
+        "about": [
+        { "@type": "Thing", "name": "Process (computing)", "sameAs": "https://en.wikipedia.org/wiki/Process_(computing)" },
+        { "@type": "Thing", "name": "Linux", "sameAs": "https://en.wikipedia.org/wiki/Linux" }
+        ]
+        }
+        </script>
+
+    <script type=application/ld+json>
+        {
+            "@context": "https://schema.org",
+            "@type": "SiteNavigationElement",
+            "name": [
+                "Home",
+                "Projects",
+                "Programming",
+                "Ethical Hacking",
+                "Networking",
+                "Automation",
+                "Resources"
+            ],
+            "url": [
+                "https://devspirehub.com",
+                "https://devspirehub.com/#projects-tutorials-section",
+                "https://devspirehub.com/#programming-tutorials-section",
+                "https://devspirehub.com/#ethical-hacking-section",
+                "https://devspirehub.com/#networking-section",
+                "https://devspirehub.com/#automation-section",
+                "https://devspirehub.com/#info-section",
+            ]
+        }
+    </script>
+
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "DevspireHub",
+            "url": "https://devspirehub.com/",
+            "logo": "https://devspirehub.com/../../../images/icon.web",
+            "description": "DevSpireHub - Programming, Projects, Ethical hacking, Networking, Cloud & AI",
+            "founder": [
+            {
+                "@type": "Person",
+                "name": "Kumaradoss",
+                "url": "https://www.linkedin.com/in/kumaradoss-s/"
+            }
+            ],
+            "sameAs": [
+            "https://www.linkedin.com/in/kumaradoss-s/",
+            "https://github.com/kumaradoss16",
+            ]
+        }
+    </script>
+
+    <!-- Google Tag Manager -->
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-M457RGDF');</script>
+    <!-- End Google Tag Manager -->
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2368356039533778"
+        crossorigin="anonymous"></script>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6VWY63Q80N"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-6VWY63Q80N');
+    </script>
+
+    <script async custom-element="amp-auto-ads" src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+
+    <!-- Performance & Web Vitals -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <!-- Robots -->
+    <meta name="robots" content="index, follow, max-image-preview:large">
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link rel="stylesheet" href="../prism/prism.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M457RGDF" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <amp-auto-ads type="adsense" data-ad-client="ca-pub-2368356039533778">
+    </amp-auto-ads>
+    <!-- Header  -->
+    <header class="navbar">
+        <div class="container">
+            <div class="logo">
+                <div class="logo-text">
+                    <!-- <i class="fas fa-code"></i> -->
+                    <a href="../../../../index.html"><img src="../../../images/icon.webp" alt="Gear Icon" width="23"
+                            height="23"></a>
+                    <span id="brand" class="typewriter" data-text="DevspireHub"></span>
+                </div>
+                <button class="menu-toggle" type="button" aria-label="Toggle navigation">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            <nav class="nav-links">
+                <ul>
+                    <li><a href="../../../index.html" class="home"><i class="fa-solid fa-house"></i></a></li>
+                    <li><a href="../../../index.html#projects-tutorials-section" class="projects">Projects</a></li>
+                    <li><a href="../../../index.html#programming-tutorials-section" class="programming">Programming</a>
+                    </li>
+                    <li><a href="../../../index.html#ethical-hacking-section" class="hacking">Ethical Hacking</a>
+                    </li>
+                    <li><a href="../../../index.html#networking-section" class="networking">Networking</a></li>
+                    <li><a href="../../../index.html#automation-section" class="ai">Automation</a></li>
+                    <li><a href="../../../index.html#info-section" class="game">Resources</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="main-content-wrapper container">
+        <main class="left-column">
+            <!-- Course Header Card  -->
+            <div class="card">
+                <div class="card-header">
+                    <span class="module-label">Module 3</span>
+                </div>
+                <div class="content">
+                    <h1>Linux Processes & Job Management Tutorial: Master ps, top, kill, jobs, and Server Troubleshooting</h1>
+                    <p class="description">Linux systems run many processes at the same time, including shells, applications, background services, schedulers, and kernel worker threads. Effective Linux process management means identifying the right process, understanding its PID, parent process, state, CPU usage, and memory consumption, then taking safe action using commands such as <code class="code">ps</code>, <code class="code">top</code>, <code class="code">htop</code>, <code class="code">pgrep</code>, <code class="code">kill</code>, <code class="code">pkill</code>, <code class="code">nice</code>, and <code class="code">renice</code>.</p>
+                    <div class="card-image">
+                        <img src="images/linux-process-and-job-management-tutorial.webp" alt=Linux Process Management Tutorial: ps, top, kill & Jobs">
+                    </div>
+                    <div class="card-main-info">
+                        <p>This <strong>Linux Processes & Job Management Tutorial</strong> is designed for beginners, Linux learners, DevOps engineers, system administrators, and anyone preparing for Linux server administration or technical interviews. You will learn how Linux processes work, how to monitor system performance, how foreground and background jobs behave, how to send signals safely, and how to troubleshoot high CPU, high memory, unresponsive applications, zombie processes, and suspicious workloads.</p>
+
+                    </div>
+                </div>
+            </div>
+            <!-- Learning Objectives Card  -->
+            <div class="card learning-objectives-card">
+                <div class="card-header">
+                    <i class="fas fa-lightbulb"></i>
+                    <h2>Learning Objectives</h2>
+                </div>
+                <div class="learning-objectives-grid">
+                    <div class="objective-item">
+                        <p><strong><i class="fas fa-book"></i> Chapter 1</strong> - <a href="#chapter-1">Process Fundamentals</a></p>
+                        <p><strong><i class="fas fa-book"></i> Chapter 2</strong> - <a href="#chapter-2">Core Process Management Commands</a></p>
+                        <p><strong><i class="fas fa-book"></i> Chapter 3</strong> - <a href="#chapter-3">Resource Consumption</a></p>
+                        <p><strong><i class="fas fa-book"></i> Chapter 4</strong> - <a href="#chapter-4">Signals in Depth</a></p>
+                        <p><strong><i class="fas fa-book"></i> Chapter 5</strong> - <a href="#chapter-5">Daemons, Zombies, and Orphans</a></p>
+                        <p><strong><i class="fas fa-book"></i> Chapter 6</strong> - <a href="#chapter-6">Real-World Server Use Cases</a></p>
+                        <p><strong><i class="fas fa-book"></i> Chapter 7</strong> - <a href="#chapter-7">Hands-On Labs</a></p>
+                        <p><strong><i class="fas fa-book"></i> Chapter 8</strong> - <a href="#chapter-8">CheatSheet</a></p>
+                    </div>
+                </div>
+            </div>
+            <!-- Chapter 1  -->
+
+            <div class="card linux-card">
+                <div class="card-header">
+                    <h2>Introduction</h2>
+                </div>
+                <div class="content">  
+                    <p style="margin-bottom: 10px;">A Linux server is a collection of running processes: shells, services, applications, schedulers, and kernel worker threads. Process management means finding the right process, understanding its state and resource use, changing its priority safely, sending the correct signal, and knowing when not to act.</p>
+                    <p style="margin-bottom: 10px;">Run all labs only on a disposable Ubuntu 22.04/24.04, Debian, Fedora, Rocky, AlmaLinux, or RHEL VM/container. Take a VM snapshot before starting. Do not run process-termination, priority, or service-management exercises on production systems.</p>
+                    <p>Commands that modify process state require appropriate permissions. Your PIDs, usernames, timestamps, load values, and output will differ from the examples.</p>
+                </div>
+                <div class="content">
+                    <h4 class="section-title">Lab safety</h4>
+                    <p>Create a lab directory:</p>
+                    <div id="language-bash" class="code-block">
+                        <p>Bash</p>
+                        <pre>
+<code class="language-bash">mkdir -p ~/process-lab
+cd ~/process-lab</code>
+</pre>
+                    </div>
+                    <p>Check your identity and available tools:</p>
+                    <div id="language-bash" class="code-block">
+                        <p>Bash</p>
+                        <pre>
+<code class="language-bash">whoami
+id
+command -v ps top pgrep kill renice pstree htop</code>
+</pre>
+                    </div>
+                    <div class="list">
+                        <p class="sub"><strong class="subtitle">Safety rules:</strong></p>
+                        <ul>
+                            <li>Always identify the exact PID and command before sending a signal.</li>
+                            <li>Prefer <code class="code">SIGTERM</code> before <code class="code">SIGKILL</code>.</li>
+                            <li>Never broadly use <code class="code">pkill python</code>, <code class="code">pkill java</code>, or similar patterns.</li>
+                            <li>Do not send <code class="code">SIGKILL</code> to databases or critical services unless the incident procedure authorizes it.</li>
+                            <li>Do not kill unknown processes before collecting evidence.</li>
+                            <li>A process in <code class="code">D</code> state may be waiting on hardware or kernel I/O and may not terminate normally.</li>
+                            <li>Renice and negative nice values can affect service performance.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="content" id="chapter-1">
+                    <h3 class="section-title">
+                        Chapter 1: Process Fundamentals
+                    </h3>
+                    <h4 class="sub-title">Program versus process</h4>
+                    <p>A <strong>program</strong> is a stored executable file, such as /usr/bin/python3, /usr/sbin/sshd, or a shell script. A <strong>process</strong> is a running instance of that program, with a PID, memory, file descriptors, environment, security identity, and scheduling state.</p>
+                    <p>One program can create multiple processes.</p>
+                    <p class="output">Examples:</p>
+                    <pre class="bg-color"><code>/&larr; Root directory (everything starts here)
+ps -C bash -o pid,ppid,user,stat,cmd
+ps -C python3 -o pid,ppid,user,stat,cmd
+ps -C sshd -o pid,ppid,user,stat,cmd
+ps -C systemd -o pid,ppid,user,stat,cmd</code></pre>
+
+                    <p class="output">Example output; your values will differ:</p>
+                    <pre class="bg-color"><code>/&larr; Root directory (everything starts here)
+    PID    PPID USER     STAT COMMAND
+   1234    1230 student  Ss   -bash
+   4567    4560 student  S    python3 process-lab/signal_demo.py</code></pre>
+                    
+                    <h4 class="sub-title">PID and PPID</h4>
+                    <div class="list">
+                        <ul>
+                            <li><strong>PID:</strong> Process ID, a unique identifier for a running process.</li>
+                            <li><strong>PPID:</strong> Parent process ID, the PID of the process that created it.</li>
+                            <li><strong>PID 1:</strong> Usually <code class="code">systemd</code> on modern Linux systems; it is the initial userspace process and commonly reparents orphaned processes.</li>
+                        </ul>
+                    </div>
+                    <p>Inspect a process through <code class="code">/proc</code>:</p>
+                    <div id="language-bash" class="code-block">
+                        <p>Bash</p>
+                        <pre>
+<code class="language-bash">pid=$(pgrep -f 'sleep 600' | head -n 1)
+echo "$pid"
+cat "/proc/$pid/status"
+cat "/proc/$pid/cmdline"; printf '\n'
+ls "/proc/$pid"</code>
+</pre>
+                    </div>
+                    <p class="output">Example output:</p>
+                    <pre class="bg-color"><code>Name:   sleep
+State:  S (sleeping)
+Pid:    4821
+PPid:   1234
+Uid:    1000    1000    1000    1000</code></pre>
+                    <p><code class="code">/proc/PID/cmdline</code> uses NUL separators between arguments, so it may appear to run together without a final newline.</p>
+                    
+                    <h4>Process tree</h4>
+                    <p>A process tree shows ancestry. A shell can start a script; the script can start child processes; those children may start further children.</p>
+                    <p class="output">Example output:</p>
+                    <pre class="bg-color">
+<code>systemd
+└── sshd
+    └── bash
+        └── python3 cpu_load.py
+            ├── python3 cpu_load.py
+            └── python3 cpu_load.py</code></pre>
+                    <p>Visualize it:</p>
+                    <div id="language-bash" class="code-block">
+                        <p>Bash</p>
+                        <pre>
+<code class="language-bash">pstree -p
+pstree -p "$$"
+pstree -ap | head -n 50</code>
+</pre>               </div>
+                    <p>The shell variable <code class="code">$$</code> contains the current shell PID.</p>
+
+                    <h4>Process states</h4>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>State</th>
+                                    <th>Name</th>
+                                    <th>Meaning</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code class="code">R</code></td>
+                                    <td><strong>Running/runnable</strong></td>
+                                    <td>Executing or waiting for CPU</td>
+                                </tr>
+                                <tr>
+                                    <td><code class="code">S</code></td>
+                                    <td><strong>Interruptible sleep</strong></td>
+                                    <td>Waiting for an event, I/O, timer, or signal</td>
+                                </tr>
+                                <tr>
+                                    <td><code class="code">D</code></td>
+                                    <td><strong>Uninterruptible sleep</strong></td>
+                                    <td>Waiting on kernel/hardware I/O; cannot be killed normally</td>
+                                </tr>
+                                <tr>
+                                    <td><code class="code">T</code></td>
+                                    <td><strong>Stopped</strong></td>
+                                    <td>Paused by SIGSTOP, Ctrl+Z, or a debugger</td>
+                                </tr>
+                                <tr>
+                                    <td><code class="code">Z</code></td>
+                                    <td><strong>Zombie</strong></td>
+                                    <td>Terminated but not yet reaped by parent</td>
+                                </tr>
+                                <tr>
+                                    <td><code class="code">I</code></td>
+                                    <td><strong>Idle kernel thread</strong></td>
+                                    <td>Idle kernel worker</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <p class="sub"><strong class="subtitle">Zombie process</strong></p>
+                    <p style="margin-bottom: 5px;">A zombie is a process that has exited but whose parent has not read its exit status. It consumes a PID-table entry but not CPU time or normal process memory.</p>
+                    <p>A zombie cannot be “killed” because it is already dead. Fix the parent process or restart the service that failed to reap it.</p>
+
+                    <p class="sub"><strong class="subtitle">Orphan process</strong></p>
+                    <p style="margin-bottom: 5px;">An orphan is a process whose parent exited first. Linux normally reparents it to PID 1, typically <code class="code">systemd</code>.</p>
+                    <p>This is normal for daemons, detached jobs, and processes started with <code class="code">nohup</code>.</p>
+
+                    <p class="sub"><strong class="subtitle">Daemon process</strong></p>
+                    <p style="margin-bottom: 5px;">A daemon is a long-running background service process, often started by systemd. Examples include <code class="code">sshd</code>, <code class="code">nginx</code>, <code class="code">cron</code>, and <code class="code">systemd-journald</code>.</p>
+
+                    <h4>CPU scheduling</h4>
+                    <p>The kernel scheduler decides which runnable process receives CPU time. A process may be runnable but waiting if more work exists than CPU capacity.</p>
+
+                    <p class="sub"><strong class="subtitle">Load average</strong></p>
+                    <p>Load average approximates runnable or uninterruptible work over 1, 5, and 15 minutes.</p>
+
+                    <div id="language-bash" class="code-block">
+                        <p>Bash</p>
+                        <pre>
+<code class="language-bash">uptime</code>
+</pre>               </div>
+                    <p class="output">Example output:</p>
+                    <pre class="bg-color"><code>09:30:00 up 2:15, 1 user, load average: 2.10, 1.80, 1.20</code></pre>
+
+                    <p class="output">Interpret load relative to CPU count:</p>
+                    <pre class="bg-color"><code>nproc</code></pre>
+                    <p>A load of 2.10 on a 4-core machine is generally less concerning than the same load on a 1-core machine. Load is not a direct CPU-percentage measure because it can include uninterruptible I/O wait.</p>
+
+                    <p class="sub"><strong class="subtitle">CPU time versus wall-clock time</strong>
+                    <div class="list">
+                        <ul>
+                            <li><strong>CPU time:</strong> Time spent executing on CPU.</li>
+                            <li><strong>Wall-clock time:</strong> Elapsed real-world time.</li>
+                            <li><strong>User CPU:</strong> Time spent in application code.</li>
+                            <li><strong>System CPU:</strong> Time spent in kernel code.</li>
+                            <li><strong>Context switching:</strong> The kernel switching CPU execution between processes or threads.</li>
+                        </ul>
+                    </div>
+
+                    <p>Inspect CPU and memory:</p>
+                    <div id="language-bash" class="code-block">
+                        <p>Bash</p>
+                        <pre>
+<code class="language-bash">top -b -n 1 | head -n 20</code>
+</pre>               </div>
+
+                    <h4>Foreground and background processes</h4>
+                    <p>A foreground process is connected to the terminal and receives keyboard input. A background process runs without occupying the terminal prompt.</p>
+                    <p>Start a background process:</p>
+                    <div id="language-bash" class="code-block">
+                        <p>Bash</p>
+                        <pre>
+<code class="language-bash">sleep 300 &
+jobs -l</code>
+</pre>               </div>
+
+                    <p class="output">Example output:</p>
+                    <pre class="bg-color">
+<code>[docs.kernel](https://docs.kernel.org/process/threat-model.html)+  4821 Running                 sleep 300 &</code></pre>
+
+                    <p>Stop a foreground job:</p>
+                    <div id="language-bash" class="code-block">
+                        <p>Bash</p>
+                        <pre>
+<code class="language-bash">sleep 300</code>
+</pre>               </div>
+                    <p class="output">Press:</p>
+                    <pre class="bg-color">
+<code>Ctrl+Z</code></pre>
+
+                    <p>Then inspect and resume it:</p>
+                    <div id="language-bash" class="code-block">
+                        <p>Bash</p>
+                        <pre>
+<code class="language-bash">jobs -l
+bg %1
+fg %1</code>
+</pre>               </div>
+                     <p>When a terminal closes, background jobs may receive SIGHUP. Use nohup or disown when a job must survive logout.</p>
+                     <div id="language-bash" class="code-block">
+                        <p>Bash</p>
+                        <pre>
+<code class="language-bash">nohup ./long_task.sh > long-task.log 2>&1 &
+disown -h %1</code>
+</pre>               </div>
+            </div>
+            </div>
+
+            <!-- Chapter 2  -->
+            <div class="card linux-card" id="chapter-2">
+                <div class="card-header">
+                    <h3>Chapter 2: Core Process Management Commands</h3>
+                </div>
+                <p>This Chapter introduces the essential Linux commands used to view, monitor, find, and manage running processes. In Linux, every running program is a process, and each process has a unique Process ID (PID). Before you can stop, prioritize, or troubleshoot a process, you must first know how to identify it correctly.</p>
+                <h4>ps - Displays a snapshot of running processes</h4>
+                <p class="sub"><strong class=""subtitle>Syntax</strong></p>
+                <div id="language-bash" class="code-block">
+                        <p>Bash</p>
+                        <pre>
+<code class="language-bash">ps [options]</code>
+</pre>               </div>
+                <p class="sub"><strong class="subtitle">Important options</strong></p>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Option</th>
+                                <th>Meaning</th>
+                                <th>Example</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code class="code">a</code></td>
+                                <td>Show processes for all users</td>
+                                <td><code class="code">ps a</code></td>
+                            </tr>
+                            <tr>
+                                <td><code class="code">u</code></td>
+                                <td>User-oriented output</td>
+                                <td><code class="code">ps aux</code></td>
+                            </tr>
+                            <tr>
+                                <td><code class="code">x</code></td>
+                                <td>Include processes without a terminal</td>
+                                <td><code class="code">ps ax</code></td>
+                            </tr>
+                            <tr>
+                                <td><code class="code">-e</code></td>
+                                <td>Show every process</td>
+                                <td><code class="code">ps -e</code></td>
+                            </tr>
+                            <tr>
+                                <td><code class="code">-f</code></td>
+                                <td>Full-format listing</td>
+                                <td><code class="code">ps -ef</code></td>
+                            </tr>
+                            <tr>
+                                <td><code class="code">-F</code></td>
+                                <td>Extra full format</td>
+                                <td><code class="code">ps -eF</code></td>
+                            </tr>
+                            <tr>
+                                <td><code class="code">-p PID</code></td>
+                                <td>Select a specific PID</td>
+                                <td><code class="code">ps -p 1234</code></td>
+                            </tr>
+                            <tr>
+                                <td><code class="code">-u USER</code></td>
+                                <td>Select by user</td>
+                                <td><code class="code">ps -u alice</code></td>
+                            </tr>
+                            <tr>
+                                <td><code class="code">-C NAME</code></td>
+                                <td>Select by command name</td>
+                                <td><code class="code">ps -C nginx</code></td>
+                            </tr>
+                            <tr>
+                                <td><code class="code">--forest</code></td>
+                                <td>Show process tree</td>
+                                <td><code class="code">ps -ef --forest</code></td>
+                            </tr>
+                            <tr>
+                                <td><code class="code">--sort</code></td>
+                                <td>Sort output</td>
+                                <td><code class="code">ps aux --sort=-%cpu</code></td>
+                            </tr>
+                            <tr>
+                                <td><code class="code">-o</code></td>
+                                <td>Custom output columns</td>
+                                <td><code class="code">ps -eo pid,cmd</code></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p class="sub"><strong class="subtitle">Beginner example</strong></p>
+                <div id="language-bash" class="code-block">
+                        <p>Bash</p>
+                        <pre>
+<code class="language-bash">ps
+ps aux | head -n 10
+ps -ef --forest | head -n 20</code>
+</pre>               </div>
+
+                <p class="sub"><strong class="subtitle">Practical server-administration examples</strong></p>
+                <p>Highest CPU consumers:</p>
+                <div id="language-bash" class="code-block">
+                        <p>Bash</p>
+                        <pre>
+<code class="language-bash">ps aux --sort=-%cpu | head -n 15</code>
+</pre>               </div>
+                <p>Highest memory consumers:</p>
+                <div id="language-bash" class="code-block">
+                        <p>Bash</p>
+                        <pre>
+<code class="language-bash">ps aux --sort=-%mem | head -n 15</code>
+</pre>               </div>
+                <p>Inspect one process:</p>
+                <div id="language-bash" class="code-block">
+                        <p>Bash</p>
+                        <pre>
+<code class="language-bash">ps -p 1234 -o pid,ppid,user,stat,%cpu,%mem,etime,cmd</code>
+</pre>               </div>
+                <p>Inspect a user’s processes:</p>
+                <div id="language-bash" class="code-block">
+                        <p>Bash</p>
+                        <pre>
+<code class="language-bash">ps -u alice -o pid,ppid,stat,%cpu,%mem,cmd</code>
+</pre>               </div>
+                <p>Inspect a service:</p>
+                <div id="language-bash" class="code-block">
+                        <p>Bash</p>
+                        <pre>
+<code class="language-bash">ps -C nginx -o pid,ppid,user,stat,cmd</code>
+</pre>               </div>
+
+                <p class="output">Reading output</p>
+                    <pre class="bg-color">
+<code>USER  PID  %CPU %MEM STAT COMMAND
+alice 4821 92.3 1.2 R    python3 cpu_load.py</code></pre>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Column</th>
+                                <th>Meaning</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code class="code">USER</code></td>
+                                <td>Effective user</td>
+                            </tr>
+                            <tr>
+                                <td><code class="code">PID</code></td>
+                                <td>Process ID</td>
+                            </tr>
+                            <tr>
+                                <td><code class="code">%CPU</code></td>
+                                <td>CPU utilization over the process lifetime or recent interval, depending on <code class="code">ps</code> implementation</td>
+                            </tr>
+                            <tr>
+                                <td><code class="code">%MEM</code></td>
+                                <td>Resident memory as a percentage of physical RAM</td>
+                            </tr>
+                            <tr>
+                                <td><code class="code">STAT</code></td>
+                                <td>Process state</td>
+                            </tr>
+                            <tr>
+                                <td><code class="code">COMMAND</code></td>
+                                <td>Command name or full command line</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="list">
+                    <p class="sub"><strong class="subtitle">Common mistakes</strong></p>
+                    <ul>
+                        <li>Treating <code class="code">%CPU</code> as an instantaneous value.</li>
+                        <li>Confusing PID with job ID.</li>
+                        <li>Using <code class="code">ps aux | grep process</code> when <code class="code">pgrep</code> is safer.</li>
+                        <li>Killing a parent process without checking its children.</li>
+                    </ul>
+                </div>
+                <p>Verification</p>
+                <div id="language-bash" class="code-block">
+                        <p>Bash</p>
+                        <pre>
+<code class="language-bash">ps -p "$pid" -o pid,ppid,user,stat,%cpu,%mem,etime,cmd</code>
+</pre>               </div>
+
+                <h4>top - Monitors processes and system resources in real time</h4>
+                <p class="sub"><strong class=""subtitle>Syntax</strong></p>
+                <div id="language-bash" class="code-block">
+                        <p>Bash</p>
+                        <pre>
+<code class="language-bash">top [options]</code>
+</pre>               </div>
+
+                <p class="sub"><strong class="subtitle">Important options</strong></p>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Option</th>
+                                <th>Meaning</th>
+                                <th>Example</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code class="code">-d SECONDS</code></td>
+                                <td>Refresh interval</td>
+                                <td><code class="code">top -d 2</code></td>
+                            </tr>
+                            <tr>
+                                <td><code class="code">-p PID</code></td>
+                                <td>Monitor a process</td>
+                                <td><code class="code">top -p 1234</code></td>
+                            </tr>
+                            <tr>
+                                <td><code class="code">-u USER</code></td>
+                                <td>Filter by user</td>
+                                <td><code class="code">top -u alice</code></td>
+                            </tr>
+                            <tr>
+                                <td><code class="code">-H</code></td>
+                                <td>Show threads</td>
+                                <td><code class="code">top -H -p 1234</code></td>
+                            </tr>
+                            <tr>
+                                <td><code class="code">-b</code></td>
+                                <td>Batch mode</td>
+                                <td><code class="code">top -b -n 1</code></td>
+                            </tr>
+                            <tr>
+                                <td><code class="code">-n ITERATIONS</code></td>
+                                <td>Number of refreshes</td>
+                                <td><code class="code">top -b -n 1</code></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <p class="sub"><strong class="subtitle">Interactive keys</strong></p>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Key</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code class="code">h</code></td>
+                                <td>Help</td>
+                            </tr>
+                            <tr>
+                                <td><code class="code">P</code></td>
+                                <td>Sort by CPU</td>
+                            </tr>
+                            <tr>
+                                <td><code class="code">M</code></td>
+                                <td>Sort by memory</td>
+                            </tr>
+                            <tr>
+                                <td><code class="code">T</code></td>
+                                <td>Sort by cumulative time</td>
+                            </tr>
+                            <tr>
+                                <td><code class="code">k</code></td>
+                                <td>Kill a process</td>
+                            </tr>
+                            <tr>
+                                <td><code class="code">r</code></td>
+                                <td>Renice a process</td>
+                            </tr>
+                            <tr>
+                                <td><code class="code">u</code></td>
+                                <td>Filter by user</td>
+                            </tr>
+                            <tr>
+                                <td><code class="code">1</code></td>
+                                <td>Show individual CPU cores</td>
+                            </tr>
+                            <tr>
+                                <td><code class="code">q</code></td>
+                                <td>Quit</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <p class="sub"><strong class="subtitle">Beginner example</strong></p>
+                <div id="language-bash" class="code-block">
+                    <p>Bash</p>
+                    <pre>
+<code class="language-bash">top
+# Press q to exit.
+</code>
+</pre>               </div>
+
+                <p class="sub"><strong class="subtitle">Practical server-administration examples</strong></p>
+                <p>Monitor one process:</p>
+                <div id="language-bash" class="code-block">
+                    <p>Bash</p>
+                    <pre>
+<code class="language-bash">top -p 1234</code>
+</pre>          </div>
+                <p>Take one noninteractive snapshot:</p>
+                <div id="language-bash" class="code-block">
+                        <p>Bash</p>
+                        <pre>
+<code class="language-bash">top -b -n 1 | head -n 25</code>
+</pre>               </div>
+                <p>Monitor a user:</p>
+                <div id="language-bash" class="code-block">
+                        <p>Bash</p>
+                        <pre>
+<code class="language-bash">top -u alice</code>
+</pre>               </div>
+                <p class="sub"><strong class="subtitle">Reading top output</strong></p>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Field</th>
+                                <th>Meaning</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code class="code">Load average</code></td>
+                                <td>Runnable/uninterruptible work over 1, 5, and 15 minutes</td>
+                            </tr>
+                            <tr>
+                                <td><code class="code">%CPU</code></td>
+                                <td>Process CPU use</td>
+                            </tr>
+                            <tr>
+                                <td><code class="code">%MEM</code></td>
+                                <td>Resident memory as a percentage of physical RAM</td>
+                            </tr>
+                            <tr>
+                                <td><code class="code">VIRT</code></td>
+                                <td>Total virtual memory</td>
+                            </tr>
+                            <tr>
+                                <td><code class="code">RES</code></td>
+                                <td>Resident physical memory</td>
+                            </tr>
+                            <tr>
+                                <td><code class="code">SHR</code></td>
+                                <td>Shared memory</td>
+                            </tr>
+                            <tr>
+                                <td><code class="code">TIME+</code></td>
+                                <td>Cumulative CPU time</td>
+                            </tr>
+                            <tr>
+                                <td><code class="code">S</code></td>
+                                <td>Process state</td>
+                            </tr>
+                            <tr>
+                                <td><code class="code">NI</code></td>
+                                <td>Nice value</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <p class="sub"><strong class="subtitle">Common Mistakes</strong></p>
+                <div class="list">
+                    <ul>
+                        <li>Confusing <code class="code">VIRT</code> with actual RAM use.</li>
+                        <li>Assuming high load always means high CPU.</li>
+                        <li>Killing from <code class="code">top</code> without first confirming the PID and command.</li>
+                        <li>Forgetting that <code class="code">top</code> can show threads when <code class="code">-H</code> is used.</li>
+                    </ul>
+                </div>
+                <p>Verification</p>
+                <div id="language-bash" class="code-block">
+                        <p>Bash</p>
+                        <pre>
+<code class="language-bash">top -b -n 1 -p "$pid"</code>
+</pre>               </div>
+
+                <h4>htop - Provides an enhanced interactive process monitor with easier navigation, filtering, sorting, and tree views.</h4>
+                <p class="sub"><strong class="subtitle">Install</strong></p>
+                <p>Ubuntu/Debian:</p>
+                <div id="language-bash" class="code-block">
+                        <p>Bash</p>
+                        <pre>
+<code class="language-bash">sudo apt update
+sudo apt install htop</code>
+</pre>               </div>
+                <p>RHEL/Rocky/Alma/Fedora:</p>
+                <div id="language-bash" class="code-block">
+                        <p>Bash</p>
+                        <pre>
+<code class="language-bash">sudo dnf install htop</code>
+</pre>               </div>
+                <p class="sub"><strong class="subtitle">Important keys</strong></p>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Key</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code class="code">F1</code></td>
+                                <td>Help</td>
+                            </tr>
+                            <tr>
+                                <td><code class="code">F3</code></td>
+                                <td>Search</td>
+                            </tr>
+                            <tr>
+                                <td><code class="code">F4</code></td>
+                                <td>Filter</td>
+                            </tr>
+                            <tr>
+                                <td><code class="code">F5</code></td>
+                                <td>Tree view</td>
+                            </tr>
+                            <tr>
+                                <td><code class="code">F6</code></td>
+                                <td>Sort</td>
+                            </tr>
+                            <tr>
+                                <td><code class="code">F9</code></td>
+                                <td>Kill</td>
+                            </tr>
+                            <tr>
+                                <td><code class="code">F10</code></td>
+                                <td>Quit</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <p class="sub"><strong class="subtitle">Beginner example</strong></p>
+                <div id="language-bash" class="code-block">
+                    <p>Bash</p>
+                    <pre>
+<code class="language-bash">htop</code>
+</pre>               </div>
+                <p class="sub"><strong class="subtitle">Practical server-administration examples</strong></p>
+                <div id="language-bash" class="code-block">
+                    <p>Bash</p>
+                    <pre>
+<code class="language-bash">htop -u alice
+htop -p 1234</code>
+</pre>               </div>
+
+                <p class="sub"><strong class="subtitle">When htop is better</strong></p>
+                <div class="list">
+                    <ul>
+                        <li>Easier navigation and filtering.</li>
+                        <li>Color-coded resource use.</li>
+                        <li>Convenient tree view.</li>
+                        <li>Easier search and sorting.</li>
+                    </ul>
+                </div>
+                <p><code class="code">htop</code> is a monitoring aid, not a substitute for <code class="code">ps</code>, logs, metrics, and incident evidence.</p>
+                <p class="sub"><strong class="subtitle">Common mistakes</strong></p>
+                <div class="list">
+                    <ul>
+                        <li>Killing from <code class="code">htop</code> without confirming the process.</li>
+                        <li>Assuming colors mean the same thing across versions and themes.</li>
+                        <li>Using it as the only source of evidence.</li>
+                    </ul>
+                </div>
+                <p>Verification</p>
+                <div id="language-bash" class="code-block">
+                        <p>Bash</p>
+                        <pre>
+<code class="language-bash">ps -p "$pid" -o pid,user,stat,%cpu,%mem,cmd</code>
+</pre>               </div>
+
+                <h4>pstree - Displays the process hierarchy</h4>
+                <p class="sub"><strong class=""subtitle>Syntax</strong></p>
+                <div id="language-bash" class="code-block">
+                        <p>Bash</p>
+                        <pre>
+<code class="language-bash">pstree [options] [PID or user]</code>
+</pre>               </div>
+                <p class="sub"><strong class=""subtitle>Important options</strong></p>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Option</th>
+                                <th>Meaning</th>
+                                <th>Example</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code class="code">-p</code></td>
+                                <td>Show PIDs</td>
+                                <td><code class="code">pstree -p</code></td>
+                            </tr>
+                            <tr>
+                                <td><code class="code">-a</code></td>
+                                <td>Show command-line arguments</td>
+                                <td><code class="code">pstree -ap</code></td>
+                            </tr>
+                            <tr>
+                                <td><code class="code">-u</code></td>
+                                <td>Show user transitions</td>
+                                <td><code class="code">pstree -u</code></td>
+                            </tr>
+                            <tr>
+                                <td><code class="code">-h</code></td>
+                                <td>Highlight current process</td>
+                                <td><code class="code">pstree -h</code></td>
+                            </tr>
+                            <tr>
+                                <td><code class="code">-A</code></td>
+                                <td>Use ASCII tree characters</td>
+                                <td><code class="code">pstree -A</code></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p class="sub"><strong class="subtitle">Beginner example</strong></p>
+                <div id="language-bash" class="code-block">
+                    <p>Bash</p>
+                    <pre>
+<code class="language-bash">pstree -p "$$"</code>
+</pre>               </div>
+
+                <p class="sub"><strong class="subtitle">Practical server-administration example</strong></p>
+                <p>Inspect the ancestry of a workload:</p>
+                <div id="language-bash" class="code-block">
+                    <p>Bash</p>
+                    <pre>
+<code class="language-bash">pid=$(pgrep -f 'cpu_load.py' | head -n 1)
+pstree -ap "$pid"</code>
+</pre>               </div>
+
+                <p class="sub"><strong class="subtitle">Common mistakes</strong></p>
+                <div class="list">
+                    <ul>
+                        <li>Confusing sibling processes with child processes.</li>
+                        <li>Assuming a process tree remains stable.</li>
+                        <li>Searching the output with <code class="code">grep</code> when <code class="code">pgrep</code> is more reliable.</li>
+                    </ul>
+                </div>
+                <p>Verification</p>
+                <div id="language-bash" class="code-block">
+                        <p>Bash</p>
+                        <pre>
+<code class="language-bash">ps -ef --forest</code>
+</pre>               </div>
+
+                    <h4>pgrep - Finds process IDs by name, user, parent, or full command line</h4>
+                <p class="sub"><strong class="subtitle">Syntax</strong></p>
+                <div id="language-bash" class="code-block">
+                        <p>Bash</p>
+                        <pre>
+<code class="language-bash">pgrep [options] pattern</code>
+</pre>               </div>
+                <p class="sub"><strong class="subtitle">Important options</strong></p>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Option</th>
+                                <th>Meaning</th>
+                                <th>Example</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code class="code">-l</code></td>
+                                <td>Show process name</td>
+                                <td><code class="code">pgrep -l nginx</code></td>
+                            </tr>
+                            <tr>
+                                <td><code class="code">-a</code></td>
+                                <td>Show full command line</td>
+                                <td><code class="code">pgrep -a python3</code></td>
+                            </tr>
+                            <tr>
+                                <td><code class="code">-u USER</code></td>
+                                <td>Filter by user</td>
+                                <td><code class="code">pgrep -u alice bash</code></td>
+                            </tr>
+                            <tr>
+                                <td><code class="code">-x</code></td>
+                                <td>Exact match</td>
+                                <td><code class="code">pgrep -x bash</code></td>
+                            </tr>
+                            <tr>
+                                <td><code class="code">-f</code></td>
+                                <td>Match full command line</td>
+                                <td><code class="code">pgrep -f "python3 cpu_load.py"</code></td>
+                            </tr>
+                            <tr>
+                                <td><code class="code">-P PPID</code></td>
+                                <td>Match children of a parent</td>
+                                <td><code class="code">pgrep -P 1234</code></td>
+                            </tr>
+                            <tr>
+                                <td><code class="code">-n</code></td>
+                                <td>Newest match</td>
+                                <td><code class="code">pgrep -n bash</code></td>
+                            </tr>
+                            <tr>
+                                <td><code class="code">-o</code></td>
+                                <td>Oldest match</td>
+                                <td><code class="code">pgrep -o bash</code></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p class="sub"><strong class="subtitle">Beginner example</strong></p>
+                <div id="language-bash" class="code-block">
+                    <p>Bash</p>
+                    <pre>
+<code class="language-bash">pgrep -a sleep</code>
+</pre>               </div>
+
+                <p class="sub"><strong class="subtitle">Practical server-administration example</strong></p>
+                <p>Find a specific workload before acting:</p>
+                <div id="language-bash" class="code-block">
+                    <p>Bash</p>
+                    <pre>
+<code class="language-bash">pgrep -af "python3 cpu_load.py"</code>
+</pre>               </div>
+
+                <p class="sub"><strong class="subtitle">Why pgrep is safer</strong></p>
+                <p><code class="code">pgrep</code> matches process attributes directly and avoids accidental matching of the <code class="code">grep</code> command itself.</p>
+                <p>Compare:</p>
+                <div id="language-bash" class="code-block">
+                    <p>Bash</p>
+                    <pre>
+<code class="language-bash">ps aux | grep python</code>
+</pre>               </div>
+                <p>with:</p>
+                <div id="language-bash" class="code-block">
+                    <p>Bash</p>
+                    <pre>
+<code class="language-bash">pgrep -af python3</code>
+</pre>               </div>
+
+                <p class="sub"><strong class="subtitle">Common mistakes</strong></p>
+                <div class="list">
+                    <ul>
+                        <li>Using broad patterns.</li>
+                        <li>Forgetting <code class="code">-f</code> when searching a full command line.</li>
+                        <li>Assuming one match exists when multiple processes match.</li>
+                        <li>Using the result in <code class="code">kill</code> without inspecting it.</li>
+                    </ul>
+                </div>
+                <p>Verification</p>
+                <div id="language-bash" class="code-block">
+                        <p>Bash</p>
+                        <pre>
+<code class="language-bash">pgrep -af "cpu_load.py"
+ps -fp "$(pgrep -f 'cpu_load.py' | tr '\n' ',' | sed 's/,$//')"</code>
+</pre>               </div>
+
+                <h4>kill - Sends a signal to a process. It does not always terminate it</h4>
+                <p class="sub"><strong class="subtitle">Syntax</strong></p>
+                <div id="language-bash" class="code-block">
+                        <p>Bash</p>
+                        <pre>
+<code class="language-bash">kill [options] PID</code>
+</pre>               </div>
+                <p class="sub"><strong class="subtitle">Important signals</strong></p>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Signal</th>
+                                <th>Number</th>
+                                <th>Typical purpose</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code class="code">SIGHUP</code></td>
+                                <td>1</td>
+                                <td>Hangup; often used to reload configuration</td>
+                            </tr>
+                            <tr>
+                                <td><code class="code">SIGINT</code></td>
+                                <td>2</td>
+                                <td>Interrupt; usually <code class="code">Ctrl+C</code></td>
+                            </tr>
+                            <tr>
+                                <td><code class="code">SIGQUIT</code></td>
+                                <td>3</td>
+                                <td>Quit and optionally dump core</td>
+                            </tr>
+                            <tr>
+                                <td><code class="code">SIGKILL</code></td>
+                                <td>9</td>
+                                <td>Force termination; cannot be caught</td>
+                            </tr>
+                            <tr>
+                                <td><code class="code">SIGTERM</code></td>
+                                <td>15</td>
+                                <td>Graceful termination request</td>
+                            </tr>
+                            <tr>
+                                <td><code class="code">SIGCONT</code></td>
+                                <td>18</td>
+                                <td>Resume a stopped process</td>
+                            </tr>
+                            <tr>
+                                <td><code class="code">SIGCHLD</code></td>
+                                <td>17</td>
+                                <td>Child status changed</td>
+                            </tr>
+                            <tr>
+                                <td><code class="code">SIGSTOP</code></td>
+                                <td>19</td>
+                                <td>Pause a process</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p class="sub"><strong class="subtitle">Examples</strong></p>
+                <div id="language-bash" class="code-block">
+                    <p>Bash</p>
+                    <pre>
+<code class="language-bash">kill 1234
+kill -15 1234
+kill -TERM 1234
+kill -9 1234
+kill -KILL 1234
+kill -STOP 1234
+kill -CONT 1234
+kill -l</code>
+</pre>               </div>
+
+                <p class="sub"><strong class="subtitle">Safety rules</strong></p>
+                <div class="list">
+                    <ul>
+                        <li>Confirm the exact PID first.</li>
+                        <li>Use <code class="code">SIGTERM</code> first.</li>
+                        <li>Wait for cleanup.</li>
+                        <li>Verify afterward.</li>
+                        <li>Use <code class="code">SIGKILL</code> only when necessary.</li>
+                        <li>Never use <code class="code">SIGKILL</code> casually against databases or critical services.</li>
+                    </ul>
+                </div>
+
+                <p class="sub"><strong class="subtitle">Common mistakes</strong></p>
+                <div class="list">
+                    <ul>
+                        <li>Killing a PID without confirming its command.</li>
+                        <li>Sending <code class="code">SIGKILL</code> immediately.</li>
+                        <li>Assuming <code class="code">kill</code> can terminate a <code class="code">D</code>-state process.</li>
+                        <li>Confusing shell job IDs with PIDs.</li>
+                    </ul>
+                </div>
+                <p>Verification</p>
+                <div id="language-bash" class="code-block">
+                        <p>Bash</p>
+                        <pre>
+<code class="language-bash">kill -0 1234 2>/dev/null && echo "Process exists" || echo "Process absent"
+pgrep -af "cpu_load.py"</code>
+</pre>               </div>
+
+                <h4>pkill - Sends signals to processes selected by name, user, parent, or command-line pattern</h4>
+                <p class="sub"><strong class="subtitle">Syntax</strong></p>
+                <div id="language-bash-pkill-syntax" class="code-block">
+                        <p>Bash</p>
+                        <pre>
+<code class="language-bash">pkill [options] pattern</code>
+</pre>               </div>
+                <p class="sub"><strong class="subtitle">Important options</strong></p>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Option</th>
+                                <th>Meaning</th>
+                                <th>Example</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code class="code">-l</code></td>
+                                <td>List matching names</td>
+                                <td><code class="code">pkill -l nginx</code></td>
+                            </tr>
+                            <tr>
+                                <td><code class="code">-f</code></td>
+                                <td>Match full command line</td>
+                                <td><code class="code">pkill -f "python3 cpu_load.py"</code></td>
+                            </tr>
+                            <tr>
+                                <td><code class="code">-u USER</code></td>
+                                <td>Match user</td>
+                                <td><code class="code">pkill -u alice bash</code></td>
+                            </tr>
+                            <tr>
+                                <td><code class="code">-x</code></td>
+                                <td>Exact name match</td>
+                                <td><code class="code">pkill -x nginx</code></td>
+                            </tr>
+                            <tr>
+                                <td><code class="code">-n</code></td>
+                                <td>Newest match</td>
+                                <td><code class="code">pkill -n nginx</code></td>
+                            </tr>
+                            <tr>
+                                <td><code class="code">-o</code></td>
+                                <td>Oldest match</td>
+                                <td><code class="code">pkill -o nginx</code></td>
+                            </tr>
+                            <tr>
+                                <td><code class="code">-SIGNAL</code></td>
+                                <td>Specify signal</td>
+                                <td><code class="code">pkill -TERM nginx</code></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p class="sub"><strong class="subtitle">Beginner example</strong></p>
+                <div id="language-bash-pkill-beginner" class="code-block">
+                    <p>Bash</p>
+                    <pre>
+<code class="language-bash">pgrep -l nginx
+pkill -TERM nginx</code>
+</pre>               </div>
+
+                <p class="sub"><strong class="subtitle">Practical server-administration example</strong></p>
+                <p>Terminate a specific controlled workload:</p>
+                <div id="language-bash-pkill-server" class="code-block">
+                    <p>Bash</p>
+                    <pre>
+<code class="language-bash">pgrep -af "python3 cpu_load.py"
+pkill -TERM -f "python3 cpu_load.py"</code>
+</pre>               </div>
+
+                <p class="sub"><strong class="subtitle">Safety warning</strong></p>
+                <p><code class="code">pkill</code> can match multiple processes.</p>
+                <p>Avoid:</p>
+                <div id="language-bash-pkill-avoid" class="code-block">
+                    <p>Bash</p>
+                    <pre>
+<code class="language-bash">pkill python
+pkill java
+pkill bash</code>
+</pre>               </div>
+                <p>Always inspect first:</p>
+                <div id="language-bash-pkill-inspect" class="code-block">
+                    <p>Bash</p>
+                    <pre>
+<code class="language-bash">pgrep -af pattern</code>
+</pre>               </div>
+
+                <p class="sub"><strong class="subtitle">Common mistakes</strong></p>
+                <div class="list">
+                    <ul>
+                        <li>Using a broad pattern.</li>
+                        <li>Forgetting <code class="code">-f</code> when the process name differs from the command line.</li>
+                        <li>Sending <code class="code">SIGKILL</code> without trying <code class="code">SIGTERM</code>.</li>
+                        <li>Matching your own shell or terminal process.</li>
+                    </ul>
+                </div>
+                <p>Verification</p>
+                <div id="language-bash-pkill-verify" class="code-block">
+                        <p>Bash</p>
+                        <pre>
+<code class="language-bash">pgrep -af "cpu_load.py"</code>
+</pre>               </div>
+
+
+
+<h4>killall - Sends signals to processes with an exact command name</h4>
+                <p class="sub"><strong class="subtitle">Syntax</strong></p>
+                <div id="language-bash-killall-syntax" class="code-block">
+                        <p>Bash</p>
+                        <pre>
+<code class="language-bash">killall [options] NAME</code>
+</pre>               </div>
+                <p class="sub"><strong class="subtitle">Important options</strong></p>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Option</th>
+                                <th>Meaning</th>
+                                <th>Example</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code class="code">-i</code></td>
+                                <td>Interactive confirmation</td>
+                                <td><code class="code">killall -i firefox</code></td>
+                            </tr>
+                            <tr>
+                                <td><code class="code">-u USER</code></td>
+                                <td>Match user</td>
+                                <td><code class="code">killall -u alice bash</code></td>
+                            </tr>
+                            <tr>
+                                <td><code class="code">-SIGNAL</code></td>
+                                <td>Specify signal</td>
+                                <td><code class="code">killall -TERM nginx</code></td>
+                            </tr>
+                            <tr>
+                                <td><code class="code">-v</code></td>
+                                <td>Verbose</td>
+                                <td><code class="code">killall -v nginx</code></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p class="sub"><strong class="subtitle">Beginner example</strong></p>
+                <div id="language-bash-killall-beginner" class="code-block">
+                    <p>Bash</p>
+                    <pre>
+<code class="language-bash">killall -i firefox</code>
+</pre>               </div>
+
+                <p class="sub"><strong class="subtitle">Practical server-administration example</strong></p>
+                <div id="language-bash-killall-server" class="code-block">
+                    <p>Bash</p>
+                    <pre>
+<code class="language-bash">killall -TERM nginx</code>
+</pre>               </div>
+                <p>Prefer <code class="code">systemctl restart nginx</code> when the service is managed by systemd.</p>
+
+                <p class="sub"><strong class="subtitle">Difference</strong></p>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Command</th>
+                                <th>Selection method</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code class="code">kill</code></td>
+                                <td>Exact PID</td>
+                            </tr>
+                            <tr>
+                                <td><code class="code">pkill</code></td>
+                                <td>Name, user, parent, or command-line pattern</td>
+                            </tr>
+                            <tr>
+                                <td><code class="code">killall</code></td>
+                                <td>Exact command name</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <p class="sub"><strong class="subtitle">Common mistakes</strong></p>
+                <div class="list">
+                    <ul>
+                        <li>Assuming <code class="code">killall</code> only affects one process.</li>
+                        <li>Using it on a common command name.</li>
+                        <li>Confusing command name with full command line.</li>
+                    </ul>
+                </div>
+                <p>Verification</p>
+                <div id="language-bash-killall-verify" class="code-block">
+                        <p>Bash</p>
+                        <pre>
+<code class="language-bash">pgrep -x nginx</code>
+</pre>               </div>
+
+<h4>jobs - Displays jobs managed by the current shell</h4>
+                <p class="sub"><strong class="subtitle">Syntax</strong></p>
+                <div id="language-bash-jobs-syntax" class="code-block">
+                        <p>Bash</p>
+                        <pre>
+<code class="language-bash">jobs [options]</code>
+</pre>               </div>
+                <p class="sub"><strong class="subtitle">Important options</strong></p>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Option</th>
+                                <th>Meaning</th>
+                                <th>Example</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code class="code">-l</code></td>
+                                <td>Show PIDs</td>
+                                <td><code class="code">jobs -l</code></td>
+                            </tr>
+                            <tr>
+                                <td><code class="code">-p</code></td>
+                                <td>Show only PIDs</td>
+                                <td><code class="code">jobs -p</code></td>
+                            </tr>
+                            <tr>
+                                <td><code class="code">-r</code></td>
+                                <td>Show running jobs</td>
+                                <td><code class="code">jobs -r</code></td>
+                            </tr>
+                            <tr>
+                                <td><code class="code">-s</code></td>
+                                <td>Show stopped jobs</td>
+                                <td><code class="code">jobs -s</code></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p class="sub"><strong class="subtitle">Beginner example</strong></p>
+                <div id="language-bash-jobs-beginner" class="code-block">
+                    <p>Bash</p>
+                    <pre>
+<code class="language-bash">sleep 300 &
+jobs
+jobs -l
+jobs -r
+jobs -s</code>
+</pre>               </div>
+
+                <p class="sub"><strong class="subtitle">Practical server-administration example</strong></p>
+                <p>Check whether a backup job is still running before closing a maintenance terminal:</p>
+                <div id="language-bash-jobs-server" class="code-block">
+                    <p>Bash</p>
+                    <pre>
+<code class="language-bash">jobs -l</code>
+</pre>               </div>
+
+                <p class="sub"><strong class="subtitle">Common mistakes</strong></p>
+                <div class="list">
+                    <ul>
+                        <li>Confusing job ID <code class="code">%1</code> with PID.</li>
+                        <li>Assuming <code class="code">jobs</code> shows processes from another terminal.</li>
+                        <li>Closing the terminal before checking background jobs.</li>
+                    </ul>
+                </div>
+                <p>Verification</p>
+                <div id="language-bash-jobs-verify" class="code-block">
+                        <p>Bash</p>
+                        <pre>
+<code class="language-bash">jobs -l</code>
+</pre>               </div>
+
+
+
+<h4>fg and bg - Move shell jobs between foreground and background</h4>
+                <p class="sub"><strong class="subtitle">Syntax</strong></p>
+                <div id="language-bash-fgbg-syntax" class="code-block">
+                        <p>Bash</p>
+                        <pre>
+<code class="language-bash">fg [%JOB]
+bg [%JOB]</code>
+</pre>               </div>
+                <p class="sub"><strong class="subtitle">Beginner example</strong></p>
+                <div id="language-bash-fgbg-beginner" class="code-block">
+                    <p>Bash</p>
+                    <pre>
+<code class="language-bash">sleep 300</code>
+</pre>               </div>
+                <p>Press:</p>
+                <div id="language-text-ctrlz" class="code-block">
+                    <p>Text</p>
+                    <pre>
+<code>Ctrl+Z</code>
+</pre>               </div>
+                <p>Then:</p>
+                <div id="language-bash-fgbg-resume" class="code-block">
+                    <p>Bash</p>
+                    <pre>
+<code class="language-bash">jobs
+bg %1
+fg %1</code>
+</pre>               </div>
+
+                <p class="sub"><strong class="subtitle">Job ID versus PID</strong></p>
+                <div class="list">
+                    <ul>
+                        <li><code class="code">%1</code> is a shell job ID.</li>
+                        <li>The PID is the operating-system process identifier.</li>
+                    </ul>
+                </div>
+                <div id="language-bash-fgbg-pidcheck" class="code-block">
+                    <p>Bash</p>
+                    <pre>
+<code class="language-bash">jobs -l</code>
+</pre>               </div>
+
+                <p class="sub"><strong class="subtitle">Terminal closure</strong></p>
+                <p>A normal background job may receive <code class="code">SIGHUP</code> when its controlling terminal closes. To keep it running:</p>
+                <div id="language-bash-fgbg-nohup" class="code-block">
+                    <p>Bash</p>
+                    <pre>
+<code class="language-bash">nohup ./long_task.sh > long-task.log 2>&1 &
+disown -h %1</code>
+</pre>               </div>
+                <p><code class="code">nohup</code> ignores hangup signals. <code class="code">disown -h</code> prevents the shell from sending <code class="code">SIGHUP</code> to the job when the shell exits.</p>
+
+                <p class="sub"><strong class="subtitle">Common mistakes</strong></p>
+                <div class="list">
+                    <ul>
+                        <li>Using <code class="code">%1</code> with <code class="code">kill</code>; use the PID instead.</li>
+                        <li>Forgetting output redirection with <code class="code">nohup</code>.</li>
+                        <li>Assuming a background process automatically survives terminal closure.</li>
+                    </ul>
+                </div>
+                <p>Verification</p>
+                <div id="language-bash-fgbg-verify" class="code-block">
+                        <p>Bash</p>
+                        <pre>
+<code class="language-bash">jobs -l
+ps -fp "$(jobs -p | tr '\n' ',' | sed 's/,$//')"</code>
+</pre>               </div>
+
+
+
+<h4>nice - Starts a process with a scheduling priority</h4>
+                <p class="sub"><strong class="subtitle">Syntax</strong></p>
+                <div id="language-bash-nice-syntax" class="code-block">
+                        <p>Bash</p>
+                        <pre>
+<code class="language-bash">nice [options] [command]</code>
+</pre>               </div>
+                <p class="sub"><strong class="subtitle">Nice values</strong></p>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Nice value</th>
+                                <th>Effect</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code class="code">-20</code></td>
+                                <td>Highest priority</td>
+                            </tr>
+                            <tr>
+                                <td><code class="code">0</code></td>
+                                <td>Default</td>
+                            </tr>
+                            <tr>
+                                <td><code class="code">19</code></td>
+                                <td>Lowest priority</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p>Higher nice value means lower scheduling priority. Lower nice value means higher scheduling priority.</p>
+                <p>Only root can normally set a negative nice value.</p>
+
+                <p class="sub"><strong class="subtitle">Important options</strong></p>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Option</th>
+                                <th>Meaning</th>
+                                <th>Example</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code class="code">-n VALUE</code></td>
+                                <td>Set nice value</td>
+                                <td><code class="code">nice -n 10 backup.sh</code></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p class="sub"><strong class="subtitle">Beginner example</strong></p>
+                <div id="language-bash-nice-beginner" class="code-block">
+                    <p>Bash</p>
+                    <pre>
+<code class="language-bash">nice -n 10 sleep 300 &
+ps -o pid,ni,cmd -p "$!"</code>
+</pre>               </div>
+
+                <p class="sub"><strong class="subtitle">Practical server-administration examples</strong></p>
+                <p>Run a backup at low priority:</p>
+                <div id="language-bash-nice-backup" class="code-block">
+                    <p>Bash</p>
+                    <pre>
+<code class="language-bash">nice -n 19 ./backup.sh</code>
+</pre>               </div>
+                <p>Run a batch report without competing aggressively for CPU:</p>
+                <div id="language-bash-nice-batch" class="code-block">
+                    <p>Bash</p>
+                    <pre>
+<code class="language-bash">nice -n 10 python3 report.py</code>
+</pre>               </div>
+                <p>Start an important service with higher priority:</p>
+                <div id="language-bash-nice-service" class="code-block">
+                    <p>Bash</p>
+                    <pre>
+<code class="language-bash">sudo nice -n -5 /usr/local/bin/important_service</code>
+</pre>               </div>
+
+                <p class="sub"><strong class="subtitle">Common mistakes</strong></p>
+                <div class="list">
+                    <ul>
+                        <li>Assuming nice alone prevents resource exhaustion.</li>
+                        <li>Using negative nice values without authorization.</li>
+                        <li>Forgetting that nice affects CPU scheduling, not disk or network limits.</li>
+                    </ul>
+                </div>
+                <p>Verification</p>
+                <div id="language-bash-nice-verify" class="code-block">
+                        <p>Bash</p>
+                        <pre>
+<code class="language-bash">ps -o pid,ni,cmd -p "$!"</code>
+</pre>               </div>
+
+
+
+<h4>renice - Changes the nice value of an already-running process</h4>
+                <p class="sub"><strong class="subtitle">Syntax</strong></p>
+                <div id="language-bash-renice-syntax" class="code-block">
+                        <p>Bash</p>
+                        <pre>
+<code class="language-bash">renice [options] priority [-p PID] [-u USER]</code>
+</pre>               </div>
+                <p class="sub"><strong class="subtitle">Important options</strong></p>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Option</th>
+                                <th>Meaning</th>
+                                <th>Example</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code class="code">-n VALUE</code></td>
+                                <td>New nice value</td>
+                                <td><code class="code">renice -n 10 -p 1234</code></td>
+                            </tr>
+                            <tr>
+                                <td><code class="code">-p PID</code></td>
+                                <td>Target process</td>
+                                <td><code class="code">renice -n 10 -p 1234</code></td>
+                            </tr>
+                            <tr>
+                                <td><code class="code">-u USER</code></td>
+                                <td>Target all processes of a user</td>
+                                <td><code class="code">sudo renice -n 10 -u alice</code></td>
+                            </tr>
+                            <tr>
+                                <td><code class="code">-g PGID</code></td>
+                                <td>Target process group</td>
+                                <td><code class="code">renice -n 10 -g 1234</code></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p class="sub"><strong class="subtitle">Beginner example</strong></p>
+                <div id="language-bash-renice-beginner" class="code-block">
+                    <p>Bash</p>
+                    <pre>
+<code class="language-bash">sleep 300 &
+pid=$!
+renice -n 10 -p "$pid"
+ps -o pid,ni,cmd -p "$pid"</code>
+</pre>               </div>
+
+                <p class="sub"><strong class="subtitle">Practical server-administration example</strong></p>
+                <p>Reduce the scheduling priority of a runaway report process:</p>
+                <div id="language-bash-renice-runaway" class="code-block">
+                    <p>Bash</p>
+                    <pre>
+<code class="language-bash">pid=$(pgrep -f 'python3 report.py' | head -n 1)
+renice -n 19 -p "$pid"</code>
+</pre>               </div>
+                <p>Increase priority only when authorized:</p>
+                <div id="language-bash-renice-auth" class="code-block">
+                    <p>Bash</p>
+                    <pre>
+<code class="language-bash">sudo renice -n -5 -p "$pid"</code>
+</pre>               </div>
+
+                <p class="sub"><strong class="subtitle">Common mistakes</strong></p>
+                <div class="list">
+                    <ul>
+                        <li>Assuming renice fixes a memory leak or infinite loop.</li>
+                        <li>Lowering nice values without approval.</li>
+                        <li>Renicing every process for a user when only one process needs adjustment.</li>
+                        <li>Forgetting that normal users can usually increase niceness but not decrease it.</li>
+                    </ul>
+                </div>
+                <p>Verification</p>
+                <div id="language-bash-renice-verify" class="code-block">
+                        <p>Bash</p>
+                        <pre>
+<code class="language-bash">ps -o pid,ni,cmd -p "$pid"</code>
+</pre>               </div>
+
+
+            </div>
+            <!-- Chapter 3 -->
+            <div class="card linux-card" id="chapter-3">
+                <div class="card-header">
+                    <h2>Chapter 3: Resource Consumption</h2>
+                </div>
+                <p>This Chapter 3 explains how to identify and understand the CPU, memory, disk I/O, and system-load usage of Linux processes. It helps you find which process is consuming excessive resources, decide whether that usage is normal, and investigate issues such as slow servers, high load, swap pressure, and unexpected service restarts.</p>
+
+                <h4>CPU usage - Measuring processor consumption</h4>
+                <p>CPU usage measures how much processor time a process consumes. High CPU is not automatically bad; a backup, compiler, or report may legitimately use CPU.</p>
+
+                <p class="sub"><strong class="subtitle">Find high-CPU processes</strong></p>
+                <div id="language-bash-cpu-high" class="code-block">
+                        <p>Bash</p>
+                        <pre>
+<code class="language-bash">ps aux --sort=-%cpu | head -n 15
+top -b -n 1 | head -n 20</code>
+</pre>               </div>
+
+ 
+
+<h4>Memory usage - Physical, virtual, and swap metrics</h4>
+                <p class="sub"><strong class="subtitle">Memory concepts</strong></p>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Term</th>
+                                <th>Meaning</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Virtual memory</td>
+                                <td>Total address space reserved by a process</td>
+                            </tr>
+                            <tr>
+                                <td>Resident memory</td>
+                                <td>Physical RAM currently used</td>
+                            </tr>
+                            <tr>
+                                <td>Shared memory</td>
+                                <td>Memory shared with other processes</td>
+                            </tr>
+                            <tr>
+                                <td>Swap</td>
+                                <td>Disk-backed memory used when RAM pressure occurs</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <p class="sub"><strong class="subtitle">Check system memory</strong></p>
+                <div id="language-bash-mem-system" class="code-block">
+                        <p>Bash</p>
+                        <pre>
+<code class="language-bash">free -h
+cat /proc/meminfo | head -n 20</code>
+</pre>               </div>
+
+                <p class="sub"><strong class="subtitle">Find high-memory processes</strong></p>
+                <div id="language-bash-mem-high" class="code-block">
+                        <p>Bash</p>
+                        <pre>
+<code class="language-bash">ps aux --sort=-%mem | head -n 15</code>
+</pre>               </div>
+
+                <p class="sub"><strong class="subtitle">Inspect one process</strong></p>
+                <div id="language-bash-mem-inspect" class="code-block">
+                        <p>Bash</p>
+                        <pre>
+<code class="language-bash">pid=$(pgrep -f 'cpu_load.py' | head -n 1)
+cat "/proc/$pid/status" | grep -E '^(Name|State|Pid|PPid|VmRSS|VmSize|Threads)'</code>
+</pre>               </div>
+
+                                                                   
+
+<h4>Disk I/O and load - Uncovering non-CPU bottlenecks</h4>
+                <p>Disk I/O can cause high load without high CPU.</p>
+
+                <div id="language-bash-io-tools" class="code-block">
+                        <p>Bash</p>
+                        <pre>
+<code class="language-bash">vmstat 1 5
+uptime
+du -sh /var/log</code>
+</pre>               </div>
+
+                <p class="sub"><strong class="subtitle">Example vmstat output</strong></p>
+                <div id="language-text-vmstat-output" class="code-block">
+                        <p>Text</p>
+                        <pre>
+<code>procs -----------memory---------- ---swap-- -----io---- -system-- ------cpu-----
+ r  b   swpd   free   buff  cache   si   so    bi    bo   in   cs us sy id wa st
+ 1  0      0 8123456 123456 2345678    0    0    12    45  120  240  8  2 88  2  0</code>
+</pre>               </div>
+                <p>High <code class="code">wa</code> means significant I/O wait. High <code class="code">b</code> can indicate blocked processes.</p>
+
+                                                                   
+
+<h4>OOM killer and limits - Kernel terminations and resource boundaries</h4>
+                <p>When memory is exhausted, the kernel may invoke the OOM killer and terminate a process. This can appear as an unexpected service restart.</p>
+
+                <p class="sub"><strong class="subtitle">Check logs (Ubuntu/Debian)</strong></p>
+                <div id="language-bash-oom-debian" class="code-block">
+                        <p>Bash</p>
+                        <pre>
+<code class="language-bash">sudo journalctl -k | grep -i -E 'oom|out of memory' | tail -n 50
+sudo grep -i -E 'oom|out of memory' /var/log/kern.log 2>/dev/null | tail -n 50</code>
+</pre>               </div>
+
+                <p class="sub"><strong class="subtitle">Check logs (RHEL-family)</strong></p>
+                <div id="language-bash-oom-rhel" class="code-block">
+                        <p>Bash</p>
+                        <pre>
+<code class="language-bash">sudo journalctl -k | grep -i -E 'oom|out of memory' | tail -n 50
+sudo grep -i -E 'oom|out of memory' /var/log/messages 2>/dev/null | tail -n 50</code>
+</pre>               </div>
+
+                <p class="sub"><strong class="subtitle">Inspect process limits</strong></p>
+                <div id="language-bash-limits-inspect" class="code-block">
+                        <p>Bash</p>
+                        <pre>
+<code class="language-bash">pid=$(pgrep -f 'cpu_load.py' | head -n 1)
+cat "/proc/$pid/limits"
+ulimit -a</code>
+</pre>               </div>
+
+                                                                   
+
+<h4>Identify problem processes - Rapid diagnostic commands</h4>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Problem</th>
+                                <th>Command</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>High CPU</td>
+                                <td><code class="code">ps aux --sort=-%cpu | head</code></td>
+                            </tr>
+                            <tr>
+                                <td>High memory</td>
+                                <td><code class="code">ps aux --sort=-%mem | head</code></td>
+                            </tr>
+                            <tr>
+                                <td>Long-running process</td>
+                                <td><code class="code">ps -eo pid,user,etime,cmd --sort=-etime | head</code></td>
+                            </tr>
+                            <tr>
+                                <td>Stopped process</td>
+                                <td><code class="code">ps -eo pid,user,stat,cmd | awk '$3 ~ /^T/'</code></td>
+                            </tr>
+                            <tr>
+                                <td>Zombie process</td>
+                                <td><code class="code">ps -eo pid,ppid,stat,cmd | awk '$3 ~ /^Z/'</code></td>
+                            </tr>
+                            <tr>
+                                <td>Unexpected process</td>
+                                <td><code class="code">ps aux</code>, <code class="code">pgrep -af pattern</code>, and inspect executable path</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Chapter 4  -->
+            <div class="card linux-card" id="chapter-4">
+                <div class="card-header">
+                    <h3>Chapter 4: Signals in Depth</h3>
+                </div>
+                <p>Signals in Depth explains how Linux communicates with running processes using signals. A signal is a notification sent to a process to interrupt it, pause it, resume it, reload its configuration, or request it to terminate.</p>
+                <h4>Linux Signals - Inter-Process Notifications and Control</h4>
+                <p>Signals are notifications sent to processes.</p>
+
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Signal</th>
+                                <th>Number</th>
+                                <th>Purpose</th>
+                                <th>Can be caught?</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code class="code">SIGHUP</code></td>
+                                <td>1</td>
+                                <td>Hangup/config reload</td>
+                                <td>Usually yes</td>
+                            </tr>
+                            <tr>
+                                <td><code class="code">SIGINT</code></td>
+                                <td>2</td>
+                                <td>Interrupt, usually <code class="code">Ctrl+C</code></td>
+                                <td>Usually yes</td>
+                            </tr>
+                            <tr>
+                                <td><code class="code">SIGQUIT</code></td>
+                                <td>3</td>
+                                <td>Quit and dump core</td>
+                                <td>Usually yes</td>
+                            </tr>
+                            <tr>
+                                <td><code class="code">SIGKILL</code></td>
+                                <td>9</td>
+                                <td>Force termination</td>
+                                <td>No</td>
+                            </tr>
+                            <tr>
+                                <td><code class="code">SIGTERM</code></td>
+                                <td>15</td>
+                                <td>Graceful termination request</td>
+                                <td>Usually yes</td>
+                            </tr>
+                            <tr>
+                                <td><code class="code">SIGCONT</code></td>
+                                <td>18</td>
+                                <td>Resume stopped process</td>
+                                <td>No</td>
+                            </tr>
+                            <tr>
+                                <td><code class="code">SIGCHLD</code></td>
+                                <td>17</td>
+                                <td>Child process status changed</td>
+                                <td>Usually yes</td>
+                            </tr>
+                            <tr>
+                                <td><code class="code">SIGSTOP</code></td>
+                                <td>19</td>
+                                <td>Pause process</td>
+                                <td>No</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                                        
+<h4>SIGINT versus SIGTERM versus SIGKILL - Termination Comparison</h4>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Signal</th>
+                                <th>Typical source</th>
+                                <th>Cleanup opportunity</th>
+                                <th>Use</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code class="code">SIGINT</code></td>
+                                <td><code class="code">Ctrl+C</code></td>
+                                <td>Usually yes</td>
+                                <td>Stop an interactive foreground job</td>
+                            </tr>
+                            <tr>
+                                <td><code class="code">SIGTERM</code></td>
+                                <td><code class="code">kill</code>, <code class="code">pkill</code></td>
+                                <td>Usually yes</td>
+                                <td>Preferred termination request</td>
+                            </tr>
+                            <tr>
+                                <td><code class="code">SIGKILL</code></td>
+                                <td>Administrator</td>
+                                <td>No</td>
+                                <td>Last resort</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>                                           
+
+<h4>SIGSTOP and SIGCONT - Freezing and Resuming Workloads</h4>
+                <p>Pause a process for investigation:</p>
+                <div id="language-bash-sigstop" class="code-block">
+                        <p>Bash</p>
+                        <pre>
+<code class="language-bash">kill -STOP 1234
+ps -p 1234 -o pid,stat,cmd</code>
+</pre>               </div>
+
+                <p>Resume it:</p>
+                <div id="language-bash-sigcont" class="code-block">
+                        <p>Bash</p>
+                        <pre>
+<code class="language-bash">kill -CONT 1234</code>
+</pre>               </div>
+                <p><code class="code">SIGSTOP</code> is useful for temporarily freezing a noncritical process, but do not leave a production service stopped.</p>
+
+                                                                   
+
+<h4>Sending signals - Common Command Invocations</h4>
+                <div id="language-bash-send-signals" class="code-block">
+                        <p>Bash</p>
+                        <pre>
+<code class="language-bash">kill -TERM PID
+pkill -TERM -f "python3 cpu_load.py"
+killall -TERM process-name</code>
+</pre>               </div>
+                <p>In <code class="code">top</code>, press <code class="code">k</code>, enter the PID, then choose a signal.</p>
+            </div>
+
+            <!-- Chapter 5  -->
+            <div class="card linux-card" id="chapter-5">
+                <div class="card-header">
+                    <h3>Chapter 5: Daemons, Zombies, and Orphans</h3>
+                </div>
+                <p>This Chapter explains three important types of Linux processes: daemons, zombie processes, and orphan processes. Understanding them helps you identify normal background services, detect failed child-process handling, and investigate unexpected or long-running processes on a Linux server.
+                </p>
+                <h4>Daemons - Background Service Architecture</h4>
+                <p>Daemons are background service processes.</p>
+
+                <p class="sub"><strong class="subtitle">Inspect common services</strong></p>
+                <div id="language-bash-daemons-inspect" class="code-block">
+                        <p>Bash</p>
+                        <pre>
+<code class="language-bash">systemctl status ssh 2>/dev/null || systemctl status sshd 2>/dev/null || true
+systemctl status nginx 2>/dev/null || true
+ps -C sshd -o pid,ppid,user,stat,cmd
+pgrep -a sshd
+pgrep -a nginx</code>
+</pre>               </div>
+                <p>Ubuntu commonly uses <code class="code">ssh.service</code>; RHEL-family systems commonly use <code class="code">sshd.service</code>.</p>
+
+                                                                   
+
+<h4>Zombie processes - Dead Processes Awaiting Parent Reaping</h4>
+                <p class="sub"><strong class="subtitle">Find zombies</strong></p>
+                <div id="language-bash-zombie-find" class="code-block">
+                        <p>Bash</p>
+                        <pre>
+<code class="language-bash">ps aux | awk '$8 ~ /^Z/ {print}'
+ps -eo pid,ppid,stat,cmd | awk '$3 ~ /^Z/ {print}'</code>
+</pre>               </div>
+
+                <p class="sub"><strong class="subtitle">Inspect the parent</strong></p>
+                <div id="language-bash-zombie-parent" class="code-block">
+                        <p>Bash</p>
+                        <pre>
+<code class="language-bash">zombie_pid=$(ps -eo pid,stat --no-headers | awk '$2 ~ /^Z/ {print $1; exit}')
+if [[ -n "$zombie_pid" ]]; then
+  ppid=$(ps -o ppid= -p "$zombie_pid" | tr -d ' ')
+  ps -fp "$ppid"
+fi</code>
+</pre>               </div>
+                <p>Fix the parent or restart the affected application. Killing the zombie itself does not solve the underlying reaping problem.</p>
+
+                                                                   
+
+<h4>Orphan processes - Reparented Processes</h4>
+                <p class="sub"><strong class="subtitle">Find long-running processes</strong></p>
+                <div id="language-bash-orphan-find" class="code-block">
+                        <p>Bash</p>
+                        <pre>
+<code class="language-bash">ps -eo pid,ppid,user,stat,etime,cmd --sort=-etime | head -n 20</code>
+</pre>               </div>
+                <p>An orphan may be normal if it is a daemon or detached job. Investigate if it is unexpected, privileged, or consuming resources.</p>
+
+                                                                   
+
+<h4>Long-running processes - Monitoring Execution Durations</h4>
+                <p class="sub"><strong class="subtitle">Check elapsed time</strong></p>
+                <div id="language-bash-longrunning-etime" class="code-block">
+                        <p>Bash</p>
+                        <pre>
+<code class="language-bash">ps -eo pid,user,etime,cmd --sort=-etime | head -n 20</code>
+</pre>               </div>
+
+                <p class="sub"><strong class="subtitle">Example output</strong></p>
+                <div id="language-text-longrunning-output" class="code-block">
+                        <p>Text</p>
+                        <pre>
+<code>  PID USER     ELAPSED COMMAND
+  987 root     12-03:22:11 /usr/sbin/sshd -D
+ 1234 student 01:22:10 python3 process-lab/signal_demo.py</code>
+</pre>               </div>
+                
+            </div>
+
+            <!-- Chapter 6  -->
+            <div class="card linux-card" id="chapter-6">
+                <div class="card-header">
+                    <h3>Chapter 6: Real-World Server Use Cases</h3>
+                </div>
+                <p>Real-World Server Use Cases applies Linux process and job management skills to practical server administration situations. Instead of only learning commands, this section shows how to investigate and respond safely to common issues such as high CPU usage, high memory consumption, unresponsive applications, suspicious processes, and long-running background jobs.</p>
+                <div class="list">
+                    <p>This part covers key operational scenarios, including:</p>
+                    <ul>
+                        <li><strong>High CPU usage:</strong> Identify the top CPU-consuming process with <code class="code">ps</code>, inspect its process tree with <code class="code">pstree</code>, reduce its priority using <code class="code">renice</code>, and terminate it only after confirmation.</li>
+                        <li><strong>High memory usage:</strong> Find memory-heavy processes, inspect RSS and virtual memory details, check swap usage, review OOM killer logs, and investigate application logs before restarting a service.</li>
+                        <li><strong>Unresponsive application:</strong> Check the process state, send a graceful <code class="code">SIGTERM</code>, wait and verify, then use <code class="code">SIGKILL</code> only as a last resort before restarting through systemd.</li>
+                        <li><strong>Suspicious process:</strong> Gather evidence such as the command line, executable path, process ancestry, and network activity before taking action; do not immediately kill a process if forensic preservation is important.</li>
+                        <li><strong>Background job management:</strong> Run long tasks such as backups with <code class="code">nohup</code>, detach them with <code class="code">disown</code>, and monitor their progress using <code class="code">jobs</code>, <code class="code">pgrep</code>, log files, and <code class="code">top</code>.</li>
+                    </ul>
+                </div>
+                <h4>High CPU usage - Step-by-Step Triage</h4>
+                <p>1. Identify the process:</p>
+                <div id="language-bash-cpu-identify" class="code-block">
+                        <p>Bash</p>
+                        <pre>
+<code class="language-bash">ps aux --sort=-%cpu | head -n 15</code>
+</pre>               </div>
+
+                <p>2. Confirm ownership and command:</p>
+                <div id="language-bash-cpu-ownership" class="code-block">
+                        <p>Bash</p>
+                        <pre>
+<code class="language-bash">pid=$(ps aux --sort=-%cpu | awk 'NR==2 {print $2}')
+ps -fp "$pid"
+pstree -ap "$pid"</code>
+</pre>               </div>
+
+                <p>3. Determine whether it is expected.</p>
+
+                <p>4. Reduce priority if safe:</p>
+                <div id="language-bash-cpu-renice" class="code-block">
+                        <p>Bash</p>
+                        <pre>
+<code class="language-bash">renice -n 19 -p "$pid"</code>
+</pre>               </div>
+
+                <p>5. Stop or terminate only after approval:</p>
+                <div id="language-bash-cpu-kill" class="code-block">
+                        <p>Bash</p>
+                        <pre>
+<code class="language-bash">kill -TERM "$pid"</code>
+</pre>               </div>
+
+                <p>6. Restart the affected service if needed:></p>
+                <div id="language-bash-cpu-restart" class="code-block">
+                        <p>Bash</p>
+                        <pre>
+<code class="language-bash">sudo systemctl restart service-name</code>
+</pre>               </div>
+
+                                                                   
+
+<h4>High memory usage - Identification and Mitigation</h4>
+                <p>1. Identify the consumer:></p>
+                <div id="language-bash-mem-identify" class="code-block">
+                        <p>Bash</p>
+                        <pre>
+<code class="language-bash">ps aux --sort=-%mem | head -n 15
+free -h</code>
+</pre>               </div>
+
+                <p>2. Inspect memory details:</p>
+                <div id="language-bash-mem-procstatus" class="code-block">
+                        <p>Bash</p>
+                        <pre>
+<code class="language-bash">pid=$(ps aux --sort=-%mem | awk 'NR==2 {print $2}')
+grep -E '^(Name|State|VmRSS|VmSize|Threads)' "/proc/$pid/status"</code>
+</pre>               </div>
+
+                <p>3. Check swap and OOM logs:</p>
+                <div id="language-bash-mem-oomlogs" class="code-block">
+                        <p>Bash</p>
+                        <pre>
+<code class="language-bash">free -h
+sudo journalctl -k | grep -i -E 'oom|out of memory' | tail -n 50</code>
+</pre>               </div>
+
+                <p>4. Review application logs and metrics.></p>
+
+                <p>5. Restart only when approved and safe:</p>
+                <div id="language-bash-mem-restart" class="code-block">
+                        <p>Bash</p>
+                        <pre>
+<code class="language-bash">sudo systemctl restart service-name</code>
+</pre>               </div>
+
+                                                                   
+
+<h4>Unresponsive application - Diagnostic and Termination Escalation</h4>
+                <p>1. Check state:</p>
+                <div id="language-bash-unresp-state" class="code-block">
+                        <p>Bash</p>
+                        <pre>
+<code class="language-bash">pid=$(pgrep -f 'application-name' | head -n 1)
+ps -p "$pid" -o pid,ppid,user,stat,%cpu,%mem,etime,cmd</code>
+</pre>               </div>
+
+                <p>2. Send SIGTERM:</p>
+                <div id="language-bash-unresp-sigterm" class="code-block">
+                        <p>Bash</p>
+                        <pre>
+<code class="language-bash">kill -TERM "$pid"</code>
+</pre>               </div>
+
+                <p>3. Wait and verify:</p>
+                <div id="language-bash-unresp-verify" class="code-block">
+                        <p>Bash</p>
+                        <pre>
+<code class="language-bash">sleep 10
+pgrep -af 'application-name'</code>
+</pre>               </div>
+
+                <p>4. Escalate to SIGKILL only if required:</p>
+                <div id="language-bash-unresp-sigkill" class="code-block">
+                        <p>Bash</p>
+                        <pre>
+<code class="language-bash">kill -KILL "$pid"</code>
+</pre>               </div>
+
+                <p>5. Restart through systemd:</p>
+                <div id="language-bash-unresp-restart" class="code-block">
+                        <p>Bash</p>
+                        <pre>
+<code class="language-bash">sudo systemctl restart service-name</code>
+</pre>               </div>
+
+                                                                   
+
+<h4>Suspicious process - Evidence Collection and Forensics</h4>
+                <p>Collect evidence before killing:</p>
+                <div id="language-bash-susp-evidence" class="code-block">
+                        <p>Bash</p>
+                        <pre>
+<code class="language-bash">pid=$(pgrep -f 'suspicious-pattern' | head -n 1)
+ps -fp "$pid"
+cat "/proc/$pid/cmdline"; printf '\n'
+readlink -f "/proc/$pid/exe"
+ls -l "/proc/$pid/exe"
+pstree -ap "$pid"</code>
+</pre>               </div>
+
+                <p>Check network activity if authorized tools are installed:</p>
+                <div id="language-bash-susp-network" class="code-block">
+                        <p>Bash</p>
+                        <pre>
+<code class="language-bash">sudo ss -tunap | grep "pid=$pid"</code>
+</pre>               </div>
+
+                <div class="list">
+                    <ul>
+                        <li>Do not immediately kill the process if forensic preservation matters.</li>
+                        <li>Isolate the host or stop the service according to the incident-response plan.</li>
+                    </ul>
+                </div>
+                                                        
+<h4>Background job management - Execution, Monitoring, and Detachment</h4>
+                <p>Start a long backup:</p>
+                <div id="language-bash-bg-start" class="code-block">
+                        <p>Bash</p>
+                        <pre>
+<code class="language-bash">nohup ./backup.sh > backup.log 2>&1 &
+disown -h %1</code>
+</pre>               </div>
+
+                <p>Check it:</p>
+                <div id="language-bash-bg-check" class="code-block">
+                        <p>Bash</p>
+                        <pre>
+<code class="language-bash">jobs -l
+pgrep -af backup.sh
+tail -f backup.log</code>
+</pre>               </div>
+
+                <p>Monitor CPU:</p>
+                <div id="language-bash-bg-monitor" class="code-block">
+                        <p>Bash</p>
+                        <pre>
+<code class="language-bash">pid=$(pgrep -f 'backup.sh' | head -n 1)
+top -p "$pid"</code>
+</pre>               </div>
+
+            </div>
+
+
+            <!-- Chapter 7  -->
+            <div class="card linux-card" id="chapter-7">
+                <div class="card-header">
+                    <h3>Chapter 7: Hands-On Labs</h3>
+                </div>
+        
+                <p class="margin-bottom: 5px;">The Hands-On Labs section gives you practical experience with Linux process and job management in a safe, controlled environment. Instead of only reading commands, you will create test processes, inspect their PID, PPID, state, CPU, and memory usage, and practice monitoring them with tools such as <code class="code">ps</code>, <code class="code">top</code>, <code class="code">htop</code>, <code class="code">pgrep</code>, and <code class="code">pstree</code>.</p>
+                <p>The labs include Process Investigation, Signal Management, and High CPU Simulation. Each lab has a clear objective, step-by-step tasks, commands, expected results, and a verification checklist so you can confirm that you understand both the command and the reason behind it.</p>
+                
+                <h4>Lab 7.1 - Process Investigation</h4>
+                <p class="sub"><strong class="subtitle">Objective</strong></p>
+                <p>Identify PID, PPID, CPU usage, memory usage, command, and process state.</p>
+
+                <p class="sub"><strong class="subtitle">Task</strong></p>
+                <div class="list">
+                    <ol>
+                        <li>Start <code class="code">sleep 600</code>.</li>
+                        <li>From another terminal, find and inspect it.</li>
+                        <li>View its process tree.</li>
+                        <li>Monitor it with <code class="code">top</code>.</li>
+                        <li>Inspect <code class="code">/proc</code>.</li>
+                        <li>Record PID, PPID, CPU, memory, command, state, and parent.</li>
+                    </ol>
+                </div>
+
+                <p class="sub"><strong class="subtitle">Solution</strong></p>
+                <p>In terminal 1:</p>
+                <div id="language-bash-lab71-t1" class="code-block">
+                        <p>Bash</p>
+                        <pre>
+<code class="language-bash">sleep 600</code>
+</pre>               </div>
+
+                <p>In terminal 2:</p>
+                <div id="language-bash-lab71-pgrep" class="code-block">
+                        <p>Bash</p>
+                        <pre>
+<code class="language-bash">pgrep -a sleep</code>
+</pre>               </div>
+
+                <p>Example output:</p>
+                <div id="language-text-lab71-pgrep-out" class="code-block">
+                        <p>Text</p>
+                        <pre>
+<code>4821 sleep 600</code>
+</pre>               </div>
+
+                <p>Inspect it:</p>
+                <div id="language-bash-lab71-ps" class="code-block">
+                        <p>Bash</p>
+                        <pre>
+<code class="language-bash">pid=$(pgrep -f '^sleep 600$' | head -n 1)
+ps -p "$pid" -o pid,ppid,user,stat,%cpu,%mem,etime,cmd</code>
+</pre>               </div>
+
+                <p>Example output; your values will differ:</p>
+                <div id="language-text-lab71-ps-out" class="code-block">
+                        <p>Text</p>
+                        <pre>
+<code>    PID    PPID USER     STAT %CPU %MEM      ELAPSED COMMAND
+   4821    1234 student  S     0.0  0.0       00:01:12 sleep 600</code>
+</pre>               </div>
+
+                <p>View the process tree:</p>
+                <div id="language-bash-lab71-pstree" class="code-block">
+                        <p>Bash</p>
+                        <pre>
+<code class="language-bash">pstree -p "$pid"
+pstree -p</code>
+</pre>               </div>
+
+                <p>Monitor it:</p>
+                <div id="language-bash-lab71-top" class="code-block">
+                        <p>Bash</p>
+                        <pre>
+<code class="language-bash">top -p "$pid"</code>
+</pre>               </div>
+
+                <p>Inspect <code class="code">/proc</code>:</p>
+                <div id="language-bash-lab71-proc" class="code-block">
+                        <p>Bash</p>
+                        <pre>
+<code class="language-bash">cat "/proc/$pid/status"
+cat "/proc/$pid/cmdline"; printf '\n'
+ls "/proc/$pid"</code>
+</pre>               </div>
+
+                <p>Record:</p>
+                <div id="language-text-lab71-record" class="code-block">
+                        <p>Text</p>
+                        <pre>
+<code>PID: 4821
+PPID: 1234
+CPU: near 0%
+Memory: near 0%
+Command: sleep 600
+State: S
+Parent: interactive Bash shell</code>
+</pre>               </div>
+
+                <p class="sub"><strong class="subtitle">Expected-results checklist</strong></p>
+                <div class="list">
+                    <ul>
+                        <li>The sleep process has a PID and PPID.</li>
+                        <li>CPU usage is near zero.</li>
+                        <li>State is usually <code class="code">S</code>.</li>
+                        <li>Parent is the shell or terminal process.</li>
+                        <li><code class="code">/proc/PID/cmdline</code> shows <code class="code">sleep 600</code>.</li>
+                    </ul>
+                </div>
+                                                            
+                <h4>Lab 7.2 - Signal Management</h4>
+                <p>This Lab helps you understand how Linux signals control a process. Using a small Python script, you practice interrupting a foreground process with <code class="code">Ctrl+C</code> (<code class="code">SIGINT</code>), pausing it with <code class="code">SIGSTOP</code>, resuming it with <code class="code"></code>SIGCONT, and terminating it gracefully with <code class="code">SIGTERM</code>.</p>
+                <p class="sub"><strong class="subtitle">Objective</strong></p>
+                <p>Practice <code class="code">SIGINT</code>, <code class="code">SIGTERM</code>, <code class="code">SIGKILL</code>, <code class="code">SIGSTOP</code>, and <code class="code">SIGCONT</code> safely.</p>
+
+                <p class="sub"><strong class="subtitle">Task</strong></p>
+                <p>Create a Python test process, then pause, resume, terminate, and verify it.</p>
+
+                <p class="sub"><strong class="subtitle">Solution</strong></p>
+                <p>Create the script:</p>
+                <div id="language-bash-lab72-script" class="code-block">
+                        <p>Bash</p>
+                        <pre>
+<code class="language-bash">cd ~/process-lab
+cat > signal_demo.py &lt;&lt;'EOF'
+import time
+while True:
+    print("Process running...", flush=True)
+    time.sleep(2)
+EOF</code>
+</pre>               </div>
+
+                <p>Run it in the foreground:</p>
+                <div id="language-bash-lab72-run-fg" class="code-block">
+                        <p>Bash</p>
+                        <pre>
+<code class="language-bash">python3 signal_demo.py</code>
+</pre>               </div>
+
+                <p>Press:</p>
+                <div id="language-text-lab72-ctrlc" class="code-block">
+                        <p>Text</p>
+                        <pre>
+<code>Ctrl+C</code>
+</pre>               </div>
+                <p><code class="code">Ctrl+C</code> sends <code class="code">SIGINT</code>.</p>
+
+                <p>Start it in the background:</p>
+                <div id="language-bash-lab72-run-bg" class="code-block">
+                        <p>Bash</p>
+                        <pre>
+<code class="language-bash">python3 signal_demo.py > signal-demo.log 2>&1 &</code>
+</pre>               </div>
+
+                <p>Find its PID:</p>
+                <div id="language-bash-lab72-find-pid" class="code-block">
+                        <p>Bash</p>
+                        <pre>
+<code class="language-bash">pid=$(pgrep -f 'python3 signal_demo.py' | head -n 1)
+echo "$pid"</code>
+</pre>               </div>
+
+                <p>Pause it:</p>
+                <div id="language-bash-lab72-stop" class="code-block">
+                        <p>Bash</p>
+                        <pre>
+<code class="language-bash">kill -STOP "$pid"</code>
+</pre>               </div>
+
+                <p>Verify:</p>
+                <div id="language-bash-lab72-verify-stop" class="code-block">
+                        <p>Bash</p>
+                        <pre>
+<code class="language-bash">ps -p "$pid" -o pid,stat,cmd</code>
+</pre>               </div>
+
+                <p>Expected state:</p>
+                <div id="language-text-lab72-state-t" class="code-block">
+                        <p>Text</p>
+                        <pre>
+<code>T</code>
+</pre>               </div>
+
+                <p>Resume it:</p>
+                <div id="language-bash-lab72-cont" class="code-block">
+                        <p>Bash</p>
+                        <pre>
+<code class="language-bash">kill -CONT "$pid"
+ps -p "$pid" -o pid,stat,cmd</code>
+</pre>               </div>
+
+                <p>Expected state:</p>
+                <div id="language-text-lab72-state-s" class="code-block">
+                        <p>Text</p>
+                        <pre>
+<code>S</code>
+</pre>               </div>
+
+                <p>Send graceful termination:</p>
+                <div id="language-bash-lab72-term" class="code-block">
+                        <p>Bash</p>
+                        <pre>
+<code class="language-bash">kill -TERM "$pid"
+sleep 2
+pgrep -af 'signal_demo.py' || echo "Process terminated"</code>
+</pre>               </div>
+
+                <p>If it remains, force kill:</p>
+                <div id="language-bash-lab72-kill" class="code-block">
+                        <p>Bash</p>
+                        <pre>
+<code class="language-bash">kill -KILL "$pid"
+pgrep -af 'signal_demo.py' || echo "Process removed"</code>
+</pre>               </div>
+
+                <p class="sub"><strong class="subtitle">Expected-results checklist</strong></p>
+                <div class="list">
+                    <ul>
+                        <li><code class="code">Ctrl+C</code> stops the foreground process.</li>
+                        <li><code class="code">SIGSTOP</code> pauses the process.</li>
+                        <li><code class="code">SIGCONT</code> resumes it.</li>
+                        <li><code class="code">SIGTERM</code> requests graceful shutdown.</li>
+                        <li><code class="code">SIGKILL</code> forcibly removes it.</li>
+                        <li><code class="code">pgrep</code> confirms the final state.</li>
+                    </ul>
+                </div>                                                           
+
+                <h4>Lab 7.3 - High CPU Simulation</h4>
+                <p>This Lab simulates a controlled high-CPU workload so you can practice real server troubleshooting. You run a Python script that creates two CPU-intensive child processes, then identify the parent and child processes using <code class="code">top</code>, <code class="code">htop</code>, <code class="code">ps</code>, <code class="code">pgrep</code>, and <code class="code">pstree</code>.</p>
+                <p class="sub"><strong class="subtitle">Objective</strong></p>
+                <p>Create a controlled CPU workload, investigate it, reduce its priority, and terminate it safely.</p>
+
+                <p class="sub"><strong class="subtitle">Task</strong></p>
+                <p>Run a two-process CPU workload, identify it, renice it, terminate it, and verify CPU recovery.</p>
+
+                <p class="sub"><strong class="subtitle">Solution</strong></p>
+                <p>Create the workload:</p>
+                <div id="language-bash-lab73-script" class="code-block">
+                        <p>Bash</p>
+                        <pre>
+<code class="language-bash">cd ~/process-lab
+cat > cpu_load.py &lt;&lt;'EOF'
+import multiprocessing
+import time
+
+def burn_cpu():
+    while True:
+        pass
+
+if __name__ == "__main__":
+    processes = []
+    for _ in range(2):
+        p = multiprocessing.Process(target=burn_cpu)
+        p.start()
+        processes.append(p)
+
+    time.sleep(120)
+
+    for p in processes:
+        p.terminate()
+EOF</code>
+</pre>               </div>
+
+                <p>Run it:</p>
+                <div id="language-bash-lab73-run" class="code-block">
+                        <p>Bash</p>
+                        <pre>
+<code class="language-bash">python3 cpu_load.py > cpu-load.log 2>&1 &</code>
+</pre>               </div>
+
+                <p>Investigate:</p>
+                <div id="language-bash-lab73-investigate" class="code-block">
+                        <p>Bash</p>
+                        <pre>
+<code class="language-bash">top
+htop
+ps aux --sort=-%cpu | head -n 15
+pgrep -af cpu_load.py
+pstree -p | grep -A2 -B2 cpu_load</code>
+</pre>               </div>
+
+                <p>Identify the parent:</p>
+                <div id="language-bash-lab73-parent" class="code-block">
+                        <p>Bash</p>
+                        <pre>
+<code class="language-bash">parent_pid=$(pgrep -f '^python3 cpu_load.py$' | head -n 1)
+echo "Parent PID: $parent_pid"
+pgrep -P "$parent_pid" -a</code>
+</pre>               </div>
+
+                <p>Reduce priority:</p>
+                <div id="language-bash-lab73-renice" class="code-block">
+                        <p>Bash</p>
+                        <pre>
+<code class="language-bash">renice -n 19 -p "$parent_pid"
+ps -o pid,ni,stat,%cpu,cmd -p "$parent_pid"</code>
+</pre>               </div>
+
+                <p>Terminate gracefully:</p>
+                <div id="language-bash-lab73-term" class="code-block">
+                        <p>Bash</p>
+                        <pre>
+<code class="language-bash">kill -TERM "$parent_pid"
+sleep 3
+pgrep -af cpu_load.py || echo "Workload stopped"</code>
+</pre>               </div>
+
+                <p>If needed, force kill remaining child processes:</p>
+                <div id="language-bash-lab73-kill-children" class="code-block">
+                        <p>Bash</p>
+                        <pre>
+<code class="language-bash">for pid in $(pgrep -f 'cpu_load.py'); do
+  kill -KILL "$pid"
+done</code>
+</pre>               </div>
+
+                <p>Verify:</p>
+                <div id="language-bash-lab73-verify" class="code-block">
+                        <p>Bash</p>
+                        <pre>
+<code class="language-bash">pgrep -af cpu_load.py || echo "No cpu_load processes remain"
+top -b -n 1 | head -n 15</code>
+</pre>               </div>
+
+                <p class="sub"><strong class="subtitle">Expected-results checklist</strong></p>
+                <div class="list">
+                    <ul>
+                        <li>CPU usage rises during simulation.</li>
+                        <li>The workload is identified by command and PID.</li>
+                        <li>Parent and child processes are distinguished.</li>
+                        <li>Renice reduces scheduling priority.</li>
+                        <li><code class="code">SIGTERM</code> stops the controlled workload.</li>
+                        <li>CPU usage returns to normal.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Chapter 8  -->
+            <div class="card linux-card" id="chapter-8">
+                <div class="card-header">
+                    <h3>Cheat Sheets</h3>
+                </div>
+                <h4>Process-management command cheat sheet</h4>
+                <div id="language-bash-cheat-sheet" class="code-block">
+                        <p>Bash</p>
+                        <pre>
+<code class="language-bash">ps
+ps aux
+ps -ef
+ps -ef --forest
+ps aux --sort=-%cpu | head -n 15
+ps aux --sort=-%mem | head -n 15
+ps -p PID -o pid,ppid,user,stat,%cpu,%mem,etime,cmd
+ps -u USER -o pid,ppid,stat,%cpu,%mem,cmd
+ps -C NAME -o pid,ppid,user,stat,cmd
+
+top
+top -d 2
+top -p PID
+top -u USER
+top -b -n 1
+
+htop
+htop -u USER
+htop -p PID
+
+pstree
+pstree -p
+pstree -ap PID
+
+pgrep NAME
+pgrep -l NAME
+pgrep -af PATTERN
+pgrep -u USER NAME
+pgrep -P PPID
+pgrep -x NAME
+
+kill PID
+kill -TERM PID
+kill -KILL PID
+kill -STOP PID
+kill -CONT PID
+pkill -TERM -f PATTERN
+killall -TERM NAME
+
+jobs
+jobs -l
+fg %JOB
+bg %JOB
+nohup COMMAND > output.log 2>&1 &
+disown -h %JOB
+
+nice -n 10 COMMAND
+renice -n 19 -p PID
+sudo renice -n -5 -p PID</code>
+</pre>               </div>
+
+                                                                   
+
+                <h4>Signal cheat sheet</h4>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Signal</th>
+                                <th>Number</th>
+                                <th>Purpose</th>
+                                <th>Can be caught?</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code class="code">SIGHUP</code></td>
+                                <td>1</td>
+                                <td>Hangup/config reload</td>
+                                <td>Usually yes</td>
+                            </tr>
+                            <tr>
+                                <td><code class="code">SIGINT</code></td>
+                                <td>2</td>
+                                <td>Interrupt, usually <code class="code">Ctrl+C</code></td>
+                                <td>Usually yes</td>
+                            </tr>
+                            <tr>
+                                <td><code class="code">SIGQUIT</code></td>
+                                <td>3</td>
+                                <td>Quit and dump core</td>
+                                <td>Usually yes</td>
+                            </tr>
+                            <tr>
+                                <td><code class="code">SIGKILL</code></td>
+                                <td>9</td>
+                                <td>Force termination</td>
+                                <td>No</td>
+                            </tr>
+                            <tr>
+                                <td><code class="code">SIGTERM</code></td>
+                                <td>15</td>
+                                <td>Graceful termination</td>
+                                <td>Usually yes</td>
+                            </tr>
+                            <tr>
+                                <td><code class="code">SIGCONT</code></td>
+                                <td>18</td>
+                                <td>Resume stopped process</td>
+                                <td>No</td>
+                            </tr>
+                            <tr>
+                                <td><code class="code">SIGCHLD</code></td>
+                                <td>17</td>
+                                <td>Child status changed</td>
+                                <td>Usually yes</td>
+                            </tr>
+                            <tr>
+                                <td><code class="code">SIGSTOP</code></td>
+                                <td>19</td>
+                                <td>Pause process</td>
+                                <td>No</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                                                                
+                <h4>Process state cheat sheet</h4>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>State</th>
+                                <th>Meaning</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code class="code">R</code></td>
+                                <td>Running or runnable</td>
+                            </tr>
+                            <tr>
+                                <td><code class="code">S</code></td>
+                                <td>Interruptible sleep</td>
+                            </tr>
+                            <tr>
+                                <td><code class="code">D</code></td>
+                                <td>Uninterruptible sleep</td>
+                            </tr>
+                            <tr>
+                                <td><code class="code">T</code></td>
+                                <td>Stopped</td>
+                            </tr>
+                            <tr>
+                                <td><code class="code">Z</code></td>
+                                <td>Zombie</td>
+                            </tr>
+                            <tr>
+                                <td><code class="code">I</code></td>
+                                <td>Idle kernel thread</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>                                                
+
+                <h4>Process priority cheat sheet</h4>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Nice value</th>
+                                <th>Meaning</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code class="code">-20</code></td>
+                                <td>Highest priority; normally root only</td>
+                            </tr>
+                            <tr>
+                                <td><code class="code">0</code></td>
+                                <td>Default</td>
+                            </tr>
+                            <tr>
+                                <td><code class="code">10</code></td>
+                                <td>Lower priority</td>
+                            </tr>
+                            <tr>
+                                <td><code class="code">19</code></td>
+                                <td>Lowest priority</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>                                                                                                                 
+
+                <h4>Troubleshooting - Diagnostic Reference Matrix</h4>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Problem</th>
+                                <th>Likely cause</th>
+                                <th>Fix</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>High CPU usage</td>
+                                <td>Legitimate workload, runaway loop, or compromised process</td>
+                                <td>Identify PID, inspect command/parent, check logs, renice if safe, terminate only when authorized</td>
+                            </tr>
+                            <tr>
+                                <td>High memory usage</td>
+                                <td>Memory leak, cache growth, oversized workload, or too many workers</td>
+                                <td>Check RSS, swap, OOM logs, application metrics, and restart only when approved</td>
+                            </tr>
+                            <tr>
+                                <td>Process will not terminate</td>
+                                <td>It ignores <code class="code">SIGTERM</code>, is stuck in <code class="code">D</code> state, or has child processes</td>
+                                <td>Check state, inspect children, wait, then use <code class="code">SIGKILL</code> only if authorized</td>
+                            </tr>
+                            <tr>
+                                <td>Process is in <code class="code">D</code> state</td>
+                                <td>Waiting on kernel or hardware I/O</td>
+                                <td>Check storage, NFS, device, kernel logs, and hardware; <code class="code">SIGKILL</code> may not work</td>
+                            </tr>
+                            <tr>
+                                <td>Zombies keep appearing</td>
+                                <td>Parent is not reaping child exit status</td>
+                                <td>Investigate and restart/fix the parent application</td>
+                            </tr>
+                            <tr>
+                                <td>Background job stops after terminal closes</td>
+                                <td>Terminal closure sends <code class="code">SIGHUP</code></td>
+                                <td>Use <code class="code">nohup</code>, redirect output, and use <code class="code">disown -h</code></td>
+                            </tr>
+                            <tr>
+                                <td><code class="code">renice</code> permission denied</td>
+                                <td>User tried to lower nice value</td>
+                                <td>Use <code class="code">sudo</code> or ask an authorized administrator</td>
+                            </tr>
+                            <tr>
+                                <td><code class="code">pkill</code> matches too many processes</td>
+                                <td>Broad pattern or missing <code class="code">-x</code></td>
+                                <td>Always run <code class="code">pgrep -af</code> first; use exact PID where possible</td>
+                            </tr>
+                            <tr>
+                                <td>Monitoring tool reports false positives</td>
+                                <td>Threshold too low, expected process not excluded, or CPU sampling interval too short</td>
+                                <td>Tune thresholds, add exclusions, sample over time, and validate detections manually</td>
+                            </tr>
+                            <tr>
+                                <td>Service disappears unexpectedly</td>
+                                <td>OOM killer, crash, configuration failure, or supervisor restart</td>
+                                <td>Check <code class="code">systemctl status</code>, journal logs, kernel OOM logs, and application logs</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                                                            
+                <h4>Practice Exercises</h4>
+                <div class="list">
+                    <ol>
+                        <li>Start <code class="code">sleep 600</code>, find its PID, and inspect <code class="code">/proc/PID/status</code>.</li>
+                        <li>Start three background jobs and use <code class="code">jobs -l</code>, <code class="code">fg</code>, and <code class="code">bg</code>.</li>
+                        <li>Use <code class="code">nohup</code> to start a long-running script and verify it survives terminal closure.</li>
+                        <li>Find the top five CPU-consuming processes.</li>
+                        <li>Find the top five memory-consuming processes.</li>
+                        <li>Pause and resume a process using <code class="code">SIGSTOP</code> and <code class="code">SIGCONT</code>.</li>
+                        <li>Use <code class="code">pgrep -af</code> before terminating a controlled workload.</li>
+                        <li>Create a CPU workload, renice it, and terminate it safely.</li>
+                        <li>Find all zombie processes and identify their parents.</li>
+                        <li>Generate JSON, CSV, and Markdown reports using ProcWatch.</li>
+                    </ol>
+                </div>
+                                                              
+                <h4>Interview Questions</h4>
+                <p class="sub"><strong class="subtitle">1. What is the difference between a program and a process?</strong></p>
+                <p>A program is a stored executable file. A process is a running instance of that program with a PID, memory, state, and execution context.</p>
+
+                <p class="sub"><strong class="subtitle">2. Why is SIGTERM preferred over SIGKILL?</strong></p>
+                <p><code class="code">SIGTERM</code> allows the application to shut down cleanly, flush data, close connections, and release resources. <code class="code">SIGKILL</code> cannot be caught and may leave incomplete work or stale state.</p>
+
+                <p class="sub"><strong class="subtitle">3. What is a zombie process?</strong></p>
+                <p>A zombie is a terminated process whose parent has not collected its exit status. It consumes a PID entry but not CPU or normal memory. Investigate the parent.</p>
+
+                <p class="sub"><strong class="subtitle">4. What does a high load average mean?</strong></p>
+                <p>It indicates work waiting for CPU or potentially blocked on uninterruptible I/O. Interpret it relative to CPU count and current process states.</p>
+
+                <p class="sub"><strong class="subtitle">5. Why should pkill be used carefully?</strong></p>
+                <p>It can match multiple processes. Always inspect matches with <code class="code">pgrep -af</code> before sending a signal, and prefer an exact PID for critical services.</p>
+
+                
+            </div>
+                
+            <!-- Module Summary  -->
+            <div class="module-summary linux-card">
+                <h3>Conclusion</h3>
+                <p style="margin-bottom: 10px;">This Linux Processes & Job Management Tutorial provides a complete, practical path from understanding basic processes to confidently troubleshooting real Linux servers. It explains how programs become processes, how PIDs and PPIDs define process relationships, how process states reveal system behavior, and how tools such as <code class="code">ps</code>, <code class="code">top</code>, <code class="code">htop</code>, <code class="code">pgrep</code>, <code class="code">pstree</code>, and <code class="code">/proc</code> help administrators gather accurate evidence before taking action.</p>
+                    <p style="margin-bottom: 5px;">The tutorial also builds strong job-management skills by covering foreground and background processes, <code class="code">jobs</code>, <code class="code">fg</code>, <code class="code">bg</code>, <code class="code">Ctrl+Z</code>, <code class="code">nohup</code>, and <code class="code">disown</code>. These skills are essential for safely managing long-running scripts, backups, maintenance tasks, and detached workloads without accidentally losing them when a terminal closes</p>
+                <div class="upcoming-module">
+                    <h3>Upcoming Module</h3>
+                    <p><strong>systemd & Service Management</strong> is the next step after Linux process management. While process management focuses on individual running programs, systemd manages the services, dependencies, startup order, logging, and scheduled tasks that keep a Linux server running reliably. <code class="code">systemctl</code> is the main command-line tool for controlling and inspecting systemd units and services./a>
+                    </p>
+                </div>
+            </div>
+            </section>
+        </main>
+
+        <main class="right-column">
+            <div class="about-website moving-border">
+                <h3>About Website</h3>
+                <p><a class="homepage typewriter-scan" href="../../../index.html"><strong>DevspireHub</strong></a> is a
+                    beginner-friendly learning platform offering step-by-step tutorials in
+                    programming, ethical hacking,
+                    networking, automation, and Windows setup. Learn through hands-on projects, clear explanations,
+                    and
+                    real-world examples
+                    using practical tools and open-source resources - no signups, no tracking, just actionable
+                    knowledge
+                    to accelerate your
+                    technical skills.
+                </p>
+            </div>
+
+            <div class="color-palette">
+                <div>
+                    <h3>Color Space</h3>
+                    <p>Discover Perfect Palettes</p>
+                </div>
+                <div class="palette-grid">
+                    <div class="palette-card">
+                        <!-- Color bars (set your palette colors here) -->
+                        <div class="color-wave colors-5">
+                            <div class="wave-bar" style="background:#F2C447" data-color="#F2C447"></div>
+                            <div class="wave-bar" style="background:#F76218" data-color="#F76218"></div>
+                            <div class="wave-bar" style="background:#FF1D68" data-color="#FF1D68"></div>
+                            <div class="wave-bar" style="background:#B10065" data-color="#B10065"></div>
+                            <div class="wave-bar" style="background:#740580" data-color="#740580"></div>
+                        </div>
+
+                        <div class="card-info">
+                            <div class="card-title">Sample Palette</div>
+                        </div>
+                    </div>
+                    <div class="button">
+                        <a href="../../../color-palettes/index.html" class="color-button">Go To Color Space Home
+                            Page</a>
+                    </div>
+                </div>
+            </div>
+            <div class="wallpaper">
+                <div>
+                    <h3>Featured Wallpapers (For desktop)</h3>
+                    <p>Download for FREE!</p>
+                </div>
+                <div class="image-grid">
+                    <div class="image-card">
+                        <img src="../../../Wallpaper/images_upscale/wallpaper (1).png" alt="Wallpaper 1">
+                    </div>
+                    <div class="image-card">
+                        <img src="../../../Wallpaper/images_upscale/wallpaper (23).png" alt="Wallpaper 23">
+                    </div>
+                    <div class="image-card">
+                        <img src="../../../Wallpaper/images_upscale/wallpaper (46).png" alt="Wallpaper 46">
+                    </div>
+                    <div class="image-card">
+                        <img src="../../../Wallpaper/images_upscale/wallpaper (81).png" alt="Wallpaper 81">
+                    </div>
+                    <div class="image-card">
+                        <img src="../../../Wallpaper/images_upscale/wallpaper (111).png" alt="Wallpaper 111">
+                    </div>
+                    <div class="image-card">
+                        <img src="../../../Wallpaper/images_upscale/wallpaper (116).png" alt="Wallpaper 116">
+                    </div>
+                </div>
+                <div class="button">
+                    <a href="../../../Wallpaper/index.html" class="wallpaper-button">Go To Wallpaper Home
+                        Page</a>
+                </div>
+            </div>
+
+            <div class="related-topics">
+                <div class="header">
+                    <h3>Open-Source Tools Directory</h3>
+                    <p><strong>Complete spectrum of open-source software in Github</strong>
+                    </p>
+                </div>
+                <div class="content">
+                    <ul>
+                        <li><i class="fas fa-code"></i><a
+                                href="../../../Resources/tools-directory/index.html#category-2"
+                                class="link">Programming</a></li>
+                        <li><i class="fas fa-globe"></i><a
+                                href="../../../Resources/tools-directory/index.html#category-3" class="link">Web
+                                Development</a></li>
+                        <li><i class="fas fa-network-wired"></i><a
+                                href="../../../Resources/tools-directory/index.html#category-4"
+                                class="link">Networking</a></li>
+                        <li><i class="fas fa-shield-alt"></i><a
+                                href="../../../Resources/tools-directory/index.html#category-5" class="link">Ethical
+                                Hacking</a></li>
+                        <li><i class="fas fa-microchip"></i><a
+                                href="../../../Resources/tools-directory/index.html#category-6"
+                                class="link">Hardware</a></li>
+                        <li><i class="fas fa-tasks"></i><a
+                                href="../../../Resources/tools-directory/index.html#category-7"
+                                class="link">Productivity</a></li>
+                    </ul>
+                </div>
+                <div class="button-container">
+                    <div class="btn-cyber">
+                        <span class="btn-bg"></span>
+                        <span class="btn-border"></span>
+                        <span class="btn-text">
+                            <a href="../../../Resources/tools-directory/index.html" class="related-button">
+                                Open-Source
+                                Tools</a> <span class="blink">_</span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <section class="deals-section">
+                <div class="deals-header">
+                    <h2>HOT DEALS</h2>
+                    <div class="deals-underline"></div>
+                </div>
+
+                <!-- Cards injected dynamically from amazon-links.json -->
+                <div class="deals-grid" id="dealsGrid">
+                    <div class="deal-skeleton">
+                    </div>
+                    <div class="deal-skeleton"></div>
+                    <div class="deal-skeleton"></div>
+                    <div class="deal-skeleton"></div>
+                    <div class="deal-skeleton"></div>
+                    <div class="deal-skeleton"></div>
+                </div>
+
+                <div class="deals-page-indicator" id="dealsPageIndicator"></div>
+
+                <div class="deals-nav">
+                    <button class="deal-arrow-btn" onclick="scrollDeals(-1)" aria-label="Previous">&#8592;</button>
+                    <button class="deal-arrow-btn" onclick="scrollDeals(1)" aria-label="Next">&#8594;</button>
+                </div>
+            </section>
+
+            <script async
+                src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2368356039533778"
+                crossorigin="anonymous"></script>
+            <!-- sidebar ads -->
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2368356039533778"
+                data-ad-slot="5621407319" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+
+            <script async
+                src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2368356039533778"
+                crossorigin="anonymous"></script>
+            <!-- sidebar ads -->
+            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2368356039533778"
+                data-ad-slot="5621407319" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </main>
+
+        <button id="scrollUpBtn" aria-label="Scroll to top" style="display:none;">
+            <div class="progress-wrapper">
+                <svg class="progress-circle" viewBox="0 0 36 36" aria-hidden="true">
+                    <path class="bg1" d="M18 2.0845
+                        a 15.9155 15.9155 0 0 1 0 31.831
+                        a 15.9155 15.9155 0 0 1 0 -31.831" />
+                    <path class="progress" d="M18 2.0845
+                        a 15.9155 15.9155 0 0 1 0 31.831
+                        a 15.9155 15.9155 0 0 1 0 -31.831" />
+                </svg>
+
+                <svg class="arrow-overlay" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M12 19V5M5 12L12 5L19 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                </svg>
+            </div>
+        </button>
+    </div>
+
+
+    <footer class="footer">
+        <ul class="menu">
+            <li class="menu-item"><a class="menu-link" href="../../../index.html">Home</a></li>
+            <li class="menu-item"><a class="menu-link" href="../../../Wallpaper/index.html">Wallpapers</a></li>
+            <li class="menu-item"><a class="menu-link" href="../../../color-palettes/index.html">Color Spaces</a></li>
+            <li class="menu-item"><a class="menu-link"
+                    href="../../../Resources/digital-resources/digital-resources-hub.html">Resources</a></li>
+            <li class="menu-item"><a class="menu-link" href="../../../Website/about/about.html">About</a></li>
+            <li class="menu-item"><a class="menu-link" href="../../../Website/contact/index.html">Contact</a></li>
+            <li class="menu-item"><a class="menu-link" href="../../../Website/privacy/index.html">Privacy policy</a>
+            </li>
+        </ul>
+        <div class="contacts">
+            <a class="contact github" href="https://github.com/kumaradoss16" target="_blank"><i
+                    class="fa-brands fa-github"></i></a>
+            <a class="contact instagram" href="https://www.instagram.com/devspirehub/" target="_blank"><i
+                    class="fa-brands fa-instagram"></i></a>
+            <a class="contact linkedin" href="https://www.linkedin.com/in/kumaradoss-s/" target="_blank"><i
+                    class="fa-brands fa-linkedin"></i></a>
+            <a class="contact facebook" href="https://www.facebook.com/profile.php?id=61577667990170&_rdr"
+                target="_blank"><i class="fa-brands fa-facebook"></i></a>
+            <a class="contact gmail" href="https://mail.google.com/mail/?view=cm&fs=1&to=devspirehub.website@gmail.com"
+                aria-label="Email us at devspirehub.website@gmail.com" title="Send us an email" target="_blank"
+                rel="noopener noreferrer">
+                <i class="fa-solid fa-envelope"></i>
+            </a>
+        </div>
+        <p>&copy;2026 DevspireHub | All Rights Reserved</p>
+    </footer>
+
+    <script>
+(function () {
+"use strict";
+
+// Copies text to the clipboard. Uses the modern API on HTTPS pages and
+// falls back to a hidden textarea where it isn't available.
+function copyText(text) {
+if (navigator.clipboard && window.isSecureContext) {
+return navigator.clipboard.writeText(text);
+}
+return new Promise(function (resolve, reject) {
+var ta = document.createElement("textarea");
+ta.value = text;
+ta.setAttribute("readonly", "");
+ta.style.cssText = "position:fixed;opacity:0;top:0;left:0;";
+document.body.appendChild(ta);
+ta.select();
+try { document.execCommand("copy") ? resolve() : reject(); }
+catch (e) { reject(e); }
+document.body.removeChild(ta);
+});
+}
+
+// Adds a "Copy" button to every .code-block. Skips blocks that already
+// have one, so it is safe if this runs twice.
+function addCopyButtons() {
+document.querySelectorAll(".code-block").forEach(function (block) {
+if (block.querySelector(".ds-copy-btn")) return;
+var code = block.querySelector("code");
+if (!code) return;
+
+// Anchor the absolutely positioned button without touching style.css.
+if (getComputedStyle(block).position === "static") {
+block.style.position = "relative";
+}
+
+var btn = document.createElement("button");
+btn.type = "button";
+btn.className = "ds-copy-btn";
+btn.textContent = "Copy";
+btn.setAttribute("aria-label", "Copy command to clipboard");
+btn.setAttribute("aria-live", "polite");
+btn.style.cssText =
+"position:absolute;top:8px;right:8px;z-index:2;font-size:12px;" +
+"padding:4px 10px;cursor:pointer;border-radius:4px;" +
+"border:1px solid #334155;background:#0f172a;color:#e2e8f0;";
+
+// Copies the block's plain text (Prism's highlighting spans are ignored)
+// and shows brief feedback on the button.
+btn.addEventListener("click", function () {
+var text = code.textContent.replace(/\s+$/, "");
+copyText(text).then(function () {
+btn.textContent = "Copied!";
+}).catch(function () {
+btn.textContent = "Failed";
+}).then(function () {
+setTimeout(function () { btn.textContent = "Copy"; }, 1500);
+});
+});
+
+block.appendChild(btn);
+});
+}
+
+// The script sits at the end of <body>, so the DOM is normally ready;
+// this also covers the case where it is moved into <head>.
+if (document.readyState === "loading") {
+document.addEventListener("DOMContentLoaded", addCopyButtons);
+} else {
+addCopyButtons();
+}
+})();
+</script>
+
+    <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+    <script src="../prism/prism.js"></script>
+    <script src="../../../repos-data.js"></script>
+</body>
+
+</html>
