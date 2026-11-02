@@ -1,0 +1,159 @@
+/* Buy Me a Coffee support card — shared across tutorial pages */
+
+.bmc-support-card {
+    --bmc-card-bg: #07182F;
+    --bmc-card-border: #F2A900;
+    --bmc-title: #F1F5F9;
+    --bmc-body: #B7C1CB;
+    --bmc-muted: #8E9AAB;
+    --bmc-secondary: #19BAAF;
+    --bmc-focus: #A78BFA;
+    --bmc-button-bg: #F2A900;
+    --bmc-button-hover: #D99600;
+    --bmc-button-text: #101010;
+
+    box-sizing: border-box;
+    width: 100%;
+    margin: 0 0 20px;
+    padding: 20px;
+    background-color: var(--bmc-card-bg);
+    border: 2px solid var(--bmc-card-border);
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    color: var(--bmc-body);
+    text-align: left;
+}
+
+.bmc-support-card *,
+.bmc-support-card *::before,
+.bmc-support-card *::after {
+    box-sizing: border-box;
+}
+
+/* Sidebars that do not already space their blocks need a minimum gap. */
+.bmc-support-card--spaced {
+    margin-top: 20px;
+}
+
+@media (max-width: 1023px) {
+    .bmc-support-card--spaced-sm {
+        margin-top: 20px;
+    }
+}
+
+.bmc-support-card__content {
+    display: flex;
+    flex-direction: column;
+}
+
+.bmc-support-card__title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0 0 10px;
+    padding: 0;
+    color: var(--bmc-title);
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 1.35;
+    letter-spacing: 0.01em;
+}
+
+.bmc-support-card__icon {
+    flex: 0 0 auto;
+    color: var(--bmc-button-bg);
+    font-size: 16px;
+    line-height: 1;
+}
+
+.bmc-support-card__description {
+    margin: 0 0 16px;
+    padding: 0;
+    color: var(--bmc-body);
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.bmc-support-card__ai {
+    margin: 0 0 16px;
+    padding: 12px;
+    background-color: rgba(25, 186, 175, 0.08);
+    border: 1px solid rgba(25, 186, 175, 0.4);
+    border-radius: 8px;
+}
+
+.bmc-support-card__ai-title {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    margin: 0 0 4px;
+    color: var(--bmc-secondary);
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1.4;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.bmc-support-card__ai-icon {
+    flex: 0 0 auto;
+    font-size: 12px;
+    line-height: 1;
+}
+
+.bmc-support-card__ai-text {
+    margin: 0;
+    color: var(--bmc-body);
+    font-size: 13px;
+    line-height: 1.55;
+}
+
+.bmc-support-card__button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 44px;
+    padding: 10px 16px;
+    background-color: var(--bmc-button-bg);
+    border: 1px solid var(--bmc-button-bg);
+    border-radius: 8px;
+    color: var(--bmc-button-text);
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.2;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.bmc-support-card__button:visited {
+    color: var(--bmc-button-text);
+}
+
+.bmc-support-card__button:hover {
+    background-color: var(--bmc-button-hover);
+    border-color: var(--bmc-button-hover);
+    color: var(--bmc-button-text);
+    text-decoration: none;
+}
+
+.bmc-support-card__button:focus-visible {
+    outline: 2px solid var(--bmc-focus);
+    outline-offset: 3px;
+}
+
+.bmc-support-card__note {
+    margin: 12px 0 0;
+    padding: 0;
+    color: var(--bmc-muted);
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .bmc-support-card__button {
+        transition: none;
+    }
+}
