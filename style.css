@@ -3073,3 +3073,360 @@ svg { image-rendering: optimizeQuality; text-rendering: geometricPrecision; }
     display: none;
   }
 }
+
+/* ============================================================
+   DEVSPIRE NEXUS LAUNCH ANNOUNCEMENT
+   Scoped to the Recent Tutorials area on the homepage.
+   ============================================================ */
+.nexus-announcement-layout {
+  display: block;
+}
+
+.nexus-announcement-layout > .recent-main {
+  min-width: 0;
+}
+
+.nexus-announcement-layout .nexus-announcement {
+  margin-top: 44px;
+}
+
+.nexus-announcement {
+  --nexus-blue-900: #102A56;
+  --nexus-blue-700: #174EA6;
+  --nexus-blue-500: #3478F6;
+  --nexus-yellow: #FFC928;
+  --nexus-yellow-soft: #FFF4CC;
+  --nexus-surface: #EAF1FF;
+  --nexus-ink: #14233B;
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  padding: 28px;
+  border: 1px solid rgba(255, 255, 255, .14);
+  border-radius: 14px;
+  background: linear-gradient(155deg, var(--nexus-blue-900) 0%, var(--nexus-blue-900) 58%, var(--nexus-blue-700) 100%);
+  box-shadow: 0 18px 44px rgba(4, 12, 28, .45);
+  color: #FFFFFF;
+  text-align: center;
+}
+
+.nexus-announcement::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--nexus-yellow);
+}
+
+.nexus-announcement [hidden] {
+  display: none !important;
+}
+
+.nexus-announcement__brand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.nexus-announcement__icon {
+  display: block;
+  flex: none;
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+.nexus-announcement__eyebrow {
+  color: var(--nexus-yellow);
+  font-size: .66rem;
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+
+.nexus-announcement__title {
+  margin: 0 0 10px;
+  color: #FFFFFF;
+  font-size: 1.55rem;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -.01em;
+}
+
+.nexus-announcement__accent {
+  display: block;
+  color: var(--nexus-yellow);
+  white-space: nowrap;
+}
+
+.nexus-announcement__desc {
+  margin: 0;
+  color: rgba(255, 255, 255, .76);
+  font-size: .86rem;
+  line-height: 1.6;
+}
+
+.nexus-announcement__launch {
+  margin-top: 22px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(255, 255, 255, .14);
+}
+
+.nexus-announcement__launch-label {
+  display: block;
+  color: rgba(255, 255, 255, .62);
+  font-size: .64rem;
+  font-weight: 700;
+  letter-spacing: .16em;
+}
+
+.nexus-announcement__launch-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: center;
+  gap: 6px 10px;
+  margin: 6px 0 0;
+}
+
+.nexus-announcement__launch-time {
+  color: var(--nexus-yellow);
+  font-size: 1.4rem;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: .01em;
+}
+
+.nexus-announcement__launch-date {
+  color: rgba(255, 255, 255, .6);
+  font-size: .68rem;
+  font-weight: 600;
+  letter-spacing: .1em;
+}
+
+.nexus-announcement__launch-date::before {
+  content: "·";
+  margin-right: 8px;
+}
+
+.nexus-announcement__countdown {
+  display: flex;
+  align-items: stretch;
+  gap: 6px;
+  margin-top: 18px;
+}
+
+.nexus-announcement__unit {
+  display: flex;
+  flex: 1 1 0;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  min-width: 0;
+  padding: 10px 4px 8px;
+  border: 1px solid rgba(255, 255, 255, .14);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, .06);
+}
+
+.nexus-announcement__value {
+  color: #FFFFFF;
+  font-family: 'JetBrains Mono', 'Source Code Pro', monospace;
+  font-size: 1.35rem;
+  font-weight: 700;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.nexus-announcement__unit-label {
+  color: rgba(255, 255, 255, .62);
+  font-size: .62rem;
+  font-weight: 600;
+  letter-spacing: .08em;
+}
+
+.nexus-announcement__separator {
+  align-self: center;
+  padding-bottom: 10px;
+  color: var(--nexus-yellow);
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.nexus-announcement__fallback {
+  margin: 18px 0 0;
+  padding: 14px 12px;
+  border: 1px dashed rgba(255, 201, 40, .45);
+  border-radius: 8px;
+  color: var(--nexus-yellow-soft);
+  font-size: .78rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-align: center;
+}
+
+.nexus-announcement__live {
+  margin: 18px 0 0;
+  padding: 14px 12px;
+  border-radius: 8px;
+  background: var(--nexus-yellow);
+  color: var(--nexus-ink);
+  font-size: .82rem;
+  font-weight: 800;
+  letter-spacing: .08em;
+  text-align: center;
+}
+
+.nexus-announcement__cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 48px;
+  margin-top: 20px;
+  padding: 12px 16px;
+  border-radius: 9px;
+  background: var(--nexus-yellow);
+  color: var(--nexus-ink);
+  font-size: .88rem;
+  font-weight: 700;
+  letter-spacing: .01em;
+  text-decoration: none;
+  transition: transform .2s ease, background-color .2s ease, box-shadow .2s ease;
+}
+
+.nexus-announcement__cta:hover {
+  background: #FFD64F;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, .28);
+  transform: translateY(-1px);
+}
+
+.nexus-announcement__cta:focus-visible {
+  outline: 3px solid var(--nexus-yellow-soft);
+  outline-offset: 3px;
+}
+
+.nexus-announcement__cta-arrow {
+  transition: transform .2s ease;
+}
+
+.nexus-announcement__cta:hover .nexus-announcement__cta-arrow {
+  transform: translateX(3px);
+}
+
+.nexus-announcement__cta[aria-disabled="true"] {
+  background: var(--nexus-yellow-soft);
+  color: rgba(20, 35, 59, .72);
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.nexus-announcement__cta[aria-disabled="true"]:hover {
+  background: var(--nexus-yellow-soft);
+  box-shadow: none;
+  transform: none;
+}
+
+.nexus-announcement__cta[aria-disabled="true"]:hover .nexus-announcement__cta-arrow {
+  transform: none;
+}
+
+.nexus-announcement__note {
+  margin: 10px 0 0;
+  color: rgba(255, 255, 255, .55);
+  font-size: .68rem;
+  line-height: 1.4;
+  text-align: center;
+}
+
+.nexus-announcement__brand,
+.nexus-announcement__title,
+.nexus-announcement__desc,
+.nexus-announcement__launch,
+.nexus-announcement__fallback,
+.nexus-announcement__live,
+.nexus-announcement__note {
+  width: 100%;
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.nexus-announcement__countdown {
+  width: 100%;
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.nexus-announcement__cta {
+  width: 100%;
+  max-width: 340px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (max-width: 1199px) and (min-width: 901px) {
+  .nexus-announcement {
+    padding: 24px 22px;
+  }
+}
+
+@media (max-width: 900px) {
+  .nexus-announcement-layout .nexus-announcement {
+    margin-top: 32px;
+  }
+}
+
+@media (max-width: 420px) {
+  .nexus-announcement {
+    padding: 20px;
+  }
+
+  .nexus-announcement__title {
+    font-size: 1.3rem;
+  }
+
+  .nexus-announcement__launch-time {
+    font-size: 1.25rem;
+  }
+
+  .nexus-announcement__countdown {
+    gap: 4px;
+  }
+
+  .nexus-announcement__unit {
+    padding: 9px 2px 7px;
+  }
+
+  .nexus-announcement__value {
+    font-size: 1.1rem;
+  }
+
+  .nexus-announcement__separator {
+    font-size: .85rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nexus-announcement__cta,
+  .nexus-announcement__cta-arrow {
+    transition: none;
+  }
+
+  .nexus-announcement__cta:hover {
+    transform: none;
+  }
+
+  .nexus-announcement__cta:hover .nexus-announcement__cta-arrow {
+    transform: none;
+  }
+}
