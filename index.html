@@ -50,7 +50,7 @@
     <link href="https://cdn.lineicons.com/5.1/line/lineicons.css" rel="stylesheet">
 
     <!-- <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"> -->
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="style.css?v=4" />
     <!-- <link rel="stylesheet" href="https://sibforms.com/forms/end-form/build/sib-styles.css"> -->
     <!-- <link href="assets/css/aos.css" rel="stylesheet"> -->
 
@@ -287,18 +287,119 @@
     <section class="hero-section" id="hero-section">
         <div class="container hero">
             <div class="grid-background"></div>
+
+            <div class="diwali-hero">
+            <!-- Diwali firecracker bursts (decorative only) -->
+            <canvas class="diwali-fireworks-canvas" aria-hidden="true" role="presentation"></canvas>
+            <!-- Diwali festival decoration (decorative only) -->
+            <div class="diwali-layer" aria-hidden="true">
+                <div class="diwali-glow"></div>
+                <span class="diwali-particle diwali-particle--1"></span>
+                <span class="diwali-particle diwali-particle--2"></span>
+                <span class="diwali-particle diwali-particle--3"></span>
+                <span class="diwali-particle diwali-particle--4"></span>
+                <span class="diwali-particle diwali-particle--5"></span>
+                <span class="diwali-particle diwali-particle--6"></span>
+                <span class="diwali-particle diwali-particle--7"></span>
+
+                <div class="diwali-diya diwali-diya--left">
+                    <svg class="diwali-diya-svg" viewBox="0 0 140 140" fill="none" focusable="false">
+                        <defs>
+                            <radialGradient id="diwaliHaloL" cx="0" cy="0" r="1"
+                                gradientTransform="translate(70 64) rotate(90) scale(48)"
+                                gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#F5C542" stop-opacity=".38" />
+                                <stop offset="1" stop-color="#F5C542" stop-opacity="0" />
+                            </radialGradient>
+                            <linearGradient id="diwaliFlameL" x1="70" y1="44" x2="70" y2="88"
+                                gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#FFF3B0" />
+                                <stop offset=".45" stop-color="#FFC857" />
+                                <stop offset="1" stop-color="#FF9933" />
+                            </linearGradient>
+                            <linearGradient id="diwaliBowlL" x1="34" y1="94" x2="106" y2="118"
+                                gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#E86A17" />
+                                <stop offset=".55" stop-color="#B33A12" />
+                                <stop offset="1" stop-color="#641E16" />
+                            </linearGradient>
+                        </defs>
+                        <circle cx="70" cy="64" r="48" fill="url(#diwaliHaloL)" />
+                        <ellipse cx="70" cy="121" rx="44" ry="7" fill="#641E16" opacity=".5" />
+                        <path class="diwali-flame"
+                            d="M70 44c8 10 14 17 14 27 0 9-6 15-14 15s-14-6-14-15c0-10 6-17 14-27Z"
+                            fill="url(#diwaliFlameL)" />
+                        <path class="diwali-flame-core"
+                            d="M70 61c3.4 4.6 6 8 6 12.4 0 4.2-2.7 6.8-6 6.8s-6-2.6-6-6.8c0-4.4 2.6-7.8 6-12.4Z"
+                            fill="#FFF8DC" />
+                        <path d="M28 92h84c-4.6 16-19.4 25-42 25s-37.4-9-42-25Z" fill="url(#diwaliBowlL)" />
+                        <path d="M26 92h88c0 3.3-2.7 6-6 6H32c-3.3 0-6-2.7-6-6Z" fill="#F5C542" />
+                        <path d="M40 101c7 7.6 17.6 11.4 30 11.4S93 108.6 100 101" stroke="#FFC857"
+                            stroke-opacity=".5" stroke-width="2" stroke-linecap="round" />
+                    </svg>
+                </div>
+
+                <div class="diwali-diya diwali-diya--right">
+                    <svg class="diwali-diya-svg" viewBox="0 0 140 140" fill="none" focusable="false">
+                        <defs>
+                            <radialGradient id="diwaliHaloR" cx="0" cy="0" r="1"
+                                gradientTransform="translate(70 64) rotate(90) scale(48)"
+                                gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#F5C542" stop-opacity=".38" />
+                                <stop offset="1" stop-color="#F5C542" stop-opacity="0" />
+                            </radialGradient>
+                            <linearGradient id="diwaliFlameR" x1="70" y1="44" x2="70" y2="88"
+                                gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#FFF3B0" />
+                                <stop offset=".45" stop-color="#FFC857" />
+                                <stop offset="1" stop-color="#FF9933" />
+                            </linearGradient>
+                            <linearGradient id="diwaliBowlR" x1="34" y1="94" x2="106" y2="118"
+                                gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#E86A17" />
+                                <stop offset=".55" stop-color="#B33A12" />
+                                <stop offset="1" stop-color="#641E16" />
+                            </linearGradient>
+                        </defs>
+                        <circle cx="70" cy="64" r="48" fill="url(#diwaliHaloR)" />
+                        <ellipse cx="70" cy="121" rx="44" ry="7" fill="#641E16" opacity=".5" />
+                        <path class="diwali-flame"
+                            d="M70 44c8 10 14 17 14 27 0 9-6 15-14 15s-14-6-14-15c0-10 6-17 14-27Z"
+                            fill="url(#diwaliFlameR)" />
+                        <path class="diwali-flame-core"
+                            d="M70 61c3.4 4.6 6 8 6 12.4 0 4.2-2.7 6.8-6 6.8s-6-2.6-6-6.8c0-4.4 2.6-7.8 6-12.4Z"
+                            fill="#FFF8DC" />
+                        <path d="M28 92h84c-4.6 16-19.4 25-42 25s-37.4-9-42-25Z" fill="url(#diwaliBowlR)" />
+                        <path d="M26 92h88c0 3.3-2.7 6-6 6H32c-3.3 0-6-2.7-6-6Z" fill="#F5C542" />
+                        <path d="M40 101c7 7.6 17.6 11.4 30 11.4S93 108.6 100 101" stroke="#FFC857"
+                            stroke-opacity=".5" stroke-width="2" stroke-linecap="round" />
+                    </svg>
+                </div>
+            </div>
+
+            <p class="diwali-badge">
+                <span class="diwali-badge-icon" aria-hidden="true">🪔</span>
+                <span>Celebrating the Festival of Lights</span>
+            </p>
+
             <h1>Learn <span class="text-orange">Programming, </span>
                 <span class="text-red">Ethical Hacking</span> & <span class="text-blue">Networking</span>
             </h1>
+
+            <p class="diwali-greeting">Wishing You a Bright and Prosperous Diwali!</p>
+
             <p class="description">Simple, step-by-step projects, tutorials with real examples. No accounts, no tracking
                 - just clear,
                 actionable
                 content for
                 beginners learners.
             </p>
+            </div>
         </div>
         <!-- ── Recent Tutorials Section ── -->
         <section class="recent-tutorials-section" id="recent-tutorials">
+            <div class="nexus-card-layout">
+            <div class="recent-main">
 
             <!-- Section Header -->
             <div class="recent-header">
@@ -388,6 +489,74 @@
                         </div>
                     </div>
                 </article>
+            </div>
+            </div>
+
+            <aside class="nexus-card" aria-labelledby="nexus-card-title">
+                <div class="nexus-card__intro">
+                    <div class="nexus-card__brand">
+                        <img class="nexus-card__logo" src="images/nexus-logo.png" alt="DevSpire Nexus logo"
+                            width="48" height="48" loading="lazy" decoding="async">
+                        <div class="nexus-card__brand-copy">
+                            <span class="nexus-card__eyebrow">EXPLORE OUR PLATFORM</span>
+                            <span class="nexus-card__subtitle">AI Intelligence Directory</span>
+                        </div>
+                    </div>
+
+                    <h2 class="nexus-card__title" id="nexus-card-title">
+                        Discover <span class="nexus-card__accent">Devspire Nexus</span>
+                    </h2>
+                    <p class="nexus-card__lead">A smarter way to discover AI resources.</p>
+                    <p class="nexus-card__desc">
+                        Explore a source-linked directory of AI tools, foundation models, and developer resources.
+                        Compare licensing, deployment, and open-weights details, then open the official source.
+                        Built for developers and technical teams evaluating what to adopt with confidence.
+                    </p>
+                </div>
+
+                <div class="nexus-card__panel">
+                    <ul class="nexus-card__highlights">
+                        <li class="nexus-card__highlight">
+                            <span class="nexus-card__check" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor"
+                                    stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="m5 12.5 4.2 4.2L19 6.8" />
+                                </svg>
+                            </span>
+                            <span>Verified AI tools, foundation models &amp; developer resources</span>
+                        </li>
+                        <li class="nexus-card__highlight">
+                            <span class="nexus-card__check" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor"
+                                    stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="m5 12.5 4.2 4.2L19 6.8" />
+                                </svg>
+                            </span>
+                            <span>Source-linked licensing, deployment &amp; open-weights details</span>
+                        </li>
+                        <li class="nexus-card__highlight">
+                            <span class="nexus-card__check" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor"
+                                    stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="m5 12.5 4.2 4.2L19 6.8" />
+                                </svg>
+                            </span>
+                            <span>Independent discovery with no paid ranking</span>
+                        </li>
+                    </ul>
+
+                    <div class="nexus-card__actions">
+                        <a class="nexus-card__cta" href="https://nexus.devspirehub.com/" target="_blank"
+                            rel="noopener noreferrer" data-nexus-cta>
+                            Explore Devspire Nexus <span class="nexus-card__cta-arrow" aria-hidden="true">→</span>
+                        </a>
+                        <a class="nexus-card__secondary" href="https://nexus.devspirehub.com/about.html"
+                            target="_blank" rel="noopener noreferrer">
+                            About Nexus <span aria-hidden="true">→</span>
+                        </a>
+                    </div>
+                </div>
+            </aside>
             </div>
         </section>
 
@@ -2496,6 +2665,31 @@
             </div>
     </section>
 
+    <!-- Buy Me a Coffee Banner -->
+    <section class="bmc-section" aria-label="Support DevSpireHub">
+        <div class="container">
+            <a class="bmc-support-card" href="https://buymeacoffee.com/devspirehub" target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Buy DevSpireHub a coffee on Buy Me a Coffee (opens in a new tab)">
+                <span class="bmc-support-head">
+                    <span class="bmc-support-icon" aria-hidden="true">
+                        <i class="fas fa-mug-hot"></i>
+                    </span>
+                </span>
+                <span class="bmc-support-copy">
+                    <span class="bmc-support-eyebrow">Support the project</span>
+                    <span class="bmc-support-title">Buy DevSpireHub a coffee</span>
+                    <span class="bmc-support-desc">If these tutorials and free developer tools have helped you, you can
+                        support new content and hosting.</span>
+                    <span class="bmc-support-note">Secure checkout via Buy Me a Coffee. No account required.</span>
+                </span>
+                <span class="bmc-support-cta">
+                    Buy Me a Coffee <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                </span>
+            </a>
+        </div>
+    </section>
+
     <button id="scrollUpBtn" aria-label="Scroll to top">
         <svg class="progress-circle" viewBox="0 0 36 36">
             <path class="bg1" d="M18 2.0845
@@ -2671,6 +2865,9 @@
                 <i class="fa-solid fa-envelope"></i>
             </a>
         </div>
+        <p class="diwali-footer-wish">
+            <span aria-hidden="true">🪔</span> Wishing you a bright and prosperous Diwali.
+        </p>
         <p>&copy;2026 DevspireHub | All Rights Reserved</p>
     </footer>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
@@ -2678,6 +2875,8 @@
     <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.6.2/dist/dotlottie-wc.js" type="module"></script>
     <script src="assets/js/aos.js"></script>
     <script src="script.js"></script>
+    <script src="diwali-fireworks.js"></script>
+    <script src="nexus-card.js"></script>
     <script defer src="https://sibforms.com/forms/end-form/build/main.js"></script>
 </body>
 
