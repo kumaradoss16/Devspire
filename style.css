@@ -2577,6 +2577,21 @@ svg { image-rendering: optimizeQuality; text-rendering: geometricPrecision; }
   }
 }
 
+.bmc-section {
+  padding: 0 0 60px;
+  background-color: var(--dark-bg);
+}
+
+.bmc-section .bmc-support-card {
+  margin-top: 0;
+}
+
+@media (max-width: 600px) {
+  .bmc-section {
+    padding-bottom: 44px;
+  }
+}
+
 /* Support page */
 .support-main {
   padding: 56px 0 72px;
@@ -3074,228 +3089,201 @@ svg { image-rendering: optimizeQuality; text-rendering: geometricPrecision; }
   }
 }
 
+
 /* ============================================================
-   DEVSPIRE NEXUS LAUNCH ANNOUNCEMENT
+   DEVSPIRE NEXUS PROMOTION CARD
    Scoped to the Recent Tutorials area on the homepage.
    ============================================================ */
-.nexus-announcement-layout {
+.nexus-card-layout {
   display: block;
 }
 
-.nexus-announcement-layout > .recent-main {
+.nexus-card-layout > .recent-main {
   min-width: 0;
 }
 
-.nexus-announcement-layout .nexus-announcement {
+.nexus-card-layout .nexus-card {
   margin-top: 44px;
 }
 
-.nexus-announcement {
-  --nexus-blue-900: #102A56;
-  --nexus-blue-700: #174EA6;
-  --nexus-blue-500: #3478F6;
-  --nexus-yellow: #FFC928;
-  --nexus-yellow-soft: #FFF4CC;
-  --nexus-surface: #EAF1FF;
-  --nexus-ink: #14233B;
+.nexus-card {
+  --nexus-card-deep: #102A56;
+  --nexus-card-blue: #174EA6;
+  --nexus-card-accent: #3478F6;
+  --nexus-card-yellow: #FFC928;
+  --nexus-card-yellow-soft: #FFF4CC;
+  --nexus-card-light: #EAF1FF;
+  --nexus-card-ink: #14233B;
   position: relative;
   isolation: isolate;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr);
+  gap: 36px;
   overflow: hidden;
-  padding: 28px;
+  padding: 40px;
   border: 1px solid rgba(255, 255, 255, .14);
   border-radius: 14px;
-  background: linear-gradient(155deg, var(--nexus-blue-900) 0%, var(--nexus-blue-900) 58%, var(--nexus-blue-700) 100%);
+  background:
+    radial-gradient(circle at 88% 12%, rgba(52, 120, 246, .28), transparent 42%),
+    linear-gradient(140deg, var(--nexus-card-deep) 0%, var(--nexus-card-deep) 58%, var(--nexus-card-blue) 100%);
   box-shadow: 0 18px 44px rgba(4, 12, 28, .45);
   color: #FFFFFF;
-  text-align: center;
+  text-align: left;
 }
 
-.nexus-announcement::before {
+.nexus-card::before {
   content: "";
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   height: 3px;
-  background: var(--nexus-yellow);
+  background: var(--nexus-card-yellow);
 }
 
-.nexus-announcement [hidden] {
-  display: none !important;
+.nexus-card__intro,
+.nexus-card__panel {
+  position: relative;
+  min-width: 0;
 }
 
-.nexus-announcement__brand {
+.nexus-card__intro {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.nexus-card__brand {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 12px;
-  margin-bottom: 20px;
+  gap: 14px;
+  margin-bottom: 24px;
 }
 
-.nexus-announcement__icon {
+.nexus-card__logo {
   display: block;
   flex: none;
-  width: 40px;
-  height: 40px;
+  width: 52px;
+  height: 52px;
+  padding: 5px;
+  border-radius: 12px;
+  background: #FFFFFF;
+  box-shadow: 0 6px 18px rgba(4, 12, 28, .28);
   object-fit: contain;
 }
 
-.nexus-announcement__eyebrow {
-  color: var(--nexus-yellow);
+.nexus-card__brand-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.nexus-card__eyebrow {
+  color: var(--nexus-card-yellow);
   font-size: .66rem;
   font-weight: 700;
   line-height: 1.4;
-  letter-spacing: .14em;
+  letter-spacing: .16em;
   text-transform: uppercase;
 }
 
-.nexus-announcement__title {
-  margin: 0 0 10px;
-  color: #FFFFFF;
-  font-size: 1.55rem;
-  font-weight: 700;
-  line-height: 1.2;
-  letter-spacing: -.01em;
-}
-
-.nexus-announcement__accent {
-  display: block;
-  color: var(--nexus-yellow);
-  white-space: nowrap;
-}
-
-.nexus-announcement__desc {
-  margin: 0;
-  color: rgba(255, 255, 255, .76);
-  font-size: .86rem;
-  line-height: 1.6;
-}
-
-.nexus-announcement__launch {
-  margin-top: 22px;
-  padding-top: 18px;
-  border-top: 1px solid rgba(255, 255, 255, .14);
-}
-
-.nexus-announcement__launch-label {
-  display: block;
-  color: rgba(255, 255, 255, .62);
-  font-size: .64rem;
-  font-weight: 700;
-  letter-spacing: .16em;
-}
-
-.nexus-announcement__launch-row {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  justify-content: center;
-  gap: 6px 10px;
-  margin: 6px 0 0;
-}
-
-.nexus-announcement__launch-time {
-  color: var(--nexus-yellow);
-  font-size: 1.4rem;
-  font-weight: 700;
-  line-height: 1.15;
+.nexus-card__subtitle {
+  color: rgba(255, 255, 255, .72);
+  font-size: .8rem;
+  font-weight: 500;
   letter-spacing: .01em;
 }
 
-.nexus-announcement__launch-date {
-  color: rgba(255, 255, 255, .6);
-  font-size: .68rem;
-  font-weight: 600;
-  letter-spacing: .1em;
-}
-
-.nexus-announcement__launch-date::before {
-  content: "·";
-  margin-right: 8px;
-}
-
-.nexus-announcement__countdown {
-  display: flex;
-  align-items: stretch;
-  gap: 6px;
-  margin-top: 18px;
-}
-
-.nexus-announcement__unit {
-  display: flex;
-  flex: 1 1 0;
-  flex-direction: column;
-  align-items: center;
-  gap: 4px;
-  min-width: 0;
-  padding: 10px 4px 8px;
-  border: 1px solid rgba(255, 255, 255, .14);
-  border-radius: 8px;
-  background: rgba(255, 255, 255, .06);
-}
-
-.nexus-announcement__value {
+.nexus-card__title {
+  margin: 0 0 12px;
   color: #FFFFFF;
-  font-family: 'JetBrains Mono', 'Source Code Pro', monospace;
-  font-size: 1.35rem;
+  font-size: clamp(1.55rem, 2.4vw, 2rem);
   font-weight: 700;
-  line-height: 1;
-  font-variant-numeric: tabular-nums;
+  line-height: 1.16;
+  letter-spacing: -.015em;
 }
 
-.nexus-announcement__unit-label {
-  color: rgba(255, 255, 255, .62);
-  font-size: .62rem;
+.nexus-card__accent {
+  color: var(--nexus-card-yellow);
+}
+
+.nexus-card__lead {
+  margin: 0 0 10px;
+  color: #FFFFFF;
+  font-size: .98rem;
   font-weight: 600;
-  letter-spacing: .08em;
+  line-height: 1.5;
 }
 
-.nexus-announcement__separator {
-  align-self: center;
-  padding-bottom: 10px;
-  color: var(--nexus-yellow);
-  font-size: 1rem;
-  font-weight: 700;
-  line-height: 1;
+.nexus-card__desc {
+  margin: 0;
+  max-width: 56ch;
+  color: rgba(255, 255, 255, .76);
+  font-size: .86rem;
+  line-height: 1.65;
 }
 
-.nexus-announcement__fallback {
-  margin: 18px 0 0;
-  padding: 14px 12px;
-  border: 1px dashed rgba(255, 201, 40, .45);
-  border-radius: 8px;
-  color: var(--nexus-yellow-soft);
-  font-size: .78rem;
-  font-weight: 700;
-  letter-spacing: .08em;
-  text-align: center;
+.nexus-card__panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 24px;
+  border: 1px solid rgba(255, 255, 255, .14);
+  border-radius: 12px;
+  background: rgba(10, 26, 51, .38);
 }
 
-.nexus-announcement__live {
-  margin: 18px 0 0;
-  padding: 14px 12px;
-  border-radius: 8px;
-  background: var(--nexus-yellow);
-  color: var(--nexus-ink);
+.nexus-card__highlights {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nexus-card__highlight {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  color: rgba(255, 255, 255, .86);
   font-size: .82rem;
-  font-weight: 800;
-  letter-spacing: .08em;
-  text-align: center;
+  line-height: 1.5;
 }
 
-.nexus-announcement__cta {
+.nexus-card__check {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  width: 22px;
+  height: 22px;
+  margin-top: 1px;
+  border-radius: 50%;
+  background: rgba(255, 201, 40, .16);
+  color: var(--nexus-card-yellow);
+}
+
+.nexus-card__actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.nexus-card__cta {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
+  width: 100%;
   min-height: 48px;
-  margin-top: 20px;
-  padding: 12px 16px;
+  padding: 12px 18px;
   border-radius: 9px;
-  background: var(--nexus-yellow);
-  color: var(--nexus-ink);
+  background: var(--nexus-card-yellow);
+  color: var(--nexus-card-ink);
   font-size: .88rem;
   font-weight: 700;
   letter-spacing: .01em;
@@ -3303,130 +3291,130 @@ svg { image-rendering: optimizeQuality; text-rendering: geometricPrecision; }
   transition: transform .2s ease, background-color .2s ease, box-shadow .2s ease;
 }
 
-.nexus-announcement__cta:hover {
+.nexus-card__cta:hover {
   background: #FFD64F;
   box-shadow: 0 10px 24px rgba(0, 0, 0, .28);
   transform: translateY(-1px);
 }
 
-.nexus-announcement__cta:focus-visible {
-  outline: 3px solid var(--nexus-yellow-soft);
+.nexus-card__cta:focus-visible {
+  outline: 3px solid var(--nexus-card-yellow-soft);
   outline-offset: 3px;
 }
 
-.nexus-announcement__cta-arrow {
+.nexus-card__cta-arrow {
   transition: transform .2s ease;
 }
 
-.nexus-announcement__cta:hover .nexus-announcement__cta-arrow {
+.nexus-card__cta:hover .nexus-card__cta-arrow {
   transform: translateX(3px);
 }
 
-.nexus-announcement__cta[aria-disabled="true"] {
-  background: var(--nexus-yellow-soft);
-  color: rgba(20, 35, 59, .72);
-  cursor: not-allowed;
-  box-shadow: none;
+.nexus-card__secondary {
+  align-self: center;
+  color: rgba(255, 255, 255, .72);
+  font-size: .78rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color .2s ease;
 }
 
-.nexus-announcement__cta[aria-disabled="true"]:hover {
-  background: var(--nexus-yellow-soft);
-  box-shadow: none;
-  transform: none;
+.nexus-card__secondary:hover {
+  color: var(--nexus-card-yellow);
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
-.nexus-announcement__cta[aria-disabled="true"]:hover .nexus-announcement__cta-arrow {
-  transform: none;
-}
-
-.nexus-announcement__note {
-  margin: 10px 0 0;
-  color: rgba(255, 255, 255, .55);
-  font-size: .68rem;
-  line-height: 1.4;
-  text-align: center;
-}
-
-.nexus-announcement__brand,
-.nexus-announcement__title,
-.nexus-announcement__desc,
-.nexus-announcement__launch,
-.nexus-announcement__fallback,
-.nexus-announcement__live,
-.nexus-announcement__note {
-  width: 100%;
-  max-width: 720px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.nexus-announcement__countdown {
-  width: 100%;
-  max-width: 640px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.nexus-announcement__cta {
-  width: 100%;
-  max-width: 340px;
-  margin-left: auto;
-  margin-right: auto;
+.nexus-card__secondary:focus-visible {
+  outline: 3px solid var(--nexus-card-yellow-soft);
+  outline-offset: 3px;
+  border-radius: 3px;
 }
 
 @media (max-width: 1199px) and (min-width: 901px) {
-  .nexus-announcement {
-    padding: 24px 22px;
+  .nexus-card {
+    gap: 28px;
+    padding: 32px;
   }
 }
 
 @media (max-width: 900px) {
-  .nexus-announcement-layout .nexus-announcement {
+  .nexus-card-layout .nexus-card {
     margin-top: 32px;
+  }
+
+  .nexus-card {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 24px;
+    padding: 30px;
+  }
+
+  .nexus-card__desc {
+    max-width: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .nexus-card {
+    padding: 24px 20px;
+  }
+
+  .nexus-card__brand {
+    margin-bottom: 20px;
+  }
+
+  .nexus-card__title {
+    font-size: 1.5rem;
+  }
+
+  .nexus-card__panel {
+    padding: 20px;
+  }
+
+  .nexus-card__actions {
+    align-items: stretch;
+  }
+
+  .nexus-card__secondary {
+    align-self: center;
   }
 }
 
 @media (max-width: 420px) {
-  .nexus-announcement {
-    padding: 20px;
+  .nexus-card {
+    padding: 20px 16px;
   }
 
-  .nexus-announcement__title {
-    font-size: 1.3rem;
+  .nexus-card__logo {
+    width: 46px;
+    height: 46px;
   }
 
-  .nexus-announcement__launch-time {
-    font-size: 1.25rem;
+  .nexus-card__title {
+    font-size: 1.35rem;
   }
 
-  .nexus-announcement__countdown {
-    gap: 4px;
+  .nexus-card__highlight {
+    font-size: .8rem;
   }
 
-  .nexus-announcement__unit {
-    padding: 9px 2px 7px;
-  }
-
-  .nexus-announcement__value {
-    font-size: 1.1rem;
-  }
-
-  .nexus-announcement__separator {
-    font-size: .85rem;
+  .nexus-card__cta {
+    padding: 12px 14px;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .nexus-announcement__cta,
-  .nexus-announcement__cta-arrow {
+  .nexus-card__cta,
+  .nexus-card__cta-arrow,
+  .nexus-card__secondary {
     transition: none;
   }
 
-  .nexus-announcement__cta:hover {
+  .nexus-card__cta:hover {
     transform: none;
   }
 
-  .nexus-announcement__cta:hover .nexus-announcement__cta-arrow {
+  .nexus-card__cta:hover .nexus-card__cta-arrow {
     transform: none;
   }
 }

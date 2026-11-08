@@ -50,7 +50,7 @@
     <link href="https://cdn.lineicons.com/5.1/line/lineicons.css" rel="stylesheet">
 
     <!-- <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"> -->
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="style.css?v=4" />
     <!-- <link rel="stylesheet" href="https://sibforms.com/forms/end-form/build/sib-styles.css"> -->
     <!-- <link href="assets/css/aos.css" rel="stylesheet"> -->
 
@@ -398,7 +398,7 @@
         </div>
         <!-- ── Recent Tutorials Section ── -->
         <section class="recent-tutorials-section" id="recent-tutorials">
-            <div class="nexus-announcement-layout">
+            <div class="nexus-card-layout">
             <div class="recent-main">
 
             <!-- Section Header -->
@@ -492,59 +492,70 @@
             </div>
             </div>
 
-            <aside class="nexus-announcement" aria-labelledby="nexus-title">
-                <div class="nexus-announcement__brand">
-                    <img class="nexus-announcement__icon" src="images/icon.webp" alt="DevspireHub" width="40"
-                        height="40" loading="lazy" decoding="async">
-                    <span class="nexus-announcement__eyebrow">A NEW DIGITAL EXPERIENCE</span>
-                </div>
+            <aside class="nexus-card" aria-labelledby="nexus-card-title">
+                <div class="nexus-card__intro">
+                    <div class="nexus-card__brand">
+                        <img class="nexus-card__logo" src="images/nexus-logo.png" alt="DevSpire Nexus logo"
+                            width="48" height="48" loading="lazy" decoding="async">
+                        <div class="nexus-card__brand-copy">
+                            <span class="nexus-card__eyebrow">EXPLORE OUR PLATFORM</span>
+                            <span class="nexus-card__subtitle">AI Intelligence Directory</span>
+                        </div>
+                    </div>
 
-                <h2 class="nexus-announcement__title" id="nexus-title">
-                    Introducing <span class="nexus-announcement__accent">Devspire Nexus</span>
-                </h2>
-                <p class="nexus-announcement__desc">
-                    Discover a new destination for exploring AI tools, resources, and technology.
-                </p>
-
-                <div class="nexus-announcement__launch">
-                    <span class="nexus-announcement__launch-label">LAUNCH ANNOUNCEMENT</span>
-                    <p class="nexus-announcement__launch-row">
-                        <span class="nexus-announcement__launch-time">11:00 AM IST</span>
-                        <span class="nexus-announcement__launch-date" id="nexus-launch-date" hidden></span>
+                    <h2 class="nexus-card__title" id="nexus-card-title">
+                        Discover <span class="nexus-card__accent">Devspire Nexus</span>
+                    </h2>
+                    <p class="nexus-card__lead">A smarter way to discover AI resources.</p>
+                    <p class="nexus-card__desc">
+                        Explore a source-linked directory of AI tools, foundation models, and developer resources.
+                        Compare licensing, deployment, and open-weights details, then open the official source.
+                        Built for developers and technical teams evaluating what to adopt with confidence.
                     </p>
                 </div>
 
-                <div class="nexus-announcement__countdown" id="nexus-countdown" role="timer" aria-live="off"
-                    aria-label="Time remaining until Devspire Nexus launches" hidden>
-                    <div class="nexus-announcement__unit">
-                        <span class="nexus-announcement__value" data-nexus-unit="days">00</span>
-                        <span class="nexus-announcement__unit-label">DAYS</span>
-                    </div>
-                    <span class="nexus-announcement__separator" aria-hidden="true">:</span>
-                    <div class="nexus-announcement__unit">
-                        <span class="nexus-announcement__value" data-nexus-unit="hours">00</span>
-                        <span class="nexus-announcement__unit-label">HOURS</span>
-                    </div>
-                    <span class="nexus-announcement__separator" aria-hidden="true">:</span>
-                    <div class="nexus-announcement__unit">
-                        <span class="nexus-announcement__value" data-nexus-unit="minutes">00</span>
-                        <span class="nexus-announcement__unit-label">MINUTES</span>
-                    </div>
-                    <span class="nexus-announcement__separator" aria-hidden="true">:</span>
-                    <div class="nexus-announcement__unit">
-                        <span class="nexus-announcement__value" data-nexus-unit="seconds">00</span>
-                        <span class="nexus-announcement__unit-label">SECONDS</span>
+                <div class="nexus-card__panel">
+                    <ul class="nexus-card__highlights">
+                        <li class="nexus-card__highlight">
+                            <span class="nexus-card__check" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor"
+                                    stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="m5 12.5 4.2 4.2L19 6.8" />
+                                </svg>
+                            </span>
+                            <span>Verified AI tools, foundation models &amp; developer resources</span>
+                        </li>
+                        <li class="nexus-card__highlight">
+                            <span class="nexus-card__check" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor"
+                                    stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="m5 12.5 4.2 4.2L19 6.8" />
+                                </svg>
+                            </span>
+                            <span>Source-linked licensing, deployment &amp; open-weights details</span>
+                        </li>
+                        <li class="nexus-card__highlight">
+                            <span class="nexus-card__check" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor"
+                                    stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="m5 12.5 4.2 4.2L19 6.8" />
+                                </svg>
+                            </span>
+                            <span>Independent discovery with no paid ranking</span>
+                        </li>
+                    </ul>
+
+                    <div class="nexus-card__actions">
+                        <a class="nexus-card__cta" href="https://nexus.devspirehub.com/" target="_blank"
+                            rel="noopener noreferrer" data-nexus-cta>
+                            Explore Devspire Nexus <span class="nexus-card__cta-arrow" aria-hidden="true">→</span>
+                        </a>
+                        <a class="nexus-card__secondary" href="https://nexus.devspirehub.com/about.html"
+                            target="_blank" rel="noopener noreferrer">
+                            About Nexus <span aria-hidden="true">→</span>
+                        </a>
                     </div>
                 </div>
-
-                <p class="nexus-announcement__fallback" id="nexus-fallback">LAUNCH TIME TO BE ANNOUNCED</p>
-                <p class="nexus-announcement__live" id="nexus-live" role="status" hidden>DEVSpire NEXUS IS LIVE</p>
-
-                <a class="nexus-announcement__cta" id="nexus-cta" role="link" aria-disabled="true"
-                    aria-describedby="nexus-cta-note" tabindex="0" title="Official link coming soon">
-                    Explore Devspire Nexus <span class="nexus-announcement__cta-arrow" aria-hidden="true">→</span>
-                </a>
-                <p class="nexus-announcement__note" id="nexus-cta-note">Official link available at launch.</p>
             </aside>
             </div>
         </section>
@@ -2654,6 +2665,31 @@
             </div>
     </section>
 
+    <!-- Buy Me a Coffee Banner -->
+    <section class="bmc-section" aria-label="Support DevSpireHub">
+        <div class="container">
+            <a class="bmc-support-card" href="https://buymeacoffee.com/devspirehub" target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Buy DevSpireHub a coffee on Buy Me a Coffee (opens in a new tab)">
+                <span class="bmc-support-head">
+                    <span class="bmc-support-icon" aria-hidden="true">
+                        <i class="fas fa-mug-hot"></i>
+                    </span>
+                </span>
+                <span class="bmc-support-copy">
+                    <span class="bmc-support-eyebrow">Support the project</span>
+                    <span class="bmc-support-title">Buy DevSpireHub a coffee</span>
+                    <span class="bmc-support-desc">If these tutorials and free developer tools have helped you, you can
+                        support new content and hosting.</span>
+                    <span class="bmc-support-note">Secure checkout via Buy Me a Coffee. No account required.</span>
+                </span>
+                <span class="bmc-support-cta">
+                    Buy Me a Coffee <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                </span>
+            </a>
+        </div>
+    </section>
+
     <button id="scrollUpBtn" aria-label="Scroll to top">
         <svg class="progress-circle" viewBox="0 0 36 36">
             <path class="bg1" d="M18 2.0845
@@ -2840,7 +2876,7 @@
     <script src="assets/js/aos.js"></script>
     <script src="script.js"></script>
     <script src="diwali-fireworks.js"></script>
-    <script src="nexus-announcement.js"></script>
+    <script src="nexus-card.js"></script>
     <script defer src="https://sibforms.com/forms/end-form/build/main.js"></script>
 </body>
 
