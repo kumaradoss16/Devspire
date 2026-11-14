@@ -14,6 +14,30 @@
 
   var articles = [
     {
+      id: "claude-prompt-shortcuts",
+      title: "5 Claude Prompt Shortcuts That Can Transform the Way Developers Build Software",
+      description: "Stop treating AI like a search engine. Five structured Claude prompt patterns for architecture, refactoring, debugging, reusable hooks, and testing.",
+      featured: false,
+      accent: "teal",
+      category: "Prompt Engineering",
+      tags: ["AI", "Claude", "Prompt Engineering"],
+      publishedDate: "2026-11-14T12:02:18Z",
+      coverImage: "images/articles/claude-prompt-shortcuts.webp",
+      readingTime: 6,
+      publications: [
+        {
+          platform: "devto",
+          label: "DEV.to",
+          url: "https://dev.to/devspirehub/5-claude-prompt-shortcuts-every-developer-should-know-to-code-smarter-2831"
+        },
+        {
+          platform: "medium",
+          label: "Medium",
+          url: "https://medium.com/@devspirehub.website/5-claude-prompt-shortcuts-that-can-transform-the-way-developers-build-software-de03f4250f30"
+        }
+      ]
+    },
+    {
       id: "claude-ai-one-day",
       title: "How to Learn Claude AI in One Day: A Practical Guide for Developers",
       description: "A practical, hands-on path to learning Claude AI in a single day, from core concepts and prompting to building your first working workflow.",
