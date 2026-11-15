@@ -187,21 +187,66 @@ if (tabButtons.length > 0 && projectCards.length > 0) {
         'Show Less'
     );
 
-    setupViewAllToggle(
-        'view-all-btn-automation-tutorial',
-        'hidden-automation-tutorial', // Pass only the class name 'hidden-project'
-        'show-automation-tutorial',
-        'View All',
-        'Show Less'
-    );
+    // AI section category switcher
+    const aiTabs = Array.from(document.querySelectorAll('[data-ai-tab]'));
+    const aiPanels = Array.from(document.querySelectorAll('[data-ai-panel]'));
 
-    setupViewAllToggle(
-        'view-all-btn-automation-project',
-        'hidden-automation-project', // Pass only the class name 'hidden-project'
-        'show-automation-project',
-        'View All',
-        'Show Less'
-    );
+    if (aiTabs.length && aiPanels.length) {
+        const aiPanelId = (name) => (name === 'projects' ? 'ai-projects' : 'ai-tutorials');
+
+        const activateAiTab = (name, { updateHash = false, focusTab = false } = {}) => {
+            const targetTab = aiTabs.find(tab => tab.dataset.aiTab === name);
+            if (!targetTab) return;
+
+            aiTabs.forEach(tab => {
+                const isActive = tab === targetTab;
+                tab.classList.toggle('is-active', isActive);
+                tab.setAttribute('aria-selected', String(isActive));
+                tab.tabIndex = isActive ? 0 : -1;
+            });
+
+            aiPanels.forEach(panel => {
+                panel.hidden = panel.dataset.aiPanel !== name;
+            });
+
+            if (focusTab) targetTab.focus();
+            if (updateHash) {
+                history.replaceState(null, '', '#' + aiPanelId(name));
+            }
+        };
+
+        aiTabs.forEach((tab, index) => {
+            tab.addEventListener('click', () => {
+                activateAiTab(tab.dataset.aiTab, { updateHash: true });
+            });
+
+            tab.addEventListener('keydown', (event) => {
+                let nextIndex = null;
+
+                if (event.key === 'ArrowRight') nextIndex = (index + 1) % aiTabs.length;
+                if (event.key === 'ArrowLeft') nextIndex = (index - 1 + aiTabs.length) % aiTabs.length;
+                if (event.key === 'Home') nextIndex = 0;
+                if (event.key === 'End') nextIndex = aiTabs.length - 1;
+
+                if (nextIndex === null) return;
+                event.preventDefault();
+                activateAiTab(aiTabs[nextIndex].dataset.aiTab, { updateHash: true, focusTab: true });
+            });
+        });
+
+        const tabFromHash = () => (
+            location.hash === '#ai-projects' ? 'projects'
+                : location.hash === '#ai-tutorials' ? 'tutorials'
+                    : null
+        );
+
+        activateAiTab(tabFromHash() || 'tutorials');
+
+        window.addEventListener('hashchange', () => {
+            const name = tabFromHash();
+            if (name) activateAiTab(name);
+        });
+    }
 
     setupViewAllToggle(
         'view-all-btn-guide-link',
@@ -331,6 +376,3 @@ function downloadFile(filePath) {
   link.click();
   document.body.removeChild(link);
 }
-
-
-
