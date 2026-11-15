@@ -286,7 +286,7 @@ body {
 .navbar nav ul li:hover a.programming { color: var(--color-orange); background-color: #282323; }
 .navbar nav ul li:hover a.hacking     { color: var(--color-green);  background-color: #273323; }
 .navbar nav ul li:hover a.networking  { color: var(--color-blue);   background-color: #212528; }
-.navbar nav ul li:hover a.ai          { color: var(--color-pink);   background-color: #2b2326; }
+.navbar nav ul li:hover a.ai          { color: #E11A45;             background-color: #2b141d; }
 .navbar nav ul li:hover a.game        { color: var(--color-red);    background-color: #332923; }
 
 /* Search bar */
@@ -702,7 +702,7 @@ body {
 .programming-section .section-header h2,
 .ethical-hacking-section .section-header h2,
 .networking-section .section-header h2,
-.automation-section .section-header h2,
+.ai-section .section-header h2,
 .info-section .section-header h2 {
   font-size: var(--mobile-size-h2);
 }
@@ -711,7 +711,7 @@ body {
 .programming-section .section-header p,
 .ethical-hacking-section .section-header p,
 .networking-section .section-header p,
-.automation-section .section-header p,
+.ai-section .section-header p,
 .info-section .section-header p,
 .menu-link,
 .footer p {
@@ -720,10 +720,7 @@ body {
 
 .project-heading h3,
 .card-content h3,
-.hacking-card .title-group h3,
-.automation-content h3,
-.automation-tutorials-header h3,
-.automation-projects-header h3 {
+.hacking-card .title-group h3 {
   font-size: var(--mobile-size-h3);
 }
 
@@ -731,42 +728,34 @@ body {
   .programming-projects-section .section-header h2,
   .programming-section .section-header h2,
   .ethical-hacking-section .section-header h2,
-  .networking-section .section-header h2,
-  .automation-section .section-header h2 { font-size: 1.3rem; }
+  .networking-section .section-header h2 { font-size: 1.3rem; }
 
   .programming-projects-section .section-header p,
   .programming-section .section-header p,
   .ethical-hacking-section .section-header p,
   .networking-section .section-header p,
-  .automation-section .section-header p,
+  .ai-section .section-header p,
   .hero-section p, .menu-link, .footer p  { font-size: 1rem; }
 
   .project-heading h3, .card-content h3,
-  .hacking-card .title-group h3,
-  .automation-content h3,
-  .automation-tutorials-header h3,
-  .automation-projects-header h3          { font-size: 1.1rem; }
+  .hacking-card .title-group h3   { font-size: 1.1rem; }
 }
 
 @media (min-width: 992px) {
   .programming-projects-section .section-header h2,
   .programming-section .section-header h2,
   .ethical-hacking-section .section-header h2,
-  .networking-section .section-header h2,
-  .automation-section .section-header h2  { font-size: 1.4rem; }
+  .networking-section .section-header h2 { font-size: 1.4rem; }
 
   .programming-projects-section .section-header p,
   .programming-section .section-header p,
   .ethical-hacking-section .section-header p,
   .networking-section .section-header p,
-  .automation-section .section-header p,
+  .ai-section .section-header p,
   .hero-section p, .menu-link, .footer p  { font-size: 1.05rem; }
 
   .project-heading h3, .card-content h3,
-  .hacking-card .title-group h3,
-  .automation-content h3,
-  .automation-tutorials-header h3,
-  .automation-projects-header h3          { font-size: 1.15rem; }
+  .hacking-card .title-group h3   { font-size: 1.15rem; }
 }
 
 @media (min-width: 1024px) {
@@ -774,23 +763,19 @@ body {
   .programming-section .section-header h2,
   .ethical-hacking-section .section-header h2,
   .networking-section .section-header h2,
-  .automation-section .section-header h2,
   .info-section .section-header h2        { font-size: 1.5rem; }
 
   .programming-projects-section .section-header p,
   .programming-section .section-header p,
   .ethical-hacking-section .section-header p,
   .networking-section .section-header p,
-  .automation-section .section-header p,
+  .ai-section .section-header p,
   .info-section .section-header p,
   .hero-section p, .menu-link, .footer p  { font-size: 1.1rem; }
 
   .project-heading h3, .card-content h3,
   .hacking-card .title-group h3,
   .hacking-tutorials-header h3,
-  .automation-content h3,
-  .automation-tutorials-header h3,
-  .automation-projects-header h3,
   .info-section h3                        { font-size: 1.2rem; }
 }
 
@@ -855,8 +840,6 @@ body {
 .project-card.hidden-project,
 .tutorial-card.hidden-programming,
 .networking-card.hidden-networking,
-.automation-card.hidden-automation-tutorial,
-.automation-project-card.hidden-automation-project,
 .card-cheat.hidden-card-cheat,
 .card-guide.hidden-card-guide {
   display: none;
@@ -864,8 +847,6 @@ body {
 
 .project-card.show-project,
 .tutorial-card.show-programming,
-.automation-card.show-automation-tutorial,
-.automation-project-card.show-automation-project,
 .card-cheat.show-card-cheat,
 .card-guide.show-card-guide {
   display: flex;
@@ -1497,104 +1478,299 @@ body {
 @media (min-width: 1280px) { .networking-card-grid { grid-template-columns: repeat(4, 1fr); } }
 
 /* ============================================================
-   15. AUTOMATION SECTION
+   15. AI SECTION
    ============================================================ */
-.automation-section {
-  background-color: var(--dark-bg);
-  padding: 60px 0; text-align: center;
-  position: relative; overflow: visible;
-  border-top: 2px solid var(--color-pink);
+.ai-section {
+  --ai-bg:             #020617;
+  --ai-surface:        #151E2C;
+  --ai-surface-raised: #18283A;
+  --ai-body:           #B7C1CB;
+  --ai-muted:          #8E9AAB;
+  --ai-accent:         #E11A45;
+  --ai-accent-soft:    #FF6B8A;
+
+  background-color: var(--ai-bg);
+  border-top: 2px solid var(--ai-accent);
+  position: relative;
+  text-align: center;
 }
-.automation-section .section-header { margin-bottom: 50px; }
-.automation-section .section-header h2 {
-  font-size: var(--mobile-size-h2); color: var(--color-pink);
-  margin-bottom: 10px;
+
+/* ── AI hero ── */
+.ai-hero {
+  position: relative;
+  padding: 88px 0 52px;
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(225, 26, 69, .16), transparent 62%),
+    var(--ai-bg);
+  border-bottom: 1px solid rgba(183, 193, 203, .1);
+}
+.ai-eyebrow {
+  margin: 0 0 14px;
+  color: var(--ai-accent-soft);
+  font-size: .72rem; font-weight: 600;
+  letter-spacing: .2em; text-transform: uppercase;
+}
+.ai-hero-title {
+  margin: 0 0 16px;
+  color: var(--ai-accent);
+  font-size: clamp(2.1rem, 5.5vw, 3.15rem);
+  line-height: 1.08; font-weight: 700;
+  letter-spacing: -.01em;
+}
+.ai-hero-desc {
+  max-width: 760px; margin: 0 auto;
+  color: var(--ai-body); font-size: var(--p); font-weight: 300;
+  line-height: 1.7;
+}
+
+/* ── Category switcher ── */
+.ai-switcher {
+  display: inline-flex; flex-wrap: wrap; justify-content: center; gap: 6px;
+  margin-top: 32px; padding: 6px;
+  background: var(--ai-surface-raised);
+  border: 1px solid rgba(183, 193, 203, .14);
+  border-radius: 999px;
+}
+.ai-switcher-btn {
+  display: inline-flex; align-items: center; gap: 9px;
+  min-height: 44px; padding: 10px 22px;
+  background: transparent; color: var(--ai-body);
+  border: 1px solid transparent; border-radius: 999px;
+  font-family: inherit; font-size: .9rem; font-weight: 600;
+  cursor: pointer;
+  transition: color .25s ease, background-color .25s ease, border-color .25s ease;
+}
+.ai-switcher-btn:hover { color: #fff; background-color: rgba(255, 255, 255, .04); }
+.ai-switcher-btn.is-active,
+.ai-switcher-btn[aria-selected="true"] {
+  color: #fff;
+  background-color: var(--ai-accent);
+  border-color: var(--ai-accent);
+}
+.ai-switcher-btn:focus-visible { outline: 2px solid var(--ai-accent-soft); outline-offset: 3px; }
+.ai-switcher-count {
+  padding: 2px 8px; border-radius: 999px;
+  background: rgba(255, 255, 255, .08);
+  font-size: .68rem; font-weight: 600; line-height: 1.6;
+}
+.ai-switcher-btn.is-active .ai-switcher-count,
+.ai-switcher-btn[aria-selected="true"] .ai-switcher-count {
+  background: rgba(255, 255, 255, .24);
+}
+@media (max-width: 480px) {
+  .ai-hero { padding: 64px 0 40px; }
+  .ai-switcher { width: 100%; max-width: 340px; border-radius: 14px; }
+  .ai-switcher-btn { flex: 1 1 0; justify-content: center; padding: 10px 12px; font-size: .82rem; gap: 6px; }
+  .ai-switcher-count { padding: 2px 6px; }
+  .ai-card-grid { gap: 18px; }
+  .ai-project-card { padding: 18px; }
+}
+
+/* ── Panels ── */
+.ai-panel[hidden] { display: none; }
+.ai-panel:focus { outline: none; }
+
+.ai-section .section-header { margin-bottom: 40px; }
+.ai-section .section-header p {
+  max-width: 760px; margin: 0 auto;
+  color: var(--ai-body); font-weight: 300; line-height: 1.65;
+}
+.ai-kicker {
+  margin: 0 0 10px;
+  color: var(--ai-muted);
+  font-size: .7rem; font-weight: 600;
+  letter-spacing: .18em; text-transform: uppercase;
+}
+.ai-panel-title {
   display: flex; align-items: center; justify-content: center; gap: 10px;
+  margin: 0 0 10px;
+  color: var(--ai-accent);
+  font-size: clamp(1.35rem, 2.6vw, 1.75rem);
+  font-weight: 600;
 }
-.automation-section .section-header p { font-size: var(--p); max-width: 700px; margin: 0 auto; color: #ccc; font-weight: 200; }
+.ai-panel-title i { font-size: .9em; }
 
-.automation-tutorials-header,
-.automation-projects-header {
-  display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;
+/* ── AI Tutorials ── */
+.ai-tutorials-section {
+  position: relative;
+  padding: 64px 0 72px;
+  background:
+    radial-gradient(ellipse at 85% 0%, rgba(225, 26, 69, .1), transparent 55%),
+    var(--ai-bg);
 }
-.automation-tutorials-header h3,
-.automation-projects-header h3 {
-  color: var(--color-pink); font-weight: 800;
-  text-decoration: underline; text-underline-offset: 5px;
+
+.ai-tutorial-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 24px;
+  max-width: 1180px; margin: 0 auto;
+  text-align: left;
 }
-.automation-projects-header h3 { margin-left: 20px; }
-.automation-projects-header button { margin-right: 20px; }
-.automation-tutorials-header .view-all-btn,
-.automation-projects-header .view-all-btn  { background-color: var(--color-pink); border: none; padding: 7px 25px; }
-.automation-tutorials-header .view-all-btn:hover,
-.automation-projects-header .view-all-btn:hover  { background-color: #af4b69; }
+@media (min-width: 768px)  { .ai-tutorial-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 1024px) { .ai-tutorial-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
 
-.automation-card-grid { display: flex; flex-direction: column; align-items: center; gap: 20px; }
-
-.automation-card {
-  position: relative; background-color: var(--dark-blue);
-  border: 1px solid var(--color-pink); border-radius: 5px;
-  padding: 20px; text-align: left;
-  box-shadow: 0 4px 10px rgba(194,20,101,.6);
-  transition: transform .3s ease, box-shadow .3s ease;
-  display: flex; flex-direction: column; justify-content: space-between;
-  min-height: 280px;
+/* Keep a lone published tutorial visually balanced */
+.ai-tutorial-grid:has(> .ai-tutorial-card:only-child) {
+  grid-template-columns: minmax(0, 400px);
+  justify-content: center;
 }
-.automation-card:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(158,27,108,.4); }
-.automation-card .level-tag { font-size: var(--level-tag); font-weight: var(--tag-weight); padding: 4px 10px; border-radius: 5px; text-transform: uppercase; background-color: var(--color-pink); color: #fff; }
-.automation-card .icon { display: flex; flex-direction: row; justify-content: space-between; font-size: 1.5rem; margin-bottom: 15px; }
-.automation-card .meta-link { display: flex; justify-content: space-between; align-items: center; }
-.automation-card .meta-link span { font-size: var(--p); color: #aaa; font-weight: var(--p-weight); margin-top: 10px; }
 
-.automation-card .start-automation,
-.automation-project-card .start-automation {
-  background-color: var(--color-pink); color: #f0f0f0;
-  border: none; padding: 6px 8px; border-radius: 5px;
-  font-weight: 400; font-size: .8rem; margin-top: 10px;
-  display: inline-flex; align-items: center; cursor: pointer;
-  text-decoration: none; transition: transform .3s ease;
+.ai-tutorial-card {
+  display: flex; flex-direction: column;
+  background: var(--ai-surface);
+  border: 1px solid rgba(225, 26, 69, .28);
+  border-radius: 12px; overflow: hidden;
+  transition: transform .3s ease, border-color .3s ease, box-shadow .3s ease;
 }
-.automation-project-card .start-automation:hover { transform: translateY(-2px); }
-.automation-card .start-automation::after {
-  content: "▶"; font-size: .8rem; margin-left: 6px;
-  opacity: 0; transform: translateX(-8px); transition: all .3s ease;
+.ai-tutorial-card:hover,
+.ai-tutorial-card:focus-within {
+  transform: translateY(-4px);
+  border-color: rgba(225, 26, 69, .65);
+  box-shadow: 0 18px 36px rgba(0, 0, 0, .35);
 }
-.automation-card .start-automation:hover::after { opacity: 1; transform: translateX(4px); }
+.ai-tutorial-media {
+  position: relative; aspect-ratio: 16 / 9;
+  background: var(--ai-surface-raised);
+}
+.ai-tutorial-media img {
+  display: block; width: 100%; height: 100%; object-fit: cover;
+}
+.ai-tutorial-category {
+  position: absolute; top: 12px; left: 12px;
+  padding: 4px 10px; border-radius: 999px;
+  background: rgba(2, 6, 23, .82);
+  border: 1px solid rgba(225, 26, 69, .55);
+  color: var(--ai-accent-soft);
+  font-size: .68rem; font-weight: 600;
+  letter-spacing: .04em; text-transform: uppercase;
+}
+.ai-tutorial-category:empty { display: none; }
 
-.automation-content h3 { font-size: var(--mobile-size-h3); font-weight: 500; color: #f0f0f0; text-decoration: underline; margin-bottom: 10px; text-underline-offset: 5px; }
-.automation-content h3:hover { text-decoration: underline; }
-.automation-content p { font-size: var(--p); color: #ccc; font-weight: 300; flex-grow: 1; }
+.ai-tutorial-body {
+  display: flex; flex-direction: column; gap: 10px;
+  flex: 1; padding: 20px;
+}
+.ai-tutorial-meta {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 10px; font-size: .75rem; color: var(--ai-muted);
+}
+.ai-tutorial-level {
+  padding: 3px 9px; border-radius: 999px;
+  background: rgba(225, 26, 69, .12);
+  border: 1px solid rgba(225, 26, 69, .4);
+  color: var(--ai-accent-soft); font-size: .68rem; font-weight: 600;
+  text-transform: uppercase; letter-spacing: .04em;
+}
+.ai-tutorial-level:empty { display: none; }
+.ai-tutorial-read-time { display: inline-flex; align-items: center; gap: 6px; }
+.ai-tutorial-title { font-size: 1.05rem; line-height: 1.35; color: #fff; font-weight: 600; }
+.ai-tutorial-title a { color: inherit; text-decoration: none; }
+.ai-tutorial-title a:hover { color: var(--ai-accent-soft); }
+.ai-tutorial-desc { font-size: var(--p); color: var(--ai-body); font-weight: 300; flex-grow: 1; }
+.ai-tutorial-tags { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; }
+.ai-tutorial-tags li {
+  padding: 3px 9px; border-radius: 999px;
+  background: rgba(225, 26, 69, .1);
+  border: 1px solid rgba(225, 26, 69, .35);
+  color: var(--ai-accent-soft); font-size: .72rem;
+}
+.ai-tutorial-cta {
+  display: inline-flex; align-items: center; gap: 8px;
+  align-self: flex-start; margin-top: 4px;
+  color: var(--ai-accent-soft);
+  font-weight: 600; font-size: .85rem; text-decoration: none;
+  transition: gap .25s ease, color .25s ease;
+}
+.ai-tutorial-cta:hover { gap: 12px; color: var(--ai-accent); }
 
-/* Automation project card */
-.automation-project-card {
-  position: relative; background-color: var(--dark-blue);
-  border: 1px solid var(--color-pink); border-radius: 5px;
-  padding: 20px; margin: 0 auto; text-align: left;
-  box-shadow: 0 4px 10px rgba(194,20,101,.6);
-  transition: transform .3s ease, box-shadow .3s ease;
+.ai-tutorial-title a:focus-visible,
+.ai-tutorial-cta:focus-visible,
+.ai-project-card a:focus-visible {
+  outline: 2px solid var(--ai-accent-soft);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ── AI Projects ── */
+.ai-projects-section {
+  position: relative;
+  padding: 64px 0 80px;
+  background-color: var(--ai-bg);
+  border-top: 1px solid rgba(183, 193, 203, .1);
+}
+
+.ai-card-grid { display: flex; flex-direction: column; align-items: center; gap: 24px; }
+
+/* AI project card */
+.ai-project-card {
+  position: relative; background-color: var(--ai-surface);
+  border: 1px solid rgba(225, 26, 69, .4); border-radius: 8px;
+  padding: 22px; margin: 0 auto; text-align: left;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, .35);
+  transition: transform .3s ease, border-color .3s ease, box-shadow .3s ease;
   height: 100%; display: flex; flex-direction: column; align-items: stretch;
 }
-.automation-project-card h3 { font-size: var(--mobile-size-h3); font-weight: 500; color: #f0f0f0; }
-.automation-project-card h3:hover { color: var(--color-pink); }
-.automation-project-card p { font-size: var(--p); color: #ccc; font-weight: 300; margin-bottom: 15px; flex-grow: 1; }
+.ai-project-card:hover,
+.ai-project-card:focus-within {
+  transform: translateY(-4px);
+  border-color: rgba(225, 26, 69, .8);
+  box-shadow: 0 16px 32px rgba(225, 26, 69, .18);
+}
+.ai-project-card h3 { font-size: var(--mobile-size-h3); font-weight: 600; color: #f0f0f0; }
+.ai-project-card h3:hover { color: var(--ai-accent); }
+.ai-project-card p { font-size: var(--p); color: #ccc; font-weight: 300; margin-bottom: 15px; flex-grow: 1; }
 
-.automation-card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; }
-.automation-card-footer .level-tag {
+.ai-project-topline {
+  display: flex; align-items: center; justify-content: space-between; gap: 10px;
+  flex-wrap: wrap; margin-bottom: 14px;
+}
+.ai-project-category {
+  color: var(--ai-accent-soft);
+  font-size: .66rem; font-weight: 600;
+  letter-spacing: .08em; text-transform: uppercase;
+}
+.ai-project-status {
+  padding: 3px 9px; border-radius: 999px;
+  border: 1px solid rgba(225, 26, 69, .45);
+  color: var(--ai-accent-soft); font-size: .64rem; font-weight: 600;
+  letter-spacing: .04em; text-transform: uppercase;
+}
+.ai-project-status--soon {
+  border-color: rgba(225, 26, 69, .6);
+  background-color: rgba(225, 26, 69, .14);
+  color: #FF9DB1;
+}
+
+.ai-project-card .start-ai {
+  background-color: var(--ai-accent); color: #fff;
+  border: none; padding: 8px 14px; border-radius: 6px;
+  font-weight: 600; font-size: .8rem; margin-top: 10px;
+  display: inline-flex; align-items: center; cursor: pointer;
+  text-decoration: none;
+  transition: transform .3s ease, background-color .3s ease;
+}
+.ai-project-card .start-ai:hover {
+  background-color: #F02852;
+  transform: translateY(-2px);
+}
+
+.ai-card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: auto; gap: 12px; }
+.ai-card-footer .level-tag {
   font-size: var(--level-tag); font-weight: var(--tag-weight);
   border-radius: 15px; text-transform: uppercase;
-  background-color: transparent; color: var(--color-pink); margin-top: 10px;
+  background-color: transparent; color: var(--ai-accent); margin-top: 10px;
 }
 
 /* Icon tooltip system */
-.automation-card-icons { display: flex; align-items: center; gap: .5rem; margin-bottom: 1rem; }
-.automation-card-icons .icon-btn {
+.ai-card-icons { display: flex; align-items: center; gap: .5rem; margin-bottom: 1rem; }
+.ai-card-icons .icon-btn {
   width: 28px; height: 28px; background-color: #33333390;
   color: var(--highlight-color); border-radius: 6px;
   display: flex; justify-content: center; align-items: center;
   font-size: .8rem; transition: background-color .3s ease;
 }
-.automation-card-icons .icon-btn:hover { background-color: #555; }
-.automation-card-icons .plus-count { font-size: .8rem; color: #bbb; }
+.ai-card-icons .icon-btn:hover { background-color: #555; }
+.ai-card-icons .plus-count { font-size: .8rem; color: #bbb; }
 
 .icon-btn {
   position: relative; display: inline-flex;
@@ -1617,15 +1793,13 @@ body {
 }
 .icon-btn:hover::after, .icon-btn:hover::before { opacity: 1; visibility: visible; }
 
-@media (min-width: 768px)  { .automation-card-grid { display: grid; grid-template-columns: repeat(2, 1fr); align-items: start; } }
-@media (min-width: 1024px) { .automation-card-grid { grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); } }
-@media (min-width: 1280px) { .automation-card-grid { grid-template-columns: repeat(4, 1fr); } }
+@media (min-width: 768px)  { .ai-card-grid { display: grid; grid-template-columns: repeat(2, 1fr); align-items: start; } }
+@media (min-width: 1024px) { .ai-card-grid { grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); } }
+@media (min-width: 1280px) { .ai-card-grid { grid-template-columns: repeat(4, 1fr); } }
 
-/* Desktop offset tweaks */
+/* Desktop offset tweak (hacking tutorials header) */
 @media (min-width: 1024px) {
-  .automation-projects-header h3, .automation-tutorials-header h3, .hacking-tutorials-header h3 { margin-left: -10px; }
-  .automation-projects-header button, .automation-tutorials-header button { margin-right: -10px; }
-  .automation-projects-header { margin-top: 40px; }
+  .hacking-tutorials-header h3 { margin-left: -10px; }
 }
 
 /* ============================================================
