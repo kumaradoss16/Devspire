@@ -1,0 +1,173 @@
+/* ==========================================================================
+   CODE WINDOW — macOS-style Prism.js wrapper
+   Drop this block into style.css (or link as a separate file after prism.css)
+   Uses existing variables: --code-bg, --code-border, --code-text, --color-purple
+   ========================================================================== */
+
+.code-window {
+  position: relative;
+  margin: 16px 0;
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--code-bg);
+  border: 1px solid var(--code-border);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+  font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+}
+
+/* ---------- Header / title bar ---------- */
+
+.code-window-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  background: var(--dark-gray);
+  border-bottom: 1px solid var(--code-border);
+}
+
+.code-window-dots {
+  display: flex;
+  gap: 7px;
+  flex: 0 0 auto;
+}
+
+.code-window-dots span {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.code-window-dots .dot-red { background: #ff5f57; }
+.code-window-dots .dot-yellow { background: #febc2e; }
+.code-window-dots .dot-green { background: #28c840; }
+
+.code-window-title {
+  flex: 1 1 auto;
+  display: flex;
+  justify-content: center;
+  min-width: 0;
+}
+
+.code-window-title-pill {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  max-width: 320px;
+  padding: 5px 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+  color: #9aa1b1;
+  font-size: 12.5px;
+  line-height: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.code-window-title-pill svg {
+  width: 12px;
+  height: 12px;
+  flex: 0 0 auto;
+  opacity: 0.7;
+}
+
+.code-window-title-pill span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.code-window-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 0 0 auto;
+}
+
+.code-window-actions button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  padding: 0;
+  border: none;
+  border-radius: 6px;
+  background: transparent;
+  color: #9aa1b1;
+  cursor: pointer;
+  transition: background var(--transition-speed, 0.3s) ease, color var(--transition-speed, 0.3s) ease;
+}
+
+.code-window-actions button svg {
+  width: 15px;
+  height: 15px;
+  pointer-events: none;
+}
+
+.code-window-actions button:hover,
+.code-window-actions button:focus-visible {
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  outline: none;
+}
+
+.code-window-actions button.copied {
+  color: var(--color-green, #7ec699);
+}
+
+/* ---------- Code body ---------- */
+/* Hide Prism's own toolbar plugin UI — the window header replaces it */
+
+.code-window div.code-toolbar > .toolbar {
+  display: none;
+}
+
+.code-window pre[class*="language-"] {
+  margin: 0;
+  border-radius: 0;
+  max-height: 480px;
+  background: transparent;
+}
+
+.code-window pre[class*="language-"].line-numbers {
+  padding-left: 3.6em;
+}
+
+.code-window code[class*="language-"] {
+  font-size: 0.87rem;
+}
+
+/* Tooltip on action buttons */
+.code-window-actions button[data-tooltip] {
+  position: relative;
+}
+
+.code-window-actions button[data-tooltip]:hover::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: calc(100% + 6px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: #0b0f1a;
+  color: #e5e7eb;
+  font-family: "Saira", sans-serif;
+  font-size: 11px;
+  padding: 3px 7px;
+  border-radius: 4px;
+  white-space: nowrap;
+  border: 1px solid var(--code-border);
+  pointer-events: none;
+}
+
+@media (max-width: 480px) {
+  .code-window-title-pill {
+    max-width: 140px;
+  }
+  .code-window-actions button:nth-child(2),
+  .code-window-actions button:nth-child(3) {
+    display: none; /* keep copy + download on small screens */
+  }
+}

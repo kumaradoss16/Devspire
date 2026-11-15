@@ -1,0 +1,298 @@
+/* PrismJS 1.28.0 — Dual Theme (Dark & Light Reference Match)
+https://prismjs.com/download.html#themes=prism-tomorrow&languages=markup+css+clike+javascript&plugins=line-numbers+normalize-whitespace+toolbar+copy-to-clipboard
+
+Configured with the precise color token mapping from your reference screenshot.
+*/
+
+:root, [data-theme="dark"] {
+    --syntax-bg: #131c2e;
+    --syntax-text: #c9d1d9;
+    --syntax-comment: #8b949e;
+    --syntax-punctuation: #8b949e;
+    --syntax-operator: #7ee787;
+
+    --syntax-tag: #79c0ff;
+    --syntax-attribute: #d2a8ff;
+    --syntax-attribute-value: #a5d6ff;
+
+    --syntax-keyword: #ff7b72;
+    --syntax-builtin: #79c0ff;
+    --syntax-atrule: #79c0ff;
+
+    --syntax-string: #36c76b;
+    --syntax-variable: #fbe15b;
+    
+    --syntax-function: #d2a8ff;
+    --syntax-number: #79c0ff;
+    --syntax-boolean: #79c0ff;
+
+    --syntax-property: #79c0ff;
+    --syntax-class-name: #fbe15b;
+    --syntax-constant: #fbe15b;
+
+    --syntax-selector: #7ee787;
+    --syntax-important: #ff7b72;
+
+    --syntax-deleted: #ffa198;
+    --syntax-inserted: #7ee787;
+    --syntax-entity: #7ee787;
+    --syntax-url: #a5d6ff;
+}
+
+[data-theme="light"] {
+    --syntax-bg: #ffffff;
+    --syntax-text: #24292e;
+    --syntax-comment: #6a737d;
+    --syntax-punctuation: #586069;
+    --syntax-operator: #d73a49;
+
+    --syntax-tag: #22863a;
+    --syntax-attribute: #6f42c1;
+    --syntax-attribute-value: #032f62;
+
+    --syntax-keyword: #d73a49;
+    --syntax-builtin: #005cc5;
+    --syntax-atrule: #6f42c1;
+
+    --syntax-string: #032f62;
+    --syntax-variable: #e36209;
+
+    --syntax-function: #6f42c1;
+    --syntax-number: #005cc5;
+    --syntax-boolean: #005cc5;
+
+    --syntax-property: #005cc5;
+    --syntax-class-name: #e36209;
+    --syntax-constant: #e36209;
+
+    --syntax-selector: #22863a;
+    --syntax-important: #d73a49;
+
+    --syntax-deleted: #b31d28;
+    --syntax-inserted: #22863a;
+    --syntax-entity: #22863a;
+    --syntax-url: #032f62;
+}
+
+code[class*="language-"],
+pre[class*="language-"] {
+    color: var(--syntax-text);
+    /* background: var(--syntax-bg); */
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 1.5;
+    max-height: 40em;
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+    overflow: auto;
+    padding: 1em;
+    margin: .5em 0;
+    border-radius: 0.2em;
+    background: var(--syntax-bg);
+}
+
+/* Inline code */
+:not(pre)>code[class*="language-"] {
+    padding: .1em .3em;
+    border-radius: .3em;
+    white-space: normal;
+    background: var(--syntax-bg);
+}
+
+/* ---------------------------------------------------------------------
+   Token colors
+   --------------------------------------------------------------------- */
+
+.token.comment,
+.token.block-comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+    color: var(--syntax-comment);
+}
+
+.token.punctuation {
+    color: var(--syntax-punctuation);
+}
+
+.token.tag {
+    color: var(--syntax-tag);
+}
+
+.token.attr-name,
+.token.namespace {
+    color: var(--syntax-attribute);
+}
+
+.token.deleted {
+    color: var(--syntax-deleted);
+}
+
+.token.function,
+.token.function-name {
+    color: var(--syntax-function);
+}
+
+.token.boolean,
+.token.number {
+    color: var(--syntax-number);
+}
+
+.token.property {
+    color: var(--syntax-property);
+}
+
+.token.class-name,
+.token.constant,
+.token.symbol {
+    color: var(--syntax-class-name);
+}
+
+.token.selector {
+    color: var(--syntax-selector);
+}
+
+.token.atrule,
+.token.keyword,
+.token.builtin {
+    color: var(--syntax-keyword);
+}
+
+.token.string,
+.token.char,
+.token.attr-value,
+.token.regex {
+    color: var(--syntax-string);
+}
+
+.token.variable {
+    color: var(--syntax-variable);
+}
+
+.token.operator,
+.token.entity,
+.token.url {
+    color: var(--syntax-operator);
+}
+
+.token.important,
+.token.bold {
+    font-weight: bold;
+}
+
+.token.important {
+    color: var(--syntax-important);
+}
+
+.token.italic {
+    font-style: italic;
+}
+
+.token.entity {
+    cursor: help;
+}
+
+.token.inserted {
+    color: var(--syntax-inserted);
+}
+
+/* ---------------------------------------------------------------------
+   Line-numbers plugin
+   --------------------------------------------------------------------- */
+
+pre[class*="language-"].line-numbers {
+    position: relative;
+    padding-left: 3.8em;
+    counter-reset: linenumber;
+}
+
+pre[class*="language-"].line-numbers>code {
+    position: relative;
+    white-space: inherit;
+}
+
+.line-numbers .line-numbers-rows {
+    position: absolute;
+    pointer-events: none;
+    top: 0;
+    font-size: 100%;
+    left: -3.8em;
+    width: 3em;
+    letter-spacing: -1px;
+    border-right: 1px solid var(--syntax-comment);
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.line-numbers-rows>span {
+    display: block;
+    counter-increment: linenumber;
+}
+
+.line-numbers-rows>span:before {
+    content: counter(linenumber);
+    color: var(--syntax-comment);
+    display: block;
+    padding-right: 0.8em;
+    text-align: right;
+}
+
+/* ---------------------------------------------------------------------
+   Toolbar / copy-to-clipboard plugin
+   --------------------------------------------------------------------- */
+
+div.code-toolbar {
+    position: relative;
+}
+
+div.code-toolbar>.toolbar {
+    position: absolute;
+    z-index: 10;
+    top: .3em;
+    right: 1.5em;
+    transition: opacity 0.3s ease-in-out;
+    opacity: 0;
+}
+
+div.code-toolbar:hover>.toolbar,
+div.code-toolbar:focus-within>.toolbar {
+    opacity: 1;
+}
+
+div.code-toolbar>.toolbar>.toolbar-item {
+    display: inline-block;
+}
+
+div.code-toolbar>.toolbar>.toolbar-item>a,
+div.code-toolbar>.toolbar>.toolbar-item>button,
+div.code-toolbar>.toolbar>.toolbar-item>span {
+    color: var(--syntax-text);
+    font-size: .8em;
+    padding: .2em .6em;
+    background: rgba(128, 128, 128, 0.15);
+    box-shadow: 0 2px 0 0 rgba(0, 0, 0, 0.1);
+    border-radius: .4em;
+    border: none;
+    cursor: pointer;
+}
+
+div.code-toolbar>.toolbar>.toolbar-item>a:hover,
+div.code-toolbar>.toolbar>.toolbar-item>button:hover {
+    background: rgba(128, 128, 128, 0.25);
+    text-decoration: none;
+}

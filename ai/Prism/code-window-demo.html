@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Code Window Component — Demo</title>
+<link rel="stylesheet" href="prism.css">
+<link rel="stylesheet" href="code-window.css">
+<style>
+  body {
+    background: #020617;
+    color: #ccc;
+    font-family: 'Saira', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    max-width: 760px;
+    margin: 60px auto;
+    padding: 0 20px 80px;
+  }
+  h1 { font-size: 1.4rem; margin-bottom: 6px; }
+  p.lead { color: #9aa1b1; margin-bottom: 32px; }
+  h2 { font-size: 1rem; color: #9aa1b1; margin: 40px 0 4px; text-transform: uppercase; letter-spacing: .04em; }
+</style>
+</head>
+<body>
+
+  <h1>Code Window Component</h1>
+  <p class="lead">Prism.js syntax highlighting wrapped in a macOS-style window, matching the reference design.</p>
+
+  <h2>JavaScript</h2>
+  <!-- ================= JS SNIPPET ================= -->
+  <div class="code-window">
+    <div class="code-window-header">
+      <div class="code-window-dots">
+        <span class="dot-red"></span>
+        <span class="dot-yellow"></span>
+        <span class="dot-green"></span>
+      </div>
+      <div class="code-window-title">
+        <div class="code-window-title-pill">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <span>app.js</span>
+        </div>
+      </div>
+      <div class="code-window-actions">
+        <button data-action="download" data-tooltip="Download">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12"/><path d="M7 10l5 5 5-5"/><path d="M5 21h14"/></svg>
+        </button>
+        <button data-action="share" data-tooltip="Share">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12v7a2 2 0 002 2h12a2 2 0 002-2v-7"/><path d="M16 6l-4-4-4 4"/><path d="M12 2v14"/></svg>
+        </button>
+        <button data-action="add" data-tooltip="Add">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+        <button data-action="copy" data-tooltip="Copy">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 012-2h10"/></svg>
+        </button>
+      </div>
+    </div>
+    <pre class="line-numbers"><code class="language-javascript">async function fetchUser(id) {
+  const res = await fetch(`/api/users/${id}`);
+  if (!res.ok) {
+    throw new Error(`Failed to load user ${id}`);
+  }
+  const user = await res.json();
+  return user;
+}
+
+const button = document.querySelector('#load-user');
+button.addEventListener('click', () => {
+  fetchUser(42).then(user => console.log(user.name));
+});</code></pre>
+  </div>
+
+  <h2>CSS</h2>
+  <!-- ================= CSS SNIPPET ================= -->
+  <div class="code-window">
+    <div class="code-window-header">
+      <div class="code-window-dots">
+        <span class="dot-red"></span>
+        <span class="dot-yellow"></span>
+        <span class="dot-green"></span>
+      </div>
+      <div class="code-window-title">
+        <div class="code-window-title-pill">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <span>style.css</span>
+        </div>
+      </div>
+      <div class="code-window-actions">
+        <button data-action="download" data-tooltip="Download">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12"/><path d="M7 10l5 5 5-5"/><path d="M5 21h14"/></svg>
+        </button>
+        <button data-action="share" data-tooltip="Share">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12v7a2 2 0 002 2h12a2 2 0 002-2v-7"/><path d="M16 6l-4-4-4 4"/><path d="M12 2v14"/></svg>
+        </button>
+        <button data-action="add" data-tooltip="Add">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+        <button data-action="copy" data-tooltip="Copy">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 012-2h10"/></svg>
+        </button>
+      </div>
+    </div>
+    <pre class="line-numbers"><code class="language-css">.code-window {
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--code-bg);
+  border: 1px solid var(--code-border);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+}
+
+.code-window-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  background: var(--dark-gray);
+}</code></pre>
+  </div>
+
+  <script src="prism.js"></script>
+  <script src="code-window.js"></script>
+</body>
+</html>
