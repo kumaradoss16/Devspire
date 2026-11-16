@@ -1,159 +1,629 @@
-/* Buy Me a Coffee support card — shared across tutorial pages */
+/* ============================================================
+   DevSpireHub Shared Sidebar Cards Stylesheet
+   - 1. About DevSpireHub Card (.ds-about-card)
+   - 2. DevSpire Nexus Card (.ds-card.ds-card--nexus)
+   - 3. Buy Me a Coffee Card (.ds-card.ds-card--coffee)
+   ============================================================ */
 
-.bmc-support-card {
-    --bmc-card-bg: #07182F;
-    --bmc-card-border: #F2A900;
-    --bmc-title: #F1F5F9;
-    --bmc-body: #B7C1CB;
-    --bmc-muted: #8E9AAB;
-    --bmc-secondary: #19BAAF;
-    --bmc-focus: #A78BFA;
-    --bmc-button-bg: #F2A900;
-    --bmc-button-hover: #D99600;
-    --bmc-button-text: #101010;
-
-    box-sizing: border-box;
-    width: 100%;
-    margin: 0 0 20px;
-    padding: 20px;
-    background-color: var(--bmc-card-bg);
-    border: 2px solid var(--bmc-card-border);
-    border-radius: 15px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    color: var(--bmc-body);
-    text-align: left;
+:root {
+  --ds-navy-primary: #142D5E;
+  --ds-navy-deep: #0B1F45;
+  --ds-navy-secondary: #24477A;
+  --ds-navy-surface: #EAF0FA;
+  --ds-navy-hover: #193B70;
+  --ds-navy-focus: #426AA5;
+  --ds-navy-border: #C5D7F0;
+  --ds-navy-white: #FFFFFF;
+  --ds-gray-surface: #F0F2F5;
+  --ds-gray-border: #D1D5DB;
+  --ds-dark-grey-surface: #141B28;
+  --ds-dark-grey-highlight: #1A2334;
+  --ds-dark-grey-border: rgba(255, 255, 255, 0.1);
 }
 
-.bmc-support-card *,
-.bmc-support-card *::before,
-.bmc-support-card *::after {
-    box-sizing: border-box;
+.ds-about-card,
+.ds-card {
+  --ds-surface: #151e2c;
+  --ds-surface-raised: #18283a;
+  --ds-text: #ffffff;
+  --ds-body: #b7c1cb;
+  --ds-muted: #8e9aab;
+  --ds-border: rgba(183, 193, 203, 0.14);
+  --ds-accent: #19baaf;
+  --ds-accent-soft: rgba(25, 186, 175, 0.1);
+  --ds-accent-line: rgba(25, 186, 175, 0.32);
+  --ds-accent-bright: #4dd8cc;
+  --ds-accent-hover-bg: rgba(25, 186, 175, 0.18);
+  --ds-radius: 16px;
+  --ds-ease: 220ms cubic-bezier(0.16, 1, 0.3, 1);
+  box-sizing: border-box;
+  font-family: "Saira", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
-/* Sidebars that do not already space their blocks need a minimum gap. */
-.bmc-support-card--spaced {
-    margin-top: 20px;
+.ds-about-card *,
+.ds-about-card *::before,
+.ds-about-card *::after,
+.ds-card *,
+.ds-card *::before,
+.ds-card *::after {
+  box-sizing: border-box;
 }
 
-@media (max-width: 1023px) {
-    .bmc-support-card--spaced-sm {
-        margin-top: 20px;
-    }
+/* ============================================================
+   1. ABOUT DEVSPIREHUB CARD (.ds-about-card)
+   ============================================================ */
+
+.ds-about-card {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  margin: 0 0 18px;
+  padding: 20px;
+  border: 1px solid rgba(229, 68, 21, 0.26);
+  border-radius: var(--ds-radius);
+  background:
+    radial-gradient(115% 85% at 100% 0%, rgba(229, 68, 21, 0.18) 0%, rgba(229, 68, 21, 0) 55%),
+    radial-gradient(90% 70% at 0% 0%, rgba(25, 186, 175, 0.12) 0%, rgba(25, 186, 175, 0) 60%),
+    linear-gradient(165deg, #1b2c3f 0%, #151e2c 55%, #111a26 100%);
+  box-shadow:
+    0 18px 40px rgba(0, 0, 0, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  transition:
+    transform var(--ds-ease),
+    border-color var(--ds-ease),
+    box-shadow var(--ds-ease);
+  text-align: left;
 }
 
-.bmc-support-card__content {
-    display: flex;
-    flex-direction: column;
+.ds-about-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 2px;
+  background: linear-gradient(90deg, #e54415 0%, #f2a900 48%, #19baaf 100%);
+  opacity: 0.9;
+  pointer-events: none;
 }
 
-.bmc-support-card__title {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin: 0 0 10px;
-    padding: 0;
-    color: var(--bmc-title);
-    font-size: 17px;
-    font-weight: 600;
-    line-height: 1.35;
-    letter-spacing: 0.01em;
+.ds-about-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(229, 68, 21, 0.42);
+  box-shadow:
+    0 22px 46px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
 }
 
-.bmc-support-card__icon {
-    flex: 0 0 auto;
-    color: var(--bmc-button-bg);
-    font-size: 16px;
-    line-height: 1;
+.ds-about-card:focus-within {
+  border-color: rgba(25, 186, 175, 0.5);
 }
 
-.bmc-support-card__description {
-    margin: 0 0 16px;
-    padding: 0;
-    color: var(--bmc-body);
-    font-size: 14px;
-    line-height: 1.6;
+.ds-about-card__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 13px;
 }
 
-.bmc-support-card__ai {
-    margin: 0 0 16px;
-    padding: 12px;
-    background-color: rgba(25, 186, 175, 0.08);
-    border: 1px solid rgba(25, 186, 175, 0.4);
-    border-radius: 8px;
+.ds-about-card__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 3px 10px;
+  border: 1px solid var(--ds-border);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--ds-muted);
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 1.6;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
 }
 
-.bmc-support-card__ai-title {
-    display: flex;
-    align-items: center;
-    gap: 7px;
-    margin: 0 0 4px;
-    color: var(--bmc-secondary);
-    font-size: 12px;
-    font-weight: 700;
-    line-height: 1.4;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
+.ds-about-card__badge::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--ds-accent);
+  box-shadow: 0 0 0 3px rgba(25, 186, 175, 0.16);
 }
 
-.bmc-support-card__ai-icon {
-    flex: 0 0 auto;
-    font-size: 12px;
-    line-height: 1;
+.ds-about-card__mark {
+  display: inline-flex;
+  width: 32px;
+  height: 32px;
+  color: rgba(229, 68, 21, 0.9);
 }
 
-.bmc-support-card__ai-text {
-    margin: 0;
-    color: var(--bmc-body);
-    font-size: 13px;
-    line-height: 1.55;
+.ds-about-card__mark svg {
+  width: 100%;
+  height: 100%;
 }
 
-.bmc-support-card__button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
+.ds-about-card__title {
+  margin: 0 0 10px;
+  padding: 0;
+  border: 0;
+  color: var(--ds-text);
+  font-size: 1.3rem;
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+}
+
+.ds-about-card__title span {
+  background: linear-gradient(100deg, #e54415 0%, #f2a900 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.ds-about-card__desc {
+  margin: 0 0 14px;
+  color: var(--ds-body);
+  font-size: 13.5px;
+  line-height: 1.66;
+}
+
+.ds-about-card__topics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 0 0 15px;
+  padding: 0;
+  list-style: none;
+}
+
+.ds-about-card__topics li {
+  padding: 3px 9px;
+  border: 1px solid rgba(183, 193, 203, 0.16);
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.04);
+  color: #cfd7e1;
+  font-size: 11px;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+}
+
+.ds-about-card__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 32px;
+  border-radius: 6px;
+  color: var(--ds-accent);
+  font-size: 12.5px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color var(--ds-ease);
+}
+
+.ds-about-card__link svg {
+  width: 14px;
+  height: 14px;
+  transition: transform var(--ds-ease);
+}
+
+.ds-about-card__link:hover {
+  color: var(--ds-accent-bright);
+}
+
+.ds-about-card__link:hover svg {
+  transform: translateX(3px);
+}
+
+.ds-about-card__link:focus-visible {
+  outline: 2px solid var(--ds-accent);
+  outline-offset: 3px;
+}
+
+/* ============================================================
+   BASE CARD STYLES (.ds-card)
+   ============================================================ */
+
+.ds-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 0 0 18px;
+  padding: 20px;
+  border: 1px solid var(--ds-dark-grey-border);
+  border-radius: var(--ds-radius);
+  background-color: var(--ds-dark-grey-surface);
+  box-shadow:
+    0 10px 26px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  color: var(--ds-body);
+  font-size: 13px;
+  text-decoration: none;
+  text-align: left;
+  transition:
+    transform 250ms cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 250ms ease,
+    border-color 250ms ease,
+    background-color 250ms ease;
+  will-change: transform, box-shadow;
+}
+
+.ds-card:hover {
+  transform: translateY(-2px);
+  background-color: var(--ds-dark-grey-highlight);
+  box-shadow:
+    0 14px 32px rgba(0, 0, 0, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+.ds-card:active {
+  transform: translateY(0);
+}
+
+.ds-card:focus-visible {
+  outline: 2px solid var(--ds-accent);
+  outline-offset: 3px;
+}
+
+.ds-card__head {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+}
+
+.ds-card__heading {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.ds-card__eyebrow {
+  font-size: 9.5px;
+  font-weight: 700;
+  line-height: 1.5;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.ds-card__title {
+  color: var(--ds-text);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: -0.005em;
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+.ds-card__desc {
+  display: block;
+  color: #94A3B8;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.ds-card__features {
+  list-style: none;
+  padding: 0;
+  margin: 2px 0 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.ds-card__features li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11.8px;
+  color: var(--ds-body);
+  line-height: 1.45;
+}
+
+.ds-card__features li i {
+  color: var(--ds-accent);
+  font-size: 11px;
+  flex-shrink: 0;
+}
+
+.ds-card__cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 9px 12px;
+  border-radius: 10px;
+  font-size: 12.5px;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+  transition:
+    background 220ms ease,
+    border-color 220ms ease,
+    color 220ms ease;
+}
+
+.ds-card__cta svg {
+  width: 14px;
+  height: 14px;
+  flex: 0 0 auto;
+}
+
+.ds-card__arrow {
+  transition: transform var(--ds-ease);
+}
+
+.ds-card:hover .ds-card__arrow {
+  transform: translateX(3px);
+}
+
+/* ============================================================
+   2. DEVSPIRE NEXUS CARD (.ds-card.ds-card--nexus)
+   - 1.5× Height & Dark Grey Background
+   - Navy Blue Button Palette
+   ============================================================ */
+
+.ds-card--nexus {
+  --ds-text: #FFFFFF;
+  --ds-body: #94A3B8;
+  --ds-border: var(--ds-dark-grey-border);
+  --ds-accent: #38BDF8;
+  --ds-accent-soft: rgba(56, 189, 248, 0.1);
+  --ds-accent-line: rgba(56, 189, 248, 0.25);
+  --ds-accent-bright: #7DD3FC;
+  --ds-accent-hover-bg: #0284C7;
+  min-height: 324px;
+  justify-content: space-between;
+  padding: 22px;
+}
+
+.ds-card--nexus .ds-card__eyebrow {
+  color: #38BDF8;
+}
+
+.ds-card--nexus .ds-card__tagline {
+  color: #94A3B8;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.5;
+  letter-spacing: 0.05em;
+}
+
+.ds-card--nexus .ds-card__logo {
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  padding: 4px;
+  border: 1px solid rgba(183, 193, 203, 0.2);
+  border-radius: 12px;
+  background: linear-gradient(150deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.03));
+  box-shadow:
+    0 6px 14px rgba(0, 0, 0, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  transition: border-color var(--ds-ease), box-shadow var(--ds-ease);
+}
+
+.ds-card--nexus .ds-card__logo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.ds-card--nexus:hover .ds-card__logo {
+  border-color: rgba(56, 189, 248, 0.4);
+  box-shadow:
+    0 8px 18px rgba(0, 0, 0, 0.34),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.ds-card--nexus .ds-card__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.ds-card--nexus .ds-card__chip {
+  padding: 3px 8px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.06);
+  color: #E2E8F0;
+  font-size: 10.5px;
+  font-weight: 600;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+.ds-card--nexus .ds-card__cta {
+  background: var(--ds-navy-primary);
+  color: #FFFFFF;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  min-height: 44px;
+  font-weight: 700;
+}
+
+.ds-card--nexus:hover,
+.ds-card--nexus:focus-within {
+  transform: translateY(-2px);
+  background-color: var(--ds-dark-grey-highlight);
+  border-color: rgba(56, 189, 248, 0.5);
+  box-shadow:
+    0 14px 32px rgba(0, 0, 0, 0.45),
+    0 0 20px rgba(56, 189, 248, 0.14);
+}
+
+.ds-card--nexus:hover .ds-card__cta {
+  background: var(--ds-navy-hover);
+  border-color: #38BDF8;
+  color: #FFFFFF;
+}
+
+.ds-card--nexus:focus-visible,
+.ds-card--nexus .ds-card__cta:focus-visible {
+  outline: 2px solid #38BDF8;
+  outline-offset: 3px;
+}
+
+/* ============================================================
+   3. BUY ME A COFFEE CARD (.ds-card.ds-card--coffee)
+   - 1.5× Height & Dark Grey Background
+   - Official BMC Gold Accents (#F2A900)
+   ============================================================ */
+
+.ds-card--coffee {
+  --ds-text: #FFFFFF;
+  --ds-body: #94A3B8;
+  --ds-border: rgba(242, 169, 0, 0.28);
+  --ds-accent: #f2a900;
+  --ds-accent-soft: rgba(242, 169, 0, 0.12);
+  --ds-accent-line: rgba(242, 169, 0, 0.36);
+  --ds-accent-bright: #ffc533;
+  --ds-accent-hover-bg: rgba(242, 169, 0, 0.22);
+  min-height: 270px;
+  justify-content: space-between;
+  padding: 22px;
+}
+
+.ds-card--coffee .ds-card__eyebrow {
+  color: #f2a900;
+}
+
+.ds-card--coffee .ds-card__icon {
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border: 1px solid rgba(242, 169, 0, 0.36);
+  border-radius: 11px;
+  background: rgba(242, 169, 0, 0.12);
+  color: #ffc533;
+  transition: box-shadow var(--ds-ease), background-color var(--ds-ease);
+}
+
+.ds-card--coffee .ds-card__icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.ds-card--coffee .ds-card__features--coffee li i {
+  color: #f2a900;
+}
+
+.ds-card--coffee .ds-card__cta {
+  background: #f2a900;
+  color: #111111;
+  border: 1px solid #d49400;
+  font-weight: 700;
+  min-height: 44px;
+}
+
+.ds-card--coffee:hover,
+.ds-card--coffee:focus-within {
+  transform: translateY(-2px);
+  background-color: var(--ds-dark-grey-highlight);
+  border-color: rgba(242, 169, 0, 0.55);
+  box-shadow:
+    0 14px 32px rgba(0, 0, 0, 0.45),
+    0 0 20px rgba(242, 169, 0, 0.16);
+}
+
+.ds-card--coffee:hover .ds-card__cta {
+  background: #ffb81c;
+  color: #000000;
+  border-color: #f2a900;
+}
+
+.ds-card--coffee:focus-visible,
+.ds-card--coffee .ds-card__cta:focus-visible {
+  outline: 2px solid #f2a900;
+  outline-offset: 3px;
+}
+
+/* ============================================================
+   CARD ANIMATIONS & REDUCED MOTION
+   ============================================================ */
+
+@keyframes dsCardEntrance {
+  0% {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.ds-card--nexus.ds-card--revealed,
+.ds-card--coffee.ds-card--revealed {
+  animation: dsCardEntrance 500ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.ds-card--nexus.ds-card--revealed {
+  animation-delay: 0ms;
+}
+
+.ds-card--coffee.ds-card--revealed {
+  animation-delay: 120ms;
+}
+
+@media (max-width: 767.98px) {
+  .ds-about-card,
+  .ds-card {
+    padding: 18px;
+  }
+  .ds-about-card__title {
+    font-size: 1.22rem;
+  }
+  .ds-about-card__link,
+  .ds-card__cta {
     min-height: 44px;
-    padding: 10px 16px;
-    background-color: var(--bmc-button-bg);
-    border: 1px solid var(--bmc-button-bg);
-    border-radius: 8px;
-    color: var(--bmc-button-text);
-    font-size: 15px;
-    font-weight: 600;
-    line-height: 1.2;
-    text-align: center;
-    text-decoration: none;
-    cursor: pointer;
-    transition: background-color 0.2s ease, border-color 0.2s ease;
+  }
 }
 
-.bmc-support-card__button:visited {
-    color: var(--bmc-button-text);
-}
-
-.bmc-support-card__button:hover {
-    background-color: var(--bmc-button-hover);
-    border-color: var(--bmc-button-hover);
-    color: var(--bmc-button-text);
-    text-decoration: none;
-}
-
-.bmc-support-card__button:focus-visible {
-    outline: 2px solid var(--bmc-focus);
-    outline-offset: 3px;
-}
-
-.bmc-support-card__note {
-    margin: 12px 0 0;
-    padding: 0;
-    color: var(--bmc-muted);
-    font-size: 12px;
-    line-height: 1.5;
+@media (min-width: 1024px) {
+  .ds-card--nexus {
+    min-height: 324px;
+  }
+  .ds-card--coffee {
+    min-height: 270px;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .bmc-support-card__button {
-        transition: none;
-    }
+  .ds-about-card,
+  .ds-card,
+  .ds-card--nexus,
+  .ds-card--coffee,
+  .ds-card__icon,
+  .ds-card__cta,
+  .ds-card__arrow,
+  .ds-about-card__link,
+  .ds-about-card__link svg,
+  .ds-card--nexus.ds-card--revealed,
+  .ds-card--coffee.ds-card--revealed {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .ds-about-card:hover,
+  .ds-card:hover,
+  .ds-card--nexus:hover,
+  .ds-card--coffee:hover,
+  .ds-card--nexus:focus-within,
+  .ds-card--coffee:focus-within {
+    transform: none !important;
+  }
+
+  .ds-card:hover .ds-card__arrow,
+  .ds-about-card__link:hover svg {
+    transform: none !important;
+  }
 }
