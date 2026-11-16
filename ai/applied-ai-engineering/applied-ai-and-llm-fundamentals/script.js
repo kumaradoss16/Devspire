@@ -397,4 +397,25 @@ function initBanner() {
         </a>`;
     }).join('');
   }
-}
+
+  /* ═══════════════════════════════════════════════
+     SUBTLE CARD HIGHLIGHT ENTRANCE ANIMATION
+  ═══════════════════════════════════════════════ */
+  const highlightCards = document.querySelectorAll('.ds-card--nexus:not(.ds-card--revealed), .ds-card--coffee:not(.ds-card--revealed), .ds-card--featured:not(.ds-card--revealed)');
+  if (highlightCards.length) {
+    if (!('IntersectionObserver' in window)) {
+      highlightCards.forEach(c => c.classList.add('ds-card--revealed'));
+    } else {
+      const cardObserver = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('ds-card--revealed');
+            obs.unobserve(entry.target);
+          }
+        });
+      }, { rootMargin: '0px 0px -40px 0px', threshold: 0.12 });
+
+      highlightCards.forEach(c => cardObserver.observe(c));
+    }
+  }
+});
