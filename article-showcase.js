@@ -75,7 +75,11 @@
 
     var platforms = element("span", "article-card__platforms");
     publications.forEach(function (publication) {
-      var chip = element("span", "article-card__platform-chip");
+      var chip = externalLink(
+        publication.url,
+        "Read " + article.title + " on " + PLATFORMS[publication.platform].label + " (opens in a new tab)"
+      );
+      chip.className = "article-card__platform-chip";
       chip.appendChild(icon(PLATFORMS[publication.platform].icon));
       chip.appendChild(document.createTextNode(publication.label));
       platforms.appendChild(chip);
@@ -143,6 +147,11 @@
 
     if (article.coverImage) {
       var media = element("div", "article-card__media");
+      var mediaLink = externalLink(
+        publications[0].url,
+        article.title + " \u2014 read on " + PLATFORMS[publications[0].platform].label + " (opens in a new tab)"
+      );
+      mediaLink.className = "article-card__media-link";
       var image = document.createElement("img");
       image.src = article.coverImage;
       image.alt = "Cover image for \u201C" + article.title + "\u201D";
@@ -150,7 +159,8 @@
       image.height = 627;
       image.loading = "lazy";
       image.decoding = "async";
-      media.appendChild(image);
+      mediaLink.appendChild(image);
+      media.appendChild(mediaLink);
       media.appendChild(buildOverlay(article, publications));
       card.appendChild(media);
     }
