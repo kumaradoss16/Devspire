@@ -3875,10 +3875,24 @@ svg { image-rendering: optimizeQuality; text-rendering: geometricPrecision; }
   padding: 0 0 40px;
 }
 
+.newsletter-section--center {
+  padding: 40px 0 30px;
+}
+
+.newsletter-section--left {
+  padding: 32px 0 10px;
+  width: 100%;
+}
+
 .newsletter-card-wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100%;
+}
+
+.newsletter-section--left .newsletter-card-wrapper {
+  justify-content: flex-start;
   width: 100%;
 }
 
@@ -3891,6 +3905,11 @@ svg { image-rendering: optimizeQuality; text-rendering: geometricPrecision; }
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(25, 125, 156, 0.12) !important;
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
   overflow: hidden;
+}
+
+.newsletter-section--left .formkit-form {
+  max-width: 100% !important;
+  margin: 0 !important;
 }
 
 .newsletter-card-wrapper .formkit-form:hover {

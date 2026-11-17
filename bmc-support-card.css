@@ -627,3 +627,120 @@
     transform: none !important;
   }
 }
+
+
+/* ============================================================
+   DevSpireHub Newsletter Card Styles
+   - Used across tutorial pages and content pages
+   ============================================================ */
+.newsletter-section {
+  position: relative;
+  width: 100%;
+  padding: 30px 0 16px;
+}
+
+.newsletter-section--center {
+  padding: 40px 0 30px;
+}
+
+.newsletter-section--left {
+  padding: 32px 0 10px;
+  width: 100%;
+}
+
+.newsletter-card-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.newsletter-section--left .newsletter-card-wrapper {
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.newsletter-card-wrapper .formkit-form {
+  width: 100% !important;
+  max-width: 680px !important;
+  margin: 0 auto !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(25, 125, 156, 0.12) !important;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+}
+
+.newsletter-section--left .formkit-form {
+  max-width: 100% !important;
+  margin: 0 !important;
+}
+
+.newsletter-card-wrapper .formkit-form:hover {
+  border-color: rgba(25, 125, 156, 0.35) !important;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.5), 0 0 20px rgba(25, 125, 156, 0.2) !important;
+}
+
+/* Reduced internal card padding & spacing */
+.newsletter-card-wrapper .formkit-form [data-style="minimal"] {
+  padding: 20px 24px !important;
+}
+
+.newsletter-card-wrapper .formkit-header {
+  margin: 0 0 6px 0 !important;
+}
+
+.newsletter-card-wrapper .formkit-header h2 {
+  font-family: inherit !important;
+  font-size: 22px !important;
+  letter-spacing: -0.02em;
+  margin: 0 !important;
+}
+
+.newsletter-card-wrapper .formkit-subheader {
+  margin: 0 0 12px 0 !important;
+}
+
+.newsletter-card-wrapper .formkit-subheader p {
+  font-family: inherit !important;
+  font-size: 14.5px !important;
+  line-height: 1.5 !important;
+  margin: 0 !important;
+}
+
+.newsletter-card-wrapper .formkit-fields {
+  margin: 12px auto 0 auto !important;
+}
+
+.newsletter-card-wrapper .formkit-field,
+.newsletter-card-wrapper .formkit-submit {
+  margin: 0 0 10px 0 !important;
+}
+
+.newsletter-card-wrapper .formkit-guarantee {
+  margin: 2px 0 0 0 !important;
+}
+
+.newsletter-card-wrapper .formkit-guarantee > p {
+  margin: 0 !important;
+}
+
+.newsletter-card-wrapper .formkit-submit {
+  transition: transform 0.2s ease, filter 0.2s ease !important;
+}
+
+.newsletter-card-wrapper .formkit-submit:hover {
+  filter: brightness(1.1);
+  transform: translateY(-1px);
+}
+
+@media (max-width: 640px) {
+  .newsletter-section,
+  .newsletter-section--left {
+    padding: 22px 0 14px;
+  }
+
+  .newsletter-card-wrapper .formkit-form [data-style="minimal"] {
+    padding: 16px 14px !important;
+  }
+}
