@@ -3995,10 +3995,10 @@ svg { image-rendering: optimizeQuality; text-rendering: geometricPrecision; }
   align-items: center;
   gap: 6px;
   padding: 5px 14px;
-  background: rgba(249, 115, 22, 0.12);
-  border: 1px solid rgba(249, 115, 22, 0.32);
+  background: rgba(242, 169, 0, 0.12);
+  border: 1px solid rgba(242, 169, 0, 0.35);
   border-radius: 20px;
-  color: #FB923C;
+  color: #F2A900;
   font-size: 0.72rem;
   font-weight: 600;
   letter-spacing: 0.05em;
@@ -4006,7 +4006,7 @@ svg { image-rendering: optimizeQuality; text-rendering: geometricPrecision; }
 }
 
 .newsletter-pill-sparkle {
-  color: #F97316;
+  color: #F2A900;
   flex-shrink: 0;
 }
 
@@ -4021,7 +4021,7 @@ svg { image-rendering: optimizeQuality; text-rendering: geometricPrecision; }
 }
 
 .newsletter-highlight {
-  background: linear-gradient(135deg, #FDBA74 0%, #FB923C 50%, #F97316 100%);
+  background: linear-gradient(135deg, #FDE68A 0%, #F2A900 55%, #EA580C 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   display: inline-block;
@@ -4196,23 +4196,23 @@ svg { image-rendering: optimizeQuality; text-rendering: geometricPrecision; }
   padding: 0 26px !important;
   margin: 0 !important;
   box-sizing: border-box !important;
-  background: linear-gradient(135deg, #F97316 0%, #EA580C 100%) !important;
+  background: linear-gradient(135deg, #F2A900 0%, #D97706 100%) !important;
   border: 1px solid transparent !important;
   border-radius: 9px !important;
-  color: #FFFFFF !important;
+  color: #0B111A !important;
   font-family: inherit !important;
   font-size: 0.95rem !important;
   font-weight: 700 !important;
   letter-spacing: 0.02em !important;
   white-space: nowrap !important;
   cursor: pointer !important;
-  box-shadow: 0 4px 16px rgba(249, 115, 22, 0.35) !important;
+  box-shadow: 0 4px 16px rgba(242, 169, 0, 0.35) !important;
   transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease !important;
 }
 
 .newsletter-banner button.sib-form-block__button:hover {
   filter: brightness(1.1) !important;
-  box-shadow: 0 6px 22px rgba(249, 115, 22, 0.5) !important;
+  box-shadow: 0 6px 22px rgba(242, 169, 0, 0.5) !important;
   transform: translateY(-1px) !important;
 }
 
@@ -4313,6 +4313,21 @@ svg { image-rendering: optimizeQuality; text-rendering: geometricPrecision; }
 .newsletter-section--left .newsletter-card-wrapper {
   justify-content: flex-start;
   width: 100%;
+}
+
+.newsletter-section--left .newsletter-banner {
+  max-width: 820px !important;
+  margin: 0 !important;
+}
+
+.newsletter-section--center .newsletter-card-wrapper {
+  justify-content: center;
+  width: 100%;
+}
+
+.newsletter-section--center .newsletter-banner {
+  max-width: 1040px !important;
+  margin: 0 auto !important;
 }
 
 .newsletter-card-wrapper .formkit-form {
