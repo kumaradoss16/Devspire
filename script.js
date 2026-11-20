@@ -3,15 +3,31 @@ document.addEventListener("DOMContentLoaded", () => {
     const navLinks = document.querySelector(".nav-links");
 
     menuToggle.addEventListener("click", () => {
-        navLinks.classList.toggle("active");
+        const isActive = navLinks.classList.toggle("active");
+        menuToggle.setAttribute("aria-expanded", isActive ? "true" : "false");
         const icon = menuToggle.querySelector("i");
-        if (navLinks.classList.contains("active")) {
+        if (isActive) {
             icon.classList.remove("fa-bars");
             icon.classList.add("fa-times");
         } else {
             icon.classList.remove("fa-times");
             icon.classList.add("fa-bars");
         }
+    });
+
+    // Auto-close mobile navigation drawer upon selecting a link
+    navLinks.querySelectorAll("a").forEach(link => {
+        link.addEventListener("click", () => {
+            if (navLinks.classList.contains("active")) {
+                navLinks.classList.remove("active");
+                menuToggle.setAttribute("aria-expanded", "false");
+                const icon = menuToggle.querySelector("i");
+                if (icon) {
+                    icon.classList.remove("fa-times");
+                    icon.classList.add("fa-bars");
+                }
+            }
+        });
     });
 
     (function () {

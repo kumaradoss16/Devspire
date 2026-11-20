@@ -50,7 +50,7 @@
     <link href="https://cdn.lineicons.com/5.1/line/lineicons.css" rel="stylesheet">
 
     <!-- <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"> -->
-    <link rel="stylesheet" href="style.css?v=12" />
+    <link rel="stylesheet" href="style.css?v=32" />
 
     <!-- START - Brevo Form Styles in Head -->
     <style>
@@ -322,6 +322,7 @@
 </head>
 
 <body>
+    <a href="#hero-section" class="skip-link">Skip to main content</a>
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M457RGDF" height="0" width="0"
             style="display:none;visibility:hidden"></iframe></noscript>
@@ -333,24 +334,35 @@
     <header class="navbar">
         <div class="container">
             <div class="logo">
-                <div class="logo-text">
-                    <!-- <i class="fas fa-code"></i> -->
-                    <img src="images/icon.webp" alt="Gear Icon" width="23" height="23" loading="eager"
-                        fetchpriority="high" decoding="async">
-                    <span id="brand" class="typewriter" data-text="DevspireHub"></span>
-                </div>
-                <button class="menu-toggle" type="button" aria-label="Toggle navigation">
-                    <i class="fas fa-bars"></i>
+                <a href="#hero-section" class="logo-link" aria-label="DevSpireHub Home">
+                    <div class="logo-text">
+                        <!-- <i class="fas fa-code"></i> -->
+                        <img src="images/icon.webp" alt="DevSpireHub Logo Icon" width="26" height="26" loading="eager"
+                            fetchpriority="high" decoding="async">
+                        <span id="brand" class="typewriter" data-text="DevspireHub"></span>
+                    </div>
+                </a>
+                <button class="menu-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primary-nav">
+                    <i class="fas fa-bars" aria-hidden="true"></i>
                 </button>
             </div>
-            <nav class="nav-links">
+            <nav class="nav-links" id="primary-nav" aria-label="Primary Navigation">
                 <ul>
-                    <li><a href="#projects-tutorials-section" class="projects">Projects</a></li>
-                    <li><a href="#programming-tutorials-section" class="programming">Programming</a></li>
-                    <li><a href="#ethical-hacking-section" class="hacking">Ethical Hacking</a></li>
-                    <li><a href="#networking-section" class="networking">Networking</a></li>
-                    <li><a href="#ai-section" class="ai">AI</a></li>
-                    <li><a href="#info-section" class="game">Resources</a></li>
+                    <li><a href="#projects-tutorials-section" class="nav-item projects">Projects</a></li>
+                    <li><a href="#programming-tutorials-section" class="nav-item programming">Programming</a></li>
+                    <li><a href="#ethical-hacking-section" class="nav-item hacking">Ethical Hacking</a></li>
+                    <li><a href="#networking-section" class="nav-item networking">Networking</a></li>
+                    <li>
+                        <a href="#ai-section" class="nav-item ai">
+                            <span class="nav-badge-ai">AI</span> AI &amp; Automation
+                        </a>
+                    </li>
+                    <li class="nav-cta-item">
+                        <a href="#info-section" class="nav-cta-btn game">
+                            <span>Resources</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
                 </ul>
             </nav>
         </div>
@@ -358,411 +370,612 @@
 
     <!-- First Section -->
     <section class="hero-section" id="hero-section">
-        <div class="container hero">
-            <div class="grid-background"></div>
-            <h1>Learn <span class="text-orange">Programming, </span>
+        <div class="hero-container">
+            <div class="hero-frame">
+                <!-- Subtle Dotted Grid & Ambient Glow Behind Frame -->
+                <div class="hero-frame-backdrop" aria-hidden="true">
+                    <div class="hero-frame-grid"></div>
+                    <div class="hero-frame-glow"></div>
+                </div>
+
+                <div class="hero-grid">
+                    <!-- Left Column: Editorial & Brand Information -->
+                    <div class="hero-content">
+                        <a href="#ai-section" class="hero-ai-badge" aria-label="Explore Applied AI, LLM Pipelines and Automation Guides">
+                <span class="ai-badge-pulse" aria-hidden="true"><span class="pulse-dot"></span></span>
+                <span class="ai-badge-tag"><i class="fa-solid fa-brain" aria-hidden="true"></i> AI FOCUS</span>
+                <span class="ai-badge-divider" aria-hidden="true"></span>
+                <span class="ai-badge-title">Applied AI, LLM Pipelines &amp; Agents</span>
+                <i class="fa-solid fa-arrow-right ai-badge-arrow" aria-hidden="true"></i>
+            </a>
+                        <h1>Learn <span class="text-orange">Programming, </span>
                 <span class="text-red">Ethical Hacking</span> & <span class="text-blue">Networking</span>
             </h1>
-            <p class="description">Simple, step-by-step projects, tutorials with real examples. No accounts, no tracking
+                        <p class="description">Simple, step-by-step projects, tutorials with real examples. No accounts, no tracking
                 - just clear,
                 actionable
                 content for
                 beginners learners.
             </p>
-        </div>
-        <!-- ── Recent Tutorials Section ── -->
-        <section class="recent-tutorials-section" id="recent-tutorials">
-            <div class="nexus-card-layout">
-            <div class="recent-main">
+                    </div>
 
-            <!-- Section Header -->
-            <div class="recent-header">
-                <div class="recent-title-row">
-                    <span class="recent-icon"><i class="fa-solid fa-clock"></i></span>
-                    <h2 class="recent-title">Recent <span class="highlight-cyan">Tutorials</span></h2>
+                    <!-- Right Column: Layered Developer Dashboard Illustration (Text-Free Hand-Drawn SVG) -->
+                    <div class="hero-visual" aria-hidden="true">
+                        <svg class="hero-dashboard-svg" viewBox="0 0 580 440" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img">
+  <defs>
+    <!-- Soft Orange Ambient Glow Behind Illustration -->
+    <radialGradient id="hero-ambient-glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#E54415" stop-opacity="0.22" />
+      <stop offset="55%" stop-color="#E54415" stop-opacity="0.06" />
+      <stop offset="100%" stop-color="#E54415" stop-opacity="0" />
+    </radialGradient>
+    <radialGradient id="hero-teal-glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#19BAAF" stop-opacity="0.14" />
+      <stop offset="100%" stop-color="#19BAAF" stop-opacity="0" />
+    </radialGradient>
+
+    <!-- Background Dotted Grid Pattern -->
+    <pattern id="hero-dot-grid" width="22" height="22" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.15" fill="#AAB4C0" fill-opacity="0.1" />
+    </pattern>
+
+    <!-- Hatched Accent Pattern -->
+    <pattern id="hero-hatch" width="8" height="8" patternTransform="rotate(45 0 0)" patternUnits="userSpaceOnUse">
+      <line x1="0" y1="0" x2="0" y2="8" stroke="#223D57" stroke-width="1.8" stroke-opacity="0.5" />
+    </pattern>
+
+    <!-- Card Drop Shadows -->
+    <filter id="hero-shadow-main" x="-10%" y="-10%" width="125%" height="130%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="16" stdDeviation="20" flood-color="#010810" flood-opacity="0.65" />
+    </filter>
+    <filter id="hero-shadow-chip" x="-15%" y="-15%" width="135%" height="135%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#010810" flood-opacity="0.55" />
+    </filter>
+  </defs>
+
+  <!-- 1. Ambient Lighting & Subtle Grid Backdrop -->
+  <rect x="10" y="10" width="560" height="420" fill="url(#hero-dot-grid)" opacity="0.85" />
+  <circle cx="340" cy="220" r="210" fill="url(#hero-ambient-glow)" />
+  <circle cx="160" cy="110" r="140" fill="url(#hero-teal-glow)" />
+
+  <!-- Hatched Disc Decorative Element (Bottom Center-Left) -->
+  <circle cx="260" cy="380" r="38" fill="url(#hero-hatch)" />
+
+  <!-- 2. Subtle Orange Dashed Connection Flow Lines -->
+  <g class="hero-flow-lines" stroke="#E54415" stroke-opacity="0.45" stroke-dasharray="4 4" stroke-width="1.4" fill="none">
+    <path d="M 210 95 C 265 95, 275 160, 310 160" />
+    <path d="M 430 195 C 465 195, 460 90, 485 90" />
+    <path d="M 430 240 C 475 240, 480 200, 505 200" />
+    <path d="M 430 265 C 475 265, 470 295, 490 295" />
+    <path d="M 260 290 C 260 340, 220 340, 185 340" />
+    <path d="M 330 350 C 290 350, 270 340, 200 340" />
+  </g>
+
+  <!-- 3. Git Branch-Graph Card (Top Left) -->
+  <g class="hero-float-card hero-card-branch" filter="url(#hero-shadow-main)">
+    <rect x="45" y="42" width="180" height="96" rx="14" fill="#162F4A" stroke="#223D57" stroke-width="1.2" />
+    <!-- Branch Header Ghost Indicator -->
+    <rect x="62" y="56" width="34" height="5" rx="2.5" fill="#AAB4C0" fill-opacity="0.35" />
+    <!-- Branch Tracks -->
+    <path d="M 65 98 L 105 98" stroke="#223D57" stroke-width="2.5" stroke-linecap="round" />
+    <path d="M 105 98 C 122 98, 126 74, 146 74 L 195 74" stroke="#223D57" stroke-width="2.5" stroke-linecap="round" fill="none" />
+    <path d="M 105 98 L 195 98" stroke="#223D57" stroke-width="2.5" stroke-linecap="round" />
+    <path d="M 146 74 C 162 74, 168 98, 186 98" stroke="#E54415" stroke-width="2" stroke-linecap="round" stroke-dasharray="3 3" fill="none" />
+    <!-- Branch Nodes -->
+    <circle cx="65" cy="98" r="8" fill="#E54415" fill-opacity="0.2" />
+    <circle cx="65" cy="98" r="4.5" fill="#E54415" />
+    <circle cx="105" cy="98" r="4" fill="#AAB4C0" />
+    <circle cx="146" cy="74" r="5" fill="#E54415" />
+    <circle cx="195" cy="74" r="4" fill="#19BAAF" />
+    <circle cx="165" cy="98" r="3.5" fill="#223D57" />
+    <circle cx="195" cy="98" r="4" fill="#AAB4C0" />
+  </g>
+
+  <!-- 4. Code Editor Card (Center Primary Anchor) -->
+  <g class="hero-float-card hero-card-code" filter="url(#hero-shadow-main)">
+    <rect x="155" y="118" width="280" height="176" rx="14" fill="#10243A" stroke="#223D57" stroke-width="1.3" />
+    <!-- Window Header -->
+    <rect x="155" y="118" width="280" height="30" rx="14" fill="#0D1E31" />
+    <path d="M 155 148 L 435 148" stroke="#223D57" stroke-width="1" />
+    <!-- 3 macOS-style Window Dots -->
+    <circle cx="174" cy="133" r="4.2" fill="#EF4444" fill-opacity="0.8" />
+    <circle cx="187" cy="133" r="4.2" fill="#F59E0B" fill-opacity="0.8" />
+    <circle cx="200" cy="133" r="4.2" fill="#10B981" fill-opacity="0.8" />
+    <!-- File Tab Ghost Pill -->
+    <rect x="220" y="126" width="56" height="14" rx="4" fill="#162F4A" />
+    <rect x="228" y="131" width="28" height="4" rx="2" fill="#AAB4C0" fill-opacity="0.5" />
+
+    <!-- Code Editor Gutter -->
+    <line x1="184" y1="156" x2="184" y2="282" stroke="#223D57" stroke-width="1" stroke-dasharray="2 4" opacity="0.6" />
+    <!-- Line numbers ghost marks -->
+    <rect x="168" y="162" width="8" height="3" rx="1.5" fill="#AAB4C0" fill-opacity="0.3" />
+    <rect x="168" y="179" width="8" height="3" rx="1.5" fill="#AAB4C0" fill-opacity="0.3" />
+    <rect x="168" y="196" width="8" height="3" rx="1.5" fill="#AAB4C0" fill-opacity="0.3" />
+    <rect x="168" y="213" width="8" height="3" rx="1.5" fill="#AAB4C0" fill-opacity="0.3" />
+    <rect x="168" y="234" width="8" height="3" rx="1.5" fill="#AAB4C0" fill-opacity="0.3" />
+    <rect x="168" y="251" width="8" height="3" rx="1.5" fill="#AAB4C0" fill-opacity="0.3" />
+    <rect x="168" y="268" width="8" height="3" rx="1.5" fill="#AAB4C0" fill-opacity="0.3" />
+
+    <!-- Code Rows (Ghost Bars of Varying Lengths & Colors, Text-Free) -->
+    <!-- Row 1: Function Signature -->
+    <rect x="196" y="160" width="38" height="7" rx="3.5" fill="#E54415" />
+    <rect x="240" y="160" width="62" height="7" rx="3.5" fill="#F1F5F9" fill-opacity="0.85" />
+    <rect x="308" y="160" width="22" height="7" rx="3.5" fill="#AAB4C0" fill-opacity="0.4" />
+    <!-- Row 2: Variable Assignment -->
+    <rect x="214" y="177" width="46" height="7" rx="3.5" fill="#19BAAF" />
+    <rect x="266" y="177" width="84" height="7" rx="3.5" fill="#AAB4C0" fill-opacity="0.6" />
+    <!-- Row 3: Pipeline / Transformation -->
+    <rect x="214" y="194" width="92" height="7" rx="3.5" fill="#AAB4C0" fill-opacity="0.75" />
+    <rect x="312" y="194" width="34" height="7" rx="3.5" fill="#E54415" fill-opacity="0.7" />
+    <!-- Row 4: Return statement -->
+    <rect x="214" y="211" width="42" height="7" rx="3.5" fill="#E54415" fill-opacity="0.9" />
+    <rect x="262" y="211" width="58" height="7" rx="3.5" fill="#19BAAF" />
+    <!-- Row 5: Secondary Block -->
+    <rect x="196" y="232" width="42" height="7" rx="3.5" fill="#E54415" />
+    <rect x="244" y="232" width="70" height="7" rx="3.5" fill="#F1F5F9" fill-opacity="0.75" />
+    <!-- Row 6: Execution -->
+    <rect x="214" y="249" width="108" height="7" rx="3.5" fill="#AAB4C0" fill-opacity="0.5" />
+    <!-- Row 7: Output Dispatch -->
+    <rect x="214" y="266" width="64" height="7" rx="3.5" fill="#19BAAF" fill-opacity="0.85" />
+  </g>
+
+  <!-- 5. Circular Progress-Ring Card (Bottom Left) -->
+  <g class="hero-float-card hero-card-ring" filter="url(#hero-shadow-main)">
+    <rect x="55" y="272" width="138" height="130" rx="14" fill="#162F4A" stroke="#223D57" stroke-width="1.2" />
+    <!-- Track Circle -->
+    <circle cx="124" cy="330" r="36" fill="none" stroke="#223D57" stroke-width="7.5" />
+    <!-- Active Orange Sweep Arc (~75% sweep, text-free) -->
+    <circle cx="124" cy="330" r="36" fill="none" stroke="#E54415" stroke-width="7.5"
+            stroke-dasharray="168 62" stroke-linecap="round"
+            transform="rotate(-90 124 330)" />
+    <!-- Center Neutral Glyph (Abstract Command Prompt) -->
+    <path d="M 119 324 L 126 330 L 119 336" stroke="#F1F5F9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+    <line x1="129" y1="336" x2="134" y2="336" stroke="#E54415" stroke-width="2" stroke-linecap="round" />
+    <!-- Bottom Ghost Status Label -->
+    <rect x="100" y="380" width="48" height="5" rx="2.5" fill="#AAB4C0" fill-opacity="0.4" />
+  </g>
+
+  <!-- 6. Ascending Bar-Chart Card (Bottom Right) -->
+  <g class="hero-float-card hero-card-bars" filter="url(#hero-shadow-main)">
+    <rect x="335" y="275" width="168" height="126" rx="14" fill="#162F4A" stroke="#223D57" stroke-width="1.2" />
+    <!-- Chart Header Ghost Indicators -->
+    <rect x="352" y="291" width="42" height="5" rx="2.5" fill="#AAB4C0" fill-opacity="0.45" />
+    <rect x="402" y="291" width="22" height="5" rx="2.5" fill="#E54415" fill-opacity="0.65" />
+    <!-- 7 Rising Unlabeled Bars (Tallest in Orange, Text-Free) -->
+    <rect x="352" y="354" width="10" height="26" rx="3" fill="#223D57" />
+    <rect x="368" y="344" width="10" height="36" rx="3" fill="#223D57" />
+    <rect x="384" y="350" width="10" height="30" rx="3" fill="#223D57" />
+    <rect x="400" y="334" width="10" height="46" rx="3" fill="#2E4C6B" />
+    <rect x="416" y="340" width="10" height="40" rx="3" fill="#2E4C6B" />
+    <rect x="432" y="322" width="10" height="58" rx="3" fill="#E54415" fill-opacity="0.8" />
+    <rect x="448" y="308" width="10" height="72" rx="3" fill="#E54415" />
+    <!-- Baseline -->
+    <line x1="346" y1="384" x2="466" y2="384" stroke="#223D57" stroke-width="1" />
+  </g>
+
+  <!-- 7. Floating Technology Icon Chips (Original Vector Line Icons, Zero Brand Logos) -->
+  <!-- Chip 1: Code Brackets </> (Programming) -->
+  <g class="hero-float-chip hero-chip-1" filter="url(#hero-shadow-chip)">
+    <rect x="472" y="68" width="40" height="40" rx="10" fill="#162F4A" stroke="#223D57" stroke-width="1.2" />
+    <path d="M 486 84 L 481 88 L 486 92" stroke="#F59E0B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+    <path d="M 498 84 L 503 88 L 498 92" stroke="#F59E0B" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+    <line x1="493" y1="83" x2="491" y2="93" stroke="#AAB4C0" stroke-width="1.6" stroke-linecap="round" />
+  </g>
+
+  <!-- Chip 2: Curly Brackets / Logic (Development) -->
+  <g class="hero-float-chip hero-chip-2" filter="url(#hero-shadow-chip)">
+    <rect x="502" y="122" width="38" height="38" rx="10" fill="#162F4A" stroke="#223D57" stroke-width="1.2" />
+    <path d="M 522 133 C 518 133, 517 137, 517 141 C 517 144, 515 145, 513 145" stroke="#E54415" stroke-width="1.8" stroke-linecap="round" fill="none" />
+    <path d="M 522 149 C 518 149, 517 145, 517 141" stroke="#E54415" stroke-width="1.8" stroke-linecap="round" fill="none" />
+    <path d="M 525 133 C 529 133, 530 137, 530 141 C 530 144, 532 145, 534 145" stroke="#F1F5F9" stroke-width="1.8" stroke-linecap="round" fill="none" />
+    <path d="M 525 149 C 529 149, 530 145, 530 141" stroke="#F1F5F9" stroke-width="1.8" stroke-linecap="round" fill="none" />
+  </g>
+
+  <!-- Chip 3: Network Topology Nodes (Networking) -->
+  <g class="hero-float-chip hero-chip-3" filter="url(#hero-shadow-chip)">
+    <rect x="512" y="176" width="40" height="40" rx="10" fill="#162F4A" stroke="#223D57" stroke-width="1.2" />
+    <circle cx="524" cy="191" r="3" fill="#19BAAF" />
+    <circle cx="540" cy="191" r="3" fill="#19BAAF" />
+    <circle cx="532" cy="202" r="3" fill="#F1F5F9" />
+    <line x1="524" y1="191" x2="540" y2="191" stroke="#19BAAF" stroke-width="1.4" />
+    <line x1="524" y1="191" x2="532" y2="202" stroke="#19BAAF" stroke-width="1.4" />
+    <line x1="540" y1="191" x2="532" y2="202" stroke="#19BAAF" stroke-width="1.4" />
+  </g>
+
+  <!-- Chip 4: Security Shield (Ethical Hacking) -->
+  <g class="hero-float-chip hero-chip-4" filter="url(#hero-shadow-chip)">
+    <rect x="500" y="232" width="40" height="40" rx="10" fill="#162F4A" stroke="#223D57" stroke-width="1.2" />
+    <path d="M 520 242 L 528 245 V 251 C 528 256, 524 260, 520 262 C 516 260, 512 256, 512 251 V 245 Z"
+          fill="none" stroke="#00D9FF" stroke-width="1.8" stroke-linejoin="round" />
+    <path d="M 517 251 L 519 253 L 523 248" stroke="#00D9FF" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+  </g>
+
+  <!-- Chip 5: Neural AI Node Cluster / Gear (AI & Systems) -->
+  <g class="hero-float-chip hero-chip-5" filter="url(#hero-shadow-chip)">
+    <rect x="474" y="284" width="38" height="38" rx="10" fill="#162F4A" stroke="#223D57" stroke-width="1.2" />
+    <circle cx="493" cy="303" r="4.5" fill="none" stroke="#E54415" stroke-width="1.8" />
+    <circle cx="487" cy="296" r="2" fill="#E54415" />
+    <circle cx="499" cy="296" r="2" fill="#E54415" />
+    <circle cx="487" cy="310" r="2" fill="#E54415" />
+    <circle cx="499" cy="310" r="2" fill="#E54415" />
+    <line x1="487" y1="296" x2="491" y2="300" stroke="#E54415" stroke-width="1.2" />
+    <line x1="499" y1="296" x2="495" y2="300" stroke="#E54415" stroke-width="1.2" />
+    <line x1="487" y1="310" x2="491" y2="306" stroke="#E54415" stroke-width="1.2" />
+    <line x1="499" y1="310" x2="495" y2="306" stroke="#E54415" stroke-width="1.2" />
+  </g>
+</svg>
+                    </div>
                 </div>
-                <p class="recent-subtitle">
-                    Fresh step-by-step guides added to help you learn faster
-                </p>
             </div>
+        </div>
+    </section>
+        <!-- ── DevSpireHub Homepage Hero Ecosystem ── -->
+        <section class="hero-ecosystem-section" id="recent-tutorials" aria-label="DevSpireHub Learning and Developer Ecosystem">
+            <div class="container hero-ecosystem-container">
 
-            <!-- Tutorial Cards Grid -->
-            <div class="recent-grid">
-                <!-- Card 1  -->
-                <article class="recent-card tutorial">
-                    <div class="card-filebar">
-                        <span class="card-filedot" aria-hidden="true"></span>
-                        <span class="card-filename"></span>
-                        <span class="card-time"><i class="fas fa-clock"></i> 4 – 5 hrs</span>
-                    </div>
-                    <div class="card-body">
-                        <div class="card-tags">
-                            <span class="tag tag-python">python</span>
-                            <span class="tag tag-python">ai</span>
+                <!-- ── Tier 1: Recent Tutorials (Primary Learning Content) ── -->
+                <div class="ecosystem-tutorials-tier">
+                    <div class="recent-header">
+                        <div class="recent-title-row">
+                            <span class="recent-icon" aria-hidden="true"><i class="fa-solid fa-clock"></i></span>
+                            <h2 class="recent-title">Recent <span class="highlight-cyan">Tutorials</span></h2>
                         </div>
-                        <h3 class="card-title">
-                            AI and LLM Foundations: A Practical Guide
-                        </h3>
-                        <p class="card-desc">
-                           Understand AI, machine learning, deep learning, LLMs, tokens, inference, and model selection, with hands-on Python labs.
+                        <p class="recent-subtitle">
+                            Fresh step-by-step guides added to help you learn faster
                         </p>
-                        <div class="card-footer">
-                            <span class="card-date"><i class="fas fa-calendar-alt"></i> Nov 15, 2026</span>
-                            <a href="ai/applied-ai-engineering/applied-ai-and-llm-fundamentals/applied-ai-and-llm-fundamentals.html"
-                                class="card-btn" target="_blank">Start Tutorial <span class="arrow">→</span></a>
-                        </div>
-                    </div>
-                </article>
-                <!-- Card 2  -->
-                <article class="recent-card tutorial">
-                    <div class="card-filebar">
-                        <span class="card-filedot" aria-hidden="true"></span>
-                        <span class="card-filename"></span>
-                        <span class="card-time"><i class="fas fa-clock"></i> 2 – 3 hrs</span>
-                    </div>
-                    <div class="card-body">
-                        <div class="card-tags">
-                            <span class="tag tag-python">python</span>
-                            <span class="tag tag-python">dsa</span>
-                        </div>
-                        <h3 class="card-title">
-                            Linux Processes & Job Management
-                        </h3>
-                        <p class="card-desc">
-                            Learn Linux process management and job control, including process monitoring, PID, CPU and memory usage, signals, priorities, and foreground/background jobs using essential Linux commands.
-                        </p>
-                        <div class="card-footer">
-                            <span class="card-date"><i class="fas fa-calendar-alt"></i> Nov 1, 2026</span>
-                            <a href="Ethical-Hacking/Linux/linux-process-and-job-management-tutorial/linux-process-and-job-management.html"
-                                class="card-btn" target="_blank">Start Tutorial <span class="arrow">→</span></a>
-                        </div>
-                    </div>
-                </article>
-                 <!-- Card 3  -->
-                <article class="recent-card tutorial">
-                    <div class="card-filebar">
-                        <span class="card-filedot" aria-hidden="true"></span>
-                        <span class="card-filename"></span>
-                        <span class="card-time"><i class="fas fa-clock"></i> 2 - 3 hrs</span>
-                    </div>
-                    <div class="card-body">
-                        <div class="card-tags">
-                            <span class="tag tag-python">python</span>
-                            <span class="tag tag-python">dsa</span>
-                        </div>
-                        <h3 class="card-title">
-                            Hash Table in Python: Complete Tutorial for Beginners
-                        </h3>
-                        <p class="card-desc">
-                            Learn the hash table data structure in Python: how hash functions, collisions, and chaining work, build a custom hash table from scratch, and master dict/set patterns for interview problems like Two Sum, Group Anagrams, and LRU Cache.
-                        </p>
-                        <div class="card-footer">
-                            <span class="card-date"><i class="fas fa-calendar-alt"></i> Oct 25, 2026</span>
-                            <a href="Programming/Tutorials/python-tutorials/data-structure-and-algorithms/hash-table-data-structure-in-python/hash-table-data-structure-in-python.html"
-                                class="card-btn" target="_blank">Start Tutorial <span class="arrow">→</span></a>
-                        </div>
-                    </div>
-                </article>
-            </div>
-            </div>
-
-            <aside class="nexus-card" aria-labelledby="nexus-card-title">
-                <div class="nexus-card__intro">
-                    <div class="nexus-card__brand">
-                        <img class="nexus-card__logo" src="images/nexus-logo.png" alt="DevSpire Nexus logo"
-                            width="48" height="48" loading="lazy" decoding="async">
-                        <div class="nexus-card__brand-copy">
-                            <span class="nexus-card__eyebrow">EXPLORE OUR PLATFORM</span>
-                            <span class="nexus-card__subtitle">AI Intelligence Directory</span>
-                        </div>
                     </div>
 
-                    <h2 class="nexus-card__title" id="nexus-card-title">
-                        Discover <span class="nexus-card__accent">Devspire Nexus</span>
-                    </h2>
-                    <p class="nexus-card__lead">A smarter way to discover AI resources.</p>
-                    <p class="nexus-card__desc">
-                        Explore a source-linked directory of AI tools, foundation models, and developer resources.
-                        Compare licensing, deployment, and open-weights details, then open the official source.
-                        Built for developers and technical teams evaluating what to adopt with confidence.
+                    <!-- Tutorial Cards Grid -->
+                    <div class="recent-grid">
+                        <!-- Card 1 (AI & LLM Guide) -->
+                        <article class="recent-card tutorial card-ai">
+                            <div class="card-filebar">
+                                <div class="card-filebar-left">
+                                    <span class="card-filedot" aria-hidden="true"></span>
+                                    <span class="card-filename">ai_foundations_guide.py</span>
+                                </div>
+                                <span class="card-time"><i class="fas fa-clock" aria-hidden="true"></i> 4 – 5 hrs</span>
+                            </div>
+                            <div class="card-body">
+                                <div class="card-tag-row">
+                                    <span class="tag-cat cat-ai"><i class="fas fa-microchip" aria-hidden="true"></i> AI / LLM</span>
+                                    <span class="badge-status status-featured"><i class="fas fa-star" aria-hidden="true"></i> Featured</span>
+                                </div>
+                                <h3 class="card-title">
+                                    <a href="ai/ai_tutorials/ai_foundations_guide/index.html">AI and LLM Foundations: A Practical Guide</a>
+                                </h3>
+                                <p class="card-desc">
+                                    Master neural network basics, transformer architecture, tokenization, embeddings, and prompt engineering with hands-on examples.
+                                </p>
+                                <div class="card-footer">
+                                    <span class="meta-date"><i class="fas fa-calendar-alt" aria-hidden="true"></i> Nov 2024</span>
+                                    <a href="ai/ai_tutorials/ai_foundations_guide/index.html" class="btn-card" aria-label="Read AI &amp; LLM Foundations tutorial">
+                                        <span>Read Guide</span><i class="fas fa-arrow-right" aria-hidden="true"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Card 2 (Linux Processes & Jobs) -->
+                        <article class="recent-card tutorial card-net">
+                            <div class="card-filebar">
+                                <div class="card-filebar-left">
+                                    <span class="card-filedot" aria-hidden="true"></span>
+                                    <span class="card-filename">linux_process_mgmt.sh</span>
+                                </div>
+                                <span class="card-time"><i class="fas fa-clock" aria-hidden="true"></i> 3 – 4 hrs</span>
+                            </div>
+                            <div class="card-body">
+                                <div class="card-tag-row">
+                                    <span class="tag-cat cat-net"><i class="fas fa-network-wired" aria-hidden="true"></i> Linux</span>
+                                    <span class="badge-status status-new"><i class="fas fa-bolt" aria-hidden="true"></i> New</span>
+                                </div>
+                                <h3 class="card-title">
+                                    <a href="networking/networking_tutorials/linux-process-management/index.html">Linux Processes &amp; Job Management</a>
+                                </h3>
+                                <p class="card-desc">
+                                    Control foreground/background jobs, master signals with kill &amp; trap, configure systemd services, and troubleshoot CPU/memory bottlenecks.
+                                </p>
+                                <div class="card-footer">
+                                    <span class="meta-date"><i class="fas fa-calendar-alt" aria-hidden="true"></i> Nov 2024</span>
+                                    <a href="networking/networking_tutorials/linux-process-management/index.html" class="btn-card" aria-label="Read Linux Processes tutorial">
+                                        <span>Read Guide</span><i class="fas fa-arrow-right" aria-hidden="true"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Card 3 (Python Hash Table DSA) -->
+                        <article class="recent-card tutorial card-prog">
+                            <div class="card-filebar">
+                                <div class="card-filebar-left">
+                                    <span class="card-filedot" aria-hidden="true"></span>
+                                    <span class="card-filename">hash_table_tutorial.py</span>
+                                </div>
+                                <span class="card-time"><i class="fas fa-clock" aria-hidden="true"></i> 2 – 3 hrs</span>
+                            </div>
+                            <div class="card-body">
+                                <div class="card-tag-row">
+                                    <span class="tag-cat cat-prog"><i class="fas fa-code" aria-hidden="true"></i> Python DSA</span>
+                                    <span class="badge-status status-new"><i class="fas fa-bolt" aria-hidden="true"></i> New</span>
+                                </div>
+                                <h3 class="card-title">
+                                    <a href="programming/dsa/hashtable-tutorial.html">Hash Table in Python: Complete Tutorial for Beginners</a>
+                                </h3>
+                                <p class="card-desc">
+                                    Master Hash Tables in Python with simple step-by-step code, collision handling, and real-world examples. Free beginner guide with zero fluff.
+                                </p>
+                                <div class="card-footer">
+                                    <span class="meta-date"><i class="fas fa-calendar-alt" aria-hidden="true"></i> Nov 2024</span>
+                                    <a href="programming/dsa/hashtable-tutorial.html" class="btn-card" aria-label="Read Hash Table in Python tutorial">
+                                        <span>Read Guide</span><i class="fas fa-arrow-right" aria-hidden="true"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+
+                <!-- ── Tier 2: Developer Ecosystem Triad (Nexus AI + NetPulse Utility + Built for Builders) ── -->
+                <div class="ecosystem-triad-header">
+                    <div class="triad-header-left">
+                        <span class="triad-icon" aria-hidden="true"><i class="fa-solid fa-layer-group"></i></span>
+                        <h3 class="triad-title">Developer <span class="highlight-cyan">Ecosystem</span></h3>
+                    </div>
+                    <p class="triad-subtitle">
+                        AI intelligence directory, real-time speed utilities, and open-source developer toolkits
                     </p>
                 </div>
 
-                <div class="nexus-card__panel">
-                    <ul class="nexus-card__highlights">
-                        <li class="nexus-card__highlight">
-                            <span class="nexus-card__check" aria-hidden="true">
-                                <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor"
-                                    stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="m5 12.5 4.2 4.2L19 6.8" />
-                                </svg>
-                            </span>
-                            <span>Verified AI tools, foundation models &amp; developer resources</span>
-                        </li>
-                        <li class="nexus-card__highlight">
-                            <span class="nexus-card__check" aria-hidden="true">
-                                <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor"
-                                    stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="m5 12.5 4.2 4.2L19 6.8" />
-                                </svg>
-                            </span>
-                            <span>Source-linked licensing, deployment &amp; open-weights details</span>
-                        </li>
-                        <li class="nexus-card__highlight">
-                            <span class="nexus-card__check" aria-hidden="true">
-                                <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor"
-                                    stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="m5 12.5 4.2 4.2L19 6.8" />
-                                </svg>
-                            </span>
-                            <span>Independent discovery with no paid ranking</span>
-                        </li>
-                    </ul>
+                <div class="ecosystem-triad-grid" aria-label="Platforms and Developer Utilities">
 
-                    <div class="nexus-card__actions">
-                        <a class="nexus-card__cta" href="https://nexus.devspirehub.com/" target="_blank"
-                            rel="noopener noreferrer" data-nexus-cta>
-                            Explore Devspire Nexus <span class="nexus-card__cta-arrow" aria-hidden="true">→</span>
-                        </a>
-                        <a class="nexus-card__secondary" href="https://nexus.devspirehub.com/about.html"
-                            target="_blank" rel="noopener noreferrer">
-                            About Nexus <span aria-hidden="true">→</span>
-                        </a>
-                    </div>
+                    <!-- Product 1: DevSpire Nexus (Row 1 Full Width) -->
+                    <aside class="ecosystem-card eco-nexus-card" aria-labelledby="nexus-card-title">
+                        <div class="eco-card-inner eco-nexus-wide-inner">
+                            <!-- Left Column: Identity, Description -->
+                            <div class="eco-nexus-col-left">
+                                <div class="eco-card-header eco-nexus-header">
+                                    <div class="nexus-card__brand">
+                                        <img class="nexus-card__logo" src="images/nexus-logo.png" alt="DevSpire Nexus logo"
+                                            width="44" height="44" loading="lazy" decoding="async">
+                                        <div class="nexus-card__brand-copy">
+                                            <span class="nexus-card__eyebrow">EXPLORE OUR PLATFORM</span>
+                                            <span class="nexus-card__subtitle">AI Intelligence Directory</span>
+                                        </div>
+                                    </div>
+                                    <span class="eco-badge-tag tag-nexus"><i class="fa-solid fa-brain" aria-hidden="true"></i> AI Platform</span>
+                                </div>
+
+                                <div class="eco-card-body eco-nexus-body">
+                                    <h4 class="nexus-card__title" id="nexus-card-title">
+                                        Discover <span class="nexus-card__accent">Devspire Nexus</span>
+                                    </h4>
+                                    <p class="nexus-card__lead">A smarter way to discover AI resources.</p>
+                                    <p class="nexus-card__desc">
+                                        Explore a source-linked directory of AI tools, foundation models, and developer resources.
+                                        Compare licensing, deployment, and open-weights details, then open the official source.
+                                        Built for developers and technical teams evaluating what to adopt with confidence.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Right Column: Verification Highlights & Actions -->
+                            <div class="eco-nexus-col-right">
+                                <ul class="nexus-card__highlights">
+                                    <li class="nexus-card__highlight">
+                                        <span class="nexus-card__check" aria-hidden="true">
+                                            <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor"
+                                                stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+                                                <path d="m5 12.5 4.2 4.2L19 6.8" />
+                                            </svg>
+                                        </span>
+                                        <span>Verified AI tools, foundation models &amp; developer resources</span>
+                                    </li>
+                                    <li class="nexus-card__highlight">
+                                        <span class="nexus-card__check" aria-hidden="true">
+                                            <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor"
+                                                stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+                                                <path d="m5 12.5 4.2 4.2L19 6.8" />
+                                            </svg>
+                                        </span>
+                                        <span>Source-linked licensing, deployment &amp; open-weights details</span>
+                                    </li>
+                                    <li class="nexus-card__highlight">
+                                        <span class="nexus-card__check" aria-hidden="true">
+                                            <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor"
+                                                stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+                                                <path d="m5 12.5 4.2 4.2L19 6.8" />
+                                            </svg>
+                                        </span>
+                                        <span>Independent discovery with no paid ranking</span>
+                                    </li>
+                                </ul>
+
+                                <div class="eco-card-footer eco-nexus-footer">
+                                    <div class="nexus-card__actions">
+                                        <a class="nexus-card__cta" href="https://nexus.devspirehub.com/" target="_blank"
+                                            rel="noopener noreferrer" data-nexus-cta>
+                                            <span>Explore Devspire Nexus</span>
+                                            <span class="nexus-card__cta-arrow" aria-hidden="true">→</span>
+                                        </a>
+                                        <a class="nexus-card__secondary" href="https://nexus.devspirehub.com/about.html"
+                                            target="_blank" rel="noopener noreferrer">About Nexus</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </aside>
+
+                    <!-- Product 3: Built for Builders -->
+                    <aside class="ecosystem-card eco-builders-card" aria-label="DevspireHub — Free Developer Tools">
+                        <div class="dsh-scanline" aria-hidden="true"></div>
+
+                        <!-- Title bar -->
+                        <div class="dsh-titlebar">
+                            <div class="dsh-titlebar-left">
+                                <div class="dsh-dots" aria-hidden="true">
+                                    <div class="dsh-dot" style="background:#ff5f57;"></div>
+                                    <div class="dsh-dot" style="background:#ffbd2e;"></div>
+                                    <div class="dsh-dot" style="background:#28c940;"></div>
+                                </div>
+                                <span class="dsh-proc">devspire@tools ~ /dev-tools</span>
+                            </div>
+                            <div class="dsh-status">
+                                <div class="dsh-live-dot" aria-hidden="true"></div>
+                                LIVE
+                            </div>
+                        </div>
+
+                        <!-- Body -->
+                        <div class="dsh-body">
+                            <div class="dsh-chip">
+                                <i class="fa-solid fa-terminal" aria-hidden="true"></i>
+                                Free Developer Tools
+                            </div>
+
+                            <h4 class="dsh-title">
+                                Built for <em>Builders</em><br>by DevspireHub
+                            </h4>
+                            <p class="dsh-sub">
+                                URL encoder, speed tester, color palettes, 4K wallpapers &amp;
+                                250+ open-source repos. No sign-up. No tracking.
+                            </p>
+
+                            <!-- Stats -->
+                            <div class="dsh-stats">
+                                <div class="dsh-pill">
+                                    <span class="dsh-pill-num">450+</span>
+                                    <span class="dsh-pill-lbl">Repos</span>
+                                </div>
+                                <div class="dsh-pill">
+                                    <span class="dsh-pill-num">5</span>
+                                    <span class="dsh-pill-lbl">Tools</span>
+                                </div>
+                                <div class="dsh-pill">
+                                    <span class="dsh-pill-num">1,188</span>
+                                    <span class="dsh-pill-lbl">Palettes</span>
+                                </div>
+                            </div>
+
+                            <!-- Tags -->
+                            <div class="dsh-tags">
+                                <span class="dsh-tag tag-cyan">Wallspire 4K</span>
+                                <span class="dsh-tag tag-cyan">NetPulse</span>
+                                <span class="dsh-tag tag-cyan">URL Encoder</span>
+                                <span class="dsh-tag tag-cyan">Color Space</span>
+                                <span class="dsh-tag tag-dim">Open-Source</span>
+                                <span class="dsh-tag tag-dim">MIT licensed</span>
+                            </div>
+
+                            <div class="dsh-sep" aria-hidden="true"></div>
+
+                            <a href="devtools/developer_tools/developer-tools.html" target="_blank" rel="noopener noreferrer"
+                                class="dsh-cta">
+                                <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+                                Explore All Tools
+                            </a>
+                        </div>
+
+                        <!-- Ticker -->
+                        <div class="dsh-ticker" aria-label="Available tools">
+                            <div class="dsh-ticker-track">
+                                <span class="dsh-ticker-item"><span>●</span> Wallspire 4K</span>
+                                <span class="dsh-ticker-item"><span>●</span> NetPulse Speed Test</span>
+                                <span class="dsh-ticker-item"><span>●</span> URL Encoder / Decoder</span>
+                                <span class="dsh-ticker-item"><span>●</span> Color Space Palettes</span>
+                                <span class="dsh-ticker-item"><span>●</span> OSS Tools Directory</span>
+                                <!-- Duplicate for seamless loop -->
+                                <span class="dsh-ticker-item"><span>●</span> Wallspire 4K</span>
+                                <span class="dsh-ticker-item"><span>●</span> NetPulse Speed Test</span>
+                                <span class="dsh-ticker-item"><span>●</span> URL Encoder / Decoder</span>
+                                <span class="dsh-ticker-item"><span>●</span> Color Space Palettes</span>
+                                <span class="dsh-ticker-item"><span>●</span> OSS Tools Directory</span>
+                            </div>
+                        </div>
+                    </aside>
+
+
+                    <!-- Product 2: NetPulse Speed Test -->
+                    <article class="ecosystem-card eco-netpulse-card" aria-label="Net-Pulse speed test card">
+                        <div class="eco-card-inner">
+                            <div class="eco-card-header">
+                                <div class="np-header-brand">
+                                    <div class="np-icon" aria-hidden="true">
+                                        <div class="np-dot"></div>
+                                    </div>
+                                    <div class="np-header-copy">
+                                        <div class="np-brand-name">NetPulse</div>
+                                        <div class="np-brand-sub">Internet Speed Test</div>
+                                    </div>
+                                </div>
+                                <span class="eco-badge-tag tag-netpulse"><i class="fa-solid fa-gauge-high" aria-hidden="true"></i> Utility</span>
+                            </div>
+
+                            <div class="eco-card-body">
+                                <div class="np-metrics" role="list">
+                                    <div class="np-metric" role="listitem">
+                                        <div class="np-metric-val dl">74.2</div>
+                                        <div class="np-metric-label">↓ Download</div>
+                                    </div>
+                                    <div class="np-metric" role="listitem">
+                                        <div class="np-metric-val ul">48.1</div>
+                                        <div class="np-metric-label">↑ Upload</div>
+                                    </div>
+                                    <div class="np-metric" role="listitem">
+                                        <div class="np-metric-val ping">12 ms</div>
+                                        <div class="np-metric-label">◎ Ping</div>
+                                    </div>
+                                </div>
+
+                                <div class="np-bars">
+                                    <div class="np-bar-row">
+                                        <div class="np-bar-top">
+                                            <span class="np-bar-name">Download Bandwidth</span>
+                                            <span class="np-bar-num dl">74.2 Mbps</span>
+                                        </div>
+                                        <div class="np-bar-track">
+                                            <div class="np-bar-fill dl"></div>
+                                        </div>
+                                    </div>
+                                    <div class="np-bar-row">
+                                        <div class="np-bar-top">
+                                            <span class="np-bar-name">Upload Bandwidth</span>
+                                            <span class="np-bar-num ul">48.1 Mbps</span>
+                                        </div>
+                                        <div class="np-bar-track">
+                                            <div class="np-bar-fill ul"></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="np-footer">
+                                    <div class="np-chips">
+                                        <span class="np-chip"><i class="fa-solid fa-shield" aria-hidden="true"></i> Zero Logs</span>
+                                        <span class="np-chip"><i class="fa-solid fa-bolt" aria-hidden="true"></i> WebSockets</span>
+                                        <span class="np-chip"><i class="fa-solid fa-globe" aria-hidden="true"></i> Browser-Based</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="eco-card-footer">
+                                <div class="np-cta">
+                                    <a class="np-cta-btn" href="netpulse/netpulse.html" target="_blank" rel="noopener noreferrer"
+                                        aria-label="Launch NetPulse Internet Speed Test">
+                                        <span>Run Speed Test</span>
+                                        <i class="fa-solid fa-gauge-high" aria-hidden="true"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
                 </div>
-            </aside>
+
             </div>
         </section>
 
-        <div class="np-stats-row">
-
-            <section>
-                <div class="np-wrap">
-
-                    <!-- Card -->
-                    <article class="np-card" aria-label="Net-Pulse speed test card">
-
-                        <!-- Header -->
-                        <div class="np-header">
-                            <div class="np-brand">
-                                <div class="np-icon" aria-hidden="true">
-                                    <div class="np-dot"></div>
-                                </div>
-                                <div>
-                                    <div class="np-brand-name">NetPulse</div>
-                                    <div class="np-brand-sub">Internet Speed Test</div>
-                                </div>
-                            </div>
-                            <span class="np-badge">Free</span>
-                        </div>
-
-                        <!-- Metrics -->
-                        <div class="np-metrics" role="list">
-                            <div class="np-metric" role="listitem">
-                                <div class="np-metric-val dl">74.2</div>
-                                <div class="np-metric-label">↓ Download</div>
-                            </div>
-                            <div class="np-metric" role="listitem">
-                                <div class="np-metric-val ul">48.1</div>
-                                <div class="np-metric-label">↑ Upload</div>
-                            </div>
-                            <div class="np-metric" role="listitem">
-                                <div class="np-metric-val ping">12 ms</div>
-                                <div class="np-metric-label">◎ Ping</div>
-                            </div>
-                        </div>
-
-                        <!-- Bars -->
-                        <div class="np-bars">
-                            <div class="np-bar-row">
-                                <div class="np-bar-top">
-                                    <span class="np-bar-name">
-                                        <svg viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="2.5"
-                                            aria-hidden="true">
-                                            <path d="M12 19V5M5 12l7-7 7 7" />
-                                        </svg>
-                                        Download
-                                    </span>
-                                    <span class="np-bar-val dl">74.2 Mbps</span>
-                                </div>
-                                <div class="np-bar-track">
-                                    <div class="np-bar-fill dl"></div>
-                                </div>
-                            </div>
-                            <div class="np-bar-row">
-                                <div class="np-bar-top">
-                                    <span class="np-bar-name">
-                                        <svg viewBox="0 0 24 24" fill="none" stroke="#378ADD" stroke-width="2.5"
-                                            aria-hidden="true">
-                                            <path d="M12 5v14M5 12l7 7 7-7" />
-                                        </svg>
-                                        Upload
-                                    </span>
-                                    <span class="np-bar-val ul">48.1 Mbps</span>
-                                </div>
-                                <div class="np-bar-track">
-                                    <div class="np-bar-fill ul"></div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Footer -->
-                        <div class="np-footer">
-                            <span class="np-publisher">By <strong>DevspireHub</strong></span>
-                            <div class="np-chips">
-                                <span class="np-chip">No install</span>
-                                <span class="np-chip">Open-source</span>
-                            </div>
-                        </div>
-
-                    </article>
-
-                    <!-- CTA -->
-                    <div class="np-cta">
-                        <a class="np-cta-btn" href="netpulse/netpulse.html" target="_blank" rel="noopener noreferrer"
-                            aria-label="Open Net-Pulse speed test">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2.5" aria-hidden="true">
-                                <polygon points="5 3 19 12 5 21 5 3" />
-                            </svg>
-                            Test My Speed — Net-Pulse
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2.5" aria-hidden="true">
-                                <path d="M5 12h14M12 5l7 7-7 7" />
-                            </svg>
-                        </a>
-                        <p class="np-note">Free · No sign-up · Works on every device</p>
-                    </div>
-
-                </div>
-            </section>
-
-            <!-- <h4 class="recent"><i class="fa-regular fa-newspaper"></i> Recent: <a
-                href="Programming/Projects/Python/build-a-python-telegram-bot-that-monitor-any-website/build-a-python-telegram-bot-that-monitor-any-website.html">Build
-                a Python Telegram Bot That Monitors Any Website</a></h4> -->
-            <!-- <div class="aithon">
-            <div class="image">
-                <div class="img"><img src="images/aithon-logo.webp" alt="Aithon Logo" class="aithon-logo"></div>
-                <div class="img"><img src="images/aithon.webp" alt="Aithon Logo" class="aithon-logo"></div>
-                <a class="more-info" href="https://aithonvinlabs.pages.dev/" target="_blank">More info</a>
-            </div>
-            <div class="content">
-                <div class="heading-section">
-                    <h2>Real-Time <span>AI & Machine Learning</span> Project Development Services</h2>
-                    <p>Professionals AI & Machine Learning project development for students, final-year engineer,
-                        and
-                        startups. From concept to
-                        deployment we make it happen.</p>
-                </div>
-                <ul>
-                    <li><i class="fa-solid fa-database"></i> Real-time datasets.</li>
-                    <li><i class="fa-solid fa-code"></i> Complete source code.</li>
-                    <li><i class="fa-solid fa-gears"></i> Model Development & Training.</li>
-                    <li><i class="fa-solid fa-globe"></i> Flask / Web Deployment.</li>
-                    <li><i class="fa-solid fa-folder"></i> Mini projects for 2nd / 3rd Years.
-                    </li>
-                    <li><i class="fa-brands fa-github"></i> GitHub-ready structure.</li>
-                </ul>
-            </div> -->
-
-            <aside class="dsh-banner" aria-label="DevspireHub — Free Developer Tools">
-                <div class="dsh-scanline"></div>
-
-                <!-- Title bar -->
-                <div class="dsh-titlebar">
-                    <div class="dsh-titlebar-left">
-                        <div class="dsh-dots">
-                            <div class="dsh-dot" style="background:#ff5f57;"></div>
-                            <div class="dsh-dot" style="background:#ffbd2e;"></div>
-                            <div class="dsh-dot" style="background:#28c940;"></div>
-                        </div>
-                        <span class="dsh-proc">devspire@tools ~ /dev-tools</span>
-                    </div>
-                    <div class="dsh-status">
-                        <div class="dsh-live-dot"></div>
-                        LIVE
-                    </div>
-                </div>
-
-                <!-- Body -->
-                <div class="dsh-body">
-
-                    <div class="dsh-chip">
-                        <i class="fa-solid fa-terminal"></i>
-                        Free Developer Tools
-                    </div>
-
-                    <h3 class="dsh-title">
-                        Built for <em>Builders</em><br>by DevspireHub
-                    </h3>
-                    <p class="dsh-sub">
-                        URL encoder, speed tester, color palettes, 4K wallpapers &amp;
-                        250+ open-source repos. No sign-up. No tracking.
-                    </p>
-
-                    <!-- Stats -->
-                    <div class="dsh-stats">
-                        <div class="dsh-pill">
-                            <span class="dsh-pill-num">450+</span>
-                            <span class="dsh-pill-lbl">Repos</span>
-                        </div>
-                        <div class="dsh-pill">
-                            <span class="dsh-pill-num">5</span>
-                            <span class="dsh-pill-lbl">Tools</span>
-                        </div>
-                        <div class="dsh-pill">
-                            <span class="dsh-pill-num">1,188</span>
-                            <span class="dsh-pill-lbl">Palettes</span>
-                        </div>
-                    </div>
-
-                    <!-- Tags -->
-                    <div class="dsh-tags">
-                        <span class="dsh-tag tag-cyan">Wallspire 4K</span>
-                        <span class="dsh-tag tag-cyan">NetPulse</span>
-                        <span class="dsh-tag tag-cyan">URL Encoder</span>
-                        <span class="dsh-tag tag-cyan">Color Space</span>
-                        <span class="dsh-tag tag-dim">Open-Source</span>
-                        <span class="dsh-tag tag-dim">MIT licensed</span>
-                    </div>
-
-                    <div class="dsh-sep"></div>
-
-                    <a href="devtools/developer_tools/developer-tools.html" target="_blank" rel="noopener noreferrer"
-                        class="dsh-cta">
-                        <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                        Explore All Tools
-                    </a>
-
-                </div>
-
-                <!-- Ticker -->
-                <div class="dsh-ticker" aria-label="Available tools">
-                    <div class="dsh-ticker-track">
-                        <span class="dsh-ticker-item"><span>●</span> Wallspire 4K</span>
-                        <span class="dsh-ticker-item"><span>●</span> NetPulse Speed Test</span>
-                        <span class="dsh-ticker-item"><span>●</span> URL Encoder / Decoder</span>
-                        <span class="dsh-ticker-item"><span>●</span> Color Space Palettes</span>
-                        <span class="dsh-ticker-item"><span>●</span> OSS Tools Directory</span>
-                        <!-- Duplicate for seamless loop -->
-                        <span class="dsh-ticker-item"><span>●</span> Wallspire 4K</span>
-                        <span class="dsh-ticker-item"><span>●</span> NetPulse Speed Test</span>
-                        <span class="dsh-ticker-item"><span>●</span> URL Encoder / Decoder</span>
-                        <span class="dsh-ticker-item"><span>●</span> Color Space Palettes</span>
-                        <span class="dsh-ticker-item"><span>●</span> OSS Tools Directory</span>
-                    </div>
-                </div>
-
-            </aside>
-
-        </div><!-- /.np-stats-row -->
-        <!-- Stats Banner — Replace Aithon Vinlabs Section -->
-    </section>
-
-
-
     <!-- Second Section  -->
-    <section class="welcome-section">
+    <section class="welcome-section" id="welcome-section">
         <div class="container">
             <div class="section-header">
                 <h2 class="heading"><i class="fas fa-graduation-cap"></i>Welcome to DevSpireHub</h2>
@@ -770,19 +983,19 @@
                     practical & Easy-to-Follow Tutorials.</p>
             </div>
             <div class="welcome-cards">
-                <div class="card">
+                <div class="card card-quickstart">
                     <div class="icon"><i class="fas fa-rocket"></i></div>
                     <h3>Quick Start</h3>
                     <p>Jump into coding with our beginner-friendly tutorials, projects and examples.</p>
                     <a href="#programming-tutorials-section">Get Started <i class="fas fa-arrow-right"></i></a>
                 </div>
-                <div class="card">
+                <div class="card card-security">
                     <div class="icon"><i class="fas fa-shield-alt"></i></div>
                     <h3>Security Focus</h3>
                     <p>Learn ethical hacking and bug bounty through hands-on practical examples.</p>
                     <a href="#ethical-hacking-section">Explore Security <i class="fas fa-arrow-right"></i></a>
                 </div>
-                <div class="card one">
+                <div class="card card-networking">
                     <div class="icon"><i class="fas fa-network-wired"></i></div>
                     <h3>Networking</h3>
                     <p>Master networking and operating system concepts with step-by-step tutorials, networking projects,
@@ -790,7 +1003,7 @@
                         troubleshooting examples</p>
                     <a href="#networking-section">Start Learning<i class="fas fa-arrow-right"></i></a>
                 </div>
-                <div class="card two">
+                <div class="card card-ai-auto">
                     <div class="icon"><i class="fas fa-brain"></i></div>
                     <h3>AI &amp; Automation</h3>
                     <p>Learn AI fundamentals, LLMs, prompt engineering, agent workflows, and practical automation
@@ -798,41 +1011,104 @@
                     <a href="#ai-section">Explore AI &amp; Automation<i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
-            <div class="wallpaper-card" style="background-color: #020617; margin-top: 20px;">
+            <div class="wallpaper-card">
                 <div class="wallpaper-header">
-                    <h2 class="heading"><i class="fas fa-image"></i>Featured Wallpapers</h2>
-                    <p>Discover stunning, high-quality AI-generated wallpapers for your desktop.</p>
+                    <div class="wallpaper-badge">
+                        <i class="fa-solid fa-wand-magic-sparkles" aria-hidden="true"></i>
+                        <span>Visual Assets</span>
+                    </div>
+                    <h2 class="wallpaper-title"><i class="fas fa-image" aria-hidden="true"></i> Featured Wallpapers</h2>
+                    <p class="wallpaper-subtitle">Discover stunning, high-quality AI-generated wallpapers for your desktop.</p>
                 </div>
                 <div class="wallpaper-section">
                     <div class="wallpaper-grid">
                         <div class="wallpaper-image">
-                            <img src="Wallpaper/images_upscale/wallpaper (1).png" alt="">
+                            <img src="Wallpaper/images_upscale/wallpaper (1).png" alt="Featured 4K Wallpaper 1" width="5120" height="2880" loading="lazy" decoding="async">
+                            <div class="wallpaper-overlay">
+                                <span class="wallpaper-res-tag">5K UHD</span>
+                                <a href="Wallpaper/images_upscale/wallpaper (1).png" target="_blank" class="wallpaper-download-action" download="wallpaper-1.png" aria-label="Download Wallpaper 1">
+                                    <i class="fas fa-arrow-down" aria-hidden="true"></i>
+                                    <span>Download</span>
+                                </a>
+                            </div>
                         </div>
                         <div class="wallpaper-image">
-                            <img src="Wallpaper/images_upscale/wallpaper (23).png" alt="">
+                            <img src="Wallpaper/images_upscale/wallpaper (23).png" alt="Featured 4K Wallpaper 2" width="3840" height="2160" loading="lazy" decoding="async">
+                            <div class="wallpaper-overlay">
+                                <span class="wallpaper-res-tag">4K UHD</span>
+                                <a href="Wallpaper/images_upscale/wallpaper (23).png" target="_blank" class="wallpaper-download-action" download="wallpaper-23.png" aria-label="Download Wallpaper 2">
+                                    <i class="fas fa-arrow-down" aria-hidden="true"></i>
+                                    <span>Download</span>
+                                </a>
+                            </div>
                         </div>
                         <div class="wallpaper-image">
-                            <img src="Wallpaper/images_upscale/wallpaper (85).png" alt="">
+                            <img src="Wallpaper/images_upscale/wallpaper (85).png" alt="Featured 4K Wallpaper 3" width="2560" height="1440" loading="lazy" decoding="async">
+                            <div class="wallpaper-overlay">
+                                <span class="wallpaper-res-tag">2K QHD</span>
+                                <a href="Wallpaper/images_upscale/wallpaper (85).png" target="_blank" class="wallpaper-download-action" download="wallpaper-85.png" aria-label="Download Wallpaper 3">
+                                    <i class="fas fa-arrow-down" aria-hidden="true"></i>
+                                    <span>Download</span>
+                                </a>
+                            </div>
                         </div>
                         <div class="wallpaper-image">
-                            <img src="Wallpaper/images_upscale/wallpaper (116).png" alt="">
+                            <img src="Wallpaper/images_upscale/wallpaper (116).png" alt="Featured 4K Wallpaper 4" width="2912" height="1632" loading="lazy" decoding="async">
+                            <div class="wallpaper-overlay">
+                                <span class="wallpaper-res-tag">3K UHD</span>
+                                <a href="Wallpaper/images_upscale/wallpaper (116).png" target="_blank" class="wallpaper-download-action" download="wallpaper-116.png" aria-label="Download Wallpaper 4">
+                                    <i class="fas fa-arrow-down" aria-hidden="true"></i>
+                                    <span>Download</span>
+                                </a>
+                            </div>
                         </div>
                         <div class="wallpaper-image">
-                            <img src="Wallpaper/images_upscale/wallpaper (132).png" alt="">
+                            <img src="Wallpaper/images_upscale/wallpaper (132).png" alt="Featured 4K Wallpaper 5" width="2560" height="1600" loading="lazy" decoding="async">
+                            <div class="wallpaper-overlay">
+                                <span class="wallpaper-res-tag">2K QHD</span>
+                                <a href="Wallpaper/images_upscale/wallpaper (132).png" target="_blank" class="wallpaper-download-action" download="wallpaper-132.png" aria-label="Download Wallpaper 5">
+                                    <i class="fas fa-arrow-down" aria-hidden="true"></i>
+                                    <span>Download</span>
+                                </a>
+                            </div>
                         </div>
                         <div class="wallpaper-image">
-                            <img src="Wallpaper/images_upscale/wallpaper (122).png" alt="">
+                            <img src="Wallpaper/images_upscale/wallpaper (122).png" alt="Featured 4K Wallpaper 6" width="1804" height="1015" loading="lazy" decoding="async">
+                            <div class="wallpaper-overlay">
+                                <span class="wallpaper-res-tag">1080p FHD</span>
+                                <a href="Wallpaper/images_upscale/wallpaper (122).png" target="_blank" class="wallpaper-download-action" download="wallpaper-122.png" aria-label="Download Wallpaper 6">
+                                    <i class="fas fa-arrow-down" aria-hidden="true"></i>
+                                    <span>Download</span>
+                                </a>
+                            </div>
                         </div>
-                        <div class="wallpaper-image last">
-                            <img src="Wallpaper/images_upscale/wallpaper (78).png" alt="">
+                        <div class="wallpaper-image">
+                            <img src="Wallpaper/images_upscale/wallpaper (78).png" alt="Featured 4K Wallpaper 7" width="2560" height="1440" loading="lazy" decoding="async">
+                            <div class="wallpaper-overlay">
+                                <span class="wallpaper-res-tag">2K QHD</span>
+                                <a href="Wallpaper/images_upscale/wallpaper (78).png" target="_blank" class="wallpaper-download-action" download="wallpaper-78.png" aria-label="Download Wallpaper 7">
+                                    <i class="fas fa-arrow-down" aria-hidden="true"></i>
+                                    <span>Download</span>
+                                </a>
+                            </div>
                         </div>
-                        <div class="wallpaper-image last">
-                            <img src="Wallpaper/images_upscale/wallpaper (42).png" alt="">
+                        <div class="wallpaper-image">
+                            <img src="Wallpaper/images_upscale/wallpaper (42).png" alt="Featured 4K Wallpaper 8" width="2560" height="1440" loading="lazy" decoding="async">
+                            <div class="wallpaper-overlay">
+                                <span class="wallpaper-res-tag">2K QHD</span>
+                                <a href="Wallpaper/images_upscale/wallpaper (42).png" target="_blank" class="wallpaper-download-action" download="wallpaper-42.png" aria-label="Download Wallpaper 8">
+                                    <i class="fas fa-arrow-down" aria-hidden="true"></i>
+                                    <span>Download</span>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="button">
-                    <a href="Wallpaper/index.html" target="_blank" class="wallpaper-button">Go To Wallpaper Home Page</a>
+                <div class="wallpaper-footer-action">
+                    <a href="Wallpaper/index.html" target="_blank" class="wallpaper-button">
+                        <span>Go To Wallpaper Home Page</span>
+                        <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                    </a>
                 </div>
             </div>
         </div>
@@ -1755,9 +2031,13 @@
             <button class="view-all-btn" id="view-all-btn-programming">View All</button>
         </div>
         <div class="color-palette">
-            <div>
-                <h2>Color Space</h2>
-                <p>Discover Perfect Palettes</p>
+            <div class="color-palette-header">
+                <div class="color-palette-badge">
+                    <i class="fa-solid fa-swatchbook" aria-hidden="true"></i>
+                    <span>Developer Utilities</span>
+                </div>
+                <h2 class="color-palette-title"><i class="fas fa-palette" aria-hidden="true"></i> Color Space</h2>
+                <p class="color-palette-subtitle">Discover curated color schemes &amp; accessible palettes for your next project.</p>
             </div>
             <!-- Color bars (set your palette colors here) -->
             <div class="palette-grid">
@@ -1817,310 +2097,342 @@
                     </div>
                 </div>
             </div>
-            <div class="button">
-                <a href="color-palettes/index.html" class="color-button">Go To Color Space Home
-                    Page</a>
+            <div class="color-palette-footer">
+                <a href="color-palettes/index.html" class="color-button">
+                    <span>Explore Color Space</span>
+                    <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                </a>
             </div>
         </div>
     </section>
 
     <!-- Ethical Hacking  -->
-    <section class="ethical-hacking-section" id="ethical-hacking-section">
+    <section class="ethical-hacking-section" id="ethical-hacking-section" aria-labelledby="ethical-hacking-heading">
         <div class="container">
             <div class="section-header">
-                <h2 class="heading"><i class="fas fa-shield"></i>Ethical Hacking & Security</h2>
-                <p>Master ethical hacking and bug bounty hunting through practical tutorials, hands-on projects, and
-                    penetration testing
-                    guides.</p>
-            </div>
-            <div class="hacking-tutorial-header container">
-                <button class="view-all-btn" id="view-all-btn-hacking-tutorial">View All</button>
-            </div>
-            <div class="hacking-card-grid">
-                <!-- Card 1  -->
-                 <div class="hacking-card">
-                    <div class="header">
-                        <i class="fas fa-globe"></i>
-                        <div class="title-group">
-                            <h3>Linux Processes & Job Management</h3>
-                            <span class="tag level-tag">Beginner</span>
-                        </div>
-                    </div>
-                    <p>FLearn Linux process management and job control, including process monitoring, PID, CPU and memory usage, signals, priorities, and foreground/background jobs using essential Linux commands.
-                    </p>
-                    <div class="card-footer">
-                        <span><i class="fas fa-clock"></i>3 hr</span>
-                        <a href="Ethical-Hacking/Linux/linux-process-and-job-management-tutorial/linux-process-and-job-management.html"
-                            title="Linux Server Setup Guide">Start Learning</a>
-                    </div>
-                </div>
-
-                <div class="hacking-card">
-                    <div class="header">
-                        <i class="fas fa-globe"></i>
-                        <div class="title-group">
-                            <h3>Linux Server Setup</h3>
-                            <span class="tag level-tag">Beginner</span>
-                        </div>
-                    </div>
-                    <p>Free step-by-step Linux server setup tutorial covering Ubuntu, SSH, Apache/Nginx, firewall,
-                        databases, security, and
-                        monitoring for beginners
-                    </p>
-                    <div class="card-footer">
-                        <span><i class="fas fa-clock"></i>5 hr</span>
-                        <a href="Ethical-Hacking/Linux/linux-server-setup/index.html"
-                            title="Linux Server Setup Guide">Start Learning</a>
-                    </div>
-                </div>
-                <!-- Card 2  -->
-                <div class="hacking-card">
-                    <div class="header">
-                        <i class="fab fa-linux"></i>
-                        <div class="title-group">
-                            <h3>Linux Master File Navigation</h3>
-                            <span class="tag level-tag">Beginner</span>
-                        </div>
-                    </div>
-                    <p>This Linux command line tutorial teaches you essential terminal navigation and file system
-                        operations from the ground.
-                        up.</p>
-                    <div class="card-footer">
-                        <span><i class="fas fa-clock"></i>10 hr</span>
-                        <a href="Ethical-Hacking/Linux/linux-master-file-navigation-tutorial/index.html"
-                            title="Linux Master File Navigation Tutorial">Start
-                            Learning</a>
-                    </div>
-                </div>
-                <!-- Card 3  -->
-                <div class="hacking-card">
-                    <div class="header">
-                        <i class="fab fa-linux"></i>
-                        <div class="title-group">
-                            <h3>Linux User Management</h3>
-                            <span class="tag level-tag">Beginner</span>
-                        </div>
-                    </div>
-                    <p>Beginner-friendly Networking Fundamentals tutorial covering core concepts, diagrams, and
-                        real-world examples to build a
-                        strong networking foundation.</p>
-                    <div class="card-footer">
-                        <span><i class="fas fa-clock"></i>10 hr</span>
-                        <a href="Ethical-Hacking/Linux/linux-user-management-tutorial/index.html"
-                            title="Linux User Management Tutorial">Start Learning</a>
-                    </div>
-                </div>
-                <!-- Card 4  -->
-                <div class="hacking-card hidden-hacking-tutorial">
-                    <div class="header">
-                        <i class="fab fa-linux"></i>
-                        <div class="title-group">
-                            <h3>How to Setup a Personal Cybersecurity Lab</h3>
-                            <span class="tag level-tag">Beginner</span>
-                        </div>
-                    </div>
-                    <p>Build a beginner ethical hacking lab using VirtualBox, Kali Linux, and Metasploitable 2. Learn
-                        setup, scanning, exploitation, and safe penetration testing practice.</p>
-                    <div class="card-footer">
-                        <span><i class="fas fa-clock"></i>2 hr</span>
-                        <a
-                            href="Ethical-Hacking/tutorials/set-up-ethical-hacking-lab-virtualbox-kali-linux-metasploitable2/set-up-ethical-hacking-lab-virtualbox-kali-linux-metasploitable2.html">Start
-                            Learning</a>
-                    </div>
-                </div>
-                <!-- Card 5  -->
-                <div class="hacking-card hidden-hacking-tutorial">
-                    <div class="header">
-                        <i class="fab fa-linux"></i>
-                        <div class="title-group">
-                            <h3>Configure VirtualBox networks for Secure Cybersecurity Lab</h3>
-                            <span class="tag level-tag">Beginner</span>
-                        </div>
-                    </div>
-                    <p>Build a beginner ethical hacking lab using VirtualBox, Kali Linux, and Metasploitable 2. Learn
-                        setup, scanning, exploitation, and safe penetration testing practice.</p>
-                    <div class="card-footer">
-                        <span><i class="fas fa-clock"></i>2 hr</span>
-                        <a
-                            href="Ethical-Hacking/tutorials/configure-virtualbox-networks-for-isolated-hacking-lab/configure-virtualbox-networks-for-isolated-hacking-lab.html">Start
-                            Learning</a>
-                    </div>
-                </div>
-
-                <!-- Card 6  -->
-                <div class="hacking-card hidden-hacking-tutorial">
-                    <div class="header">
-                        <i class="fab fa-linux"></i>
-                        <div class="title-group">
-                            <h3>Nmap Tutorial — Complete Guide for Beginners & Pentesters</h3>
-                            <span class="tag level-tag">Beginner</span>
-                        </div>
-                    </div>
-                    <p>Master Nmap from scratch: port scanning, OS fingerprinting, stealth scans, UDP scanning & 6
-                        hands-on labs on
-                        Metasploitable2. Complete 2026 guide for beginners & pentesters.</p>
-                    <div class="card-footer">
-                        <span><i class="fas fa-clock"></i>4 hr</span>
-                        <a
-                            href="Ethical-Hacking/Linux/nmap-tutorial-complete-guide-for-beginners-and-pentesters/nmap-tutorial-complete-guide-for-beginners-and-pentesters.html">Start
-                            Learning</a>
-                    </div>
-                </div>
-
-                <!-- Card 7  -->
-                <div class="hacking-card hidden-hacking-tutorial">
-                    <div class="header">
-                        <i class="fas fa-robot"></i>
-                        <div class="title-group">
-                            <h3>PentAGI Lab Setup: Complete Penetration Testing Guide with AI Agents</h3>
-                            <span class="tag level-tag">Beginner</span>
-                        </div>
-                    </div>
-                    <p>Set up an isolated PentAGI AI penetration testing lab on Kali Linux with VirtualBox,
-                        Metasploitable2 & DVWA. Complete
-                        beginner guide to ethical hacking with AI agents</p>
-                    <div class="card-footer">
-                        <span><i class="fas fa-clock"></i>2 hr</span>
-                        <a
-                            href="Ethical-Hacking/tutorials/set-up-isolated-pentagi-penetration-testing-lab/set-up-isolated-pentagi-penetration-testing-lab.html">Start
-                            Learning</a>
-                    </div>
-                </div>
+                <h2 class="heading" id="ethical-hacking-heading"><i class="fas fa-shield" aria-hidden="true"></i> Ethical Hacking &amp; Security</h2>
+                <p>Master defensive cybersecurity, penetration testing fundamentals, and isolated virtual lab setups through structured, hands-on tutorials and real-world tools.</p>
             </div>
 
-            <div class="banner-wide">
-                <div class="bw-stripe"></div>
-                <div class="bw-icon"><img
-                        src="devtools/url_uncoder_decoder_tool/image/url_uncoder_decoder_tool_logo.png" alt=""></div>
-                <div class="bw-body">
-                    <div class="bw-text">
-                        <span class="bw-site">Devspire<b>Hub</b> · DevTools</span>
-                        <div class="bw-title">URL Encoder <span>&</span> Decoder</div>
-                        <div class="bw-desc">Real-time · <b>Base64</b> · <b>JWT</b> · <b>Hash</b> · Zero backend · UTF-8
-                            + Emoji
+            <!-- Structured Cybersecurity Learning Progression -->
+            <nav class="sec-learning-path" aria-label="Cybersecurity Learning Progression">
+                <div class="path-step">
+                    <span class="step-num">01</span>
+                    <span class="step-label">Linux &amp; CLI Foundations</span>
+                </div>
+                <div class="path-step">
+                    <span class="step-num">02</span>
+                    <span class="step-label">Network Fundamentals</span>
+                </div>
+                <div class="path-step">
+                    <span class="step-num">03</span>
+                    <span class="step-label">Recon &amp; Enumeration</span>
+                </div>
+                <div class="path-step">
+                    <span class="step-num">04</span>
+                    <span class="step-label">Isolated Lab Practice</span>
+                </div>
+            </nav>
+
+            <!-- 1. Tutorials Subheader -->
+            <div class="sec-subhead">
+                <div class="sec-subhead-title">
+                    <h3><i class="fas fa-terminal" aria-hidden="true"></i> Core Tutorials &amp; Practical Labs</h3>
+                    <span class="sec-subhead-desc">Step-by-step security labs designed for isolated local virtual environments</span>
+                </div>
+                <button class="view-all-btn" id="view-all-btn-hacking-tutorial" aria-expanded="false" aria-controls="hacking-tutorial-grid">View All</button>
+            </div>
+
+            <!-- Tutorials Grid (8 cards) -->
+            <div class="hacking-card-grid" id="hacking-tutorial-grid">
+                <!-- Card 1: Linux Processes & Job Management -->
+                <article class="hacking-card">
+                    <div class="sec-card-media">
+                        <img src="Ethical-Hacking/Linux/linux-process-and-job-management-tutorial/images/linux-process-and-job-management-tutorial.webp" alt="Linux Processes &amp; Job Management Tutorial Architecture" loading="lazy" decoding="async">
+                        <span class="sec-card-badge"><i class="fas fa-clock" aria-hidden="true"></i> 15 min read</span>
+                    </div>
+                    <div class="sec-card-body">
+                        <div class="sec-card-meta">
+                            <span class="tag level-tag">Beginner</span>
+                            <span class="tag topic-tag">Linux / DevOps</span>
+                        </div>
+                        <h3>Linux Processes &amp; Job Management</h3>
+                        <p>Learn Linux process management and job control, including process monitoring, PID, CPU and memory usage, signals, priorities, and foreground/background jobs using essential Linux commands.</p>
+                        <div class="sec-card-footer">
+                            <span class="sec-card-date"><i class="far fa-calendar-alt" aria-hidden="true"></i> Nov 01, 2026</span>
+                            <a href="Ethical-Hacking/Linux/linux-process-and-job-management-tutorial/linux-process-and-job-management.html" class="start-hacking" aria-label="Start tutorial: Linux Processes &amp; Job Management">Start Tutorial <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
                         </div>
                     </div>
-                    <div class="bw-chips">
-                        <span class="bchip bc-g">⚡ Real-time</span>
-                        <span class="bchip bc-b">🔒 No backend</span>
-                        <span class="bchip bc-y"># Hash</span>
-                        <span class="bchip bc-p">JWT</span>
+                </article>
+
+                <!-- Card 2: Linux Server Setup -->
+                <article class="hacking-card">
+                    <div class="sec-card-media">
+                        <img src="Ethical-Hacking/Linux/linux-server-setup/images/linux server.png" alt="Linux Server Setup and Filesystem Architecture" loading="lazy" decoding="async">
+                        <span class="sec-card-badge"><i class="fas fa-clock" aria-hidden="true"></i> 20 min read</span>
                     </div>
-                    <a class="bw-cta" href="devtools/url_uncoder_decoder_tool/url_uncoder_decoder_tool.html"
-                        target="_blank">
-                        Open Tool <i class="fa-solid fa-arrow-up-right-from-square fa-xs"></i>
-                    </a>
+                    <div class="sec-card-body">
+                        <div class="sec-card-meta">
+                            <span class="tag level-tag">Beginner</span>
+                            <span class="tag topic-tag">System Admin</span>
+                        </div>
+                        <h3>Linux Server Setup</h3>
+                        <p>A step-by-step guide to installing, configuring, and hardening a Linux server from scratch. Learn essential administration, firewall rules, and security best practices.</p>
+                        <div class="sec-card-footer">
+                            <span class="sec-card-date"><i class="far fa-calendar-alt" aria-hidden="true"></i> Oct 28, 2026</span>
+                            <a href="Ethical-Hacking/Linux/linux-server-setup/index.html" class="start-hacking" aria-label="Start tutorial: Linux Server Setup">Start Tutorial <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 3: Linux Master File Navigation -->
+                <article class="hacking-card">
+                    <div class="sec-card-media">
+                        <img src="Ethical-Hacking/Linux/linux-master-file-navigation-tutorial/images/Linux-command-line-tutorial.webp" alt="Linux Command Line File Navigation Diagram" loading="lazy" decoding="async">
+                        <span class="sec-card-badge"><i class="fas fa-clock" aria-hidden="true"></i> 12 min read</span>
+                    </div>
+                    <div class="sec-card-body">
+                        <div class="sec-card-meta">
+                            <span class="tag level-tag">Beginner</span>
+                            <span class="tag topic-tag">Command Line</span>
+                        </div>
+                        <h3>Linux Master File Navigation</h3>
+                        <p>Master the Linux filesystem hierarchy and navigation commands. Learn to traverse directories, locate critical configuration files, and manipulate files efficiently via CLI.</p>
+                        <div class="sec-card-footer">
+                            <span class="sec-card-date"><i class="far fa-calendar-alt" aria-hidden="true"></i> Oct 20, 2026</span>
+                            <a href="Ethical-Hacking/Linux/linux-master-file-navigation-tutorial/index.html" class="start-hacking" aria-label="Start tutorial: Linux Master File Navigation">Start Tutorial <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 4: Linux User Management -->
+                <article class="hacking-card">
+                    <div class="sec-card-media">
+                        <img src="Ethical-Hacking/Linux/linux-user-management-tutorial/images/linux-user-management-tutorial.webp" alt="Linux User and Group Management Diagram" loading="lazy" decoding="async">
+                        <span class="sec-card-badge"><i class="fas fa-clock" aria-hidden="true"></i> 18 min read</span>
+                    </div>
+                    <div class="sec-card-body">
+                        <div class="sec-card-meta">
+                            <span class="tag level-tag">Beginner</span>
+                            <span class="tag topic-tag">Privilege &amp; Auth</span>
+                        </div>
+                        <h3>Linux User Management</h3>
+                        <p>Master Linux user and group administration, permissions (chmod/chown), sudo privileges, and password policies to maintain robust security controls on multi-user systems.</p>
+                        <div class="sec-card-footer">
+                            <span class="sec-card-date"><i class="far fa-calendar-alt" aria-hidden="true"></i> Oct 14, 2026</span>
+                            <a href="Ethical-Hacking/Linux/linux-user-management-tutorial/index.html" class="start-hacking" aria-label="Start tutorial: Linux User Management">Start Tutorial <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 5 (Hidden initially): Setup Cybersecurity Lab -->
+                <article class="hacking-card hidden-hacking-tutorial">
+                    <div class="sec-card-media">
+                        <img src="Ethical-Hacking/tutorials/set-up-ethical-hacking-lab-virtualbox-kali-linux-metasploitable2/images/set-up-ethical-hacking-lab-virtualbox-kali-linux-metasploitable2.webp" alt="VirtualBox Kali Linux and Metasploitable2 Lab Setup" loading="lazy" decoding="async">
+                        <span class="sec-card-badge"><i class="fas fa-clock" aria-hidden="true"></i> 25 min read</span>
+                    </div>
+                    <div class="sec-card-body">
+                        <div class="sec-card-meta">
+                            <span class="tag level-tag">Intermediate</span>
+                            <span class="tag topic-tag">Virtual Labs</span>
+                        </div>
+                        <h3>How to Setup a Personal Cybersecurity Lab</h3>
+                        <p>Build a safe, isolated virtual penetration testing environment using VirtualBox, Kali Linux, and Metasploitable2 to practice ethical hacking without risk.</p>
+                        <div class="sec-card-footer">
+                            <span class="sec-card-date"><i class="far fa-calendar-alt" aria-hidden="true"></i> Oct 05, 2026</span>
+                            <a href="Ethical-Hacking/tutorials/set-up-ethical-hacking-lab-virtualbox-kali-linux-metasploitable2/set-up-ethical-hacking-lab-virtualbox-kali-linux-metasploitable2.html" class="start-hacking" aria-label="Start tutorial: How to Setup a Personal Cybersecurity Lab">Start Tutorial <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 6 (Hidden initially): Configure VirtualBox Networks -->
+                <article class="hacking-card hidden-hacking-tutorial">
+                    <div class="sec-card-media">
+                        <img src="Ethical-Hacking/tutorials/configure-virtualbox-networks-for-isolated-hacking-lab/images/configure-virtualbox-networks-for-isolated-hacking-lab.webp" alt="VirtualBox Internal Network Architecture Diagram" loading="lazy" decoding="async">
+                        <span class="sec-card-badge"><i class="fas fa-clock" aria-hidden="true"></i> 16 min read</span>
+                    </div>
+                    <div class="sec-card-body">
+                        <div class="sec-card-meta">
+                            <span class="tag level-tag">Intermediate</span>
+                            <span class="tag topic-tag">Networking</span>
+                        </div>
+                        <h3>Configure VirtualBox networks for Secure Cybersecurity Lab</h3>
+                        <p>Learn NAT, Host-Only, and Internal networking in VirtualBox to isolate attack targets, prevent packet leakage, and replicate realistic target environments.</p>
+                        <div class="sec-card-footer">
+                            <span class="sec-card-date"><i class="far fa-calendar-alt" aria-hidden="true"></i> Sep 28, 2026</span>
+                            <a href="Ethical-Hacking/tutorials/configure-virtualbox-networks-for-isolated-hacking-lab/configure-virtualbox-networks-for-isolated-hacking-lab.html" class="start-hacking" aria-label="Start tutorial: Configure VirtualBox networks for Secure Cybersecurity Lab">Start Tutorial <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 7 (Hidden initially): Nmap Complete Guide -->
+                <article class="hacking-card hidden-hacking-tutorial">
+                    <div class="sec-card-media">
+                        <img src="Ethical-Hacking/Linux/nmap-tutorial-complete-guide-for-beginners-and-pentesters/images/nmap-tutorial-complete-guide-for-beginners-and-pentesters.webp" alt="Nmap Port Scanning and Service Enumeration Guide" loading="lazy" decoding="async">
+                        <span class="sec-card-badge"><i class="fas fa-clock" aria-hidden="true"></i> 30 min read</span>
+                    </div>
+                    <div class="sec-card-body">
+                        <div class="sec-card-meta">
+                            <span class="tag level-tag">Intermediate</span>
+                            <span class="tag topic-tag">Reconnaissance</span>
+                        </div>
+                        <h3>Nmap Tutorial — Complete Guide for Beginners &amp; Pentesters</h3>
+                        <p>Master network reconnaissance, port scanning techniques, service version detection, OS fingerprinting, and vulnerability scanning with Nmap and NSE scripts.</p>
+                        <div class="sec-card-footer">
+                            <span class="sec-card-date"><i class="far fa-calendar-alt" aria-hidden="true"></i> Sep 19, 2026</span>
+                            <a href="Ethical-Hacking/Linux/nmap-tutorial-complete-guide-for-beginners-and-pentesters/nmap-tutorial-complete-guide-for-beginners-and-pentesters.html" class="start-hacking" aria-label="Start tutorial: Nmap Tutorial — Complete Guide for Beginners &amp; Pentesters">Start Tutorial <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 8 (Hidden initially): PentAGI Lab Setup -->
+                <article class="hacking-card hidden-hacking-tutorial">
+                    <div class="sec-card-media">
+                        <img src="Ethical-Hacking/tutorials/set-up-isolated-pentagi-penetration-testing-lab/images/set-up-isolated-pentagi-penetration-testing-lab.webp" alt="PentAGI AI-Assisted Penetration Testing Lab Architecture" loading="lazy" decoding="async">
+                        <span class="sec-card-badge"><i class="fas fa-clock" aria-hidden="true"></i> 22 min read</span>
+                    </div>
+                    <div class="sec-card-body">
+                        <div class="sec-card-meta">
+                            <span class="tag level-tag">Advanced</span>
+                            <span class="tag topic-tag">AI Security</span>
+                        </div>
+                        <h3>PentAGI Lab Setup: Complete Penetration Testing Guide with AI Agents</h3>
+                        <p>Set up an autonomous penetration testing research lab using PentAGI. Explore how autonomous AI agents discover attack vectors and identify vulnerabilities in controlled targets.</p>
+                        <div class="sec-card-footer">
+                            <span class="sec-card-date"><i class="far fa-calendar-alt" aria-hidden="true"></i> Sep 10, 2026</span>
+                            <a href="Ethical-Hacking/tutorials/set-up-isolated-pentagi-penetration-testing-lab/set-up-isolated-pentagi-penetration-testing-lab.html" class="start-hacking" aria-label="Start tutorial: PentAGI Lab Setup: Complete Penetration Testing Guide with AI Agents">Start Tutorial <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <!-- Spotlight Utility Banner -->
+            <div class="sec-tool-banner">
+                <div class="banner-wide-content">
+                    <div class="banner-badge"><i class="fas fa-wrench" aria-hidden="true"></i> Essential Security Tool</div>
+                    <h3 class="banner-wide-title">Online URL Encoder &amp; Decoder</h3>
+                    <p class="banner-wide-desc">Encode or decode URLs instantly for security payloads, web penetration testing, and query parameter validation.</p>
+                    <div class="banner-specs">
+                        <span class="spec-pill"><i class="fas fa-bolt" aria-hidden="true"></i> Real-time Parsing</span>
+                        <span class="spec-pill"><i class="fas fa-shield-cat" aria-hidden="true"></i> Pentest Payloads</span>
+                        <span class="spec-pill"><i class="fas fa-code" aria-hidden="true"></i> RFC 3986 Standard</span>
+                    </div>
+                    <a href="devtools/url_uncoder_decoder_tool/url_uncoder_decoder_tool.html" class="banner-cta" aria-label="Launch Online URL Encoder &amp; Decoder Tool">Open Tool <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                </div>
+                <div class="banner-wide-media" aria-hidden="true">
+                    <div class="terminal-preview">
+                        <div class="term-titlebar">
+                            <span class="t-dot"></span>
+                            <span class="t-name">payload_encoder.sh</span>
+                        </div>
+                        <div class="term-lines">
+                            <code>$ curl -G --data-urlencode "q=&lt;script&gt;..."</code>
+                            <code>200 OK [Decoded URI string validated]</code>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <!-- Hacking tutorial series  -->
-            <div class="hacking-tutorials-header container">
-                <h3>Tutorial Series</h3>
+            <!-- 2. Series Subheader -->
+            <div class="sec-subhead">
+                <div class="sec-subhead-title">
+                    <h3><i class="fas fa-layer-group" aria-hidden="true"></i> Structured Learning Series</h3>
+                    <span class="sec-subhead-desc">Comprehensive multi-module security tracks and certification prep</span>
+                </div>
+                <button class="view-all-btn" id="view-all-btn-hacking-series" aria-expanded="false" aria-controls="hacking-series-grid">View All</button>
             </div>
+
+            <!-- Series Grid (4 cards) -->
             <div class="hacking-card-grid" id="hacking-series-grid">
-                <!-- Card 1  -->
-                <div class="hacking-card-series">
-                    <div class="terminal-header">
-                        <span class="terminal-dot red"></span>
-                        <span class="terminal-dot yellow"></span>
-                        <span class="terminal-dot green"></span>
+                <!-- Series 1: Linux for Security Professionals -->
+                <article class="hacking-card">
+                    <div class="sec-card-media">
+                        <img src="images/kali-linux.webp" alt="Linux for Security Professionals Curriculum" loading="lazy" decoding="async">
+                        <span class="sec-card-badge"><i class="fas fa-cubes" aria-hidden="true"></i> 4 Modules</span>
                     </div>
-                    <div class="card-image-container">
-                        <img src="images/kali-linux.webp" alt="">
-                    </div>
-                    <div class="hacking-content">
+                    <div class="sec-card-body">
+                        <div class="sec-card-meta">
+                            <span class="tag level-tag">Beginner to Pro</span>
+                            <span class="tag topic-tag">Core Track</span>
+                        </div>
                         <h3>Linux</h3>
-                        <p>A structured Linux tutorial series for security professionals covering system navigation,
-                            user management, processes, logs, services, and hardening techniques.</p>
-                        <div class="info-row">
-                            <div class="status-box status-level">Beginner</div>
+                        <p>Master terminal navigation, system administration, and shell scripting tailored specifically for ethical hacking and defensive operations.</p>
+                        <div class="sec-card-footer">
+                            <span class="sec-card-date"><i class="fas fa-book-open" aria-hidden="true"></i> 4 Modules</span>
+                            <a href="Ethical-Hacking/series/linux-tutorial-series/index.html" class="start-hacking" aria-label="Start series: Linux for Security Professionals">Start Learning <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+                </article>
 
+                <!-- Series 2: Ethical Hacking Lab Setup Mastery -->
+                <article class="hacking-card">
+                    <div class="sec-card-media">
+                        <img src="Ethical-Hacking/series/ethical-hacking-lab-setup-mastery/images/ethical-hacking-lab-setup-mastery.webp" alt="Complete Ethical Hacking Lab Setup Series Diagram" loading="lazy" decoding="async">
+                        <span class="sec-card-badge"><i class="fas fa-cubes" aria-hidden="true"></i> 3 Modules</span>
+                    </div>
+                    <div class="sec-card-body">
+                        <div class="sec-card-meta">
+                            <span class="tag level-tag">Intermediate</span>
+                            <span class="tag topic-tag">Hands-on Lab</span>
                         </div>
-                        <div class="hacking-footer">
-                            <span><i class="fas fa-book-open"></i>10 Modules</span>
-                            <a href="Ethical-Hacking/series/linux-tutorial-series/index.html" title="Linux Tutorial"
-                                class="start-hacking">Start Learning</a>
-                        </div>
-                    </div>
-                </div>
-                <!-- Card 2  -->
-                <div class="hacking-card-series" id="commingsoon-3">
-                    <div class="terminal-header">
-                        <span class="terminal-dot red"></span>
-                        <span class="terminal-dot yellow"></span>
-                        <span class="terminal-dot green"></span>
-                    </div>
-                    <div class="card-image-container">
-                        <img src="Ethical-Hacking/series/ethical-hacking-lab-setup-mastery/images/ethical-hacking-lab-setup-mastery.webp"
-                            alt="Complete Ethical Hacking Lab Setup Series">
-                    </div>
-                    <div class="hacking-content">
                         <h3>Complete Ethical Hacking Lab Setup Series</h3>
-                        <p>Step-by-step tutorials for setting up a complete ethical hacking lab environment.
-                        </p>
-                        <div class="info-row">
-                            <div class="status-box status-level">Beginner</div>
-                        </div>
-                        <div class="hacking-footer">
-                            <span><i class="fas fa-book-open"></i>4 Modules</span>
-                            <a href="Ethical-Hacking/series/ethical-hacking-lab-setup-mastery/ethical-hacking-lab-setup-mastery.html"
-                                class="start-hacking">Start Learning</a>
+                        <p>Build a secure, enterprise-grade penetration testing laboratory from scratch. Configure isolated virtual networks and deploy vulnerable VMs safely.</p>
+                        <div class="sec-card-footer">
+                            <span class="sec-card-date"><i class="fas fa-book-open" aria-hidden="true"></i> 3 Modules</span>
+                            <a href="Ethical-Hacking/series/ethical-hacking-lab-setup-mastery/ethical-hacking-lab-setup-mastery.html" class="start-hacking" aria-label="Start series: Complete Ethical Hacking Lab Setup Series">Start Learning <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
                         </div>
                     </div>
-                </div>
-                <!-- Card 3  -->
-                <div class="hacking-card-series" id="comingsoon-4">
-                    <div class="terminal-header">
-                        <span class="terminal-dot red"></span>
-                        <span class="terminal-dot yellow"></span>
-                        <span class="terminal-dot green"></span>
+                </article>
+
+                <!-- Series 3 (Hidden initially): Network Security Protocols -->
+                <article class="hacking-card hidden-hacking">
+                    <div class="sec-card-media">
+                        <img src="images/kali-linux.webp" alt="Network Security Protocols Curriculum" loading="lazy" decoding="async">
+                        <span class="sec-card-badge"><i class="fas fa-hourglass-half" aria-hidden="true"></i> In Development</span>
                     </div>
-                    <div class="card-image-container">
-                        <img src="images/kali-linux.webp" alt="">
-                    </div>
-                    <div class="hacking-content">
+                    <div class="sec-card-body">
+                        <div class="sec-card-meta">
+                            <span class="tag level-tag">Intermediate</span>
+                            <span class="tag topic-tag">Network Defense</span>
+                        </div>
                         <h3>Network Security</h3>
-                        <p>Understand network protocols, packet analysis, and security assessment techniques.
-                        </p>
-                        <div class="info-row">
-                            <div class="status-box status-level">Beginner</div>
-                            <div class="status-box status-on">10 Modules</div>
-                        </div>
-                        <div class="hacking-footer">
-                            <span><i class="fas fa-book-open"></i>3 Modules</span>
-                            <a href="#comingsoon-4" class="start-hacking hover-text-change"
-                                data-hover="Coming Soon!">Start Learning</a>
+                        <p>Analyze TCP/IP vulnerabilities, DNS spoofing, ARP poisoning, and SSL/TLS interception techniques with defensive mitigation strategies.</p>
+                        <div class="sec-card-footer">
+                            <span class="sec-card-date"><i class="fas fa-book-open" aria-hidden="true"></i> 3 Modules</span>
+                            <a href="#comingsoon-4" class="start-hacking hover-text-change" data-hover="Coming Soon!" aria-label="Series coming soon: Network Security">Start Learning <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
                         </div>
                     </div>
-                </div>
-                <!-- Card 4  -->
-                <div class="hacking-card-series" id="comingsoon-5">
-                    <div class="terminal-header">
-                        <span class="terminal-dot red"></span>
-                        <span class="terminal-dot yellow"></span>
-                        <span class="terminal-dot green"></span>
+                </article>
+
+                <!-- Series 4 (Hidden initially): Wireshark Packet Analysis -->
+                <article class="hacking-card hidden-hacking">
+                    <div class="sec-card-media">
+                        <img src="images/kali-linux.webp" alt="Wireshark Network Traffic Analysis" loading="lazy" decoding="async">
+                        <span class="sec-card-badge"><i class="fas fa-hourglass-half" aria-hidden="true"></i> In Development</span>
                     </div>
-                    <div class="card-image-container">
-                        <img src="images/kali-linux.webp" alt="">
-                    </div>
-                    <div class="hacking-content">
+                    <div class="sec-card-body">
+                        <div class="sec-card-meta">
+                            <span class="tag level-tag">Beginner</span>
+                            <span class="tag topic-tag">Packet Analysis</span>
+                        </div>
                         <h3>Wireshark</h3>
-                        <p>Learn Wireshark step-by-step with beginner-friendly tutorials to analyze network traffic
-                            and
-                            packets easily.</p>
-                        <div class="info-row">
-                            <div class="status-box status-level">Beginner</div>
-                            <div class="status-box status-on">10 Modules</div>
-                        </div>
-                        <div class="hacking-footer">
-                            <span><i class="fas fa-book-open"></i>3 Modules</span>
-                            <a href="#comingsoon-5" class="start-hacking hover-text-change"
-                                data-hover="Coming Soon!">Start Learning</a>
+                        <p>Learn Wireshark step-by-step with practical capture exercises to inspect network packets, troubleshoot protocols, and detect malicious payload flows.</p>
+                        <div class="sec-card-footer">
+                            <span class="sec-card-date"><i class="fas fa-book-open" aria-hidden="true"></i> 3 Modules</span>
+                            <a href="#comingsoon-5" class="start-hacking hover-text-change" data-hover="Coming Soon!" aria-label="Series coming soon: Wireshark">Start Learning <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
                         </div>
                     </div>
-                </div>
+                </article>
             </div>
-            <button class="view-all-btn" id="view-all-btn-hacking-series">View All</button>
+
+            <!-- Responsible Security Practice Charter -->
+            <aside class="responsible-security-note" role="note" aria-label="Responsible Security Disclosure">
+                <div class="rsn-icon"><i class="fas fa-scale-balanced" aria-hidden="true"></i></div>
+                <div class="rsn-content">
+                    <strong>Responsible Security Education Commitment:</strong>
+                    <span>All security tutorials, network diagrams, and vulnerability assessments provided on DevSpireHub are strictly for defensive education and authorized local lab environments. Practicing on systems without explicit permission is illegal and strictly prohibited.</span>
+                </div>
+            </aside>
         </div>
     </section>
 
@@ -2128,138 +2440,153 @@
     <section class="networking-section" id="networking-section">
         <div class="container">
             <div class="section-header">
-                <h2 class="heading"><i class="fas fa-network-wired"></i> Networking & Operating System</h2>
-                <p>Master the foundations of networking and operating systems with our beginner-friendly guides. Learn
-                    IP addressing, subnetting, routing, and network security, along with Windows and Linux setup,
-                    configuration, and troubleshooting. Build job-ready skills through hands-on projects and
-                    step-by-step tutorials designed for practical learning.
+                <h2 class="heading"><i class="fas fa-network-wired"></i> Networking & Systems Architecture</h2>
+                <p>Master the foundations of networking and operating systems with practical guides. Learn
+                    IP addressing, subnetting, routing, network protocols, and hands-on Cisco Packet Tracer
+                    simulation labs designed for real-world engineering careers.
                 </p>
             </div>
+
+            <!-- Network Engineering Learning Path Progression -->
+            <div class="net-learning-path" aria-label="Networking Curriculum Progression">
+                <div class="path-step">
+                    <span class="step-num">01</span>
+                    <span class="step-label">OSI & TCP/IP Models</span>
+                </div>
+                <i class="fas fa-chevron-right path-arrow" aria-hidden="true"></i>
+                <div class="path-step">
+                    <span class="step-num">02</span>
+                    <span class="step-label">Protocols & Addressing</span>
+                </div>
+                <i class="fas fa-chevron-right path-arrow" aria-hidden="true"></i>
+                <div class="path-step">
+                    <span class="step-num">03</span>
+                    <span class="step-label">Systems & File Security</span>
+                </div>
+                <i class="fas fa-chevron-right path-arrow" aria-hidden="true"></i>
+                <div class="path-step">
+                    <span class="step-num">04</span>
+                    <span class="step-label">Cisco Simulation Labs</span>
+                </div>
+            </div>
+
             <div class="networking-card-grid">
                 <!-- Card 1  -->
                 <div class="networking-card">
-                    <div class="networking-card__cover">
-                        <div class="card-image-container">
-                            <img src="Networking/Tutorials/common-network-protocols/images/image1.webp"
-                                alt="Common Network Protocols Tutorial" loading="lazy" decoding="async"
-                                fetchpriority="auto">
+                    <div class="net-card-media">
+                        <img src="Networking/Tutorials/common-network-protocols/images/image1.webp"
+                            alt="Common Network Protocols Tutorial" loading="lazy" decoding="async">
+                        <span class="net-card-badge"><i class="fas fa-layer-group"></i> CORE TRACK</span>
+                    </div>
+                    <div class="net-card-body">
+                        <div>
+                            <div class="net-card-meta">
+                                <span class="net-tag">BEGINNER</span>
+                                <span class="net-subtag"><i class="fas fa-network-wired"></i> PROTOCOLS</span>
+                            </div>
+                            <h3 class="net-card-title">Common Network Protocols</h3>
+                            <p class="net-card-desc">Essential protocol mastery for developers, network engineers, and security analysts covering TCP, UDP, DNS, DHCP, HTTP/S, and packet flow dynamics.</p>
                         </div>
-                        <div class="card-content">
-                            <h3>Common Network Protocols</h3>
-                            <p>The Common Network protocols are considered essential knowledge for developers, network
-                                engineers, and ethical hackers.
-                            </p>
-                            <div class="info-row">
-                                <div class="status-box level-tag">Beginner</div>
-                            </div>
-                            <div class="networking-footer">
-                                <span><i class="fas fa-clock"></i>60 min</span>
-                                <a href="Networking/Tutorials/common-network-protocols/index.html"
-                                    title="Common Network Protocols Tutorial" class="start-networking">Start
-                                    Learning</a>
-                            </div>
+                        <div class="net-card-footer">
+                            <span class="net-card-duration"><i class="fas fa-clock"></i> 60 min</span>
+                            <a href="Networking/Tutorials/common-network-protocols/index.html"
+                                title="Common Network Protocols Tutorial" class="start-networking">Start Learning <i class="fas fa-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
 
                 <!-- Card 2  -->
                 <div class="networking-card">
-                    <div class="networking-card__cover">
-                        <div class="card-image-container">
-                            <img src="Networking/Tutorials/network-fundamentals-1/images/network-fundamentals-1.png"
-                                alt="Network Fundamentals 1 Tutorial" loading="lazy" decoding="async"
-                                fetchpriority="auto">
-                        </div>
-                        <div class="card-content">
-                            <h3>Networking Fundamentals 1</h3>
-                            <p>Master Networking Fundamentals I: a beginner's guide to IP, DNS, DHCP, and
-                                troubleshooting for IT careers.
-                            </p>
-                            <div class="info-row">
-                                <div class="status-box level-tag">Beginner</div>
-                                <div class="status-box status-on">9 Section</div>
-                            </div>
-                            <div class="networking-footer">
-                                <span><i class="fas fa-clock"></i>3 hr</span>
-                                <a href="Networking/Tutorials/network-fundamentals-1/index.html"
-                                    title="Network Fundamentals 1 Tutorial" class="start-networking">Start
-                                    Learning</a>
-                            </div>
-                        </div>
+                    <div class="net-card-media">
+                        <img src="Networking/Tutorials/network-fundamentals-1/images/network-fundamentals-1.png"
+                            alt="Network Fundamentals 1 Tutorial" loading="lazy" decoding="async">
+                        <span class="net-card-badge"><i class="fas fa-layer-group"></i> CORE TRACK</span>
                     </div>
-                </div>
-                <!-- Card 3  -->
-                <div class="networking-card">
-                    <div class="networking-card__cover">
-                        <div class="card-image-container">
-                            <img src="Networking/Tutorials/network-fundamentals-2/images/network-fundamental.webp"
-                                alt="Network Fundamentals 2 Tutorial" loading="lazy" decoding="async"
-                                fetchpriority="auto">
+                    <div class="net-card-body">
+                        <div>
+                            <div class="net-card-meta">
+                                <span class="net-tag">BEGINNER</span>
+                                <span class="net-subtag"><i class="fas fa-book-open"></i> 9 SECTIONS</span>
+                            </div>
+                            <h3 class="net-card-title">Networking Fundamentals 1</h3>
+                            <p class="net-card-desc">Master the OSI and TCP/IP stack, IPv4 addressing structures, MAC address formatting, subnetting foundations, and diagnostic troubleshooting.</p>
                         </div>
-                        <div class="card-content">
-                            <h3>Networking Fundamentals 2</h3>
-                            <p>Master Windows file system: hierarchy, paths, permissions, security, and troubleshooting
-                                for beginners.
-                            </p>
-                            <div class="info-row">
-                                <div class="status-box level-tag">Beginner</div>
-                                <div class="status-box status-on">7 Section</div>
-                            </div>
-                            <div class="networking-footer">
-                                <span><i class="fas fa-clock"></i>3 hr</span>
-                                <a href="Networking/Tutorials/network-fundamentals-2/index.html"
-                                    title="Network Fundamentals 2 Tutorial" class="start-networking">Start
-                                    Learning</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Card 4  -->
-                <div class="networking-card">
-                    <div class="networking-card__cover">
-                        <div class="card-image-container">
-                            <img src="Networking/Tutorials/windows-file-system/images/windows-file-system.webp"
-                                alt="Windows File System Tutorial" loading="lazy" decoding="async" fetchpriority="auto">
-                        </div>
-                        <div class="card-content">
-                            <h3>Windows File System</h3>
-                            <p>This comprehensive tutorial is designed for beginners and IT professionals who want to
-                                understand how Windows files and
-                                folders are organized, managed, and secured.
-                            </p>
-                            <div class="info-row">
-                                <div class="status-box level-tag">Beginner</div>
-                                <div class="status-box status-on">5 Section</div>
-                            </div>
-                            <div class="networking-footer">
-                                <span><i class="fas fa-clock"></i>3 hr</span>
-                                <a href="Networking/Tutorials/windows-file-system/index.html"
-                                    class="start-networking">Start Learning</a>
-                            </div>
+                        <div class="net-card-footer">
+                            <span class="net-card-duration"><i class="fas fa-clock"></i> 3 hr</span>
+                            <a href="Networking/Tutorials/network-fundamentals-1/index.html"
+                                title="Network Fundamentals 1 Tutorial" class="start-networking">Start Learning <i class="fas fa-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
 
-                    <!-- Card 5  -->
-                <div class="networking-card hidden-networking">
-                    <div class="networking-card__cover">
-                        <div class="card-image-container">
-                            <img src="Networking/practical-labs/vlan/images/vlan-configuration-packet-tracer-practical-lab-tutorial.webp"
-                                alt="VLAN Configuration in Cisco Packet Tracer" loading="lazy" decoding="async" fetchpriority="auto">
+                <!-- Card 3  -->
+                <div class="networking-card">
+                    <div class="net-card-media">
+                        <img src="Networking/Tutorials/network-fundamentals-2/images/network-fundamental.webp"
+                            alt="Network Fundamentals 2 Tutorial" loading="lazy" decoding="async">
+                        <span class="net-card-badge"><i class="fas fa-layer-group"></i> CORE TRACK</span>
+                    </div>
+                    <div class="net-card-body">
+                        <div>
+                            <div class="net-card-meta">
+                                <span class="net-tag">BEGINNER</span>
+                                <span class="net-subtag"><i class="fas fa-book-open"></i> 7 SECTIONS</span>
+                            </div>
+                            <h3 class="net-card-title">Networking Fundamentals 2</h3>
+                            <p class="net-card-desc">Explore Star, Bus, Ring, and Mesh topologies, switch and router operations, enterprise 3-tier architectures, and site-to-site VPN gateways.</p>
                         </div>
-                        <div class="card-content">
-                            <h3>VLAN Configuration in Cisco Packet Tracer</h3>
-                            <p>Learn VLAN configuration in Cisco Packet Tracer with a hands-on lab covering access ports, trunking, native VLAN setup, router-on-a-stick, verification, troubleshooting, and inter-VLAN routing using a real network topology.
-                            </p>
-                            <div class="info-row">
-                                <div class="status-box level-tag">Beginner</div>
-                                <div class="status-box status-on">5 Section</div>
+                        <div class="net-card-footer">
+                            <span class="net-card-duration"><i class="fas fa-clock"></i> 3 hr</span>
+                            <a href="Networking/Tutorials/network-fundamentals-2/index.html"
+                                title="Network Fundamentals 2 Tutorial" class="start-networking">Start Learning <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 4  -->
+                <div class="networking-card">
+                    <div class="net-card-media">
+                        <img src="Networking/Tutorials/windows-file-system/images/windows-file-system.webp"
+                            alt="Windows File System Tutorial" loading="lazy" decoding="async">
+                        <span class="net-card-badge"><i class="fas fa-server"></i> SYSTEMS TRACK</span>
+                    </div>
+                    <div class="net-card-body">
+                        <div>
+                            <div class="net-card-meta">
+                                <span class="net-tag">BEGINNER</span>
+                                <span class="net-subtag"><i class="fas fa-book-open"></i> 5 SECTIONS</span>
                             </div>
-                            <div class="networking-footer">
-                                <span><i class="fas fa-clock"></i>2 hr</span>
-                                <a href="Networking/practical-labs/vlan/vlan-configuration-cisco-packet-tracer.html"
-                                    class="start-networking">Start Learning</a>
+                            <h3 class="net-card-title">Windows File System</h3>
+                            <p class="net-card-desc">Understand how Windows files and storage hierarchies are organized, NTFS access permissions, security ACLs, and enterprise administration.</p>
+                        </div>
+                        <div class="net-card-footer">
+                            <span class="net-card-duration"><i class="fas fa-clock"></i> 3 hr</span>
+                            <a href="Networking/Tutorials/windows-file-system/index.html"
+                                title="Windows File System Tutorial" class="start-networking">Start Learning <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 5 (Expandable Practical Lab) -->
+                <div class="networking-card hidden-networking">
+                    <div class="net-card-media">
+                        <img src="Networking/practical-labs/vlan/images/vlan-configuration-packet-tracer-practical-lab-tutorial.webp"
+                            alt="VLAN Configuration in Cisco Packet Tracer" loading="lazy" decoding="async">
+                        <span class="net-card-badge net-badge-lab"><i class="fas fa-flask"></i> SIMULATION LAB</span>
+                    </div>
+                    <div class="net-card-body">
+                        <div>
+                            <div class="net-card-meta">
+                                <span class="net-tag net-tag-lab">HANDS-ON LAB</span>
+                                <span class="net-subtag"><i class="fas fa-diagram-project"></i> CISCO PACKET TRACER</span>
                             </div>
+                            <h3 class="net-card-title">VLAN Configuration in Cisco Packet Tracer</h3>
+                            <p class="net-card-desc">Step-by-step Cisco lab covering access ports, 802.1Q trunking, router-on-a-stick, inter-VLAN routing, and CLI verification using real topologies.</p>
+                        </div>
+                        <div class="net-card-footer">
+                            <span class="net-card-duration"><i class="fas fa-clock"></i> 2 hr</span>
+                            <a href="Networking/practical-labs/vlan/vlan-configuration-cisco-packet-tracer.html"
+                                title="VLAN Configuration in Cisco Packet Tracer" class="start-networking">Start Learning <i class="fas fa-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
@@ -2474,252 +2801,319 @@
     <section class="info-section" id="info-section">
         <div class="container">
             <div class="section-header">
-                <h2 class="heading"><i class="fas fa-search"></i>Information & Resources</h2>
-                <p>
-                    Comprehensive database of books, documentation, cheat sheets, and community resources for
-                    developers.
+                <h2 class="heading"><i class="fas fa-layer-group"></i> Information & Resources</h2>
+                <p>Curated technical repository of verified open-source directories, downloadable cheat sheets, 
+                   command references, and practical e-books designed for engineers, developers, and security professionals.
                 </p>
             </div>
+
+            <!-- Resource Domain Progression Navigation -->
+            <div class="resource-category-nav" aria-label="Technical Resource Categories">
+                <div class="res-nav-item">
+                    <span class="res-nav-num">01</span>
+                    <span class="res-nav-label">Networking & Protocols</span>
+                </div>
+                <i class="fas fa-chevron-right res-nav-arrow" aria-hidden="true"></i>
+                <div class="res-nav-item">
+                    <span class="res-nav-num">02</span>
+                    <span class="res-nav-label">Linux Administration</span>
+                </div>
+                <i class="fas fa-chevron-right res-nav-arrow" aria-hidden="true"></i>
+                <div class="res-nav-item">
+                    <span class="res-nav-num">03</span>
+                    <span class="res-nav-label">Python & Data Science</span>
+                </div>
+                <i class="fas fa-chevron-right res-nav-arrow" aria-hidden="true"></i>
+                <div class="res-nav-item">
+                    <span class="res-nav-num">04</span>
+                    <span class="res-nav-label">Web & Systems Architecture</span>
+                </div>
+            </div>
+
+            <!-- Central Hub Spotlight Cards -->
             <div class="resource-card-grid">
                 <div class="resource-card">
-                    <div class="header">
+                    <div class="resource-card-header">
+                        <span class="res-badge"><i class="fa-brands fa-github"></i> DIRECTORY</span>
                         <h3>Open-Source Tools Directory</h3>
-                        <p>Explore 250+ verified open-source tools in our comprehensive directory. Find the best free
-                            software for programming and productivity today!</p>
+                        <p>Explore 250+ verified open-source tools across development, DevOps, cybersecurity, and productivity with official repository links.</p>
                     </div>
-                    <div class="card-footer">
-                        <i class="fa-brands fa-github"></i>
-                        <a href="Resources/tools-directory/index.html">Visit <i
-                                class="fas fa-angle-double-right"></i></a>
+                    <div class="resource-card-footer">
+                        <span class="res-meta-info"><i class="fas fa-database"></i> 250+ Tools Curated</span>
+                        <a href="Resources/tools-directory/index.html" class="res-action-btn" title="Visit Open-Source Tools Directory">Visit Directory <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
+
                 <div class="resource-card">
-                    <div class="header">
+                    <div class="resource-card-header">
+                        <span class="res-badge res-badge-hub"><i class="fa-solid fa-folder-open"></i> CENTRAL HUB</span>
                         <h3>Digital Resources Hub</h3>
-                        <p>Access free high-quality cheat sheets, notes, and guides for programming, cybersecurity, and
-                            AI. Master technical skills with DevSpireHub' Hub.</p>
+                        <p>Access high-quality downloadable cheat sheets, technical notes, and implementation guides across programming, systems, and security.</p>
                     </div>
-                    <div class="card-footer">
-                        <i class="fa-solid fa-folder"></i>
-                        <a href="Resources/digital-resources/digital-resources-hub.html">Visit <i
-                                class="fas fa-angle-double-right"></i></a>
+                    <div class="resource-card-footer">
+                        <span class="res-meta-info"><i class="fas fa-book-bookmark"></i> Study Modules & Notes</span>
+                        <a href="Resources/digital-resources/digital-resources-hub.html" class="res-action-btn" title="Visit Digital Resources Hub">Visit Hub <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
             </div>
-            <!-- Cheat Sheets & Quick Guides  -->
-            <div class="cheat-section-header container">
-                <h3>Cheat Sheets & Quick Guides</h3>
+
+            <!-- Subsection 1: Cheat Sheets & Quick Guides -->
+            <div class="res-subhead">
+                <div class="res-subhead-title">
+                    <h3><i class="fas fa-file-code"></i> Cheat Sheets & Quick Reference Guides</h3>
+                    <p class="res-subhead-desc">Instant reference infographics and command syntax sheets for practical workflows.</p>
+                </div>
                 <button class="view-all-btn" id="view-all-btn-guide-link">View All</button>
             </div>
-            <div class="card-grid">
+
+            <div class="res-card-grid">
+                <!-- Card 1 -->
                 <div class="card-cheat">
-                    <h3>DNS</h3>
-                    <p class="card-description">
-                        How DNS works infographic: resolver, ISP cache, root, TLD, and authoritative lookup flow.
-                    </p>
-                    <div class="card-footer">
-                        <span class="tech-tag networking">Networking</span>
-                        <button class="card-link download-btn"
-                            data-file="images/resources/cheatsheet/How-DNS-works.rar">Download
-                            <i class="fas fa-download"></i>
-                        </button>
+                    <div class="card-cheat-body">
+                        <div class="card-cheat-meta">
+                            <span class="res-tag res-tag-net">NETWORKING</span>
+                            <span class="res-type-pill"><i class="fas fa-diagram-project"></i> INFOGRAPHIC</span>
+                        </div>
+                        <h4 class="card-cheat-title">DNS Resolution Flow</h4>
+                        <p class="card-cheat-desc">How DNS works step-by-step: recursive resolver, ISP cache hierarchy, Root hints, TLD servers, and authoritative records.</p>
                     </div>
-                </div>
-                <div class="card-cheat">
-                    <h3>DHCP</h3>
-                    <p class="card-description">
-                        How DHCP works: DORA steps—Discover, Offer, Request, Acknowledge—explained visually.
-                    </p>
-                    <div class="card-footer">
-                        <span class="tech-tag networking">Networking</span>
-                        <button class="card-link download-btn"
-                            data-file="images/resources/cheatsheet/How-Dynamic-Host-Configuration-(DHCP)-Works.rar">Download
-                            <i class="fas fa-download"></i></button>
-                    </div>
-                </div>
-                <div class="card-cheat">
-                    <h3>Linux architecture</h3>
-                    <p class="card-description">
-                        Linux architecture diagram: hardware, kernel, shell, utilities, and applications overview.
-                    </p>
-                    <div class="card-footer">
-                        <span class="tech-tag ethical-hacking">Linux</span>
-                        <button class="card-link download-btn"
-                            data-file="images/resources/cheatsheet/Linux-architecture.rar">Download <i
-                                class="fas fa-download"></i></button>
-                    </div>
-                </div>
-                <div class="card-cheat">
-                    <h3>Basic Linux file permissions</h3>
-                    <p class="card-description">
-                        Basic Linux file permissions guide: rwx, users/groups/others, and file types.
-                    </p>
-                    <div class="card-footer">
-                        <span class="tech-tag ethical-hacking">Linux</span>
-                        <button class="card-link download-btn"
-                            data-file="images/resources/cheatsheet/Linux-basic-file-permissions.rar">Download <i
-                                class="fas fa-download"></i></button>
-                    </div>
-                </div>
-                <div class="card-cheat hidden-card-cheat">
-                    <h3>Linux AWK cheatsheet</h3>
-                    <p class="card-description">
-                        Linux AWK cheatsheet: patterns, variables, regex, loops, and common examples.
-                    </p>
-                    <div class="card-footer">
-                        <span class="tech-tag python">Linux</span>
-                        <button class="card-link download-btn"
-                            data-file="images/resources/cheatsheet/Linux-awk-command.rar">Download <i
-                                class="fas fa-download"></i></button>
-                    </div>
-                </div>
-                <div class="card-cheat hidden-card-cheat">
-                    <h3>Linux boot process</h3>
-                    <p class="card-description">
-                        Linux boot process infographic: BIOS/UEFI, GRUB, kernel init, systemd, services start.
-                    </p>
-                    <div class="card-footer">
-                        <span class="tech-tag python">Linux</span>
-                        <button class="card-link download-btn"
-                            data-file="images/resources/cheatsheet/Linux-boot-process.rar">Download <i
-                                class="fas fa-download"></i></button>
-                    </div>
-                </div>
-                <div class="card-cheat hidden-card-cheat">
-                    <h3>Linux commands cheatsheet</h3>
-                    <p class="card-description">
-                        Linux commands cheatsheet: files, processes, networking, SSH, users, permissions, archives.
-                    </p>
-                    <div class="card-footer">
-                        <span class="tech-tag python">Linux</span>
-                        <button class="card-link download-btn"
-                            data-file="images/resources/cheatsheet/Linux-Commands-cheatsheet.rar">Download <i
-                                class="fas fa-download"></i></button>
-                    </div>
-                </div>
-                <div class="card-cheat hidden-card-cheat">
-                    <h3>Linux shell redirection</h3>
-                    <p class="card-description">
-                        Linux shell redirection guide: stdin/stdout/stderr, >, >>, <, 2>, 2>&1 examples.
-                    </p>
-                    <div class="card-footer">
-                        <span class="tech-tag python">Linux</span>
-                        <button class="card-link download-btn"
-                            data-file="images/resources/cheatsheet/Linux-command-line-redirections.rar">Download <i
-                                class="fas fa-download"></i></button>
+                    <div class="card-cheat-footer">
+                        <span class="card-cheat-format">RAR • INFOGRAPHIC</span>
+                        <button class="card-link download-btn" data-file="images/resources/cheatsheet/How-DNS-works.rar" title="Download DNS Infographic">Download <i class="fas fa-download"></i></button>
                     </div>
                 </div>
 
+                <!-- Card 2 -->
+                <div class="card-cheat">
+                    <div class="card-cheat-body">
+                        <div class="card-cheat-meta">
+                            <span class="res-tag res-tag-net">NETWORKING</span>
+                            <span class="res-type-pill"><i class="fas fa-network-wired"></i> PROTOCOL</span>
+                        </div>
+                        <h4 class="card-cheat-title">DHCP DORA Architecture</h4>
+                        <p class="card-cheat-desc">Complete visual breakdown of DHCP lease mechanics: Discover, Offer, Request, and Acknowledgment exchange.</p>
+                    </div>
+                    <div class="card-cheat-footer">
+                        <span class="card-cheat-format">RAR • REFERENCE</span>
+                        <button class="card-link download-btn" data-file="images/resources/cheatsheet/How-Dynamic-Host-Configuration-(DHCP)-Works.rar" title="Download DHCP Guide">Download <i class="fas fa-download"></i></button>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="card-cheat">
+                    <div class="card-cheat-body">
+                        <div class="card-cheat-meta">
+                            <span class="res-tag res-tag-linux">LINUX</span>
+                            <span class="res-type-pill"><i class="fas fa-server"></i> ARCHITECTURE</span>
+                        </div>
+                        <h4 class="card-cheat-title">Linux System Architecture</h4>
+                        <p class="card-cheat-desc">Core Linux architecture overview: hardware abstraction layer, kernel space, system call interface, shells, and user space.</p>
+                    </div>
+                    <div class="card-cheat-footer">
+                        <span class="card-cheat-format">RAR • DIAGRAM</span>
+                        <button class="card-link download-btn" data-file="images/resources/cheatsheet/Linux-architecture.rar" title="Download Linux Architecture Diagram">Download <i class="fas fa-download"></i></button>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="card-cheat">
+                    <div class="card-cheat-body">
+                        <div class="card-cheat-meta">
+                            <span class="res-tag res-tag-linux">LINUX</span>
+                            <span class="res-type-pill"><i class="fas fa-lock"></i> PERMISSIONS</span>
+                        </div>
+                        <h4 class="card-cheat-title">Basic Linux File Permissions</h4>
+                        <p class="card-cheat-desc">Complete permissions reference: read/write/execute bits, octal calculation, user/group/others classes, and chmod syntax.</p>
+                    </div>
+                    <div class="card-cheat-footer">
+                        <span class="card-cheat-format">RAR • REFERENCE</span>
+                        <button class="card-link download-btn" data-file="images/resources/cheatsheet/Linux-basic-file-permissions.rar" title="Download Linux File Permissions Guide">Download <i class="fas fa-download"></i></button>
+                    </div>
+                </div>
+
+                <!-- Card 5 (Hidden by default) -->
                 <div class="card-cheat hidden-card-cheat">
-                    <h3>Python Cheat Sheet — Beginner to Advanced Quick Reference Guide</h3>
-                    <p class="card-description">
-                        Python cheat sheet covering variables, lists, functions, classes, Django, Git & more for
-                        beginners.
-                    </p>
-                    <div class="card-footer">
-                        <span class="tech-tag python">Python</span>
-                        <button class="card-link download-btn"
-                            data-file="images/resources/cheatsheet/Python-Cheat-Sheet.rar">Download
-                            <i class="fas fa-download"></i></button>
+                    <div class="card-cheat-body">
+                        <div class="card-cheat-meta">
+                            <span class="res-tag res-tag-linux">LINUX</span>
+                            <span class="res-type-pill"><i class="fas fa-terminal"></i> CLI UTILITY</span>
+                        </div>
+                        <h4 class="card-cheat-title">Linux AWK Command Cheatsheet</h4>
+                        <p class="card-cheat-desc">Pattern scanning and data processing language reference: record separators, field variables, regex operators, and loops.</p>
+                    </div>
+                    <div class="card-cheat-footer">
+                        <span class="card-cheat-format">RAR • CHEATSHEET</span>
+                        <button class="card-link download-btn" data-file="images/resources/cheatsheet/Linux-awk-command.rar" title="Download Linux AWK Cheatsheet">Download <i class="fas fa-download"></i></button>
+                    </div>
+                </div>
+
+                <!-- Card 6 (Hidden by default) -->
+                <div class="card-cheat hidden-card-cheat">
+                    <div class="card-cheat-body">
+                        <div class="card-cheat-meta">
+                            <span class="res-tag res-tag-linux">LINUX</span>
+                            <span class="res-type-pill"><i class="fas fa-power-off"></i> BOOT SEQUENCE</span>
+                        </div>
+                        <h4 class="card-cheat-title">Linux Boot Process</h4>
+                        <p class="card-cheat-desc">Step-by-step boot phase walkthrough: UEFI/BIOS initialization, MBR/GPT, GRUB2 bootloader, vmlinuz kernel, and systemd targets.</p>
+                    </div>
+                    <div class="card-cheat-footer">
+                        <span class="card-cheat-format">RAR • INFOGRAPHIC</span>
+                        <button class="card-link download-btn" data-file="images/resources/cheatsheet/Linux-boot-process.rar" title="Download Linux Boot Process Guide">Download <i class="fas fa-download"></i></button>
+                    </div>
+                </div>
+
+                <!-- Card 7 (Hidden by default) -->
+                <div class="card-cheat hidden-card-cheat">
+                    <div class="card-cheat-body">
+                        <div class="card-cheat-meta">
+                            <span class="res-tag res-tag-linux">LINUX</span>
+                            <span class="res-type-pill"><i class="fas fa-terminal"></i> COMMANDS</span>
+                        </div>
+                        <h4 class="card-cheat-title">Essential Linux Commands</h4>
+                        <p class="card-cheat-desc">Fast administration cheat sheet covering file manipulation, process inspection, network sockets, SSH, and tar archives.</p>
+                    </div>
+                    <div class="card-cheat-footer">
+                        <span class="card-cheat-format">RAR • CHEATSHEET</span>
+                        <button class="card-link download-btn" data-file="images/resources/cheatsheet/Linux-Commands-cheatsheet.rar" title="Download Linux Commands Cheatsheet">Download <i class="fas fa-download"></i></button>
+                    </div>
+                </div>
+
+                <!-- Card 8 (Hidden by default) -->
+                <div class="card-cheat hidden-card-cheat">
+                    <div class="card-cheat-body">
+                        <div class="card-cheat-meta">
+                            <span class="res-tag res-tag-linux">LINUX</span>
+                            <span class="res-type-pill"><i class="fas fa-code-branch"></i> I/O STREAMS</span>
+                        </div>
+                        <h4 class="card-cheat-title">Linux Shell Redirection</h4>
+                        <p class="card-cheat-desc">Standard I/O stream redirection manual: stdin (0), stdout (1), stderr (2), appending (`>>`), piping (`|`), and tee usage.</p>
+                    </div>
+                    <div class="card-cheat-footer">
+                        <span class="card-cheat-format">RAR • REFERENCE</span>
+                        <button class="card-link download-btn" data-file="images/resources/cheatsheet/Linux-command-line-redirections.rar" title="Download Shell Redirection Guide">Download <i class="fas fa-download"></i></button>
+                    </div>
+                </div>
+
+                <!-- Card 9 (Hidden by default) -->
+                <div class="card-cheat hidden-card-cheat">
+                    <div class="card-cheat-body">
+                        <div class="card-cheat-meta">
+                            <span class="res-tag res-tag-py">PYTHON</span>
+                            <span class="res-type-pill"><i class="fab fa-python"></i> LANGUAGE</span>
+                        </div>
+                        <h4 class="card-cheat-title">Python Core Cheatsheet</h4>
+                        <p class="card-cheat-desc">Beginner to advanced syntax quick reference: data structures, list comprehensions, lambda expressions, OOP, and virtual envs.</p>
+                    </div>
+                    <div class="card-cheat-footer">
+                        <span class="card-cheat-format">RAR • CHEATSHEET</span>
+                        <button class="card-link download-btn" data-file="images/resources/cheatsheet/Python-Cheat-Sheet.rar" title="Download Python Cheatsheet">Download <i class="fas fa-download"></i></button>
                     </div>
                 </div>
             </div>
-            <!-- Free E-Books & Guides Section  -->
-            <div class="guide-section-header container">
-                <h3>Free E-Books & Guides Section</h3>
+
+            <!-- Subsection 2: Free E-Books & Guides Section -->
+            <div class="res-subhead">
+                <div class="res-subhead-title">
+                    <h3><i class="fas fa-book"></i> Free E-Books & Comprehensive Guides</h3>
+                    <p class="res-subhead-desc">In-depth technical publications, interview question sets, and library references.</p>
+                </div>
                 <button class="view-all-btn" id="view-all-btn-ebooks">View All</button>
             </div>
-            <div class="card-grid">
+
+            <div class="res-card-grid">
+                <!-- Card 1 -->
                 <div class="card-guide">
-                    <div class="guide-icon linux"><i class="fab fa-linux"></i>
-                        <h3>Network Administrator Interview Questions (Scenarios)</h3>
-                    </div>
-                    <div class="guide-content">
-                        <p class="card-description">
-                            Scenario-based network admin interview questions: routing, VLANs, DNS, DHCP, security.
-                        </p>
-                        <div class="guide-meta">
-                            <span class="tech-tag networking">Networking</span>
-                            <span class=" tech-tag level-tag">Intermediate</span>
-                            <button class="card-link download-btn"
-                                data-file="images/resources/pdf/Essential-Network-Administrator-Interview-Questions-Scenarios.rar"><i
-                                    class="fas fa-download"></i></button>
+                    <div class="card-guide-body">
+                        <div class="card-guide-header">
+                            <div class="guide-badge-icon guide-icon-net"><i class="fas fa-network-wired"></i></div>
+                            <div>
+                                <span class="res-tag res-tag-net">NETWORKING</span>
+                                <span class="res-level-pill">INTERMEDIATE</span>
+                            </div>
                         </div>
+                        <h4 class="card-guide-title">Network Administrator Interview Questions</h4>
+                        <p class="card-guide-desc">Scenario-based interview preparation guide covering dynamic routing, VLAN design, DHCP snooping, and DNS disaster recovery.</p>
+                    </div>
+                    <div class="card-guide-footer">
+                        <span class="card-cheat-format">RAR • INTERVIEW PACK</span>
+                        <button class="card-link download-btn" data-file="images/resources/pdf/Essential-Network-Administrator-Interview-Questions-Scenarios.rar" title="Download Network Admin Interview Guide">Download <i class="fas fa-download"></i></button>
                     </div>
                 </div>
 
+                <!-- Card 2 -->
                 <div class="card-guide">
-                    <div class="guide-icon python"><i class="fab fa-python"></i>
-                        <h3>70+ Vital Windows CMD Commands</h3>
-                    </div>
-                    <div class="guide-content">
-                        <p class="card-description">
-                            Must-know Windows Command Prompt commands for admin and cybersecurity tasks.
-                        </p>
-                        <div class="guide-meta">
-                            <span class="tech-tag networking">Networking</span>
-                            <span class="tech-tag level-tag">Beginner</span>
-                            <button class="card-link download-btn"
-                                data-file="images/resources/pdf/70+-Vital-Windows-Commands.rar"><i
-                                    class="fas fa-download"></i></button>
+                    <div class="card-guide-body">
+                        <div class="card-guide-header">
+                            <div class="guide-badge-icon guide-icon-sys"><i class="fab fa-windows"></i></div>
+                            <div>
+                                <span class="res-tag res-tag-sys">WINDOWS</span>
+                                <span class="res-level-pill">BEGINNER</span>
+                            </div>
                         </div>
+                        <h4 class="card-guide-title">70+ Vital Windows CMD Commands</h4>
+                        <p class="card-guide-desc">Essential Command Prompt reference for IT support and cybersecurity: network troubleshooting, disk management, and access controls.</p>
                     </div>
-                </div>
-                <!-- SQL Injection Prevention Card -->
-                <div class="card-guide">
-                    <div class="guide-icon guide-icon-red"><i class="fab fa-linux"></i>
-                        <h3>100 Essential Linux Commands</h3>
-                    </div>
-                    <div class="guide-content">
-                        <p class="card-description">
-                            Quick Linux command reference: files, processes, networking, permissions, archives.
-                        </p>
-                        <div class="guide-meta">
-                            <span class="tech-tag ethical-hacking">Linux</span>
-                            <span class="tech-tag level-tag">Beginner</span>
-                            <button class="card-link download-btn"
-                                data-file="images/resources/pdf/+100-Linux-Commands-pdf.rar"><i
-                                    class="fas fa-download"></i></button>
-                        </div>
-                    </div>
-                </div>
-                <!-- Network Troubleshooting Guide Card -->
-                <div class="card-guide">
-                    <div class="guide-icon python"><i class="fas fa-network-wired"></i>
-                        <h3>Python Data Science Cheat Sheets</h3>
-                    </div>
-                    <div class="guide-content">
-                        <p class="card-description">
-                            Python data science cheatsheets: NumPy, Pandas, Matplotlib, Seaborn, scikit-learn & more.
-                        </p>
-
-                        <div class="guide-meta">
-                            <span class="tech-tag programming">Python</span>
-                            <span class=" tech-tag level-tag">Beginner</span>
-                            <button class="card-link download-btn"
-                                data-file="images/resources/pdf/python-data-science-cheat-Sheets-Collection.rar"><i
-                                    class="fas fa-download"></i></button>
-                        </div>
+                    <div class="card-guide-footer">
+                        <span class="card-cheat-format">RAR • COMMAND GUIDE</span>
+                        <button class="card-link download-btn" data-file="images/resources/pdf/70+-Vital-Windows-Commands.rar" title="Download Windows Commands Guide">Download <i class="fas fa-download"></i></button>
                     </div>
                 </div>
 
+                <!-- Card 3 -->
+                <div class="card-guide">
+                    <div class="card-guide-body">
+                        <div class="card-guide-header">
+                            <div class="guide-badge-icon guide-icon-linux"><i class="fab fa-linux"></i></div>
+                            <div>
+                                <span class="res-tag res-tag-linux">LINUX</span>
+                                <span class="res-level-pill">BEGINNER</span>
+                            </div>
+                        </div>
+                        <h4 class="card-guide-title">100 Essential Linux Commands Handbook</h4>
+                        <p class="card-guide-desc">Comprehensive reference manual organizing the top 100 Linux commands with real CLI examples, flags, and common administration recipes.</p>
+                    </div>
+                    <div class="card-guide-footer">
+                        <span class="card-cheat-format">RAR • HANDBOOK</span>
+                        <button class="card-link download-btn" data-file="images/resources/pdf/+100-Linux-Commands-pdf.rar" title="Download Linux Commands Handbook">Download <i class="fas fa-download"></i></button>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="card-guide">
+                    <div class="card-guide-body">
+                        <div class="card-guide-header">
+                            <div class="guide-badge-icon guide-icon-py"><i class="fab fa-python"></i></div>
+                            <div>
+                                <span class="res-tag res-tag-py">DATA SCIENCE</span>
+                                <span class="res-level-pill">BEGINNER</span>
+                            </div>
+                        </div>
+                        <h4 class="card-guide-title">Python Data Science Cheat Sheets</h4>
+                        <p class="card-guide-desc">The ultimate collection for data analysts: NumPy ndarray operations, Pandas DataFrame wrangling, Matplotlib plotting, and scikit-learn models.</p>
+                    </div>
+                    <div class="card-guide-footer">
+                        <span class="card-cheat-format">RAR • CHEAT SHEET BUNDLE</span>
+                        <button class="card-link download-btn" data-file="images/resources/pdf/python-data-science-cheat-Sheets-Collection.rar" title="Download Python Data Science Bundle">Download <i class="fas fa-download"></i></button>
+                    </div>
+                </div>
+
+                <!-- Card 5 (Hidden by default) -->
                 <div class="card-guide hidden-card-guide">
-                    <div class="guide-icon html"><i class="fas fa-globe"></i>
-                        <h3>HTML Cheat Sheet — Complete Beginner's Reference Guide for HTML Elements</h3>
-                    </div>
-                    <div class="guide-content">
-                        <p class="card-description">
-                            HTML cheat sheet covering tags, forms, tables, media, scripting & more for beginner web
-                            developers.
-                        </p>
-
-                        <div class="guide-meta">
-                            <span class="tech-tag programming">HTML</span>
-                            <span class=" tech-tag level-tag">Beginner</span>
-                            <button class="card-link download-btn"
-                                data-file="images/resources/pdf/HTML-Cheat-Sheet.rar"><i
-                                    class="fas fa-download"></i></button>
+                    <div class="card-guide-body">
+                        <div class="card-guide-header">
+                            <div class="guide-badge-icon guide-icon-web"><i class="fas fa-code"></i></div>
+                            <div>
+                                <span class="res-tag res-tag-web">WEB DEV</span>
+                                <span class="res-level-pill">BEGINNER</span>
+                            </div>
                         </div>
+                        <h4 class="card-guide-title">Complete HTML5 Developer Reference Guide</h4>
+                        <p class="card-guide-desc">Comprehensive HTML5 reference: semantic elements, forms validation, multimedia embedding, meta SEO tags, and accessibility ARIA attributes.</p>
+                    </div>
+                    <div class="card-guide-footer">
+                        <span class="card-cheat-format">RAR • REFERENCE MANUAL</span>
+                        <button class="card-link download-btn" data-file="images/resources/pdf/HTML-Cheat-Sheet.rar" title="Download HTML5 Reference Guide">Download <i class="fas fa-download"></i></button>
                     </div>
                 </div>
             </div>

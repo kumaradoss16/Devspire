@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 600" width="100%" height="100%" preserveAspectRatio="xMaxYMid slice" aria-hidden="true" focusable="false">
+  <defs>
+    <!-- Background Gradient: Deep Base #0A1724 to Surface #10243A with lifted highlight -->
+    <linearGradient id="wavePanelGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#17324D" stop-opacity="0.95" />
+      <stop offset="40%" stop-color="#10243A" stop-opacity="0.98" />
+      <stop offset="100%" stop-color="#0A1724" stop-opacity="1.0" />
+    </linearGradient>
+
+    <!-- Teal Edge Highlight Gradient -->
+    <linearGradient id="waveRimGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#19BAAF" stop-opacity="0.45" />
+      <stop offset="50%" stop-color="#19BAAF" stop-opacity="0.30" />
+      <stop offset="100%" stop-color="#19BAAF" stop-opacity="0.10" />
+    </linearGradient>
+
+    <!-- Mask to fade textures softly before the wave edge and borders -->
+    <linearGradient id="maskFadeGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#000" />
+      <stop offset="18%" stop-color="#555" />
+      <stop offset="45%" stop-color="#fff" />
+      <stop offset="88%" stop-color="#fff" />
+      <stop offset="100%" stop-color="#000" />
+    </linearGradient>
+    <mask id="waveTextureMask">
+      <rect x="700" y="0" width="740" height="600" fill="url(#maskFadeGrad)" />
+    </mask>
+
+    <!-- Faint Dot Lattice Pattern -->
+    <pattern id="faintDots" width="28" height="28" patternUnits="userSpaceOnUse">
+      <circle cx="14" cy="14" r="1" fill="#AAB4C0" fill-opacity="0.08" />
+    </pattern>
+  </defs>
+
+  <!-- Main Dark Wave Panel Path: ONE smooth S-Curve from (1240, 0) to (700, 600) -->
+  <path d="M 1240,0 C 1080,80 720,280 700,600 L 1440,600 L 1440,0 Z" fill="url(#wavePanelGrad)" />
+
+  <!-- Subtle Radial Vignette Lifting Base to Surface -->
+  <path d="M 1240,0 C 1080,80 720,280 700,600 L 1440,600 L 1440,0 Z" fill="radial-gradient(circle at 85% 25%, rgba(23, 50, 77, 0.45) 0%, transparent 65%)" />
+
+  <!-- Smooth Teal Edge Rim Highlight Along S-Curve Boundary -->
+  <path d="M 1240,0 C 1080,80 720,280 700,600" fill="none" stroke="url(#waveRimGrad)" stroke-width="1.5" />
+
+  <!-- Internal Restrained Technical Texture (Masked to fade before edge) -->
+  <g mask="url(#waveTextureMask)">
+    <!-- 1. Faint Dot Lattice -->
+    <rect x="700" y="0" width="740" height="600" fill="url(#faintDots)" />
+
+    <!-- 2. Sparse Network Topology (Lower-Right) -->
+    <g opacity="0.85">
+      <line x1="1080" y1="460" x2="1200" y2="420" stroke="#19BAAF" stroke-width="1" stroke-opacity="0.22" stroke-dasharray="3 3" />
+      <line x1="1200" y1="420" x2="1330" y2="475" stroke="#19BAAF" stroke-width="1" stroke-opacity="0.18" />
+      <line x1="1200" y1="420" x2="1270" y2="350" stroke="#19BAAF" stroke-width="1" stroke-opacity="0.15" />
+      <line x1="1270" y1="350" x2="1380" y2="370" stroke="#19BAAF" stroke-width="1" stroke-opacity="0.12" stroke-dasharray="2 2" />
+      
+      <!-- Nodes -->
+      <circle cx="1080" cy="460" r="3" fill="#10243A" stroke="#19BAAF" stroke-width="1.5" stroke-opacity="0.35" />
+      <!-- Tiny Brand Orange Accent Node -->
+      <circle cx="1200" cy="420" r="3.5" fill="#10243A" stroke="#E54415" stroke-width="1.5" stroke-opacity="0.5" />
+      <circle cx="1330" cy="475" r="2.5" fill="#10243A" stroke="#19BAAF" stroke-width="1.2" stroke-opacity="0.3" />
+      <circle cx="1270" cy="350" r="2.5" fill="#10243A" stroke="#AAB4C0" stroke-width="1" stroke-opacity="0.25" />
+      <circle cx="1380" cy="370" r="2" fill="#10243A" stroke="#19BAAF" stroke-width="1" stroke-opacity="0.2" />
+    </g>
+
+    <!-- 3. Ghosted Technical Text & Command Snippets (Faded & Unobtrusive) -->
+    <g font-family="monospace" font-size="11" opacity="0.14" letter-spacing="0.5">
+      <text x="880" y="110">
+        <tspan fill="#E54415">class</tspan> <tspan fill="#19BAAF">EndpointRouter</tspan><tspan fill="#AAB4C0">(BaseGateway):</tspan>
+      </text>
+      <text x="900" y="128" fill="#AAB4C0">def route(self, pkt: Packet) -&gt; Route:</text>
+      <text x="920" y="146">
+        <tspan fill="#E54415">if</tspan> <tspan fill="#AAB4C0">pkt.proto == </tspan><tspan fill="#19BAAF">IPPROTO_TCP</tspan><tspan fill="#AAB4C0">:</tspan>
+      </text>
+      <text x="940" y="164" fill="#AAB4C0">return self.eval_ingress_policy(pkt)</text>
+
+      <text x="890" y="240" fill="#AAB4C0">$ ip route show default dev eth0 proto kernel</text>
+      <text x="890" y="258">
+        <tspan fill="#19BAAF">10.0.0.0/8</tspan> <tspan fill="#AAB4C0">via 10.0.0.1 metric 100 mtu 1500</tspan>
+      </text>
+      <text x="890" y="276" fill="#AAB4C0">switchport trunk allowed vlan 10,20,30,40</text>
+
+      <text x="960" y="520" fill="#AAB4C0">$ nmap -sV -Pn --top-ports 20 192.168.1.0/24</text>
+      <text x="960" y="538">
+        <tspan fill="#19BAAF">SYN_SENT</tspan> <tspan fill="#AAB4C0">tcp/443 &lt;ESTABLISHED&gt; state: verified</tspan>
+      </text>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 240" width="100%" height="100%" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+  <defs>
+    <linearGradient id="waveMobGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#17324D" stop-opacity="0.9" />
+      <stop offset="40%" stop-color="#10243A" stop-opacity="0.95" />
+      <stop offset="100%" stop-color="#0A1724" stop-opacity="1.0" />
+    </linearGradient>
+    <linearGradient id="waveMobRim" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#19BAAF" stop-opacity="0.4" />
+      <stop offset="100%" stop-color="#19BAAF" stop-opacity="0.1" />
+    </linearGradient>
+  </defs>
+  <!-- Smooth organic bottom curve that sits gently below content -->
+  <path d="M 0,90 C 130,40 280,110 420,60 L 420,240 L 0,240 Z" fill="url(#waveMobGrad)" />
+  <path d="M 0,90 C 130,40 280,110 420,60" fill="none" stroke="url(#waveMobRim)" stroke-width="1.5" />
+</svg>
