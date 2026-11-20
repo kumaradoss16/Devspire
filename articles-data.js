@@ -14,6 +14,30 @@
 
   var articles = [
     {
+      id: "applied-ai-engineering",
+      title: "Applied AI Engineering: A Practical Guide to Building Reliable AI Applications",
+      description: "Building AI applications is more than calling an API. Master 5 foundational concepts every developer needs to design, build, and deploy reliable LLM systems.",
+      featured: true,
+      accent: "pink",
+      category: "Applied AI",
+      tags: ["AI", "Applied AI", "Python", "LLMs"],
+      publishedDate: "2026-11-16T06:42:43Z",
+      coverImage: "images/articles/applied-ai-engineering.webp",
+      readingTime: 8,
+      publications: [
+        {
+          platform: "devto",
+          label: "DEV.to",
+          url: "https://dev.to/devspirehub/applied-ai-engineering-5-concepts-every-developer-needs-3f3g"
+        },
+        {
+          platform: "medium",
+          label: "Medium",
+          url: "https://medium.com/@devspirehub/applied-ai-engineering-a-practical-guide-to-building-reliable-ai-applications-01942bb2d0b9?sharedUserId=devspirehub"
+        }
+      ]
+    },
+    {
       id: "claude-prompt-shortcuts",
       title: "5 Claude Prompt Shortcuts That Can Transform the Way Developers Build Software",
       description: "Stop treating AI like a search engine. Five structured Claude prompt patterns for architecture, refactoring, debugging, reusable hooks, and testing.",
