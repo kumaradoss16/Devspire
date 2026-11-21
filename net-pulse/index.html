@@ -1,0 +1,1350 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <!-- ═══════════════════════════════════════════════
+       CORE — Charset & Viewport
+  ════════════════════════════════════════════════ -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  <!-- ═══════════════════════════════════════════════
+       PRIMARY SEO
+  ════════════════════════════════════════════════ -->
+  <title>NetPulse — Free Internet Speed Test | Download, Upload & Ping Analyzer</title>
+
+  <meta name="description"
+    content="Test your internet speed instantly with netpulse. Measure real-time download speed, upload speed, ping, jitter, and packet loss — no ads, no install, works on any device." />
+
+  <meta name="keywords"
+    content="internet speed test, net pulse speed test, download speed test, upload speed check, ping test, jitter test, packet loss checker, wifi speed analyzer, broadband speed test, online speed test, free speed test, network analyzer" />
+
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <meta name="author" content="DevspireHub" />
+  <meta name="copyright" content="© 2026 DevspireHub" />
+  <meta name="theme-color" content="#0d1117" />
+  <meta name="color-scheme" content="dark" />
+  <meta name="rating" content="general" />
+  <meta name="revisit-after" content="7 days" />
+
+  <link rel="canonical" href="https://devspirehub.com/netpulse/" />
+
+  <!-- ═══════════════════════════════════════════════
+       OPEN GRAPH — Facebook, LinkedIn, Discord, WhatsApp
+  ════════════════════════════════════════════════ -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="DevspireHub" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:url" content="https://devspirehub.com/netpulse/" />
+  <meta property="og:title" content="netpulse — Free Internet Speed Test | Download, Upload & Ping" />
+  <meta property="og:description"
+    content="Instantly measure your internet download speed, upload speed, ping, jitter, and packet loss. No ads. No install. Works on every device." />
+  <meta property="og:image" content="https://devspirehub.com/netpulse/og-preview.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="netpulse internet speed test dashboard showing download and upload gauges" />
+
+  <!-- ═══════════════════════════════════════════════
+       TWITTER CARD
+  ════════════════════════════════════════════════ -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@devspirehub" />
+  <meta name="twitter:creator" content="@devspirehub" />
+  <meta name="twitter:title" content="netpulse — Free Internet Speed Test" />
+  <meta name="twitter:description"
+    content="Test your real internet speed in seconds. Download, upload, ping, jitter, and packet loss — live charts, geo-sorted servers, no ads." />
+  <meta name="twitter:image" content="https://devspirehub.com/netpulse/og-preview.png" />
+  <meta name="twitter:image:alt" content="netpulse speed test dashboard" />
+
+  <!-- ═══════════════════════════════════════════════
+       FAVICON
+  ════════════════════════════════════════════════ -->
+  <link rel="icon" type="image/webp" href="../images/icon.webp" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/netpulse/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/netpulse/favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/netpulse/apple-touch-icon.png" />
+  <link rel="manifest" href="/netpulse/site.webmanifest" />
+  <link rel="shortcut icon" type="image/x-icon" href="/netpulse/favicon.ico" />
+
+  <!-- ═══════════════════════════════════════════════
+       PRECONNECT & DNS PREFETCH — Performance
+  ════════════════════════════════════════════════ -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+  <link rel="preconnect" href="https://speed.cloudflare.com" />
+  <link rel="preconnect" href="https://ip-api.com" />
+
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
+  <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
+  <link rel="dns-prefetch" href="https://speed.cloudflare.com" />
+
+  <!-- ═══════════════════════════════════════════════
+       FONTS — Optimized loading (single request, display=swap)
+  ════════════════════════════════════════════════ -->
+  <link rel="preload" as="style"
+    href="https://fonts.googleapis.com/css2?family=Saira:wght@300;400;500;600;700&family=Poppins:wght@400;600;700&display=swap"
+    onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript>
+    <link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Saira:wght@300;400;500;600;700&family=Poppins:wght@400;600;700&display=swap" />
+  </noscript>
+
+  <!-- ═══════════════════════════════════════════════
+       ICONS — Deferred non-critical CSS
+  ════════════════════════════════════════════════ -->
+  <link rel="preload" as="style" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css"
+    onload="this.onload=null;this.rel='stylesheet'" />
+  <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  </noscript>
+
+  <!-- ═══════════════════════════════════════════════
+       CRITICAL CSS — Local stylesheet (render-blocking, load first)
+  ════════════════════════════════════════════════ -->
+  <link rel="stylesheet" href="style.css?v=20261121_charts1" />
+
+  <!-- ═══════════════════════════════════════════════
+       STRUCTURED DATA — JSON-LD
+  ════════════════════════════════════════════════ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "@id": "https://devspirehub.com/netpulse/",
+        "name": "netpulse Internet Speed Test",
+        "alternateName": "NetPulse Speed Analyzer",
+        "url": "https://devspirehub.com/netpulse/",
+        "description": "A free browser-based internet speed tester that measures download speed, upload speed, ping, jitter, and packet loss in real time with live charts and geo-sorted nearby servers.",
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "All — browser-based, no install required",
+        "isAccessibleForFree": true,
+        "screenshot": "https://devspirehub.com/netpulse/og-preview.png",
+        "featureList": [
+          "Real-time download speed measurement",
+          "Real-time upload speed measurement",
+          "Ping and jitter analysis",
+          "Packet loss detection",
+          "Live throughput charts",
+          "Geo-sorted nearby server selection",
+          "Auto IP and ISP detection",
+          "Test history with localStorage",
+          "No ads, no login, no install"
+        ],
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "author": {
+          "@type": "Organization",
+          "name": "DevspireHub",
+          "url": "https://devspirehub.com",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://devspirehub.com/icon.webp"
+          },
+          "sameAs": [
+            "https://github.com/kumaradoss16",
+            "https://www.instagram.com/devspirehub/",
+            "https://www.linkedin.com/in/kumaradoss-s/"
+          ]
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "DevspireHub",
+          "url": "https://devspirehub.com"
+        }
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://devspirehub.com/netpulse/#webpage",
+        "url": "https://devspirehub.com/netpulse/",
+        "name": "netpulse — Free Internet Speed Test | Download, Upload & Ping Analyzer",
+        "description": "Test your internet speed instantly with netpulse. Measure real-time download, upload, ping, jitter, and packet loss — no ads, no install, works on any device.",
+        "inLanguage": "en-US",
+        "isPartOf": {
+          "@type": "WebSite",
+          "@id": "https://devspirehub.com/#website",
+          "url": "https://devspirehub.com",
+          "name": "DevspireHub",
+          "description": "Programming tutorials, ethical hacking, networking, web development, and open-source tools.",
+          "publisher": {
+            "@type": "Organization",
+            "name": "DevspireHub"
+          }
+        },
+        "breadcrumb": {
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://devspirehub.com"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "netpulse Speed Test",
+              "item": "https://devspirehub.com/netpulse/"
+            }
+          ]
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How does netpulse measure internet speed?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "netpulse connects to the nearest geo-sorted server, measures ping and jitter first, then runs parallel download and upload streams to calculate your real-world internet speed in Mbps."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is a good internet speed?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "100+ Mbps is Excellent for 4K streaming and gaming. 50–99 Mbps is Good for HD video and video calls. 20–49 Mbps is Fair for basic use. Under 20 Mbps is Poor and may struggle with HD content."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is ping and why does it matter?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Ping is the delay in milliseconds between your device and the server. Lower ping means a more responsive connection. Under 20 ms is excellent for gaming and video calls."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is jitter in an internet speed test?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Jitter is the variation in ping over time. High jitter causes choppy audio and video in calls and unstable gameplay even if average ping appears low. Under 5 ms is ideal."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is netpulse free to use?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. netpulse is completely free, runs entirely in your browser, requires no app install, no sign-up, and shows no ads."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2368356039533778"
+    crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+  <header class="navbar">
+    <div class="container">
+      <div class="logo">
+        <a href="https://devspirehub.com" class="logo-link" aria-label="DevSpireHub Home">
+          <div class="logo-text">
+            <!-- <i class="fas fa-code"></i> -->
+            <img src="../images/icon.webp" alt="DevSpireHub Logo Icon" width="26" height="26" loading="eager"
+              fetchpriority="high" decoding="async">
+            <span id="brand" class="typewriter" data-text="DevspireHub"></span>
+          </div>
+        </a>
+        <button class="menu-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primary-nav">
+          <i class="fas fa-bars" aria-hidden="true"></i>
+        </button>
+      </div>
+      <nav class="nav-links" id="primary-nav" aria-label="Primary Navigation">
+        <ul>
+          <li><a href="https://devspirehub.com" class="nav-item home" aria-label="DevspireHub Home" title="DevspireHub Home"><i class="fa-solid fa-house" aria-hidden="true"></i> <span>Home</span></a></li>
+          <li><a href="https://devspirehub.com#projects-tutorials-section" class="nav-item projects">Projects</a></li>
+          <li><a href="https://devspirehub.com#programming-tutorials-section" class="nav-item programming">Programming</a></li>
+          <li><a href="https://devspirehub.com#ethical-hacking-section" class="nav-item hacking">Ethical Hacking</a></li>
+          <li><a href="https://devspirehub.com#networking-section" class="nav-item networking">Networking</a></li>
+          <li>
+            <a href="https://devspirehub.com#ai-section" class="nav-item ai">
+              <span class="nav-badge-ai">AI</span> AI &amp; Automation
+            </a>
+          </li>
+          <li class="nav-cta-item">
+            <a href="https://devspirehub.com#info-section" class="nav-cta-btn game">
+              <span>Resources</span>
+              <i class="fas fa-arrow-right" aria-hidden="true"></i>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <h1 class="sr-only">netpulse — Network speed analyzer with real-time speedometer, geo-sorted servers, and test
+    history.</h1>
+
+  <div class="page-wrap">
+    <div class="D">
+
+      <!-- ── Screen Reader Live Announcer ── -->
+      <div id="npLiveAnnouncer" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+
+      <!-- ── Functional Instrument Toolbar ── -->
+      <div class="np-toolbar" role="toolbar" aria-label="Instrument controls">
+        <div class="np-toolbar-group">
+          <!-- Unit Toggle -->
+          <div class="np-toggle-pill" id="npUnitTogglePill" role="group" aria-label="Speed measurement unit">
+            <span class="np-toggle-label">Unit</span>
+            <button type="button" class="np-toggle-btn active" id="npUnitMbps" aria-pressed="true">Mbps</button>
+            <button type="button" class="np-toggle-btn" id="npUnitMbs" aria-pressed="false">MB/s</button>
+          </div>
+          <!-- Privacy Mask Toggle -->
+          <button type="button" class="np-pill-btn" id="npPrivacyBtn" aria-pressed="false" aria-label="Toggle IP privacy mask" title="Mask IP and hostname in display and exports">
+            <i class="ti ti-eye-off" aria-hidden="true"></i>
+            <span id="npPrivacyLabel">Privacy Mask: Off</span>
+          </button>
+          <!-- Audio Completion Chime Toggle -->
+          <button type="button" class="np-pill-btn" id="npSoundBtn" aria-pressed="false" aria-label="Toggle test completion sound" title="Play an audio chime when test completes">
+            <i class="ti ti-volume-off" id="npSoundIcon" aria-hidden="true"></i>
+            <span id="npSoundLabel">Sound: Off</span>
+          </button>
+        </div>
+        <div class="np-kbd-hint" aria-hidden="true">
+          <kbd>Space</kbd> or <kbd>Enter</kbd> to Start • <kbd>Esc</kbd> to Stop
+        </div>
+      </div>
+
+      <!-- ── Header ── -->
+      <div class="hdr">
+        <div class="logo">
+          <div class="dot"></div>
+          <div>
+            <div class="logo-txt"><img src="images/netpulse-logo.webp" alt=""><span class="white">Net</span><span
+                class="pink">Pulse</span></div>
+            <div class="logo-sub">Network Speed Analyzer</div>
+          </div>
+        </div>
+        <div class="ip-block">
+          <div>Server: <b id="activeSrv">—</b></div>
+          <div>ISP: <b id="ispName">Detecting…</b></div>
+          <div class="ip-pill">
+            <i class="ti ti-wifi" aria-hidden="true"></i>
+            <span id="pubIp">Fetching IP…</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── Location permission prompt (shown before geolocation is requested) ── -->
+      <div class="geo-prompt" id="geoPrompt" role="dialog" aria-modal="true" aria-labelledby="geoPromptTitle" aria-describedby="geoPromptDesc">
+        <div class="geo-prompt-icon"><i class="ti ti-map-pin" aria-hidden="true"></i></div>
+        <div class="geo-prompt-body">
+          <div class="geo-prompt-title" id="geoPromptTitle">Allow location access?</div>
+          <div class="geo-prompt-desc" id="geoPromptDesc">NetPulse uses your location to pick the nearest test servers for more accurate
+            results.</div>
+        </div>
+        <div class="geo-prompt-actions">
+          <button class="geo-allow-btn" id="geoAllowBtn" aria-label="Allow location access">
+            <i class="ti ti-map-pin" aria-hidden="true"></i> Allow
+          </button>
+          <button class="geo-deny-btn" id="geoDenyBtn" aria-label="Skip location access">Skip
+          </button>
+        </div>
+      </div>
+
+      <!-- ── Server selector ── -->
+      <div class="srv-label">
+        <span class="srv-label-left">
+          <i class="ti ti-map-pin" aria-hidden="true"></i>
+          Test Servers
+        </span>
+        <span class="srv-mode-toggle" id="srvModeToggle" role="tablist" aria-label="Server selection mode">
+          <button class="srv-mode-btn active" id="btnNearby" role="tab" aria-selected="true" aria-controls="srvRow" tabindex="0">
+            <i class="ti ti-location" aria-hidden="true"></i> Nearby
+          </button>
+          <button class="srv-mode-btn" id="btnAll" role="tab" aria-selected="false" aria-controls="srvRow" tabindex="-1">
+            <i class="ti ti-list" aria-hidden="true"></i> All
+          </button>
+        </span>
+        <span class="geo-status" id="geoStatus">
+          <i class="ti ti-loader" aria-hidden="true"></i> Waiting…
+        </span>
+      </div>
+      <div class="srv-row" id="srvRow">
+        <span class="srv-btn loading-btn">
+          <i class="ti ti-loader" aria-hidden="true"></i> Waiting for location…
+        </span>
+      </div>
+
+      <!-- ── Speedometer card ── -->
+      <div class="spd-card">
+        <div class="speedo-wrap">
+          <svg id="speedoSvg" viewBox="0 0 300 200" role="img" aria-label="Speedometer gauge showing current speed">
+            <defs>
+              <linearGradient id="aGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#6b0040" />
+                <stop offset="45%" stop-color="#e91e8c" />
+                <stop offset="100%" stop-color="#ffb3da" />
+              </linearGradient>
+            </defs>
+
+            <!-- Track arc (dark background) -->
+            <path id="trk" fill="none" stroke="#1a1228" stroke-width="14" stroke-linecap="round" />
+
+            <!-- Filled progress arc -->
+            <path id="fil" fill="none" stroke="url(#aGrad)" stroke-width="14" stroke-linecap="round" />
+
+            <!-- Tick marks -->
+            <g id="tks"></g>
+
+            <!-- Needle group -->
+            <g id="ndlG">
+              <line x1="150" y1="143" x2="150" y2="55" stroke="#e91e8c" stroke-width="2.5" stroke-linecap="round" />
+              <circle cx="150" cy="143" r="8" fill="#1a1228" stroke="#e91e8c" stroke-width="1.5" />
+              <circle cx="150" cy="143" r="3.5" fill="#e91e8c" />
+            </g>
+
+            <!-- Scale labels -->
+            <text id="lbl0" x="48" y="197" font-size="10" fill="#7a4a62" text-anchor="middle">0</text>
+            <text id="lbl25" x="14" y="84" font-size="10" fill="#7a4a62" text-anchor="middle">25</text>
+            <text id="lbl50" x="150" y="25" font-size="10" fill="#7a4a62" text-anchor="middle">50</text>
+            <text id="lbl75" x="286" y="84" font-size="10" fill="#7a4a62" text-anchor="middle">75</text>
+            <text id="lbl100" x="252" y="197" font-size="10" fill="#7a4a62" text-anchor="middle">100+</text>
+          </svg>
+        </div>
+
+        <div class="spd-vals">
+          <div class="sv">
+            <div class="n" id="dlN">—</div>
+            <div class="u">Mbps</div>
+            <div class="l">Download</div>
+          </div>
+          <div class="sc">
+            <div class="big" id="liveSpd">0.0</div>
+            <div class="unit" id="liveUnit">Mbps</div>
+            <div class="badge-row">
+              <div class="badge" id="modeBadge">Ready</div>
+              <span class="sr-badge sr-live-badge" id="liveRatingBadge" style="display:none;">—</span>
+            </div>
+          </div>
+          <div class="sv">
+            <div class="n" id="ulN">—</div>
+            <div class="u">Mbps</div>
+            <div class="l">Upload</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── Progress cards ── -->
+      <div class="prog-grid">
+        <div class="prog-card">
+          <div class="prog-top">
+            <div class="prog-lbl dl">
+              <i class="ti ti-download" aria-hidden="true"></i> Download
+            </div>
+            <div class="prog-spd" id="dlSpd">0.0 <span>Mbps</span></div>
+          </div>
+          <div class="bar-bg">
+            <div class="bar-fill dl" id="dlBar"></div>
+          </div>
+          <div class="prog-foot">
+            <span id="dlSt">Waiting…</span>
+            <span id="dlPct">0%</span>
+          </div>
+        </div>
+        <div class="prog-card">
+          <div class="prog-top">
+            <div class="prog-lbl ul">
+              <i class="ti ti-upload" aria-hidden="true"></i> Upload
+            </div>
+            <div class="prog-spd" id="ulSpd">0.0 <span>Mbps</span></div>
+          </div>
+          <div class="bar-bg">
+            <div class="bar-fill ul" id="ulBar"></div>
+          </div>
+          <div class="prog-foot">
+            <span id="ulSt">Waiting…</span>
+            <span id="ulPct">0%</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── Timer ring + Start button (side by side) ── -->
+      <div class="mid-row">
+        <div class="timer-ring">
+          <div class="ring-wrap">
+            <svg class="ring-svg" viewBox="0 0 80 80">
+              <circle class="ring-bg" cx="40" cy="40" r="34" />
+              <circle class="ring-fg" id="ringFg" cx="40" cy="40" r="34" />
+            </svg>
+            <div class="ring-num" id="ringNum">—</div>
+          </div>
+          <div class="ring-lbl" id="ringLbl">Press start to begin</div>
+        </div>
+        <div class="action">
+          <button class="main-btn start" id="mainBtn" onclick="toggleTest()">
+            <i class="ti ti-player-play" aria-hidden="true"></i> Start Test
+          </button>
+        </div>
+      </div>
+
+      <!-- ── Stats ── -->
+      <div class="stats">
+        <div class="stat">
+          <div class="sn" id="pingV">—</div>
+          <div class="sl">Ping ms</div>
+        </div>
+        <div class="stat">
+          <div class="sn" id="jitV">—</div>
+          <div class="sl">Jitter ms</div>
+        </div>
+        <div class="stat">
+          <div class="sn" id="lossV">—</div>
+          <div class="sl">Packet loss</div>
+        </div>
+      </div>
+
+      <!-- ── Charts ── -->
+      <div class="chart-grid">
+        <div class="chart-card">
+          <div class="chart-hd">
+            <i class="ti ti-chart-line" aria-hidden="true"></i> Live throughput
+          </div>
+          <div class="chart-legend">
+            <span><span class="leg-line" style="background:#1D9E75"></span> Download</span>
+            <span><span class="leg-line" style="background:#378ADD"></span> Upload</span>
+          </div>
+          <div class="chart-wrap">
+            <canvas id="liveC" role="img" aria-label="Live throughput chart"></canvas>
+          </div>
+        </div>
+        <div class="chart-card">
+          <div class="chart-hd">
+            <i class="ti ti-activity" aria-hidden="true"></i> Ping / jitter
+          </div>
+          <div class="chart-legend">
+            <span><span class="leg-line" style="background:#EF9F27"></span> Ping</span>
+            <span><span class="leg-line" style="background:#D4537E"></span> Jitter</span>
+          </div>
+          <div class="chart-wrap">
+            <canvas id="pingC" role="img" aria-label="Ping and jitter chart"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── Network Info ── -->
+      <div class="netinfo-card">
+        <div class="netinfo-hd">
+          <div class="netinfo-title">
+            <i class="ti ti-network" aria-hidden="true"></i> Network Info
+          </div>
+          <span class="netinfo-country-badge" id="niCountryBadge">—</span>
+        </div>
+        <div class="netinfo-body">
+          <div class="netinfo-row">
+            <span class="netinfo-lbl">ISP</span>
+            <span class="netinfo-val" id="niIsp">Detecting…</span>
+          </div>
+          <div class="netinfo-row">
+            <span class="netinfo-lbl">IP Address</span>
+            <span class="netinfo-val" id="niIp">Detecting…</span>
+          </div>
+          <div class="netinfo-row">
+            <span class="netinfo-lbl">City</span>
+            <span class="netinfo-val" id="niCity">—</span>
+          </div>
+          <div class="netinfo-row">
+            <span class="netinfo-lbl">Country</span>
+            <span class="netinfo-val" id="niCountry">—</span>
+          </div>
+          <div class="netinfo-row">
+            <span class="netinfo-lbl">Timezone</span>
+            <span class="netinfo-val" id="niTimezone">—</span>
+          </div>
+          <div class="netinfo-row">
+            <span class="netinfo-lbl">Hostname</span>
+            <span class="netinfo-val" id="niHostname">—</span>
+          </div>
+          <div class="netinfo-row netinfo-row--hint" id="niBrowserHintRow" style="display:none;">
+            <span class="netinfo-lbl">Browser Estimate</span>
+            <span class="netinfo-val" id="niBrowserHint">—</span>
+          </div>
+        </div>
+        <div class="netinfo-foot">
+          <button class="netinfo-refresh" onclick="fetchIpInfo()">
+            <i class="ti ti-refresh" aria-hidden="true"></i> Refresh
+          </button>
+        </div>
+      </div>
+
+      <!-- ── History ── -->
+      <div class="hist-card">
+        <div class="hist-hd">
+          <div class="hist-title">
+            <i class="ti ti-history" aria-hidden="true"></i> Test history
+          </div>
+          <div class="hist-actions">
+            <button class="hist-action-btn" id="histCopyBtn" onclick="copyHistSummary()" title="Copy plain-text summary of tests">
+              <i class="ti ti-copy" aria-hidden="true"></i> Copy
+            </button>
+            <button class="hist-action-btn" id="histCsvBtn" onclick="downloadHistCsv()" title="Download test history as CSV">
+              <i class="ti ti-file-spreadsheet" aria-hidden="true"></i> CSV
+            </button>
+            <button class="hist-action-btn" id="histJsonBtn" onclick="downloadHistJson()" title="Download test history as JSON">
+              <i class="ti ti-code" aria-hidden="true"></i> JSON
+            </button>
+            <button class="hist-action-btn" id="histShareCardBtn" onclick="generateShareCard()" title="Generate shareable result image card">
+              <i class="ti ti-photo" aria-hidden="true"></i> Share Card
+            </button>
+            <button class="hist-action-btn" id="histCompareBtn" onclick="compareSelectedTests()" title="Compare 2 selected tests">
+              <i class="ti ti-columns" aria-hidden="true"></i> Compare
+            </button>
+            <button class="hist-clear" onclick="clearHist()">
+              <i class="ti ti-trash" aria-hidden="true"></i> Clear
+            </button>
+          </div>
+        </div>
+
+        <!-- History Summary & Sparkline -->
+        <div class="hist-summary-bar" id="histSummaryBar" style="display:none;">
+          <div class="hist-stats-pills">
+            <span class="hist-pill" id="histCountPill">Tests: 0</span>
+            <span class="hist-pill" id="histAvgDlPill">Avg DL: —</span>
+            <span class="hist-pill" id="histMaxDlPill">Max DL: —</span>
+            <span class="hist-pill" id="histMinDlPill">Min DL: —</span>
+            <span class="hist-pill" id="histAvgPingPill">Avg Ping: —</span>
+          </div>
+          <div class="hist-sparkline-wrap" title="Download speed trend over tests">
+            <span class="sparkline-lbl">Trend</span>
+            <canvas id="histSparkline" width="120" height="28" role="img" aria-label="Test history download trend sparkline"></canvas>
+          </div>
+        </div>
+
+        <div class="hist-scroll">
+          <div id="histBody">
+            <div class="empty">
+              <i class="ti ti-wifi-off" style="font-size:24px;display:block;margin-bottom:8px" aria-hidden="true"></i>
+              No tests yet
+            </div>
+          </div>
+        </div>
+
+        <!-- Side-by-side comparison modal -->
+        <div class="hist-compare-modal" id="histCompareModal" style="display:none;" role="dialog" aria-modal="true" aria-labelledby="histCompareTitle">
+          <div class="hist-compare-content">
+            <div class="hist-compare-hd">
+              <h4 id="histCompareTitle"><i class="ti ti-columns" aria-hidden="true"></i> Test Comparison</h4>
+              <button type="button" class="hist-compare-close" onclick="closeCompareModal()" aria-label="Close comparison">✕</button>
+            </div>
+            <div class="hist-compare-grid" id="histCompareGrid"></div>
+          </div>
+        </div>
+      </div>
+      <p class="server"><strong>SERVER DATABASE</strong> — 2,100 free test servers. Strategy: seeded anchor cities,
+        multiple ISP/DC
+        nodes per city,
+        spread
+        across every continent/region. Shown to user nearest 8 only.</p>
+
+    </div><!-- /.D -->
+    <div class="netpulse-content">
+      <img src="images/netpulse.webp" alt="NetPulse Logo">
+      <p><strong>NetPulse</strong> is a free browser-based internet speed tester built by DevspireHub. It connects to
+        the nearest server and runs a live
+        test to show how fast your internet connection really is — including download speed, upload speed, ping, jitter,
+        and
+        packet loss.
+      </p>
+      <hr>
+      <h3>How does it work?</h3>
+      <div class="list">
+        <ol>
+          <li><strong>Click "Start Test"</strong> — NetPulse automatically detects your location and selects the best
+            nearby
+            server using geo-sorted proximity, so you
+            always get the most accurate result for your region.</li>
+          <li><strong>Your IP and ISP are identified</strong> — tNetPulse detects your public IP address, ISP name, and
+            city automatically. No manual input is needed.</li>
+          <li><strong>Ping is measured first</strong> — NetPulse sends multiple requests to the server and measures how
+            long the response takes. This is your connection's
+            reaction time in milliseconds.</li>
+          <li><strong>Jitter is calculated</strong> — The variation between consecutive ping samples is measured to
+            check how stable your connection is under real conditions.</li>
+          <li><strong>Download speed is tested</strong> — NetPulse measures how fast data flows from the server to your
+            device using multiple parallel streams for an accurate,
+            real-world reading.</li>
+          <li><strong>Upload speed is tested</strong> — Your device sends data back to the server. This measures how
+            fast your connection can transmit, which affects video
+            calls, gaming, and cloud uploads.</li>
+          <li><strong>Packet loss is checked</strong> — NetPulse detects whether any data packets are being dropped,
+            which causes buffering, lag, and call quality issues.</li>
+          <li><strong>Live charts update in real time</strong> — A live throughput chart and ping/jitter graph update as
+            the test runs, giving you a visual picture of your connection's
+            performance over time.</li>
+          <li><strong>Results are saved</strong> — Your last test results are stored locally so you can review and
+            compare your connection's performance over time.</li>
+        </ol>
+      </div>
+      <hr>
+      <h3>What the Results Mean</h3>
+      <div class="list">
+        <ul>
+          <li><strong>Download Speed:</strong> How fast you receive data from the internet. This affects streaming, web
+            browsing, video playback, and file downloads.
+            Higher is better.</li>
+          <li><strong>Upload Speed:</strong> How fast your device sends data to the internet. This affects video calls,
+            live streaming, cloud uploads, and online
+            gaming. Higher is better.</li>
+          <li><strong>Ping:</strong> The delay between your device and the server in milliseconds. Lower ping means a
+            more responsive connection. Under 20 ms
+            is excellent for gaming and video calls.</li>
+          <li><strong>Jitter (ms):</strong> The inconsistency in your ping over time. High jitter causes choppy
+            audio/video in
+            calls and unstable gameplay even if
+            your average ping looks fine. Lower is better.</li>
+          <li><strong>Packet Loss (%):</strong> The percentage of data packets that fail to reach their destination. Any
+            packet loss above 1% will noticeably degrade
+            call quality, streaming, and gaming. 0% is ideal.</li>
+        </ul>
+      </div>
+      <hr>
+      <h3>Speed Rating Guide</h3>
+      <div class="table-container table-scroll-hint" tabindex="0" role="region" aria-label="Speed Rating Guide table scrollable area">
+        <table border="1">
+          <thead>
+            <tr>
+              <th scope="col">Rating</th>
+              <th scope="col">Speed Range</th>
+              <th scope="col">Best For...</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Excellent</strong></td>
+              <td>100+ Mbps</td>
+              <td>4K streaming, gaming, large file transfers, and multiple users simultaneously.</td>
+            </tr>
+            <tr>
+              <td><strong>Good</strong></td>
+              <td>50–99 Mbps</td>
+              <td>HD streaming, video calls, and smooth browsing for 2–4 users.</td>
+            </tr>
+            <tr>
+              <td><strong>Fair</strong></td>
+              <td>20–49 Mbps</td>
+              <td>Basic streaming and browsing. May slow down with multiple devices connected.</td>
+            </tr>
+            <tr>
+              <td><strong>Poor</strong></td>
+              <td>Under 20 Mbps</td>
+              <td>May struggle with HD video, large downloads, or multiple connected devices.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <hr>
+      <h3>Why Use NetPulse?</h3>
+      <p>Most speed test tools are cluttered with ads, require app installs, or give inaccurate results. NetPulse is
+        different —
+        it's lightweight, open-source, and built for accuracy. Here's why users choose NetPulse to test their internet
+        connection:</p>
+      <div class="list">
+        <ol>
+          <li><strong>Geo-sorted nearby servers</strong> — NetPulse detects your location and automatically ranks
+            available servers by proximity, so your test always uses the
+            closest and most relevant server.</li>
+          <li><strong>Real-time live charts</strong> — Watch your download, upload, ping, and jitter plotted live as the
+            test runs — not just a final number at the end.</li>
+          <li><strong>Multi-metric analysis</strong> — Your public IP address and ISP name are detected automatically
+            and shown on screen alongside your test results.</li>
+          <li><strong>Auto IP & ISP detection</strong> — Auto IP & ISP detection</li>
+          <li><strong>No ads, no installs</strong> — NetPulse runs entirely in your browser. No sign-up, no extension,
+            no app required.</li>
+          <li><strong>Test history</strong> — Your recent results are saved locally so you can track your connection
+            quality over time without creating an account.</li>
+          <li><strong>Open-source & transparent</strong> — The full source code is publicly available on GitHub, so you
+            can verify exactly how every measurement is made.</li>
+          <li><strong>Works on any device</strong> — Fully optimized for desktop, tablet, and mobile with a responsive
+            dark-theme dashboard that looks great on any screen
+            size.</li>
+        </ol>
+      </div>
+    </div>
+  </div><!-- /.page-wrap -->
+
+  <!--Footer  -->
+  
+    <!-- DevSpireHub Newsletter -->
+    <section class="newsletter-section newsletter-section--center" id="newsletter" aria-label="DevSpireHub Newsletter">
+        <style>
+            .newsletter-section {
+                position: relative;
+                width: 100%;
+                padding: 28px 0 20px;
+                box-sizing: border-box;
+            }
+            .newsletter-section--center {
+                padding: 36px 0 28px;
+            }
+            .newsletter-section--left {
+                padding: 28px 0 16px;
+                width: 100%;
+            }
+            .newsletter-card-wrapper {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+                box-sizing: border-box;
+                padding: 0 1rem;
+            }
+            .newsletter-banner {
+                position: relative;
+                width: 100%;
+                max-width: 820px;
+                margin: 0 auto;
+                padding: 32px 36px;
+                background: linear-gradient(135deg, rgba(20, 27, 40, 0.96) 0%, rgba(13, 18, 28, 0.98) 100%);
+                border: 1px solid rgba(242, 169, 0, 0.32);
+                border-radius: 16px;
+                box-shadow: 0 18px 40px -10px rgba(0, 0, 0, 0.65), 0 0 0 1px rgba(255, 255, 255, 0.05), 0 0 32px rgba(242, 169, 0, 0.10);
+                overflow: hidden;
+                box-sizing: border-box;
+                transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+            }
+            .newsletter-banner:hover {
+                border-color: rgba(242, 169, 0, 0.58);
+                box-shadow: 0 22px 48px -10px rgba(0, 0, 0, 0.75), 0 0 0 1px rgba(242, 169, 0, 0.25), 0 0 42px rgba(242, 169, 0, 0.18);
+                transform: translateY(-2px);
+            }
+            .newsletter-banner__glow {
+                position: absolute;
+                top: -80px;
+                left: 20%;
+                width: 480px;
+                height: 200px;
+                background: radial-gradient(ellipse at center, rgba(242, 169, 0, 0.20) 0%, rgba(217, 119, 6, 0.07) 50%, transparent 70%);
+                pointer-events: none;
+                filter: blur(35px);
+                z-index: 0;
+            }
+            .newsletter-banner .sib-form {
+                position: relative;
+                z-index: 1;
+                background-color: transparent !important;
+                width: 100% !important;
+                margin: 0 !important;
+                padding: 0 !important;
+            }
+            .newsletter-banner #sib-form-container,
+            .newsletter-banner #sib-container {
+                background-color: transparent !important;
+                border: none !important;
+                box-shadow: none !important;
+                margin: 0 !important;
+                padding: 0 !important;
+                width: 100% !important;
+                max-width: 100% !important;
+            }
+            .newsletter-banner__content {
+                display: grid;
+                grid-template-columns: 1.15fr 1fr;
+                align-items: center;
+                gap: 32px;
+                width: 100%;
+                box-sizing: border-box;
+            }
+            .newsletter-banner__info {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                text-align: left;
+            }
+            .newsletter-banner__eyebrow {
+                display: inline-flex;
+                align-items: center;
+                gap: 10px;
+                margin-bottom: 12px;
+            }
+            .newsletter-banner__icon {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                width: 42px;
+                height: 42px;
+                flex-shrink: 0;
+                transition: transform 0.3s ease, filter 0.3s ease;
+            }
+            .newsletter-banner:hover .newsletter-banner__icon {
+                transform: translateY(-2px) scale(1.05);
+                filter: drop-shadow(0 0 14px rgba(242, 169, 0, 0.45));
+            }
+            .newsletter-premium-icon {
+                width: 100%;
+                height: 100%;
+                display: block;
+            }
+            .newsletter-pill {
+                display: inline-flex;
+                align-items: center;
+                gap: 6px;
+                padding: 5px 13px;
+                background: rgba(242, 169, 0, 0.12);
+                border: 1px solid rgba(242, 169, 0, 0.35);
+                border-radius: 20px;
+                color: #F2A900;
+                font-size: 0.72rem;
+                font-weight: 600;
+                letter-spacing: 0.05em;
+                text-transform: uppercase;
+                font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            }
+            .newsletter-pill-sparkle {
+                color: #F2A900;
+                flex-shrink: 0;
+            }
+            .newsletter-banner__title {
+                font-family: inherit !important;
+                font-size: 1.55rem;
+                font-weight: 700;
+                letter-spacing: -0.02em;
+                color: #FFFFFF;
+                margin: 0 0 8px 0;
+                line-height: 1.25;
+            }
+            .newsletter-highlight {
+                background: linear-gradient(135deg, #FDE68A 0%, #F2A900 55%, #EA580C 100%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                display: inline-block;
+                font-weight: 800;
+            }
+            .newsletter-banner__desc {
+                font-family: inherit !important;
+                font-size: 0.91rem;
+                line-height: 1.52;
+                color: #94A3B8;
+                margin: 0 0 14px 0;
+                max-width: 500px;
+            }
+            .newsletter-perks {
+                display: flex;
+                align-items: center;
+                flex-wrap: wrap;
+                gap: 14px;
+                margin: 0;
+                padding: 0;
+            }
+            .newsletter-perk-item {
+                display: inline-flex;
+                align-items: center;
+                gap: 6px;
+                color: #94A3B8;
+                font-size: 0.77rem;
+                font-weight: 500;
+                font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            }
+            .newsletter-perk-svg {
+                display: inline-block;
+                flex-shrink: 0;
+                width: 15px;
+                height: 15px;
+            }
+            .newsletter-banner__action {
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+                box-sizing: border-box;
+            }
+            .newsletter-banner__input-group {
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+                box-sizing: border-box;
+            }
+            .newsletter-banner__label {
+                display: block;
+                font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+                font-size: 0.82rem;
+                font-weight: 600;
+                letter-spacing: 0.02em;
+                color: #CBD5E1;
+                margin-bottom: 7px;
+                text-align: left;
+            }
+            .newsletter-banner__required {
+                color: #F2A900;
+                margin-left: 2px;
+                font-weight: 700;
+            }
+            .newsletter-banner .sib-input.sib-form-block,
+            .newsletter-banner .sib-form-block {
+                padding: 0 !important;
+                margin: 0 !important;
+            }
+            .newsletter-banner .form__entry {
+                margin: 0 !important;
+                padding: 0 !important;
+                border: 0 !important;
+                position: static !important;
+            }
+            .newsletter-banner .form__label-row {
+                margin: 0 !important;
+                padding: 0 !important;
+                display: block !important;
+            }
+            .newsletter-banner .entry__field {
+                margin: 0 !important;
+                padding: 0 !important;
+                background: transparent !important;
+                border: none !important;
+                box-shadow: none !important;
+                display: block !important;
+                width: 100% !important;
+                border-radius: 0 !important;
+            }
+            .newsletter-banner__form-row {
+                display: flex;
+                align-items: stretch;
+                gap: 10px;
+                width: 100%;
+                box-sizing: border-box;
+            }
+            .newsletter-banner__field {
+                flex: 1 1 auto;
+                min-width: 0;
+                margin: 0 !important;
+                padding: 0 !important;
+            }
+            .newsletter-banner input.input {
+                display: block !important;
+                width: 100% !important;
+                height: 48px !important;
+                line-height: 48px !important;
+                padding: 0 16px !important;
+                box-sizing: border-box !important;
+                background-color: #0A1017 !important;
+                border: 1px solid rgba(255, 255, 255, 0.16) !important;
+                border-radius: 9px !important;
+                color: #F8FAFC !important;
+                font-family: inherit !important;
+                font-size: 0.94rem !important;
+                margin: 0 !important;
+                box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3) !important;
+                transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease !important;
+            }
+            .newsletter-banner input.input:focus {
+                background-color: #111A26 !important;
+                border-color: #F2A900 !important;
+                outline: none !important;
+                box-shadow: 0 0 0 3px rgba(242, 169, 0, 0.25), inset 0 2px 4px rgba(0, 0, 0, 0.3) !important;
+            }
+            .newsletter-banner input.input::placeholder {
+                color: #64748B !important;
+                font-family: inherit !important;
+            }
+            .newsletter-banner__submit-block {
+                flex: 0 0 auto;
+                margin: 0 !important;
+                padding: 0 !important;
+                display: flex !important;
+                align-items: stretch !important;
+            }
+            .newsletter-banner button.sib-form-block__button {
+                display: inline-flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                gap: 8px !important;
+                height: 48px !important;
+                min-height: 48px !important;
+                padding: 0 24px !important;
+                margin: 0 !important;
+                box-sizing: border-box !important;
+                background: linear-gradient(135deg, #F2A900 0%, #D97706 100%) !important;
+                border: 1px solid transparent !important;
+                border-radius: 9px !important;
+                color: #0B111A !important;
+                font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+                font-size: 0.94rem !important;
+                font-weight: 700 !important;
+                letter-spacing: 0.02em !important;
+                white-space: nowrap !important;
+                cursor: pointer !important;
+                box-shadow: 0 4px 16px rgba(242, 169, 0, 0.35) !important;
+                transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease !important;
+            }
+            .newsletter-banner button.sib-form-block__button:hover {
+                filter: brightness(1.1) !important;
+                box-shadow: 0 6px 22px rgba(242, 169, 0, 0.5) !important;
+                transform: translateY(-1px) !important;
+            }
+            .newsletter-banner button.sib-form-block__button:hover .newsletter-btn-arrow {
+                transform: translateX(3px);
+            }
+            .newsletter-btn-arrow {
+                display: inline-block;
+                margin-left: 2px;
+                transition: transform 0.2s ease;
+            }
+            .newsletter-banner button.sib-form-block__button:active {
+                transform: translateY(0) !important;
+            }
+            .newsletter-banner__note {
+                margin-top: 10px;
+                font-size: 0.76rem;
+                color: #64748B;
+                text-align: left;
+                display: inline-flex;
+                align-items: center;
+                gap: 6px;
+                font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            }
+            .newsletter-banner__note svg {
+                flex-shrink: 0;
+            }
+            .newsletter-banner .sib-form-message-panel {
+                margin-bottom: 12px !important;
+                width: 100% !important;
+                max-width: 100% !important;
+                padding: 10px 14px !important;
+                border-radius: 8px !important;
+                font-size: 0.88rem !important;
+                font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            }
+            @media (max-width: 900px) {
+                .newsletter-banner {
+                    padding: 26px 22px;
+                }
+                .newsletter-banner__content {
+                    grid-template-columns: 1fr;
+                    gap: 22px;
+                }
+                .newsletter-banner__info {
+                    text-align: left;
+                }
+                .newsletter-banner__desc {
+                    max-width: 100%;
+                    margin-bottom: 12px;
+                }
+            }
+            @media (max-width: 580px) {
+                .newsletter-banner {
+                    padding: 22px 16px;
+                    border-radius: 14px;
+                }
+                .newsletter-banner__title {
+                    font-size: 1.3rem;
+                }
+                .newsletter-banner__form-row {
+                    flex-direction: column;
+                    gap: 10px;
+                }
+                .newsletter-banner button.sib-form-block__button {
+                    width: 100% !important;
+                }
+                .newsletter-perks {
+                    gap: 8px 12px;
+                }
+            }
+        </style>
+        <div class="newsletter-card-wrapper">
+            <div class="newsletter-banner">
+                <div class="newsletter-banner__glow" aria-hidden="true"></div>
+
+                <!-- Begin Brevo Form -->
+                <div class="sib-form" style="text-align: left; background-color: transparent;">
+                    <div id="sib-form-container" class="sib-form-container">
+                        <div id="sib-container" class="sib-container--large sib-container--vertical" style="width:100%; background-color:transparent; border:none; margin:0; padding:0; direction:ltr;">
+                            <form id="sib-form" method="POST" action="https://4be2b08d.sibforms.com/serve/MUIFAACbv65Ji2lqHRDbQfk7cecp_f2kTYEenH_0yjAertPQLS04D0zogZoHVIoqwKcLjvCMitK4sntVJ0EzaSD_qEnmXHi2qj54Zo2pMb8HsY_1TtRgQVvWoybOaa1ZeEqgns8s2OSpDpNGzaA3jZnF1Tnofb31tFWVil0pVHvn1NKxe3b5gUQ5FTRYHk4efAqQ-3Cx1e1x8cBLAw==" data-type="subscription">
+
+                                <div class="newsletter-banner__content">
+                                    <!-- Left Column: Copy, Icon & Trust Perks -->
+                                    <div class="newsletter-banner__info">
+                                        <div class="newsletter-banner__eyebrow">
+                                            <span class="newsletter-banner__icon" aria-hidden="true">
+                                                <svg class="newsletter-premium-icon" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <defs>
+                                                        <linearGradient id="nlIconBg" x1="0%" y1="0%" x2="100%" y2="100%">
+                                                            <stop offset="0%" stop-color="#24190B"/>
+                                                            <stop offset="100%" stop-color="#120D06"/>
+                                                        </linearGradient>
+                                                        <linearGradient id="nlIconBorder" x1="0%" y1="0%" x2="100%" y2="100%">
+                                                            <stop offset="0%" stop-color="#F2A900" stop-opacity="0.85"/>
+                                                            <stop offset="50%" stop-color="#D97706" stop-opacity="0.4"/>
+                                                            <stop offset="100%" stop-color="#B45309" stop-opacity="0.15"/>
+                                                        </linearGradient>
+                                                        <linearGradient id="nlMailGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                                            <stop offset="0%" stop-color="#F2A900"/>
+                                                            <stop offset="100%" stop-color="#D97706"/>
+                                                        </linearGradient>
+                                                        <linearGradient id="nlPaperGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                                                            <stop offset="0%" stop-color="#FFFFFF"/>
+                                                            <stop offset="100%" stop-color="#FEF3C7"/>
+                                                        </linearGradient>
+                                                        <filter id="nlGlow" x="-20%" y="-20%" width="140%" height="140%">
+                                                            <feGaussianBlur stdDeviation="2.5" result="blur"/>
+                                                            <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+                                                        </filter>
+                                                    </defs>
+                                                    <rect x="1" y="1" width="42" height="42" rx="12" fill="url(#nlIconBg)" stroke="url(#nlIconBorder)" stroke-width="1.5"/>
+                                                    <circle cx="22" cy="18" r="9" fill="#F2A900" opacity="0.22" filter="url(#nlGlow)"/>
+                                                    <path d="M14 17C14 15.3431 15.3431 14 17 14H27C28.6569 14 30 15.3431 30 17V24H14V17Z" fill="url(#nlPaperGrad)" opacity="0.95"/>
+                                                    <rect x="17" y="17" width="10" height="1.6" rx="0.8" fill="#D97706"/>
+                                                    <rect x="17" y="20.5" width="6" height="1.4" rx="0.7" fill="#92400E"/>
+                                                    <path d="M11 21C11 19.8954 11.8954 19 13 19H31C32.1046 19 33 19.8954 33 21V28C33 29.6569 31.6569 31 30 31H14C12.3431 31 11 29.6569 11 28V21Z" fill="#140E06" stroke="#2D1C08" stroke-width="1"/>
+                                                    <path d="M11 20L21.0586 26.2866C21.6373 26.6483 22.3627 26.6483 22.9414 26.2866L33 20" stroke="url(#nlMailGrad)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                                                    <path d="M31 11L31.8 12.8L33.6 13.6L31.8 14.4L31 16.2L30.2 14.4L28.4 13.6L30.2 12.8L31 11Z" fill="#FDE68A" filter="url(#nlGlow)"/>
+                                                </svg>
+                                            </span>
+                                            <span class="newsletter-pill">
+                                                <svg class="newsletter-pill-sparkle" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                                    <path d="M12 0L14.59 8.41L23 11L14.59 13.59L12 22L9.41 13.59L1 11L9.41 8.41L12 0Z"/>
+                                                </svg>
+                                                DevSpire Dispatch
+                                            </span>
+                                        </div>
+                                        <h2 class="newsletter-banner__title">Join the <span class="newsletter-highlight">Developer Newsletter</span></h2>
+                                        <p class="newsletter-banner__desc">Get practical tutorials, Linux systems guides, and AI engineering insights delivered straight to your inbox.</p>
+                                        <div class="newsletter-perks">
+                                            <span class="newsletter-perk-item">
+                                                <svg class="newsletter-perk-svg" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                                    <circle cx="10" cy="10" r="9" stroke="#F2A900" stroke-width="1.8" fill="rgba(242,169,0,0.12)"/>
+                                                    <path d="M6 10.2L8.7 13L14 7" stroke="#F2A900" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                                </svg>
+                                                Weekly Tutorials
+                                            </span>
+                                            <span class="newsletter-perk-item">
+                                                <svg class="newsletter-perk-svg" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                                    <path d="M10 2.5L3.5 5.5V10.2C3.5 14.5 6.3 17.5 10 18.5C13.7 17.5 16.5 14.5 16.5 10.2V5.5L10 2.5Z" stroke="#F2A900" stroke-width="1.8" fill="rgba(242,169,0,0.12)" stroke-linejoin="round"/>
+                                                    <path d="M7.5 10.2L9.2 11.9L12.8 8.1" stroke="#F2A900" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                                                </svg>
+                                                Linux &amp; AI Insights
+                                            </span>
+                                            <span class="newsletter-perk-item">
+                                                <svg class="newsletter-perk-svg" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                                    <rect x="3" y="4" width="14" height="13" rx="3" stroke="#F2A900" stroke-width="1.8" fill="rgba(242,169,0,0.12)"/>
+                                                    <path d="M7 2.2V5M13 2.2V5M3 8.2H17" stroke="#F2A900" stroke-width="1.8" stroke-linecap="round"/>
+                                                </svg>
+                                                Zero Spam
+                                            </span>
+                                        </div>
+                                    </div>
+
+                                    <!-- Right Column: Form Inputs & Action -->
+                                    <div class="newsletter-banner__action">
+                                        <div id="error-message" class="sib-form-message-panel" style="display:none; font-size:14px; text-align:left; color:#661d1d; background-color:#ffeded; border:1px solid #ff4949; border-radius:6px; margin-bottom:10px;">
+                                            <div class="sib-form-message-panel__text" style="display:flex; align-items:center; gap:8px;">
+                                                <svg viewBox="0 0 512 512" style="width:18px; height:18px; fill:#ff4949; flex-shrink:0;">
+                                                    <path d="M256 40c118.621 0 216 96.075 216 216 0 119.291-96.61 216-216 216-119.244 0-216-96.562-216-216 0-119.203 96.602-216 216-216m0-32C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm-11.49 120h22.979c6.823 0 12.274 5.682 11.99 12.5l-7 168c-.268 6.428-5.556 11.5-11.99 11.5h-8.979c-6.433 0-11.722-5.073-11.99-11.5l-7-168c-.283-6.818 5.167-12.5 11.99-12.5zM256 340c-15.464 0-28 12.536-28 28s12.536 28 28 28 28-12.536 28-28-12.536-28-28-28z" />
+                                                </svg>
+                                                <span>Your subscription could not be saved. Please try again.</span>
+                                            </div>
+                                        </div>
+                                        <div id="success-message" class="sib-form-message-panel" style="display:none; font-size:14px; text-align:left; color:#085229; background-color:#e7faf0; border:1px solid #13ce66; border-radius:6px; margin-bottom:10px;">
+                                            <div class="sib-form-message-panel__text" style="display:flex; align-items:center; gap:8px;">
+                                                <svg viewBox="0 0 512 512" style="width:18px; height:18px; fill:#13ce66; flex-shrink:0;">
+                                                    <path d="M256 8C119.033 8 8 119.033 8 256s111.033 248 248 248 248-111.033 248-248S392.967 8 256 8zm0 464c-118.664 0-216-96.055-216-216 0-118.663 96.055-216 216-216 118.664 0 216 96.055 216 216 0 118.663-96.055 216-216 216zm141.63-274.961L217.15 376.071c-4.705 4.667-12.303 4.637-16.97-.068l-85.878-86.572c-4.667-4.705-4.637-12.303.068-16.97l8.52-8.451c4.705-4.667 12.303-4.637 16.97.068l68.976 69.533 163.441-162.13c4.705-4.667 12.303-4.637 16.97.068l8.451 8.52c4.668 4.705 4.637 12.303-.068 16.97z" />
+                                                </svg>
+                                                <span>Your subscription has been successful.</span>
+                                            </div>
+                                        </div>
+
+                                        <div class="newsletter-banner__input-group">
+                                            <label class="newsletter-banner__label" for="EMAIL">
+                                                Email Address <span class="newsletter-banner__required" aria-hidden="true">*</span>
+                                            </label>
+
+                                            <div class="newsletter-banner__form-row">
+                                                <div class="sib-input sib-form-block newsletter-banner__field">
+                                                    <div class="form__entry entry_block">
+                                                        <div class="form__label-row">
+                                                            <div class="entry__field">
+                                                                <input class="input" type="email" id="EMAIL" name="EMAIL" autocomplete="off" value="" placeholder="Enter your email address" data-required="true" required />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="sib-form-block newsletter-banner__submit-block">
+                                                    <button class="sib-form-block__button sib-form-block__button-with-loader newsletter-banner__submit-btn" type="submit" form="sib-form">
+                                                        <span>Subscribe</span>
+                                                        <svg class="newsletter-btn-arrow" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="newsletter-banner__note">
+                                            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#F2A900" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                                            <span>We respect your privacy. No spam, ever.</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <input type="text" name="email_address_check" value="" class="input--hidden" style="display:none;">
+                                <input type="hidden" name="locale" value="en">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <!-- END Brevo Form -->
+            </div>
+        </div>
+        <script defer src="https://sibforms.com/forms/end-form/build/main.js"></script>
+    </section>
+
+    <footer class="footer">
+    <ul class="menu">
+      <li class="menu-item"><a class="menu-link" href="../index.html">Home</a></li>
+      <li class="menu-item"><a class="menu-link" href="../Wallpaper/index.html">Wallpapers</a></li>
+      <li class="menu-item"><a class="menu-link" href="../color-palettes/index.html">Color Space</a>
+      </li>
+      <li class="menu-item"><a class="menu-link"
+          href="../Resources/digital-resources/digital-resources-hub.html">Resources</a>
+      </li>
+      <li class="menu-item"><a class="menu-link" href="../Website/about/about.html">About</a>
+      </li>
+      <li class="menu-item"><a class="menu-link" href="../Website/contact/index.html">Contact</a>
+      </li>
+      <li class="menu-item"><a class="menu-link" href="../Website/privacy/index.html">Privacy
+          policy</a>
+      </li>
+    </ul>
+    <div class="contacts">
+      <a class="contact github" href="https://github.com/kumaradoss16" target="_blank"><i
+          class="fa-brands fa-github"></i></a>
+      <a class="contact instagram" href="https://www.instagram.com/devspirehub/" target="_blank"><i
+          class="fa-brands fa-instagram"></i></a>
+      <a class="contact linkedin" href="https://www.linkedin.com/in/kumaradoss-s/" target="_blank"><i
+          class="fa-brands fa-linkedin"></i></a>
+      <a class="contact facebook" href="https://www.facebook.com/profile.php?id=61577667990170&_rdr" target="_blank"><i
+          class="fa-brands fa-facebook"></i></a>
+      <a class="contact gmail" href="https://mail.google.com/mail/?view=cm&fs=1&to=devspirehub.website@gmail.com"
+        aria-label="Email us at devspirehub.website@gmail.com" title="Send us an email" target="_blank"
+        rel="noopener noreferrer">
+        <i class="fa-solid fa-envelope"></i>
+      </a>
+    </div>
+    <p>&copy;2026 DevspireHub | All Rights Reserved</p>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+  <script src="script.js?v=20261121_charts1"></script>
+</body>
+
+</html>
