@@ -2,20 +2,42 @@ document.addEventListener("DOMContentLoaded", () => {
     const menuToggle = document.querySelector(".menu-toggle");
     const navLinks = document.querySelector(".nav-links");
 
-    menuToggle.addEventListener("click", () => {
-        navLinks.classList.toggle("active");
-        const icon = menuToggle.querySelector("i");
-        if (navLinks.classList.contains("active")) {
-            icon.classList.remove("fa-bars");
-            icon.classList.add("fa-times");
-        } else {
-            icon.classList.remove("fa-times");
-            icon.classList.add("fa-bars");
-        }
-    });
+    if (menuToggle && navLinks) {
+        menuToggle.addEventListener("click", () => {
+            const isActive = navLinks.classList.toggle("active");
+            menuToggle.setAttribute("aria-expanded", isActive ? "true" : "false");
+            const icon = menuToggle.querySelector("i");
+            if (icon) {
+                if (isActive) {
+                    icon.classList.remove("fa-bars");
+                    icon.classList.add("fa-times");
+                } else {
+                    icon.classList.remove("fa-times");
+                    icon.classList.add("fa-bars");
+                }
+            }
+        });
+
+        // Auto-close mobile navigation drawer when a link is clicked
+        const navItems = document.querySelectorAll(".nav-links a");
+        navItems.forEach(item => {
+            item.addEventListener("click", () => {
+                if (navLinks.classList.contains("active")) {
+                    navLinks.classList.remove("active");
+                    menuToggle.setAttribute("aria-expanded", "false");
+                    const icon = menuToggle.querySelector("i");
+                    if (icon) {
+                        icon.classList.remove("fa-times");
+                        icon.classList.add("fa-bars");
+                    }
+                }
+            });
+        });
+    }
 
     (function () {
         const el = document.getElementById("brand");
+        if (!el) return;
         const text = el.dataset.text || "DevSpireHub";
         let i = 0;
         let isDeleting = false;
@@ -507,17 +529,21 @@ function setNetInfoLoading() {
     if (badge) badge.textContent = '—';
 }
 
+let rawIpData = { ip: '—', hostname: '—' };
+
 function populateNetInfo(d) {
+    rawIpData.ip = d.ip || '—';
+    rawIpData.hostname = d.hostname || '—';
     const set = (id, val) => { const el = document.getElementById(id); if (el) el.textContent = val || '—'; };
     set('niIsp',      d.org ? d.org.replace(/^AS\d+\s*/, '') : d.isp);
-    set('niIp',       d.ip);
+    set('niIp',       privacyMaskActive ? '•••.•••.•••.•••' : d.ip);
     set('niCity',     d.city && d.region ? `${d.city}, ${d.region}` : d.city);
     set('niCountry',  d.country_name || d.country);
     set('niTimezone', d.timezone);
-    set('niHostname', d.hostname);
+    set('niHostname', privacyMaskActive ? '[Hidden]' : d.hostname);
     const badge = document.getElementById('niCountryBadge');
     if (badge) badge.textContent = d.country_code || d.country || '—';
-    document.getElementById('pubIp').textContent   = d.ip || '—';
+    document.getElementById('pubIp').textContent   = privacyMaskActive ? '•••.•••.•••.•••' : (d.ip || '—');
     document.getElementById('ispName').textContent  = d.org ? d.org.replace(/^AS\d+\s*/, '').slice(0, 28) : d.isp || '—';
 }
 
@@ -834,7 +860,11 @@ function setBar(id, p) {
     document.getElementById(id + 'Bar').style.width = w + '%';
     document.getElementById(id + 'Pct').textContent = w + '%';
 }
-function setSpd(id, v) { document.getElementById(id + 'Spd').innerHTML = v.toFixed(1) + ' <span>Mbps</span>'; }
+function setSpd(id, v) {
+    const factor = currentUnit === 'mbs' ? 0.125 : 1;
+    const unitLbl = currentUnit === 'mbs' ? 'MB/s' : 'Mbps';
+    document.getElementById(id + 'Spd').innerHTML = (v * factor).toFixed(1) + ' <span>' + unitLbl + '</span>';
+}
 function setSt(id, t) { document.getElementById(id + 'St').textContent = t; }
 function setRing(sec, total, lbl) {
     const circ = 2 * Math.PI * 34;
@@ -852,9 +882,15 @@ function animateDisplay() {
     const diff = dispTarget - dispCurrent;
     dispVel = dispVel * 0.75 + diff * 0.12;
     dispCurrent += dispVel;
-    document.getElementById('liveSpd').textContent = Math.max(0, dispCurrent).toFixed(1);
+    const factor = currentUnit === 'mbs' ? 0.125 : 1;
+    document.getElementById('liveSpd').textContent = Math.max(0, dispCurrent * factor).toFixed(1);
     if (Math.abs(diff) > 0.05 || Math.abs(dispVel) > 0.02) dispRaf = requestAnimationFrame(animateDisplay);
-    else { dispCurrent = dispTarget; document.getElementById('liveSpd').textContent = dispTarget.toFixed(1); dispRaf = null; }
+    else {
+        dispCurrent = dispTarget;
+        const factor = currentUnit === 'mbs' ? 0.125 : 1;
+        document.getElementById('liveSpd').textContent = (dispTarget * factor).toFixed(1);
+        dispRaf = null;
+    }
 }
 function setDisplay(v) {
     dispTarget = v;
@@ -953,7 +989,25 @@ function finishTest() {
     const now = new Date();
     const ts = now.toLocaleDateString('en-IN', { day: '2-digit', month: 'short' }) + ' ' +
                now.toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit' });
-    hist.unshift({ ts, srv: activeSrv.city + ', ' + activeSrv.country, dl: dlFin, ul: ulFin, ping: pingFin, jit: jitFin });
+    const factor = currentUnit === 'mbs' ? 0.125 : 1;
+    const unitLbl = currentUnit === 'mbs' ? 'MB/s' : 'Mbps';
+    
+    // Update live speed rating badge
+    updateLiveRatingBadge(dlFin);
+    
+    // Announce to screen reader
+    announceLive(`Test complete. Download: ${(dlFin * factor).toFixed(1)} ${unitLbl}, Upload: ${(ulFin * factor).toFixed(1)} ${unitLbl}, Ping: ${pingFin} ms, Jitter: ${jitFin} ms.`);
+    
+    // Update document title
+    document.title = `✓ ${(dlFin * factor).toFixed(1)} ${unitLbl} — NetPulse Speed Test`;
+    
+    // Play sound if opt-in enabled
+    playCompletionSound();
+    
+    // Save to history with persistent storage
+    const newEntry = { ts, srv: activeSrv.city + ', ' + activeSrv.country, dl: dlFin, ul: ulFin, ping: pingFin, jit: jitFin, id: Date.now() };
+    hist.unshift(newEntry);
+    saveStoredHistory();
     renderHist();
 }
 
@@ -978,27 +1032,565 @@ function getSpeedRating(dl) {
     return                 { label: 'Poor',       cls: 'sr-poor',      desc: 'May struggle with HD video, large downloads, or multiple connected devices.' };
 }
 
-function clearHist() { hist.length = 0; renderHist(); }
+function clearHist() {
+    hist.length = 0;
+    saveStoredHistory();
+    renderHist();
+}
+
 function renderHist() {
     const el = document.getElementById('histBody');
+    const summaryBar = document.getElementById('histSummaryBar');
+    
     if (!hist.length) {
         el.innerHTML = '<div class="empty"><i class="ti ti-wifi-off" style="font-size:24px;display:block;margin-bottom:8px" aria-hidden="true"></i>No tests yet</div>';
+        if (summaryBar) summaryBar.style.display = 'none';
         return;
     }
-    let h = '<table class="hist-table"><thead><tr><th>Time</th><th>Server</th><th>Download</th><th>Upload</th><th>Ping</th><th>Jitter</th><th>Speed Rating</th></tr></thead><tbody>';
-    hist.forEach(r => {
+    
+    if (summaryBar) summaryBar.style.display = 'flex';
+    updateHistoryStats();
+    
+    const factor = currentUnit === 'mbs' ? 0.125 : 1;
+    const unitLbl = currentUnit === 'mbs' ? 'MB/s' : 'Mbps';
+    
+    let h = '<table class="hist-table"><thead><tr><th scope="col" style="width:36px">Select</th><th scope="col">Time</th><th scope="col">Server</th><th scope="col">Download</th><th scope="col">Upload</th><th scope="col">Ping</th><th scope="col">Jitter</th><th scope="col">Speed Rating</th></tr></thead><tbody>';
+    hist.forEach((r, idx) => {
         const pc = r.ping < 20 ? 'pg' : r.ping < 60 ? 'po' : 'pb';
         const sr = getSpeedRating(r.dl);
+        const dlVal = (r.dl * factor).toFixed(1);
+        const ulVal = (r.ul * factor).toFixed(1);
         h += `<tr>
-    <td style="color:#555c75">${r.ts}</td>
-    <td style="color:#8b91a8">${r.srv.split(',')[0]}</td>
-    <td><span class="bdl"><i class="ti ti-download" style="font-size:10px" aria-hidden="true"></i>${r.dl.toFixed(1)}</span></td>
-    <td><span class="bul"><i class="ti ti-upload" style="font-size:10px" aria-hidden="true"></i>${r.ul.toFixed(1)}</span></td>
+    <td style="text-align:center"><input type="checkbox" class="hist-compare-checkbox" data-idx="${idx}" onchange="handleCompareCheckbox()" aria-label="Select test from ${r.ts} for comparison"></td>
+    <td style="color:var(--np-text-muted)">${r.ts}</td>
+    <td style="color:var(--np-text-secondary)">${r.srv.split(',')[0]}</td>
+    <td><span class="bdl"><i class="ti ti-download" style="font-size:10px" aria-hidden="true"></i>${dlVal} ${unitLbl}</span></td>
+    <td><span class="bul"><i class="ti ti-upload" style="font-size:10px" aria-hidden="true"></i>${ulVal} ${unitLbl}</span></td>
     <td class="${pc}">${r.ping} ms</td>
-    <td style="color:#555c75">${r.jit} ms</td>
+    <td style="color:var(--np-text-muted)">${r.jit} ms</td>
     <td><span class="sr-badge ${sr.cls}" title="${sr.desc}">${sr.label}</span></td>
 </tr>`;
     });
     h += '</tbody></table>';
     el.innerHTML = h;
+}
+
+/* ════════════════════════════════════════════════════════════════════════════
+   TIER 1 CLIENT-SIDE FEATURES & PERSISTENCE ENGINE
+   ════════════════════════════════════════════════════════════════════════════ */
+
+let currentUnit = 'mbps';
+let privacyMaskActive = false;
+let soundEnabled = false;
+const STORAGE_KEY = 'netpulse_history_v1';
+
+// ── Screen Reader Live Announcements ──
+function announceLive(msg) {
+    const el = document.getElementById('npLiveAnnouncer');
+    if (el) el.textContent = msg;
+}
+
+// ── Speed Rating Live Badge ──
+function updateLiveRatingBadge(dlMbps) {
+    const b = document.getElementById('liveRatingBadge');
+    if (!b) return;
+    const rating = getSpeedRating(dlMbps);
+    b.textContent = rating.label;
+    b.className = 'sr-badge sr-live-badge ' + rating.cls;
+    b.style.display = 'inline-block';
+    b.title = rating.desc;
+}
+
+// ── Unit Switching ──
+function applyUnit(unit) {
+    currentUnit = unit;
+    try { localStorage.setItem('netpulse_unit', unit); } catch (_) {}
+    
+    document.getElementById('npUnitMbps').classList.toggle('active', unit === 'mbps');
+    document.getElementById('npUnitMbps').setAttribute('aria-pressed', String(unit === 'mbps'));
+    document.getElementById('npUnitMbs').classList.toggle('active', unit === 'mbs');
+    document.getElementById('npUnitMbs').setAttribute('aria-pressed', String(unit === 'mbs'));
+    
+    const factor = unit === 'mbs' ? 0.125 : 1;
+    const unitLbl = unit === 'mbs' ? 'MB/s' : 'Mbps';
+    
+    document.getElementById('liveUnit').textContent = unitLbl;
+    document.querySelectorAll('.sv .u').forEach(el => el.textContent = unitLbl);
+    
+    if (dlFin > 0) {
+        document.getElementById('dlN').textContent = (dlFin * factor).toFixed(1);
+        setSpd('dl', dlFin);
+    }
+    if (ulFin > 0) {
+        document.getElementById('ulN').textContent = (ulFin * factor).toFixed(1);
+        setSpd('ul', ulFin);
+    }
+    
+    const maxVal = Math.round((window.MAX_SPD || 100) * factor);
+    const lbl100 = document.getElementById('lbl100');
+    if (lbl100) lbl100.textContent = maxVal + '+';
+    
+    // Adjust Live throughput chart y-axis dynamically
+    if (liveChart && liveChart.options && liveChart.options.scales && liveChart.options.scales.y) {
+        liveChart.options.scales.y.max = unit === 'mbs' ? 15 : 120;
+        liveChart.update('none');
+    }
+    
+    renderHist();
+}
+
+// ── Privacy Masking ──
+function togglePrivacyMask() {
+    privacyMaskActive = !privacyMaskActive;
+    try { localStorage.setItem('netpulse_privacy_mask', privacyMaskActive ? '1' : '0'); } catch (_) {}
+    
+    const btn = document.getElementById('npPrivacyBtn');
+    const lbl = document.getElementById('npPrivacyLabel');
+    if (btn) {
+        btn.classList.toggle('active', privacyMaskActive);
+        btn.setAttribute('aria-pressed', String(privacyMaskActive));
+    }
+    if (lbl) lbl.textContent = `Privacy Mask: ${privacyMaskActive ? 'On' : 'Off'}`;
+    
+    const pubIp = document.getElementById('pubIp');
+    const niIp = document.getElementById('niIp');
+    const niHostname = document.getElementById('niHostname');
+    
+    if (privacyMaskActive) {
+        if (pubIp) { pubIp.textContent = '•••.•••.•••.•••'; pubIp.classList.add('privacy-masked'); }
+        if (niIp) { niIp.textContent = '•••.•••.•••.•••'; niIp.classList.add('privacy-masked'); }
+        if (niHostname) { niHostname.textContent = '[Hidden]'; niHostname.classList.add('privacy-masked'); }
+    } else {
+        if (pubIp) { pubIp.textContent = rawIpData.ip; pubIp.classList.remove('privacy-masked'); }
+        if (niIp) { niIp.textContent = rawIpData.ip; niIp.classList.remove('privacy-masked'); }
+        if (niHostname) { niHostname.textContent = rawIpData.hostname; niHostname.classList.remove('privacy-masked'); }
+    }
+}
+
+// ── Audio Completion Chime (Web Audio API) ──
+function toggleSound() {
+    soundEnabled = !soundEnabled;
+    try { localStorage.setItem('netpulse_sound', soundEnabled ? '1' : '0'); } catch (_) {}
+    
+    const btn = document.getElementById('npSoundBtn');
+    const lbl = document.getElementById('npSoundLabel');
+    const icon = document.getElementById('npSoundIcon');
+    
+    if (btn) {
+        btn.classList.toggle('active', soundEnabled);
+        btn.setAttribute('aria-pressed', String(soundEnabled));
+    }
+    if (lbl) lbl.textContent = `Sound: ${soundEnabled ? 'On' : 'Off'}`;
+    if (icon) icon.className = soundEnabled ? 'ti ti-volume' : 'ti ti-volume-off';
+    
+    // Play a preview chime if enabled
+    if (soundEnabled) playCompletionSound();
+}
+
+function playCompletionSound() {
+    if (!soundEnabled) return;
+    try {
+        const AudioContext = window.AudioContext || window.webkitAudioContext;
+        if (!AudioContext) return;
+        const ctx = new AudioContext();
+        
+        // Polite dual-tone ascending chime (520Hz -> 659.25Hz)
+        const osc1 = ctx.createOscillator();
+        const osc2 = ctx.createOscillator();
+        const gain = ctx.createGain();
+        
+        osc1.type = 'sine';
+        osc1.frequency.setValueAtTime(523.25, ctx.currentTime); // C5
+        osc2.type = 'sine';
+        osc2.frequency.setValueAtTime(659.25, ctx.currentTime + 0.12); // E5
+        
+        gain.gain.setValueAtTime(0.12, ctx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.45);
+        
+        osc1.connect(gain);
+        osc2.connect(gain);
+        gain.connect(ctx.destination);
+        
+        osc1.start(ctx.currentTime);
+        osc1.stop(ctx.currentTime + 0.12);
+        osc2.start(ctx.currentTime + 0.12);
+        osc2.stop(ctx.currentTime + 0.45);
+    } catch (_) {}
+}
+
+// ── Persistent Storage Handlers ──
+function loadStoredHistory() {
+    try {
+        const stored = localStorage.getItem(STORAGE_KEY);
+        if (stored) {
+            const parsed = JSON.parse(stored);
+            if (Array.isArray(parsed)) {
+                hist.length = 0;
+                parsed.forEach(item => hist.push(item));
+            }
+        }
+    } catch (_) {}
+}
+
+function saveStoredHistory() {
+    try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(hist.slice(0, 50)));
+    } catch (_) {}
+}
+
+// ── History Stats & Sparkline ──
+function updateHistoryStats() {
+    if (!hist.length) return;
+    const factor = currentUnit === 'mbs' ? 0.125 : 1;
+    const unitLbl = currentUnit === 'mbs' ? 'MB/s' : 'Mbps';
+    
+    const count = hist.length;
+    const avgDl = (hist.reduce((acc, h) => acc + h.dl, 0) / count) * factor;
+    const maxDl = Math.max(...hist.map(h => h.dl)) * factor;
+    const minDl = Math.min(...hist.map(h => h.dl)) * factor;
+    const avgPing = Math.round(hist.reduce((acc, h) => acc + h.ping, 0) / count);
+    
+    const cEl = document.getElementById('histCountPill');
+    const aEl = document.getElementById('histAvgDlPill');
+    const mxEl = document.getElementById('histMaxDlPill');
+    const mnEl = document.getElementById('histMinDlPill');
+    const pEl = document.getElementById('histAvgPingPill');
+    
+    if (cEl) cEl.textContent = `Tests: ${count}`;
+    if (aEl) aEl.textContent = `Avg DL: ${avgDl.toFixed(1)} ${unitLbl}`;
+    if (mxEl) mxEl.textContent = `Max DL: ${maxDl.toFixed(1)} ${unitLbl}`;
+    if (mnEl) mnEl.textContent = `Min DL: ${minDl.toFixed(1)} ${unitLbl}`;
+    if (pEl) pEl.textContent = `Avg Ping: ${avgPing} ms`;
+    
+    drawSparkline();
+}
+
+function drawSparkline() {
+    const canvas = document.getElementById('histSparkline');
+    if (!canvas || !hist.length) return;
+    const ctx = canvas.getContext('2d');
+    const w = canvas.width, h = canvas.height;
+    ctx.clearRect(0, 0, w, h);
+    
+    const points = hist.slice(0, 15).reverse().map(item => item.dl);
+    if (points.length < 2) return;
+    
+    const min = Math.min(...points);
+    const max = Math.max(...points) || 1;
+    const range = (max - min) || 1;
+    
+    ctx.beginPath();
+    ctx.strokeStyle = '#FF710D';
+    ctx.lineWidth = 2;
+    ctx.lineCap = 'round';
+    ctx.lineJoin = 'round';
+    
+    points.forEach((val, i) => {
+        const x = (i / (points.length - 1)) * (w - 8) + 4;
+        const y = h - (((val - min) / range) * (h - 10) + 5);
+        if (i === 0) ctx.moveTo(x, y);
+        else ctx.lineTo(x, y);
+    });
+    ctx.stroke();
+}
+
+// ── Export Results (Copy Summary, CSV, JSON, Share Image) ──
+function copyHistSummary() {
+    if (!hist.length) { alert('No test history to copy.'); return; }
+    const factor = currentUnit === 'mbs' ? 0.125 : 1;
+    const unitLbl = currentUnit === 'mbs' ? 'MB/s' : 'Mbps';
+    
+    let text = `NetPulse Speed Test Summary (${new Date().toLocaleDateString()})\n`;
+    text += `===============================================\n`;
+    hist.forEach((h, i) => {
+        text += `#${i+1} | ${h.ts} | ${h.srv} | DL: ${(h.dl * factor).toFixed(1)} ${unitLbl} | UL: ${(h.ul * factor).toFixed(1)} ${unitLbl} | Ping: ${h.ping}ms | Jitter: ${h.jit}ms\n`;
+    });
+    
+    if (navigator.clipboard) {
+        navigator.clipboard.writeText(text).then(() => {
+            const btn = document.getElementById('histCopyBtn');
+            if (btn) {
+                const orig = btn.innerHTML;
+                btn.innerHTML = '<i class="ti ti-check" aria-hidden="true"></i> Copied!';
+                setTimeout(() => btn.innerHTML = orig, 2000);
+            }
+        });
+    }
+}
+
+function downloadHistCsv() {
+    if (!hist.length) { alert('No test history to export.'); return; }
+    const factor = currentUnit === 'mbs' ? 0.125 : 1;
+    const unitLbl = currentUnit === 'mbs' ? 'MB/s' : 'Mbps';
+    
+    let csv = `Date,Server,Download (${unitLbl}),Upload (${unitLbl}),Ping (ms),Jitter (ms),Speed Rating\n`;
+    hist.forEach(h => {
+        const sr = getSpeedRating(h.dl).label;
+        csv += `"${h.ts}","${h.srv}",${(h.dl * factor).toFixed(1)},${(h.ul * factor).toFixed(1)},${h.ping},${h.jit},"${sr}"\n`;
+    });
+    
+    const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `netpulse_history_${Date.now()}.csv`;
+    a.click();
+    URL.revokeObjectURL(url);
+}
+
+function downloadHistJson() {
+    if (!hist.length) { alert('No test history to export.'); return; }
+    const factor = currentUnit === 'mbs' ? 0.125 : 1;
+    const unitLbl = currentUnit === 'mbs' ? 'MB/s' : 'Mbps';
+    
+    const exportData = hist.map(h => ({
+        timestamp: h.ts,
+        server: h.srv,
+        download: parseFloat((h.dl * factor).toFixed(1)),
+        upload: parseFloat((h.ul * factor).toFixed(1)),
+        unit: unitLbl,
+        ping_ms: h.ping,
+        jitter_ms: h.jit,
+        rating: getSpeedRating(h.dl).label
+    }));
+    
+    const blob = new Blob([JSON.stringify(exportData, null, 2)], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `netpulse_history_${Date.now()}.json`;
+    a.click();
+    URL.revokeObjectURL(url);
+}
+
+function generateShareCard() {
+    if (!hist.length) { alert('Run a test first to generate a share card.'); return; }
+    const latest = hist[0];
+    const factor = currentUnit === 'mbs' ? 0.125 : 1;
+    const unitLbl = currentUnit === 'mbs' ? 'MB/s' : 'Mbps';
+    const rating = getSpeedRating(latest.dl);
+    
+    const canvas = document.createElement('canvas');
+    canvas.width = 1200;
+    canvas.height = 630;
+    const ctx = canvas.getContext('2d');
+    
+    // Background gradient
+    const bgGrad = ctx.createLinearGradient(0, 0, 1200, 630);
+    bgGrad.addColorStop(0, '#0D1117');
+    bgGrad.addColorStop(1, '#151B23');
+    ctx.fillStyle = bgGrad;
+    ctx.fillRect(0, 0, 1200, 630);
+    
+    // Subtle border
+    ctx.strokeStyle = '#2A3544';
+    ctx.lineWidth = 4;
+    ctx.strokeRect(20, 20, 1160, 590);
+    
+    // Header Logo & Branding
+    ctx.fillStyle = '#FFFFFF';
+    ctx.font = 'bold 44px Saira, sans-serif';
+    ctx.fillText('NetPulse', 80, 100);
+    ctx.fillStyle = '#FF710D';
+    ctx.font = '22px Saira, sans-serif';
+    ctx.fillText('Precision Internet Speed Analyzer • devspirehub.com', 80, 140);
+    
+    // Metric Tile 1: Download
+    ctx.fillStyle = '#1B2531';
+    ctx.fillRect(80, 190, 480, 220);
+    ctx.strokeStyle = 'rgba(255, 113, 13, 0.4)';
+    ctx.lineWidth = 2;
+    ctx.strokeRect(80, 190, 480, 220);
+    ctx.fillStyle = '#A7B2C0';
+    ctx.font = 'bold 20px Saira, sans-serif';
+    ctx.fillText('DOWNLOAD SPEED', 110, 235);
+    ctx.fillStyle = '#F1F5F9';
+    ctx.font = 'bold 74px "JetBrains Mono", monospace';
+    ctx.fillText((latest.dl * factor).toFixed(1), 110, 325);
+    ctx.fillStyle = '#FF710D';
+    ctx.font = 'bold 28px Saira, sans-serif';
+    ctx.fillText(unitLbl, 110 + ctx.measureText((latest.dl * factor).toFixed(1)).width + 20, 325);
+    
+    // Metric Tile 2: Upload
+    ctx.fillStyle = '#1B2531';
+    ctx.fillRect(640, 190, 480, 220);
+    ctx.strokeStyle = 'rgba(25, 186, 175, 0.4)';
+    ctx.lineWidth = 2;
+    ctx.strokeRect(640, 190, 480, 220);
+    ctx.fillStyle = '#A7B2C0';
+    ctx.font = 'bold 20px Saira, sans-serif';
+    ctx.fillText('UPLOAD SPEED', 670, 235);
+    ctx.fillStyle = '#F1F5F9';
+    ctx.font = 'bold 74px "JetBrains Mono", monospace';
+    ctx.fillText((latest.ul * factor).toFixed(1), 670, 325);
+    ctx.fillStyle = '#19BAAF';
+    ctx.font = 'bold 28px Saira, sans-serif';
+    ctx.fillText(unitLbl, 670 + ctx.measureText((latest.ul * factor).toFixed(1)).width + 20, 325);
+    
+    // Ping, Jitter & Rating Bottom Bar
+    ctx.fillStyle = '#1B2531';
+    ctx.fillRect(80, 450, 1040, 100);
+    ctx.strokeStyle = '#2A3544';
+    ctx.lineWidth = 2;
+    ctx.strokeRect(80, 450, 1040, 100);
+    
+    ctx.fillStyle = '#A7B2C0';
+    ctx.font = '18px Saira, sans-serif';
+    ctx.fillText(`Server: ${latest.srv}    |    Ping: ${latest.ping} ms    |    Jitter: ${latest.jit} ms    |    Rating: ${rating.label}`, 110, 510);
+    
+    // Convert to PNG and download
+    const url = canvas.toDataURL('image/png');
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `netpulse_result_${Date.now()}.png`;
+    a.click();
+}
+
+// ── Test Comparison Feature ──
+function handleCompareCheckbox() {
+    const checked = document.querySelectorAll('.hist-compare-checkbox:checked');
+    const btn = document.getElementById('histCompareBtn');
+    if (btn) {
+        btn.disabled = (checked.length !== 2);
+        btn.style.opacity = (checked.length === 2) ? '1' : '0.6';
+    }
+}
+
+function compareSelectedTests() {
+    const checked = Array.from(document.querySelectorAll('.hist-compare-checkbox:checked'));
+    if (checked.length !== 2) {
+        alert('Please select exactly 2 tests using the checkboxes to compare.');
+        return;
+    }
+    const idx1 = parseInt(checked[0].dataset.idx, 10);
+    const idx2 = parseInt(checked[1].dataset.idx, 10);
+    const t1 = hist[idx1], t2 = hist[idx2];
+    
+    const factor = currentUnit === 'mbs' ? 0.125 : 1;
+    const unitLbl = currentUnit === 'mbs' ? 'MB/s' : 'Mbps';
+    
+    const grid = document.getElementById('histCompareGrid');
+    if (!grid) return;
+    
+    grid.innerHTML = `
+        <div class="stat" style="text-align:left;padding:16px;">
+            <div style="font-size:12px;color:var(--np-text-muted);margin-bottom:6px;">TEST 1 • ${t1.ts}</div>
+            <div style="font-size:13px;color:var(--np-text-secondary);margin-bottom:12px;">Server: ${t1.srv}</div>
+            <div style="font-size:14px;margin-bottom:6px;">Download: <b style="color:var(--np-accent-dl)">${(t1.dl * factor).toFixed(1)} ${unitLbl}</b></div>
+            <div style="font-size:14px;margin-bottom:6px;">Upload: <b style="color:var(--np-accent-ul)">${(t1.ul * factor).toFixed(1)} ${unitLbl}</b></div>
+            <div style="font-size:14px;margin-bottom:6px;">Ping: <b>${t1.ping} ms</b></div>
+            <div style="font-size:14px;margin-bottom:6px;">Jitter: <b>${t1.jit} ms</b></div>
+            <div style="font-size:13px;margin-top:10px;">Rating: <span class="sr-badge ${getSpeedRating(t1.dl).cls}">${getSpeedRating(t1.dl).label}</span></div>
+        </div>
+        <div class="stat" style="text-align:left;padding:16px;">
+            <div style="font-size:12px;color:var(--np-text-muted);margin-bottom:6px;">TEST 2 • ${t2.ts}</div>
+            <div style="font-size:13px;color:var(--np-text-secondary);margin-bottom:12px;">Server: ${t2.srv}</div>
+            <div style="font-size:14px;margin-bottom:6px;">Download: <b style="color:var(--np-accent-dl)">${(t2.dl * factor).toFixed(1)} ${unitLbl}</b></div>
+            <div style="font-size:14px;margin-bottom:6px;">Upload: <b style="color:var(--np-accent-ul)">${(t2.ul * factor).toFixed(1)} ${unitLbl}</b></div>
+            <div style="font-size:14px;margin-bottom:6px;">Ping: <b>${t2.ping} ms</b></div>
+            <div style="font-size:14px;margin-bottom:6px;">Jitter: <b>${t2.jit} ms</b></div>
+            <div style="font-size:13px;margin-top:10px;">Rating: <span class="sr-badge ${getSpeedRating(t2.dl).cls}">${getSpeedRating(t2.dl).label}</span></div>
+        </div>
+    `;
+    
+    const modal = document.getElementById('histCompareModal');
+    if (modal) modal.style.display = 'flex';
+}
+
+function closeCompareModal() {
+    const modal = document.getElementById('histCompareModal');
+    if (modal) modal.style.display = 'none';
+}
+
+// ── Browser Connection Hints (Network Information API) ──
+function initBrowserConnectionHint() {
+    const conn = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+    const row = document.getElementById('niBrowserHintRow');
+    const val = document.getElementById('niBrowserHint');
+    if (conn && row && val) {
+        row.style.display = 'flex';
+        const type = (conn.effectiveType || 'Broadband').toUpperCase();
+        const dl = conn.downlink ? `~${conn.downlink} Mbps` : '';
+        const rtt = conn.rtt ? `${conn.rtt}ms RTT` : '';
+        val.textContent = `${type}${dl ? ' • ' + dl : ''}${rtt ? ' • ' + rtt : ''}`;
+    }
+}
+
+// ── Keyboard Shortcuts Listener ──
+function initKeyboardShortcuts() {
+    window.addEventListener('keydown', (e) => {
+        // Ignore if user is inside an input, button, or textarea
+        const tag = (e.target.tagName || '').toLowerCase();
+        if (tag === 'input' || tag === 'textarea') return;
+        
+        if (e.code === 'Space' || e.code === 'Enter') {
+            if (tag !== 'button') {
+                e.preventDefault();
+                toggleTest();
+            }
+        } else if (e.code === 'Escape') {
+            closeCompareModal();
+            const geo = document.getElementById('geoPrompt');
+            if (geo && !geo.classList.contains('geo-prompt-hidden')) {
+                skipGeolocation();
+            } else if (testing) {
+                stopTest();
+            }
+        }
+    });
+}
+
+// ── Window Exports for Inline Event Handlers ──
+window.applyUnit = applyUnit;
+window.togglePrivacyMask = togglePrivacyMask;
+window.toggleSound = toggleSound;
+window.copyHistSummary = copyHistSummary;
+window.downloadHistCsv = downloadHistCsv;
+window.downloadHistJson = downloadHistJson;
+window.generateShareCard = generateShareCard;
+window.compareSelectedTests = compareSelectedTests;
+window.closeCompareModal = closeCompareModal;
+window.clearHist = clearHist;
+
+// ── Robust Initialization of Tier 1 Features ──
+function initTier1() {
+    // 1. Setup unit buttons
+    const btnMbps = document.getElementById('npUnitMbps');
+    const btnMbs = document.getElementById('npUnitMbs');
+    if (btnMbps) btnMbps.onclick = () => applyUnit('mbps');
+    if (btnMbs) btnMbs.onclick = () => applyUnit('mbs');
+    
+    // 2. Setup privacy mask button
+    const pBtn = document.getElementById('npPrivacyBtn');
+    if (pBtn) pBtn.onclick = togglePrivacyMask;
+    
+    // 3. Setup sound button
+    const sBtn = document.getElementById('npSoundBtn');
+    if (sBtn) sBtn.onclick = toggleSound;
+    
+    // 4. Load stored preferences
+    try {
+        const savedUnit = localStorage.getItem('netpulse_unit');
+        if (savedUnit === 'mbs') applyUnit('mbs');
+        
+        const savedPrivacy = localStorage.getItem('netpulse_privacy_mask');
+        if (savedPrivacy === '1') togglePrivacyMask();
+        
+        const savedSound = localStorage.getItem('netpulse_sound');
+        if (savedSound === '1') toggleSound();
+    } catch (_) {}
+    
+    // 5. Load stored history
+    loadStoredHistory();
+    renderHist();
+    
+    // 6. Init Browser hints & keyboard shortcuts
+    initBrowserConnectionHint();
+    initKeyboardShortcuts();
+}
+
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initTier1);
+} else {
+    initTier1();
 }
