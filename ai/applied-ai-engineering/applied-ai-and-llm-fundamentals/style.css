@@ -4395,3 +4395,196 @@ svg {
     transform: none !important;
   }
 }
+
+/* ==========================================================================
+   WHAT'S NEXT - MODEL SELECTION CARD
+   ========================================================================== */
+.whats-next-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-top: 25px;
+  padding: 24px;
+  background: linear-gradient(135deg, rgba(25, 186, 175, 0.08) 0%, rgba(17, 29, 48, 0.95) 100%);
+  border: 1px solid rgba(25, 186, 175, 0.3);
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+}
+
+@media (min-width: 860px) {
+  .whats-next-wrapper {
+    flex-direction: row;
+    align-items: center;
+    gap: 28px;
+  }
+  .whats-next-text {
+    flex: 1 1 52%;
+  }
+  .whats-next-card {
+    flex: 1 1 48%;
+    max-width: 420px;
+  }
+}
+
+.whats-next-card {
+  display: flex;
+  flex-direction: column;
+  background: #0B1322;
+  border: 1px solid rgba(25, 186, 175, 0.35);
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.whats-next-card:hover {
+  transform: translateY(-4px);
+  border-color: #19BAAF;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(25, 186, 175, 0.25);
+}
+
+.whats-next-card-media {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  width: 100%;
+  overflow: hidden;
+  background: #111D30;
+}
+
+.whats-next-card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.35s ease;
+}
+
+.whats-next-card:hover .whats-next-card-media img {
+  transform: scale(1.04);
+}
+
+.whats-next-module-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  padding: 3px 10px;
+  background: rgba(11, 19, 34, 0.88);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(25, 186, 175, 0.6);
+  color: #19BAAF;
+  font-size: 0.72rem;
+  font-weight: 700;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.whats-next-card-body {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.whats-next-card-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  color: #8E9AAB;
+}
+
+.whats-next-card-meta .badge-level {
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: rgba(236, 72, 153, 0.15);
+  border: 1px solid rgba(236, 72, 153, 0.35);
+  color: #F472B6;
+  font-size: 0.68rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.whats-next-card-title {
+  font-family: 'Saira', 'Poppins', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  line-height: 1.35;
+  margin: 0;
+}
+
+.whats-next-card-title a {
+  color: #FFFFFF;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.whats-next-card-title a:hover {
+  color: #19BAAF;
+}
+
+.whats-next-card-desc {
+  font-size: 0.84rem;
+  color: #B7C1CB;
+  line-height: 1.5;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.whats-next-card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.whats-next-card-tags span {
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #CBD5E1;
+  font-size: 0.7rem;
+}
+
+.whats-next-card-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: #19BAAF;
+  text-decoration: none;
+  margin-top: 4px;
+  transition: gap 0.25s ease, color 0.25s ease;
+}
+
+.whats-next-card-btn:hover {
+  gap: 12px;
+  color: #4FE5D9;
+}
+
+.next.next-featured {
+  border-color: #19BAAF;
+  border-left: 5px solid #19BAAF;
+  background-color: rgba(25, 186, 175, 0.06);
+}
+
+.next.next-featured .header h3 {
+  color: #19BAAF;
+}
+
+.next.next-featured .header p {
+  background-color: #19BAAF;
+  color: #020617;
+  font-weight: 700;
+}
+
+.next.next-featured .content .next-button {
+  color: #19BAAF;
+}
+
+.next.next-featured .content .next-button:hover {
+  color: #4FE5D9;
+}
