@@ -4067,6 +4067,35 @@ body {
 
 .ai-tutorial-level:empty { display: none; }
 
+.ai-tutorial-badges {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.ai-tutorial-module {
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: rgba(25, 186, 175, 0.14);
+  border: 1px solid rgba(25, 186, 175, 0.45);
+  color: var(--ai-teal);
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.ai-tutorial-module:empty { display: none; }
+
+.ai-tutorial-tags li.module-tag {
+  background: rgba(25, 186, 175, 0.15);
+  border-color: rgba(25, 186, 175, 0.45);
+  color: #4FE5D9;
+  font-weight: 600;
+}
+
+
 .ai-tutorial-read-time {
   display: inline-flex;
   align-items: center;
