@@ -2,787 +2,431 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="../../images/icon.webp" sizes="32x46" type="image/png">
-    <title>Contact</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact DevSpireHub — Get in Touch</title>
+  <meta name="description"
+    content="Have a question, feedback, tutorial suggestion, or collaboration idea? Contact DevSpireHub directly or send us an inquiry via our contact form.">
 
-    <meta name="description"
-        content="Learn programming with step-by-step tutorials for beginners. Master Python, C, Programming, Web development, JavaScript, ethical hacking, networking, automation, and Cloud through hands-on projects.">
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://devspirehub.com/Website/contact/index.html">
 
-    <!-- Canonical URL -->
-    <link rel="canonical" href="https://devspirehub.com/about">
+  <!-- Robots & Metadata -->
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <meta name="author" content="DevSpireHub">
+  <meta name="theme-color" content="#010D18">
 
-    <!-- Robots Meta -->
-    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <!-- Favicon -->
+  <link rel="icon" href="../../images/icon.webp" type="image/webp">
+  <link rel="apple-touch-icon" href="../../images/icon.webp">
 
-    <!-- Author & Publisher -->
-    <meta name="author" content="Devspire">
-    <link rel="publisher" href="https://devspirehub.com/about">
+  <!-- Open Graph Tags -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Contact DevSpireHub — Get in Touch">
+  <meta property="og:description"
+    content="Have a question, feedback, tutorial suggestion, or collaboration idea? Contact DevSpireHub.">
+  <meta property="og:url" content="https://devspirehub.com/Website/contact/index.html">
+  <meta property="og:site_name" content="DevSpireHub">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:image" content="https://devspirehub.com/images/icon.webp">
 
-    <!-- Open Graph Tags (Social Media) -->
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Programming Tutorials for Beginners - Learn Coding Step by Step">
-    <meta property="og:description"
-        content="Master programming with beginner-friendly tutorials covering Python, C, JavaScript, ethical hacking, networking, cloud and automation.">
-    <meta property="og:url" content="https://devspirehub.com">
-    <meta property="og:site_name" content="DevspireHub">
-    <meta property="og:locale" content="en_US">
-    <meta property="og:image" content="https://devspirehub.com/images/icon.webp">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
+  <!-- Twitter Card Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Contact DevSpireHub — Get in Touch">
+  <meta name="twitter:description" content="Reach out to DevSpireHub for tutorial feedback, suggestions, or collaboration.">
+  <meta name="twitter:image" content="https://devspirehub.com/images/icon.webp">
 
-    <!-- Author Information -->
-    <meta name="author" content="Kumaradoss / DevspireHub">
-    <link rel="author" href="https://devspirehub.com/about">
+  <!-- Preconnect & Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Saira:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <!-- Twitter Card Tags -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Programming Tutorials for Beginners - Learn Coding">
-    <meta name="twitter:description"
-        content="Step-by-step programming tutorials: Python, ethical hacking, networking, automation & more">
-    <meta name="description"
-        content="Simple, step-by-step programming and ethical hacking tutorials with real examples.">
-    <meta name="keywords"
-        content="programming, ethical hacking, tutorials, cybersecurity, coding, networking, game development">
-    <meta name="theme-color" content="#2dd4bf">
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-    <!-- Preload critical fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link href="https://cdn.lineicons.com/5.1/line/lineicons.css" rel="stylesheet">
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="../shared-base.css">
+  <link rel="stylesheet" href="style.css">
 
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-
-    <script type=application/ld+json>
-        {
-            "@context": "https://schema.org",
-            "@type": "SiteNavigationElement",
-            "name": [
-                "Home",
-                "Projects",
-                "Programming",
-                "Ethical Hacking",
-                "Networking",
-                "Automation",
-                "Resources"
-            ],
-            "url": [
-                "https://devspirehub.com",
-                "https://devspirehub.com/#projects-tutorials-section",
-                "https://devspirehub.com/#programming-tutorials-section",
-                "https://devspirehub.com/#ethical-hacking-section",
-                "https://devspirehub.com/#networking-section",
-                "https://devspirehub.com/#automation-section",
-                "https://devspirehub.com/#info-section",
-            ]
-        }
-    </script>
-
-
-    <script type="application/ld+json">
-            {
-              "@context": "https://schema.org",
-              "@type": "Organization",
-              "name": "DevSpireHub",
-              "url": "https://devspirehub.com/",
-              "logo": "https://devspirehub.com/image/icon.webp",
-              "description": "DevSpire - Programming, Projects, Ethical hacking, Networking & AI",
-              "founder": [
-                {
-                  "@type": "Person",
-                  "name": "Kumaradoss",
-                  "url": "https://www.linkedin.com/in/kumaradoss-s/"
-                }
-              ],
-              "sameAs": [
-                "https://www.linkedin.com/in/kumaradoss-s/",
-                "https://github.com/kumaradoss16",
-              ]
-            }
-    </script>
-
-    <!-- Google Tag Manager -->
-    <script>(function (w, d, s, l, i) {
-            w[l] = w[l] || []; w[l].push({
-                'gtm.start':
-                    new Date().getTime(), event: 'gtm.js'
-            }); var f = d.getElementsByTagName(s)[0],
-                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
-                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
-        })(window, document, 'script', 'dataLayer', 'GTM-M457RGDF');</script>
-    <!-- End Google Tag Manager -->
-
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2368356039533778"
-        crossorigin="anonymous"></script>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6VWY63Q80N"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-
-        gtag('config', 'G-6VWY63Q80N');
-    </script>
-
-
-    <script async custom-element="amp-auto-ads" src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
-    </script>
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
+  <!-- Schema.org Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "name": "Contact DevSpireHub",
+    "url": "https://devspirehub.com/Website/contact/index.html",
+    "description": "Contact channels and submission form for DevSpireHub.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "DevSpireHub",
+      "url": "https://devspirehub.com",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "devspirehub.website@gmail.com",
+        "contactType": "technical support"
+      }
+    }
+  }
+  </script>
 </head>
 
 <body>
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M457RGDF" height="0" width="0"
-            style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
+  <!-- Skip Navigation for Accessibility -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
 
-    <amp-auto-ads type="adsense" data-ad-client="ca-pub-2368356039533778">
-    </amp-auto-ads>
+  <!-- Canonical Navbar -->
+  <header class="navbar" role="banner">
+    <div class="container">
+      <div class="logo">
+        <a href="../../index.html" class="logo-link" aria-label="DevSpireHub Homepage">
+          <div class="logo-text">
+            <img src="../../images/icon.webp" alt="DevSpireHub Logo" width="26" height="26" loading="eager">
+            <span id="brand" class="typewriter" data-text="DevspireHub">DevspireHub</span>
+          </div>
+        </a>
+        <button class="menu-toggle" type="button" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="primary-nav">
+          <i class="fas fa-bars" aria-hidden="true"></i>
+        </button>
+      </div>
 
-    <!-- Header  -->
-    <header class="navbar">
-        <div class="container">
-            <div class="logo">
-                <div class="logo-text">
-                    <!-- <i class="fas fa-code"></i> -->
-                    <a href="../../index.html"><img src="../../images/icon.webp" alt="Gear Icon" width="23"
-                            height="23"></a>
-                    <span id="brand" class="typewriter" data-text="DevspireHub"></span>
-                </div>
-                <button class="menu-toggle" type="button" aria-label="Toggle navigation">
-                    <i class="fas fa-bars"></i>
-                </button>
-            </div>
-            <nav class="nav-links">
-                <ul>
-                    <li><a href="../../index.html" class="home"><i class="fa-solid fa-house"></i></a></li>
-                    <li><a href="../../index.html#projects-tutorials-section" class="projects">Projects</a></li>
-                    <li><a href="../../index.html#programming-tutorials-section" class="programming">Programming</a>
-                    </li>
-                    <li><a href="../../index.html#ethical-hacking-section" class="hacking">Ethical Hacking</a>
-                    </li>
-                    <li><a href="../../index.html#networking-section" class="networking">Networking</a></li>
-                    <li><a href="../../index.html#automation-section" class="ai">Automation</a></li>
-                    <li><a href="../../index.html#info-section" class="game">Resources</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-
-    <div class="main-content-wrapper container">
-        <main class="left-column">
-            <h2 class="title">Lets talk about everything!</h2>
-            <h3>💬 Share Your Feedback or Questions</h3>
-            <div class="list">
-                <ul>
-                    <li>Did you find our tutorials helpful?</li>
-                    <li>Did you notice any mistakes or outdated information in our guides?</li>
-                    <li>Do you have ideas to make the tutorials clearer, more practical, or beginner-friendly?</li>
-                    <li>Is there a new topic or project tutorial you'd like us to create?</li>
-                    <li>Do you have suggestions to improve the site or content?</li>
-                    <li>Want to collaborate or start a project together?</li>
-                </ul>
-            </div>
-            <p>📩 <strong>Use the contact form</strong> to share your feedback – or email us directly at <a
-                    href="mailto:devspirehub.website@gmail.com" class="email-link">devspirehub.website@gmail.com</a>.
-            </p>
-            <p class="last-p">Your suggestions help us improve and keep our content accurate and useful.</p>
-        
-            <!-- DevSpireHub Newsletter -->
-    <section class="newsletter-section newsletter-section--left" id="newsletter" aria-label="DevSpireHub Newsletter">
-        <style>
-            .newsletter-section {
-                position: relative;
-                width: 100%;
-                padding: 28px 0 20px;
-                box-sizing: border-box;
-            }
-            .newsletter-section--center {
-                padding: 36px 0 28px;
-            }
-            .newsletter-section--left {
-                padding: 28px 0 16px;
-                width: 100%;
-            }
-            .newsletter-card-wrapper {
-                display: flex;
-                justify-content: flex-start;
-                align-items: center;
-                width: 100%;
-                box-sizing: border-box;
-            }
-            .newsletter-banner {
-                position: relative;
-                width: 100%;
-                max-width: 820px;
-                margin: 0;
-                padding: 32px 36px;
-                background: linear-gradient(135deg, rgba(20, 27, 40, 0.96) 0%, rgba(13, 18, 28, 0.98) 100%);
-                border: 1px solid rgba(242, 169, 0, 0.32);
-                border-radius: 16px;
-                box-shadow: 0 18px 40px -10px rgba(0, 0, 0, 0.65), 0 0 0 1px rgba(255, 255, 255, 0.05), 0 0 32px rgba(242, 169, 0, 0.10);
-                overflow: hidden;
-                box-sizing: border-box;
-                transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
-            }
-            .newsletter-banner:hover {
-                border-color: rgba(242, 169, 0, 0.58);
-                box-shadow: 0 22px 48px -10px rgba(0, 0, 0, 0.75), 0 0 0 1px rgba(242, 169, 0, 0.25), 0 0 42px rgba(242, 169, 0, 0.18);
-                transform: translateY(-2px);
-            }
-            .newsletter-banner__glow {
-                position: absolute;
-                top: -80px;
-                left: 20%;
-                width: 480px;
-                height: 200px;
-                background: radial-gradient(ellipse at center, rgba(242, 169, 0, 0.20) 0%, rgba(217, 119, 6, 0.07) 50%, transparent 70%);
-                pointer-events: none;
-                filter: blur(35px);
-                z-index: 0;
-            }
-            .newsletter-banner .sib-form {
-                position: relative;
-                z-index: 1;
-                background-color: transparent !important;
-                width: 100% !important;
-                margin: 0 !important;
-                padding: 0 !important;
-            }
-            .newsletter-banner #sib-form-container,
-            .newsletter-banner #sib-container {
-                background-color: transparent !important;
-                border: none !important;
-                box-shadow: none !important;
-                margin: 0 !important;
-                padding: 0 !important;
-                width: 100% !important;
-                max-width: 100% !important;
-            }
-            .newsletter-banner__content {
-                display: grid;
-                grid-template-columns: 1.15fr 1fr;
-                align-items: center;
-                gap: 32px;
-                width: 100%;
-                box-sizing: border-box;
-            }
-            .newsletter-banner__info {
-                display: flex;
-                flex-direction: column;
-                align-items: flex-start;
-                text-align: left;
-            }
-            .newsletter-banner__eyebrow {
-                display: inline-flex;
-                align-items: center;
-                gap: 10px;
-                margin-bottom: 12px;
-            }
-            .newsletter-banner__icon {
-                display: inline-flex;
-                align-items: center;
-                justify-content: center;
-                width: 42px;
-                height: 42px;
-                flex-shrink: 0;
-                transition: transform 0.3s ease, filter 0.3s ease;
-            }
-            .newsletter-banner:hover .newsletter-banner__icon {
-                transform: translateY(-2px) scale(1.05);
-                filter: drop-shadow(0 0 14px rgba(242, 169, 0, 0.45));
-            }
-            .newsletter-premium-icon {
-                width: 100%;
-                height: 100%;
-                display: block;
-            }
-            .newsletter-pill {
-                display: inline-flex;
-                align-items: center;
-                gap: 6px;
-                padding: 5px 13px;
-                background: rgba(242, 169, 0, 0.12);
-                border: 1px solid rgba(242, 169, 0, 0.35);
-                border-radius: 20px;
-                color: #F2A900;
-                font-size: 0.72rem;
-                font-weight: 600;
-                letter-spacing: 0.05em;
-                text-transform: uppercase;
-                font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            }
-            .newsletter-pill-sparkle {
-                color: #F2A900;
-                flex-shrink: 0;
-            }
-            .newsletter-banner__title {
-                font-family: inherit !important;
-                font-size: 1.55rem;
-                font-weight: 700;
-                letter-spacing: -0.02em;
-                color: #FFFFFF;
-                margin: 0 0 8px 0;
-                line-height: 1.25;
-            }
-            .newsletter-highlight {
-                background: linear-gradient(135deg, #FDE68A 0%, #F2A900 55%, #EA580C 100%);
-                -webkit-background-clip: text;
-                -webkit-text-fill-color: transparent;
-                display: inline-block;
-                font-weight: 800;
-            }
-            .newsletter-banner__desc {
-                font-family: inherit !important;
-                font-size: 0.91rem;
-                line-height: 1.52;
-                color: #94A3B8;
-                margin: 0 0 14px 0;
-                max-width: 500px;
-            }
-            .newsletter-perks {
-                display: flex;
-                align-items: center;
-                flex-wrap: wrap;
-                gap: 14px;
-                margin: 0;
-                padding: 0;
-            }
-            .newsletter-perk-item {
-                display: inline-flex;
-                align-items: center;
-                gap: 6px;
-                color: #94A3B8;
-                font-size: 0.77rem;
-                font-weight: 500;
-                font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            }
-            .newsletter-perk-svg {
-                display: inline-block;
-                flex-shrink: 0;
-                width: 15px;
-                height: 15px;
-            }
-            .newsletter-banner__action {
-                display: flex;
-                flex-direction: column;
-                width: 100%;
-                box-sizing: border-box;
-            }
-            .newsletter-banner__input-group {
-                display: flex;
-                flex-direction: column;
-                width: 100%;
-                box-sizing: border-box;
-            }
-            .newsletter-banner__label {
-                display: block;
-                font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-                font-size: 0.82rem;
-                font-weight: 600;
-                letter-spacing: 0.02em;
-                color: #CBD5E1;
-                margin-bottom: 7px;
-                text-align: left;
-            }
-            .newsletter-banner__required {
-                color: #F2A900;
-                margin-left: 2px;
-                font-weight: 700;
-            }
-            .newsletter-banner .sib-input.sib-form-block,
-            .newsletter-banner .sib-form-block {
-                padding: 0 !important;
-                margin: 0 !important;
-            }
-            .newsletter-banner .form__entry {
-                margin: 0 !important;
-                padding: 0 !important;
-                border: 0 !important;
-                position: static !important;
-            }
-            .newsletter-banner .form__label-row {
-                margin: 0 !important;
-                padding: 0 !important;
-                display: block !important;
-            }
-            .newsletter-banner .entry__field {
-                margin: 0 !important;
-                padding: 0 !important;
-                background: transparent !important;
-                border: none !important;
-                box-shadow: none !important;
-                display: block !important;
-                width: 100% !important;
-                border-radius: 0 !important;
-            }
-            .newsletter-banner__form-row {
-                display: flex;
-                align-items: stretch;
-                gap: 10px;
-                width: 100%;
-                box-sizing: border-box;
-            }
-            .newsletter-banner__field {
-                flex: 1 1 auto;
-                min-width: 0;
-                margin: 0 !important;
-                padding: 0 !important;
-            }
-            .newsletter-banner input.input {
-                display: block !important;
-                width: 100% !important;
-                height: 48px !important;
-                line-height: 48px !important;
-                padding: 0 16px !important;
-                box-sizing: border-box !important;
-                background-color: #0A1017 !important;
-                border: 1px solid rgba(255, 255, 255, 0.16) !important;
-                border-radius: 9px !important;
-                color: #F8FAFC !important;
-                font-family: inherit !important;
-                font-size: 0.94rem !important;
-                margin: 0 !important;
-                box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3) !important;
-                transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease !important;
-            }
-            .newsletter-banner input.input:focus {
-                background-color: #111A26 !important;
-                border-color: #F2A900 !important;
-                outline: none !important;
-                box-shadow: 0 0 0 3px rgba(242, 169, 0, 0.25), inset 0 2px 4px rgba(0, 0, 0, 0.3) !important;
-            }
-            .newsletter-banner input.input::placeholder {
-                color: #64748B !important;
-                font-family: inherit !important;
-            }
-            .newsletter-banner__submit-block {
-                flex: 0 0 auto;
-                margin: 0 !important;
-                padding: 0 !important;
-                display: flex !important;
-                align-items: stretch !important;
-            }
-            .newsletter-banner button.sib-form-block__button {
-                display: inline-flex !important;
-                align-items: center !important;
-                justify-content: center !important;
-                gap: 8px !important;
-                height: 48px !important;
-                min-height: 48px !important;
-                padding: 0 24px !important;
-                margin: 0 !important;
-                box-sizing: border-box !important;
-                background: linear-gradient(135deg, #F2A900 0%, #D97706 100%) !important;
-                border: 1px solid transparent !important;
-                border-radius: 9px !important;
-                color: #0B111A !important;
-                font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
-                font-size: 0.94rem !important;
-                font-weight: 700 !important;
-                letter-spacing: 0.02em !important;
-                white-space: nowrap !important;
-                cursor: pointer !important;
-                box-shadow: 0 4px 16px rgba(242, 169, 0, 0.35) !important;
-                transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease !important;
-            }
-            .newsletter-banner button.sib-form-block__button:hover {
-                filter: brightness(1.1) !important;
-                box-shadow: 0 6px 22px rgba(242, 169, 0, 0.5) !important;
-                transform: translateY(-1px) !important;
-            }
-            .newsletter-banner button.sib-form-block__button:hover .newsletter-btn-arrow {
-                transform: translateX(3px);
-            }
-            .newsletter-btn-arrow {
-                display: inline-block;
-                margin-left: 2px;
-                transition: transform 0.2s ease;
-            }
-            .newsletter-banner button.sib-form-block__button:active {
-                transform: translateY(0) !important;
-            }
-            .newsletter-banner__note {
-                margin-top: 10px;
-                font-size: 0.76rem;
-                color: #64748B;
-                text-align: left;
-                display: inline-flex;
-                align-items: center;
-                gap: 6px;
-                font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            }
-            .newsletter-banner__note svg {
-                flex-shrink: 0;
-            }
-            .newsletter-banner .sib-form-message-panel {
-                margin-bottom: 12px !important;
-                width: 100% !important;
-                max-width: 100% !important;
-                padding: 10px 14px !important;
-                border-radius: 8px !important;
-                font-size: 0.88rem !important;
-                font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            }
-            @media (max-width: 900px) {
-                .newsletter-banner {
-                    padding: 26px 22px;
-                }
-                .newsletter-banner__content {
-                    grid-template-columns: 1fr;
-                    gap: 22px;
-                }
-                .newsletter-banner__info {
-                    text-align: left;
-                }
-                .newsletter-banner__desc {
-                    max-width: 100%;
-                    margin-bottom: 12px;
-                }
-            }
-            @media (max-width: 580px) {
-                .newsletter-banner {
-                    padding: 22px 16px;
-                    border-radius: 14px;
-                }
-                .newsletter-banner__title {
-                    font-size: 1.3rem;
-                }
-                .newsletter-banner__form-row {
-                    flex-direction: column;
-                    gap: 10px;
-                }
-                .newsletter-banner button.sib-form-block__button {
-                    width: 100% !important;
-                }
-                .newsletter-perks {
-                    gap: 8px 12px;
-                }
-            }
-        </style>
-        <div class="newsletter-card-wrapper">
-            <div class="newsletter-banner">
-                <div class="newsletter-banner__glow" aria-hidden="true"></div>
-
-                <!-- Begin Brevo Form -->
-                <div class="sib-form" style="text-align: left; background-color: transparent;">
-                    <div id="sib-form-container" class="sib-form-container">
-                        <div id="sib-container" class="sib-container--large sib-container--vertical" style="width:100%; background-color:transparent; border:none; margin:0; padding:0; direction:ltr;">
-                            <form id="sib-form" method="POST" action="https://4be2b08d.sibforms.com/serve/MUIFAACbv65Ji2lqHRDbQfk7cecp_f2kTYEenH_0yjAertPQLS04D0zogZoHVIoqwKcLjvCMitK4sntVJ0EzaSD_qEnmXHi2qj54Zo2pMb8HsY_1TtRgQVvWoybOaa1ZeEqgns8s2OSpDpNGzaA3jZnF1Tnofb31tFWVil0pVHvn1NKxe3b5gUQ5FTRYHk4efAqQ-3Cx1e1x8cBLAw==" data-type="subscription">
-
-                                <div class="newsletter-banner__content">
-                                    <!-- Left Column: Copy, Icon & Trust Perks -->
-                                    <div class="newsletter-banner__info">
-                                        <div class="newsletter-banner__eyebrow">
-                                            <span class="newsletter-banner__icon" aria-hidden="true">
-                                                <svg class="newsletter-premium-icon" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <defs>
-                                                        <linearGradient id="nlIconBg" x1="0%" y1="0%" x2="100%" y2="100%">
-                                                            <stop offset="0%" stop-color="#24190B"/>
-                                                            <stop offset="100%" stop-color="#120D06"/>
-                                                        </linearGradient>
-                                                        <linearGradient id="nlIconBorder" x1="0%" y1="0%" x2="100%" y2="100%">
-                                                            <stop offset="0%" stop-color="#F2A900" stop-opacity="0.85"/>
-                                                            <stop offset="50%" stop-color="#D97706" stop-opacity="0.4"/>
-                                                            <stop offset="100%" stop-color="#B45309" stop-opacity="0.15"/>
-                                                        </linearGradient>
-                                                        <linearGradient id="nlMailGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                                                            <stop offset="0%" stop-color="#F2A900"/>
-                                                            <stop offset="100%" stop-color="#D97706"/>
-                                                        </linearGradient>
-                                                        <linearGradient id="nlPaperGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-                                                            <stop offset="0%" stop-color="#FFFFFF"/>
-                                                            <stop offset="100%" stop-color="#FEF3C7"/>
-                                                        </linearGradient>
-                                                        <filter id="nlGlow" x="-20%" y="-20%" width="140%" height="140%">
-                                                            <feGaussianBlur stdDeviation="2.5" result="blur"/>
-                                                            <feComposite in="SourceGraphic" in2="blur" operator="over"/>
-                                                        </filter>
-                                                    </defs>
-                                                    <rect x="1" y="1" width="42" height="42" rx="12" fill="url(#nlIconBg)" stroke="url(#nlIconBorder)" stroke-width="1.5"/>
-                                                    <circle cx="22" cy="18" r="9" fill="#F2A900" opacity="0.22" filter="url(#nlGlow)"/>
-                                                    <path d="M14 17C14 15.3431 15.3431 14 17 14H27C28.6569 14 30 15.3431 30 17V24H14V17Z" fill="url(#nlPaperGrad)" opacity="0.95"/>
-                                                    <rect x="17" y="17" width="10" height="1.6" rx="0.8" fill="#D97706"/>
-                                                    <rect x="17" y="20.5" width="6" height="1.4" rx="0.7" fill="#92400E"/>
-                                                    <path d="M11 21C11 19.8954 11.8954 19 13 19H31C32.1046 19 33 19.8954 33 21V28C33 29.6569 31.6569 31 30 31H14C12.3431 31 11 29.6569 11 28V21Z" fill="#140E06" stroke="#2D1C08" stroke-width="1"/>
-                                                    <path d="M11 20L21.0586 26.2866C21.6373 26.6483 22.3627 26.6483 22.9414 26.2866L33 20" stroke="url(#nlMailGrad)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-                                                    <path d="M31 11L31.8 12.8L33.6 13.6L31.8 14.4L31 16.2L30.2 14.4L28.4 13.6L30.2 12.8L31 11Z" fill="#FDE68A" filter="url(#nlGlow)"/>
-                                                </svg>
-                                            </span>
-                                            <span class="newsletter-pill">
-                                                <svg class="newsletter-pill-sparkle" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                                                    <path d="M12 0L14.59 8.41L23 11L14.59 13.59L12 22L9.41 13.59L1 11L9.41 8.41L12 0Z"/>
-                                                </svg>
-                                                DevSpire Dispatch
-                                            </span>
-                                        </div>
-                                        <h2 class="newsletter-banner__title">Join the <span class="newsletter-highlight">Developer Newsletter</span></h2>
-                                        <p class="newsletter-banner__desc">Get practical tutorials, Linux systems guides, and AI engineering insights delivered straight to your inbox.</p>
-                                        <div class="newsletter-perks">
-                                            <span class="newsletter-perk-item">
-                                                <svg class="newsletter-perk-svg" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                                                    <circle cx="10" cy="10" r="9" stroke="#F2A900" stroke-width="1.8" fill="rgba(242,169,0,0.12)"/>
-                                                    <path d="M6 10.2L8.7 13L14 7" stroke="#F2A900" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                                </svg>
-                                                Weekly Tutorials
-                                            </span>
-                                            <span class="newsletter-perk-item">
-                                                <svg class="newsletter-perk-svg" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                                                    <path d="M10 2.5L3.5 5.5V10.2C3.5 14.5 6.3 17.5 10 18.5C13.7 17.5 16.5 14.5 16.5 10.2V5.5L10 2.5Z" stroke="#F2A900" stroke-width="1.8" fill="rgba(242,169,0,0.12)" stroke-linejoin="round"/>
-                                                    <path d="M7.5 10.2L9.2 11.9L12.8 8.1" stroke="#F2A900" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-                                                </svg>
-                                                Linux &amp; AI Insights
-                                            </span>
-                                            <span class="newsletter-perk-item">
-                                                <svg class="newsletter-perk-svg" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                                                    <rect x="3" y="4" width="14" height="13" rx="3" stroke="#F2A900" stroke-width="1.8" fill="rgba(242,169,0,0.12)"/>
-                                                    <path d="M7 2.2V5M13 2.2V5M3 8.2H17" stroke="#F2A900" stroke-width="1.8" stroke-linecap="round"/>
-                                                </svg>
-                                                Zero Spam
-                                            </span>
-                                        </div>
-                                    </div>
-
-                                    <!-- Right Column: Form Inputs & Action -->
-                                    <div class="newsletter-banner__action">
-                                        <div id="error-message" class="sib-form-message-panel" style="display:none; font-size:14px; text-align:left; color:#661d1d; background-color:#ffeded; border:1px solid #ff4949; border-radius:6px; margin-bottom:10px;">
-                                            <div class="sib-form-message-panel__text" style="display:flex; align-items:center; gap:8px;">
-                                                <svg viewBox="0 0 512 512" style="width:18px; height:18px; fill:#ff4949; flex-shrink:0;">
-                                                    <path d="M256 40c118.621 0 216 96.075 216 216 0 119.291-96.61 216-216 216-119.244 0-216-96.562-216-216 0-119.203 96.602-216 216-216m0-32C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm-11.49 120h22.979c6.823 0 12.274 5.682 11.99 12.5l-7 168c-.268 6.428-5.556 11.5-11.99 11.5h-8.979c-6.433 0-11.722-5.073-11.99-11.5l-7-168c-.283-6.818 5.167-12.5 11.99-12.5zM256 340c-15.464 0-28 12.536-28 28s12.536 28 28 28 28-12.536 28-28-12.536-28-28-28z" />
-                                                </svg>
-                                                <span>Your subscription could not be saved. Please try again.</span>
-                                            </div>
-                                        </div>
-                                        <div id="success-message" class="sib-form-message-panel" style="display:none; font-size:14px; text-align:left; color:#085229; background-color:#e7faf0; border:1px solid #13ce66; border-radius:6px; margin-bottom:10px;">
-                                            <div class="sib-form-message-panel__text" style="display:flex; align-items:center; gap:8px;">
-                                                <svg viewBox="0 0 512 512" style="width:18px; height:18px; fill:#13ce66; flex-shrink:0;">
-                                                    <path d="M256 8C119.033 8 8 119.033 8 256s111.033 248 248 248 248-111.033 248-248S392.967 8 256 8zm0 464c-118.664 0-216-96.055-216-216 0-118.663 96.055-216 216-216 118.664 0 216 96.055 216 216 0 118.663-96.055 216-216 216zm141.63-274.961L217.15 376.071c-4.705 4.667-12.303 4.637-16.97-.068l-85.878-86.572c-4.667-4.705-4.637-12.303.068-16.97l8.52-8.451c4.705-4.667 12.303-4.637 16.97.068l68.976 69.533 163.441-162.13c4.705-4.667 12.303-4.637 16.97.068l8.451 8.52c4.668 4.705 4.637 12.303-.068 16.97z" />
-                                                </svg>
-                                                <span>Your subscription has been successful.</span>
-                                            </div>
-                                        </div>
-
-                                        <div class="newsletter-banner__input-group">
-                                            <label class="newsletter-banner__label" for="EMAIL">
-                                                Email Address <span class="newsletter-banner__required" aria-hidden="true">*</span>
-                                            </label>
-
-                                            <div class="newsletter-banner__form-row">
-                                                <div class="sib-input sib-form-block newsletter-banner__field">
-                                                    <div class="form__entry entry_block">
-                                                        <div class="form__label-row">
-                                                            <div class="entry__field">
-                                                                <input class="input" type="email" id="EMAIL" name="EMAIL" autocomplete="off" value="" placeholder="Enter your email address" data-required="true" required />
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="sib-form-block newsletter-banner__submit-block">
-                                                    <button class="sib-form-block__button sib-form-block__button-with-loader newsletter-banner__submit-btn" type="submit" form="sib-form">
-                                                        <span>Subscribe</span>
-                                                        <svg class="newsletter-btn-arrow" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="newsletter-banner__note">
-                                            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#F2A900" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-                                            <span>We respect your privacy. No spam, ever.</span>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <input type="text" name="email_address_check" value="" class="input--hidden" style="display:none;">
-                                <input type="hidden" name="locale" value="en">
-                            </form>
-                        </div>
-                    </div>
-                </div>
-                <!-- END Brevo Form -->
-            </div>
-        </div>
-        <script defer src="https://sibforms.com/forms/end-form/build/main.js"></script>
-    </section>
-        </main>
-
-        <main class="right-column">
-            <form id="contact-form" action="https://api.web3forms.com/submit" method="POST">
-                <!-- Web3Forms Configuration -->
-                <input type="hidden" name="access_key" value="42cd2111-7628-4589-8d8c-72745f6c3261">
-                <input type="hidden" name="from_name" value="TechTutorials Contact Form">
-                <input type="hidden" name="subject" value="New Contact Form Submission from TechTutorials">
-
-                <!-- Spam Protection -->
-                <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
-
-                <div class="form-group">
-                    <label class="form-label" for="name">Name</label>
-                    <input class="form-input" type="text" id="name" name="name" placeholder="Enter your name" required>
-                </div>
-
-                <div class="form-group">
-                    <label class="form-label" for="email">Email</label>
-                    <input class="form-input" type="email" id="email" name="email" placeholder="Enter your email"
-                        required>
-                    <span id="email-error" class="error-message hidden"></span>
-                </div>
-
-                <div class="form-group">
-                    <label class="form-label" for="message">Message</label>
-                    <textarea class="form-textarea" id="message" name="message" placeholder="Enter your message..."
-                        required></textarea>
-                </div>
-
-                <button type="submit" class="submit-button">Send message</button>
-                <span id="form-response" class="error-message"></span>
-            </form>
-
-        </main>
-    </div>
-
-    <footer class="footer">
-        <ul class="menu">
-            <li class="menu-item"><a class="menu-link" href="../../index.html">Home</a></li>
-            <li class="menu-item"><a class="menu-link" href="../../Wallpaper/index.html">Wallpapers</a></li>
-            <li class="menu-item"><a class="menu-link" href="../../color-palettes/index.html">Color Spaces</a></li>
-            <li class="menu-item"><a class="menu-link"
-                    href="../../Resources/digital-resources/digital-resources-hub.html">Resources</a></li>
-            <li class="menu-item"><a class="menu-link" href="../../Website/about/about.html">About</a></li>
-            <li class="menu-item"><a class="menu-link" href="#">Contact</a></li>
-            <li class="menu-item"><a class="menu-link" href="../../Website/privacy/index.html">Privacy policy</a>
-            </li>
-        </ul>
-
-        <div class="contacts">
-            <a class="contact github" href="https://github.com/kumaradoss16" target="_blank"><i
-                    class="fa-brands fa-github"></i></a>
-            <a class="contact instagram" href="https://www.instagram.com/devspirehub/" target="_blank"><i
-                    class="fa-brands fa-instagram"></i></a>
-            <a class="contact linkedin" href="https://www.linkedin.com/in/kumaradoss-s/" target="_blank"><i
-                    class="fa-brands fa-linkedin"></i></a>
-            <a class="contact facebook" href="https://www.facebook.com/profile.php?id=61577667990170&_rdr"
-                target="_blank"><i class="fa-brands fa-facebook"></i></a>
-            <a class="contact gmail" href="https://mail.google.com/mail/?view=cm&fs=1&to=devspirehub.website@gmail.com"
-                aria-label="Email us at devspirehub.website@gmail.com" title="Send us an email" target="_blank"
-                rel="noopener noreferrer">
-                <i class="fa-solid fa-envelope"></i>
+      <nav class="nav-links" id="primary-nav" aria-label="Primary Navigation">
+        <ul>
+          <li>
+            <a href="../../index.html" class="nav-item home" aria-label="DevSpireHub Home">
+              <i class="fa-solid fa-house" aria-hidden="true"></i>
+              <span>Home</span>
             </a>
+          </li>
+          <li><a href="../../index.html#projects-tutorials-section" class="nav-item projects">Projects</a></li>
+          <li><a href="../../index.html#programming-tutorials-section" class="nav-item programming">Programming</a></li>
+          <li><a href="../../index.html#ethical-hacking-section" class="nav-item hacking">Ethical Hacking</a></li>
+          <li><a href="../../index.html#networking-section" class="nav-item networking">Networking</a></li>
+          <li>
+            <a href="../../index.html#ai-section" class="nav-item ai">
+              <span class="nav-badge-ai">AI</span> AI &amp; Automation
+            </a>
+          </li>
+          <li class="nav-cta-item">
+            <a href="../../index.html#info-section" class="nav-cta-btn game">
+              <span>Resources</span>
+              <i class="fas fa-arrow-right" aria-hidden="true"></i>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Editorial Sub-Navigation -->
+  <aside class="subnav-editorial" aria-label="Breadcrumb &amp; Related Pages">
+    <div class="container">
+      <nav class="subnav-breadcrumbs" aria-label="Breadcrumbs">
+        <a href="../../index.html">DevSpireHub</a>
+        <span class="separator" aria-hidden="true">/</span>
+        <span class="current-page">Contact</span>
+      </nav>
+      <div class="subnav-links-row" role="navigation" aria-label="Information Pages">
+        <a href="../about/about.html" class="subnav-pill">About</a>
+        <a href="../privacy/index.html" class="subnav-pill">Privacy Policy</a>
+        <a href="index.html" class="subnav-pill active" aria-current="page">Contact</a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Main Content Layout -->
+  <main id="main-content" class="contact-layout">
+    <div class="container">
+
+      <!-- Section 1: Contact Hero -->
+      <header class="contact-hero">
+        <h1 class="contact-hero-title">Get in Touch</h1>
+        <p class="contact-hero-lead">
+          Questions, feedback, corrections, or collaboration ideas? Contact DevSpireHub.
+        </p>
+        <p class="contact-hero-desc">
+          Whether you have spotted a typo in a tutorial, need clarification on a network simulation lab, want to suggest a new topic, or wish to explore open-source collaboration, we are always glad to connect with readers and developers.
+        </p>
+      </header>
+
+      <!-- Section 2: Communication Purposes & Channels -->
+      <section class="contact-section-gap" aria-labelledby="heading-channels">
+        <div class="editorial-heading-row">
+          <h2 id="heading-channels" class="contact-section-title">Communication Channels</h2>
+          <p class="contact-section-desc">
+            To help route your message efficiently, please select the most relevant channel for your inquiry:
+          </p>
         </div>
-        <p>&copy;2026 DevspireHub | All Rights Reserved</p>
-    </footer>
 
-    <script src="script.js"></script>
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+        <div class="channels-editorial-list">
+          <div class="channel-entry">
+            <div class="channel-entry-header">
+              <h3 class="channel-title">Tutorial Feedback &amp; Questions</h3>
+              <span class="channel-badge feedback">Feedback</span>
+            </div>
+            <p class="channel-desc">Found an outdated command, a broken code snippet, or an unclear explanation in any tutorial? Let us know so we can test and patch it.</p>
+          </div>
 
+          <div class="channel-entry">
+            <div class="channel-entry-header">
+              <h3 class="channel-title">Content &amp; Lab Suggestions</h3>
+              <span class="channel-badge suggest">Suggestions</span>
+            </div>
+            <p class="channel-desc">Looking for coverage of a specific programming pattern, Linux systems utility, or Cisco Packet Tracer topology? Tell us what you want to see.</p>
+          </div>
+
+          <div class="channel-entry">
+            <div class="channel-entry-header">
+              <h3 class="channel-title">Security &amp; Responsible Errata</h3>
+              <span class="channel-badge security">Security</span>
+            </div>
+            <p class="channel-desc">Found a security observation or have questions regarding virtual lab isolation? We prioritize responsible, authorized defensive technical disclosure.</p>
+          </div>
+
+          <div class="channel-entry">
+            <div class="channel-entry-header">
+              <h3 class="channel-title">Collaborations &amp; Open-Source</h3>
+              <span class="channel-badge partner">Collaborations</span>
+            </div>
+            <p class="channel-desc">Interested in technical writing, guest resource contributions, or open-source software collaboration across developer tools?</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 3: Split Form & Direct Details Interface -->
+      <section class="contact-split-interface" aria-labelledby="heading-form">
+        <!-- Left: Web3Forms Contact Form -->
+        <div class="contact-form-panel">
+          <div class="form-header-intro">
+            <h2 id="heading-form" class="form-title">Send a Direct Message</h2>
+            <p class="form-subtitle">Fill out the fields below to submit your inquiry directly to the DevSpireHub engineering desk.</p>
+          </div>
+
+          <form id="contactForm" action="https://api.web3forms.com/submit" method="POST" novalidate>
+            <!-- Web3Forms Verification & Routing Configuration -->
+            <input type="hidden" name="access_key" value="42cd2111-7628-4589-8d8c-72745f6c3261">
+            <input type="hidden" name="from_name" value="DevSpireHub Contact Form">
+            <input type="hidden" name="subject" value="New Contact Form Submission from DevSpireHub">
+
+            <!-- Honeypot Anti-Spam (Hidden from real users) -->
+            <input type="checkbox" name="botcheck" class="sr-only" tabindex="-1" style="display:none;" autocomplete="off">
+
+            <!-- Field 1: Name -->
+            <div class="form-group">
+              <label class="form-label" for="name">
+                <span>Your Name <span class="form-required-mark" aria-hidden="true">*</span></span>
+              </label>
+              <input class="form-input" type="text" id="name" name="name" placeholder="e.g. Alex Morgan" autocomplete="name" required aria-required="true" aria-describedby="nameError">
+              <span id="nameError" class="field-error-msg" role="alert"></span>
+            </div>
+
+            <!-- Field 2: Email -->
+            <div class="form-group">
+              <label class="form-label" for="email">
+                <span>Email Address <span class="form-required-mark" aria-hidden="true">*</span></span>
+              </label>
+              <input class="form-input" type="email" id="email" name="email" placeholder="name@domain.com" autocomplete="email" required aria-required="true" aria-describedby="emailError">
+              <span id="emailError" class="field-error-msg" role="alert"></span>
+            </div>
+
+            <!-- Field 3: Inquiry Topic -->
+            <div class="form-group">
+              <label class="form-label" for="topic">
+                <span>Topic / Purpose</span>
+              </label>
+              <select class="form-select" id="topic" name="topic">
+                <option value="Tutorial Feedback / Question">Tutorial Feedback / Question</option>
+                <option value="Content or Topic Suggestion">Content or Topic Suggestion</option>
+                <option value="Bug Report or Technical Errata">Bug Report or Technical Errata</option>
+                <option value="Collaboration or Open-Source Idea">Collaboration or Open-Source Idea</option>
+                <option value="General Inquiry">General Inquiry</option>
+              </select>
+            </div>
+
+            <!-- Field 4: Message -->
+            <div class="form-group">
+              <label class="form-label" for="message">
+                <span>Your Message <span class="form-required-mark" aria-hidden="true">*</span></span>
+              </label>
+              <textarea class="form-textarea" id="message" name="message" placeholder="Please describe your question, feedback, or suggestion in detail..." required aria-required="true" aria-describedby="messageError"></textarea>
+              <span id="messageError" class="field-error-msg" role="alert"></span>
+            </div>
+
+            <!-- Submit Action -->
+            <div class="form-submit-row">
+              <button type="submit" id="contactSubmitBtn" class="submit-btn">
+                <span class="spinner" aria-hidden="true"></span>
+                <span class="btn-text">Send Message</span>
+                <i class="fa-solid fa-paper-plane" aria-hidden="true"></i>
+              </button>
+            </div>
+
+            <!-- Status Alert Banner -->
+            <div id="contactFormStatus" class="form-status-alert" role="status" aria-live="polite"></div>
+          </form>
+        </div>
+
+        <!-- Right: Direct Information Panel -->
+        <aside class="contact-sidebar-panel" aria-label="Direct Communication Details">
+          <!-- Direct Email Block -->
+          <div class="direct-contact-block">
+            <h3 class="sidebar-block-title">Direct Email</h3>
+            <p class="sidebar-block-desc">Prefer writing directly from your mail client? Feel free to reach out anytime:</p>
+            <div class="email-copy-bar">
+              <span id="emailToCopy" class="email-copy-text">devspirehub.website@gmail.com</span>
+              <button type="button" id="copyEmailBtn" class="copy-email-btn" aria-label="Copy email address to clipboard">
+                <i class="fa-regular fa-copy" aria-hidden="true"></i> Copy
+              </button>
+            </div>
+            <div class="mail-client-action">
+              <a href="mailto:devspirehub.website@gmail.com" class="profile-link" style="width: 100%; justify-content: center;">
+                <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i> Open in Mail Client
+              </a>
+            </div>
+          </div>
+
+          <!-- Response Commitment -->
+          <div class="response-commitment-block">
+            <div class="response-commitment-content">
+              <h4 class="commitment-title">Turnaround Commitment</h4>
+              <p class="commitment-desc">We typically review and respond to reader inquiries, technical corrections, and questions within <strong>24 to 48 business hours</strong>.</p>
+            </div>
+          </div>
+
+          <!-- Verified Social Profiles -->
+          <div class="verified-profiles-block">
+            <h3 class="sidebar-block-title">Verified Profiles</h3>
+            <div class="profiles-grid">
+              <a href="https://github.com/kumaradoss16" class="profile-link" target="_blank" rel="noopener noreferrer">
+                <i class="fa-brands fa-github" aria-hidden="true"></i> GitHub
+              </a>
+              <a href="https://www.linkedin.com/in/kumaradoss-s/" class="profile-link" target="_blank" rel="noopener noreferrer">
+                <i class="fa-brands fa-linkedin" aria-hidden="true"></i> LinkedIn
+              </a>
+              <a href="https://dev.to/devspirehub" class="profile-link" target="_blank" rel="noopener noreferrer">
+                <i class="fa-brands fa-dev" aria-hidden="true"></i> DEV Community
+              </a>
+              <a href="https://medium.com/@devspirehub.website" class="profile-link" target="_blank" rel="noopener noreferrer">
+                <i class="fa-brands fa-medium" aria-hidden="true"></i> Medium
+              </a>
+            </div>
+          </div>
+        </aside>
+      </section>
+
+      <!-- Section 4: Newsletter Integration Strip (Brevo) -->
+      <section class="contact-newsletter-section" aria-labelledby="heading-newsletter">
+        <div class="contact-newsletter-inner">
+          <div class="contact-nl-grid">
+            <div class="contact-nl-info">
+              <h3 id="heading-newsletter" class="contact-nl-title">Join the <span>DevSpire Dispatch</span></h3>
+              <p class="contact-nl-desc">Get practical engineering tutorials, Linux administration walkthroughs, and applied AI insights delivered directly to your inbox. Free, zero spam, unsubscribe anytime.</p>
+              <div class="contact-nl-badges">
+                <span class="nl-badge"><i class="fa-solid fa-check" aria-hidden="true"></i> Weekly Tutorials</span>
+                <span class="nl-badge"><i class="fa-solid fa-check" aria-hidden="true"></i> Verified Code</span>
+                <span class="nl-badge"><i class="fa-solid fa-check" aria-hidden="true"></i> Zero Spam</span>
+              </div>
+            </div>
+
+            <div>
+              <form id="sib-form" method="POST" action="https://4be2b08d.sibforms.com/serve/MUIFAACbv65Ji2lqHRDbQfk7cecp_f2kTYEenH_0yjAertPQLS04D0zogZoHVIoqwKcLjvCMitK4sntVJ0EzaSD_qEnmXHi2qj54Zo2pMb8HsY_1TtRgQVvWoybOaa1ZeEqgns8s2OSpDpNGzaA3jZnF1Tnofb31tFWVil0pVHvn1NKxe3b5gUQ5FTRYHk4efAqQ-3Cx1e1x8cBLAw==" data-type="subscription">
+                <div class="nl-form-inputs">
+                  <label for="nl-email" class="sr-only">Email Address for Newsletter</label>
+                  <input class="form-input" type="email" id="nl-email" name="EMAIL" placeholder="Enter your email address" required style="height:48px;">
+                  <button type="submit" class="submit-btn" style="height:48px;">
+                    <span>Subscribe to Dispatch</span>
+                    <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                  </button>
+                  <input type="text" name="email_address_check" value="" class="sr-only" tabindex="-1" style="display:none;">
+                  <input type="hidden" name="locale" value="en">
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Canonical Footer -->
+  <footer class="footer-canonical" role="contentinfo">
+    <div class="container">
+      <div class="footer-canonical__grid">
+        <!-- Brand Column -->
+        <div class="footer-col-brand">
+          <a href="../../index.html" class="footer-brand-logo" aria-label="DevSpireHub Home">
+            <img src="../../images/icon.webp" alt="DevSpireHub Icon" width="26" height="26">
+            <span>DevSpireHub</span>
+          </a>
+          <p class="footer-brand-desc">
+            Independent developer platform providing clear, practical tutorials on programming, artificial intelligence, networking, ethical hacking, and hands-on projects.
+          </p>
+          <div class="footer-trust-badges">
+            <span class="footer-trust-badge"><i class="fa-solid fa-lock" aria-hidden="true"></i> Zero Tracking Ads</span>
+            <span class="footer-trust-badge"><i class="fa-solid fa-bolt" aria-hidden="true"></i> 100% Free Guides</span>
+          </div>
+        </div>
+
+        <!-- Column 2: Explore Learning -->
+        <div>
+          <h3 class="footer-col-title">Learning Tracks</h3>
+          <ul class="footer-nav-list">
+            <li><a href="../../index.html#projects-tutorials-section"><i class="fa-solid fa-angle-right" aria-hidden="true"></i> Projects</a></li>
+            <li><a href="../../index.html#programming-tutorials-section"><i class="fa-solid fa-angle-right" aria-hidden="true"></i> Programming</a></li>
+            <li><a href="../../index.html#ethical-hacking-section"><i class="fa-solid fa-angle-right" aria-hidden="true"></i> Ethical Hacking</a></li>
+            <li><a href="../../index.html#networking-section"><i class="fa-solid fa-angle-right" aria-hidden="true"></i> Networking</a></li>
+            <li><a href="../../index.html#ai-section"><i class="fa-solid fa-angle-right" aria-hidden="true"></i> AI &amp; Automation</a></li>
+            <li><a href="../../index.html#info-section"><i class="fa-solid fa-angle-right" aria-hidden="true"></i> Resources Hub</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 3: Information & Policies -->
+        <div>
+          <h3 class="footer-col-title">Information</h3>
+          <ul class="footer-nav-list">
+            <li><a href="../about/about.html"><i class="fa-solid fa-angle-right" aria-hidden="true"></i> About DevSpireHub</a></li>
+            <li><a href="index.html"><i class="fa-solid fa-angle-right" aria-hidden="true"></i> Contact</a></li>
+            <li><a href="../privacy/index.html"><i class="fa-solid fa-angle-right" aria-hidden="true"></i> Privacy Policy</a></li>
+            <li><a href="https://nexus.devspirehub.com" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i> Devspire Nexus</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 4: Connect & Support -->
+        <div>
+          <h3 class="footer-col-title">Connect &amp; Follow</h3>
+          <p class="footer-connect-text">Follow our work or reach out directly with questions and suggestions:</p>
+          <div class="footer-social-row">
+            <a href="https://github.com/kumaradoss16" class="footer-social-link" aria-label="GitHub Profile" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github" aria-hidden="true"></i></a>
+            <a href="https://www.linkedin.com/in/kumaradoss-s/" class="footer-social-link" aria-label="LinkedIn Profile" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a>
+            <a href="https://dev.to/devspirehub" class="footer-social-link" aria-label="DEV Community Profile" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-dev" aria-hidden="true"></i></a>
+            <a href="https://medium.com/@devspirehub.website" class="footer-social-link" aria-label="Medium Profile" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-medium" aria-hidden="true"></i></a>
+          </div>
+          <div class="footer-email-row">
+            <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+            <a href="mailto:devspirehub.website@gmail.com" class="footer-email-link">devspirehub.website@gmail.com</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="footer-canonical__bottom">
+        <p>&copy; <span id="currentYear">2026</span> DevSpireHub. All rights reserved. Founded &amp; maintained by Kumaradoss S.</p>
+        <p class="footer-tagline">Engineered for clarity, reproducibility, and practical software learning.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating Scroll to Top Button with SVG Circular Progress -->
+  <button id="scrollUpBtn" class="scroll-up-btn" aria-label="Scroll to top of page" type="button">
+    <svg class="progress-ring" width="46" height="46" viewBox="0 0 46 46" aria-hidden="true">
+      <circle class="progress-ring__circle" stroke="#19BAAF" stroke-width="2.5" fill="transparent" r="20" cx="23" cy="23"></circle>
+    </svg>
+    <i class="fas fa-chevron-up" aria-hidden="true"></i>
+  </button>
+
+  <!-- Scripts -->
+  <script src="../shared-nav.js" defer></script>
+  <script src="script.js" defer></script>
 </body>
-
 
 </html>

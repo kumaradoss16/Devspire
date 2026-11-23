@@ -1,115 +1,55 @@
+/**
+ * DevSpireHub — Privacy Policy Script
+ * Implements Scrollspy Table of Contents & Accessible Anchor Navigation
+ */
 document.addEventListener("DOMContentLoaded", () => {
+  const tocLinks = document.querySelectorAll(".toc-item a");
+  const sections = Array.from(document.querySelectorAll(".privacy-section[id]"));
 
-    (function () {
-        const el = document.getElementById("brand");
-        const text = el.dataset.text || "DevSpire";
-        let i = 0;
-        let isDeleting = false;
+  if (!sections.length || !tocLinks.length) return;
 
-        const typeSpeed = 100;    // typing speed (ms)
-        const deleteSpeed = 50;   // deleting speed (ms)
-        const pauseTime = 2000;   // pause at end before deleting (ms)
-        const restartPause = 500; // pause before restarting (ms)
+  // Active section tracking with IntersectionObserver
+  const observerOptions = {
+    root: null,
+    rootMargin: "-90px 0px -70% 0px",
+    threshold: 0
+  };
 
-        function typeLoop() {
-            const currentText = text.slice(0, i);
-            el.textContent = currentText;
+  function setActiveToc(id) {
+    tocLinks.forEach(link => {
+      const href = link.getAttribute("href");
+      if (href === `#${id}`) {
+        link.classList.add("active");
+        link.setAttribute("aria-current", "true");
+      } else {
+        link.classList.remove("active");
+        link.removeAttribute("aria-current");
+      }
+    });
+  }
 
-            if (!isDeleting && i < text.length) {
-                // Typing forward
-                i++;
-                setTimeout(typeLoop, typeSpeed);
-            } else if (!isDeleting && i === text.length) {
-                // Finished typing, pause then start deleting
-                isDeleting = true;
-                setTimeout(typeLoop, pauseTime);
-            } else if (isDeleting && i > 0) {
-                // Deleting
-                i--;
-                setTimeout(typeLoop, deleteSpeed);
-            } else if (isDeleting && i === 0) {
-                // Finished deleting, restart
-                isDeleting = false;
-                setTimeout(typeLoop, restartPause);
-            }
-        }
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        setActiveToc(entry.target.id);
+      }
+    });
+  }, observerOptions);
 
-        typeLoop();
-    })();
+  sections.forEach(sec => observer.observe(sec));
 
-    // --- Navbar Functionality ---
-    const menuToggle = document.querySelector('.menu-toggle');
-    const navLinks = document.querySelector('.nav-links');
-
-    if (menuToggle && navLinks) {
-        // REFACTOR: Create a single function to control the menu state (open/closed)
-        const setMenuState = (isOpen) => {
-            const icon = menuToggle.querySelector('i');
-            if (isOpen) {
-                navLinks.classList.add('active');
-                icon.classList.remove('fa-bars');
-                icon.classList.add('fa-times');
-            } else {
-                navLinks.classList.remove('active');
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
-            }
-        };
-
-        // 1. Handle clicks on the menu toggle button
-        menuToggle.addEventListener('click', () => {
-            // Toggle based on the current state
-            const isActive = navLinks.classList.contains('active');
-            setMenuState(!isActive);
-        });
-
-        // 2. Handle clicks outside the menu to close it
-        document.addEventListener('click', (event) => {
-            const isClickInsideMenu = navLinks.contains(event.target);
-            const isClickOnToggle = menuToggle.contains(event.target);
-
-            // Only close if it's currently open and the click is outside
-            if (!isClickInsideMenu && !isClickOnToggle && navLinks.classList.contains('active')) {
-                setMenuState(false); // Explicitly close the menu
-            }
-        });
-    } else {
-        console.warn("Menu toggle or nav links not found. Mobile menu functionality will not work.");
-    }
-
-    // --- Scroll to top with progress indicator ---
-    const scrollBtn = document.getElementById("scrollUpBtn");
-    if (scrollBtn) {
-        const circle = scrollBtn.querySelector(".progress-circle .progress");
-        // The radius of the circle in the SVG is 15.9155.
-        const circumference = 2 * Math.PI * 15.9155;
-
-        if (circle) {
-            // Set initial dash array and offset
-            circle.style.strokeDasharray = `${circumference}`;
-            circle.style.strokeDashoffset = `${circumference}`;
-        }
-
-        window.addEventListener("scroll", () => {
-            const scrollTop = window.scrollY;
-            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-            const scrollPercent = docHeight > 0 ? scrollTop / docHeight : 0;
-
-            // Animate progress circle
-            if (circle) {
-                const offset = circumference * (1 - scrollPercent);
-                circle.style.strokeDashoffset = offset;
-            }
-
-            // Show/hide button
-            scrollBtn.style.display = scrollTop > 100 ? "block" : "none";
-        });
-
-        scrollBtn.addEventListener("click", () => {
-            window.scrollTo({
-                top: 0,
-                behavior: "smooth"
-            });
-        });
-    }
+  // Smooth click scroll
+  tocLinks.forEach(link => {
+    link.addEventListener("click", e => {
+      e.preventDefault();
+      const targetId = link.getAttribute("href");
+      const targetSec = document.querySelector(targetId);
+      if (targetSec) {
+        targetSec.scrollIntoView({ behavior: "smooth" });
+        targetSec.setAttribute("tabindex", "-1");
+        targetSec.focus({ preventScroll: true });
+        setActiveToc(targetSec.id);
+      }
+    });
+  });
 });
