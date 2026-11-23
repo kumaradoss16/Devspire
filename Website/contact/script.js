@@ -1,193 +1,162 @@
+/**
+ * DevSpireHub — Contact Page Script
+ * Real Web3Forms Submission, Live Client Validation, and One-Click Email Copy
+ */
 document.addEventListener("DOMContentLoaded", () => {
+  // ── 1. One-Click Email Copy Handler ──
+  const copyBtn = document.getElementById("copyEmailBtn");
+  const emailTextEl = document.getElementById("emailToCopy");
 
-    (function () {
-        const el = document.getElementById("brand");
-        const text = el.dataset.text || "DevSpire";
-        let i = 0;
-        let isDeleting = false;
+  if (copyBtn && emailTextEl) {
+    copyBtn.addEventListener("click", async () => {
+      const email = emailTextEl.textContent.trim();
+      try {
+        await navigator.clipboard.writeText(email);
+        const originalHtml = copyBtn.innerHTML;
+        copyBtn.innerHTML = '<i class="fa-solid fa-check" aria-hidden="true"></i> Copied!';
+        copyBtn.classList.add("copied");
+        setTimeout(() => {
+          copyBtn.innerHTML = originalHtml;
+          copyBtn.classList.remove("copied");
+        }, 2500);
+      } catch (err) {
+        // Fallback: select text
+        const range = document.createRange();
+        range.selectNodeContents(emailTextEl);
+        const sel = window.getSelection();
+        sel.removeAllRanges();
+        sel.addRange(range);
+      }
+    });
+  }
 
-        const typeSpeed = 100;    // typing speed (ms)
-        const deleteSpeed = 50;   // deleting speed (ms)
-        const pauseTime = 2000;   // pause at end before deleting (ms)
-        const restartPause = 500; // pause before restarting (ms)
+  // ── 2. Contact Form Validation & Asynchronous Web3Forms Submission ──
+  const form = document.getElementById("contactForm");
+  const submitBtn = document.getElementById("contactSubmitBtn");
+  const statusAlert = document.getElementById("contactFormStatus");
 
-        function typeLoop() {
-            const currentText = text.slice(0, i);
-            el.textContent = currentText;
+  if (!form || !submitBtn || !statusAlert) return;
 
-            if (!isDeleting && i < text.length) {
-                // Typing forward
-                i++;
-                setTimeout(typeLoop, typeSpeed);
-            } else if (!isDeleting && i === text.length) {
-                // Finished typing, pause then start deleting
-                isDeleting = true;
-                setTimeout(typeLoop, pauseTime);
-            } else if (isDeleting && i > 0) {
-                // Deleting
-                i--;
-                setTimeout(typeLoop, deleteSpeed);
-            } else if (isDeleting && i === 0) {
-                // Finished deleting, restart
-                isDeleting = false;
-                setTimeout(typeLoop, restartPause);
-            }
-        }
+  const nameInput = document.getElementById("name");
+  const emailInput = document.getElementById("email");
+  const messageInput = document.getElementById("message");
 
-        typeLoop();
-    })();
+  const nameError = document.getElementById("nameError");
+  const emailError = document.getElementById("emailError");
+  const messageError = document.getElementById("messageError");
 
-    // --- Navbar Functionality ---
-    const menuToggle = document.querySelector('.menu-toggle');
-    const navLinks = document.querySelector('.nav-links');
+  function validateEmail(val) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val.trim());
+  }
 
-    if (menuToggle && navLinks) {
-        // REFACTOR: Create a single function to control the menu state (open/closed)
-        const setMenuState = (isOpen) => {
-            const icon = menuToggle.querySelector('i');
-            if (isOpen) {
-                navLinks.classList.add('active');
-                icon.classList.remove('fa-bars');
-                icon.classList.add('fa-times');
-            } else {
-                navLinks.classList.remove('active');
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
-            }
-        };
-
-        // 1. Handle clicks on the menu toggle button
-        menuToggle.addEventListener('click', () => {
-            // Toggle based on the current state
-            const isActive = navLinks.classList.contains('active');
-            setMenuState(!isActive);
-        });
-
-        // 2. Handle clicks outside the menu to close it
-        document.addEventListener('click', (event) => {
-            const isClickInsideMenu = navLinks.contains(event.target);
-            const isClickOnToggle = menuToggle.contains(event.target);
-
-            // Only close if it's currently open and the click is outside
-            if (!isClickInsideMenu && !isClickOnToggle && navLinks.classList.contains('active')) {
-                setMenuState(false); // Explicitly close the menu
-            }
-        });
+  function validateField(input, errorEl, isValid, message) {
+    if (!isValid) {
+      input.classList.add("is-invalid");
+      input.setAttribute("aria-invalid", "true");
+      errorEl.textContent = message;
+      errorEl.classList.add("visible");
+      return false;
     } else {
-        console.warn("Menu toggle or nav links not found. Mobile menu functionality will not work.");
+      input.classList.remove("is-invalid");
+      input.removeAttribute("aria-invalid");
+      errorEl.textContent = "";
+      errorEl.classList.remove("visible");
+      return true;
     }
-    
-    // Form submission handler
-    const form = document.getElementById('contact-form');
-    const formResponse = document.getElementById('form-response');
+  }
 
-    if (form) {
-        form.addEventListener('submit', async function (e) {
-            e.preventDefault();
-        
-            // Disable submit button to prevent double submission
-            const submitButton = form.querySelector('.submit-button');
-            const originalButtonText = submitButton.textContent;
-            submitButton.disabled = true;
-            submitButton.textContent = 'Sending...';
-        
-            // Clear previous messages
-            formResponse.textContent = '';
-            formResponse.classList.remove('hidden', 'success-message', 'error-message');
-        
-            try {
-                const formData = new FormData(form);
-            
-                // Send the form data
-                const response = await fetch('https://api.web3forms.com/submit', {
-                    method: 'POST',
-                    body: formData
-                });
-            
-                const data = await response.json();
-            
-                if (data.success) {
-                    // Success message
-                    formResponse.textContent = '✓ Message sent successfully! We\'ll get back to you soon.';
-                    formResponse.classList.add('success-message');
-                    formResponse.classList.remove('hidden');
-                
-                    // Reset form
-                    form.reset();
-                
-                    // Hide success message after 5 seconds
-                    setTimeout(() => {
-                        formResponse.classList.add('hidden');
-                    }, 5000);
-                } else {
-                    // Error message
-                    formResponse.textContent = '✗ Failed to send message. Please try again or email us directly.';
-                    formResponse.classList.add('error-message');
-                    formResponse.classList.remove('hidden');
-                }
-            } catch (error) {
-                // Network error
-                formResponse.textContent = '✗ Network error. Please check your connection and try again.';
-                formResponse.classList.add('error-message');
-                formResponse.classList.remove('hidden');
-            } finally {
-                // Re-enable submit button
-                submitButton.disabled = false;
-                submitButton.textContent = originalButtonText;
-            }
-        });
+  // Live blur validation
+  if (nameInput) {
+    nameInput.addEventListener("blur", () => {
+      validateField(nameInput, nameError, nameInput.value.trim().length >= 2, "Please enter your name (at least 2 characters).");
+    });
+    nameInput.addEventListener("input", () => {
+      if (nameInput.classList.contains("is-invalid")) {
+        validateField(nameInput, nameError, nameInput.value.trim().length >= 2, "Please enter your name (at least 2 characters).");
+      }
+    });
+  }
+
+  if (emailInput) {
+    emailInput.addEventListener("blur", () => {
+      validateField(emailInput, emailError, validateEmail(emailInput.value), "Please enter a valid email address.");
+    });
+    emailInput.addEventListener("input", () => {
+      if (emailInput.classList.contains("is-invalid")) {
+        validateField(emailInput, emailError, validateEmail(emailInput.value), "Please enter a valid email address.");
+      }
+    });
+  }
+
+  if (messageInput) {
+    messageInput.addEventListener("blur", () => {
+      validateField(messageInput, messageError, messageInput.value.trim().length >= 10, "Please enter a message with at least 10 characters.");
+    });
+    messageInput.addEventListener("input", () => {
+      if (messageInput.classList.contains("is-invalid")) {
+        validateField(messageInput, messageError, messageInput.value.trim().length >= 10, "Please enter a message with at least 10 characters.");
+      }
+    });
+  }
+
+  // Form submit handler
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    // Check honeypot
+    const botcheck = form.querySelector('input[name="botcheck"]');
+    if (botcheck && botcheck.checked) return;
+
+    // Validate all fields
+    const isNameOk = validateField(nameInput, nameError, nameInput.value.trim().length >= 2, "Please enter your name (at least 2 characters).");
+    const isEmailOk = validateField(emailInput, emailError, validateEmail(emailInput.value), "Please enter a valid email address.");
+    const isMsgOk = validateField(messageInput, messageError, messageInput.value.trim().length >= 10, "Please enter a message with at least 10 characters.");
+
+    if (!isNameOk || !isEmailOk || !isMsgOk) {
+      if (!isNameOk) nameInput.focus();
+      else if (!isEmailOk) emailInput.focus();
+      else messageInput.focus();
+      return;
     }
 
-    // Email validation
-    const emailInput = document.getElementById('email');
-    const emailError = document.getElementById('email-error');
+    // Set button loading state
+    submitBtn.disabled = true;
+    submitBtn.classList.add("loading");
+    const btnLabel = submitBtn.querySelector(".btn-text");
+    const originalText = btnLabel ? btnLabel.textContent : "Send Message";
+    if (btnLabel) btnLabel.textContent = "Sending...";
 
-    if (emailInput) {
-        emailInput.addEventListener('blur', function () {
-            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        
-            if (emailInput.value && !emailPattern.test(emailInput.value)) {
-                emailError.textContent = 'Please enter a valid email address';
-                emailError.classList.remove('hidden');
-                emailInput.classList.add('invalid');
-            } else {
-                emailError.textContent = '';
-                emailError.classList.add('hidden');
-                emailInput.classList.remove('invalid');
-            }
-        });
-    }
+    // Reset status alert
+    statusAlert.className = "form-status-alert";
+    statusAlert.textContent = "";
 
-    // Add CSS for success message
-    const style = document.createElement('style');
-    style.textContent = `
-    .success-message {
-        color: #10b981;
-        display: block;
-        margin-top: 10px;
-        font-weight: 500;
+    try {
+      const formData = new FormData(form);
+
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData,
+        headers: {
+          "Accept": "application/json"
+        }
+      });
+
+      const data = await res.json();
+
+      if (data.success) {
+        statusAlert.className = "form-status-alert success visible";
+        statusAlert.innerHTML = '<i class="fa-solid fa-circle-check" aria-hidden="true"></i> Message sent successfully! Thank you for reaching out — Kumaradoss will get back to you shortly.';
+        form.reset();
+      } else {
+        throw new Error(data.message || "Submission failed");
+      }
+    } catch (err) {
+      statusAlert.className = "form-status-alert error visible";
+      statusAlert.innerHTML = '<i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i> Unable to send via the web form. Please email us directly at <a href="mailto:devspirehub.website@gmail.com" style="color:#FFFFFF;text-decoration:underline;">devspirehub.website@gmail.com</a>.';
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.classList.remove("loading");
+      if (btnLabel) btnLabel.textContent = originalText;
     }
-    
-    .error-message {
-        color: #ef4444;
-        display: block;
-        margin-top: 10px;
-        font-weight: 500;
-    }
-    
-    .error-message.hidden,
-    .success-message.hidden {
-        display: none;
-    }
-    
-    .form-input.invalid {
-        border-color: #ef4444;
-    }
-    
-    .submit-button:disabled {
-        opacity: 0.6;
-        cursor: not-allowed;
-    }
-`;
-    document.head.appendChild(style);
+  });
 });
